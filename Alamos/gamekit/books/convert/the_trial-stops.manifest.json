@@ -1,0 +1,573 @@
+{
+ "theme": "the_trial",
+ "book": "books/the_trial.yml",
+ "course": "AP Statistics — experimental design and inference — carried through a running clinical trial, with the trial methodology of an introductory clinical epidemiology course",
+ "curriculum": [
+  "Why a comparison needs a control arm at all",
+  "Randomisation: what chance assignment buys, and what it cannot buy",
+  "Allocation concealment: protecting the moment of entry",
+  "Blinding, and the several people it can fail for separately",
+  "Block and stratified randomisation: balance in small numbers",
+  "Eligibility criteria, and what widening them changes",
+  "The recruitment funnel: screened, eligible, consented, entered",
+  "The primary endpoint, named in advance, and everything else",
+  "Hard endpoints against judged ones, and blinded adjudication",
+  "Measurement error, rater drift and inter-rater agreement",
+  "Surrogate outcomes, and what they stand in for",
+  "Protocol deviations: what they do to the comparison",
+  "Amendments and prespecification: a plan that can be dated",
+  "Sample size and statistical power",
+  "Event-driven trials, and information fraction as progress",
+  "Type I and type II error, and what α and β are for",
+  "Multiplicity: every extra look and every extra slice costs something",
+  "Subgroup analysis, and why a subgroup finding is a hypothesis",
+  "Interim analysis, alpha spending and stopping boundaries",
+  "Conditional power and futility",
+  "The monitoring committee and the firewall around it",
+  "Intention to treat against per-protocol",
+  "Missing data, and why it matters why it is missing",
+  "Effect measures: relative risk, absolute risk reduction, number needed to treat",
+  "Confidence intervals: what a point estimate does not say",
+  "p-values, and what significance is not",
+  "Safety monitoring: adverse events, seriousness and expedited reporting",
+  "Causality assessment, and why reporting does not wait for it",
+  "Unblinding an individual for their own care",
+  "Data cleaning, queries and the database lock",
+  "Reporting honestly: what a sentence claims beyond its evidence",
+  "External evidence, replication and how a new result is weighed",
+  "Consent, and the obligations a trial keeps to the people in it"
+ ],
+ "equations": [
+  {
+   "e": "ARR = p_control − p_treatment",
+   "about": "absolute risk reduction — the difference the treatment made",
+   "symbols": [
+    [
+     "ARR",
+     "absolute risk reduction, a difference between two proportions"
+    ],
+    [
+     "p_control",
+     "proportion of the control arm that had the event"
+    ],
+    [
+     "p_treatment",
+     "proportion of the treatment arm that had the event"
+    ]
+   ]
+  },
+  {
+   "e": "NNT = 1 / ARR",
+   "about": "number needed to treat, and why it is the honest headline",
+   "symbols": [
+    [
+     "NNT",
+     "number of people who must be treated for one to avoid the event"
+    ],
+    [
+     "ARR",
+     "absolute risk reduction, as a fraction rather than a percentage"
+    ]
+   ]
+  },
+  {
+   "e": "RR = p_treatment / p_control",
+   "about": "relative risk, and why it hides how big the effect is",
+   "symbols": [
+    [
+     "RR",
+     "relative risk, a ratio with no units"
+    ],
+    [
+     "p_treatment",
+     "event rate in the treatment arm"
+    ],
+    [
+     "p_control",
+     "event rate in the control arm"
+    ]
+   ]
+  },
+  {
+   "e": "CI ≈ estimate ± 1.96 × SE",
+   "about": "a confidence interval, and what its width says",
+   "symbols": [
+    [
+     "CI",
+     "the interval the result is reported as, rather than a single number"
+    ],
+    [
+     "estimate",
+     "the point estimate the trial measured"
+    ],
+    [
+     "SE",
+     "standard error of that estimate"
+    ],
+    [
+     "1.96",
+     "the multiplier that makes it a 95 per cent interval"
+    ]
+   ]
+  },
+  {
+   "e": "SE = √( p(1 − p) / n )",
+   "about": "why precision improves only as the square root of the sample",
+   "symbols": [
+    [
+     "SE",
+     "standard error of a measured proportion"
+    ],
+    [
+     "p",
+     "the proportion itself"
+    ],
+    [
+     "n",
+     "number of people it was measured on"
+    ]
+   ]
+  },
+  {
+   "e": "t = events observed / events planned",
+   "about": "information fraction — how far through an event-driven trial is",
+   "symbols": [
+    [
+     "t",
+     "information fraction, between 0 and 1"
+    ],
+    [
+     "events observed",
+     "how many primary endpoint events have been adjudicated so far"
+    ],
+    [
+     "events planned",
+     "the event count the trial was powered on"
+    ]
+   ]
+  },
+  {
+   "e": "P(at least one false positive) = 1 − (1 − α)^k",
+   "about": "multiplicity — what testing k things costs",
+   "symbols": [
+    [
+     "α",
+     "the error rate allowed for a single test, usually 0.05"
+    ],
+    [
+     "k",
+     "how many independent tests were run"
+    ],
+    [
+     "P",
+     "chance that at least one of them clears the line by luck alone"
+    ]
+   ]
+  },
+  {
+   "e": "Σ α_spent ≤ α",
+   "about": "alpha spending — a budget for error that does not refill",
+   "symbols": [
+    [
+     "α_spent",
+     "the error rate consumed by each look at the endpoint"
+    ],
+    [
+     "α",
+     "the total error rate the whole trial is allowed, fixed in advance"
+    ]
+   ]
+  },
+  {
+   "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
+   "about": "how many events a trial has to see to answer its question",
+   "symbols": [
+    [
+     "events",
+     "primary endpoint events required, not participants"
+    ],
+    [
+     "z_{α/2}",
+     "the false-positive tolerance, 1.96 at five per cent"
+    ],
+    [
+     "z_β",
+     "the false-negative tolerance, 0.84 at eighty per cent power"
+    ],
+    [
+     "HR",
+     "the hazard ratio the trial is powered to detect"
+    ]
+   ]
+  },
+  {
+   "e": "conditional power = P(significant at the end | data so far)",
+   "about": "what a futility forecast is, and what it is not",
+   "symbols": [
+    [
+     "conditional power",
+     "chance the trial reaches significance if it runs to completion"
+    ],
+    [
+     "data so far",
+     "everything observed up to the interim look"
+    ],
+    [
+     "assumption",
+     "the effect size the remainder is assumed to run at — usually the one originally planned"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Methodology & Operations Lead · CLARION-3",
+ "groups": [
+  {
+   "id": "RAND",
+   "name": "Randomisation & Blinding",
+   "desc": "How an arm is assigned, and what has to be true for nobody to know which."
+  },
+  {
+   "id": "ENDP",
+   "name": "Endpoints & Measurement",
+   "desc": "What is being counted, who counts it, and how the counting can go wrong."
+  },
+  {
+   "id": "SAFE",
+   "name": "Safety Monitoring",
+   "desc": "What harm looks like early, and who is allowed to see it."
+  },
+  {
+   "id": "STAT",
+   "name": "Statistical Analysis",
+   "desc": "Power, boundaries, intervals, and what a number is entitled to claim."
+  },
+  {
+   "id": "SITE",
+   "name": "Site Operations",
+   "desc": "Thirty-one hospitals, and the distance between a chart and a database."
+  },
+  {
+   "id": "REG",
+   "name": "Regulatory & Reporting",
+   "desc": "What was promised in advance, and what has to be said out loud afterwards."
+  }
+ ],
+ "stops": [
+  {
+   "id": "the_trial.m01.s1",
+   "day": 1,
+   "group": "RAND",
+   "format": "CHOICE",
+   "title": "Concealment is not the same as blinding"
+  },
+  {
+   "id": "the_trial.m01.s2",
+   "day": 1,
+   "group": "ENDP",
+   "format": "CHOICE",
+   "title": "One outcome, named in advance"
+  },
+  {
+   "id": "the_trial.m01.s3",
+   "day": 1,
+   "group": "STAT",
+   "format": "BALLPARK",
+   "title": "A trial ends at a number of events"
+  },
+  {
+   "id": "the_trial.m02.s1",
+   "day": 2,
+   "group": "ENDP",
+   "format": "PROTOCOL",
+   "title": "A number can be precise and still be the wrong outcome"
+  },
+  {
+   "id": "the_trial.m02.s2",
+   "day": 2,
+   "group": "SITE",
+   "format": "CHOICE",
+   "title": "What counts as a deviation"
+  },
+  {
+   "id": "the_trial.m02.s3",
+   "day": 2,
+   "group": "REG",
+   "format": "SEQUENCE",
+   "title": "The plan that was in force"
+  },
+  {
+   "id": "the_trial.m03.s1",
+   "day": 3,
+   "group": "SAFE",
+   "format": "TRIAGE",
+   "title": "The clock that is not the analysis clock"
+  },
+  {
+   "id": "the_trial.m03.s2",
+   "day": 3,
+   "group": "SITE",
+   "format": "VALUE",
+   "title": "Ten minutes on each case"
+  },
+  {
+   "id": "the_trial.m03.s3",
+   "day": 3,
+   "group": "REG",
+   "format": "PROTOCOL",
+   "title": "What has to be told, and how fast"
+  },
+  {
+   "id": "the_trial.m04.s1",
+   "day": 4,
+   "group": "STAT",
+   "format": "CHOICE",
+   "title": "What an extra look spends"
+  },
+  {
+   "id": "the_trial.m04.s2",
+   "day": 4,
+   "group": "SAFE",
+   "format": "CHOICE",
+   "title": "Why the board looks and the team does not"
+  },
+  {
+   "id": "the_trial.m04.s3",
+   "day": 4,
+   "group": "RAND",
+   "format": "CHOICE",
+   "title": "When the blind is opened for one person"
+  },
+  {
+   "id": "the_trial.m05.s1",
+   "day": 5,
+   "group": "SITE",
+   "format": "CHOICE",
+   "title": "What a short screening log says"
+  },
+  {
+   "id": "the_trial.m05.s2",
+   "day": 5,
+   "group": "RAND",
+   "format": "CHOICE",
+   "title": "Balance is bought in blocks"
+  },
+  {
+   "id": "the_trial.m05.s3",
+   "day": 5,
+   "group": "ENDP",
+   "format": "CONTROL",
+   "title": "Make the three-point offset move"
+  },
+  {
+   "id": "the_trial.m06.s1",
+   "day": 6,
+   "group": "STAT",
+   "format": "BALLPARK",
+   "title": "How much of the trial has happened"
+  },
+  {
+   "id": "the_trial.m06.s2",
+   "day": 6,
+   "group": "SITE",
+   "format": "CHOICE",
+   "title": "Who a wider door lets in"
+  },
+  {
+   "id": "the_trial.m06.s3",
+   "day": 6,
+   "group": "REG",
+   "format": "SEQUENCE",
+   "title": "Changing the plan, on the record"
+  },
+  {
+   "id": "the_trial.m07.s1",
+   "day": 7,
+   "group": "ENDP",
+   "format": "PROTOCOL",
+   "title": "Missing is not one thing"
+  },
+  {
+   "id": "the_trial.m07.s2",
+   "day": 7,
+   "group": "STAT",
+   "format": "CHOICE",
+   "title": "Everyone as assigned"
+  },
+  {
+   "id": "the_trial.m07.s3",
+   "day": 7,
+   "group": "SITE",
+   "format": "ALLOCATE",
+   "title": "Forty hours before the lock"
+  },
+  {
+   "id": "the_trial.m08.s1",
+   "day": 8,
+   "group": "RAND",
+   "format": "CHOICE",
+   "title": "Kit that cannot be vouched for"
+  },
+  {
+   "id": "the_trial.m08.s2",
+   "day": 8,
+   "group": "SITE",
+   "format": "TRIAGE",
+   "title": "What the nine are owed"
+  },
+  {
+   "id": "the_trial.m08.s3",
+   "day": 8,
+   "group": "REG",
+   "format": "ATTEST",
+   "title": "What the excursion record can actually prove"
+  },
+  {
+   "id": "the_trial.m09.s1",
+   "day": 9,
+   "group": "ENDP",
+   "format": "CHOICE",
+   "title": "The blind that had already gone"
+  },
+  {
+   "id": "the_trial.m09.s2",
+   "day": 9,
+   "group": "STAT",
+   "format": "TRACE",
+   "title": "Which measurements share the leak"
+  },
+  {
+   "id": "the_trial.m09.s3",
+   "day": 9,
+   "group": "SAFE",
+   "format": "CHOICE",
+   "title": "Telling the board what it does not yet know"
+  },
+  {
+   "id": "the_trial.m10.s1",
+   "day": 10,
+   "group": "ENDP",
+   "format": "CHOICE",
+   "title": "Reading the same files twice"
+  },
+  {
+   "id": "the_trial.m10.s2",
+   "day": 10,
+   "group": "STAT",
+   "format": "BALLPARK",
+   "title": "How big, and how wide"
+  },
+  {
+   "id": "the_trial.m10.s3",
+   "day": 10,
+   "group": "RAND",
+   "format": "CHOICE",
+   "title": "What to do about a blind that leaks"
+  },
+  {
+   "id": "the_trial.m11.s1",
+   "day": 11,
+   "group": "REG",
+   "format": "CHOICE",
+   "title": "Freezing something that was moving"
+  },
+  {
+   "id": "the_trial.m11.s2",
+   "day": 11,
+   "group": "SITE",
+   "format": "DELEGATE",
+   "title": "Three days, forty-one queries"
+  },
+  {
+   "id": "the_trial.m11.s3",
+   "day": 11,
+   "group": "ENDP",
+   "format": "CHOICE",
+   "title": "Nothing left in the tray"
+  },
+  {
+   "id": "the_trial.m12.s1",
+   "day": 12,
+   "group": "STAT",
+   "format": "CHOICE",
+   "title": "The subgroup that crossed"
+  },
+  {
+   "id": "the_trial.m12.s2",
+   "day": 12,
+   "group": "SAFE",
+   "format": "CHOICE",
+   "title": "The update that is due Friday"
+  },
+  {
+   "id": "the_trial.m12.s3",
+   "day": 12,
+   "group": "REG",
+   "format": "VALUE",
+   "title": "What the Lyon paper is worth tonight"
+  },
+  {
+   "id": "the_trial.m13.s1",
+   "day": 13,
+   "group": "STAT",
+   "format": "BALLPARK",
+   "title": "How often something clears the line by luck"
+  },
+  {
+   "id": "the_trial.m13.s2",
+   "day": 13,
+   "group": "ENDP",
+   "format": "CHOICE",
+   "title": "The slice, and what it was scored on"
+  },
+  {
+   "id": "the_trial.m13.s3",
+   "day": 13,
+   "group": "SAFE",
+   "format": "CHOICE",
+   "title": "What to say about a slice"
+  },
+  {
+   "id": "the_trial.m14.s1",
+   "day": 14,
+   "group": "SAFE",
+   "format": "PROTOCOL",
+   "title": "Three things the board can say"
+  },
+  {
+   "id": "the_trial.m14.s2",
+   "day": 14,
+   "group": "STAT",
+   "format": "CHOICE",
+   "title": "What the rest of the trial would probably do"
+  },
+  {
+   "id": "the_trial.m14.s3",
+   "day": 14,
+   "group": "REG",
+   "format": "SEQUENCE",
+   "title": "What a stop obliges"
+  },
+  {
+   "id": "the_trial.m15.s1",
+   "day": 15,
+   "group": "REG",
+   "format": "DEGENERACY",
+   "title": "One relative risk, many absolute effects"
+  },
+  {
+   "id": "the_trial.m15.s2",
+   "day": 15,
+   "group": "ENDP",
+   "format": "CHOICE",
+   "title": "What can be claimed"
+  },
+  {
+   "id": "the_trial.m15.s3",
+   "day": 15,
+   "group": "SITE",
+   "format": "CHOICE",
+   "title": "What happens to the people in it"
+  }
+ ]
+}

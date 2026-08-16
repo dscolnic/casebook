@@ -1,0 +1,4936 @@
+{
+ "theme": "deepwatch",
+ "book": "books/deep-watch.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "Reasoning Under Pressure Beneath the Surface",
+   "readOnly": false
+  },
+  {
+   "id": "group.SONAR.desc",
+   "original": "What the water carries, what the boat makes, and how to tell them apart.",
+   "readOnly": false
+  },
+  {
+   "id": "group.NAV.desc",
+   "original": "Where the boat is, how old that answer is, and how wrong it is allowed to be.",
+   "readOnly": false
+  },
+  {
+   "id": "group.DC.desc",
+   "original": "Water in the boat — finding it, stopping it, and knowing whether you are winning.",
+   "readOnly": false
+  },
+  {
+   "id": "group.FIRE.desc",
+   "original": "Fire aboard is an electrical problem until the power is proved gone.",
+   "readOnly": false
+  },
+  {
+   "id": "group.ATMO.desc",
+   "original": "The air is a system with sources, sinks and a flow path, and people are in it.",
+   "readOnly": false
+  },
+  {
+   "id": "group.ENG.desc",
+   "original": "What turns the shaft, what cools it, and what the boat gives away by running it.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.role",
+   "original": "Sonar Supervisor",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.bio",
+   "original": "Runs the sonar room, which is a dark space with three displays and one\nrule: the loudest thing on the screen is almost never the thing that\nmatters. He has eleven years of watches and can tell you what a fishing\nfleet sounds like at four thousand yards.\n\nSound in water is not like light in air. It bends toward the colder,\nslower water, so a layer of warm surface water above a cold one makes a\nshadow zone the boat can hide in — and so can everybody else. A contact\nthat vanishes has not necessarily left; it may have crossed the layer.\n\nHis limit is that passive sonar gives him bearing and almost nothing\nelse. Range and course have to be built up by watching how the bearing\nchanges over time, which is why he will not give a track from one look and\ngets short with anybody who asks for one.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.rask.quiz.0.q",
+   "original": "Why can a contact disappear from Rask's display without going anywhere?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.0.a",
+   "original": "Sound bends toward colder water, into a shadow zone",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.0.wrong.0",
+   "original": "Passive sonar stops working when a contact slows down",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.0.wrong.1",
+   "original": "The array can only hold four contacts at a time",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.0.wrong.2",
+   "original": "A contact that stops making noise ceases to reflect sound",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.1.q",
+   "original": "What does passive sonar give Rask directly?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.1.a",
+   "original": "A bearing, and almost nothing else until he watches it change",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.1.wrong.0",
+   "original": "A range, from the strength of the sound",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.1.wrong.1",
+   "original": "A course and speed, from the frequency alone",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rask.quiz.1.wrong.2",
+   "original": "A depth, from the angle the sound arrives at",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dunne.role",
+   "original": "Broadband Operator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dunne.bio",
+   "original": "Sits the broadband stack for six hours at a stretch, which is a job of\nlistening to noise and noticing when a shape appears in it. Two years\naboard, and better at it than people twice her time.\n\nThe display she watches is bearing against time, and the thing she is\nlooking for is a line that persists. A single bright mark is nothing —\nthe sea is full of them. A faint mark in the same place minute after\nminute is a contact, because the sea has no reason to be consistent.\n\nShe keeps a paper log of what the boat itself was doing when a trace\nappeared, because half the traces that frighten a new operator are the\nboat's own: a pump that started, a shaft that came up in turns, a hull\npopping as the depth changed.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.dunne.quiz.0.q",
+   "original": "What makes Dunne treat a faint mark as a real contact?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dunne.quiz.0.a",
+   "original": "It stays on the same bearing while random marks do not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dunne.quiz.0.wrong.0",
+   "original": "It is brighter than the marks around it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dunne.quiz.0.wrong.1",
+   "original": "It appears at the same time as a hull pop",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dunne.quiz.0.wrong.2",
+   "original": "It shows on two displays fed by the same array",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.role",
+   "original": "Navigator",
+   "readOnly": true
+  },
+  {
+   "id": "roster.sowande.bio",
+   "original": "Keeps the plot, and holds the only opinion on this boat that the captain\ncannot overrule with an order: how well the plot is known. Her working\nrule is that a position is a claim with an age on it, and the age is the\npart everybody forgets to ask about.\n\nSubmerged, the boat navigates by dead reckoning — a course, a speed, and a\nclock, drawn forward from the last position that came from a measurement.\nThat line is exactly as good as its assumptions, and it knows nothing\nabout the water it is drawn on. A half-knot current running for four hours\nis two miles the plot will never mention.\n\nSo she draws the uncertainty as a circle and grows it with time, and picks\nroutes that survive being wrong rather than routes that are safe if she is\nright. The bottom is her favourite instrument, because a depth sounding is\nthe one thing aboard that cannot be wrong for the same reason the plot is.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.sowande.quiz.0.q",
+   "original": "What does Sowande mean by the age of a position?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.0.a",
+   "original": "How long since the position came from a measurement",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.0.wrong.0",
+   "original": "How long the chart itself has been aboard",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.0.wrong.1",
+   "original": "How long the boat has been submerged on this patrol",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.0.wrong.2",
+   "original": "How long the plot takes to redraw at a new speed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.1.q",
+   "original": "Why does she treat a depth sounding as her best instrument?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.1.a",
+   "original": "Nothing it depends on is also feeding the plot",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.1.wrong.0",
+   "original": "It is more precise than any other instrument aboard",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.1.wrong.1",
+   "original": "It gives a position directly, without a chart",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sowande.quiz.1.wrong.2",
+   "original": "It works at any speed, where other instruments do not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrov.role",
+   "original": "Assistant Navigator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrov.bio",
+   "original": "Runs the chart table and the depth sounder, and is the person who actually\nwrites the time beside a fix. Nine years, four boats, and a handwriting\nthat anybody can read at two in the morning, which is not a small thing.\n\nHer job is the arithmetic the plot depends on: set and drift, course made\ngood, speed of advance. She is the one who notices that a course steered\nand a course made good have quietly diverged, because she is the one\ncomparing them.\n\nWhat she guards against is the display that looks like a measurement and\nis not. The chart overlay and the electronic repeat both draw from the\ninertial navigator, so they agree perfectly and always will. Two displays\nshowing one source is not confirmation, and she will say so out loud.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.petrov.quiz.0.q",
+   "original": "Why is Petrov unimpressed when the chart overlay and the plot repeat agree?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrov.quiz.0.a",
+   "original": "Both come from the same inertial navigator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrov.quiz.0.wrong.0",
+   "original": "The overlay updates more slowly than the repeat does",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrov.quiz.0.wrong.1",
+   "original": "They use different chart datums and should not be compared",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrov.quiz.0.wrong.2",
+   "original": "Agreement between displays is only meaningful at periscope depth",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.role",
+   "original": "Chief of the Boat, Damage Control",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.bio",
+   "original": "Runs damage control, which means he runs the drills nobody enjoys and owns\nthe compartments when something goes wrong in one. Twenty-two years. He\nhas been in a flooded space twice and does not tell either story.\n\nThe thing he teaches first is that water coming in through a hole under\npressure does not care how hard you pump. Flow through a hole goes up with\nthe square root of the pressure difference, and pressure goes up with\ndepth, so the same hole floods faster the deeper you are. Pumping buys\nminutes; the hull fitting is what ends it.\n\nHis second rule is that a bilge level is not a number, it is a trend. One\nreading tells you nothing. Two readings a minute apart tell you whether\nyou are winning, and that is the only question a flooding casualty is\nactually asking.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ferro.quiz.0.q",
+   "original": "Why does the same hole flood faster deeper?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.0.a",
+   "original": "Flow rises with pressure, and pressure rises with depth",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.0.wrong.0",
+   "original": "Water is denser deeper, so more of it fits through",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.0.wrong.1",
+   "original": "The hull flexes at depth and enlarges the hole",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.0.wrong.2",
+   "original": "Pumps lose suction at depth, which only seems like faster flooding",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.1.q",
+   "original": "What is Ferro's rule about a bilge level?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.1.a",
+   "original": "One reading is nothing; two a minute apart tell you",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.1.wrong.0",
+   "original": "Any reading above the deck plate means abandon the compartment",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.1.wrong.1",
+   "original": "The level matters less than the temperature of the water",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferro.quiz.1.wrong.2",
+   "original": "A level that is not rising means the leak has stopped",
+   "readOnly": false
+  },
+  {
+   "id": "roster.hallam.role",
+   "original": "Auxiliary Division, Pumps & Patches",
+   "readOnly": false
+  },
+  {
+   "id": "roster.hallam.bio",
+   "original": "Owns the drain pump, the portable pumps and the shoring locker, and can\nput a patch on a split pipe in the dark, which she has had to prove more\nthan once during drills.\n\nShe thinks in rates rather than amounts. A pump is a number of gallons a\nminute at a stated head, and that number falls as it has to lift water\nfurther — so the same pump that empties a bilge on the surface struggles\nat depth against a rising level. Knowing the two rates is knowing whether\nto fight or to isolate.\n\nHer standing complaint is that people start pumps before they find the\nsource, because starting a pump feels like doing something. It also\nempties the compartment of the evidence that would have shown where the\nwater was coming in.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.hallam.quiz.0.q",
+   "original": "Why does Hallam object to starting a pump before finding the source?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.hallam.quiz.0.a",
+   "original": "It washes away the evidence of where the water enters",
+   "readOnly": false
+  },
+  {
+   "id": "roster.hallam.quiz.0.wrong.0",
+   "original": "Pumps cannot run while a compartment is still flooding",
+   "readOnly": false
+  },
+  {
+   "id": "roster.hallam.quiz.0.wrong.1",
+   "original": "Starting a pump early floods the bilge main",
+   "readOnly": false
+  },
+  {
+   "id": "roster.hallam.quiz.0.wrong.2",
+   "original": "A pump run dry will not restart later",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.role",
+   "original": "Electrical Division",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.bio",
+   "original": "Owns the switchboard, the breakers and every cable run on the boat, and\nhas the calmest voice in an emergency of anybody aboard, which is not an\naccident — he practises it.\n\nHis subject is that an electrical fire is not a fire problem. It has three\nlegs: the fuel, which is cable insulation; the oxygen, which is the air in\nthe compartment; and the ignition source, which is an energized fault that\nwill keep re-lighting the fuel no matter what you spray on it. Take the\npower away and it becomes an ordinary fire. Leave it on and it is a fire\nthat reflashes.\n\nWhat he refuses to accept is a lamp as proof. A switchboard indicator says\nwhat the switchboard believes, and a meter says what the cable is doing.\nBetween those two is where people get hurt, so isolation is not isolation\nuntil it has been measured.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.okonkwo.quiz.0.q",
+   "original": "Why is spraying an energized electrical fire not enough?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.0.a",
+   "original": "The fault keeps re-lighting the insulation",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.0.wrong.0",
+   "original": "The agent cannot reach a fire behind a panel",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.0.wrong.1",
+   "original": "Electrical fires burn hotter than the agent can absorb",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.0.wrong.2",
+   "original": "The smoke displaces the agent before it works",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.1.q",
+   "original": "What does Okonkwo mean by \"isolation is not isolation until it is measured\"?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.1.a",
+   "original": "A lamp reports a belief, a meter reports the cable",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.1.wrong.0",
+   "original": "Isolation has to be logged before it counts",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.1.wrong.1",
+   "original": "Two people must witness a breaker being opened",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okonkwo.quiz.1.wrong.2",
+   "original": "A breaker is only isolated once the load has cooled",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.role",
+   "original": "Power Distribution",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.bio",
+   "original": "Traces circuits, which sounds dull until the day it is the only thing that\nmatters. He keeps the dependency diagrams that say what each breaker feeds\nand, more importantly, what stops when it opens.\n\nEvery isolation costs something downstream. Killing a bus to make a fire\nsafe also kills whatever that bus was feeding — a cooling pump, a scrubber\nfan, a gyro. The decision is never whether to isolate; it is knowing what\nyou are turning off at the same time and in what order to bring it back.\n\nRestoring is the part people rush. Loads come back in dependency order —\ncooling before the thing that needs cooling, ventilation before the space\nthat needs it — and never onto a fault that has not been proved gone.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mbeki.quiz.0.q",
+   "original": "What does Mbeki's dependency diagram tell you that a breaker label does not?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.a",
+   "original": "What stops working elsewhere when that breaker opens",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.wrong.0",
+   "original": "How much current the breaker will carry before tripping",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.wrong.1",
+   "original": "Which compartment the cable physically runs through",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.wrong.2",
+   "original": "How long the breaker takes to reset after a trip",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.role",
+   "original": "Atmosphere Control Officer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.bio",
+   "original": "Owns the air. On a submerged boat that means the scrubbers that take\ncarbon dioxide out, the generators that put oxygen in, the monitors that\nsay how it is going, and the ventilation that decides which compartments\nany of it reaches.\n\nHer subject is a balance. People produce carbon dioxide steadily, at a\nrate that depends on how many of them are in the space and how hard they\nare working. The scrubber removes it at a rate that depends on being able\nto reach the air — which means the dampers. A compartment isolated from\nthe ventilation system has no scrubber, however healthy the plant looks.\n\nWhat she insists on is the difference between a report and a measurement.\nAn installed sensor is a report from a device that may itself have failed;\na handheld reading taken in the space is a measurement. When the two\ndisagree the answer is not to average them.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.q",
+   "original": "Why can a compartment's air go bad while the scrubber plant reads healthy?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.a",
+   "original": "The scrubber only reaches compartments whose dampers are open",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.0",
+   "original": "Scrubbers work more slowly at depth",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.1",
+   "original": "Carbon dioxide is heavier than air and sinks below the sensors",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.2",
+   "original": "The plant reads its own outlet, which is always the cleanest air",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.1.q",
+   "original": "An installed sensor and a handheld reading disagree. What does Lindqvist do?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.1.a",
+   "original": "Treats the handheld as the measurement and the sensor as a report that may have failed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.1.wrong.0",
+   "original": "Averages the two, since both are instruments",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.1.wrong.1",
+   "original": "Believes the installed sensor, because it is calibrated more often",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.1.wrong.2",
+   "original": "Waits for a third reading before doing anything",
+   "readOnly": false
+  },
+  {
+   "id": "roster.navarro.role",
+   "original": "Corpsman",
+   "readOnly": true
+  },
+  {
+   "id": "roster.navarro.bio",
+   "original": "The only medical person aboard, which makes her the first instrument the\natmosphere has: people show symptoms before a monitor alarms, and she is\nthe one who hears about a headache in berthing.\n\nShe is careful about what a symptom proves. A headache and heavy breathing\nin one compartment and not another is evidence about that compartment. The\nsame symptoms everywhere are evidence about the whole boat. Symptoms in\none person and nobody else is evidence about that person, and she treats it\nthat way.\n\nWhat she brings to a casualty is the consequence, stated plainly and\nwithout deciding the engineering: how long the crew in a space can keep\nworking, who has to come out now, and what she will need if the answer\narrives late.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.navarro.quiz.0.q",
+   "original": "What does Navarro conclude from symptoms in one compartment and not the others?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.navarro.quiz.0.a",
+   "original": "The evidence is about that compartment, not about the whole boat",
+   "readOnly": false
+  },
+  {
+   "id": "roster.navarro.quiz.0.wrong.0",
+   "original": "The whole boat's atmosphere is degrading and that space showed it first",
+   "readOnly": false
+  },
+  {
+   "id": "roster.navarro.quiz.0.wrong.1",
+   "original": "The people in that space are more susceptible than the rest of the crew",
+   "readOnly": false
+  },
+  {
+   "id": "roster.navarro.quiz.0.wrong.2",
+   "original": "The monitors in the other compartments have failed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haruki.role",
+   "original": "Engineering Watch Supervisor",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haruki.bio",
+   "original": "Runs the plant: what turns the shaft, what cools what, and what every one\nof those things gives away in noise. Eighteen years, most of them within\nearshot of a reduction gear.\n\nHe thinks in dependency chains. A seawater pump cools a heat exchanger,\nwhich cools a lubricating oil system, which is what lets a bearing carry a\nshaft. Secure the pump to be quiet and you have started a clock on the\nbearing, and the clock is not on any gauge in the room.\n\nNoise is the other half of his job. Machinery that is loose, misaligned or\ncavitating tells the whole ocean about it, and the sonar room hears the\nboat's own faults before anybody in the engine room feels them. He and\nRask compare notes more than either department expects.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.haruki.quiz.0.q",
+   "original": "What has Haruki started when he secures a cooling pump to be quiet?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haruki.quiz.0.a",
+   "original": "A clock on whatever that pump was cooling, which no gauge in the room shows",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haruki.quiz.0.wrong.0",
+   "original": "A drop in shaft speed that sonar will hear immediately",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haruki.quiz.0.wrong.1",
+   "original": "A loss of propulsion that must be reported before it happens",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haruki.quiz.0.wrong.2",
+   "original": "An automatic restart, once the temperature rises far enough",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.role",
+   "original": "Propulsion Plant Operator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.bio",
+   "original": "Stands the throttle watch, which is a job of small adjustments and long\nattention. He knows the boat's speed curve by feel and can tell you what a\nturn count costs in noise before the sonar room does.\n\nHis concern is cavitation: below a certain depth-and-speed combination the\npropeller boils the water on its own blades, and the bubbles collapsing\nare the loudest thing a submarine can do. Deeper water suppresses it,\nbecause there is more pressure holding the bubbles shut. Faster brings it\non. The two trade off against each other, and the trade is the decision.\n\nHe is also the one who has to say no. An ordered speed that would make the\nboat audible is a report to the officer of the deck, not a throttle\nmovement, and saying so is the job.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.q",
+   "original": "Why does going deeper let Adeyemi turn more shaft revolutions quietly?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.a",
+   "original": "More pressure holds the bubbles shut, so the propeller cavitates less",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.0",
+   "original": "Colder water at depth muffles the propeller",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.1",
+   "original": "The hull is stiffer at depth and transmits less noise",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.2",
+   "original": "Sound travels more slowly deeper, so it carries less far",
+   "readOnly": false
+  },
+  {
+   "id": "roster.vance.role",
+   "original": "Commanding Officer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.vance.bio",
+   "original": "Has the boat. Every decision in this game eventually arrives on her table\nas a choice between things that are all partly true, and she is the only\nperson aboard who cannot pass it on.\n\nShe works in a currency the departments do not: an hour spent confirming a\ncontact is an hour the boat has not moved, and an hour of transit is an\nhour of exposure. What she asks for is never certainty. It is what is\nknown, what is not, and which of the two is about to change.\n\nShe is unimpressed by confidence and interested in evidence. A watch\nofficer who says \"probably nothing\" gets asked what would have to be true\nfor that to be wrong, and how expensive it would be to check.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.vance.quiz.0.q",
+   "original": "What does Vance actually ask her watchstanders for?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.vance.quiz.0.a",
+   "original": "The settled facts, the open ones, and which of them moves next",
+   "readOnly": false
+  },
+  {
+   "id": "roster.vance.quiz.0.wrong.0",
+   "original": "A single recommendation, with the reasoning left out",
+   "readOnly": false
+  },
+  {
+   "id": "roster.vance.quiz.0.wrong.1",
+   "original": "The most cautious option available, every time",
+   "readOnly": false
+  },
+  {
+   "id": "roster.vance.quiz.0.wrong.2",
+   "original": "Certainty before the boat commits to anything",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.role",
+   "original": "Executive Officer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.bio",
+   "original": "Runs the watch bill, the drills and the boat's time, which makes him the\nperson who decides what the crew is doing while a casualty is being\nfought — and therefore what is not being watched.\n\nHis subject is delegation. There are more jobs than people in any real\ncasualty, and the mistake is not choosing wrong, it is choosing everything:\na boat where the whole crew is fighting a fire has nobody on sonar and\nnobody on the plot, and it will hit something while it is winning.\n\nHe keeps the casualty log, which is the record of what was known when. It\nis dull until the debrief, when it is the only thing that can tell the\ndifference between a bad decision and a decision that was right with the\ninformation on the table.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.whitfield.quiz.0.q",
+   "original": "What is Whitfield's objection to putting the whole crew on the casualty?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.a",
+   "original": "Nobody is left on sonar or the plot, and the boat can hit something while winning",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.wrong.0",
+   "original": "A large team gets in each other's way in a small compartment",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.wrong.1",
+   "original": "The relief watch will be too tired to take over",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.wrong.2",
+   "original": "Damage control equipment is only issued to one team at a time",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Bearing.def",
+   "original": "The direction to something, measured as an angle. Passive sonar gives you this and little else.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Bearing rate.def",
+   "original": "How fast a contact's bearing is changing. Near zero on a closing contact is the dangerous case.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Bilge.def",
+   "original": "The lowest part of a compartment, where water collects. Its level over time is the flooding rate.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Broadband.def",
+   "original": "Listening across all frequencies at once. Shows a contact as a smear that persists in bearing.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Carbon dioxide.def",
+   "original": "The gas the crew breathes out. It has to be removed continuously, because in a sealed boat it only accumulates.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Cavitation.def",
+   "original": "Bubbles forming and collapsing on a propeller blade. The loudest ordinary thing a submarine does.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Damper.def",
+   "original": "A valve in a ventilation duct. Its position decides which compartments share air with the plant.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Dead reckoning.def",
+   "original": "Advancing a position from course, speed and time. It knows what the boat did and nothing about the water.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Dependency.def",
+   "original": "What stops working when you secure or isolate something else. The reason isolation is never free.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Direct current.def",
+   "original": "The kind of electrical supply a submarine runs on from its batteries: one steady direction, unlike the alternating supply ashore.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Fix.def",
+   "original": "A position from a measurement rather than a calculation. Everything after it is dead reckoning again.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Narrowband.def",
+   "original": "Listening at one frequency. Machinery makes lines here, and a line can identify what is making it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Reflash.def",
+   "original": "A fire re-igniting after it looked out, because the ignition source was never removed.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Scrubber.def",
+   "original": "The plant that removes carbon dioxide from the boat's air. It reaches only where the dampers let it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Set and drift.def",
+   "original": "The direction and speed the water is carrying the boat. Invisible to dead reckoning until measured.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Signature.def",
+   "original": "The sound a boat makes that identifies it. Every machine running adds to it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.The layer.def",
+   "original": "The boundary between warm surface water and cold water below. Sound bends at it, making shadow zones.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Transducer.def",
+   "original": "The element that turns sound in the water into a voltage, or a voltage into sound. An array is many of them listening together.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Trim.def",
+   "original": "How the boat's weight is balanced fore and aft. Water taken aboard anywhere changes it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.title",
+   "original": "Boat Walkdown",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "Learn the boat as a system of spaces, not a list of names.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.briefing",
+   "original": "You have the watch for the first time. Before anything else happens, you have to be able to find your way around this hull in the dark, and know what is in each space and how you would get out of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.stake",
+   "original": "Two hours to sailing, alongside, and the fire main isolation valve in the forward compartment is chained shut with nobody willing to say who chained it. Chief Ferro wants to walk you through the boat before you take your first watch tonight. This watch you learn the forward spaces, what the fittings on a bulkhead are for, and how to get from one end of the boat to the other without looking at anything. Ferro's rule is that a route learned as a sequence survives being interrupted. Tonight you may have to find that valve in the dark, in smoke, by feel.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "A compartment is defined by its boundaries, what it holds, and how you leave it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "What a walkdown is for",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "Learn a compartment in the order the facts depend on each other",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "Chief Ferro walks you into the forward space and asks you to learn it. Equipment down both sides, deck plates over a recess, a hose reel on the bulkhead, two ways out. He is not telling you what to take in first.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "A compartment is a pressure boundary first; everything you learn about it hangs off that.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "a submarine is divided into compartments that can be sealed off",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "A submarine survives a casualty by being divided, so the pressure boundary comes first: at ninety metres it is the difference between a flooded compartment and a flooded boat. The ways out come next, and they have to be proved rather than assumed. Then what in here could start a casualty — sea connections, cables, stores. And last, whether what is stored here can fight the casualty those things would start, because a locker is only the right locker once you know what this space can do to you.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.0",
+   "original": "The boundary first. It is what makes this a space rather than part of the next one, and everything after it is about what happens inside.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.1",
+   "original": "Both ways out second, and proved to open. A hatch that has not been tried is not a way out.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.2",
+   "original": "What could start a casualty third: sea connections, cables, stores. You cannot judge the equipment until you know the threat.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.3",
+   "original": "Whether this compartment can fight that casualty, last. It is a judgement about the first three, not a fifth fact.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.cards.0",
+   "original": "Find where the pressure boundary runs, because it decides whether a casualty is this compartment's or the one aft.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.cards.1",
+   "original": "Prove both hatches out of the compartment still open, by trying them.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.cards.2",
+   "original": "Find what in here could start a casualty — sea connections, cables, stores.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.cards.3",
+   "original": "Judge whether the equipment stowed here can fight a fire or a flood in this space.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "Every fitting is an argument",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Match each fitting to what it is there to do.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.place",
+   "original": "Propulsion Machinery",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Chief Haruki stops beside four fittings on the same bulkhead and asks what each one is for. None is labelled with its purpose, only with its number.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "What a fitting is for is decided by what is on the other side of it, and at what pressure.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "pressure rises about one atmosphere for every ten metres of depth",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "What a fitting does comes from what it is connected to, and its shape is most of the clue when there is no time to trace a line. A wheel valve on a line through the pressure hull has the sea behind it, at ten atmospheres at ninety metres — which is why it is the one you never open to find out. A quick-connect manifold at head height is breathing air, so a space can be entered before its atmosphere is fit. A strapped locker holds shoring and plugs. A hose reel puts water on a fire.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.0",
+   "original": "Opening it at ninety metres admits the sea at ten atmospheres.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.1",
+   "original": "It supplies breathing air, so a space can be entered before its atmosphere is fit to breathe.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.2",
+   "original": "It holds the shoring and plugs that let this compartment fight its own casualty.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.3",
+   "original": "It puts water on a fire, and only once the circuit has been proved dead.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.0",
+   "original": "A wheel valve on a line through the pressure hull is the only one with the ocean on the far side. Depth sets what comes through it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.1",
+   "original": "Quick-connect couplings at head height are breathing air — a supply for people, not for a system.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.2",
+   "original": "A strapped locker with a quick-release catch holds the shoring and plugs this compartment fights with.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.3",
+   "original": "A flat-folded hose on a reel is firefighting water, and it goes on only after the circuit has been proved dead.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scenarios.0",
+   "original": "A wheel valve on a line that passes through the pressure hull.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scenarios.1",
+   "original": "A manifold at head height with quick-connect couplings.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scenarios.2",
+   "original": "A strapped steel locker with a quick-release catch.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scenarios.3",
+   "original": "A flat-folded hose on a reel, beside a small isolating valve.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "The trip back without a waypoint",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "Carry a message without a marker",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "Nine compartments in a line, four of them with two doors, and one ladder aft. The navigator hands you a written message for machinery control, says the marker will be switched off for the walk back, and you have been through the boat once.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "Dead reckoning fails at the interruption, so carry the thing that survives one.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "submerged, there are no windows and no landmarks",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.question",
+   "original": "What should you fix in your head before you set off?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "Everything anybody aboard knows about where they are comes from keeping track since the last thing they were sure of. That is dead reckoning, and it is what the boat does with its own position between fixes. It fails at the interruption, and a boat is full of interruptions. A pace count does not survive stepping round somebody. A list of turns does not survive taking one extra. A stencilled number cannot be read with the lighting gone. An ordered list of spaces survives all three, because you can rejoin it anywhere.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.0",
+   "original": "The order of the compartments, since a sequence survives interruption.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.choices.1",
+   "original": "The number of paces between hatches, because a count is exact.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.2",
+   "original": "The route as a list of turns, because turns are easy to hold.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.3",
+   "original": "The stencilled compartment numbers, because they are already written down.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.0",
+   "original": "Paces stop being useful the moment you have to step around somebody.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.1",
+   "original": "Deck colours vanish with the lighting, which is exactly when you need this.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.2",
+   "original": "Wandering works until the boat is dark or on fire, which is when it is asked for.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.title",
+   "original": "Contact in the Noise",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Work out what is out there before the boat commits to anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.briefing",
+   "original": "Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.stake",
+   "original": "Second day out, forenoon watch. Four traces on the broadband display, and the sonar supervisor, Nils Rask, has been arguing with his own operator about the fourth for eleven minutes: it holds almost the same bearing and it is getting louder. The captain, Commander Iris Vance, wants a classification before the boat commits to the track she has been ordered onto. This watch you sort out what is out there and say what a steady bearing means. Sound is all you have. And a bearing that does not change is not a quiet situation — it is the signature of two ships on converging courses.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "A bearing is a measurement; a track is an argument built from several of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "Four traces, one of them ours",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Match each trace to what is making it.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.place",
+   "original": "Sonar Room",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "Four traces on the broadband display. The watch has been on for six minutes, the boat slowed four minutes ago, and one trace changed when it did.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "A source that changes when the boat changes belongs to the boat.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "passive sonar listens and does not transmit",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "Broadband hears everything radiating into the water: the ocean, the animals in it, the ships on it, and always the boat you are standing in. Sorting them is the first job, because nothing can be tracked until it is identified. A hiss that rises and falls with our own turn count belongs to us. A narrow line at a fixed frequency drifting slowly in bearing is a merchant's blade rate. Short chirps with no bearing rate are biologic. Two lines an octave apart on a bearing that barely moves, growing louder, is the dangerous one.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.0",
+   "original": "Own-ship machinery, because it follows our own throttle.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1",
+   "original": "A merchant on a steady course, her blade rate showing as a line.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.2",
+   "original": "Biologic — it does not behave the way a hull has to.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3",
+   "original": "A contact closing on a steady bearing, which is the dangerous one.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.0",
+   "original": "A source that follows our own throttle is ours. Nothing out in the water knows what our turn count is doing.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.1",
+   "original": "A narrow line at a fixed frequency, drifting slowly in bearing, is machinery on a ship holding a course.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.2",
+   "original": "Short chirps with no bearing rate, gone in a minute, do not behave the way a hull has to. That is life, not a contact.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.3",
+   "original": "Two lines an octave apart on a steady bearing, getting louder, is something closing. Steady bearing plus rising level is the one to say out loud.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.0",
+   "original": "A steady hiss whose level rises and falls with our own turn count.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.1",
+   "original": "A narrow line at a fixed frequency, drifting slowly in bearing.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.2",
+   "original": "Short chirps with no bearing rate at all, gone within a minute.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.3",
+   "original": "Two lines an octave apart, bearing barely moving, growing louder.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "The trace that will not resolve",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Which explanation fits every reading, not just the loudest one?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.place",
+   "original": "Sonar Room",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "The fourth trace is faint, has held nearly the same bearing for eleven minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "Evidence that survives a change in your own state is evidence about the world.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "sound bends when it crosses water of a different temperature",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.headline",
+   "original": "A faint trace has held the same bearing for eleven minutes and shows nothing on narrowband.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "Broadband hears the total sound a thing makes; narrowband picks out the pure tones machinery produces at fixed frequencies, which is usually how a contact gets a name. So a missing line is evidence, not a blank space where evidence should be. Sound in the ocean does not travel straight — a temperature layer bends it, and a path bent through the layer arrives faint and stripped of its detail. Eleven minutes of persistence rules out noise and biologics, and nothing of ours changed, so it is not ours.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.choices.0",
+   "original": "A quiet contact past the layer",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.0.mechanism",
+   "original": "Sound from above the layer bends away, arriving faint and without its machinery lines.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.choices.1",
+   "original": "Own-ship noise",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.1.mechanism",
+   "original": "Something aboard is making it, and it would have changed when we did.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.choices.2",
+   "original": "Biologic",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.2.mechanism",
+   "original": "A living source, which would come and go rather than hold a bearing for eleven minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.choices.3",
+   "original": "A display artefact",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.3.mechanism",
+   "original": "The processor drawing a line where there is no sound at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.choices.4",
+   "original": "Nothing to explain",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.4.mechanism",
+   "original": "Ordinary noise that happens to look like a line.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.0",
+   "original": "Something of ours would have changed when we did, and nothing aboard has changed in eleven minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.1",
+   "original": "A biologic comes and goes. This has held nearly the same bearing for eleven minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.2",
+   "original": "A display artefact is a line drawn where there is no sound. Broadband is hearing something; narrowband simply is not.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.3",
+   "original": "There is something to explain: a faint trace that persists on a steady bearing is the shape of a contact, not of noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "The bearing that does not move",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "Say what a steady bearing means",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "The contact's bearing has changed by less than half a degree in six minutes, and it is getting louder. The officer of the deck asks what that means for the boat.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "A constant bearing with a rising level is a collision geometry, not a quiet one.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "passive sonar gives a direction and no range at all",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.question",
+   "original": "What does a steady bearing and a rising level tell you?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "A bearing and how it behaves over time is the only ranging instrument a quiet boat has, which makes relative motion the whole trade. Two ships whose relative bearing does not change are closing along a straight line between them — it is the oldest rule at sea and it needs no range. A stopped contact's bearing would swing as we moved past it. An opening contact gets quieter, not louder. Waiting for a range spends the six minutes the geometry has already given you.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.0",
+   "original": "We are on a collision course, and the range is closing.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.choices.1",
+   "original": "The contact is stopped, since its bearing is not changing.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.2",
+   "original": "The contact is opening, and the level is rising for another reason.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.3",
+   "original": "Nothing until a range is available.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.0",
+   "original": "A stopped contact's bearing would change as we moved past it.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.1",
+   "original": "An opening contact gets quieter, not louder.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.rebuttals.2",
+   "original": "Waiting for a range wastes the six minutes the geometry just gave you.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.title",
+   "original": "Position Without a Trusted Fix",
+   "readOnly": false
+  },
+  {
+   "id": "m03.objective",
+   "original": "Work out not where the boat is, but how well that is known.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.briefing",
+   "original": "The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.stake",
+   "original": "Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the depth sounder, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. Sixty fathoms, and a bank half a mile off the track.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Precision is not accuracy, and two displays sharing a source are one measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "How far the water has carried us",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Age the position",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "The last trusted fix was three and a half hours ago. The forecast set for this area is about half a knot, and nobody has applied it to the plot because nobody has measured it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "Dead reckoning tells you where you would be if nothing pushed you.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "the log measures speed through the water, not over the ground",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.question",
+   "original": "Estimate how far the boat could be from where the plot says it is.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "Between fixes the boat's position is dead reckoning: course, speed and time worked forward from the last certainty. But the water moves as well, and a current carries the whole boat sideways without registering on a single instrument aboard. Half a knot for three and a half hours is not a rounding error — it is nearly two miles of set that the plot cannot see, and the error grows every hour it goes unmeasured. This is the plot the route through the narrows will be drawn on.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.prompt",
+   "original": "The set has been running about half a knot since the last trusted fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.question",
+   "original": "Estimate how far the boat could be from the plotted position.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.explanation",
+   "original": "Distance is rate times time, and the rate here is the water, not the boat. Own speed is what the plot already knows about; it is not part of the error.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.relationship",
+   "original": "Distance = speed × time. A knot is one nautical mile per hour.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "Two displays, one source",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "Which explanation accounts for every reading here?",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "The chart overlay and the electronic repeat agree to within a hundred yards. The depth sounder says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "Independent confirmation only counts when the second source can fail differently.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "two instruments can share a source and therefore share its errors",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.headline",
+   "original": "The two navigation displays agree exactly, and the bottom does not agree with either.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "Agreement between instruments feels like confirmation, and it is only worth something when the two could have failed in different ways. These two are fed by one inertial navigator, so they agree by construction — they could not disagree if the navigator were wrong. The depth sounder is not part of that arrangement at all: it is looking straight down at something outside the boat. So its disagreement is the only new information on the table, and it points at the plot.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.0",
+   "original": "The plot is wrong and the sounding is right",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.choices.0.mechanism",
+   "original": "Both displays repeat one degraded source, so they cannot disagree; the bottom is independent.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.1",
+   "original": "The depth sounder has failed and the plot is right",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.1.mechanism",
+   "original": "A single instrument fault, with the two agreeing displays correct.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.2",
+   "original": "The chart is out of date along this contour",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.2.mechanism",
+   "original": "The survey is old and the bottom has changed.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.3",
+   "original": "The boat is on the plot and the water is shallow today",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.3.mechanism",
+   "original": "Tide and pressure moving the surface, not the bottom.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.4",
+   "original": "Nothing to explain",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.choices.4.mechanism",
+   "original": "Twelve metres is within ordinary sounding scatter.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.0",
+   "original": "A failed depth sounder is the comfortable answer, and it needs the two agreeing displays to be right. They agree because they share one navigator.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.1",
+   "original": "An out-of-date chart moves the bottom, not the boat. It is possible, and it does not explain three and a half hours with no fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.2",
+   "original": "Tide and pressure move the surface by a metre or two, not twelve. The bottom is where the bottom is.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.3",
+   "original": "Twelve metres is not sounding scatter. A depth sounder that wrong would be failing in a way the sounding itself would show.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "Where the sound will not go",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "The contact was held on the surface layer and is now lost. Where has it gone?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.place",
+   "original": "Sonar Shack",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "The temperature-depth trace shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "sound travels faster in warmer water",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.question",
+   "original": "The contact was held on the surface layer and is now lost. Where has it gone?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Sound speed falls with temperature, and a ray bends toward the slower water. A ray leaving this depth is turned downward as it crosses the layer, and the geometry leaves a region below and beyond it that no ray from here enters — a shadow zone. A contact in one does not fade; it disappears between sweeps and comes back the same way. That is the signature to read, and it is the reason boats change depth to search rather than only turning up the gain.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "Below the layer, where the rays from this depth do not reach.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "Out of range, since detection falls off smoothly with distance.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "Astern, into the boat's own baffles behind the propeller.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "Nowhere. It has shut down and is making no noise at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "Range loss is gradual. This went in a single sweep, which is a geometry change and not a range change.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "The baffles are a bearing sector astern. The contact's bearing did not move before it was lost.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "A contact that quiets down fades over minutes. This one was there and then was not.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.title",
+   "original": "Silent Passage",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Cross a constrained area without losing contact awareness or making unnecessary noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.briefing",
+   "original": "The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.stake",
+   "original": "Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the plot's uncertainty is a circle two miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. What matters is how much water stays under the keel.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "Quiet costs capability, and the trade has to be made deliberately rather than by default.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "What has to be true before the boat commits",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Order the passage",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.place",
+   "original": "Sonar Room",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "Rask lays out what the sonar room needs before the boat enters the narrows, and wants it in the order it has to happen in. Inside a constrained channel there is no room to go back for one you skipped.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "A passage plan is ordered by what each measurement needs in order to mean anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "a measurement can be meaningless without an earlier one to read it against",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "A passage plan is a set of conditions that have to be true at the moment the boat commits. Each card is a prerequisite for reading the next. Without the own-noise baseline a new sound is just a sound. Without the layer depth a missing narrowband line looks like an absent contact rather than a bent path. Bearing rates take time, which is why they cannot be what you start collecting at the entrance. And the lost-contact agreement is made early for a different reason: afterwards, everybody is busy.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.0",
+   "original": "The own-noise baseline first. Nothing new can be recognised as new until you know what the boat sounds like.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.1",
+   "original": "The layer depth second, because it decides which missing lines are missing for a reason.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.2",
+   "original": "Bearing rates third. They need time, and they need the baseline and the layer to be interpreted at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.3",
+   "original": "Agree what happens if contact is lost last — but before the entrance, while there is still contact to lose and somebody free to discuss it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.0",
+   "original": "Take the own-noise baseline, because nothing new can be recognised as new without it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.1",
+   "original": "Find the layer depth, because it decides which of the missing lines are missing for a reason.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.2",
+   "original": "Hold the contacts long enough to have bearing rates, which the baseline and the layer let you interpret.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.3",
+   "original": "Agree what the boat does if contact is lost, while there is still contact to lose.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "The margin that survives being wrong",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Decide how close is close enough",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "The narrows are four miles across. The plot's uncertainty is a circle about two miles wide, and the bank is on the left-hand side of the channel.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "A route is chosen against the uncertainty, not against the plotted line.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "a plotted position is the centre of a probability, not a fact",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.question",
+   "original": "How much clear water is left if the boat runs the middle of the channel?",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "The circle drawn round a plotted position is the honest width of where the boat might actually be, so planning a route is arithmetic done on the circle rather than on the pencil line. The whole circle has to stay in water the boat can survive, not just its middle. Half the channel is two miles; half the uncertainty is one; the margin is what is left. Four miles across sounds like plenty until the numbers are written down.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.prompt",
+   "original": "Four miles of channel, and a position that could be a mile out either way.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.question",
+   "original": "Estimate the clear water on the bank side if the boat runs the centre.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.explanation",
+   "original": "Running the centre puts two miles between the plotted position and each side, and the position could be a mile off toward either. What is left is the margin, and it is what the route has to survive on.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.relationship",
+   "original": "Margin = half the channel width − half the position uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "The one shaft speed that rings",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "The hull rings at one shaft speed and nowhere else. Why that one?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.place",
+   "original": "Machinery Room",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "At 92 revolutions the after compartment rings loudly enough to hear through a bulkhead. At 85 and at 100 it does not. Nothing else about the plant changes between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "A compartment has standing-wave frequencies of its own, and forcing it at one of them is what makes it loud.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "every structure has frequencies at which it prefers to vibrate",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.question",
+   "original": "The hull rings at one shaft speed and nowhere else. Why that one?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "A compartment supports standing waves, and a forcing frequency that coincides with one of them is amplified, sometimes by an order of magnitude, and away from it the same forcing is unremarkable. Blade rate is shaft speed times the number of blades, so one particular revolution count lands on the compartment's resonance and its neighbours do not. That is why the fix is a shaft speed to avoid, or a mount that shifts the resonance, rather than more power or a quieter crew.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.0",
+   "original": "At that speed the blade rate matches a natural frequency of the structure, so the response is amplified.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.1",
+   "original": "The shaft is out of balance, and imbalance grows steadily with speed.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.2",
+   "original": "The bearing is failing, and a failing bearing is loudest in the middle of its range.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.3",
+   "original": "Cavitation begins at that speed and stops above it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.0",
+   "original": "Imbalance rises smoothly with speed and would be worse at 100 than at 92.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.1",
+   "original": "A failing bearing gets worse with load and speed; it does not pick one revolution count and go quiet either side.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.2",
+   "original": "Cavitation increases with speed and does not switch off above a threshold.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.title",
+   "original": "Forward Flooding",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Find the water, decide whether pumping can win, and stop the source.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.briefing",
+   "original": "The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at ninety metres, which is what makes it a hole worth respecting.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.stake",
+   "original": "Sixth day, morning watch, and water is over the bilge in the forward space with the drain pump running. Ruth Hallam, on the pumps, has the level and reports it steady. Ferro does not believe steady means anything and is looking for the hole. This watch you find where the water is coming in, work out whether pumping can win, and decide what shutting that supply costs elsewhere — the two valves that stop it sit on a header that feeds other things. Pumping buys minutes. They are worth nothing unless somebody spends them finding the source.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "Flooding is stopped at the hull fitting; everything else is delay.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "Under the deck plates",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "Which source fits every reading on the board?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "Water is over the bilge in the forward space and the level is still rising with the drain pump running. The space carries a seawater supply header, a fresh water line and the sonar cooling return: three systems, one puddle.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "What the water is tells you which system it came from.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "sea pressure at depth is far higher than anything inside the boat",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.headline",
+   "original": "The forward bilge is rising with the drain pump already running.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "Water aboard is not only weight. It is a leak whose behaviour depends on where it came from, and a sea connection at ninety metres is fed by the entire ocean at about ten atmospheres. What the water is, and what has not changed on the systems around it, is the evidence that names the source. Salt rules out the fresh water line, whose tank level is unchanged anyway. Normal cooling flow rules out the sonar return. Only a sea connection puts water in faster than the pump takes it out at this depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.0",
+   "original": "A fitting on the seawater header",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.choices.0.mechanism",
+   "original": "Sea pressure driving salt water in at a rate set by depth, taking bow trim as the space fills.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.1",
+   "original": "A split in the fresh water line",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.1.mechanism",
+   "original": "A domestic line emptying into the bilge; the tank level would fall.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.2",
+   "original": "The sonar cooling return",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.2.mechanism",
+   "original": "Cooling water escaping; flow through the system would drop.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.3",
+   "original": "Condensation and normal drainage",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.3.mechanism",
+   "original": "Ordinary accumulation, which the drain pump would be winning against.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.4",
+   "original": "Back-flooding through the drain pump",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.4.mechanism",
+   "original": "The pump running backwards, which would show as a falling discharge pressure.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.0",
+   "original": "A split fresh water line would drop the tank level. The tank is unchanged, and the water is salt.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.1",
+   "original": "A leaking sonar cooling return would show as reduced flow through the system. Flow is normal.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.2",
+   "original": "Condensation and drainage are what the drain pump is for, and the pump is running and losing.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.3",
+   "original": "Back-flooding through the pump would show as falling discharge pressure, and it would not put the bow down.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "Gallons in against gallons out",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "Decide whether the pump can win",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "Hallam reads the bilge level twice, a minute apart, and reports the drain pump's rate at this head. Command has to decide whether to change depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "A flooding casualty is a race between two rates, and you can measure both.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "a pump's output falls as the pressure it works against rises",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.question",
+   "original": "How fast is the sea actually coming in?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "Flooding is a race between two rates, and both can be measured rather than argued about. The level rise gives what is accumulating; adding back what the pump is removing gives what the sea is actually putting in. That is why 'the drain pump is running' answers nothing on its own — pump output is not a fixed number, it falls as the head rises. If the inflow is the bigger number, pumping is buying minutes, and command needs to know how many.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.prompt",
+   "original": "The level went from 31 cm to 39 cm in one minute in a space this wide, with the drain pump already running.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.question",
+   "original": "Estimate the rate the sea is actually coming in at.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.explanation",
+   "original": "The rise is what is left after the pump has done its work, so the leak is the rise plus the pump — well over a hundred gallons a minute. The pump is not going to win, and knowing that is what sends somebody to the hull valve instead of for another pump.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.relationship",
+   "original": "Water in = the rate the level rises (converted to gallons) + the rate the pump takes out.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "What else that valve feeds",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "Match each action to what it actually achieves.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.place",
+   "original": "Machinery Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "Two valves will stop the water: the outboard hull valve and the inboard supply valve. The header they sit on also feeds the sonar-array cooling. Haruki wants each action matched to what it actually achieves.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "Every isolation stops something else, and the order decides what that is.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "one header can serve more than one system",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "Isolation is never free. Every valve shut takes a system away from somebody else, and here stopping the flooding and blinding the array can be the same movement of the same wheel. Only the hull valve separates the boat from the sea, which is why it is the only cut that ends it. The inboard valve stops flow to the break and leaves the sea connected to the header. A second pump buys minutes without changing the outcome. Telling sonar changes nothing physical and is still worth doing.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.0",
+   "original": "Stops the sea at the hull, which is the only cut that ends it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.1",
+   "original": "Stops flow to the break but leaves the sea connected to the header.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.2",
+   "original": "Buys minutes without changing the outcome.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.3",
+   "original": "Gives the array's operators warning before their cooling stops.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.0",
+   "original": "The outboard hull valve is the only cut between the boat and the ocean. Everything else acts on water that is already inside.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.1",
+   "original": "The inboard supply valve stops flow to the break and leaves the header pressurised from the sea. Useful, and not the end of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.2",
+   "original": "A second portable pump raises the rate out. It buys minutes and changes nothing about where the water is coming from.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.3",
+   "original": "Telling sonar before the header is isolated moves no water at all. It gives the array's operators warning that their cooling is about to stop.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scenarios.0",
+   "original": "Shut the outboard hull valve first.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scenarios.1",
+   "original": "Shut the inboard supply valve only.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scenarios.2",
+   "original": "Start a second portable pump before isolating.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scenarios.3",
+   "original": "Tell sonar before the header is isolated.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.title",
+   "original": "Electrical Fire",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Put out a fire whose ignition source is electrical, in the order that makes it stay out.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.briefing",
+   "original": "Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.stake",
+   "original": "Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard in the electrical space. The indicator shows the bus open and a meter his own electrician's mate put on the cable inside reads four hundred and forty volts. The chief electrician, Bede Okonkwo, will not send anybody in on the strength of a lamp. This watch you take the fire apart into the things keeping it alive, decide what that meter is telling you, and work out how to fight a space nobody can see into. The order of your actions matters more here than the speed of any one of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "An electrical fire is put out by de-energizing it; the agent only finishes the job.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "Three legs, three different actions",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Match each leg of the fire to the action that removes it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.place",
+   "original": "Electrical Distribution",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "Chief Okonkwo puts the three legs of the fire on the board. The fault that keeps lighting it, the insulation that burns, the air in the compartment. He asks what removes each one.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "Each leg of a fire is a different action, and they are not interchangeable.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "a fire needs fuel, oxygen and a source of energy",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "An electrical fire is the awkward case, because the energy keeps arriving down a cable from somewhere else in the boat. Removing the ignition source is what makes everything else hold — open the breaker, then prove the cable dead with a meter, because the switchboard reports a belief and the meter reports the conductor. The burning insulation is cooled below its re-light temperature. The air is cut off by shutting ventilation, and submerged that air is also what the crew breathes for the rest of the patrol. Heat through a bulkhead is a boundary to read, not a leg to remove.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.0",
+   "original": "Open the breaker, then prove the cable dead with a meter.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.1",
+   "original": "Cool it below the temperature at which it re-lights.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2",
+   "original": "Shut the ventilation to the space so the fire stops being fed.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3",
+   "original": "Set and read boundaries with an infrared thermometer.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.0",
+   "original": "The energised fault is removed by opening the breaker and then proving the cable dead. Until it is dead, everything else is fighting a symptom.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.1",
+   "original": "The burning insulation is fuel. You take it below the temperature at which it re-lights, which is what cooling is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.2",
+   "original": "The air feeding the flame is cut off by shutting ventilation to the space. Submerged there is nowhere to vent to.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.3",
+   "original": "Heat conducting to the next compartment is not a leg of this fire. It is a boundary, and you set and read it with an infrared thermometer.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.0",
+   "original": "The energized fault that keeps re-igniting the cable.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.1",
+   "original": "The cable insulation that is actually burning.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.2",
+   "original": "The air in the compartment feeding the flame.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.3",
+   "original": "The heat conducting through the bulkhead to the next space.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "What a lamp is worth",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Prove it before you fight it",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.place",
+   "original": "Electrical Distribution",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "The switchboard indicator shows the bus open. A meter on the cable in the compartment reads four hundred and forty volts. The team is at the door with a hose, waiting on you.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "An indicator reports a belief; a meter reports a condition.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "a bus can be fed from more than one source",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "An indicator lamp reports what the switchboard believes: a contact somewhere, a lamp that can fail, a bus that can be back-fed. A meter on the conductor reports the condition of that conductor and nothing else. Water on an energised cable puts the fault straight into the people holding the hose, so metering between opening and entering is the whole lesson — here the lamp and the cable disagreed, and a team that trusts the lamp goes in with the fault still live. Boundaries are read until the seat is cold, and loads come back in dependency order.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.0",
+   "original": "Open the breaker first. Nothing downstream is safe to touch while the source is still connected.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.1",
+   "original": "Meter the cable second, in the compartment. This is the step the lamp cannot do for you, and it is the one that was skipped.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.2",
+   "original": "Enter and fight the fire third, on breathing protection, once the conductor is proved dead.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.3",
+   "original": "Set and read boundaries until the seat is cold, then restore loads in dependency order. A fire declared out too early is a fire you fight twice.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.0",
+   "original": "Open the breaker for the affected bus.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.1",
+   "original": "Meter the cable in the compartment and confirm it is dead.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.2",
+   "original": "Enter with breathing protection and fight the fire.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.3",
+   "original": "Set boundaries and read them until the seat is cold.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.4",
+   "original": "Restore loads in dependency order, vital equipment first.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "Smoke is not only a breathing problem",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "Decide what the smoke has done to the space",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.place",
+   "original": "Auxiliary Machinery & Bilge",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "Visibility in the compartment is under half a metre, the far bulkhead is eight metres away, and the temperature at head height reads 60 degrees against 28 at deck level. The team can breathe on air masks and the fire is behind a panel.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "Smoke removes the instrument you were relying on, which is your own eyes.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "a fire inside a structure does not show you where it is",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.question",
+   "original": "What does the smoke change about how the casualty is fought?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Breathing apparatus solves exactly one problem — the air — and leaves every other one untouched. Smoke takes away the instrument the team was actually using to find the fire, which is their own eyes. In a space that cannot be read by sight, the boundaries have to be measured instead: an infrared reading on the bulkhead is the only thing that says where the heat is. Waiting for the smoke to clear hands the compartment to the fire, and the fire consuming that air is also producing carbon monoxide.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.0",
+   "original": "The space can no longer be read by eye, so the boundaries have to be measured instead.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.choices.1",
+   "original": "Nothing, as long as everybody is on breathing protection.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.2",
+   "original": "The fire will go out on its own once the smoke displaces the air.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.3",
+   "original": "The compartment must be abandoned until the smoke clears.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.0",
+   "original": "Masks keep the team working; they do not restore the information the smoke took away.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.1",
+   "original": "A fire consuming the air also produces carbon monoxide, which is worse, not self-solving.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.2",
+   "original": "Abandoning it hands the compartment to the fire, and the boundaries still need reading.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.title",
+   "original": "Atmosphere Degradation",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Tell a failing sensor from failing air, and find where the air stopped moving.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.briefing",
+   "original": "Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.stake",
+   "original": "Eighth day, middle watch. The scrubber plant is running and its outlet reads clean. The corpsman, Elena Navarro, has been round berthing with a handheld meter and it reads far higher than the sensor on that bulkhead, where nine people are asleep. The atmosphere control officer, Ana Lindqvist, has to decide whether to wake them. This watch you decide whether it is the air or the instrument that is wrong, work out how long that space is safe, and fix the circulation. This is the one system where the crew notice before the instruments do — headaches, short tempers, people asleep on watch — and they already have.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "A plant reading is a report about the plant, not about the compartment you are standing in.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "The compartment the scrubber cannot reach",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Which explanation accounts for every reading?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.place",
+   "original": "Auxiliary Machinery & Bilge",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "The scrubber plant is running and its outlet reads clean. A handheld meter in berthing reads far higher than the sensor installed there, while control and machinery both read normal on handhelds.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "Ventilation decides which compartments the plant is actually treating.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "a plant can only treat air that reaches it",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.headline",
+   "original": "Berthing is high on a handheld and normal on its installed sensor, and the plant says it is fine.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "A submarine's atmosphere is closed: the crew puts carbon dioxide in every minute and the plant takes it back out — but only out of air the ducting, dampers and fans actually deliver to it. Two things are wrong at once here, which is why no single reading settles it. The shut damper explains why berthing is high. And the symptoms in that space alone say the level is real, which is what convicts the installed sensor of reading a level that is not there.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.0",
+   "original": "Berthing is unventilated and its sensor is wrong",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.choices.0.mechanism",
+   "original": "A shut damper leaves the space unscrubbed, and the installed sensor is reporting a level that is not there.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.1",
+   "original": "The whole boat's atmosphere is degrading, mechanism: 'A plant-wide failure",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.2",
+   "original": "The scrubber plant has stopped removing CO₂",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.2.mechanism",
+   "original": "The plant not removing CO₂, which its own outlet reading would show.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.3",
+   "original": "The handheld meter is reading high in error",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.3.mechanism",
+   "original": "A single instrument reading high, with the installed sensor correct.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.4",
+   "original": "Nothing to explain",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.choices.4.mechanism",
+   "original": "Headaches in a crowded space with no cause in the air at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.0",
+   "original": "A boat-wide problem would show on every handheld. Control and machinery read normal on theirs.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.1",
+   "original": "A failed scrubber would show at its own outlet, and the outlet reads clean.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.2",
+   "original": "A faulty handheld would not explain the headaches in that compartment and nowhere else. The symptoms say the level is real.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.3",
+   "original": "There is something to explain. Headaches in one space, a shut damper and two instruments disagreeing is three findings, not none.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "Nine people and a shut damper",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Work out how long the space has",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.place",
+   "original": "Berthing, Mess & Medical",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "Navarro wants to know how long the space can be left before she pulls people out of it. Berthing holds nine people off watch and the compartment's volume is on the board.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "A closed space with people in it has a rate, and a rate gives you a deadline.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "a person at rest produces carbon dioxide at a steady rate",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.question",
+   "original": "Roughly how long until berthing doubles its carbon dioxide?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "A sealed volume divided by a production rate is a deadline in hours instead of an argument about whether it feels stuffy. Nine people in a fixed volume with nothing carrying the air away is exactly that calculation. Concentration matters earlier than most people expect: the air stays breathable long after it starts making judgement and reaction time worse, which is the part that hurts submariners. A deadline turns an argument about whether to act into a decision about when.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.prompt",
+   "original": "Nine people, each producing about 0.04 cubic metres of CO₂ an hour, in a sealed space.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.question",
+   "original": "Estimate how long to add another one per cent of CO₂ to the compartment.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.explanation",
+   "original": "The volume and the target concentration give how much gas it takes; the people and their rate give how fast it arrives. An hour is not an emergency and it is not comfortable either, which is exactly the kind of answer that changes what you do next.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.relationship",
+   "original": "Time to the limit = the volume of CO₂ the space can hold ÷ the rate the crew produces it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "What one fan takes with it",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "One fan feeds both the scrubber and the after spaces. What does that mean for the plan?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.place",
+   "original": "Machinery Room",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "The ventilation drawing shows one fan feeding the scrubber and the after spaces through a common trunk. The watch bill treats them as two independent systems, and the atmosphere plan assumes both.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Two systems sharing one component are one system for the purpose of a failure.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "a system is only as independent as the things it shares",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.question",
+   "original": "One fan feeds both the scrubber and the after spaces. What does that mean for the plan?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "Redundancy is not about how many systems are drawn on the diagram, it is about what they share. Two paths through one fan fail together, and a plan that assumes they are independent has no answer for the case that actually happens. The work is to find the shared component, decide whether a second path exists, and if it does not, write down what the boat will do instead — before the failure, while the decision is still cheap.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.0",
+   "original": "The fan is a single point of failure, and the plan needs a second path or a stated fallback.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.choices.1",
+   "original": "Nothing. Two systems on one fan is normal and the fan is reliable.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.2",
+   "original": "The scrubber should be run harder, so a fan failure leaves more margin.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.3",
+   "original": "The after spaces should be sealed off, since they are downstream.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "Reliability is not independence — a reliable shared component still takes both systems out when it does fail.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "Running the scrubber harder consumes more of the same air path and shortens the time available.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "Sealing the after spaces removes them from the plan rather than protecting them, and people are berthed there.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.title",
+   "original": "Compound Casualty",
+   "readOnly": false
+  },
+  {
+   "id": "m08.objective",
+   "original": "Prioritise and delegate when there are more casualties than there are people.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.briefing",
+   "original": "Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.stake",
+   "original": "Ninth day, forenoon watch, and four things at once: water forward, a bus lost aft, the plot degraded by that power loss, and Adeyemi with a broken wrist in the passage. Vance wants to hold the ordered speed. Whitfield says a boat with four casualties making eight knots at a bank nine miles away is about to have five, and this time he is the one who is right. This watch you decide what you take, what you hand to whom, and whether the boat slows down. Everything you hold personally is something nobody else is working, and Whitfield will not invent the organisation for you.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "Command is deciding what you do, and who does the rest.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "Four casualties, one crew",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Decide what is first",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "Water forward, a bus lost aft, the plot degraded by the power loss, and a crewman with a broken wrist in the passage. Every one of them has somebody standing in front of you asking about it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "You order casualties by how fast they get worse, not by how loud they are.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "some problems get worse on their own and some do not",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.question",
+   "original": "What gets the first team?",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "Casualties do not queue by how loudly they are being reported. They queue by how fast they get worse if nobody touches them, and some have already done all the getting worse they are going to do. Water comes in whether or not anybody is watching it, and it is the only one that can sink the boat. The injury is stable. The bus is already lost — it cannot get more lost. And the plot can be frozen by slowing down, which is a decision you can make in four seconds without sending anybody.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.0",
+   "original": "The flooding, because it is the only one that gets worse by itself.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.choices.1",
+   "original": "The injured crewman, because a person comes before equipment.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.2",
+   "original": "The lost bus, because everything else depends on power.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3",
+   "original": "The plot, because the boat is still moving toward a bank.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.0",
+   "original": "The injured man matters and he is stable. A broken wrist in a passage is treated and cleared, and it is not getting worse while you decide.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.1",
+   "original": "The bus is already lost. Everything downstream of it failed some minutes ago, and nothing about it deteriorates further while you send the team forward.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.2",
+   "original": "The plot degrades every minute, and it can be frozen by slowing the boat — a decision, not a team.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "Who does the things you are not doing",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Match each remaining casualty to the right assignment.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.place",
+   "original": "Electrical Distribution",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "You have the flooding: 40 litres a minute into the forward space, one pump running at 60. Three other things are unattended — the fire boundary aft, the atmosphere readings, and a man with a fractured wrist — and the executive officer is waiting for the rest of the casualty organisation.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "Delegation is a person and a first action, and the first action is rarely the obvious one.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "a task given to nobody in particular is a task nobody owns",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "The watch bill exists so one person's attention is never what limits the boat. What Whitfield needs is not a description of each problem but a first action, and the pairings are not obvious from the department. The lost bus is answered by proving what is actually dead with a meter, because the switchboard only reports what it believes. The plot is fixed by slowing the boat before anybody plots anything. The injured man is moved because the passage is a damage-control route. The bulkheads are read on both sides, which is how you learn the boundary is holding.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.0",
+   "original": "Prove what is actually dead with a meter, because the switchboard only reports what it believes.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.1",
+   "original": "Treat him where he lies and clear the passage, because the passage is a damage-control route.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.2",
+   "original": "Slow the boat first, which freezes the error before anybody tries to rebuild the position.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.3",
+   "original": "Read temperature and level on both sides, because that is how you learn the boundary is holding.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.0",
+   "original": "The lost bus needs a meter on the conductors, because the switchboard reports what it believes rather than what is there.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.1",
+   "original": "The injured crewman is treated where he lies and the passage cleared — not for his comfort, but because that passage is a route the teams need.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.2",
+   "original": "The degraded plot is answered by slowing down first. That freezes the error before anybody tries to rebuild the position.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.3",
+   "original": "The bulkheads either side of the flooded space are read for temperature and level. That is how a boundary tells you it is holding.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.0",
+   "original": "The lost bus, and everything that was fed from it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.1",
+   "original": "The crewman with a broken wrist, in the passage.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.2",
+   "original": "The plot, degraded since the power went.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.3",
+   "original": "The bulkheads either side of the flooded space.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "Slowing down as a decision",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Buy the time to think",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "The boat is making eight knots toward a bank nine miles away, with a plot that has been degraded for six minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "Slowing the boat converts a distance problem into a time budget.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "distance divided by speed is time",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.question",
+   "original": "How much time does coming down to three knots buy?",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "Time is the only resource in a casualty that can be manufactured, and speed is the price list. Nine miles at eight knots is a little over an hour; the same nine miles at three knots is three. Slowing costs progress and buys everything else — the plot can be rebuilt, the flooding can be fought, the passage will still be there. Work out what eight knots is actually spending, in minutes, before deciding whether the boat can afford it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.estimate.prompt",
+   "original": "Nine miles to the bank at eight knots, with the option of coming down to three.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.estimate.question",
+   "original": "Estimate the extra time coming down to three knots buys.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.estimate.explanation",
+   "original": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.estimate.relationship",
+   "original": "Time = distance ÷ speed. The gain is the time at the slower speed minus the time at the faster one.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.title",
+   "original": "Sonar Blinded by the Boat",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Find the noise the boat is making about itself, and prove which machine it is.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.briefing",
+   "original": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.stake",
+   "original": "Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and the broadband operator, Kes Dunne, has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. While the array is degraded other boats can still hear this one, and it cannot hear them.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "The rise on every bearing",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Which explanation fits the whole picture?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.place",
+   "original": "Sonar Room",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "Broadband is up across the whole display rather than in one sector. A new narrowband line has appeared at a frequency that is not a round number, and it moved slightly when the plant changed.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "A source everywhere at once is a source you are carrying.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "a contact out in the water lies in some direction",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.headline",
+   "original": "Broadband is up on every bearing at once and a new narrowband line has appeared.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "Direction is the whole clue. Something out there has a bearing; something the boat is carrying does not, because it radiates into the array from the hull the array is bolted to. That is why a rise on every bearing at once points inboard. Machinery tones sit at frequencies tied to the rate a thing turns, so a line that shifts with shaft speed is tied to our own plant — and a seawater pump was started twenty minutes ago. A boat that cannot hear is also a boat that is being heard.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.0",
+   "original": "A machinery fault",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.0.mechanism",
+   "original": "A source we carry radiates in every direction at once, and its line follows our own machinery.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.1",
+   "original": "A close contact",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.1.mechanism",
+   "original": "Another vessel nearby, which would appear in one sector and have its own bearing rate.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.2",
+   "original": "A change in the sea",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.2.mechanism",
+   "original": "Weather or a layer shift, which would change with the environment and not with our shaft.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.3",
+   "original": "A failing hydrophone",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.3.mechanism",
+   "original": "A defective element, which would degrade one part of the array rather than all bearings.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.4",
+   "original": "Nothing to explain",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.4.mechanism",
+   "original": "Ordinary variation in a noisy ocean.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.0",
+   "original": "A close contact appears in one sector and has its own bearing rate. This is up on every bearing at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.1",
+   "original": "A change in the sea would follow the weather or the layer, and both are unchanged. It would not follow our shaft.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.2",
+   "original": "A failing hydrophone degrades part of the array. This is the whole display.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.3",
+   "original": "There is something to explain: a new line at a specific frequency that moves when our plant does is not ordinary variation.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "Narrowing it to one mount",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Find which machine",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.place",
+   "original": "Propulsion Machinery",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "Four machines were running when the noise appeared, and only one was started in the last half hour. Haruki wants it narrowed down without stopping things at random.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "You find a noise source by changing one thing at a time and listening.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "changing two things at once tells you nothing about either",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "Finding a noise source is an experiment rather than a search: change one thing, hear what the change did, and let that decide the next move. So you ask sonar for the frequency and whether it tracks a shaft or a pump speed, then list what changed in the window when the noise appeared, then change one machine's state at a time. Restoring the suspect and hearing the noise return is what turns a correlation into a cause. Securing machinery in bunches proves nothing and costs the boat capability it may want in ten minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.0",
+   "original": "Ask sonar for the frequency first. Whether it tracks a shaft or a pump speed halves the suspect list before you touch anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.1",
+   "original": "List what changed in the window second. A noise that appeared at a particular minute has a short list of causes, and it is written in the log.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.2",
+   "original": "Change one machine at a time and have sonar report before the next. Two changes at once and neither result means anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.3",
+   "original": "Restore the suspect and hear it come back, last. That is what makes it a cause instead of a coincidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.0",
+   "original": "Ask sonar for the frequency and whether it tracks a shaft or a pump speed.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.1",
+   "original": "List what was started or changed in the window when the noise appeared.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.2",
+   "original": "Change one machine's state and have sonar report before changing another.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.3",
+   "original": "Confirm by restoring the suspect machine and hearing the noise return.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "What the shifted line says about speed",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.place",
+   "original": "Sonar Shack",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "The narrowband line sits at 149.7 hertz. The machine that makes it runs at 150.0, and every other boat in the class shows it at 150.0 as well.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "A Doppler shift is a speed measurement: the frequency you hear is not the frequency emitted.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "sound travels at about 1500 metres a second in sea water",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.question",
+   "original": "Estimate the range rate the shift implies.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "This is Doppler: the fractional shift is 0.3 in 150, one part in five hundred, and the speed is that fraction of the speed of sound: about 3 metres a second, or roughly 6 knots. The line is LOW, so the source is opening — a shift toward higher frequency would mean closing. The size of it matters as much as the sign: a 6-knot opening rate is a boat leaving, not a boat manoeuvring, and it changes what the next sweep should be looking for.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.estimate.prompt",
+   "original": "The line is at 149.7 Hz against a rest frequency of 150.0 Hz.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.estimate.question",
+   "original": "Estimate the range rate the shift implies.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.estimate.explanation",
+   "original": "The sound speed belongs in the numerator. Divide by it instead and the answer is a millionth of the truth.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.estimate.relationship",
+   "original": "Δf ÷ f = v ÷ c, so v = c × Δf ÷ f: Δf is the frequency shift, f the transmitted frequency, v the closing speed, c 1500 m/s in water.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.title",
+   "original": "Uncontrolled Depth Change",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Tell a symptom from a cause when the boat is going somewhere you did not order.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.briefing",
+   "original": "The boat is heavier than it was an hour ago and it is going down. The depth gauge, the trim state and the planes all have something to say and only one of them is the cause.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.stake",
+   "original": "Twelfth day, middle watch. The boat is going deeper with the planes already at rise, the trim shows heavy forward, speed is unchanged, and the depth gauge is the calmest instrument in the control room. Ferro is on his way forward without being asked, which tells you what he thinks it is. This watch you decide what is actually causing it, work out how much weight is aboard, and choose which control to use — knowing two of the four are hard to undo at this depth. Treat the symptom and the boat keeps going down while everybody watches the right gauge for the wrong reason.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "Depth is the outcome of weight, angle and speed, and each of those has its own cause.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "Three gauges, one problem",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Which cause accounts for every reading?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "Depth is increasing slowly with the planes already at rise. The trim shows the boat heavy forward, speed is unchanged, and the depth gauge in control disagrees with the one aft by four metres.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "The instrument that disagrees is a candidate, not automatically the culprit.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "a submarine holds depth by buoyancy and by the planes together",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.headline",
+   "original": "The boat is going deeper with the planes at rise, and the two depth gauges disagree.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "Buoyancy is weight against displacement; dynamics is the planes working against water flowing past the hull. When the two fight, the boat still moves, slowly, whichever way is winning. And two gauges a hundred feet apart on a boat that is not level are not measuring the same column of water — so the odd one out is a suspect, not a verdict. Here they disagree by exactly what a bow-down boat would produce, and only added weight forward explains the trim, the depth and a wet bilge at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.0",
+   "original": "Water coming aboard forward",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.choices.0.mechanism",
+   "original": "Weight added at the bow explains the trim, the depth and the wet bilge, and the gauges disagree because they are at different depths in a boat that is down by the bow.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.1",
+   "original": "A depth-gauge fault",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.1.mechanism",
+   "original": "One instrument reading wrong, which would not make the boat heavy or bow-down.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.2",
+   "original": "Trim water transferred aft by mistake",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.2.mechanism",
+   "original": "Weight moved inside the boat, which the tank levels would show.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.3",
+   "original": "A planes-control failure",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.choices.3.mechanism",
+   "original": "Control surfaces not doing what is ordered, which would show as an angle without added weight.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.4",
+   "original": "Speed loss reducing lift",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.4.mechanism",
+   "original": "Less flow over the planes, which the unchanged speed rules out.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.0",
+   "original": "A faulty gauge explains one reading and leaves the boat heavy and bow-down for no reason. The disagreement is what a bow-down boat produces.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.1",
+   "original": "Trim water moved inside the boat would show in the tank levels, and they are unchanged. Weight has been added, not shifted.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.2",
+   "original": "A planes-control failure gives an angle without added weight, and it would not put water in the forward bilge.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.3",
+   "original": "Less flow over the planes would reduce lift, and speed is unchanged at eight knots.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "What a metre of depth costs in tonnes",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Work out how much water that is",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "Ferro wants to know how much water is aboard before deciding whether to blow anything. The boat's tonnes-per-metre figure is on the board.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "A trim change is a weight, and a weight can be estimated rather than guessed.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "added weight makes a submarine sit deeper by a predictable amount",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.question",
+   "original": "About how much water has come aboard?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "Tonnes per metre says how much added weight takes the boat one metre deeper, so the boat's own behaviour gives the weight aboard rather than anybody guessing at it. The number decides the action, and the two actions are nothing alike. Pumping is quiet, slow and enough if the amount is small. Blowing ballast is fast, spends high-pressure air the boat cannot replace submerged, and is heard a long way off. One arithmetic problem sits between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.estimate.prompt",
+   "original": "The boat has gone four metres deeper at unchanged speed and planes.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.estimate.question",
+   "original": "Estimate the weight of water aboard.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.estimate.explanation",
+   "original": "Six tonnes is inside what the drain pump can handle if the source is stopped, and well outside what it can handle if it is not. The number is what turns \"pump or blow\" from an argument into a decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.estimate.relationship",
+   "original": "Mass aboard = depth × tonnes per metre of depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "What each control actually does",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Match each action to what it actually achieves.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.place",
+   "original": "Machinery Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "Four things can be done in the next thirty seconds. Each of them changes the boat, and two are hard to undo at this depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "Speed and angle buy time; blowing buys depth and gives away position.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "the planes only work while water is flowing past them",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "Speed and plane angle work through the water going past the hull. They are cheap, they are reversible, and they only work while the boat is making way — so more speed at rise means the same angle lifts harder, and slowing reduces the lift. Blowing ballast works through buoyancy instead. It is immediate and powerful, it spends air that cannot be made back submerged, and it is the loudest thing a submarine does short of an emergency surface. Pumping a trim tank to sea removes weight slowly and quietly, and only if the pump can beat the leak.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.0",
+   "original": "More flow over the planes, so the same angle lifts harder — buys minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.1",
+   "original": "Removes weight fast, and is heard for miles.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.2",
+   "original": "Removes weight slowly, quietly, and only if the pump can beat the leak.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.3",
+   "original": "Reduces the lift available, which is the wrong way at this moment.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.0",
+   "original": "More speed with the planes at rise means more flow over them, so the same angle lifts harder. It buys minutes and costs nothing you cannot take back.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.1",
+   "original": "Blowing forward main ballast removes weight fast and is heard for miles. It works, and it spends air and position together.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.2",
+   "original": "Pumping the forward trim tank to sea removes weight slowly and quietly — and only if the pump can out-run the leak.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.3",
+   "original": "Slowing down and holding depth on the planes reduces the flow the planes need. It is the right move at other moments and the wrong way at this one.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.0",
+   "original": "Increase speed with the planes at rise.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.1",
+   "original": "Blow the forward main ballast.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.2",
+   "original": "Pump the forward trim tank to sea.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.3",
+   "original": "Slow down and hold the depth with the planes.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.title",
+   "original": "The Cooling Path",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Trace one cooling path end to end and find where it stopped.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.briefing",
+   "original": "Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.stake",
+   "original": "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot: the oil is hot, the fresh water loop is hot, and the seawater leaving the heat exchanger is barely warmer than the seawater going in. The second cooling pump is still secured from the quiet lineup Rask asked for, and its breaker is open at the switchboard with nothing in the log. This watch you write the cooling path down in order and decide which link stopped handing the heat on. A bearing run hot for an hour is a bearing replaced in a shipyard.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "A cooling system is a chain, and a chain is diagnosed link by link.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "From the sea to the bearing",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Trace the path",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.place",
+   "original": "Propulsion Machinery",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "Haruki wants the path written down in order before anybody touches a valve. The bearing is running warm and it is still making heat at the rate it always did.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "You cannot find the broken link in a chain you have not written down.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "heat flows from hotter to colder and nowhere else on its own",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "Heat made in a bearing has exactly one place to go, which is the sea outside the hull, and it gets there through a chain of handovers. The bearing makes it and the lube oil carries it away. The oil gives it to the oil cooler. The cooler gives it to the fresh water loop. The loop gives it to the seawater, which goes over the side. Each handover is a heat exchanger with its own flow and its own way of failing — so once the chain is written down, a hot bearing becomes a question about which link stopped passing heat along.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "The bearing makes the heat and the lube oil takes it away. That is the first handover and everything else is downstream of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "The oil gives its heat to the oil cooler second. Oil does not leave the boat, so it has to hand over.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "The oil cooler gives its heat to the fresh water loop third. Fresh water does not leave the boat either.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.3",
+   "original": "The fresh water loop gives its heat to the seawater last, and the seawater goes over the side. That is the only link that actually leaves.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.0",
+   "original": "The bearing makes heat, and the lube oil carries it away.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.1",
+   "original": "The lube oil gives its heat to the oil cooler.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.2",
+   "original": "The oil cooler gives its heat to the fresh water loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.3",
+   "original": "The fresh water loop gives its heat to the seawater, which goes over the side.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "One link is not handing the heat on",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Which link in the chain has failed?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.place",
+   "original": "Machinery Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "The oil is hot and the fresh water loop is hot. The seawater outlet is barely warmer than the inlet, and one of the two seawater pumps was secured during the last quiet run.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "The link that broke is the one where the temperature difference disappears.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "a heat exchanger needs flow on both sides to move heat",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.headline",
+   "original": "The oil is hot, the fresh water is hot, and the seawater is leaving barely warmer than it arrived.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "Walking the temperatures along the chain finds where the difference across a stage has gone. The heat has clearly reached the seawater, because everything upstream of it is hot — which clears the oil cooler and clears the sensors. What it is not doing is leaving: seawater arriving at nine degrees and leaving at eleven has carried almost nothing away. The only thing that carries heat out of the boat is flow, and one pump cannot move enough water. A bearing run hot for an hour is a shipyard visit.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.0",
+   "original": "Not enough seawater flow to carry the heat away",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.choices.0.mechanism",
+   "original": "One pump cannot move enough water, so it leaves nearly as cold as it arrived while everything upstream heats up.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.1",
+   "original": "The oil cooler is fouled",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.1.mechanism",
+   "original": "Heat not crossing from oil to fresh water — the fresh water loop would be cool, not hot.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.2",
+   "original": "The bearing is failing and making more heat",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.2.mechanism",
+   "original": "A mechanical fault adding heat, which the seawater side would still be carrying away.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.3",
+   "original": "A faulty oil temperature sensor",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.choices.3.mechanism",
+   "original": "One instrument wrong, which does not explain the fresh water loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.4",
+   "original": "Nothing to explain",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.choices.4.mechanism",
+   "original": "Normal warming at this power.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.0",
+   "original": "A fouled oil cooler would leave the fresh water loop cool, because the heat would never cross into it. The loop is hot.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.1",
+   "original": "A failing bearing making more heat would still be having that heat carried away, and the seawater outlet would be warm. It is not.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.2",
+   "original": "A faulty oil temperature sensor explains one reading and leaves the hot fresh water loop unexplained.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.3",
+   "original": "This is not normal warming at this power. The seawater is leaving two degrees warmer than it arrived while everything upstream climbs.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "The breaker nobody logged",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "Find out why the pump is off",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.place",
+   "original": "Electrical Distribution",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "The second seawater pump did not trip; its breaker is open at the switchboard. The quiet-running lineup from two watches ago is still in force and nobody wrote down what it turned off.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "A configuration nobody recorded is a configuration nobody will restore.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "a watch hands over to a watch that was not there",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.question",
+   "original": "What does this say about the quiet-running lineup?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "Every configuration change aboard is a trade somebody made for a reason, and the reason usually expires long before the configuration does. The log is the only thing that carries that reason across a watch change. Without it, three watches later, a perfectly sensible decision is indistinguishable from a fault — and it gets diagnosed as one while a bearing heats up. Securing a machine therefore needs a record of what it was cooling and when it has to come back, which is a different thing from a record that it was secured.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Securing a machine needs a record of what it was cooling.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "The quiet-running lineup should be restored automatically when the transit ends.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "The bearing should have a high-temperature alarm that trips the pump back on.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "Nothing — the watch that secured it made a reasonable trade at the time.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "Quiet running is a legitimate reason to secure a pump; the fault is in the handover.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "An automatic restart would defeat the point of a deliberately quiet lineup.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "It was reasonable at the time and stopped being reasonable an hour later, which is the whole problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.title",
+   "original": "Silent-Running Configuration",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Decide what may be secured, reduced or rescheduled while keeping the boat alive.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.briefing",
+   "original": "The boat has to be quiet for four hours. Everything aboard that makes noise also does something, and the ones that keep people breathing and bearings cool are not on the table.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.stake",
+   "original": "Fifteenth day, and the argument that has been running all patrol comes due. Four hours of quiet running, and Haruki intends to secure everything on Rask's list to get it — including the second seawater pump and half the carbon dioxide scrubbing. Lindqvist has done the arithmetic on the second one and is not happy. This watch you decide what may be shut down, what may only be slowed, and what the whole configuration costs the boat. Quiet is bought with capability, and the bill arrives late, in another department. None of that appears on the same gauge as the decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "A silent lineup is a set of deadlines, not a set of switches.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "Four hours of quiet",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Choose the lineup",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.place",
+   "original": "Machinery Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "Four hours of quiet running, and eight items on the list that can be secured to get there. Securing the trim pump costs the ability to correct a list; securing the second scrubber halves carbon-dioxide removal with sixty people aboard and the level already at 8 millimetres of mercury. He wants to know which item you strike off the list.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "Every quiet decision has an expiry time attached to it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "some machines can be restarted at any time and some leave damage behind",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.question",
+   "original": "Which of these does the boat refuse, whatever quiet it buys?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "Quiet is worth real money, because radiated noise is what makes a submarine findable. But it is bought on credit and the bill arrives at a time you do not choose. Three of these are reversible the moment somebody wants them back: turns return as soon as turns are increased, galley and laundry cost nothing in four hours, and one scrubber train can be spared because carbon dioxide rises slowly and is measured continuously. The cooling pump is not reversible. It starts a clock on a bearing nobody in control can read, and the damage is done before the gauge says so.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.0",
+   "original": "Secure the second seawater cooling pump, accepting a rising bearing temperature.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.choices.1",
+   "original": "Come down in turns and accept a longer transit.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.2",
+   "original": "Stop the galley and laundry machinery, which nobody needs for four hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.3",
+   "original": "Secure one of two scrubber trains, accepting a slow rise in carbon dioxide.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.0",
+   "original": "Coming down in turns costs time and returns the moment turns are increased. It is the cheapest quiet aboard.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.1",
+   "original": "Galley and laundry are pure noise with no consequence at all in four hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.2",
+   "original": "One scrubber train can be spared for a while, because carbon dioxide rises slowly and — unlike a bearing temperature nobody is watching — it is measured continuously.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "How long one scrubber lasts",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Put a deadline on the quiet",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.place",
+   "original": "Auxiliary Machinery & Bilge",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "With one scrubber train secured, the remaining train removes less carbon dioxide than the crew produces. Lindqvist wants the number of hours before the boat has to make a noise to fix that.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "A slow problem with a known rate is a deadline, and a deadline can be planned around.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "a net rate is what is produced minus what is removed",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.question",
+   "original": "How long can the boat run on one scrubber train?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "A closed atmosphere with a production rate and a removal rate has a net rate, and a net rate measured against a limit is a deadline in hours. The headroom left divided by the net gain is the whole calculation. That matters because command can plan a transit around a number of hours; it cannot plan around 'soon', and it will not slow the boat for a feeling about the air. A slow problem with a known rate stops being a worry and becomes a schedule.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.estimate.prompt",
+   "original": "The crew makes more carbon dioxide than one train removes, and the limit is a rise of one per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.estimate.question",
+   "original": "Estimate how long until the boat reaches the limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.estimate.explanation",
+   "original": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.estimate.relationship",
+   "original": "Time = the headroom left ÷ the net rate of gain, which is production minus removal.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "What silence buys, term by term",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "Match each term in the detection budget to what it accounts for.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.place",
+   "original": "Sonar Shack",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "Four hours of quiet running is being argued about on the assumption that quiet is always better. The detection budget has four terms in it and only one of them is the boat's own noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "Detection is a budget, and each term is bought or lost by a different decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "a signal is detected only when it stands above the noise around it",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.question",
+   "original": "Match each term in the detection budget to what it accounts for.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "Detection needs source level, minus transmission loss, minus noise, plus array gain, to clear a threshold. Running quiet only reduces the noise WE add, which helps our own listening and does nothing to the other boat's source level or to the water between. Slowing also costs array gain, because a towed array needs way on to stay straight. That is why silence is a trade and not a virtue: it buys one term of four and spends another.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.0",
+   "original": "How loud the thing being hunted is at its own hull.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.1",
+   "original": "What the sea takes out of the signal on the way here.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.2",
+   "original": "Everything else arriving at the same time, including our own machinery.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.3",
+   "original": "What listening with many elements at once recovers.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.0",
+   "original": "Source level belongs to the target, not to us; running quiet does not change it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.1",
+   "original": "Transmission loss is set by the water and the geometry, and no decision on this boat alters it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.2",
+   "original": "Array gain is what the array recovers, and it falls off when the array is not straight.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.scenarios.0",
+   "original": "Source level",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.scenarios.1",
+   "original": "Transmission loss",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.scenarios.2",
+   "original": "Noise level",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.scenarios.3",
+   "original": "Array gain",
+   "readOnly": true
+  },
+  {
+   "id": "m13.title",
+   "original": "Rig for Dive",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Prove the boat is ready before the last patrol, rather than assuming it.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.briefing",
+   "original": "The boat sails in an hour. Every check on the rig-for-dive list exists because somebody once did not do it, and each one proves a different thing.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.stake",
+   "original": "Nineteenth day. The boat has been open to the surface since Tuesday for work on the mast and dives at dawn. The switchboard shows two breakers open from that work, the log says one was restored, and every valve on the rig sheet has signatures against it — including one from a man who was ashore that morning. This watch you work out what each checklist line is really asking, close the boat up in the right order, and decide what to do about a record that does not match. This is the cheapest hour of the patrol, and the last one before the sea decides.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "A check is a measurement that proves a specific claim, not a box beside a word.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "What the checklist is actually asking",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Match each check to what it proves.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Four items off the rig-for-dive list, each written short enough to be read aloud on a busy deck by somebody who already knows what it means.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "A checklist item is a claim; the check is the evidence for it.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "a thing can exist and still not work",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "A checklist is compressed language: each line is a claim about something that must be true when the boat submerges, and the check is the evidence for the claim. The failures it guards against are not variations on one theme. Operating a valve through its full travel proves it will move when it is needed, not merely that it is fitted. Reading every bilge fixes a starting level, so a rise can be recognised as a rise. Testing the pump against a closed discharge proves it can build pressure rather than just turn. Walking the escape routes proves the way out is a way out today.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "That the valve will move when it is needed, not just that it exists.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "That the starting level is known, so a rise can be recognised as a rise.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "That the pump can build pressure, not merely turn.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "That the way out is a way out today, and not where the stores were left.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "Operating a valve through its full travel proves it will move when somebody needs it. A valve that exists and is seized is worse than no valve, because it is on the list.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "Reading every bilge sets the starting level. Without it the first rise looks like an ordinary number.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "Testing the drain pump against a closed discharge proves it can build pressure. A pump that turns and moves nothing passes every other test.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.3",
+   "original": "Walking the compartment proves the escape route is clear today — not on the day it was drawn, and not where the stores were left.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.0",
+   "original": "Operate every hull valve through its full travel.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.1",
+   "original": "Read every bilge and log the level.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.2",
+   "original": "Test the drain pump against a closed discharge.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.3",
+   "original": "Walk the compartment and confirm both escape routes are clear.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "Dampers before dive",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "Line up the air before you need it",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.place",
+   "original": "Auxiliary Machinery & Bilge",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "The ventilation has been open to the surface all week. Before diving, the boat has to be closed up and the internal air path lined up, and the order of those two things matters.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "The air path has to be proved before the boat is sealed, not after.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "once the hull is sealed, the air aboard is the only air there is",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "Some of this is very cheap to get right while there is still a hatch open and very expensive afterwards. Line up the internal ventilation first so every compartment reaches the plant, because a damper you forgot is a compartment nobody is treating for the rest of the patrol. Start the plant and prove it works while the surface is still available. Take a handheld reading in each compartment as a baseline, because the first bad reading needs something to be compared against. Then shut the boat off from the surface and dive.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.0",
+   "original": "Line up the internal ventilation first. A damper missed now is a compartment outside the loop for weeks.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.1",
+   "original": "Start the plant and prove it works second, while the hatch is still open and a failure is only an embarrassment.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.2",
+   "original": "Take the baseline readings third. A number is only high compared with something, and this is that something.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.3",
+   "original": "Shut off from the surface and dive last. It is the step that makes everything before it permanent.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.cards.0",
+   "original": "Line up the internal ventilation so every compartment reaches the plant.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.cards.1",
+   "original": "Start the scrubber and oxygen plant and prove they are working.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.cards.2",
+   "original": "Take a handheld reading in each compartment as a starting baseline.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.cards.3",
+   "original": "Shut the boat off from the surface and dive.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "What the last watch left open",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "Prove the isolation you inherited",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.place",
+   "original": "Electrical Distribution",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "The switchboard shows two breakers open from maintenance last week. The log says one of them was restored. You are about to send people to work on that cable.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "A document and a lamp both report what somebody expects, which is a weaker thing than a reading.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "a record and an indicator are both claims about a circuit",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.question",
+   "original": "What settles the disagreement?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "A log records what somebody intended at the end of a long watch. An indicator records what the switchboard believes about itself. Neither of them is in contact with the conductor your team will have their hands on, and isolation inherited from a watch that has gone to bed has hurt more electricians than faults have. The meter is the only one of the three looking at the cable — and what it finds gets written down, so the next watch inherits a measurement instead of another belief.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.0",
+   "original": "Meter the circuits and record what you actually find.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.choices.1",
+   "original": "Believe the log, because a person wrote it deliberately.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.2",
+   "original": "Believe the lamps, because they show the present state.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.3",
+   "original": "Close both breakers, since one of them is meant to be closed anyway.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.0",
+   "original": "A written record is a claim about the past, and the past is what is in dispute.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.1",
+   "original": "An indicator lamp has its own failure modes, which is why this check exists.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.2",
+   "original": "Closing a breaker to resolve an argument is how a fault gets energised.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.title",
+   "original": "Refit Decision",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Choose what to improve before the last patrol, on evidence rather than preference.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.briefing",
+   "original": "There is money and yard time for some of what the boat wants and not all of it. Every proposal has a cost, an uncertain benefit, and an effect on the patrol that follows.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.stake",
+   "original": "Twenty-first day, and the refit list goes off the boat in tomorrow's message window. The yard will fund one item. Haruki wants the cooling pump that has cost him two watches this patrol, Rask wants the mounts that would have prevented the noise line, Lindqvist wants a second scrubber train, and Whitfield wants to know which of them the next patrol is most likely to need. This watch you decide. The evidence is unglamorous: which failures cost real time, which are becoming more frequent, and what each fix would actually remove. Everyone in the room is arguing from what they remember, and nobody has opened the log.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "An upgrade is worth what it changes about the decisions you will actually face.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "What the boat should buy",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Spend the yard time",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.place",
+   "original": "Machinery Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a depth sounder overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "You fund what changes a decision, not what improves a number.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "money spent on a boat is spent on the decisions the boat can make",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.question",
+   "original": "Which refit goes first on the yard list?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "An improvement that makes an already-good number better changes nothing anybody does. A modest one that removes a blind spot changes what command can risk. After cavitation, the pumps are the largest recorded contributor to this boat's signature — and the signature decides whether the boat is found at all in the passage this patrol is built around. Faster scrubber media improves an air margin that has never come within twenty hours of a limit. A larger drain pump has never been the binding constraint, because the source was always stopped first.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.0",
+   "original": "Re-mount the seawater pumps on new isolators.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.1",
+   "original": "A second independent depth sounder.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.2",
+   "original": "Faster scrubber media, for a wider air margin.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.3",
+   "original": "A larger drain pump, for a worse flooding casualty.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "The second sounder is the right next buy and Sowande argues for it two stops from here. What puts the mounts ahead of it is that the array's noise floor is the boat's own machinery, so every contact the passage depends on is limited by the pumps first.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "Faster media improves an air margin that has never come within twenty hours of a limit. A better number nobody was waiting on.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "A larger drain pump has never been the binding constraint in a drill, because the source was always stopped first. It buys minutes in a casualty the boat has not had.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "What twelve decibels is worth",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.place",
+   "original": "Sonar Shack",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "The yard offers mounts that cut the boat's radiated level by 12 decibels. The wardroom has read that as \"about a tenth quieter\" and is weighing it against a new array.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "Decibels are a ratio on a logarithmic scale, so a small number of them is a large factor.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "three decibels is a doubling of acoustic power",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.question",
+   "original": "By what factor do the mounts reduce radiated power?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "Every 3 decibels is a factor of two in power, so 12 decibels is four doublings: two to the fourth, a factor of sixteen. Read as a percentage it sounds like a minor refit and it is nothing of the kind — sixteen times less radiated power changes the range at which the boat is detectable. This is why levels are quoted in decibels at all: the quantities span so many orders of magnitude that a linear scale hides the differences that matter.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.prompt",
+   "original": "The mounts are rated at 12 dB of reduction in radiated level.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.question",
+   "original": "By what factor do the mounts reduce radiated power?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.estimate.explanation",
+   "original": "Decibels add where factors multiply, which is the whole point of the scale.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.relationship",
+   "original": "Each 3 dB is one doubling of power, so the factor is 2 raised to (dB ÷ 3).",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "The value of a different failure",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "Say what the second sounder is worth",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "The second sounder costs £2.4m, the same as the pump mounts, and quotes the same 0.5-metre accuracy as the one already fitted. Both the plot and the existing sounder take their reference from the same transducer, and the navigator wants it anyway.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "A second instrument is worth having when it fails differently, not when it agrees.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "two instruments sharing a source share its mistakes",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.question",
+   "original": "What does the second sounder actually buy?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "A spare is worth what it costs only when it fails differently from the thing it backs up. Two instruments sharing a sensor, a power supply or a source of data will agree with each other confidently while both are wrong — and this boat has been misled twice this patrol by exactly that. Independence is the entire product. It makes nothing on the chart more precise, and the plot has been precisely wrong before, which is the point.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.0",
+   "original": "A measurement that cannot fail the way the plot fails.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.choices.1",
+   "original": "A more precise depth, which improves the plot's accuracy.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.2",
+   "original": "A backup for when the first sounder is broken, and nothing more.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.3",
+   "original": "Confirmation of the existing sounder, which builds confidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.0",
+   "original": "Precision is not the problem; the plot has been precisely wrong before.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.1",
+   "original": "It is a backup too, but that is not what makes it worth the money.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.2",
+   "original": "Confirmation from a source that fails the same way is not confirmation.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.title",
+   "original": "Deep Watch",
+   "readOnly": true
+  },
+  {
+   "id": "m15.objective",
+   "original": "Run the whole boat at once, with everything degraded a little and nothing decided for you.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.briefing",
+   "original": "An uncertain contact, a plot four hours old, water in the forward bilge, a scrubber train down and a bearing running warm. None of them is an emergency. Together they are the patrol.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.stake",
+   "original": "Twenty-second day, the last full watch of the patrol, and everything is degraded a little. A contact Rask has not resolved. A plot Sowande has not been able to fix since the forenoon. A machine Haruki has not looked at since Tuesday. Whitfield is in the wardroom with the corpsman and a fractured wrist of his own, so the officer you would have handed half of this to is not available. This watch you decide the order everything gets worked in, and you do it while it is happening. Nobody will tell you which problem is the important one. Getting that ranking right is the job, and it is the only part of it that cannot be delegated.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "Command is choosing which uncertainty you can live with, and saying so out loud.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Five small problems",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "What is the first thing that has to change?",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.place",
+   "original": "Control Room",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "Nothing on the board is red. The plot is four hours old, the contact is faint and unresolved, the forward bilge is wet, one scrubber train is down and a bearing is warm. The boat is closing a constrained passage.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "A set of small problems can be worse than a big one, because none of them demands attention.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "a watch attends to whatever is shouting",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.headline",
+   "original": "Nothing on the board is red, and the boat is an hour from a passage it cannot take twice.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "A set of small problems is more dangerous than one big one, because none is loud enough to demand attention. What separates them is not size but direction: four of these are stable and measured, and one degrades every minute with nobody touching it. The bilge is wet and not rising. The carbon dioxide has twenty hours behind it. The bearing is steady. The contact can be watched. The age of the position is the only thing getting worse on its own — and where the boat is about to be is what makes it urgent.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "The age of the position",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.0.mechanism",
+   "original": "Everything else is stable and measured; the plot is the only thing getting worse on its own, and the passage depends on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "The unresolved contact",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.1.mechanism",
+   "original": "A faint contact that may be nothing, and can be watched while something else is fixed.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "The wet bilge",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2.mechanism",
+   "original": "Water that is not rising, which is a note in the log rather than a casualty.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "The carbon dioxide",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.3.mechanism",
+   "original": "A slow rise with twenty hours of margin behind it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.4",
+   "original": "The warm bearing",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.4.mechanism",
+   "original": "A steady temperature, which is a watch item and not a fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "The unresolved contact may be nothing, and it can be held and watched while something else is fixed.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "A wet bilge that is not rising is a note in the log. It becomes a casualty when the level moves.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "Carbon dioxide at 0.7 per cent rising slowly has twenty hours of margin behind it and is measured continuously.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.3",
+   "original": "A bearing at a steady sixty-eight degrees is a watch item. Steady is the word that matters.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "Everything you are not doing yourself",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "Match each item to the assignment that fits it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.place",
+   "original": "Forward Equipment & Handling",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "You are taking the plot yourself. Four other things need somebody, and Whitfield is waiting with the watch bill. This is the last watch of the patrol.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "An assignment that names a threshold can be acted on alone; one that says watch it cannot.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "an instruction has to be actable by the person who receives it",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "An assignment that does not say who has it, what they do first and when they come back is a wish rather than an order. Every one of these asks for a threshold instead of a watch. Log the level and report a change, not a number. Hold the contact and report before it resolves. Restore the scrubber, or name the hour at which the air stops being optional. Restore the pump, and say what it costs acoustically. Say keep an eye on it and four things get watched while none of them gets decided.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.0",
+   "original": "Log the level every ten minutes and report a change, not a number.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.1",
+   "original": "Hold it and get a bearing rate, and report before it resolves rather than after.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.2",
+   "original": "Restore it, or name the hour at which the air stops being optional.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.3",
+   "original": "Restore the second cooling pump, and say what that costs acoustically.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.0",
+   "original": "A bilge that is wet and not rising needs a level logged every ten minutes and a change reported — a change, not a number, because the number means nothing on its own.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.1",
+   "original": "An unresolved contact needs holding for a bearing rate, and a report before it resolves. Waiting until it is certain wastes the geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.2",
+   "original": "A scrubber train that is down needs restoring, or an hour named at which the air stops being optional. That hour is what command plans around.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.3",
+   "original": "A warm bearing needs the second cooling pump back, and the acoustic cost said out loud — because that cost is the reason it was secured.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.scenarios.0",
+   "original": "The forward bilge, wet but not rising.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.scenarios.1",
+   "original": "The faint contact nobody has resolved.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.scenarios.2",
+   "original": "The scrubber train that is down.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.scenarios.3",
+   "original": "The bearing running warm.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "Why the level pulses three times a second",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.place",
+   "original": "Sonar Shack",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "Two narrowband lines, 147 and 150 hertz, and the operator says the level swells and dies three times a second on the audio. The display shows two steady lines and nothing else.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "Two tones close together rise and fall together at a rate you can hear and count.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "two waves arriving together add where they are in phase and cancel where they are not",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.question",
+   "original": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "Two tones close in frequency drift in and out of phase with each other, adding where they agree and cancelling where they do not, and they come back into phase at the difference frequency — 150 minus 147, three times a second. So the pulsing is not a third signal and not an artefact: it is evidence that there are exactly two sources, and their spacing is measurable by ear. Two shafts on one hull do this, and so do two boats.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.0",
+   "original": "Two sources beating, at the difference of their frequencies.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.1",
+   "original": "One source whose speed is changing three times a second.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.2",
+   "original": "A fault in the display, since two steady lines cannot pulse.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.3",
+   "original": "The boat's own machinery, aliased into the band.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.0",
+   "original": "A speed change moves a line's frequency. It does not make the level rise and fall on a fixed period.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.1",
+   "original": "Two steady lines pulsing is what interference sounds like; the display is showing the frequencies, not the sum.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.2",
+   "original": "Our own machinery would appear on every bearing. These two lines are on one.",
+   "readOnly": false
+  },
+  {
+   "id": "copy.sonar_room",
+   "original": "<p><b>Sonar Room</b> — three displays and a dark space, because the eye recovers faster than the ear does. Everything the boat knows about the world outside the hull arrives here first.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.control_room",
+   "original": "<p><b>Control Room</b> — the plot, the planes and the periscope. The boat is driven from here, and the chart table is where a position stops being a calculation and becomes a decision.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.propulsion",
+   "original": "<p><b>Propulsion Machinery</b> — what turns the shaft, and the loudest compartment aboard. Everything in this space is a trade between speed and being heard.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.electrical",
+   "original": "<p><b>Electrical Distribution</b> — the switchboard and every cable run in the boat. A fire in here is a fire with a power supply, which is a different problem from a fire.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.forward_equipment",
+   "original": "<p><b>Forward Equipment &amp; Handling</b> — the working space at the bow, and the reason flooding is a forward problem: the sea connections for the forward systems are here, under the deck plates.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.sonar_electronics",
+   "original": "<p><b>Sonar-Array Electronics</b> — the cabinets that turn what the array hears into something a person can read. They need cooling water, which is why a flooding casualty forward is also a sonar casualty.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.radio_room",
+   "original": "<p><b>Radio &amp; Communications</b> — where the boat would talk to anybody, which submerged it mostly does not. Coming up to transmit is a decision about exposure, not about equipment.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.berthing_mess",
+   "original": "<p><b>Berthing, Mess &amp; Medical</b> — where the crew that is not on watch is, which makes it the compartment where atmosphere problems show up as people before they show up as numbers.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.machinery_control",
+   "original": "<p><b>Machinery Control Room</b> — the plant is run from here rather than from beside it. Every gauge in this space is a report from somewhere else in the boat.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.auxiliary",
+   "original": "<p><b>Auxiliary Machinery &amp; Bilge</b> — scrubbers, oxygen generation, the drain pump and the lowest deck in the boat. Two of the three things keeping the crew alive are in this compartment.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.SONAR.caption",
+   "original": "The loudest thing on the display is almost never the thing that matters.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.SONAR.standLine",
+   "original": "Four sources on the broadband stack, one of them ours, and the watch has six minutes on it.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.NAV.caption",
+   "original": "A position is a claim with an age on it.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.NAV.standLine",
+   "original": "Three and a half hours of dead reckoning, and a set nobody has measured.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.DC.caption",
+   "original": "Pumping buys minutes. The hull fitting is what ends it.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.DC.standLine",
+   "original": "Water in the forward bilge, and the level was last read four minutes ago.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.FIRE.caption",
+   "original": "An electrical fire is put out by de-energizing it, not by the agent.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.FIRE.standLine",
+   "original": "Smoke in the electrical space, and the switchboard lamp says the bus is open.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ATMO.caption",
+   "original": "An installed sensor is a report. A handheld reading is a measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ATMO.standLine",
+   "original": "A headache in berthing, and the plant says the air is fine.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ENG.caption",
+   "original": "Secure a pump to be quiet and you have started a clock nobody can see.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ENG.standLine",
+   "original": "Turns for eight knots at ninety metres, and the sonar room is asking why they can hear us.",
+   "readOnly": false
+  }
+ ]
+}

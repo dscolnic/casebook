@@ -1,0 +1,4611 @@
+{
+ "theme": "outbreak_riverton",
+ "book": "books/outbreak-riverton.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "Scientific Response Director · Riverton",
+   "readOnly": false
+  },
+  {
+   "id": "group.CLIN.desc",
+   "original": "Patient physiology, organ systems, and bedside evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "group.CELL.desc",
+   "original": "Cells, membranes, receptors, transport, and host interactions.",
+   "readOnly": false
+  },
+  {
+   "id": "group.MOL.desc",
+   "original": "DNA, RNA, gene expression, sequencing, and diagnostic controls.",
+   "readOnly": false
+  },
+  {
+   "id": "group.IMM.desc",
+   "original": "Immune mechanisms, treatment response, and intervention evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "group.POP.desc",
+   "original": "Population patterns, surveillance, trials, and evolutionary change.",
+   "readOnly": false
+  },
+  {
+   "id": "group.FIELD.desc",
+   "original": "Environmental surveillance, animal reservoirs, and ecosystem connections.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.role",
+   "original": "Clinical Physiology Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.bio",
+   "original": "Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.quiz.0.q",
+   "original": "Why does Ortiz read vital signs as a delivery chain rather than as separate numbers?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.quiz.0.a",
+   "original": "Oxygen reaching tissue depends on every link, so one normal reading does not clear the chain",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.quiz.0.wrong.0",
+   "original": "Vital signs all come off one monitor, so they share whatever error it has",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.quiz.0.wrong.1",
+   "original": "Only the chain as a whole is recorded in the notes",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ortiz.quiz.0.wrong.2",
+   "original": "Individual readings are too imprecise to interpret",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.role",
+   "original": "Cell Biology Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.bio",
+   "original": "Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.q",
+   "original": "Why can one agent damage one tissue and leave another alone?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.a",
+   "original": "Cells differ in the receptors and transport their membranes carry",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.wrong.0",
+   "original": "Blood reaches some tissues a great deal faster than it reaches others",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.wrong.1",
+   "original": "Larger cells absorb more of any substance",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.wrong.2",
+   "original": "Damage depends only on the dose that arrives",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.role",
+   "original": "Molecular Diagnostics Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.bio",
+   "original": "Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.q",
+   "original": "What does Patel mean by treating a molecular signal as a claim?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.a",
+   "original": "It has to survive its controls, a second method and a known provenance before it means anything",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.wrong.0",
+   "original": "Every result has to be published in some form before anybody may act on it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.wrong.1",
+   "original": "A signal is only valid if the same laboratory repeats it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.wrong.2",
+   "original": "Molecular methods are less reliable than culture",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.role",
+   "original": "Immunology Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.bio",
+   "original": "Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.q",
+   "original": "Why does Okafor separate protective immune activity from damage?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.a",
+   "original": "The treatment that helps one is the treatment that makes the other worse",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.0",
+   "original": "Only the damaging kind of inflammation shows up in a blood sample",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.1",
+   "original": "Protective responses always resolve without treatment",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.2",
+   "original": "The distinction decides which ward a patient goes to",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.role",
+   "original": "Epidemiology Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.bio",
+   "original": "Builds comparisons that distinguish real population change from sampling, bias, and coincidence.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.quiz.0.q",
+   "original": "What is Morales's comparison group actually for?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.quiz.0.a",
+   "original": "Without it a change in the numbers cannot be told from a change in who was tested",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.quiz.0.wrong.0",
+   "original": "It doubles the size of the sample and narrows the confidence interval",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.quiz.0.wrong.1",
+   "original": "It is required before any result can be published",
+   "readOnly": false
+  },
+  {
+   "id": "roster.morales.quiz.0.wrong.2",
+   "original": "It identifies which hospital reported first",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.role",
+   "original": "One Health Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.bio",
+   "original": "Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.quiz.0.q",
+   "original": "Why does Singh refuse to call an animal finding a transmission route?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.quiz.0.a",
+   "original": "The animal may have caught it from people, and prevalence and exposure are what separate the two",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.quiz.0.wrong.0",
+   "original": "Animal samples cannot be sequenced to the same depth as human ones",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.quiz.0.wrong.1",
+   "original": "Transmission routes can only be confirmed experimentally",
+   "readOnly": false
+  },
+  {
+   "id": "roster.singh.quiz.0.wrong.2",
+   "original": "Wildlife sampling is never representative",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.role",
+   "original": "Critical Care Physician",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.bio",
+   "original": "Runs the intensive care unit, where the outbreak stops being a case count and\nbecomes four people whose oxygen is falling for reasons nobody has settled.\n\nShe reads a patient as a set of coupled systems. A falling oxygen saturation\ncan come from the lung, the blood that carries the oxygen or the circulation\nthat moves it, and the treatment for each of those is different.\n\nHer limit is that the sickest patients are the least representative. What is\nhappening in her unit is real and it is also the tail of the distribution.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.nakamura.quiz.0.q",
+   "original": "Why does Nakamura warn against describing the disease from her unit alone?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.a",
+   "original": "The sickest patients are the tail of the distribution, not a sample of it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.wrong.0",
+   "original": "Intensive care records are less accurate than ward records",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.wrong.1",
+   "original": "Severe cases are treated before they can be measured",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.wrong.2",
+   "original": "Her unit only admits patients with confirmed tests",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.role",
+   "original": "Cell Biologist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.bio",
+   "original": "Works out which cells the pathogen can enter and what it does once inside,\nbecause that constrains everything downstream — which tissues are damaged,\nwhich drugs could plausibly work, and which route of transmission is possible.\n\nShe runs a negative control on every plate as a matter of habit. A culture\nthat shows an effect without a control showing nothing is a result about the\nlaboratory as much as about the pathogen.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.q",
+   "original": "Why does Adeyemi run a negative control on every plate?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.a",
+   "original": "Without it, an effect of the laboratory looks like an effect of the pathogen",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.0",
+   "original": "Controls make the cultures grow at a reproducible rate",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.1",
+   "original": "A control is what converts a qualitative result into a quantitative one",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.2",
+   "original": "Controls are required only when the sample is from a patient",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergstrom.role",
+   "original": "Genomic Epidemiologist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergstrom.bio",
+   "original": "Reads sequences for what they say about transmission — who infected whom,\nhow long the chain has been running, and whether two clusters are one\noutbreak or two.\n\nGenetic distance is her main tool and her main trap. Two sequences being\nclose is evidence of a recent common ancestor, not evidence that one patient\ninfected the other, and the difference matters for every control decision.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.bergstrom.quiz.0.q",
+   "original": "What does Bergström say two nearly identical sequences establish?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergstrom.quiz.0.a",
+   "original": "A recent common ancestor, which is not the same as one patient infecting the other",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergstrom.quiz.0.wrong.0",
+   "original": "The direction of transmission between the two patients",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergstrom.quiz.0.wrong.1",
+   "original": "That both patients were infected on the same day",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergstrom.quiz.0.wrong.2",
+   "original": "That the pathogen is not mutating",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.role",
+   "original": "Clinical Immunologist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.bio",
+   "original": "Separates the damage a pathogen does from the damage the immune response does\nwhile clearing it, which sounds academic until a treatment has to be chosen.\n\nSuppressing inflammation helps a patient whose injury is immune-driven and\nharms one who is still fighting the infection. The same drug, the same dose,\nopposite outcomes, decided by where the patient is in their course.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.haddad.quiz.0.q",
+   "original": "Why can the same anti-inflammatory treatment help one patient and harm another?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.a",
+   "original": "It depends whether the damage is immune-driven or the infection is still winning",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.wrong.0",
+   "original": "Doses are calculated from body weight, so they vary between patients on the ward",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.wrong.1",
+   "original": "Some patients absorb the drug and others do not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.wrong.2",
+   "original": "The drug expires quickly once a vial is opened",
+   "readOnly": false
+  },
+  {
+   "id": "roster.oduya.role",
+   "original": "Field Epidemiologist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.oduya.bio",
+   "original": "Builds the case definition, which decides what counts as a case and therefore\nwhat every curve in the response is a curve of.\n\nA definition too narrow misses the spread and one too wide fills the count\nwith other illnesses. She changes it when she has to and records the change,\nbecause a curve that bends on the day the definition moved is not evidence\nabout the disease.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.oduya.quiz.0.q",
+   "original": "Why does Oduya document every change to the case definition?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.oduya.quiz.0.a",
+   "original": "A bend on the day the definition changed is an artefact",
+   "readOnly": false
+  },
+  {
+   "id": "roster.oduya.quiz.0.wrong.0",
+   "original": "Definitions must be approved by the hospitals before use",
+   "readOnly": false
+  },
+  {
+   "id": "roster.oduya.quiz.0.wrong.1",
+   "original": "Changing a definition invalidates every laboratory result taken before it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.oduya.quiz.0.wrong.2",
+   "original": "The definition determines which treatment a patient receives",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellanos.role",
+   "original": "Wildlife Veterinarian",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellanos.bio",
+   "original": "Samples the animals people live alongside, which is where most new human\npathogens were living before they were human pathogens.\n\nFinding the organism in a species proves that species can carry it. Showing\nit is a reservoir needs prevalence, the exposure pattern of the human cases,\nand comparison sites where the illness never appeared — otherwise a bystander\nthat caught it from people gets blamed and culled.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.castellanos.quiz.0.q",
+   "original": "Why is finding the pathogen in an animal not enough to declare a reservoir?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellanos.quiz.0.a",
+   "original": "The animal may have caught it from people, and prevalence separates the two",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellanos.quiz.0.wrong.0",
+   "original": "Field samples are always contaminated by human handling",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellanos.quiz.0.wrong.1",
+   "original": "A reservoir must contain a higher viral load than any patient",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellanos.quiz.0.wrong.2",
+   "original": "The organism has to be found in more than one individual animal at the site",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Antibody.def",
+   "original": "A protein the immune system makes that binds one specific target.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Catalysis.def",
+   "original": "Speeding a reaction by offering an easier path, without being used up. Enzymes are the biological version.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Codon.def",
+   "original": "Three letters of genetic code, which together name one amino acid. Change one and the protein may change by one unit.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Control.def",
+   "original": "A comparison designed to reveal whether a signal could arise without the proposed cause.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Diffusion.def",
+   "original": "Movement from where there is more to where there is less, with no energy spent. It is why a small molecule crosses a membrane on its own.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Genomic sequencing.def",
+   "original": "Reading the agent’s genetic code, which shows how closely two cases are related.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Homeostasis.def",
+   "original": "The regulation that keeps internal conditions within workable ranges.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Incidence.def",
+   "original": "How many new cases appear per unit of time. It is the rate; prevalence is the stock.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Neutralising antibody.def",
+   "original": "An antibody that blocks the agent from entering a cell, rather than merely marking it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Pathogen.def",
+   "original": "An agent that causes disease — a virus, a bacterium, a parasite.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Prevalence.def",
+   "original": "How many people have the illness right now. Long illnesses keep it high after new cases fall.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Reagent.def",
+   "original": "A chemical added to make a test work, as opposed to the sample being tested.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Reservoir.def",
+   "original": "A host population or environment in which an infectious agent can persist.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Ribosome.def",
+   "original": "The machine in a cell that reads RNA and assembles the protein it specifies.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.RNA.def",
+   "original": "The working copy of a gene, read to make a protein. Many viruses carry their whole genome as RNA.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Saturation.def",
+   "original": "The point at which adding more changes nothing, because every place it could go is taken.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Selection.def",
+   "original": "A process in which variants differ in reproductive success, changing frequencies over generations.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Sensitivity.def",
+   "original": "The fraction of true cases a test detects.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Solute.def",
+   "original": "The substance dissolved in a liquid, as opposed to the liquid doing the dissolving.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Specificity.def",
+   "original": "The fraction of unaffected cases a test correctly leaves negative.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Vector.def",
+   "original": "An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.title",
+   "original": "The First Cluster",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "Open an investigation using a defensible provisional case definition and an explicit comparison baseline.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.briefing",
+   "original": "Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue. The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.stake",
+   "original": "Day one. Seven patients, three hospitals, four days, and the same four symptoms in every one of them. The epidemiology lead, Sofia Morales, has the surveillance printout and a reporter downstairs already has the number. This stage you decide whether this is an outbreak at all, agree what counts as a case, and spend the first of the response money. Seven sounds like a lot, and Morales will not say whether it is until she knows what a normal week in this city looks like. Call it nothing and you lose the weeks when an outbreak is still small enough to stop.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "Signal or noise?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "Is this a signal, and what on the desk decides it?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.place",
+   "original": "Emergency Department Network",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "Seven patients across three hospitals, four days, and the same four symptoms in every one of them. Morales has the surveillance printout, the reporting routes and the catchment figures spread out on the desk. The press office has asked twice whether it should say anything. Nothing goes out until somebody calls this.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "A count becomes a signal only when something says what was expected instead.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "a rate is a count measured against a population and a length of time",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.1",
+   "original": "surveillance only sees the patients who reached it",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.question",
+   "original": "Is this a signal, and what on the desk decides it?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.headline",
+   "original": "Seven cases in four days, against a syndrome the city logs about twice a year.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "A count is not a signal. What makes it one is a comparison against something written down beforehand, and the baseline here is about two a year — so seven in four days is a departure of a couple of hundredfold, not a busy week. The reading that matters most is the quiet one: two of the seven were found on manual chart review, outside the alert rule. Had every case arrived through that one rule, the cluster could have belonged to the rule. Two found another way is what makes it real.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.0",
+   "original": "A real departure from the baseline",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.0.mechanism",
+   "original": "Seven in four days against two a year is far outside what the system usually does.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.1",
+   "original": "An artifact of the shared alert rule",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.1.mechanism",
+   "original": "Every case was found the same way",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2",
+   "original": "Ordinary autumn respiratory illness",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2.mechanism",
+   "original": "This syndrome is common in autumn and the count is within normal seasonal movement.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3",
+   "original": "Impossible to say — there is no denominator",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3.mechanism",
+   "original": "Seven is a numerator",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.0",
+   "original": "The alert rule is the right worry, and it is the one this panel rules out. Five cases came through it and two did not, so the pattern survives being looked for a second way.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.1",
+   "original": "Autumn respiratory illness would lift the other syndromes with it. The panel shows those flat, so whatever this is, it is not the season.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.2",
+   "original": "The denominator is on the desk — all three hospitals supplied their catchment. That objection is the correct instinct and it has already been answered.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "Build the provisional case definition",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Order the build so each step can be checked before the next one depends on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.place",
+   "original": "Epidemiology Operations Room",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Lena Ortiz, who runs clinical physiology, wants one definition, built in the right order.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "Operational definitions convert vague concern into reproducible observation.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "a curve is only meaningful if every hospital counted the same thing",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.1",
+   "original": "a test can be wrong by missing cases or by counting the wrong ones",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "A case definition is an instrument, and like any instrument it is wrong in a known direction. Too narrow and the spread is invisible; too wide and the count fills with the ordinary respiratory illness of a city in autumn. That is why it is tested twice before it is issued — against patients already known to be cases, which catches a definition that is too narrow, and against obvious non-cases, which catches one that is too wide. A definition nobody tested is a curve nobody can interpret.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.0",
+   "original": "Records first, because the shared features have to come out of the patients rather than out of the drafting. Specifying symptoms before reading the notes is writing down what you expected to find.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.1",
+   "original": "Symptoms, timing and geography next, because those three are what a clinician at four in the morning actually applies. A definition that cannot be applied at speed is not an operational definition.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.2",
+   "original": "Testing before publication, not after. Known cases catch a definition that is too narrow; obvious non-cases catch one that is too wide. Skip this and the first curve is uninterpretable in a direction nobody can name.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.3",
+   "original": "The revision date goes out with the definition. Without it, three hospitals keep counting to a definition everybody knows is provisional and nobody is authorised to change.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.0",
+   "original": "Specify observable symptoms, timing, and location.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.1",
+   "original": "Read the notes of the patients already admitted, for features they share.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.2",
+   "original": "Test the definition on known cases and obvious non-cases.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.3",
+   "original": "Attach a revision date and the known uncertainty to the definition the hospitals apply.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "Spend the first response reserve",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "What does the office start this afternoon?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.place",
+   "original": "Clinical Data Office",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "One reserve of response money, and three things the room wants to spend it on. Ortiz needs one of them started this afternoon; the other two wait until tomorrow at the earliest. Nothing measured so far would change a decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "Comparable observations come before independent ones, because everything else is read against them.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "two sources can agree and still be wrong together if they were collected the same way",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.question",
+   "original": "What does the office start this afternoon?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "Three hospitals are about to produce three curves, and curves only add up if the same definition made them. The line list is what turns three sets of impressions into one set of observations with dates and denominators — and every later stream, the wastewater included, gets read against it. Start anywhere else and the first thing tomorrow's data has to be compared with does not exist yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.0",
+   "original": "A standardised line list across all three hospitals.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.choices.1",
+   "original": "Interviews with every hospital director for an expert impression.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.2",
+   "original": "Wastewater sampling in the affected and comparison neighbourhoods.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.3",
+   "original": "A citywide warning, before transmission is understood.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.0",
+   "original": "Interviews are fast and return impressions. An impression has no denominator, so it cannot say whether seven in four days is a departure from anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.1",
+   "original": "Wastewater is the right second stream, and it is valuable precisely because it does not depend on who chose to seek care. It cannot name a patient or define a case, which is what this week needs.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.2",
+   "original": "A warning issued before transmission is understood spends credibility on a hypothesis, and credibility is what every later message depends on.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.title",
+   "original": "What Kind of Agent?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Classify the broad agent category and identify the next discriminating test.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.briefing",
+   "original": "Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.stake",
+   "original": "Day two. Pathology has four results from the same specimens and will not put a name to any of it. The microscope images are the most convincing thing anybody has seen all week, which is exactly why the cell biology lead, Maya Chen, does not trust them yet, and her diagnostics counterpart Ravi Patel wants to commit the diagnostics bench tonight. This stage you decide what broad kind of thing this is and buy the one piece of evidence that would settle it. Everything downstream is chosen off this call: what to grow it in, which drugs are worth considering, what tomorrow's test looks for.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "What kind of agent fits the whole panel?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Which explanation fits every reading, including the quiet negative controls?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.place",
+   "original": "Hospital Pathology Suite",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "Pathology has four results from the same positive specimens and will not put a name to any of it. The four are on the light box in front of you. Ortiz needs a class of agent before the diagnostic bench can choose a method at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "Agent classification should combine cellular structure, host dependence, molecular evidence, and controls rather than rely on one striking image.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "cells and viruses differ in whether they can copy themselves alone",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.assumes.1",
+   "original": "a negative control is a result, not an absence of one",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.headline",
+   "original": "Pathology has several clues from the same positive specimens.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "The negatives are doing the work here. No cellular forms under the microscope, no bacterial marker, no fungal cell wall — three ways of being a cell, all absent. What is present is dependence: signal rises only where living host cells are, which is what an agent that cannot copy itself alone looks like. And the clean extraction blank is what stops the whole panel being about the laboratory instead of the patient.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.0",
+   "original": "An RNA virus-like agent",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.choices.0.mechanism",
+   "original": "Not a cell of its own, and it can only copy itself inside a living host cell.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1",
+   "original": "A bacterium of some kind",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1.mechanism",
+   "original": "A cellular organism, which would leave bacterial markers and structures behind.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.2",
+   "original": "A fungus of some kind",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.2.mechanism",
+   "original": "A cellular organism with a cell wall the stain is built to find.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3",
+   "original": "Laboratory contamination",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3.mechanism",
+   "original": "Target material loose in the workflow rather than anything in the patients.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.0",
+   "original": "A bacterium is a cell and would leave cellular evidence — a marker, a wall, something under the microscope. Three separate looks for that came back empty.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.1",
+   "original": "A fungus would show cell-wall material on the stain built to find it. That stain is negative, and it is a stain that rarely misses.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.2",
+   "original": "Contamination is the right suspicion whenever a signal appears from nowhere, and it is checked by the blank. This blank is clean, so the signal came in with the specimens.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "From specimen to broad classification",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.place",
+   "original": "Microscopy Core",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "The microscope bench has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "A good classification is an evidence synthesis, not a label generated by one instrument.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "a measurement of a contaminated preparation measures the contamination",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "Each step is only interpretable if the one before it held. Comparing against controls first is what separates the agent from the specimen it arrived in — measure a structure in a contaminated preparation and you have measured the contamination, at high magnification. Size and structure then say whether this is cellular at all, and only once you know that does asking whether it copies itself alone mean anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.0",
+   "original": "Controls first, because everything after them is a claim about the patient rather than about the tube.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.1",
+   "original": "Structure before behaviour: whether something needs a host cell is a question about an organism, and you do not have an organism until you know it is one.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.2",
+   "original": "The replication question comes third because it is the slowest and the most specific — it is worth running only on a candidate the first two steps survived.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.3",
+   "original": "Integration last. A provisional classification is what the other three produce, not a step you can take on its own.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.0",
+   "original": "Compare patient material with negative and healthy controls.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.1",
+   "original": "Characterize size, cellular structures, and nucleic-acid signature.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.2",
+   "original": "Ask whether the candidate reproduces independently or requires host cells.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.3",
+   "original": "Integrate the independent observations into a provisional classification.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "Why the assay stops at fifty-five degrees",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.place",
+   "original": "Molecular Diagnostics Bench",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "The amplification runs cleanly in the 37-degree block and produces nothing in the 55-degree one. Same reagents, same sample, same operator, twenty minutes apart.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "An enzyme is a protein with a shape, and the shape is what the reaction depends on.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "a protein's function depends on it keeping its shape",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.question",
+   "original": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "Enzymes are proteins, and a protein's catalytic site is a shape. Warming speeds a reaction until the temperature starts unfolding that shape, after which the rate collapses — which is why enzyme activity has an optimum rather than rising without limit. The two blocks differ in nothing but temperature, so the sample and the target are the same in both; what changed is whether the catalyst was still folded. It is also why the thermostable enzymes this assay uses are worth their cost.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.0",
+   "original": "An enzyme is catalysing it, and above its range the protein denatures and stops working.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.choices.1",
+   "original": "The reaction takes in heat, so more heat should always drive it faster.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.2",
+   "original": "The sample degraded, which is why the warmer block produced nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.3",
+   "original": "Heat destroyed the target sequence, so there was nothing left to amplify.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.0",
+   "original": "Rate rises with temperature only while the catalyst survives it, and this one did not.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.1",
+   "original": "Both blocks had the same sample, split twenty minutes apart. Degradation would have hit both.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.2",
+   "original": "DNA is stable well above 55 degrees; it separates into strands there and is not destroyed.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.title",
+   "original": "The Point of Entry",
+   "readOnly": false
+  },
+  {
+   "id": "m03.objective",
+   "original": "Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.briefing",
+   "original": "The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine how membrane structure, receptors, and transport explain this selectivity.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.stake",
+   "original": "Day four. The agent reaches the airway in everybody and only some cells are being damaged, and Adeyemi has spent two nights on why. This stage you work out why those cells and not their neighbours, and design the experiment that separates two steps people keep merging. Two of the three benches are already booked and Adeyemi wants the third tonight. Chen has asked for the resistant cells to be kept aside whatever is decided. Your teams start designing a therapy from this picture tonight. If the model is wrong they spend three months blocking a step the agent does not need.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "Crossing the cellular boundary",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.place",
+   "original": "Cell Culture Wing",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "Only some cell types in the respiratory tissue are affected, and the culture wing has four cards describing what happens when something crosses into a cell. Nobody has put them in order yet, and the therapy meeting is at four.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "Membranes are selective interfaces whose proteins can determine cell vulnerability.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "a cell membrane is a selective barrier, not a wall",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "The order is physical, and it is why the tissue pattern is predictable. Nothing enters until something on the surface is recognised, and a cell without the right protein cannot be infected however much material reaches it. Recognition comes first, the membrane rearranges second because that is what binding triggers, material crosses third, and everything the cell then does wrongly is downstream of a barrier that has already been crossed.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.0",
+   "original": "Binding first: it is the step that decides which cells are even candidates, which is what makes some cell types vulnerable and others not.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.1",
+   "original": "The membrane bends because something bound to it. Fusion is a consequence of recognition, not a step that happens on its own.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.2",
+   "original": "Material crosses only after the membrane has rearranged — that is what the rearrangement is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.3",
+   "original": "The hijacked machinery is last because it is an effect. A cell whose machinery is redirected has already been entered.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.0",
+   "original": "A surface molecule binds a compatible receptor.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.1",
+   "original": "The membrane bends or a fusion process begins.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.2",
+   "original": "The biological material enters the cell or an intracellular compartment.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.3",
+   "original": "Cellular machinery is redirected after entry.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "Choose the membrane mechanism",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.place",
+   "original": "Membrane Biology Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "Four observations from the culture bench, each describing something moving across a membrane. Adeyemi wants each one named by its mechanism before the entry model goes any further, and she does not want the names guessed from the molecules.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "Transport mechanisms are inferred from constraints, not memorized from molecule names alone.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "a concentration gradient has a direction",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.1",
+   "original": "ATP is the cell's energy currency",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "Three constraints tell these apart and none of them is the name of the molecule. Which way it goes: downhill needs no energy, uphill does, and the ATP consumption is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, an ion cannot and needs a pore. And how big it is: a bound particle too large for any channel is taken in by the membrane wrapping it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.0",
+   "original": "Simple diffusion.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.1",
+   "original": "Facilitated diffusion through a channel.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.2",
+   "original": "Active transport.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.3",
+   "original": "Endocytosis.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.0",
+   "original": "Downhill and needing no protein is simple diffusion — the molecule is small and nonpolar enough to cross the lipid itself.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.1",
+   "original": "Downhill but through a selective pore is facilitated diffusion. Still no energy spent; the protein supplies the selectivity, not the push.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.2",
+   "original": "Uphill with ATP consumed is active transport, and the energy cost is the thing that identifies it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.3",
+   "original": "A large bound particle enclosed by the membrane is endocytosis — a different process from anything crossing the bilayer.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.0",
+   "original": "A small nonpolar molecule moves down its concentration gradient.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.1",
+   "original": "An ion moves down its gradient through a selective protein pore.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.2",
+   "original": "A solute moves uphill while ATP is consumed.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.3",
+   "original": "A large bound particle is enclosed by the membrane.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "Separate binding from entry",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "Which experiment locates the step where resistant cells stop the process?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.place",
+   "original": "Structural Biology Room",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "Experiments built on a mechanism should identify the earliest point at which two conditions diverge.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "a chain of steps fails at its earliest broken link",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.question",
+   "original": "Which experiment locates the step where resistant cells stop the process?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Entry is a chain: bind the receptor, be taken in, escape the compartment, release the genome. The earliest step at which two cell types diverge is the cause, and everything downstream of it is a consequence — so measuring a late step on a cell that never bound the agent tells you nothing. Receptor abundance tests the first step, which is why it is the only measurement whose result changes what the next experiment should be.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "Measure receptor abundance on vulnerable and resistant cells.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "Track whether bound material is taken into the cell.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "Measure a late cellular response in both cell types.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "Increase the exposure until every cell shows damage.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "Internalisation is the right second experiment and it is only interpretable once you know both cell types can bind. Run it after, not instead.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "A late response tells you something already went wrong upstream, which is what you knew before you started.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "Flooding the system until everything is damaged destroys the difference between the two cell types, which is the entire measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.title",
+   "original": "Hijacked Cells",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.briefing",
+   "original": "Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.stake",
+   "original": "Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, one of them at forty times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "From genetic information to protein",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.place",
+   "original": "Sequencing Center",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "Affected cells are making RNA and proteins the sequencing centre does not recognise. Four cards describe how a cell gets from a gene to something that does a job. Nobody can say where the change is until the chain is on the board in order.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "Changes in protein abundance can arise at several distinct stages of gene expression.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "genes are read into RNA and RNA is read into protein",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "Abundance can change at any one of these stages independently, which is exactly why the chain is worth stating rather than treating expression as one event. The template has to be reachable before anything transcribes it; a transcript has to exist before a ribosome can read it; and a chain of amino acids does nothing at all until it folds. Each stage is a separate place for the answer to be hiding.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.0",
+   "original": "Access first: a template nothing can reach is transcribed by nothing, whatever else is true of the cell.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.1",
+   "original": "Transcription second, because the message is what the next stage reads.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.2",
+   "original": "Translation third — a ribosome needs a transcript, and codons are read only once there is something to read them from.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.3",
+   "original": "Folding last, and it is not a formality: an unfolded chain is present, measurable, and useless.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.0",
+   "original": "A DNA template is made accessible.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.1",
+   "original": "RNA polymerase produces an RNA transcript.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.2",
+   "original": "A ribosome reads codons in the messenger RNA.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.3",
+   "original": "The amino-acid chain folds and performs a cellular function.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "Locate the molecular change",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Gene Expression Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "Four patterns from the gene-expression bench, each pairing a measurement with another measurement. Adeyemi wants each one placed at the stage it reports on, before anybody proposes a gene worth targeting.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "The central dogma is a chain of measurable transformations, not a claim that every stage changes together.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "the amount of a protein and the amount of its message are measured separately",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "RNA abundance, protein abundance, sequence and activity are four different measurements, and the central dogma is a chain of transformations rather than a promise that they move together. Message up with protein flat means the message is not being turned into protein, or the protein is being destroyed as fast as it is made. Protein up with message unchanged means the opposite end. And a protein present in normal amounts but not working is a claim about the molecule, not about how much of it there is.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.0",
+   "original": "Possible translation limit or rapid protein turnover.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.1",
+   "original": "Possible increased translation efficiency or reduced protein degradation.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.2",
+   "original": "A missense sequence change.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.3",
+   "original": "Possible folding, modification, or active-site defect.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.0",
+   "original": "RNA rising while protein stays flat points downstream of transcription — a translation limit, or rapid turnover of the protein once made.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.1",
+   "original": "Protein rising on unchanged RNA points to more efficient translation or slower degradation. Nothing about the gene has changed.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.2",
+   "original": "One codon changed and one amino acid substituted is a sequence change, and it is visible only in the sequence.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.3",
+   "original": "Normal amount with low activity is about folding, modification or the active site — the molecule is there and cannot do the job.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scenarios.0",
+   "original": "RNA rises while protein stays constant.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scenarios.1",
+   "original": "RNA is unchanged while protein rises.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scenarios.2",
+   "original": "A codon changes and one amino acid is substituted.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scenarios.3",
+   "original": "Protein amount is normal but activity is low.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "Find the controlling stage",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "Abundance alone fits every mechanism. Which measurement do you make first?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.place",
+   "original": "Protein Analysis Core",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "An unfamiliar protein is fortyfold more abundant in affected cells than in controls. The transcript for it has not been quantified, the core has money for two measurements, and the team is already arguing about which gene to target.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "Mechanism requires measurements that span the full causal chain.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "a protein's abundance is set by how fast it is made and how fast it is destroyed",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.question",
+   "original": "Abundance alone fits every mechanism. Which measurement do you make first?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "A fortyfold rise in a protein is consistent with three different stages doing the work: more transcript made, the same transcript translated more efficiently, or the protein destroyed more slowly. Quantifying the transcript splits them, because it is upstream of the other two. If the message rose fortyfold as well, transcription is the controlling stage and the rest is bookkeeping. If it did not move, transcription is out and the cause is downstream of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.0",
+   "original": "Quantify the protein's messenger RNA across time.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.1",
+   "original": "Measure ribosome association with that RNA.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.2",
+   "original": "Measure the protein's half-life and degradation rate.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.3",
+   "original": "Sequence the neighbouring chromosomal region.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.0",
+   "original": "Ribosome association asks whether translation changed, and it only means something once you know whether the amount of message changed underneath it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.1",
+   "original": "Half-life asks whether the protein is simply being destroyed more slowly. A real possibility, and the third measurement rather than the first.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.2",
+   "original": "The neighbouring region answers a question nobody has asked about a protein whose gene is already identified.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.title",
+   "original": "A Test Before Morning",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.briefing",
+   "original": "Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.stake",
+   "original": "Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. Three thousand people have already been told to isolate on that run and the bulletin goes out at six. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "Build a trustworthy amplification run",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.place",
+   "original": "Sample Processing Room",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "A diagnostic result is the output of a controlled process, not simply a machine reading.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "amplification copies whatever template is present, wanted or not",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "A patient result is the output of a controlled process, and read before the controls are read it is an instrument reading rather than evidence. Identity has to survive extraction or the result belongs to no one. The controls have to be in the run, not added afterwards — a positive control shows the chemistry worked, and a no-template control shows the signal did not come from the room. Only when they behave is the patient well worth interpreting.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.0",
+   "original": "Extraction first, with identity preserved. A result that cannot be tied to a patient is not a diagnosis of anybody.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.1",
+   "original": "Controls go into the run alongside the samples. Added later they test a different run from the one that produced the result.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.2",
+   "original": "Amplification third, with validated primers — the step everything else exists to make interpretable.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.3",
+   "original": "Interpretation last and conditional. If a control misbehaved, the patient wells are uninterpretable no matter how clean they look.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.cards.0",
+   "original": "Extract material while preserving sample identity.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.cards.1",
+   "original": "Include positive, negative, and no-template controls.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.cards.2",
+   "original": "Amplify the target with validated primers and cycling conditions.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.cards.3",
+   "original": "Interpret the patient signal only if all controls behave as expected.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "Why did the assay turn positive?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "Which explanation best fits the patient results and all of the controls?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.place",
+   "original": "PCR Diagnostics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "The overnight run flagged several patients positive. The controls and a second platform ran alongside them, and all of it is on the screen in front of you. Hospitals are waiting to isolate on this result.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "A control is part of the evidence, not a decoration: a positive blank can overturn an apparently impressive patient signal.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "a no-template control contains water and no sample",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.1",
+   "original": "two methods with different chemistry fail in different ways",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.headline",
+   "original": "The overnight amplification run flags several patient samples as positive, but one control is also behaving strangely.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "A control is part of the evidence, not a decoration on it. The no-template control is water — there is nothing in it to amplify — so a target signal there means target material is loose in the workflow, and anything the workflow touched is suspect. The positive control working rules out failed chemistry, and an independent platform not finding the target in the same patients rules out the patients. One quiet well overturns an impressive-looking plate.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.0",
+   "original": "True patient positives",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.0.mechanism",
+   "original": "The patient samples contain the target and the controls are behaving normally.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.1",
+   "original": "Carryover contamination",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.choices.1.mechanism",
+   "original": "Target material entered part of the amplification workflow, making samples and the no-template control positive.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.2",
+   "original": "Reagent failure",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.choices.2.mechanism",
+   "original": "The reaction chemistry failed, so true target should not amplify reliably.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.3",
+   "original": "Sample inhibition",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.3.mechanism",
+   "original": "Something in patient material suppresses amplification and tends to create false negatives.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.0",
+   "original": "True positives would not put a signal in a tube containing no sample. That well is the one reading that cannot be explained by infected patients.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.1",
+   "original": "Reagent failure would stop true target amplifying, and the positive control amplified exactly as expected.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.2",
+   "original": "Inhibition suppresses amplification and produces false negatives. This plate has the opposite problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "What does a positive mean?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.place",
+   "original": "Clinical Statistics Desk",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The clinical statistics desk has the assay's performance figures and the size of the group in front of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "Clinical meaning depends on both test performance and the population being tested.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "prevalence is the share of a population that has the condition",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.1",
+   "original": "sensitivity and specificity are properties of a test, not of a population",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.question",
+   "original": "Estimate the chance that a positive result is a true case.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "Specificity is a property of the test; the fraction of positives that are real is a property of the test and the population together. Moving this assay from the ward to the city changes nothing about the chemistry and almost everything about what a positive means.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.estimate.prompt",
+   "original": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The screening group is ten thousand people, about one per cent of whom are infected, and the assay detects nine in ten infections and clears ninety-nine in a hundred uninfected people.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.estimate.question",
+   "original": "Estimate the chance that a positive result is a true case.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.estimate.explanation",
+   "original": "A hundred infected people give ninety true positives; the nine thousand nine hundred uninfected give ninety-nine false ones, because one per cent of a large number is a large number. The same assay on the affected ward, where prevalence is thirty per cent, would return positives that are almost all real.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.estimate.relationship",
+   "original": "Of everyone tested, the true positives are prevalence × sensitivity; the false positives are (1 − prevalence) × (1 − specificity). The answer is true positives as a share of all positives.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.title",
+   "original": "Why Are Some Patients Sicker?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.briefing",
+   "original": "Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.stake",
+   "original": "Day thirteen. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "Locate the oxygen-delivery failure",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Which bottleneck fits the whole heart-and-lung panel?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.place",
+   "original": "Intensive Care Unit",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "A normal reading at one point in a chain is evidence about where the fault is not.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "oxygen travels air to lung to blood to tissue, and each handover can fail separately",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.headline",
+   "original": "Two patients have severe fatigue and low tissue oxygen delivery.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "Oxygen delivery is a chain, and normal values at one link are not reassurance — they are evidence that the failure is elsewhere. Carbon dioxide near normal says air is reaching the alveoli, so ventilation is working. Cardiac output normal says the pump is moving blood. Haemoglobin normal says the blood can carry oxygen. What is left is the handover between air and blood, and the imaging says the same thing.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.0",
+   "original": "Ventilation failure",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.0.mechanism",
+   "original": "Too little fresh air reaches the alveoli; carbon dioxide would often rise along with falling oxygen.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.1",
+   "original": "Gas-exchange failure",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.1.mechanism",
+   "original": "Air reaches the lungs, but oxygen transfer from alveoli into blood is impaired.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2",
+   "original": "Circulatory delivery failure",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2.mechanism",
+   "original": "Oxygenated blood is present but cardiac output is too low to deliver it to tissues.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3",
+   "original": "Too little hemoglobin",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3.mechanism",
+   "original": "Blood flow and lung exchange may be adequate, but too little hemoglobin limits oxygen carriage.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.0",
+   "original": "Ventilation failure would usually push carbon dioxide up as oxygen falls, because the same failing airflow carries both. This carbon dioxide is near normal.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.1",
+   "original": "Circulatory failure means oxygenated blood that never arrives, and cardiac output here is 5.2 L/min. The blood is moving.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.2",
+   "original": "Anaemia limits how much oxygen each litre can carry, and haemoglobin is 14 g/dL. The carriage is not the problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "Estimate oxygen delivery",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.place",
+   "original": "Cardiopulmonary Physiology Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "The bedside argument has stalled on which of two patients is worse off. Both have the same oxygen content per litre of blood; one moves three litres a minute and the other five.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "A normal concentration does not guarantee a normal delivery rate; flow matters.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "a rate is an amount multiplied by how fast it is delivered",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.question",
+   "original": "Estimate oxygen delivery for the patient with the lower cardiac output.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "Two patients with identical saturations can differ by a factor of two in delivery, because the flow term is doing the work. A concentration is not a rate.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.estimate.prompt",
+   "original": "Two patients are being compared and the bedside argument has stalled on which is worse off. Blood carries about 0.20 litres of oxygen per litre in both of them; the first moves 3 litres a minute and the second moves 5.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.estimate.question",
+   "original": "Estimate oxygen delivery for the patient with the lower cardiac output.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.estimate.explanation",
+   "original": "Delivery is a rate, and it is the product of what each litre carries and how many litres arrive. Saturation and haemoglobin describe the content term and cannot on their own say how much oxygen reaches anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.estimate.relationship",
+   "original": "Oxygen delivered = blood flow × oxygen carried per unit of blood.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "Measure the failing link",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "One bedside measurement before the team commits to a treatment. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.place",
+   "original": "Clinical Chemistry Bench",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "Saturation is 84 per cent, carbon dioxide is normal, cardiac output is normal, and the lactate has not been sent. The patient is deteriorating and there is time for one more measurement at the bedside before the team commits.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "Integrated physiology requires evidence from multiple points along the transport chain.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "a failure shows itself at the point in a chain where the numbers stop matching",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.question",
+   "original": "One bedside measurement before the team commits to a treatment. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Oxygen delivery is a chain — lungs, blood, pump, tissue — and the panel has measured the top of it. Saturation is 84 per cent, which is low; carbon dioxide and cardiac output are normal, which rules out ventilation failure and pump failure. Nobody has measured the far end, which is whether the tissue is actually failing to meet demand in the tissues, which is the thing the treatment is meant to change.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.0",
+   "original": "Tissue lactate and acid-base status.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.choices.1",
+   "original": "Arterial oxygenation and carbon dioxide.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.2",
+   "original": "Cardiac output, or a validated stand-in for flow.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.3",
+   "original": "The same blood-oxygen reading, repeated on three devices.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.0",
+   "original": "Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.1",
+   "original": "Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.2",
+   "original": "Three identical devices agreeing tells you the devices agree. It does not add an independent observation.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.title",
+   "original": "The Immune System Turns",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.briefing",
+   "original": "Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish protective immune responses from damaging dysregulation.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.stake",
+   "original": "Day eighteen, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants drugs that damp the immune system started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "Build the immune response timeline",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.place",
+   "original": "Immunology Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "Patients are improving and then getting worse again, and the immunology lab wants the normal response on the board before it says which part has gone wrong. Four cards, no order yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "Innate and adaptive immunity are coordinated phases, not competing systems.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "the immune system has a fast general response and a slower specific one",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "The phases are ordered by speed and by specificity, and that ordering is what makes a clinical measurement interpretable. Innate sensors fire within hours because they recognise patterns rather than a particular agent. Local signals then recruit cells to where the damage is. Antigen-specific lymphocytes take days because they have to find the right clone and expand it. Memory is what persists after — a smaller population, kept.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.0",
+   "original": "Innate recognition first: it needs no prior exposure, which is exactly why it can be the fastest.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.1",
+   "original": "Recruitment second — signals bring cells to the place, and nothing specific can act until cells are there.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.2",
+   "original": "Clonal expansion third, and it is slow because finding and multiplying the right lymphocyte takes days.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.3",
+   "original": "Memory last. It is what is left after resolution, and it is the reason a second exposure goes differently.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.cards.0",
+   "original": "Innate sensors recognize damage or unfamiliar molecular patterns.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.cards.1",
+   "original": "Local signals recruit and activate immune cells.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.cards.2",
+   "original": "Antigen-specific lymphocytes expand and act.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.cards.3",
+   "original": "A smaller memory population persists after resolution.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "Protective response or runaway inflammation?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Which mechanism best explains the reversal in the full panel?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.place",
+   "original": "Intensive Care Unit",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "the immune response can damage tissue while it clears an infection",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.headline",
+   "original": "Several patients begin to worsen after the amount of detectable pathogen has started to fall.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.0",
+   "original": "Uncontrolled pathogen replication",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.0.mechanism",
+   "original": "The agent is multiplying faster and directly increasing tissue injury.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.1",
+   "original": "Inflammation out of control",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.1.mechanism",
+   "original": "The immune response remains strongly activated and damages tissue even as pathogen burden falls.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.2",
+   "original": "A new bacterial infection on top",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.2.mechanism",
+   "original": "A second bacterial infection is now driving the decline.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.3",
+   "original": "Measurement noise",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.3.mechanism",
+   "original": "The apparent changes are unrelated fluctuations without a shared mechanism.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.0",
+   "original": "Uncontrolled replication would show a rising pathogen signal. This one is falling, over forty-eight hours, while the patient declines.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.1",
+   "original": "A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.2",
+   "original": "Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "Treat the mechanism, not the marker",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "The ward wants to start drugs that damp the immune system tonight. What do you do?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.place",
+   "original": "Pathology Archive",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "Late deterioration is killing patients and the ward wants to start drugs that damp the immune system tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Intervention should follow evidence about what the immune system is doing, where, and when.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "suppressing a response removes it whether or not it is the thing causing harm",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.question",
+   "original": "The ward wants to start drugs that damp the immune system tonight. What do you do?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "Two drivers fit the same bedside picture: a pathogen still replicating, and a host response that has itself become the injury. They are distinguished by direction, not by level — in the first, viral load is high or rising while inflammatory markers follow it; in the second, load is falling while the markers keep climbing. A single time point cannot separate them, because both can produce the same numbers on any given morning. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.0",
+   "original": "Measure agent burden and inflammatory markers together over time first.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.choices.1",
+   "original": "Suppress the immune response immediately in everyone deteriorating.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.2",
+   "original": "Compare immune-cell states in improving and worsening patients.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.3",
+   "original": "Send pathology on affected tissue to identify what is being damaged.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "Suppressing now treats one hypothesis as settled. If agent burden is still rising in some of these patients, it removes their only defence.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "Comparing immune-cell states is the right study and returns in days. The ward is asking about tonight.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "Pathology says where the damage is. It does not say whether the pathogen is still driving it, which is the question the treatment turns on.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.title",
+   "original": "The Hidden Transmission Route",
+   "readOnly": false
+  },
+  {
+   "id": "m08.objective",
+   "original": "Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.briefing",
+   "original": "Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.stake",
+   "original": "Day twenty-four, and Morales gets her stage. Ward isolation has held for nine days and cases keep appearing in neighbourhoods with nobody in hospital. A field epidemiologist, Grace Oduya, has pulled a sewer sample from the north of the city that was kept by chance and tested this morning — positive four days before the first patient walked in. This stage you decide where transmission is actually happening and where to put surveillance. Oduya has three sampling teams and the city has four watersheds. The nine days of ward isolation have already cost the hospitals their elective work.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "Match the surveillance signal",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Wastewater Treatment Plant",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "Transmission inference depends on who is observed, when, and through which sampling process.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "who ends up in a dataset is decided by how the data was collected",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "What a stream can reveal is fixed by who is observed, when, and how they came to be observed. Wastewater sees everyone connected to the sewer whether or not they sought care, which makes it early and anonymous at the same time. Household interviews reach only households that agreed. A volunteer survey at one station samples volunteers at one station. And prevalence counts everybody currently ill, so it stays high while people are still ill even after new cases stop.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.0",
+   "original": "Possible early population-level signal, but not individual diagnosis.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.1",
+   "original": "Evidence that infectious contact may precede symptoms.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.2",
+   "original": "Potentially biased sample that may not represent riders.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3",
+   "original": "Long illness duration can keep prevalence high after incidence falls.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.0",
+   "original": "Wastewater rising before admissions is a population signal that arrives early and can never name a patient.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.1",
+   "original": "Exposures found before symptom onset are evidence about when transmission happens, from the only stream that asks people directly.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.2",
+   "original": "A volunteer sample at one station is a sample of volunteers at one station — the bias is in who agreed, not in the measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.3",
+   "original": "Prevalence stays high after incidence falls when the illness lasts a long time. The two are different quantities and this is how they come apart.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.0",
+   "original": "Wastewater concentration rises before hospital admissions.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.1",
+   "original": "Household interviews show several exposures before symptoms.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.2",
+   "original": "A transit survey samples only volunteers at one station.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.3",
+   "original": "Hospital prevalence remains high after new admissions decline.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "How many by morning",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.place",
+   "original": "Cell Biology Laboratory",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "The culture starts at 500 cells and the line divides every 40 minutes in this medium. The bench needs a number for eight hours from now, before it decides how much medium to prepare.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "Division doubles a population, so growth is exponential and its rate is a doubling time.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "each division turns one cell into two",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.question",
+   "original": "Estimate the number of cells after eight hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "Eight hours is 480 minutes. That is twelve doubling times. Twelve doublings is a factor of about 4,100, so 500 cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.prompt",
+   "original": "500 cells, a 40-minute doubling time, eight hours to go.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.question",
+   "original": "Estimate the number of cells after eight hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.estimate.explanation",
+   "original": "Twelve doublings, not twelve times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.relationship",
+   "original": "Final number = starting number × 2 raised to (time ÷ doubling time).",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "The same genome, different cells",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Every cell has the same genome. Why do only some of them make the receptor?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.place",
+   "original": "Cell Biology Laboratory",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "Every cell carries the same instructions and reads a different part of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "every cell in a body carries the same genome",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.question",
+   "original": "Every cell has the same genome. Why do only some of them make the receptor?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "Every nucleus holds the whole genome, so having a gene explains nothing about where its protein appears. Gene regulation decides it: transcription factors and the state of the chromatin decide which genes are read in which cell type, and that regulation is what makes an airway cell an airway cell. For an outbreak it is the practical point — tissue tropism follows the expression pattern of the receptor, which is why this agent causes a respiratory illness rather than a muscular one.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.0",
+   "original": "The gene is expressed in some cell types and switched off in others.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.1",
+   "original": "Only airway cells carry that gene; the muscle cells have lost it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.2",
+   "original": "The muscle cells make the receptor too, but the antibody cannot reach them.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.3",
+   "original": "The receptor is made by the agent, not by the cell.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.0",
+   "original": "Cells do not discard genes as they specialise; the genome is the same in both.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.1",
+   "original": "Staining shows the protein absent from the muscle tissue, not merely unreachable.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.2",
+   "original": "The receptor is a human protein. The agent exploits it and does not supply it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.title",
+   "original": "The Animal Connection",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.briefing",
+   "original": "Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.stake",
+   "original": "Day thirty-three. Sequences from three patients sit close to a virus found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. The wildlife vet, Mateo Castellanos, has been out there twice and says the herons are the wrong animal; the One Health lead, Arjun Singh, will not say either way until the sampling is designed properly. This stage you decide what role any animal is actually playing and design the campaign that could show it. What is being argued about is who infects whom over time, not which animal is nearby or easiest to blame.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "Reservoir, vector, or incidental host?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.place",
+   "original": "One Health Field Station",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "Ecological roles are inferred from dynamics, not appearance or proximity alone.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "a species can carry an agent, spread it, or merely be near it",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "Ecological role is a claim about dynamics, not about proximity or about which animal people are frightened of. A reservoir carries the agent persistently and stays well enough to keep carrying it. A vector moves it between hosts without being the place it persists. A species that sickens and dies without passing it on is where transmission stops. And a species that is simply common near cases and never tests positive shares a habitat with people, which is not the same as sharing an infection.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.0",
+   "original": "Potential reservoir host.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.1",
+   "original": "Potential biological or mechanical vector.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.2",
+   "original": "Incidental or dead-end host.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.3",
+   "original": "Ecological association without evidence of infection.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.0",
+   "original": "Persistent carriage with little disease is what a reservoir looks like — it has to survive the infection to maintain it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.1",
+   "original": "A biting organism that moves the agent between hosts is a vector whether or not it is ever the place the agent persists.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.2",
+   "original": "A species that becomes ill and rarely transmits is a dead end. The chain reaches it and stops.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.3",
+   "original": "Common near cases and consistently negative is a shared habitat, not a shared infection. Proximity is the weakest evidence on the board.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scenarios.0",
+   "original": "A species carries the agent persistently with little disease.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scenarios.1",
+   "original": "A biting organism transfers the agent between hosts.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scenarios.2",
+   "original": "A species becomes ill but rarely transmits onward.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scenarios.3",
+   "original": "A species is common near cases but consistently tests negative.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "Test the reservoir hypothesis",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.place",
+   "original": "Wildlife Ecology Site",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "A reservoir claim requires population and evolutionary evidence together.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "where you look decides what you can find",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "A positive animal is not a reservoir. What turns it into one is a design that could have found the agent somewhere else and did not, which is why the order matters: exposure patterns say where to sample, and sampling built around comparison sites is what makes a prevalence figure mean anything. Only then do prevalence and genetic relatedness across hosts say whether this species is in the transmission cycle, and only then can repeated spillover be tested rather than assumed.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.0",
+   "original": "Human cases against habitat first — that is what tells you which species and which places are even candidates.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.1",
+   "original": "Unbiased sampling with comparison sites second. Find the agent only where you looked hardest and you have measured your own search.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.2",
+   "original": "Prevalence and genetic relatedness third: they connect the two populations, and they need samples from both to compare.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.3",
+   "original": "Repeated spillover last. One event can be a coincidence; a reservoir claim is a claim about a process that keeps happening.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.0",
+   "original": "Map human cases against habitat and exposure patterns.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.1",
+   "original": "Sample candidate species using an unbiased design and comparison sites.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.2",
+   "original": "Compare prevalence and genetic signatures across hosts.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.cards.3",
+   "original": "Test whether the combined evidence explains repeated spillover.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "Choose the One Health campaign",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "One field campaign. What is its design?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.place",
+   "original": "Comparative Genomics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "There is one field campaign to fund and its design decides what can be concluded from it. Trappers, a genomics bench and a nervous agriculture department are all waiting on the answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "One Health decisions should connect human, animal, and environmental evidence before intervention.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "a sample tells you about the population it was drawn from and no other",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.question",
+   "original": "One field campaign. What is its design?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "A reservoir claim is a claim about prevalence — this species, in this place, carries the agent more than others do. Prevalence only means something against a design that could have found it somewhere else, so sampling one colony intensively produces a number with nothing to compare it against. Comparison sites and comparison species are what separate a reservoir from a bystander that caught it from people.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.0",
+   "original": "Stratify sampling across species, habitat, season and comparison sites.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.choices.1",
+   "original": "Sample the most feared species intensively near one case household.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.2",
+   "original": "Sequence every positive sample from humans and animals.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.3",
+   "original": "Remove wildlife from the flood plain while the investigation continues.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.0",
+   "original": "Sampling hard around one household guarantees a positive that cannot be generalised, and it will be the species people were already afraid of.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.1",
+   "original": "Sequencing is essential and comes second: you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.2",
+   "original": "Removing wildlife before involvement is established destroys the evidence, and does nothing at all if the reservoir is a species nobody removed.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.title",
+   "original": "The Mutation",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.briefing",
+   "original": "A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.stake",
+   "original": "Day forty-five. A variant with three changes has gone from 8 to 31 per cent of sequences in four weeks, in one district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "From variation to evolutionary change",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.place",
+   "original": "Sequencing Center",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "A genetic variant is rising in one part of the city and the word evolution is being used in the briefing room. Four cards describe how a population changes. Nobody has put them in order.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "Natural selection changes frequencies through heritable differences in reproductive success.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "offspring inherit traits from their parents",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "Nothing in this chain says a rising variant must be advantageous, and that is the point of laying it out. Variation has to exist before anything can act on it — selection does not create the variant it needs when it needs one. Conditions then make some variants reproduce more than others, those variants leave more descendants, and the frequency moves. Take away the middle step and frequencies still move, for reasons that have nothing to do with fitness.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.0",
+   "original": "Variation first, and it arises independently of whether it is useful. This is the step people reverse.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.1",
+   "original": "Differential reproductive success second: the environment does the selecting, on variation that was already there.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.2",
+   "original": "Successful variants leaving more descendants is the mechanism, and it happens over generations rather than within one.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.3",
+   "original": "Changed frequencies last. They are the observation, and every other card is the explanation for it.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.cards.0",
+   "original": "Heritable variants arise through mutation or existing diversity.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.cards.1",
+   "original": "Environmental conditions cause variants to differ in reproductive success.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.cards.2",
+   "original": "Successful variants contribute disproportionately to later generations.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.cards.3",
+   "original": "Population frequencies change over generations.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "Selection or sampling artifact?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Which explanation best fits the frequency trend and the independent checks?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.place",
+   "original": "Evolutionary Dynamics Group",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "A frequency change is an observation; selection is an explanation that requires controls against sampling, founder effects, and technical drift.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "a change in who gets tested changes what the tests find",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.headline",
+   "original": "A genetic variant rises quickly in the city data.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "A frequency change is an observation; selection is one explanation for it, and it competes with founder effects, with a change in who is being sampled, and with a technical shift. Each of those is ruled out by a specific check here. Three independent hospital systems showing the same rise is not one cluster. Stable sequencing depth is not a technical change. Neutral variants staying flat means the whole population was not resampled. And the rise survives adjustment for place and date.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.0",
+   "original": "Real selective advantage",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.choices.0.mechanism",
+   "original": "The variant has a reproducible growth advantage and increases in frequency across independent populations.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.1",
+   "original": "Changing sampling mix",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.1.mechanism",
+   "original": "The apparent rise is created because later samples come from different places or patient groups.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.2",
+   "original": "Sequencing artifact",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.2.mechanism",
+   "original": "A technical change makes the variant easier to detect over time.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.3",
+   "original": "Single founder event only",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.3.mechanism",
+   "original": "One early cluster happens to contain the variant, with no broader growth advantage.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.0",
+   "original": "A changing sampling mix would move the neutral control variants too, because they ride on the same samples. Those are flat.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.1",
+   "original": "A sequencing artefact would show as changing depth or coverage, and the depth is stable across the four weeks.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.2",
+   "original": "A single founder cluster would not repeat across three independent hospital systems, and it would not survive adjusting for place.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "Track a rising variant",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.place",
+   "original": "Regional Surveillance Hub",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "Before anybody argues about why the variant is rising, the surveillance hub needs the rise itself. Week one and week three sequenced different numbers of samples.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "Evolutionary inference begins with accurate frequencies and then tests causal explanations.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "a fraction needs both a numerator and the denominator it came from",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.question",
+   "original": "Estimate the change in variant frequency, in percentage points.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.estimate.prompt",
+   "original": "In week one, 40 of 400 sequenced samples carried the variant. In week three, 180 of 600 did. The denominators are what make the two weeks comparable.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.estimate.question",
+   "original": "Estimate the change in variant frequency, in percentage points.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.estimate.explanation",
+   "original": "Pooling the two weeks throws away the comparison — the whole question is whether the ratio moved, and a combined numerator over a combined denominator cannot say. Each week needs its own denominator.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.estimate.relationship",
+   "original": "A share = the count ÷ the number sequenced. Take the share in each week, then the difference.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.title",
+   "original": "Treatment Failure",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.briefing",
+   "original": "A therapy that initially helped is failing in a growing subset of patients. The player must determine whether the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.stake",
+   "original": "Day sixty. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Bergström has a resistant sequence from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "Why did the therapy fail?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Which explanation fits the complete treatment-response panel?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.place",
+   "original": "Clinical Ward",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "A therapy that worked is failing. The ward has the drug levels, the agent burden over time, the sequence at the target site and a reference isolate, and it wants to change everybody's prescription this afternoon.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "Evolution can be observed in real time when a treatment changes which variants are most successful.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "a drug only works if it reaches the target at a high enough concentration",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.headline",
+   "original": "A treatment initially suppresses the infectious agent, but the signal rebounds while the patient is still receiving therapy.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached a concentration that works and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.0",
+   "original": "Poor drug delivery",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.0.mechanism",
+   "original": "The drug never reaches an effective concentration in the patient.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.1",
+   "original": "Evolved resistance",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.1.mechanism",
+   "original": "Treatment favors a resistant subpopulation that later dominates and restores growth.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2",
+   "original": "Wrong infectious agent",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2.mechanism",
+   "original": "The original identification was incorrect, so treatment never targeted the cause.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3",
+   "original": "Assay contamination",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.3.mechanism",
+   "original": "The rebound is an artificial laboratory signal unrelated to the patient.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "Poor delivery means the drug never arrives, and the concentration is inside the range where the drug works with an initial response to prove it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "A misidentified agent would not have responded at all, and this one fell before it came back.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "Assay contamination would not spare the reference isolate, which was run alongside and remains sensitive.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "How resistance spreads",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.place",
+   "original": "Microbiology and Evolution Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "Selection acts on existing or newly arising variation by differential survival and reproduction.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "a population contains variation before anything acts on it",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "Treatment does not teach an organism anything, and it does not create the variant it needs. The variation is already there, rare, before the drug arrives. What the drug changes is which variants leave descendants: it removes the susceptible ones more effectively, the less susceptible survive and reproduce, and the treated population ends up enriched for resistance. The clustering on long-treated wards is that process having run longer, not the organism having learned faster.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.0",
+   "original": "Rare variants exist first. This is the step that separates an evolutionary explanation from a story about the drug teaching the organism.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.1",
+   "original": "Treatment removes the susceptible preferentially — that is what selection is, and it acts on what is already present.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.2",
+   "original": "The survivors reproduce, which is how a rare variant stops being rare.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.3",
+   "original": "Enrichment last: it is the outcome, and it is what the ward is now measuring.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.cards.0",
+   "original": "A population contains rare variants with differing susceptibility.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.cards.1",
+   "original": "Treatment removes susceptible individuals more effectively.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.cards.2",
+   "original": "Less-susceptible variants survive and reproduce.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.cards.3",
+   "original": "The treated population becomes enriched for resistance.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "Recover treatment effectiveness",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "One thing before anybody's prescription changes. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.place",
+   "original": "Pharmacology Unit",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had dosing on record, and trough levels in the range where the drug works.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "a matched comparison is what turns a finding into evidence",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.question",
+   "original": "One thing before anybody's prescription changes. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations inside the range close the first two: the drug arrived where it was meant to be. That leaves the target, and a fall from 82 to 51 per cent over nine weeks is the shape of selection rather than the shape of a supply problem. A matched successes are the control that turns a resistance-associated variant into evidence rather than a coincidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Sequence the failures alongside matched successful cases.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "Measure drug exposure and adherence objectively.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "Increase the dose for every patient on the ward.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "Test combinations and alternative targets under a clinical protocol.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "Combinations and alternative targets are the response once you know what changed. Chosen now, they are a guess with a protocol attached.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.title",
+   "original": "Design the Intervention",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Select a layered intervention portfolio and identify the evidence required before deployment.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.briefing",
+   "original": "The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.stake",
+   "original": "Day seventy-eight. The city wants an intervention and the room is arguing as though it can only have one. The antibody everyone favours binds the exact stretch of protein that mutated in the north, which Bergström has now said three times. This stage you choose what to fund and say what evidence is needed before any of it reaches a person. The options also arrive on different timescales — one is available on Monday, one in a year — which is the whole argument for layering them rather than picking a favourite. Back a single glamorous option and the city has one point of failure against something still changing.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "Choose the intervention layer",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.place",
+   "original": "Vaccine Design Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "A layered strategy is stronger when each intervention has a defined mechanism and failure mode.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "an infection has a before, a during and an after, and different tools act at each",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "Each class acts at a different point, which is why a layered strategy is stronger than a bigger version of any one of them. Blocking entry acts before infection is established. An anti-inflammatory acts after it is, on the damage rather than the agent. Immune memory created before exposure changes who can be infected at all. And reducing contact works on the population rather than the patient, which is why it keeps working while the biology is still unknown. Different mechanisms means different failure modes.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.0",
+   "original": "Entry-blocking antibody or receptor-targeted strategy.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.1",
+   "original": "Stage-specific anti-inflammatory treatment with monitoring.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.2",
+   "original": "Vaccination.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.3",
+   "original": "Ventilation, isolation, masking, or contact reduction as appropriate.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.0",
+   "original": "Preventing entry is a job for something that blocks the receptor interaction, and it has to be there before the agent is.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.1",
+   "original": "Shortening severe inflammatory disease is treatment after infection, and it is staged — given at the wrong moment it suppresses a response that is still needed.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.2",
+   "original": "Immune memory before exposure is vaccination, and its whole value is that it arrives first.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.3",
+   "original": "Ventilation, isolation and contact reduction act on transmission rather than on any patient, which is why they work whatever the agent turns out to be.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scenarios.0",
+   "original": "Prevent initial cell entry.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scenarios.1",
+   "original": "Shorten severe inflammatory disease after infection.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scenarios.2",
+   "original": "Create immune memory before exposure.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scenarios.3",
+   "original": "Reduce opportunities for transmission while biomedical tools are limited.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "From candidate to justified trial",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.place",
+   "original": "Therapeutics Group",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "Urgency changes speed and coordination, not the need for interpretable evidence and participant protection.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "activity in a dish is not evidence of benefit in a person",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; animal and laboratory evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.0",
+   "original": "Target and mechanism first: without them there is nothing to test a compound against except hope.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.1",
+   "original": "Animal and laboratory evidence second, because a compound that harms an animal has told you something you needed before a person took it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.2",
+   "original": "Endpoints, controls and stopping rules third — they are what make the result interpretable, and they cannot be chosen after the data arrives.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.3",
+   "original": "The monitored trial last, with oversight. It is the step everything before it exists to make defensible.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.cards.0",
+   "original": "Define the biological target and intended mechanism.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.cards.1",
+   "original": "Demonstrate relevant activity and identify major safety concerns in animal and laboratory evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.cards.2",
+   "original": "Specify trial population, endpoints, controls, and stopping rules.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.cards.3",
+   "original": "Begin a monitored clinical trial with independent oversight.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "Build a layered intervention portfolio",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "The city can start one layer this month. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.place",
+   "original": "Public Health Strategy Room",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "One portfolio, six plausible layers, and enough money for three. Each layer is estimated to cut transmission by 15 to 30 per cent on its own, the estimates come from different settings, and the city would like to be told the crisis is under control.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "two tools that fail for the same reason fail at the same time",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.question",
+   "original": "The city can start one layer this month. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "Layers are chosen for mechanism and for timing, not by ranking their headline effects. The six estimates all sit between 15 and 30 per cent and all come from other settings, so the numbers cannot separate them here. Mechanism can: measures sharing one — three that depend on people staying home — fail in the same week, while ventilation and isolation act on transmission opportunity whatever the biology turns out to be. Timing settles the rest, because those two work this month, which is the month the other candidates spend in development.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.0",
+   "original": "Ventilation and rapid-isolation improvements.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.choices.1",
+   "original": "A vaccine candidate against a conserved surface feature.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.2",
+   "original": "A drug aimed at a validated host or agent pathway.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.3",
+   "original": "A publicity campaign stating that the crisis is under control.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.0",
+   "original": "The vaccine is the strongest long-run layer and protects nobody during the months it takes to make. Start it too; it is not what this month buys.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.1",
+   "original": "A drug depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.2",
+   "original": "A campaign announcing control is not a layer. It has no mechanism, and it fails in exactly the way that costs the most.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.title",
+   "original": "The Trial Signal",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value or headline percentage.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.briefing",
+   "original": "Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must distinguish a real effect from random variation and decide whether the trial should expand.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.stake",
+   "original": "Day ninety-six, and the trial has reported: ten hospitalisations in the treated group against twenty in the control, out of four hundred people. Most of that benefit sits at the one site that enrolled the youngest patients, and the serious adverse events are not spread evenly either. The health minister wants a number before deciding how much to buy, and has been given one percentage she would like confirmed. This stage you read the result properly and decide whether the trial continues, expands or stops. Nobody in the room has yet said how many people twenty is out of.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "What the pH is telling you",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.place",
+   "original": "Clinical Physiology Suite",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Arterial pH 7.28, bicarbonate low, and the patient is breathing fast. The registrar has read the fast breathing as the problem and wants to sedate it down.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "Blood pH is defended by a buffer system, so a shifted pH means the buffer has been overwhelmed.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "blood is buffered, and normal arterial pH sits near 7.4",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.question",
+   "original": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "Bicarbonate is the blood's main buffer: it neutralises added acid and is consumed doing it, so a low bicarbonate with a low pH means acid is being produced faster than it is cleared. Breathing fast blows off carbon dioxide, which pushes the pH back up — it is the compensation, not the cause, and sedating it removes the one mechanism currently holding the pH where it is. Find and treat the acid; the respiratory rate is a symptom being useful.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "The fast breathing has caused the acidity and slowing it will correct the pH.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "A pH of 7.28 is within the normal range and needs no explanation.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "The bicarbonate is low because the patient is breathing off carbon dioxide.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "Hyperventilation raises pH. It cannot be the cause of an acidity it is opposing.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "Normal arterial pH is about 7.35 to 7.45, and the body defends it hard; 7.28 is a real derangement.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "Blowing off carbon dioxide lowers carbonic acid, not bicarbonate stores.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "Read effect size and uncertainty",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.place",
+   "original": "Biostatistics Office",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "The trial has reported, and the health minister wants a number before deciding how much to buy. The statistics office has the event counts for both arms and nothing has been converted yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "Relative and absolute effects answer different decision questions and should be reported together.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "a risk is events divided by the people who could have had them",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.question",
+   "original": "Estimate the number of patients who must be treated for one to benefit.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.estimate.prompt",
+   "original": "The trial reports hospitalisation in 20 of 200 control participants and 10 of 200 treated participants.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.estimate.question",
+   "original": "Estimate the number of patients who must be treated for one to benefit.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.explanation",
+   "original": "The same result is a halving of risk, a five-percentage-point reduction, and one benefit per twenty treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.estimate.relationship",
+   "original": "Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "Continue, expand, or pause?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.place",
+   "original": "Independent Safety Board",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "The effect is 24 per cent with a confidence interval running from 3 to 41, and there are seven adverse events in one arm against two in the other on 180 participants. The safety board has to say what happens next, and enrolment is paused until it does.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "A mature trial decision can be encouraging and cautious at the same time.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "a wider interval means less is known, not that the effect is smaller",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.question",
+   "original": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "The effect is real — the interval excludes zero — and it is too wide to act on, since 3 per cent and 41 per cent imply different policies. Width is fixed by the number of participants and by nothing else, so more argument cannot narrow it and more enrolment can. The adverse imbalance, seven against two, is small enough to be chance at this size and is exactly what a pre-specified stopping rule exists to judge. Keeping that analysis is what makes the extra participants add precision instead of adding a second chance to find a positive result.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.0",
+   "original": "Expand enrolment under the same pre-specified analysis.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.choices.1",
+   "original": "Declare success and stop collecting data.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.2",
+   "original": "Add measurements of the mechanism to explain why it works.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.3",
+   "original": "Pause the trial until the adverse events are fully investigated.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.0",
+   "original": "Stopping now converts an imprecise estimate into a permanent one, and the imprecision is the whole reason the board was convened.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.1",
+   "original": "Mechanism is worth knowing and does not narrow the interval the decision turns on.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.2",
+   "original": "Pausing is right if the safety signal is real, and the safety board's monitoring is what establishes that — it runs alongside enrolment rather than instead of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.title",
+   "original": "Containment or Adaptation?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Use scenarios and trigger-based policies instead of pretending one forecast is certain.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.briefing",
+   "original": "The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation, and long-term adaptation while the biological parameters remain uncertain.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.stake",
+   "original": "Day a hundred and eighteen. Three districts are on visibly different paths and the council wants one policy by Friday. Ninety of the region's hundred and twenty critical-care beds are full and severe cases are arriving at about eight a day. Ortiz wants the beds protected; Morales wants the growth stopped where it is still cheap. Ortiz has the bed numbers by hour, Morales has the district growth rates, and the two documents have never been in the same room. This stage you build the arithmetic behind the decision and choose a policy that survives being wrong. The honest answer to an uncertain future is a set of triggers rather than one guess.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "Use population growth, feedback, capacity thresholds, model assumptions, scenario analysis, tradeoffs as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "Build a decision model",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.place",
+   "original": "Population Modeling Group",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "Models are structured arguments whose assumptions should remain visible.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "a model's output is only as good as the assumptions it was given",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "A model is a structured argument, not an oracle, and its assumptions are as much of the output as its numbers. Stating the decision first is what stops it modelling something nobody asked about — a model built without a decision answers whatever question was easiest. The structure and the inputs come next, then the range of plausible worlds rather than one, and finally the triggers, because a scenario that is not tied to an observable is a scenario nobody will ever act on.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "The decision, the horizon and the outcomes come first, or the model answers the question that was easiest to model.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "Structure and inputs second, and transparent, because a structure nobody can inspect cannot be argued with.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "Scenarios and sensitivity third: the point is the spread across plausible worlds, not the middle of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.3",
+   "original": "Triggers last, tying a scenario to something observable. Without them the model produces a graph and no decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.cards.0",
+   "original": "State the decision, time horizon, and outcomes that matter.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.cards.1",
+   "original": "Choose a transparent model structure and estimate inputs from data.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.cards.2",
+   "original": "Run multiple plausible scenarios and sensitivity tests.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.cards.3",
+   "original": "Link observable triggers to pre-agreed policy changes.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "Hospital capacity threshold",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.place",
+   "original": "Hospital Capacity Center",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "The region has 120 staffed critical-care beds. Ninety are already full. Severe cases are arriving at about eight a day, and the average stay is somewhere near six days — a figure nobody has actually checked.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "Simple bounds can reveal which missing data are decision-critical.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "a bound is what you can say before the missing number arrives",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.question",
+   "original": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.prompt",
+   "original": "The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about eight a day, and the average stay is around six days.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.question",
+   "original": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.estimate.explanation",
+   "original": "Total beds is the wrong numerator, because ninety of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.relationship",
+   "original": "Time to fill = beds free ÷ arrivals per day.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "Choose an adaptive policy",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "A policy the council can defend for a month. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.place",
+   "original": "City Command",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Three districts, three different trajectories, and one decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "Good policy is a feedback system, not a one-time guess.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "a policy tied to an observable can change without anybody having been wrong",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.question",
+   "original": "A policy the council can defend for a month. Which?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "Three districts on three trajectories cannot be served by one fixed measure, and uncertainty is not resolved by choosing more confidently. A policy tied to observable triggers — a case rate, a hospital occupancy, a test positivity — changes when the outbreak changes, in a way that was announced before it happened. That is also what lets it be relaxed without anybody having to admit they were wrong — which is what keeps it defensible for a month.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.0",
+   "original": "Citywide measures tied to hospital and growth thresholds.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.choices.1",
+   "original": "Targeted containment wherever transmission chains are traceable.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.2",
+   "original": "Capacity expansion and protection of vulnerable populations.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.3",
+   "original": "Commit to one policy now and hold it whatever the data show.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.0",
+   "original": "Targeted containment is cheap and effective where chains are traceable, and it fails silently where they are not. Nothing in it tells you it has stopped working.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.1",
+   "original": "Capacity expansion protects the outcome that matters and does nothing about transmission, so it raises the ceiling without slowing the climb.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.2",
+   "original": "Committing regardless of new evidence is the only option here that cannot learn, which in a month of an uneven outbreak is the one guaranteed to be wrong somewhere.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.title",
+   "original": "The Final Briefing",
+   "readOnly": false
+  },
+  {
+   "id": "m15.objective",
+   "original": "Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.briefing",
+   "original": "The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.stake",
+   "original": "Day a hundred and forty. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Disposition the final claims",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.place",
+   "original": "Scientific Review Hall",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "Four claims are going into the final report and they are not equally well supported. The review board has to decide what to say about each, and the document will outlive everybody in the room.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "Scientific conclusions should carry the strength and limits of their supporting evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "evidence comes in strengths, and a conclusion inherits the weakest one it rests on",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "The failure mode here is uniform treatment — publishing the weakest claim with the confidence of the strongest, or holding back the strongest because the weakest is unresolved. Multiple independent data streams agreeing is the strongest thing on the list and can carry operational planning. One small observational sample is a hypothesis worth collecting data on. A benefit shown with unknown duration can be used with follow-up attached. And a plausible unconfirmed reservoir is a reason to keep investigating, not a reason to destroy anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "Treat as established enough for operational planning while continuing surveillance.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "Label as provisional and collect representative confirmatory data.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "Use conditionally with follow-up and duration studies.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "Avoid destructive ecological action; continue targeted One Health investigation.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "Independent streams agreeing is the strongest evidence in the report, and treating it as provisional wastes the only thing the response can plan on.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "One small observational sample identifies a subgroup worth confirming. Published as established, it becomes policy about people nobody measured properly.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "A benefit whose duration is unknown is used conditionally, with follow-up — the uncertainty is about how long, not about whether.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.3",
+   "original": "A plausible unconfirmed reservoir justifies more investigation. Acting on it destroys the evidence and may not touch the actual source.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.0",
+   "original": "Multiple independent data streams support the transmission route.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.1",
+   "original": "A severe-risk subgroup is suggested by one small observational sample.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.2",
+   "original": "An intervention lowers hospitalization with monitored safety but long-term duration is unknown.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.3",
+   "original": "An animal reservoir remains plausible but unconfirmed.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "Build the public explanation",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "Order the briefing by how much weight each claim can carry.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.place",
+   "original": "City Command",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "The mayor is on air in an hour. The transmission route is settled, the animal reservoir is not, and the treatment works under conditions nobody has tested past eight weeks. The draft opens with the actions.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "A public account is ordered by the strength of its evidence, not by the order the work happened in.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "an audience judges a claim by how it was supported, once it knows",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.0",
+   "original": "The transmission route, which three independent data streams agree on.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.1",
+   "original": "The severe-risk subgroup, which one small observational sample suggests.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.2",
+   "original": "The animal reservoir, which remains plausible and unconfirmed.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.3",
+   "original": "What it would take to settle each open question, and when the city revisits it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "Fund the post-crisis legacy",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "The emergency budget closes this month. What does the city commit it to?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.place",
+   "original": "Public Briefing Room",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "The emergency budget closes in three weeks, and anything uncommitted returns to the state. Four proposals against funding for two: the sequencing bench that found the variant, the sewer sampling network, the animal survey, and the clinic that took the first cases.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "The final responsibility is to convert crisis knowledge into durable public capability.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "capability that is not funded to continue stops when the emergency does",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.question",
+   "original": "The emergency budget closes this month. What does the city commit it to?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "Rank the four by what depends on them. Every week of warning this outbreak got came from a signal somebody was already collecting: the sequencing bench found the variant, and the sewer network found transmission before the hospitals did. Every other response, treatment included, is evaluated against what those two report. The clinic matters and can be funded from routine health money; the animal survey answers a question that is no longer urgent. Surveillance is also the only item that has to run continuously to be worth anything, which is exactly what a closing budget should endow rather than leave to next year's argument.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.0",
+   "original": "Integrated clinical, environmental and genomic surveillance.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.1",
+   "original": "Health-system resilience and workforce training.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.2",
+   "original": "Preserving the data, methods and after-action record.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.3",
+   "original": "Closing the records once the review is published.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.0",
+   "original": "Resilience and training decide whether detection helps, and they are the next call. They do nothing if nothing detects the next event.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.1",
+   "original": "Preserving the record costs very little and should happen regardless. It is a filing decision, not what an emergency budget is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.2",
+   "original": "Closing the records removes the only account of how any of this was measured, and the next response would start from nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "copy.CLIN",
+   "original": "<p>The clinical wing. Every hypothesis in this outbreak has to survive contact with an actual patient.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.CELL",
+   "original": "<p>Cell and membrane biology. What the pathogen does to a cell, and what that rules out.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.MOL",
+   "original": "<p>Molecular diagnostics. Two instruments, a library, and a rule about controls.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.IMM",
+   "original": "<p>Immunology and treatment. Where protection and damage are told apart.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.POP",
+   "original": "<p>Epidemiology operations. Counts, denominators, and the difference between them.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.FIELD",
+   "original": "<p>The One Health field station. The outbreak did not start in a hospital.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.CMD",
+   "original": "<p>City Health Command. Decisions are made here whether or not the evidence has arrived.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.TRANSIT",
+   "original": "<p>The transit and mobility centre. Trip counts nobody has yet matched to the case map.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.BRIEF",
+   "original": "<p>The public briefing room. What the city is told, and how much of it is hedged.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.WASTE",
+   "original": "<p>The wastewater plant. Surveillance that sees the city before the city sees a doctor.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CLIN.caption",
+   "original": "A patient is the only instrument that reports everything at once, and none of it precisely.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CLIN.standLine",
+   "original": "Four admissions with the same combination of signs, and three different working diagnoses.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CELL.caption",
+   "original": "What a pathogen does to a cell constrains what it can do to a person.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CELL.standLine",
+   "original": "Culture flasks from four patients, two of them showing something the others do not.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.MOL.caption",
+   "original": "A test result is a claim about the sample, not about the patient.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.MOL.standLine",
+   "original": "A positive with no negative control run beside it, and a sequencing run half finished.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.IMM.caption",
+   "original": "The damage a patient shows can come from the pathogen or from the response to it.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.IMM.standLine",
+   "original": "Inflammatory markers rising in patients whose viral load is already falling.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.POP.caption",
+   "original": "A case count without a denominator is a number about testing, not about disease.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.POP.standLine",
+   "original": "Case curves from three districts, each on a different testing regime.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.FIELD.caption",
+   "original": "A reservoir claim needs the animal, the exposure and the genome to agree.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.FIELD.standLine",
+   "original": "Trapping records from the flood plain, and sequences that are close but not identical.",
+   "readOnly": false
+  }
+ ]
+}

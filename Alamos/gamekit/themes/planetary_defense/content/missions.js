@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 1,
-        "task": "Four hours of discretionary time, and the object is faint and setting. What do you book?"
+        "task": "Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity."
       }
     ]
   },
@@ -85,7 +85,7 @@ export const MISSIONS = [
       {
         "group": "IMPACT",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Move and narrow the encounter cloud until the full allowed band clears Earth."
       },
       {
         "group": "ORBIT",
@@ -119,7 +119,7 @@ export const MISSIONS = [
       {
         "group": "CHAR",
         "lesson": 1,
-        "task": "The diameter rests on an albedo borrowed from another class. What do you measure?"
+        "task": "Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy."
       }
     ]
   },
@@ -133,7 +133,7 @@ export const MISSIONS = [
       {
         "group": "CHAR",
         "lesson": 2,
-        "task": "Which explanation fits the target, standard star, airmass, and space-based comparison?"
+        "task": "Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip."
       },
       {
         "group": "OPS",
@@ -210,7 +210,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 11,
-        "task": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?"
+        "task": "Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry."
       },
       {
         "group": "OPS",
@@ -263,7 +263,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 17,
-        "task": "This object was found eleven days out, from the direction of the Sun. What does the survey change?"
+        "task": "Inject known synthetic objects through the survey strategies and choose the configuration that best repairs the known blind spot."
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "ORBIT",
         "lesson": 5,
-        "task": "The impactor is funded. What must the campaign add that the impactor alone does not?"
+        "task": "Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking."
       }
     ]
   },
@@ -311,7 +311,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 20,
-        "task": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?"
+        "task": "The measured deflection is only about two centimetres a second. Why can that be enough years before encounter?"
       }
     ]
   },
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 23,
-        "task": "The probability has moved twice this month, both times downward. What does the board issue?"
+        "task": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace."
       }
     ]
   },
@@ -354,7 +354,7 @@ export const MISSIONS = [
       {
         "group": "ORBIT",
         "lesson": 6,
-        "task": "Order the record so each claim can be checked against the one before it."
+        "task": "Use the two remaining independent checks on the final-record claims that most need physical verification."
       },
       {
         "group": "OPS",

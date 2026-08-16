@@ -1,0 +1,4701 @@
+{
+ "theme": "quantum",
+ "book": "books/quantum.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "Group Lead · Ridgeway Quantum Laboratory",
+   "readOnly": false
+  },
+  {
+   "id": "group.CRYO.desc",
+   "original": "Why the chip has to be colder than anything else in the building.",
+   "readOnly": false
+  },
+  {
+   "id": "group.FAB.desc",
+   "original": "What the chip is made of, and what that decides months later.",
+   "readOnly": false
+  },
+  {
+   "id": "group.CTRL.desc",
+   "original": "Pulses in, one bit out, and everything that can go wrong between.",
+   "readOnly": true
+  },
+  {
+   "id": "group.VER.desc",
+   "original": "How wrong the machine is, and how you would know.",
+   "readOnly": true
+  },
+  {
+   "id": "group.SENSE.desc",
+   "original": "The part of this field that already works for somebody else.",
+   "readOnly": true
+  },
+  {
+   "id": "group.NET.desc",
+   "original": "Sending a quantum state somewhere, and what survives the trip.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.raghavan.role",
+   "original": "Group lead, and the person who has to find the money",
+   "readOnly": false
+  },
+  {
+   "id": "roster.raghavan.bio",
+   "original": "<p>Built this group out of two postdocs and a borrowed fridge, and has spent nine years since then writing proposals in January. She reads a result for what it lets the group do next, which is not the same as reading it for what it proves, and she knows the difference.</p> <p>Her position in the fortnight's argument is not recklessness. A finding nobody publishes is a finding somebody else publishes first, and the group that publishes second gets to check the work.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.raghavan.quiz.0.q",
+   "original": "What is Raghavan weighing when she pushes to publish early?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.raghavan.quiz.0.a",
+   "original": "The cost of being second, against the cost of being wrong",
+   "readOnly": false
+  },
+  {
+   "id": "roster.raghavan.quiz.0.wrong.0",
+   "original": "Whether the group has enough fridge time booked for the rest of the quarter",
+   "readOnly": false
+  },
+  {
+   "id": "roster.raghavan.quiz.0.wrong.1",
+   "original": "Whether the result will survive peer review at the journal she has chosen",
+   "readOnly": false
+  },
+  {
+   "id": "roster.raghavan.quiz.0.wrong.2",
+   "original": "Whether her postdocs would rather write the paper or run more experiments",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.role",
+   "original": "Verification lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.bio",
+   "original": "<p>Spent four years in metrology before this and came out of it with a habit: he asks what else could produce this number before he asks what it means. He is slow in a way that has twice saved the group from retracting.</p> <p>He is not against publishing. He is against publishing a number that has only ever appeared on one machine, in one room, with one person's calibration underneath it.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.quiz.0.q",
+   "original": "Why does Holm insist on a second device?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.quiz.0.a",
+   "original": "One machine cannot show you the errors it shares with itself",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.quiz.0.wrong.0",
+   "original": "Two devices halve the statistical uncertainty on the result",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.quiz.0.wrong.1",
+   "original": "Journals require replication before they will consider a paper",
+   "readOnly": false
+  },
+  {
+   "id": "roster.holm.quiz.0.wrong.2",
+   "original": "The second device is newer and therefore more trustworthy",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.role",
+   "original": "Cryogenic engineer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.bio",
+   "original": "<p>Thinks of the fridge as a plumbing problem with an expensive isotope in it, and is right. She can tell from the mixing chamber temperature which stage a heat leak is on, and she keeps a log of every cooldown the lab has ever done.</p> <p>Her standing complaint is cable: every line into the fridge is a road for heat, and everybody wants one more.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.q",
+   "original": "Why does Okafor object to every new cable into the fridge?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.a",
+   "original": "A line that carries a signal down also carries heat down",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.0",
+   "original": "Each cable adds electrical noise to the qubit's environment",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.1",
+   "original": "There is no space left on the mixing chamber flange",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.2",
+   "original": "Cables must be replaced after each cooldown, which is expensive",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.role",
+   "original": "Fabrication lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.bio",
+   "original": "<p>Makes the chips, and can date a defect to a process change from the shape of what fails. She keeps wafer coupons from every run going back six years, which nobody thought was worth the drawer space until the week they were.</p> <p>She is patient about the fact that her mistakes only show up in somebody else's measurement, months later.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.q",
+   "original": "Why does Lindqvist keep coupons from every fabrication run?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.a",
+   "original": "A fault found months later can only be traced if the material still exists",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.0",
+   "original": "Coupons are required by the cleanroom's certification",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.1",
+   "original": "Old coupons are used to calibrate the deposition rate",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.2",
+   "original": "They serve as spares when a wafer is damaged in handling",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.role",
+   "original": "Control engineer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.bio",
+   "original": "<p>Calibrates the machine several times a day and has automated most of it, which means he is the person most likely to notice when the automation has quietly started answering its own question.</p> <p>He describes his job as arguing with a machine that agrees with you too easily.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.q",
+   "original": "What does Mensah mean about a machine that agrees too easily?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.a",
+   "original": "An automated tune-up can converge on a setting that flatters its own test",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.wrong.0",
+   "original": "Automated calibration always finds a local rather than a global optimum",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.wrong.1",
+   "original": "The control software reports success even when a pulse fails to fire",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.wrong.2",
+   "original": "Machines report agreement because they average away disagreement",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.role",
+   "original": "Sensing physicist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.bio",
+   "original": "<p>Runs the magnetometer, which is the only instrument in the building somebody outside the group depends on: a hospital across the city uses her measurements, and they do not care what a qubit is.</p> <p>She is the reminder that this field already delivers something, and that delivering it means calibration, uptime and a phone that rings.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.quiz.0.q",
+   "original": "Why does Barros treat her instrument differently from the processor?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.quiz.0.a",
+   "original": "Somebody outside the group is already relying on its numbers",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.quiz.0.wrong.0",
+   "original": "Magnetometers are more fragile than superconducting processors",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.quiz.0.wrong.1",
+   "original": "Her sensor runs at room temperature and needs no cryogenics",
+   "readOnly": false
+  },
+  {
+   "id": "roster.barros.quiz.0.wrong.2",
+   "original": "Sensing results are easier to publish than computing results",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.role",
+   "original": "Networks postdoc",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.bio",
+   "original": "<p>Runs the fibre to a substation forty kilometres away and spends most of his time on things that are not quantum at all: splices, connectors, a contractor with a digger, and the temperature of a duct.</p> <p>He is clear that the security argument only holds if the hardware does what the protocol assumed, which is where every real attack has been.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.quiz.0.q",
+   "original": "Where does Sadiq say the real attacks on a key link come from?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.quiz.0.a",
+   "original": "Hardware behaving differently from what the protocol assumed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.quiz.0.wrong.0",
+   "original": "Eavesdroppers measuring the photons in transit",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.quiz.0.wrong.1",
+   "original": "Weaknesses in the mathematics of the protocol itself",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sadiq.quiz.0.wrong.2",
+   "original": "Errors introduced by the length of the fibre",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.role",
+   "original": "Metrologist, and keeper of the clock",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.bio",
+   "original": "<p>Owns the frequency standard everything in the building is timed against, and is unbothered by how dull that sounds. Every measurement here is a comparison, and a comparison is only as good as the thing being compared to.</p> <p>She is the person who asks, quietly, what the number is traceable to.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.q",
+   "original": "Why does Whitfield keep asking what a measurement is traceable to?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.a",
+   "original": "The reading means nothing without knowing what it was compared against",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.wrong.0",
+   "original": "Traceability is required before results can be published",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.wrong.1",
+   "original": "An untraceable measurement cannot be repeated by the same group",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitfield.quiz.0.wrong.2",
+   "original": "Standards drift, so every measurement must be repeated weekly",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.role",
+   "original": "Readout and amplifier specialist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.bio",
+   "original": "<p>Owns the chain between the chip and the digitiser: amplifiers, circulators, attenuators, and the noise budget that decides whether a single shot means anything.</p> <p>He points out regularly that most of what people call qubit error is his chain failing to hear a qubit that was fine.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.q",
+   "original": "Why does Nakamura say much of what looks like qubit error is not?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.a",
+   "original": "A noisy readout chain misreads a qubit that was in the right state",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.wrong.0",
+   "original": "Amplifiers add energy that excites the qubit during readout",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.wrong.1",
+   "original": "Qubit errors and readout errors are impossible to tell apart",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nakamura.quiz.0.wrong.2",
+   "original": "Most reported errors come from the control pulses rather than the qubit",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.role",
+   "original": "Theory, error correction",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.bio",
+   "original": "<p>Works out what the hardware would have to reach before error correction helps, and is the person most likely to say that a headline number is below the line where it starts mattering.</p> <p>She is cheerful about it. The threshold is not an opinion.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.quiz.0.q",
+   "original": "What does Petrova mean when she says the threshold is not an opinion?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.quiz.0.a",
+   "original": "Below a certain physical error rate, adding qubits helps; above it, they hurt",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.quiz.0.wrong.0",
+   "original": "The threshold is fixed by international agreement between laboratories",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.quiz.0.wrong.1",
+   "original": "Any error rate can be corrected given enough physical qubits",
+   "readOnly": false
+  },
+  {
+   "id": "roster.petrova.quiz.0.wrong.2",
+   "original": "The threshold depends on which vendor supplies the hardware",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.role",
+   "original": "Laboratory manager",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.bio",
+   "original": "<p>Runs the building: helium deliveries, the interlock register, who is trained on what, and the list of things that may not be carried past the sign-in desk.</p> <p>He is the reason the shielded room is still shielded, and he has removed a phone from somebody's pocket more than once.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.q",
+   "original": "Why does Adeyemi stop people carrying phones past sign-in?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.a",
+   "original": "A shielded room stops working the moment somebody brings a transmitter inside it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.0",
+   "original": "Phones interfere with the interlock system on the laser bay",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.1",
+   "original": "Photography is not permitted anywhere in the laboratory",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adeyemi.quiz.0.wrong.2",
+   "original": "Phone batteries are a fire risk near stored cryogens",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.role",
+   "original": "Research software, data and provenance",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.bio",
+   "original": "<p>Keeps the pipeline that turns raw shots into published numbers, and the record of which version of which script produced which figure. Everybody thanks her in a crisis and nobody funds her in between.</p> <p>Her question, on every plot, is which data the analysis had already seen.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.quiz.0.q",
+   "original": "Why does Castellan ask which data an analysis had already seen?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.quiz.0.a",
+   "original": "A method tuned on the same data it is later tested against will flatter itself",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.quiz.0.wrong.0",
+   "original": "Reusing data doubles the effective sample size and narrows the error bars",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.quiz.0.wrong.1",
+   "original": "Analyses must be run on raw data rather than on processed files",
+   "readOnly": false
+  },
+  {
+   "id": "roster.castellan.quiz.0.wrong.2",
+   "original": "Seeing the data first makes an analysis slower to run",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Qubit.def",
+   "original": "The two-state system a quantum computer stores information in.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Superposition.def",
+   "original": "A state that is a combination of both outcomes at once, until it is measured.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Entanglement.def",
+   "original": "A shared state in which two systems are correlated more strongly than any instructions agreed in advance could make them.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Coherence.def",
+   "original": "How well a quantum state keeps its phase before the surroundings scramble it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Relaxation time.def",
+   "original": "The typical time an excited state takes to lose its energy.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Dephasing.def",
+   "original": "Loss of the phase relationship in a state, without any energy leaving it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Rabi frequency.def",
+   "original": "How fast a driven system cycles between its two states, set by how hard it is driven.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Pi pulse.def",
+   "original": "A pulse of exactly the duration that turns the state from one level to the other.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Detuning.def",
+   "original": "The gap between the frequency you are driving at and the frequency the system answers to.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Readout.def",
+   "original": "Turning the state of a qubit into a signal a classical instrument can record.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Discriminator.def",
+   "original": "The rule that decides which state a readout signal belongs to.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Fidelity.def",
+   "original": "How close an operation comes to the one intended, as a number between nought and one.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Gate.def",
+   "original": "One operation applied to a qubit or a pair of them.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Randomised benchmarking.def",
+   "original": "A way of measuring average error over many random sequences, so that readout error does not hide inside the answer.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Dilution refrigerator.def",
+   "original": "The machine that reaches a few thousandths of a degree above absolute zero, in stages.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Mixing chamber.def",
+   "original": "The coldest stage of the fridge, where the chip sits.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Heat load.def",
+   "original": "How much heat arrives at a stage, which is what decides the temperature it can hold.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Josephson junction.def",
+   "original": "A thin barrier between two superconductors, which is what makes a superconducting qubit possible.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Two-level defect.def",
+   "original": "A tiny flaw in the material that can absorb energy at the same frequency as the qubit.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Threshold.def",
+   "original": "The error rate below which adding more physical qubits improves a logical one, and above which it does not.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Logical qubit.def",
+   "original": "One protected qubit built out of many physical ones, so that some errors can be corrected.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Bell test.def",
+   "original": "A measurement whose result rules out any explanation based on instructions agreed before the measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Standard quantum limit.def",
+   "original": "The precision reached by averaging independent measurements, which improves only as the square root of how many.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Squeezing.def",
+   "original": "Trading uncertainty in one quantity for less in another, so a sensor can beat the averaging limit.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Magnetometer.def",
+   "original": "An instrument that measures magnetic field.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Key distribution.def",
+   "original": "Sending a secret key in a form where any interception shows up as errors.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Quantum bit error rate.def",
+   "original": "The fraction of test bits that disagree between the two ends of a link.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Calibration.def",
+   "original": "Checking an instrument against something already known, so that its readings mean something.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Attenuation.def",
+   "original": "Deliberately weakening a signal, which on a line into a fridge also cuts the noise coming down it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Provenance.def",
+   "original": "The record of where a number came from and everything that was done to it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Traceable.def",
+   "original": "Linked by an unbroken chain of comparisons back to an agreed standard.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.title",
+   "original": "Cold enough to have a ground state",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "Work out why the chip has to be colder than anything else in the building.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.briefing",
+   "original": "The fridge is at 42 millikelvin instead of 11, and nothing on the chip behaves.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.stake",
+   "original": "Monday, and the machine is warm. Ijeoma Okafor brought the fridge down over the weekend and it has settled at 42 millikelvin instead of the 11 it usually holds, which sounds like a small difference and is not. Kofi Mensah cannot get a clean measurement out of any qubit on the chip, and Priya Raghavan has a review in ten days. Okafor thinks the heat is coming down a cable somebody added in the last cooldown. Today you work out what temperature actually does to a qubit, put a number on how much of the chip is sitting in the wrong state before anybody touches it, and find where the heat is getting in.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "A qubit is only a two-state system while the room around it has no energy to spare.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "The energy of one quantum against the energy of the room",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "Say why 42 millikelvin is not close enough",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.place",
+   "original": "Cryogenics & Vacuum",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "a system in contact with something warm can absorb energy from it",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.question",
+   "original": "Estimate the fraction of qubits already excited at 42 mK.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \"the ground state\" is partly a measurement of the fridge.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.answerText",
+   "original": "About 0.3 per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.estimate.prompt",
+   "original": "The qubit frequency is 5.0 GHz, so hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. The excited fraction is e^(−hf/kT).",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.estimate.question",
+   "original": "Choose the quantum energy and the thermal energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.estimate.explanation",
+   "original": "About three in a thousand, against roughly one in five hundred thousand at 11 mK. The frequency and the temperature in their own units are the inputs the two energies were computed from, and neither belongs in this ratio.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.estimate.relationship",
+   "original": "Excited fraction = e raised to minus the quantum energy divided by the thermal energy, so it falls very fast as the fridge gets colder.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.estimate.givens.0",
+   "original": "One quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.estimate.givens.1",
+   "original": "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "Which stage the leak is on",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Which explanation fits every stage's reading?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.place",
+   "original": "Cryogenics & Vacuum",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Okafor has the temperatures from all six stages of this cooldown and from the last one. The upper stages are normal. The two coldest are high, and the still is drawing more power than usual.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "A stage sits where its heat load and its cooling power meet, so a temperature says how much heat is arriving there.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "a refrigerator removes heat in stages, each colder than the last",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.headline",
+   "original": "The two coldest stages are warm and the upper four are exactly as they were last time.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "The pattern says where the heat enters, not just that it is there. A failing pulse tube or a vacuum leak would warm the upper stages first, and both are normal — the 50 K and 4 K stages are where those faults show. A mixture problem reduces cooling power below the still, which would show as the mixing chamber warm and the still cold, not both warm with the still working harder. A line that runs down without being clamped at each stage delivers heat directly to the bottom, and the still burning more power is it fighting that load on the way past.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.0",
+   "original": "A vacuum leak into the can that is warming everything inside",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.0.mechanism",
+   "original": "Gas in the vacuum space carries heat from the warm walls inward.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.1",
+   "original": "Heat down a new signal line",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.choices.1.mechanism",
+   "original": "A line not heat-sunk at each stage carries heat straight to the coldest one.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.2",
+   "original": "The mixture is short of helium-3",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.2.mechanism",
+   "original": "Less mixture circulating means less cooling power everywhere below the still.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.3",
+   "original": "The pulse tube is failing",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.choices.3.mechanism",
+   "original": "The first-stage cooler failing warms everything below it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.0",
+   "original": "A vacuum leak warms the outer stages first, and the 50 K and 4 K stages are both normal.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.1",
+   "original": "Short mixture would leave the still cold while the mixing chamber warmed, not both warm.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.2",
+   "original": "A failing pulse tube shows at the 50 K stage before anywhere else, and it is at 47 K as usual.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "What is worth doing at the wrong temperature",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "Decide what to measure while the fridge is warm",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "Fixing the heat leak means a warm-up and another cooldown: four days. Mensah has the machine for those four days at 42 millikelvin and wants to know what is worth running.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "Work out which of your measurements the fault actually invalidates, rather than stopping everything.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "some measurements depend on temperature and some do not",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.question",
+   "original": "What is worth running at 42 mK?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "Anything whose answer depends on the qubit starting in its ground state is worthless this week, and that includes coherence, readout fidelity and benchmarking — all three would come back worse than the machine really is, and the numbers would be in somebody's slides by Friday. What does not depend on it is everything warm: cable continuity, attenuator values, amplifier gain, timing between channels. Those are real work, they are needed anyway, and doing them now means the four days after the next cooldown are spent on physics.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.0",
+   "original": "Warm checks — wiring and electronics, which the chip cannot affect.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.choices.1",
+   "original": "Coherence times, which are the headline numbers for the review.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.2",
+   "original": "Single-shot readout fidelity, which the review also needs.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.3",
+   "original": "A full benchmarking run, to have something to show.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.0",
+   "original": "Coherence measured with a thermally excited population is not this machine's coherence.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.1",
+   "original": "Readout fidelity depends on which state the qubit was actually in, which is what the fridge has spoiled.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.2",
+   "original": "A benchmarking run inherits both faults and would put a wrong number in front of the review.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.title",
+   "original": "Finding a qubit that will not answer",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Locate a transition and turn a drive into a pulse that flips it.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.briefing",
+   "original": "The chip is cold again and one qubit is not where the design says it should be.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.stake",
+   "original": "Friday, the fridge is at 11 millikelvin and eleven of the twelve qubits are where they were last month. The twelfth is not answering anywhere near its design frequency, and Kofi Mensah has spent the morning sweeping. Sara Lindqvist thinks the junction on that one came out of a run she has been suspicious of since the spring. Priya Raghavan needs twelve working qubits for the circuit she has promised the review. Today you find the transition by sweeping for it, turn the drive into a pulse that flips the qubit reliably, and decide whether this chip is the one to spend the fortnight on.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "A qubit is not at the frequency you designed; it is at the frequency it answers to, and finding that is the first measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "Where the qubit actually is",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Read a frequency sweep",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "Mensah's sweep runs from 4.2 to 6.4 gigahertz. There is one clear response at 4.61, a much weaker one at 4.55, and nothing at 5.02 where the design put it.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "Resonance is what makes a qubit findable, and a response away from the design frequency is information rather than a fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "a system absorbs energy strongly only near its own transition frequency",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.question",
+   "original": "What has the sweep established?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "A superconducting qubit's frequency depends on the junction, and the junction depends on an oxide barrier a nanometre or so thick that no fabrication process controls perfectly. The design value is what the geometry should give; the measured value is what this particular chip does. A strong, narrow response is the transition. The weak one nearby is worth a note — it is often a two-level defect in the material sitting close by in frequency — but it is not the qubit.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.0",
+   "original": "The qubit is broken, since it is not at its design frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1",
+   "original": "The transition is at 4.61 GHz, and design was only a prediction.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.choices.2",
+   "original": "The sweep was run over the wrong range and should be repeated.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3",
+   "original": "The response at 4.55 GHz is the qubit and the stronger one is an artefact.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.0",
+   "original": "A qubit that responds strongly at a frequency is working; being away from design is a fabrication spread, not a fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.1",
+   "original": "The sweep covered 4.2 to 6.4 GHz, which contains both the design value and the response.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.2",
+   "original": "The weaker response is far narrower in strength and is a defect near the qubit in frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "How long a flip takes",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Turn the drive into a pulse",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "With the drive at 4.61 GHz, the qubit's population oscillates as the pulse gets longer. Mensah measures a full cycle every 84 nanoseconds.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "The pulse that flips a qubit is half a Rabi cycle, so a stronger drive means a shorter pulse.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "a driven two-level system cycles between its states while the drive is on",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.question",
+   "original": "Estimate the length of a pulse that flips this qubit.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "Driving on resonance does not simply excite the qubit; it drives it round, from ground to excited and back again, at a rate set by how hard you drive. That rate is the Rabi frequency. A pulse that lasts half a cycle leaves the qubit in the excited state, which is the operation everything else is built out of. Drive harder and the pulse gets shorter, which is worth doing until the drive is strong enough to start exciting things you did not intend.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.answerText",
+   "original": "About 42 ns.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.prompt",
+   "original": "The population completes a full Rabi cycle every 84 nanoseconds.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.question",
+   "original": "Choose the cycle time and the fraction of a cycle a flip takes.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.explanation",
+   "original": "Forty-two nanoseconds. The qubit frequency is what you drive at rather than how long for, and the fridge temperature and the qubit count belong to other questions entirely.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.relationship",
+   "original": "The flip pulse length = one Rabi cycle ÷ 2, because half a cycle takes the population from the ground state to the excited state.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.givens.0",
+   "original": "One full Rabi cycle takes 84 ns",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.givens.1",
+   "original": "A flip is half a cycle",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "One bad qubit out of twelve",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "Decide whether to keep this chip",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.place",
+   "original": "Fabrication & Materials",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "Lindqvist has the coupon from the same run. The junction resistances on it spread twice as wide as usual, which puts several qubits in the frequency range where defects are common.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "A device is worth keeping or replacing on what it costs you in time, not on whether it is perfect.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "a fabrication run produces chips with a spread of properties",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "The honest position is that this chip works and is not the best this process can do. Replacing it means four days of warm-up and cooldown out of a ten-day run, which is most of the fortnight, and the replacement comes from a process nobody has fixed yet — so it might be no better. Measuring this one properly, defect and all, gives the review a real number for a real device, and gives Lindqvist the data she needs to date the fault. Characterising the defect is the cheapest thing on the list and the most useful to everybody afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.proposals.0",
+   "original": "Keep this chip",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.proposals.1",
+   "original": "Swap in the spare chip",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.proposals.2",
+   "original": "Keep the chip and simply leave the twelfth qubit out of every circuit.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.proposals.3",
+   "original": "Stop and fix the fabrication process before running anything else.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.evidence",
+   "original": "The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four\ndays out of the ten before the review. The spare comes from the same suspicious run. Junction\nresistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been\ncharacterised on any chip in this lab.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.title",
+   "original": "Two clocks, and the one that runs out first",
+   "readOnly": false
+  },
+  {
+   "id": "m03.objective",
+   "original": "Separate energy leaving the qubit from phase being scrambled.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.briefing",
+   "original": "T1 is respectable and T2 is a third of what it should be, on every qubit at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.stake",
+   "original": "Monday, and the coherence numbers are lopsided. Anders Holm has T1 on every qubit at around 90 microseconds, which is good, and T2 at 32, which is poor — and a qubit's coherence cannot exceed twice its relaxation time, so something is scrambling phase without taking any energy. Ijeoma Okafor says the fridge is quiet. Ren Nakamura suspects the flux line. Priya Raghavan needs to know which of these numbers goes in the review and what it means. Today you measure both times properly, work out what a poor T2 against a good T1 is telling you, and decide where the noise is coming in.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Losing energy and losing phase are different failures with different cures, and the second is usually the one you have.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "Energy out, or phase scrambled",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Say what the two numbers mean together",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "Holm's table: T1 of 90 microseconds, T2 of 32, on all twelve qubits within a few per cent. The ceiling on T2 set by this T1 would be 180.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "T2 far below twice T1 means the dominant fault is dephasing, which is noise rather than dissipation.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "a quantum state has both an energy and a phase, which can be lost separately",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.question",
+   "original": "What do a good T1 and a poor T2 together tell you?",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "The two times answer different questions. T1 asks how long an excited qubit keeps its energy; T2 asks how long the state keeps a definite phase relationship. Energy loss also destroys phase, which is why T2 can never be more than twice T1. Here T2 is a fifth of that ceiling, so almost all of the phase loss is coming from something that never takes any energy at all — slow noise in a magnetic field or a control line, shifting the qubit frequency slightly and unpredictably.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.choices.0",
+   "original": "The qubits are losing energy to their environment faster than expected.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.choices.1",
+   "original": "Something scrambles the phase without taking energy.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.choices.2",
+   "original": "The measurement of T2 is wrong, since coherence cannot be shorter than relaxation.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.choices.3",
+   "original": "Both numbers are limited by the same mechanism, which is the fridge temperature.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.0",
+   "original": "Ninety microseconds of T1 is normal for this device; nothing there is faster than expected.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.1",
+   "original": "T2 shorter than T1 is entirely ordinary, and it is T2 above twice T1 that would be impossible.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.2",
+   "original": "The fridge limits thermal population, and a shared thermal limit would move both numbers together.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "How good T2 could be",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "Work out the ceiling this T1 sets",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.place",
+   "original": "Cryogenics & Vacuum",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "Okafor wants to know how much room there is before anybody spends a week chasing the noise. The relation is one over T2 equals one over twice T1 plus one over the pure dephasing time.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "The dephasing rate is what is left when the relaxation contribution is subtracted, and it is the number worth chasing.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "two independent loss processes add as rates rather than as times",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.question",
+   "original": "Estimate the pure dephasing time behind these numbers.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "Rates add; times do not. Energy loss contributes a dephasing rate of one over twice T1, because losing the energy also loses the phase, and whatever else is happening adds its own rate on top. Subtracting the first from the measured total leaves the pure dephasing rate, and its inverse is the time to quote when you go looking for the cause. If that number is far shorter than the T1 contribution, the fridge and the materials are not your problem this week — the wiring is.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.answerText",
+   "original": "About 39 µs.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.prompt",
+   "original": "T2 is 32 microseconds and T1 is 90. The relation is 1/T2 = 1/(2·T1) + 1/T_φ, so 1/T_φ = 1/32 − 1/180 per microsecond.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.question",
+   "original": "Choose the measured coherence time and the relaxation ceiling.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.explanation",
+   "original": "About thirty-nine microseconds, which is close enough to the measured T2 to say that dephasing is doing nearly all of the damage. T1 itself is an input to the ceiling rather than to this subtraction, and the pulse length and qubit count belong elsewhere.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.relationship",
+   "original": "1/T_φ = 1/T2 − 1/(2·T1), because the rates add and the relaxation contribution is the part you already know.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.givens.0",
+   "original": "T2 is 32 µs",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.givens.1",
+   "original": "Twice T1 is 180 µs",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "What scrambles a phase without taking energy",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "Say where slow noise comes from",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.place",
+   "original": "Fabrication & Materials",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "Lindqvist lists four candidates on the board and asks which of them changes a qubit's frequency slightly and slowly, rather than taking a quantum out of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "Anything that shifts the qubit's frequency between one run and the next dephases it, even though it never takes energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "a qubit's frequency can depend on its surroundings",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Dephasing comes from the frequency wandering. If the qubit is a slightly different frequency on each repetition, the phase you accumulate differs each time, and averaging over repetitions washes the interference out — with no energy lost anywhere. Magnetic flux noise and current noise on a bias line both do exactly that. A two-level defect sitting at the qubit frequency is a different animal: it exchanges energy, so it hits T1. And thermal photons in the readout resonator shift the frequency at random, which is dephasing again and one of the commonest causes.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "Dephasing — it moves the frequency without taking energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "Dephasing, by the same route as flux noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "Relaxation — it exchanges energy with the qubit.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "Dephasing, and one of the commonest causes of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "Flux noise moves the qubit frequency slightly between repetitions, which is dephasing.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "Current noise on a bias line does the same thing by the same route.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "A defect at the qubit frequency exchanges energy with it, so it shortens T1 rather than T2.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.3",
+   "original": "Stray photons in the readout resonator shift the frequency at random, which dephases without dissipating.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scenarios.0",
+   "original": "Magnetic flux noise through the loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scenarios.1",
+   "original": "Current noise on the bias line.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scenarios.2",
+   "original": "A two-level defect sitting at the qubit frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scenarios.3",
+   "original": "Thermal photons left in the readout resonator.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.title",
+   "original": "One bit out",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Understand what a readout actually decides, and how confident it is entitled to be.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.briefing",
+   "original": "The readout says 96 per cent fidelity. Nakamura says that number is doing a lot of work.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.stake",
+   "original": "Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96 per cent, and Ren Nakamura points out that it is the product of three separate things — how well the resonator separates the two states, how much noise the amplifier chain adds, and where somebody drew the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline figure for the review. Today you work out what the readout chain does to a signal, what a discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "A readout number is a claim about a whole chain, and most of the chain has nothing to do with the qubit.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "What happens between the chip and the answer",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Follow the signal out",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "Nakamura walks the chain: resonator, then a metre of cable, an isolator, a parametric amplifier at the mixing chamber, a semiconductor amplifier at 4 kelvin, more cable, a digitiser at room temperature.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "The first amplifier sets the noise of the whole chain, which is why it is the coldest thing after the chip.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "an amplifier increases a signal and adds noise of its own",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "Every stage after the first amplifier amplifies whatever the first one produced, noise included, so the first amplifier's own noise is what decides the signal-to-noise ratio of the whole chain. That is why it sits at the mixing chamber, cold and quiet, and why the warm electronics that follow it can be ordinary. Put the parametric amplifier at 4 kelvin instead and you can rebuild everything downstream to no effect at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.0",
+   "original": "The resonator, which shifts frequency depending on the qubit's state.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.1",
+   "original": "The parametric amplifier at the mixing chamber, which sets the noise of everything after it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.2",
+   "original": "The semiconductor amplifier at 4 kelvin, which lifts the signal for the trip up.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.cards.3",
+   "original": "The digitiser at room temperature, which records what arrives.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "A line drawn between two clouds",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Say what the discriminator decides",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "The digitiser's shots plot as two clouds. Most are clearly in one or the other. A few thousand sit between them, and a line drawn somewhere in that gap assigns every one of those to a state.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "A discriminator turns a continuous signal into a bit, and where the line sits decides which errors you make.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "a measurement produces a distribution rather than a single value",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.question",
+   "original": "What does moving the discriminator line do?",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "The line has to go somewhere, and wherever it goes, shots from one cloud that landed on the wrong side get called the other state. Move it toward the ground-state cloud and you misassign fewer excited shots and more ground ones; move it back and the trade reverses. The only thing that genuinely improves fidelity is separating the clouds — more signal, less noise, a longer integration — because the overlap is what sets the floor no line can beat.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.0",
+   "original": "It improves fidelity, because a better line assigns more shots correctly.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.1",
+   "original": "It trades one error for the other; the overlap sets the floor.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.choices.2",
+   "original": "It has no effect, since the clouds are already separated.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.3",
+   "original": "It changes what the qubit does during readout.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.0",
+   "original": "A better-placed line reduces one error and increases the other; the sum is bounded by the overlap.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.1",
+   "original": "The clouds overlap by a few thousand shots, which is exactly the region the line has to cut.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.2",
+   "original": "The discriminator is applied after the measurement and cannot change what the qubit did.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "Whose error is it",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "Take the readout out of the qubit number",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "A circuit reports 8 per cent error. The readout on its own accounts for 4 per cent, and Holm wants to know what is left for the gates.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "A quoted error is a sum until you separate the parts, and the interesting part is usually the smaller one.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "errors from independent sources combine",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "Numbers that arrive as a single figure hide their parts, and this one has three. Readout error is measured on its own by preparing a known state and reading it back, and it is 4 per cent. State preparation is measured the same way and is small here. What is left is the gates, and it is the only part that a better circuit or a better calibration will move. Quoting the 8 per cent as gate error is the mistake that makes a machine look worse than it is; quoting 4 per cent as the whole error makes it look better.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.0",
+   "original": "Measured separately, and mostly about the amplifier chain.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.1",
+   "original": "Measured the same way, and small on this device.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.2",
+   "original": "The part a better pulse or calibration actually changes.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.3",
+   "original": "What a user sees, and the wrong number to work from.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.0",
+   "original": "Readout error is measurable on its own by preparing a known state and reading it straight back.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.1",
+   "original": "State preparation error is measured the same way and is small on this device.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.2",
+   "original": "Gate error is what is left after the other two, and it is the only part a recalibration moves.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.3",
+   "original": "The total is what a user experiences, and it is not the number that tells you what to fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.scenarios.0",
+   "original": "Readout error, 4 per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.scenarios.1",
+   "original": "State preparation error, well under 1 per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.scenarios.2",
+   "original": "Gate error, whatever is left.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.scenarios.3",
+   "original": "The 8 per cent total.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.title",
+   "original": "The offer with a date on it",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Decide what to share, and when, while somebody else is deciding the same thing.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.briefing",
+   "original": "A group in Delft will run your circuit on their device this month, if they hear back by Friday.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.stake",
+   "original": "Wednesday, and a note arrives from a group in Delft. They have a device of a different design and a window of machine time in ten days, and they will run Ridgeway's circuit on it if they get the pulse sequences by Friday. Anders Holm's instinct is to send nothing until the local numbers are settled, because a sequence sent out is a result you no longer control. Priya Raghavan points out that this is the second device he has been asking for since March, offered free, with a deadline. This morning she is right, and the caution would cost the group the one thing it has been missing. Today you decide what to send, what to hold, and what you would need back to call it a replication.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "Some evidence has a window on it, and refusing to move inside that window is a decision with its own cost.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "What you would need back",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "Decide what makes a replication worth the name",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "Holm writes down what Delft would have to return for the run to count as a check rather than a courtesy. Raghavan writes down what she is willing to send by Friday.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "A replication has to be able to fail, which means the other group needs the method and not the expected answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "a second measurement is only a check if it could disagree",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "The value of an independent run is that it shares as little as possible with the original. The circuit and the pulse sequences have to go, or they are running a different experiment. The raw shots have to come back, because the analysis is one of the things being checked. Ridgeway's own calibration files must not go, since a shared calibration is exactly the common step that makes two results agree for no good reason. And sending the expected result would tell them what to see, which is the one thing that cannot be undone afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.0",
+   "original": "Goes, or they are not running the same experiment.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.1",
+   "original": "Comes back, because the analysis is part of what is checked.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.2",
+   "original": "Stays here — a shared calibration makes agreement meaningless.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.3",
+   "original": "Stays here, and firmly, because it would tell them what to find.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.0",
+   "original": "The circuit and pulse sequences have to go, or the two groups are not running the same experiment.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.1",
+   "original": "Raw shots have to come back, because the analysis is part of what is being checked.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.2",
+   "original": "Ridgeway's calibration must stay here; a shared calibration is the common step that manufactures agreement.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.3",
+   "original": "The expected number must not be sent, because knowing it changes what a person does at every fork.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.0",
+   "original": "The circuit and the pulse sequences.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.1",
+   "original": "The raw single-shot data from their run.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.2",
+   "original": "Ridgeway's discriminator and calibration files.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.3",
+   "original": "The result Ridgeway expects to see.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "Copying a state, and why you cannot",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "Work out what can be sent and what cannot",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "Yusuf Sadiq, listening, points out the obvious thing nobody has said: they can send the recipe, and they cannot send the state itself. Not by fibre, not by post, not at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "Some limits are not engineering problems waiting for better equipment.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "information can be copied and a quantum state is a different kind of object",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.question",
+   "original": "Why can Ridgeway send the circuit but not the prepared state?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "There is no operation that takes an unknown quantum state and produces two of it. This is not an engineering limit that better equipment removes; it follows from the linearity of the theory, and it is why quantum information is sent by moving the only copy rather than by duplicating it. It is also the whole basis of key distribution: an eavesdropper cannot take a copy and leave the original untouched, so interception shows up as errors at the far end.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.0",
+   "original": "The state would decohere during transmission, though copying it is possible in principle.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.1",
+   "original": "An unknown state cannot be copied, so only instructions can go.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.choices.2",
+   "original": "Sending it would require a fibre link Ridgeway does not have.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.3",
+   "original": "The state contains proprietary calibration and cannot be shared.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.0",
+   "original": "Decoherence is a real problem in transmission and is not what stops copying.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.1",
+   "original": "Ridgeway does have a fibre link, and it would not help.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.2",
+   "original": "Nothing about ownership is involved; the limit applies to a state nobody owns.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "What Raghavan sends",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "Decide what goes out on Friday",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.place",
+   "original": "Quantum Sensing",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "Elena Barros, who ships numbers to a hospital every month, has the least romantic view of this in the building: work goes out when somebody else needs it, and it goes out with its uncertainties.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "Sending the method with its uncertainties is not the same as claiming a result, and confusing the two is what makes people hoard.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "a result can be shared at different levels of completeness",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "The window is ten days and it will not come again this quarter. Sending the sequences with the uncertainties stated costs nothing that matters: if Delft's run disagrees, that is the finding Holm has been asking for since March, and finding out from a friendly group is far cheaper than finding out from a referee. Sending the sequences plus the expected number ruins the check. Waiting a fortnight means no second device at all. Publishing first and asking afterwards is the only genuinely bad option, and it is the one the deadline pressure pushes toward.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.0",
+   "original": "Send the sequences and the raw method",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.1",
+   "original": "Send nothing until the local numbers are settled",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.2",
+   "original": "Send the sequences together with Ridgeway's own result, so they know what to look for.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.3",
+   "original": "Publish the local result this week",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.evidence",
+   "original": "Delft's window is ten days and the next is a quarter away. Their device is a different design,\nwhich is what makes it an independent check. Ridgeway's own result has been measured on one device\nby one group. The review is in five days. Delft has asked for sequences only, not for results.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.title",
+   "original": "A defect with a date on it",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Trace a fault in a device back to the process that made it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.briefing",
+   "original": "The weak response near 4.55 GHz turns up on three chips, all from the same six weeks.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.stake",
+   "original": "Thursday, and Sara Lindqvist has been through the drawer. The weak absorption sitting 60 megahertz below the twelfth qubit appears on three chips, and all three came from wafers processed in a six-week window last spring — the same window in which the oxidation step was changed to raise yield. Kofi Mensah has watched a qubit lose energy every time its frequency drifts into that feature. Priya Raghavan has to decide whether this goes in the review as a known cause or as an open question. Today you work out what the feature is, what it does to a qubit that sits near it, and what the process change bought and cost.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "A defect in a material shows up months later in somebody else's measurement, which is why the record of what was made when is worth keeping.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "Something else that absorbs at that frequency",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Which explanation fits all of it?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.place",
+   "original": "Fabrication & Materials",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally cycled. It appears on three chips from one processing window and on none of the others.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "A flaw in a material has a signature, and the signature says when it was made as well as what it is.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "a material can contain flaws that behave as small two-state systems",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.headline",
+   "original": "A narrow absorption sits 60 MHz below one qubit, on three chips from one six-week window.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "Everything points at the material. A neighbouring qubit would be at a designed frequency, would appear on every chip, and would not move when the chip is warmed and cooled — a defect does move, because thermal cycling rearranges the atoms it is made of. Thermal photons broaden a response rather than producing a narrow one, and the fridge is cold. An electronics artefact would appear on all fourteen chips, since they share the same generator. Only a flaw in the oxide is narrow, fixed, chip-specific, and able to take energy out of a qubit tuned onto it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.0",
+   "original": "A two-level defect in the junction oxide",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.0.mechanism",
+   "original": "A flaw with two states of its own absorbs at a fixed frequency and exchanges energy with a qubit tuned near it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.1",
+   "original": "A second qubit coupling in from the next cell",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.1.mechanism",
+   "original": "Neighbouring qubits can couple and exchange excitation.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2",
+   "original": "Thermal photons in the readout resonator",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2.mechanism",
+   "original": "Stray photons shift and broaden the response.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3",
+   "original": "An artefact of the measurement electronics",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3.mechanism",
+   "original": "A spurious tone in the generator would appear at a fixed frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.0",
+   "original": "A neighbouring qubit sits at a design frequency and would show on every chip, not three.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.1",
+   "original": "Thermal photons broaden the response instead of producing a narrow line, and the fridge is at 11 mK.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.2",
+   "original": "An artefact in the shared electronics would appear on all fourteen chips.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "Energy with somewhere to go",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Say what it does to a qubit near it",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "When the twelfth qubit is tuned to within 10 megahertz of the feature, its T1 falls from 90 microseconds to about 35. Tuned 200 megahertz away, it recovers.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "Avoiding a fault is a legitimate repair when the fault is confined and documented.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "two systems at the same frequency can exchange energy",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.question",
+   "original": "What is the practical response to a defect at a known frequency?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "Resonant exchange only works near resonance. Move the qubit a few hundred megahertz away and the coupling falls off sharply, which is why the same qubit is fine at 4.61 gigahertz and poor at 4.56. On a tunable device that is a working repair rather than a compromise, and the important half of it is writing the defect's frequency down — an undocumented one is a trap the next person falls into when they retune. Cooling further does not help, because the defect absorbs energy from the qubit rather than being thermally excited.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.choices.0",
+   "original": "Discard the chip, since the defect cannot be removed.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.choices.1",
+   "original": "Operate the qubit away from that frequency, and record where the defect is.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.2",
+   "original": "Cool the fridge further, so the defect has no energy to absorb.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.choices.3",
+   "original": "Drive the qubit harder to overcome the loss.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.0",
+   "original": "The chip is usable everywhere except a narrow band, which is not a reason to discard it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.1",
+   "original": "Colder helps thermal population and does nothing about a resonant exchange.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.2",
+   "original": "Driving harder puts in more energy and does not stop it draining into the defect.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "Yield against lifetime",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "Say what the process change actually did",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "The oxidation change raised the fraction of usable chips from about half to nearly three quarters. It also appears to have produced these defects.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "A change that improves the number you were watching can damage the one you were not, which is why you record both before and after.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "a process change can improve one measure and damage another",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.question",
+   "original": "What should the group do about the oxidation step?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Three chips is a suggestion, not a measurement. The change is correlated with the defects and also with a large yield improvement, and nobody has run the comparison that would separate them — fabricate both ways, count defects per chip, and look. Reverting now trades a known gain for an unquantified one. Keeping it without measuring means the group finds out in a year, in somebody else's coherence numbers. Stopping fabrication costs the review and answers nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.0",
+   "original": "Revert it, since the defects are what is limiting coherence.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.1",
+   "original": "Keep it, and compare defect density against the old process first.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.choices.2",
+   "original": "Keep it, because yield is what limits how many devices the group can test.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.3",
+   "original": "Stop fabricating until the mechanism is understood.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.0",
+   "original": "Three chips from one window is a correlation, and reverting on it trades a measured gain for a guess.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.1",
+   "original": "Keeping it without the comparison means the same argument again next year with no more evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.2",
+   "original": "Stopping fabrication removes the only way to get the data that would settle it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.title",
+   "original": "The instrument somebody else depends on",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Meet the part of this field that already works, and the discipline that comes with it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.briefing",
+   "original": "The magnetometer has to be recalibrated by two, because a hospital is using its numbers.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.stake",
+   "original": "Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields a hundred million times weaker than the Earth's, a hospital across the city uses those numbers in a study that has been running for three years, and the calibration is due at two o'clock whatever else is happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review slides, has been told to come back at three. Today you work out where a sensor's precision limit comes from, what averaging can and cannot buy, and why a number that leaves the building carries obligations that a number in a slide does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "The applications of this field that already work are the ones with calibration schedules, and the schedule is the reason they work.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "What averaging buys",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Find the noise floor",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.place",
+   "original": "Quantum Sensing",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "A single measurement resolves 40 picotesla. Barros needs 4. She has an hour, and each measurement takes a hundred milliseconds.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "Averaging independent measurements improves precision as the square root of their number, which is a hard wall rather than a slow one.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "independent measurements can be averaged to reduce random error",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.question",
+   "original": "Estimate how many measurements are needed to reach 4 picotesla.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "Random noise averages down as the square root of the number of independent measurements, so improving by a factor of ten costs a hundred times as many. That is the standard quantum limit, and it is why sensing is a patience problem: the first factor of ten is cheap and the second is not. It is also why entanglement is interesting to people who build sensors — a squeezed or entangled ensemble can beat that scaling, which is the only way past a wall that otherwise costs you a factor of a hundred in time for every factor of ten in precision.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.answerText",
+   "original": "About 100.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.prompt",
+   "original": "One measurement resolves 40 pT and the target is 4 pT. Precision improves as the square root of the number of measurements.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.question",
+   "original": "Choose the single-shot resolution and the target.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.explanation",
+   "original": "A hundred measurements, which at a tenth of a second each is ten seconds — comfortable. The timing figures tell you whether it fits in the hour, and the qubit count belongs to the processor rather than the sensor.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.relationship",
+   "original": "Number of measurements = (single-shot resolution ÷ target)², because precision improves as the square root of how many you average.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.givens.0",
+   "original": "One measurement resolves 40 pT",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.estimate.givens.1",
+   "original": "The target is 4 pT",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "Against what",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Say what the calibration is for",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.place",
+   "original": "Quantum Sensing",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "Whitfield arrives with the reference source at two. Barros measures it, writes the ratio in the log, and only then measures anything anybody wants.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "A measurement is a comparison with a standard, so a number without a traceable standard behind it is a reading rather than a result.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "an instrument's reading is a comparison",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.question",
+   "original": "What does the two o'clock calibration establish?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "Precision is how finely an instrument resolves; accuracy is whether it is right, and only a comparison with something known establishes that. A three-year study is a comparison across time, which means every reading in it has to be tied to the same standard — otherwise a slow drift in the instrument becomes a slow trend in the data, and it is indistinguishable from the effect somebody is looking for. The calibration is the thing that makes the third year commensurable with the first.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.0",
+   "original": "That the instrument is working, since it produced a number.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.1",
+   "original": "That today's readings tie to a standard, so last year's compare.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.2",
+   "original": "That the magnetometer is more precise than it was yesterday.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.3",
+   "original": "That the hospital's study is using the correct units.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.0",
+   "original": "Producing a number is not evidence of being right, which is exactly what a reference is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.1",
+   "original": "Calibration ties the scale down; it does not change how finely the instrument resolves.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.2",
+   "original": "Units are a matter of arithmetic, and the drift a calibration catches is not.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "Numbers that leave the building",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "Say what a delivered number obliges you to",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "Sadiq points out that his key link has the same property: somebody else's system depends on it, so its failures have to be visible to them rather than only to him.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Once somebody else acts on your numbers, telling them when the numbers are bad matters more than making the numbers better.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "a service somebody relies on has different obligations from an experiment",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "An experiment can fail quietly and be repeated. A delivered measurement cannot: somebody has already used it. So the obligations are different in kind — a known uncertainty attached to every number, a stated calibration interval, an alarm the user sees rather than one the operator sees, and a record of what changed and when. None of that improves the instrument. All of it decides whether the person on the other end can tell a real change from a fault in your equipment.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.0",
+   "original": "Reading a change as real when it is inside the noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.1",
+   "original": "Comparing this year with last year through a drift.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.2",
+   "original": "Acting for weeks on a number that was already wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.3",
+   "original": "Being unable to re-examine an old conclusion.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "An uncertainty on every number is what lets the user judge whether a change is real.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "A calibration interval is what makes this year's readings comparable with last year's.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "An alarm the user can see is the difference between a fault and a silent wrong answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.3",
+   "original": "A record of changes is what lets somebody re-examine a conclusion later.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scenarios.0",
+   "original": "An uncertainty stated on every delivered number.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scenarios.1",
+   "original": "A published calibration interval.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scenarios.2",
+   "original": "A fault alarm the user sees, not just the operator.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scenarios.3",
+   "original": "A log of every change to the instrument.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.title",
+   "original": "How wrong is it, and how would you know",
+   "readOnly": false
+  },
+  {
+   "id": "m08.objective",
+   "original": "Measure the machine's error in a way that does not measure your own readout.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.briefing",
+   "original": "Two error numbers, both honest, differing by a factor of three.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.stake",
+   "original": "Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4 per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and they answer different questions; Priya Raghavan says the review will only print one of them. Dasha Petrova wants whichever number is comparable with the threshold, because below that line adding qubits helps and above it they do not. Today you work out what randomised benchmarking actually measures, why a long sequence gives a different answer from a short one, and which number belongs in a sentence about error correction.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "An error number is defined by the procedure that produced it, and quoting it without the procedure is quoting nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "Why a long sequence tells you more",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Say what benchmarking measures",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "Holm runs sequences of 2, 8, 32 and 128 random gates, each ending with the gate that should return the qubit to where it started. The success rate falls smoothly with length.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "Benchmarking reads error from how fast success decays with sequence length, which is why the readout error drops out of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "errors accumulate as operations are applied in succession",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.question",
+   "original": "Why does the group use a decay over many lengths rather than one careful measurement?",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "A single measurement of a single gate gives you the gate error plus the readout error plus the preparation error, and no way to separate them. A decay curve gives you the *rate* at which success falls off with length, and a constant offset — however large — changes where the curve starts and not how fast it falls. That is the trick: the quantity you want is in the slope, and the quantities you cannot easily measure are in the intercept. Averaging over random sequences matters too, but for a different reason: it stops one unlucky sequence standing for all of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.0",
+   "original": "Longer sequences are more representative of real circuits.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.1",
+   "original": "The error is in the slope, so constant offsets drop out.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.choices.2",
+   "original": "Averaging over many random sequences reduces statistical noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3",
+   "original": "Short sequences cannot be measured accurately.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.0",
+   "original": "Being representative is a benefit and not the reason the method separates the error out.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.1",
+   "original": "Averaging reduces noise, which is true of any repeated measurement and is not what makes this one clean.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.2",
+   "original": "Short sequences measure perfectly well; they simply cannot be told apart from a readout offset.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "Where a good number stops being good",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Compound one gate's error over a circuit",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "Mensah's proposed circuit is 400 gates deep. The measured fidelity of a single gate is 0.988.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "Fidelity multiplies over depth, so a gate that is right ninety-nine times in a hundred fails a circuit a few hundred deep.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "independent errors compound over repeated operations",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.question",
+   "original": "Estimate the chance the whole 400-gate circuit is right.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "Each gate has to work for the circuit to work, so the probabilities multiply rather than adding. That turns a small per-gate error into a wall very quickly: at 98.8 per cent per gate, a four-hundred-gate circuit succeeds about one time in a hundred and thirty. It is why depth is the quantity that matters in this field rather than qubit count, and why error correction exists at all — without it, adding depth costs exponentially and there is no arithmetic that rescues it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.answerText",
+   "original": "Under 1 per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.prompt",
+   "original": "One gate has fidelity 0.988, and the circuit applies 400 of them in succession.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.question",
+   "original": "Choose the single-gate fidelity and the depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.explanation",
+   "original": "Less than one per cent — about one run in a hundred and thirty. The per-gate error and the benchmarked percentage are the same fact written differently, and the qubit count does not enter a depth calculation.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.relationship",
+   "original": "Circuit fidelity = single-gate fidelity raised to the number of gates, because every gate has to work and the probabilities multiply.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.givens.0",
+   "original": "Single-gate fidelity is 0.988",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.givens.1",
+   "original": "The circuit is 400 gates deep",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "The number error correction cares about",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Say which number belongs beside the threshold",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "Petrova wants to write one sentence about error correction. The threshold for the code she has in mind is about 1 per cent per gate, and the two candidate numbers sit either side of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "A threshold is defined against a particular error measure, so the comparison is only meaningful with the same measure on both sides.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "a threshold is a comparison against a defined quantity",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "The threshold is not a general statement about how good a machine feels; it is defined against an average gate error of the kind benchmarking produces. So 1.2 per cent is the number that goes beside it, and it sits above the line — which is the honest and unwelcome sentence. The 0.4 per cent figure is a single gate under ideal conditions, and comparing it with a threshold defined for average performance is comparing two different things. The circuit success rate is downstream of both and is not a per-gate quantity at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.0",
+   "original": "The one to set beside a threshold, and it is above the line.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.1",
+   "original": "A best case under ideal conditions, and not comparable with a threshold.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.2",
+   "original": "A consequence of gate error and depth rather than a per-gate figure.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.3",
+   "original": "Excluded from the benchmark by construction, which is what makes it comparable.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.0",
+   "original": "Benchmarked average error is the quantity the threshold is defined against, which is why it is the one to quote.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.1",
+   "original": "The best single gate under ideal conditions is not what a code experiences over a whole circuit.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.2",
+   "original": "The circuit success rate is a consequence of gate error and depth, not a per-gate figure.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.3",
+   "original": "Readout error is excluded from the benchmarked number by construction, which is what makes it comparable.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.scenarios.0",
+   "original": "1.2 per cent, from randomised benchmarking.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.scenarios.1",
+   "original": "0.4 per cent, from one gate measured directly.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.scenarios.2",
+   "original": "0.8 per cent, the circuit's own success rate per gate.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.scenarios.3",
+   "original": "4 per cent readout error.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.title",
+   "original": "A number that rules something out",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Run the Bell test as a measurement, and say precisely what a violation excludes.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.briefing",
+   "original": "Two qubits, four settings, and a quantity that cannot exceed two if the outcomes were agreed in advance.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.stake",
+   "original": "Tuesday, and the review wants a demonstration that the machine really is doing something quantum rather than something clever. Anders Holm's answer is the oldest one available: entangle two qubits, measure correlations at four combinations of settings, and compute a single number. If the outcomes were fixed before the measurement — by any instruction agreed in advance, however elaborate — that number cannot exceed two. Dasha Petrova wants the loopholes stated in the same breath as the result. Today you run it, work out what the measured value excludes, and write the sentence that says so without saying more.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "The strongest results in this field are exclusions, and stating exactly what has been excluded is the whole of the claim.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "Four correlations, one number",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Compute the quantity",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "The four correlation measurements come back at 0.71, −0.69, 0.70 and 0.68. The combination Holm wants is the first minus the second plus the third plus the fourth.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "The Bell quantity is arithmetic on four measured correlations, and its ceiling for pre-agreed outcomes is two.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "a correlation between two detectors can be measured as a number between minus one and one",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.question",
+   "original": "Estimate the CHSH value for these four correlations.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "Nothing here is mysterious until the arithmetic is done. Each correlation says how often the two detectors agreed at one pair of settings. The particular combination — one minus, three plus — is chosen because any strategy in which each particle carries instructions decided in advance keeps it at or below two, whatever those instructions are. Quantum mechanics allows up to about 2.83. So the measured number lands in one region or the other, and which region it lands in is the entire result.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.answerText",
+   "original": "About 2.78.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.prompt",
+   "original": "The four correlations are E(a,b) = 0.71, E(a,b′) = −0.69, E(a′,b) = 0.70 and E(a′,b′) = 0.68. S is the first minus the second plus the third plus the fourth.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.question",
+   "original": "Choose the four correlations.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.explanation",
+   "original": "About 2.78, which is well above 2 and just under the quantum ceiling of 2.83 — the ceiling is what the result is compared against rather than an input to it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.relationship",
+   "original": "S is the sum of three correlations minus one of them, and any set of outcomes decided before the measurement keeps |S| at or below 2.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.givens.0",
+   "original": "The four measured correlations",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.givens.1",
+   "original": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "What has been ruled out",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Say what the number excludes",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "S is 2.78, comfortably above 2. Sadiq asks Holm to say in one sentence what that establishes, and then asks him to say what it does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "The strongest thing an experiment does is rule a whole family of explanations out.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "a measurement can rule out a class of explanations without confirming one",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.question",
+   "original": "What does S = 2.78 establish?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "The inequality is a statement about a whole family of explanations, not about one mechanism. It says that if every outcome was determined by properties carried along beforehand, and no setting influenced a distant outcome, then S cannot exceed 2. Measuring more than 2 kills that family. It does not establish signalling — the correlations cannot be used to send anything, because each detector on its own sees random results — and it does not prove a theory correct; a measurement never does that. It rules something out, which is the strongest thing an experiment does.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.0",
+   "original": "That the two qubits are communicating faster than light.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.1",
+   "original": "That no locally pre-fixed set of outcomes explains these correlations.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.2",
+   "original": "That quantum mechanics is the correct theory of nature.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.3",
+   "original": "That the qubits are entangled to a fidelity of 98 per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.0",
+   "original": "Neither detector's results change when the other's settings change, so nothing is being sent.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.1",
+   "original": "Excluding a class of explanations is not the same as proving the theory that predicted the excess.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.2",
+   "original": "Fidelity is a separate measurement, and S alone does not give it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "What a careful reader will ask",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "State the loopholes",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "Petrova lists what somebody sceptical will want to know: whether the settings were chosen after the state was prepared, whether the two qubits were far enough apart, and how many runs were discarded.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "Naming the conditions your apparatus does not meet is what separates a demonstration from a claim.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "an experiment's conclusion depends on conditions its apparatus may not meet",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "On a chip, two qubits are a millimetre apart and the measurement takes microseconds, so light could comfortably carry a message from one to the other during the experiment — the locality condition is not met, and saying so is not a weakness, it is the truth about the apparatus. If settings are chosen in advance rather than during the run, a mechanism that knew them could conspire. If runs are discarded on any criterion related to the outcome, the surviving sample is not the sample the inequality is about. Each of these is a stated condition rather than a doubt.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.0",
+   "original": "Detectors far enough apart that light cannot cross between them in the measurement time.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.1",
+   "original": "A fast random choice made during the run rather than programmed beforehand.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.2",
+   "original": "A pre-registered rule for exclusion, applied blind to the result.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.3",
+   "original": "Efficient readout on both qubits, which this device has and many platforms do not.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.0",
+   "original": "Two qubits a millimetre apart cannot be separated fast enough for locality to hold, and the paper has to say so.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.1",
+   "original": "Settings fixed in advance leave room for a mechanism that could have known them.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.2",
+   "original": "Discarding runs on an outcome-related criterion changes what population the inequality applies to.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.3",
+   "original": "Fair sampling is an assumption, and an assumption stated is not the same as an assumption hidden.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scenarios.0",
+   "original": "The two measurements are space-like separated.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scenarios.1",
+   "original": "Settings are chosen after the state is prepared.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scenarios.2",
+   "original": "No runs are discarded on outcome-related criteria.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scenarios.3",
+   "original": "Detection efficiency is high enough to avoid fair-sampling assumptions.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.title",
+   "original": "Reading a claim as a claim",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Work out what an advantage result asserts, and what would falsify it.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.briefing",
+   "original": "A competing group's paper says a classical computer would need nine thousand years. That is a claim about a classical computer.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.stake",
+   "original": "Wednesday, and the paper everybody has been arguing about is on the table. A group has run a sampling circuit on a 67-qubit device and states that reproducing the output distribution classically would take about nine thousand years. Priya Raghavan wants Ridgeway's response ready for the review. Anders Holm points out the sentence is two claims welded together: one about what their machine did, and one about what every classical algorithm could do — and only the first is a measurement. Today you take the claim apart, work out which half could be wrong without anybody having cheated, and decide what Ridgeway can honestly say about it.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "A claim about what somebody else's computer cannot do is a claim about the state of the art, and the state of the art moves.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "What was measured and what was estimated",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Separate the two halves of the claim",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "The paper reports a sampled distribution, a fidelity estimate, and a runtime for the best known classical algorithm on the largest machine the authors could get time on.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "Half of an advantage claim is a measurement of a device and half is an estimate about algorithms nobody has invented yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "a comparison has a measured side and a modelled side",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "What the device did is a measurement, and it either reproduces or it does not. The classical runtime is a different kind of statement: it is the best anybody currently knows how to do, on hardware somebody currently has, and it can be overturned by a cleverer algorithm without any experimental error at all. That has happened repeatedly, and it is not a scandal — it is what a bound of that kind means. The fidelity estimate sits in between, because it relies on a model of how errors accumulate that cannot itself be checked classically at this size.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.0",
+   "original": "Measured. It reproduces or it does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.1",
+   "original": "An estimate about the state of the art, which moves.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.2",
+   "original": "A model-dependent number that cannot be checked classically at this size.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.3",
+   "original": "Engineering facts about two particular machines.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.0",
+   "original": "The sampled distribution is a measurement of their device, and it either reproduces or it does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.1",
+   "original": "The classical runtime is the best known method today, and a better algorithm changes it without any error.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.2",
+   "original": "The fidelity estimate leans on an error model that cannot be verified classically at this size.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.3",
+   "original": "The energy and cost figures are engineering facts about two particular machines.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.0",
+   "original": "The output distribution their device produced.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.1",
+   "original": "Nine thousand years for the best known classical algorithm.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.2",
+   "original": "The estimated circuit fidelity.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.3",
+   "original": "The comparison of energy used.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "What twelve qubits can say about sixty-seven",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Say what Ridgeway's own machine could check",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "Instruments get calibrated where the truth is already known, not where the interesting result is.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "a small system can be simulated exactly and a large one cannot",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.question",
+   "original": "What is a twelve-qubit device good for here?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "At twelve qubits a classical computer can produce the exact output distribution in seconds, which means the true answer is known independently of the experiment. That is precisely where you test the *method* — the fidelity estimator, the sampling analysis, the way errors are modelled — and if it fails to recover the known answer at twelve qubits, nothing it says at sixty-seven is worth reading. Small devices are not junior versions of large ones; they are where the instruments used on large ones get calibrated.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.0",
+   "original": "Nothing; the claim is about a machine four times larger.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.1",
+   "original": "Checking the method where the exact answer is already known.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.choices.2",
+   "original": "Running the same circuit more slowly and comparing runtimes.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.3",
+   "original": "Demonstrating that twelve qubits are enough for the task.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.0",
+   "original": "A small device cannot reproduce the claim and can validate the tools the claim depends on.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.1",
+   "original": "Comparing runtimes on a different-sized problem answers a different question.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.2",
+   "original": "Nobody argues twelve qubits suffice for the task; that is not what would be shown.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "The response",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Decide what Ridgeway says publicly",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "Raghavan wants a paragraph for the review. The options on the table run from a full rebuttal to silence, and the group has one genuinely new thing to offer.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "The useful public contribution is usually a method somebody else can apply, not a verdict on somebody else's result.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "a public statement can be about a method rather than about a rival",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "Ridgeway cannot rebut a sixty-seven-qubit runtime claim with twelve qubits and should not try. What it can do is publish the validation: run the estimator at a size where the exact answer is known, show where it holds and where it breaks, and hand that over. It is genuinely new, it is within the group's means, and it improves the field's ability to judge the next claim as well as this one. Endorsing or attacking the result outright commits the group to a position its own machine cannot support either way.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.proposals.0",
+   "original": "Publish the estimator validation at twelve qubits",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.proposals.1",
+   "original": "Say nothing publicly until Delft's independent run comes back.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.proposals.2",
+   "original": "Publish a rebuttal arguing the classical runtime estimate is too pessimistic.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.proposals.3",
+   "original": "Endorse the result and cite it in the review as the state of the art.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.evidence",
+   "original": "Ridgeway has 12 qubits against the paper's 67. An exact classical simulation at 12 qubits takes\nseconds. Nobody has published a validation of this estimator against exact results. Two previous\nadvantage claims were overturned by better classical algorithms rather than by experimental error.\nThe review is in three days.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.title",
+   "original": "The discriminator that had seen the answer",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Find out why the second device disagrees, and what that does to a fortnight of numbers.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.briefing",
+   "original": "Delft ran the circuit. Their fidelity is a third lower than Ridgeway's, on hardware that is otherwise better.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.stake",
+   "original": "Thursday, and Delft's raw shots arrived overnight. Their device has longer coherence and lower gate error than Ridgeway's by every measure they sent, and the circuit fidelity they get is a third lower. Anders Holm has been asking for a second device since March and this morning he is right about why. Marta Castellan finds it before lunch: Ridgeway's readout discriminator is retrained at the start of each session on data that includes the very states it is being asked to distinguish, so it has been scoring itself on its own training set. Nothing was faked. Today you work out what that does to a measured fidelity, which of the fortnight's numbers it touches, and what has to be rerun.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "A method tuned on the data it is later tested against will flatter itself, and it will do so quietly and consistently.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "Scoring yourself on your own training set",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Which explanation fits all of it?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "The tune-up takes a set of shots, fits the discriminator to them, and then evaluates readout fidelity on the same shots. Delft fits on one set and evaluates on a fresh one.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "Evaluating a classifier on the data it was fitted to measures the fit, not the performance.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "a rule fitted to data describes that data better than it describes new data",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.headline",
+   "original": "Two devices, the better one reporting worse fidelity, and the difference is in the analysis.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "The direction is the tell. Delft's hardware is better on every independently measured quantity — coherence, gate error, readout separation — and their result is worse, which no hardware fault explains. What differs is the analysis: Ridgeway fits the discriminator to a set of shots and then reports its accuracy on those same shots, so every idiosyncrasy of that particular set is being counted as performance. The circuits are identical, since Delft ran the sequences Ridgeway sent, and a gap of a third is far outside sampling spread at these shot counts.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.0",
+   "original": "Delft's device is worse in some way their own metrics did not catch, mechanism: A hidden hardware fault would lower their result.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.1",
+   "original": "Ridgeway's discriminator was scored on its own training data",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.1.mechanism",
+   "original": "A rule fitted to a set describes that set better than it describes a fresh one.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2",
+   "original": "The circuits were not identical",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2.mechanism",
+   "original": "A different sequence would give a different result.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3",
+   "original": "Ordinary statistical fluctuation between the two runs",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3.mechanism",
+   "original": "Finite sampling produces spread between repeats.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "Every hardware quantity Delft measured independently is better than Ridgeway's, which no hidden fault reconciles.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "Delft ran the sequences Ridgeway sent, so the circuits are the same.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "A third is many times the sampling spread at these shot counts.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "What the artefact touches",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Sort the fortnight's numbers",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "Holm lists the numbers this fortnight produced and asks which of them passed through the discriminator and which did not.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "Trace which results the faulty step is upstream of, and the rest stand.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "a fault in one step affects only what depends on that step",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "The discriminator sits between the readout signal and every bit that comes out, so anything counting bits inherits it — circuit fidelity, and the readout fidelity figure itself, which is the most affected of all. What does not pass through it is anything read off a decay rather than a classification: T1 and T2 come from how fast a signal falls with time, and a constant misassignment shifts the curve without changing its slope. Benchmarking is the same story, which is exactly why the method exists. And the Bell result used correlations computed from the same classified shots, so it needs rerunning even though nothing about it looked wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.0",
+   "original": "Falls. It counts classified bits, so it inherits the fault directly.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.1",
+   "original": "Stands. Read from a decay rate, which a constant misassignment does not change.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.2",
+   "original": "Stands, for the same reason, which is why the method was chosen.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.3",
+   "original": "Has to be rerun. Nothing looked wrong and the shots went through the same step.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.0",
+   "original": "Circuit fidelity counts classified bits, so it inherits the fault directly.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.1",
+   "original": "T1 and T2 are read from a decay rate, and a constant misassignment moves the intercept rather than the slope.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.2",
+   "original": "Benchmarking reads error from a slope for the same reason, which is why it survives.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.3",
+   "original": "The Bell correlations were computed from classified shots, so they have to be rerun.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.scenarios.0",
+   "original": "Circuit fidelity, 0.91.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.scenarios.1",
+   "original": "T1 and T2.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.scenarios.2",
+   "original": "The randomised benchmarking error.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.scenarios.3",
+   "original": "The Bell value of 2.78.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "Rerun, and tell whom",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "Decide what happens next",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.place",
+   "original": "Fabrication & Materials",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "Nothing has been published. The review is in two days. Delft has the raw shots and has not been told what Ridgeway found.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "An error caught before it is published costs a rerun; the same error caught after costs the group's word.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "a fault found before publication is a different problem from one found after",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.question",
+   "original": "What does the group do first?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "Everything else can be done this week and Delft is working right now on an analysis whose comparison point Ridgeway knows to be wrong. Every hour that passes is an hour of somebody else's time spent on a discrepancy that has already been explained, and a group that has to be told later rather than sooner will remember which it was. The rerun, the slides and the history all matter and none of them changes what somebody else does in the next hour.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Tell Delft, who are mid-analysis on it right now.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "Rerun the affected numbers with a held-out evaluation set.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "Redraft the review slides with the corrected figures.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "Work out how long the discriminator has been trained this way.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "The rerun is this week's work and nobody else is waiting on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "Slides drafted before the rerun would only be drafted twice.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "How long it has been happening is worth knowing and changes nothing anybody does today.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.title",
+   "original": "A day when the machine behaves",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Run an ordinary session, and notice what ordinary is resting on.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.briefing",
+   "original": "Everything is calibrated, the fridge is cold, and there is nothing to fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.stake",
+   "original": "Friday, and it is a quiet day. The fridge is at 11 millikelvin, the tune-up converged on the first attempt, every qubit is within a few megahertz of where it was yesterday, and the reruns are queued and running themselves. Kofi Mensah uses days like this to ask what the group is assuming, because it is the only time anybody has. Grace Whitfield is doing her monthly comparison against the national standard, which nobody watches and everything depends on. Today you check what a calibration actually established, read a drift that is behaving, and decide which of the group's comforts is a measurement and which is a habit.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "A machine that is working is a set of assumptions nobody is currently being forced to check.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "Converged, and on what",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Say what the tune-up established",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "The automatic tune-up reports success on all twelve qubits in eleven minutes. Mensah asks what, precisely, that success is a statement about.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "A calibration says the machine matches the model it was tuned against, which is a narrower claim than working.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "an automated procedure optimises the quantity it was given",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.question",
+   "original": "What has a successful tune-up established?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "A tune-up searches for parameters that make a specific set of measurements come out as expected — a frequency, a pulse amplitude, a readout separation. Success means it found them. It says nothing about behaviour the routine does not test: leakage into higher levels, correlated errors across qubits, or anything that happens on timescales longer than the routine runs for. That is not a criticism of the routine; it is what any calibration is. The mistake is reading \"converged\" as \"correct\".",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.0",
+   "original": "That the machine is working correctly today.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.1",
+   "original": "That it found parameters matching the responses it tests for.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.choices.2",
+   "original": "That the qubits have not drifted since yesterday.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.3",
+   "original": "That the error rates will be as good as they were last week.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.0",
+   "original": "Working correctly is a wider claim than the handful of responses the routine measures.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.1",
+   "original": "Drift is inferred from the parameters having moved little, and the tune-up does not test for it directly.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.2",
+   "original": "Nothing in a tune-up predicts an error rate; that is a separate measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "The month when nothing moved",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Read a comparison that is behaving",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.place",
+   "original": "Quantum Sensing",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for eleven months. She writes it in the log with the same care as if it had not.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "A comparison that agrees is evidence about the instrument's stability, and it is only evidence because a disagreement would have been recorded.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "a calibration can pass or fail and both are results",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.question",
+   "original": "What is the value of a calibration that finds nothing wrong?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "Every reading taken between two calibrations is trusted on the strength of the pair. If the second comparison agrees, the drift over that interval was smaller than the uncertainty, and every number in between inherits that bound. If nobody had checked, those readings would be untethered — not wrong, but unbounded, which for a three-year study is the same as useless. That is why a null result gets written down as carefully as a failure.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.0",
+   "original": "Very little, since nothing changed and no action follows.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.1",
+   "original": "It bounds the drift since the last one, which is what makes the readings between usable.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.choices.2",
+   "original": "It proves the instrument is accurate.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.3",
+   "original": "It satisfies a requirement without producing information.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.0",
+   "original": "A null result is what licenses every measurement taken in the interval, so plenty follows from it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.1",
+   "original": "Agreement within uncertainty bounds the error; it does not prove the instrument right.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.2",
+   "original": "The information is precisely the bound, which is why the log entry matters.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "Which of these is a measurement",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "Separate the measured comforts from the habits",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.place",
+   "original": "Cryogenics & Vacuum",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "Okafor lists four things the group is relying on today. Two are numbers somebody took this week. Two are figures nobody has revisited in a year.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "A quantity that has not been remeasured since the setup changed is a habit wearing a number's clothes.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "a figure can be current or inherited",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.question",
+   "original": "Which assumption is most worth checking?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "Three of these were measured recently on this configuration. The fourth is an inherited figure from a wiring layout that has since been taken apart and rebuilt twice, and it is load-bearing: every drive amplitude the group quotes, and therefore every statement about how hard a qubit is being driven, is computed through it. It is also the one most likely to have changed, because a rebuild is exactly when attenuators get swapped. Old, load-bearing, and probably wrong is the combination that puts it first.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.0",
+   "original": "The fridge base temperature, logged continuously.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.1",
+   "original": "The input line attenuation, from a record two rebuilds ago.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.choices.2",
+   "original": "The qubit frequencies, measured this morning.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.3",
+   "original": "The amplifier noise temperature, measured last month.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.0",
+   "original": "Base temperature is logged continuously and is as current as anything here.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.1",
+   "original": "Qubit frequencies were measured this morning on this configuration.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.2",
+   "original": "The amplifier noise temperature is a month old and was taken on the present chain.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.title",
+   "original": "Three things at once",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Rank three demands on one group in one afternoon.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.briefing",
+   "original": "A fibre cut, a clock drifting, and a review deadline, all inside an hour.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.stake",
+   "original": "Monday, 15:20, and three things arrive together. A contractor with a digger has cut the fibre to the substation, which ends Yusuf Sadiq's key run mid-session. Grace Whitfield's clock comparison has come back 4 × 10⁻¹⁵ off, which is ten times its usual scatter and would put every frequency in the building slightly wrong. And the review pack is due at five, with the corrected fidelity numbers still being rerun. Priya Raghavan has one group, one afternoon, and has asked for an order rather than a discussion. Today you decide what gets attention first, work out what a cut link does to a key already exchanged, and say what a drifting reference does to everything measured against it.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "Rank by what is still getting worse and what is cheapest to stop, not by what is loudest.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "Which of the three cannot wait",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Decide what the group does first",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Raghavan puts the three on the board. Two of them have already done whatever they are going to do.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "Rank by rate of deterioration and by how cheap the fix is, not by how alarming it sounds.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "a problem still developing is different from one that has finished",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.question",
+   "original": "What gets the group's attention first?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "The fibre is cut and will stay cut until a contractor digs it up; nothing the group does this afternoon changes that, and no key material is at risk because an interrupted session simply yields no key. The review pack has a deadline and a known remedy. The clock is the only one still spreading: every frequency measured against it since the last comparison is unbounded until somebody either confirms the drift or finds the fault in the comparison, and each hour adds more measurements to the pile. It is also the cheapest to stop — one repeat comparison.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "The clock — everything since the last comparison is unbounded.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "The cut fibre, because the key session has stopped.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "The review pack, because it is due at five.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "The rerun queue, because the corrected numbers feed the pack.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "An interrupted key session yields no key rather than a compromised one, so nothing is at risk.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "The review pack has a deadline and a remedy, which makes it schedulable rather than urgent.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "The rerun queue is running itself and needs nobody in the next hour.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "What an interrupted exchange leaves behind",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "Say what a cut link costs",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "The session was three-quarters through sifting when the fibre went. Sadiq is asked whether any of the partial key can be used.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "A key that has not been through error estimation and privacy amplification is not a key, and a partial one cannot be rescued.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "a key is only secret if the error rate on it has been checked",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.question",
+   "original": "What can be done with the partial key?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "The security of the protocol does not come from the exchange; it comes from the steps afterwards. A sample of the bits is compared openly to measure the error rate, that rate bounds how much an eavesdropper could know, and privacy amplification then compresses the key until that bound is negligible. Skip those and you have a string of correlated bits with no bound on them at all. Storing it does not help either — the sample has to come from the same session under the same conditions.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.0",
+   "original": "Use it, since three quarters of the bits were exchanged successfully.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.1",
+   "original": "Nothing. Without the error estimate there is no bound on the leak.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.choices.2",
+   "original": "Store it and complete the exchange when the fibre is repaired.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.3",
+   "original": "Use it at reduced length, in proportion to how much was completed.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.0",
+   "original": "The bits being exchanged is the easy part; the bound on what leaked is the part that makes it a key.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.1",
+   "original": "Conditions change between sessions, so a later sample does not bound this one.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.2",
+   "original": "Shortening a key does not substitute for privacy amplification against a measured error rate.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "Everything measured against it",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "Say what a drifting reference does",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.place",
+   "original": "Quantum Sensing",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction — including the qubit frequencies in the review pack.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "An error in a shared reference moves every measurement together, which makes it invisible in any internal comparison.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "a measurement is a ratio against a reference",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.question",
+   "original": "Why is a drifting reference worse than a noisy instrument?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "Noise announces itself: repeat a measurement and the answers scatter, and the scatter is measurable. A common-mode error does the opposite. Every instrument timed against the same reference shifts together, every internal cross-check agrees, and the group's own consistency becomes evidence that everything is fine. The only thing that can catch it is a comparison against something outside the building, which is exactly why Whitfield's monthly ritual is not a ritual.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.0",
+   "original": "Because the drift is larger than instrument noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.1",
+   "original": "Because everything shifts together, so no internal check disagrees.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.choices.2",
+   "original": "Because it cannot be measured without a second clock.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.3",
+   "original": "Because frequency errors compound over time and noise does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.0",
+   "original": "Size is not the point; a small common-mode shift is more dangerous than a large random one.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.1",
+   "original": "It can be measured, and Whitfield's comparison against the national standard is how.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.2",
+   "original": "Both accumulate in a long measurement; the difference is that one of them is detectable internally.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.title",
+   "original": "The last morning it can be withdrawn",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Decide what to say about a number that is already outside the building.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.briefing",
+   "original": "The inflated fidelity is in a conference abstract, and the correction window closes today.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.stake",
+   "original": "Tuesday, and the abstract went out three weeks ago with the inflated fidelity in it. The conference allows corrections until five o'clock today and nothing afterwards. Priya Raghavan points out that the corrected number is still good and the talk is in four months, when the rerun will be complete anyway. Anders Holm says a number that is known to be wrong cannot be left standing on the strength of a plan to fix it later. Dasha Petrova wants to know what the correction should actually contain. Today you work out what the honest correction says, what it costs, and what the group commits to either way.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "The moment a correction stops being possible is the moment the decision needs the whole argument rather than the quickest one.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "What a correction is for",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Say what the correction has to contain",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "Petrova drafts. The question is whether the correction names the cause or only the number, and whether it goes out before the rerun finishes.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "A correction that names the mechanism lets other groups check their own work; one that changes only a number does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "a correction is read by people deciding whether to trust the next result",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "The corrected figure is the least useful part. What another group can act on is the mechanism — discriminator fitted and evaluated on one set of shots — because a dozen laboratories do exactly that and none of them will look unless somebody says so. The scope matters too: which numbers were affected and which were not, or every result the group has ever published falls under suspicion. And it has to go now, incomplete, rather than after the rerun, because the deadline is today and a complete correction that arrives too late corrects nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.0",
+   "original": "The least useful part on its own, though it has to be there.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.1",
+   "original": "What another group can act on, and the reason to publish at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.2",
+   "original": "What stops every other result falling under the same doubt.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.3",
+   "original": "Honest context, and no substitute for the correction.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "The mechanism is the part another group can act on, which is what makes the correction useful.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "The scope stops every other result the group has published from falling under the same doubt.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "Saying the rerun is under way is honest and is not a substitute for the correction itself.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.3",
+   "original": "Waiting for completeness misses the deadline, and after five o'clock nothing can be corrected at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.0",
+   "original": "The corrected number.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.1",
+   "original": "The mechanism that produced the error.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.2",
+   "original": "Which results are and are not affected.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.3",
+   "original": "A note that the full rerun is under way.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "Fidelity, with a held-out set",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Work out what the corrected number is",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.place",
+   "original": "Control & Readout",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "The rerun's first results are in for three qubits. With a held-out evaluation set, readout fidelity comes out at 0.941 rather than the 0.962 reported, and the circuit figure follows.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "The corrected number is smaller and it is real, which is the only kind of number worth having in a talk.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "a fidelity measured on fresh data is the honest one",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.question",
+   "original": "Estimate the corrected circuit fidelity across twelve qubits.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "Readout is applied to every qubit, so its fidelity enters the circuit figure once per qubit and the product is what a whole-register measurement sees. That is the same compounding as gate error and it is why a two-point drop per qubit becomes a much larger drop over twelve. It is also why readout improvements are worth so much on a large device: the exponent is the number of qubits, and it only grows.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.answerText",
+   "original": "About 0.48.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.prompt",
+   "original": "The corrected single-qubit readout fidelity is 0.941, and all twelve qubits are read out.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.question",
+   "original": "Choose the per-qubit fidelity and the number of qubits.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.explanation",
+   "original": "About 0.48, against 0.63 on the figure originally reported — the gap widens with every qubit, which is why the original number mattered. The gate fidelity and circuit depth belong to the other half of the error budget.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.relationship",
+   "original": "Register readout fidelity = per-qubit fidelity raised to the number of qubits, because every qubit has to be read correctly.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.givens.0",
+   "original": "Corrected readout fidelity is 0.941 per qubit",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.estimate.givens.1",
+   "original": "All twelve qubits are read out",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "What each version costs",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "Decide what the group commits to",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.place",
+   "original": "Networks & Security",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "Raghavan wants the consequences of both versions written down before anybody signs, so that the group is choosing rather than drifting.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "Both options have costs, and the question is which of them the group can carry if it turns out to be wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "a decision not to act is also a decision with consequences",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "Correcting today costs the group a visibly reduced headline, an awkward paragraph, and the four months until the talk spent being the group that corrected itself. Not correcting costs nothing at all unless somebody notices — and Delft already has the raw shots, the mechanism, and every reason to write about it. That asymmetry is the whole argument: one option's worst case is embarrassment the group chose, and the other's worst case is the same embarrassment, chosen by somebody else, with the group's silence attached to it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.0",
+   "original": "A smaller headline now, and four months as the group that caught it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.1",
+   "original": "Hoping nobody with the data speaks first, which Delft can.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.2",
+   "original": "The most useful version, because other laboratories can check themselves.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.3",
+   "original": "The least useful version, and one that invites the question anyway.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.0",
+   "original": "Correcting costs a reduced headline and an awkward paragraph, both of which are survivable.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.1",
+   "original": "Not correcting costs nothing only if nobody else has the evidence, and Delft has all of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.2",
+   "original": "The rerun completing in four months does not un-publish an abstract that stood uncorrected.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.3",
+   "original": "Silence is not neutral once the group knows; it becomes a second thing to explain.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.0",
+   "original": "Correct today, before the rerun is complete.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.1",
+   "original": "Say nothing and correct at the talk in four months.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.2",
+   "original": "Correct today and name the mechanism.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.3",
+   "original": "Correct today and give only the number.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.title",
+   "original": "What we know, and how well",
+   "readOnly": false
+  },
+  {
+   "id": "m15.objective",
+   "original": "State the fortnight's results at the confidence each has earned.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.briefing",
+   "original": "The review is this afternoon, and every number on the slides needs its evidence beside it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.stake",
+   "original": "Wednesday, and the fortnight goes in front of the review. Priya Raghavan will not put up a slide that states everything in the same typeface of certainty, because a panel that cannot tell a measurement from a projection will ask about the wrong thing and then act on the answer. Anders Holm has the reruns. Grace Whitfield wants the clock comparison in as a finding rather than a footnote. Marta Castellan wants the analysis pipeline versioned and cited. Elena Barros wants ten minutes for the thing that already works. Today you sort the fortnight's claims by the evidence under them and decide which of its habits the group keeps.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "A result is worth what its evidence is worth, and saying so is what makes a claim usable by somebody else.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Measured, inferred, projected",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "Sort the claims by their evidence",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.place",
+   "original": "Error & Verification",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "Holm puts four of the fortnight's statements on the board. The group believes all four. They are not held for the same reasons.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "Sorting claims by their evidence is what tells a reader which one to check first.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "a claim can rest on a measurement, an inference, or a projection",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "The discriminator fault is the strongest thing here: two devices, raw shots on both sides, and a mechanism anybody can reproduce in an afternoon. The corrected readout fidelity is a straight measurement on held-out data, though so far on three qubits rather than twelve. The defect's origin in the oxidation change is an inference from three chips in one window — sound, and not yet the comparison that would settle it. And what the device will do once error correction is applied is a projection from a threshold nobody at Ridgeway has reached, which is the weakest claim on the slide and the one a panel will most want to hear.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "Established. Two devices, raw shots, and a mechanism anybody can reproduce.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "Measured on held-out data, on three qubits so far.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "Inferred from three chips in one processing window.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "Projected from a threshold this group has not reached.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "Two devices, raw shots and a reproducible mechanism is as strong as evidence gets here.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "The corrected fidelity is measured on held-out data, on three qubits so far.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "The oxidation link is an inference from three chips in one window, without the controlled comparison.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.3",
+   "original": "Behaviour under error correction is a projection from a threshold this group has not reached.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.0",
+   "original": "The discriminator was scored on its own training data.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.1",
+   "original": "Corrected readout fidelity is 0.941 per qubit.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.2",
+   "original": "The defects came from the oxidation change.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.3",
+   "original": "With error correction this architecture would reach useful depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "The number that goes to somebody else",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "State the sensing result with its uncertainty",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.place",
+   "original": "Quantum Sensing",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "Barros has ten minutes and one number: a field sensitivity, going to a hospital that will act on it. She wants the uncertainty in the sentence rather than in a footnote.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "An uncertainty stated beside a number is what lets somebody else decide whether a change they see is real.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "a delivered number is used by somebody who cannot check it",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.question",
+   "original": "Why does the uncertainty belong in the sentence?",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "The hospital is not checking Ridgeway's work; it is using the number to decide whether something in a patient changed. That decision is a comparison between an observed difference and the smallest difference the instrument could have resolved, and the second half of that comparison only exists if it is stated. A sensitivity with no uncertainty invites the user to treat every wobble as real, which is worse than giving them no number at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.0",
+   "original": "Because caution is appropriate when reporting to clinicians.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.1",
+   "original": "Because the user has to judge a change against the noise.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.2",
+   "original": "Because the sensitivity figure alone would be too optimistic.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.3",
+   "original": "Because it demonstrates that the measurement was done carefully.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.0",
+   "original": "Caution is a disposition; the uncertainty is a quantity the user's decision needs as an input.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.1",
+   "original": "The figure is not optimistic, and stating its uncertainty is not a hedge against it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.2",
+   "original": "Careful work is demonstrated by the method section rather than by the presence of an error bar.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "What outlives the fortnight",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "Decide which habits survive",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.place",
+   "original": "Cryogenics & Vacuum",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "Four things the group started doing under pressure. Okafor asks which of them are worth their cost on an ordinary Tuesday, when nothing is wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "Keep the practices that would have caught this fortnight's mistake, and drop the ones that only paid off because it was abnormal.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "a practice adopted in a crisis has a cost that only shows later",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.question",
+   "original": "Which practice is most worth keeping permanently?",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "One of these would have caught the whole fortnight. The discriminator survived for months because nothing was ever evaluated on data it had not been fitted to, and a held-out set costs a few minutes per session. Versioning the pipeline is genuinely good and would have made the fault traceable rather than preventing it. Running everything twice doubles the cost of every result to catch a class of error the held-out rule catches for nothing. And a daily meeting was right for a fortnight and will be quietly abandoned by March.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.0",
+   "original": "Evaluating every fitted analysis on data it has never seen.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.1",
+   "original": "Running every experiment twice before anybody looks at the result.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.2",
+   "original": "A daily group meeting on the state of the machine.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.3",
+   "original": "Versioning and citing the analysis pipeline with every figure.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.0",
+   "original": "Versioning would have made the fault traceable afterwards rather than stopping it happening.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.1",
+   "original": "Running everything twice doubles every cost to catch what a held-out set catches for minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.2",
+   "original": "A daily meeting suits a crisis and will lapse the first ordinary month it applies to.",
+   "readOnly": false
+  },
+  {
+   "id": "copy.CRYO",
+   "original": "<p>Cryogenics. The fridge hangs open for service, its stages exposed one under another, each colder than the last. Everything here is about heat that should not arrive.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.FAB",
+   "original": "<p>Fabrication. Yellow light, a spin coater, and a drawer of wafer coupons going back six years that nobody thought was worth the space until the week it was.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.CTRL",
+   "original": "<p>Control and readout. Racks of microwave gear, more cable than anybody expects, and the desks where the machine is argued with several times a day.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.VER",
+   "original": "<p>Verification. Plots of error against sequence length on every surface, and the wall of results nobody is allowed to believe yet.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.SENSE",
+   "original": "<p>Sensing. A magnetometer inside a shield, a frequency standard in a rack, and the only instrument in the building somebody outside the group depends on.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.NET",
+   "original": "<p>Networks. A fibre spool, a splice tray, and forty kilometres of duct between here and a substation.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.ARRIVE",
+   "original": "<p>Sign-in. The register, the interlock keys, and the list of what may not be carried past this desk.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.OFFICE",
+   "original": "<p>The group office. Where the argument about publishing happens, most days, at the kettle.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.STORE",
+   "original": "<p>Gas and cryogen store. Helium, nitrogen, and the delivery schedule that decides what can be done this month.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.RACKS",
+   "original": "<p>The microwave racks. Attenuators, circulators and amplifiers, in the order the signal meets them.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.DESK",
+   "original": "<p>Analysis desks. Where the shots become numbers, and where the pipeline that does it is maintained.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.QUIET",
+   "original": "<p>The reading room. One table, no instruments, and a door that shuts.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.SHIELD",
+   "original": "<p>The shielded room. Mu-metal walls, a heavy door, and nothing electronic that has not been signed in.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CRYO.caption",
+   "original": "The fridge is a plumbing problem with an expensive isotope in it.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CRYO.standLine",
+   "original": "Six stages, and the coldest one is where the chip lives.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.FAB.caption",
+   "original": "A mistake here shows up in somebody else's measurement, months later.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.FAB.standLine",
+   "original": "Coupons from every run since 2020, and the drawer nobody wanted to spare.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CTRL.caption",
+   "original": "Pulses in, one bit out, and everything that can go wrong between.",
+   "readOnly": true
+  },
+  {
+   "id": "interiors.CTRL.standLine",
+   "original": "Twelve qubits, tuned this morning, and a chain of amplifiers to hear them through.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.VER.caption",
+   "original": "How wrong the machine is, and how you would know.",
+   "readOnly": true
+  },
+  {
+   "id": "interiors.VER.standLine",
+   "original": "Two error numbers, both honest, answering different questions.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.SENSE.caption",
+   "original": "The part of this field that already works for somebody else.",
+   "readOnly": true
+  },
+  {
+   "id": "interiors.SENSE.standLine",
+   "original": "A magnetometer, a hospital across the city, and a calibration due at two.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.NET.caption",
+   "original": "Sending a quantum state somewhere, and what survives the trip.",
+   "readOnly": true
+  },
+  {
+   "id": "interiors.NET.standLine",
+   "original": "Forty kilometres of fibre, a substation, and a contractor with a digger.",
+   "readOnly": false
+  }
+ ]
+}

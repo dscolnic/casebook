@@ -293,10 +293,24 @@ function scalar(raw){
   if(s.startsWith('{') && s.endsWith('}')){
     const body = s.slice(1, -1).trim();
     if(!body) return {};
+    const pairs = splitTop(body);
+    // Nothing here is a `key: value` at all, so this was never a mapping — it is
+    // a value that happens to be wrapped in braces. An unquoted estimate template
+    // like {0} ÷ {1} is exactly this, and it used to parse to an empty object.
+    if(!pairs.some(x => x.includes(':'))) return s;
     const out = {};
-    for(const pair of splitTop(body)){
+    for(const pair of pairs){
       const at = pair.indexOf(':');
-      if(at < 0) continue;
+      // Some fragments are pairs and this one is not, which has one cause: an
+      // unquoted comma inside a value. `{ landmark: the second door, hinged
+      // inward }` splits in two, the second half has no colon, and the landmark
+      // quietly becomes "the second door". Nothing downstream can tell, because
+      // what arrives is a perfectly valid shorter string — which is why this
+      // shipped in three books before anybody noticed.
+      if(at < 0){
+        throw new Error(`inline map fragment "${pair}" has no colon in it, inside `
+          + `{ ${body} } — an unquoted comma in a value splits it here. Quote the value.`);
+      }
       out[scalar(pair.slice(0, at))] = scalar(pair.slice(at + 1));
     }
     return out;

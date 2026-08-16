@@ -1,0 +1,606 @@
+{
+ "theme": "bring_them_home",
+ "book": "books/bring-them-home.yml",
+ "course": "AP Physics 1, with the mechanics half of AP Physics C",
+ "curriculum": [
+  "Vectors and components",
+  "Kinematics",
+  "Newton's laws and free-body reasoning",
+  "Work, energy and conservation of energy",
+  "Momentum, impulse and conservation",
+  "Circular motion and centripetal force",
+  "Rotational kinematics",
+  "Torque and moment of inertia",
+  "Angular momentum",
+  "Gravitation and orbits",
+  "Simple harmonic motion and resonance",
+  "Waves: frequency, wavelength, speed",
+  "Doppler shift",
+  "Circuits: current, voltage, resistance, Ohm's law",
+  "Electrical power and energy budgets",
+  "Series, parallel and load management",
+  "Heat transfer: conduction, convection, radiation",
+  "Gas behaviour and life support",
+  "Measurement uncertainty and error propagation",
+  "Systems thinking: dependency, redundancy, failure modes",
+  "Projectile motion and free fall",
+  "Friction and drag",
+  "Springs and Hooke's law",
+  "Collisions: elastic and inelastic",
+  "Centre of mass and balance",
+  "Static equilibrium and structural loads",
+  "Fluid pressure and flow",
+  "Capacitance, RC time constants and transients",
+  "Magnetism, motors and actuators",
+  "Graphical analysis of motion data"
+ ],
+ "equations": [
+  {
+   "e": "v = v₀ + at, x = x₀ + v₀t + ½at²",
+   "about": "kinematics at constant acceleration",
+   "symbols": [
+    [
+     "v",
+     "speed at time t, in metres per second"
+    ],
+    [
+     "v₀",
+     "speed at the start"
+    ],
+    [
+     "a",
+     "acceleration, in metres per second squared"
+    ],
+    [
+     "t",
+     "elapsed time, in seconds"
+    ],
+    [
+     "x",
+     "position"
+    ],
+    [
+     "x₀",
+     "starting position"
+    ]
+   ]
+  },
+  {
+   "e": "F = ma",
+   "about": "Newton's second law",
+   "symbols": [
+    [
+     "F",
+     "net force, in newtons"
+    ],
+    [
+     "m",
+     "mass, in kilograms"
+    ],
+    [
+     "a",
+     "acceleration, in metres per second squared"
+    ]
+   ]
+  },
+  {
+   "e": "W = Fd, KE = ½mv²",
+   "about": "work, kinetic energy and conservation of energy",
+   "symbols": [
+    [
+     "W",
+     "work done, in joules"
+    ],
+    [
+     "F",
+     "force along the motion, in newtons"
+    ],
+    [
+     "d",
+     "distance moved, in metres"
+    ],
+    [
+     "KE",
+     "kinetic energy, in joules"
+    ],
+    [
+     "m",
+     "mass"
+    ],
+    [
+     "v",
+     "speed"
+    ]
+   ]
+  },
+  {
+   "e": "J = FΔt = Δp",
+   "about": "impulse as the change in momentum",
+   "symbols": [
+    [
+     "J",
+     "impulse, in newton seconds"
+    ],
+    [
+     "F",
+     "force applied"
+    ],
+    [
+     "Δt",
+     "how long it acts for"
+    ],
+    [
+     "Δp",
+     "the resulting change in momentum"
+    ]
+   ]
+  },
+  {
+   "e": "τ = rF",
+   "about": "torque about an axis, and rotational equilibrium",
+   "symbols": [
+    [
+     "τ",
+     "torque, in newton metres"
+    ],
+    [
+     "r",
+     "distance from the axis, in metres"
+    ],
+    [
+     "F",
+     "force applied at that distance"
+    ]
+   ]
+  },
+  {
+   "e": "a_c = v² / r",
+   "about": "centripetal acceleration in circular motion",
+   "symbols": [
+    [
+     "a_c",
+     "centripetal acceleration, in metres per second squared"
+    ],
+    [
+     "v",
+     "speed along the circle"
+    ],
+    [
+     "r",
+     "radius of the circle, in metres"
+    ]
+   ]
+  },
+  {
+   "e": "T = 2π√(m/k)",
+   "about": "the period of a simple harmonic oscillator, and resonance",
+   "symbols": [
+    [
+     "T",
+     "period, in seconds"
+    ],
+    [
+     "m",
+     "the oscillating mass, in kilograms"
+    ],
+    [
+     "k",
+     "stiffness of the spring, in newtons per metre"
+    ]
+   ]
+  },
+  {
+   "e": "P = IV = I²R",
+   "about": "electrical power, and an energy budget over time",
+   "symbols": [
+    [
+     "P",
+     "power, in watts"
+    ],
+    [
+     "I",
+     "current, in amperes"
+    ],
+    [
+     "V",
+     "voltage, in volts"
+    ],
+    [
+     "R",
+     "resistance, in ohms"
+    ]
+   ]
+  },
+  {
+   "e": "Q = mcΔT",
+   "about": "heat against a temperature change and a heat capacity",
+   "symbols": [
+    [
+     "Q",
+     "heat, in joules"
+    ],
+    [
+     "m",
+     "mass, in kilograms"
+    ],
+    [
+     "c",
+     "specific heat capacity"
+    ],
+    [
+     "ΔT",
+     "temperature change, in kelvin"
+    ]
+   ]
+  },
+  {
+   "e": "v = fλ",
+   "about": "wave speed, frequency and wavelength",
+   "symbols": [
+    [
+     "v",
+     "wave speed, in metres per second"
+    ],
+    [
+     "f",
+     "frequency, in hertz"
+    ],
+    [
+     "λ",
+     "wavelength, in metres"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Flight Director · Lunar Return Mission",
+ "groups": [
+  {
+   "id": "NAV",
+   "name": "Guidance & Motion",
+   "desc": "Kinematics, forces, gravity, trajectories, and navigation evidence."
+  },
+  {
+   "id": "ELEC",
+   "name": "Power & Circuits",
+   "desc": "Voltage, current, resistance, batteries, generation, and electrical faults."
+  },
+  {
+   "id": "THERM",
+   "name": "Thermal & Life Support",
+   "desc": "Heat transfer, gas behavior, pressure, flow, and life-support transport."
+  },
+  {
+   "id": "COMMS",
+   "name": "Waves & Communications",
+   "desc": "Radio waves, link budgets, pointing, optics, and signal timing."
+  },
+  {
+   "id": "STRUCT",
+   "name": "Rotation & Structures",
+   "desc": "Torque, angular motion, oscillations, resonance, and structural response."
+  },
+  {
+   "id": "INTEG",
+   "name": "Mission Integration",
+   "desc": "Uncertainty, competing constraints, robust decisions, and final readiness."
+  }
+ ],
+ "stops": [
+  {
+   "id": "bring_them_home.m01.s1",
+   "day": 1,
+   "group": "INTEG",
+   "format": "TRACE",
+   "title": "What failed: the spacecraft or the sensors?"
+  },
+  {
+   "id": "bring_them_home.m01.s2",
+   "day": 1,
+   "group": "INTEG",
+   "format": "SEQUENCE",
+   "title": "Build the first state estimate"
+  },
+  {
+   "id": "bring_them_home.m01.s3",
+   "day": 1,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Spend the first ten minutes"
+  },
+  {
+   "id": "bring_them_home.m02.s1",
+   "day": 2,
+   "group": "NAV",
+   "format": "PROTOCOL",
+   "title": "Which measurement constrains what?"
+  },
+  {
+   "id": "bring_them_home.m02.s2",
+   "day": 2,
+   "group": "NAV",
+   "format": "SEQUENCE",
+   "title": "Reconstruct the state vector"
+  },
+  {
+   "id": "bring_them_home.m02.s3",
+   "day": 2,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "What holds it in the curve"
+  },
+  {
+   "id": "bring_them_home.m03.s1",
+   "day": 3,
+   "group": "INTEG",
+   "format": "SEQUENCE",
+   "title": "From force to trajectory change"
+  },
+  {
+   "id": "bring_them_home.m03.s2",
+   "day": 3,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Small burn, large consequence"
+  },
+  {
+   "id": "bring_them_home.m03.s3",
+   "day": 3,
+   "group": "THERM",
+   "format": "CHOICE",
+   "title": "What the pressure difference is for"
+  },
+  {
+   "id": "bring_them_home.m04.s1",
+   "day": 4,
+   "group": "STRUCT",
+   "format": "PROTOCOL",
+   "title": "Read rotational motion"
+  },
+  {
+   "id": "bring_them_home.m04.s2",
+   "day": 4,
+   "group": "INTEG",
+   "format": "FLY",
+   "title": "Execute a manual attitude maneuver"
+  },
+  {
+   "id": "bring_them_home.m04.s3",
+   "day": 4,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Torque from a thruster"
+  },
+  {
+   "id": "bring_them_home.m05.s1",
+   "day": 5,
+   "group": "ELEC",
+   "format": "BALLPARK",
+   "title": "How long can the battery last?"
+  },
+  {
+   "id": "bring_them_home.m05.s2",
+   "day": 5,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Why is bus voltage collapsing?"
+  },
+  {
+   "id": "bring_them_home.m05.s3",
+   "day": 5,
+   "group": "INTEG",
+   "format": "ALLOCATE",
+   "title": "Shed load without losing the mission"
+  },
+  {
+   "id": "bring_them_home.m06.s1",
+   "day": 6,
+   "group": "ELEC",
+   "format": "PROTOCOL",
+   "title": "Series or parallel?"
+  },
+  {
+   "id": "bring_them_home.m06.s2",
+   "day": 6,
+   "group": "ELEC",
+   "format": "BALLPARK",
+   "title": "Heating at a bad connection"
+  },
+  {
+   "id": "bring_them_home.m06.s3",
+   "day": 6,
+   "group": "INTEG",
+   "format": "VERIFY",
+   "title": "Qualify the emergency battery plan"
+  },
+  {
+   "id": "bring_them_home.m07.s1",
+   "day": 7,
+   "group": "THERM",
+   "format": "BALLPARK",
+   "title": "How much does the cabin cool?"
+  },
+  {
+   "id": "bring_them_home.m07.s2",
+   "day": 7,
+   "group": "THERM",
+   "format": "PROTOCOL",
+   "title": "Choose the heat-transfer mechanism"
+  },
+  {
+   "id": "bring_them_home.m07.s3",
+   "day": 7,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Keep the cabin survivable"
+  },
+  {
+   "id": "bring_them_home.m08.s1",
+   "day": 8,
+   "group": "INTEG",
+   "format": "CHAIN",
+   "title": "Diagnose the air system"
+  },
+  {
+   "id": "bring_them_home.m08.s2",
+   "day": 8,
+   "group": "THERM",
+   "format": "BALLPARK",
+   "title": "CO2 production scale"
+  },
+  {
+   "id": "bring_them_home.m08.s3",
+   "day": 8,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Restore breathable air"
+  },
+  {
+   "id": "bring_them_home.m09.s1",
+   "day": 9,
+   "group": "COMMS",
+   "format": "CONTROL",
+   "title": "Why did the signal fade?"
+  },
+  {
+   "id": "bring_them_home.m09.s2",
+   "day": 9,
+   "group": "COMMS",
+   "format": "BALLPARK",
+   "title": "Wavelength of the radio link"
+  },
+  {
+   "id": "bring_them_home.m09.s3",
+   "day": 9,
+   "group": "STRUCT",
+   "format": "SEQUENCE",
+   "title": "Recover the weak link"
+  },
+  {
+   "id": "bring_them_home.m10.s1",
+   "day": 10,
+   "group": "COMMS",
+   "format": "PROTOCOL",
+   "title": "What shifts the apparent direction?"
+  },
+  {
+   "id": "bring_them_home.m10.s2",
+   "day": 10,
+   "group": "INTEG",
+   "format": "PROTOCOL",
+   "title": "Reading the trace instead of the number"
+  },
+  {
+   "id": "bring_them_home.m10.s3",
+   "day": 10,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "How far it drifts while nobody is steering"
+  },
+  {
+   "id": "bring_them_home.m11.s1",
+   "day": 11,
+   "group": "INTEG",
+   "format": "SEQUENCE",
+   "title": "Where orbital energy goes"
+  },
+  {
+   "id": "bring_them_home.m11.s2",
+   "day": 11,
+   "group": "THERM",
+   "format": "BALLPARK",
+   "title": "Kinetic-energy scale"
+  },
+  {
+   "id": "bring_them_home.m11.s3",
+   "day": 11,
+   "group": "INTEG",
+   "format": "CLOUD",
+   "title": "Protect the entry corridor"
+  },
+  {
+   "id": "bring_them_home.m12.s1",
+   "day": 12,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "What is driving the vibration?"
+  },
+  {
+   "id": "bring_them_home.m12.s2",
+   "day": 12,
+   "group": "STRUCT",
+   "format": "BALLPARK",
+   "title": "Spring-mass period"
+  },
+  {
+   "id": "bring_them_home.m12.s3",
+   "day": 12,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Stop the resonance"
+  },
+  {
+   "id": "bring_them_home.m13.s1",
+   "day": 13,
+   "group": "INTEG",
+   "format": "PROTOCOL",
+   "title": "Name the binding constraint"
+  },
+  {
+   "id": "bring_them_home.m13.s2",
+   "day": 13,
+   "group": "INTEG",
+   "format": "STRESS",
+   "title": "Select the robust trajectory"
+  },
+  {
+   "id": "bring_them_home.m13.s3",
+   "day": 13,
+   "group": "THERM",
+   "format": "SEQUENCE",
+   "title": "Commit to the path"
+  },
+  {
+   "id": "bring_them_home.m14.s1",
+   "day": 14,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Real trajectory error or common clock drift?"
+  },
+  {
+   "id": "bring_them_home.m14.s2",
+   "day": 14,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Combine independent uncertainties"
+  },
+  {
+   "id": "bring_them_home.m14.s3",
+   "day": 14,
+   "group": "INTEG",
+   "format": "VALUE",
+   "title": "Burn or observe?"
+  },
+  {
+   "id": "bring_them_home.m15.s1",
+   "day": 15,
+   "group": "INTEG",
+   "format": "ATTEST",
+   "title": "Disposition final readiness"
+  },
+  {
+   "id": "bring_them_home.m15.s2",
+   "day": 15,
+   "group": "INTEG",
+   "format": "SEQUENCE",
+   "title": "Execute the final physical chain"
+  },
+  {
+   "id": "bring_them_home.m15.s3",
+   "day": 15,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Fund the mission legacy"
+  }
+ ]
+}

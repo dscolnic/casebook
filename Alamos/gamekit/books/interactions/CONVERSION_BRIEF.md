@@ -1,0 +1,940 @@
+# Editorial and conversion brief — one full pass over a game
+
+You are being handed every stop in one educational game, editable, and asked to
+do two things in a single pass:
+
+1. **Edit it.** Go through the story, the information given, the questions and
+   the answers. Say where the wording should be better, where it should be more
+   educational, where an answer is too easy to get without the science — and
+   rewrite it in place.
+2. **Convert eight to ten of the stops into interactive instruments** that
+   already exist in the engine, choosing the ones where operating something
+   teaches better than reading something.
+
+Both come back in the same file, and it is applied in one go. There is no second
+round, so a stop you convert should also be a stop you have finished writing.
+
+**Two sections are worth reading before you start writing, not after.** §4b is
+everything that has actually gone wrong in three previous rounds, including the
+minimum size of every board. §8 is a checklist to run over your own file before
+you send it. Between them they cover every rejection anybody has hit so far.
+
+This document is everything you need. You have no access to the repository;
+nothing here assumes you do.
+
+---
+
+## 1. What the game is
+
+**A first-person game, built like an FPS but for learning.** The player is
+inside the world, walking around it — no combat, no weapons. There is a place, a
+cast of real people with real personalities, and a story that runs across the
+whole campaign. The player walks to a building or to a person, is given a
+situation, has to work out the science, and hands the answer off. Then they walk
+somewhere else.
+
+**Written for a senior in high school.** Not a lecture and not a quiz: the goal
+is that somebody finishes it having actually learned the subject, and had a good
+time doing it. If a stop is boring, it is not working, and if a stop can be
+answered without the science, it is not working either.
+
+The campaign is a run of days; each day is three or four **stops**; each stop is
+one situation and one thing to settle.
+
+A stop carries:
+
+- `scene` — 30–45 words of **situation only**. Where you are, who is there, what
+  is on the bench. No mechanism.
+- `question` / `task` — what is being asked.
+- `format` — how it is answered (below).
+- `why` — 70–90 words of **mechanism**. This is where the teaching lives.
+- `takeaway` — one sentence.
+- `assumes` — the prior knowledge the question is entitled to expect.
+
+**The scene is the situation. The verdict is the teaching.** This was the single
+most expensive content mistake in the project: scenes that explained the
+mechanism meant the player read the answer, answered, and learned nothing from
+being right. Do not move teaching into the scene.
+
+## 2. Why this exercise exists
+
+Across eight games, **454 stops and 10 instruments**. Almost everything is
+read-and-answer. Six design documents — one per game, written independently for
+six unrelated subjects — each specified fifteen to thirty "FPS-native"
+interactions, and those 104 interactions turned out to be **nineteen distinct
+designs**. All nineteen are now built into the engine. Almost nothing is
+authored against them.
+
+So the job is not invention. It is recognition: which of these stops is already
+one of the nineteen, wearing a multiple-choice costume?
+
+**Find eight to ten of them.** Fewer and the game stays a quiz with scenery;
+many more and every day becomes a machine to operate, which is exhausting and
+crowds out the reading screens that carry the story. Choose the ones that both
+teach best *and* push the story forward — a stop where the player's decision
+visibly matters to what happens next is worth two where it does not.
+
+## 2b. The editorial pass
+
+Everything in the sheet except the ids and the numbers is yours to rewrite. What
+to look for, in rough order of how much it matters:
+
+**Can the question be answered without the science?** This is the most common
+and most damaging fault. An option that is longer, more hedged or more detailed
+than the others gives itself away; so does a set where three options are
+obviously silly. If somebody who has not read the mechanism can still get it
+right, fix the options rather than the question.
+
+**Is the teaching in the right place?** `scene` is the situation — 30 to 45
+words of where you are and what has just happened, with no mechanism in it.
+`why` is 70 to 90 words of mechanism, and it is where the learning actually
+lives. A scene that explains the physics means the player reads the answer,
+answers, and learns nothing from being right.
+
+**Does it sound like a person?** The cast are real historical figures with
+distinct personalities and the game's whole texture comes from that. **Preserve
+them.** If a character is blunt, or sceptical, or pedantic about provenance,
+they stay that way — do not flatten anybody into a narrator.
+
+**Is it senior-high?** The vocabulary of a subject cannot always be simplified —
+"spontaneous fission" is the word — but sentence length can. A `why` more than
+two grades above the game's stated level is rejected outright.
+
+**Does the day still tell a story?** Each mission has a `dayTitle` and the stops
+sit inside it. A day should read like a day, not three unrelated exercises.
+
+## 2c. The curriculum and the equations
+
+The manifest beside your sheet carries two things the game is measured against:
+
+- **`course` and `curriculum`** — what a senior-high version of this subject has
+  to cover, in the order such a course usually teaches it. Roughly follow it. You
+  are not obliged to hit every concept, and the gaps are useful information: if
+  something important is not taught anywhere, say so in your prose summary.
+- **`equations`** — the equations the course has to teach, each with what it is
+  about and what its symbols mean.
+
+Every stop that touches an equation carries it in its own `equations` field,
+marked either **`computed`** (a number actually comes out of it in the worked
+solution) or **`mentioned only`** (the prose names it and nothing calculates it).
+
+**An equation nothing computes has not been taught.** Where you find one that is
+only ever mentioned, that is a strong candidate for either a rewritten estimate
+that actually works it through, or an instrument built around it. Say which
+equations you moved from mentioned to computed.
+
+## 3. The decision
+
+For each stop, one of three verdicts.
+
+**`keep`** — it stays as it is. Use this for the majority. Specifically keep:
+
+- short calculations. All six documents say this independently. An estimate is
+  already a good format; turning it into a physical puzzle adds friction, not
+  understanding.
+- anything whose intellectual work is *interpretation* rather than manipulation.
+- anything where the physical action would not contain the reasoning. "Walk to
+  three glowing consoles" is not an interaction.
+- days that would otherwise become three instruments in a row. A day of three
+  operated panels is exhausting and the reasoning screens are load-bearing.
+  **Aim for at most one instrument per day, two at the very most.**
+
+**`convert`** — it becomes one of the nineteen. Justify it by naming what the
+player would *do* that the current screen cannot make them do.
+
+**`retype`** — it stays a screen but is the wrong screen (a "DIAGNOSIS" with no
+instrument panel is a CHOICE; a "CASEBOOK" with no evidence rows is a CHOICE).
+Cheap and worth flagging.
+
+Expect **8 to 10 conversions**, out of 45 to 50 stops. Beyond about 12 you are
+converting things that should be kept, and the days start to feel like a series
+of machines rather than a story.
+
+## 4. The nineteen formats
+
+Twelve carry four or more instances across the six design documents; seven are
+thinner. Each entry: what the player does, the misconception it attacks, and the
+**trap** — the condition that makes a bad choice cost something. A format whose
+bad choice costs nothing renders perfectly and teaches the opposite of what it
+was written for, so the trap is not optional and the importer refuses a stop
+without it.
+
+### The high-reach twelve
+
+**`TRIGGER` — write the rule before the number moves.**
+Player sets a threshold for each staged action on a blank board, releases it, and
+*then* the scripted updates arrive; they are held to their own rules. Attacks:
+that a decision made after seeing the number is the same decision. A rule that
+fires correctly but after its action's lead time has run out is the specific
+failure. *Trap:* the scale must reach above the stream's highest value, and each
+stage needs some update arriving with its lead time still in hand.
+
+**`VALUE` — what would this measurement change?**
+Player spends a budget on evidence and is graded on whether they bought the thing
+that would change the decision, not the most rigorous thing. Attacks: buying more
+of what you already know while feeling thorough. *Trap:* the board must cost more
+than the budget, at least one option must be decisive, and at least two distinct
+evidence axes must be present.
+
+**`CLOUD` — a distribution against a boundary.**
+A visible spread against a limit; the player can shift the centre or narrow the
+spread. Attacks: reading a number with error bars as a number. "You moved the
+dot. The cloud came with it." *Trap:* re-centring alone must fall short of the
+pass mark; applying everything must clear it.
+
+**`ALLOCATE` — a finite pool across competing claims.**
+Twenty sample bottles, a yard slot, a budget — or, in the integrated variant,
+amp-hours, where cost is rate × time. A live panel says which of the day's
+questions the current plan can answer. Attacks: that a plan is a list of good
+things rather than a set of forgone questions. *Trap:* the board must cost more
+than the pool; at least one question required and at least one not; and no
+required question may be answerable by the protected items alone.
+
+**`TRACE` — does agreement mean independence?**
+Several channels agree; the player opens each one's dependencies, keeps what
+still stands, and names the shared source at fault. Graded on both. Attacks: that
+four displays agreeing is four measurements. The right source with the whole
+fortnight thrown away is its own mistake. *Trap:* at least two channels sharing
+the target, at least one genuinely independent, and no channel may name its own
+dependency in its label.
+
+**`ATTEST` — the record is not the condition.**
+Claims that are signed, indicated or drawn; verifying costs time and the budget
+does not cover the list. Attacks: that a signature records a physical state.
+*Trap:* fewer verifications than claims; at least one critical claim unbacked and
+no more than the budget; and at least one critical claim that *is* backed.
+
+**`CONTROL` — change one thing, hold the rest, confirm by reversal.**
+Changing several at once is allowed and the readout reports *ambiguous*. The
+commit is refused until the suspect has been taken out and put back. Attacks:
+that a coincidence in a log is a cause. *Trap:* the response must clear the noise
+by more than 3×.
+
+**`TRIANGULATE` — several constraints, one region.**
+Rings from several stations, a systematic error on one of them, and a marker the
+player places. Attacks: that one measurement locates something, and that
+precision is accuracy. *Trap:* each station's authored distance must put its ring
+through the truth; the systematic must be larger than the tolerance.
+
+**`DEGENERACY` — many solutions, one observable.**
+Two controls and one measurement that a whole locus of combinations reproduces
+equally; then a measurement based on different physics collapses it. Attacks:
+that an ambiguous result is a noisy one. *Trap:* at least three locus points
+outside the answer tolerance, and both loci must cross at the truth.
+
+**`CHAIN` — trace the path, name the governing link.**
+A transfer path — force, heat, current, air — assembled in order, then the
+governing link named. Attacks: that the largest element is the weak one. *Trap:*
+a `distractor` (the large obvious member) distinct from the governing link, and
+the governing link may not be first in the order.
+
+**`BALANCE` — close the ledger, find the hidden term.**
+Streams the player reads (free) and then decides to count (the claim). One
+removal term has been running the whole time and is not a reading. Attacks: that
+what accumulated is what arrived. *Trap:* everything counted must sum to the
+total, and the obvious streams alone must not.
+
+**`VERIFY` — predict, act, measure, compare.**
+The player locks a prediction, commits an intervention that always succeeds, and
+must then spend something to find out what it did. Skipping the measurement is a
+distinct graded failure. Attacks: that a confirmed action is a confirmed effect.
+*Trap:* the truth inside the prediction range, and some prediction in that range
+must fail the accepted ratio.
+
+### The thinner seven
+
+**`PROPAGATE` — the error budget.** Which input width dominates the output's, and
+therefore which measurement is worth buying. *Trap:* the dominant term must be
+the widest `exponent × fractional width`, and must **not** be the term with the
+largest exponent — otherwise ranking by exponent answers it.
+
+**`STRESS` — the choice that survives being wrong.** Candidates in a table and
+one assumption moved through its stated range; rows go dark as options become
+infeasible. *Trap:* exactly one candidate survives the pessimistic end, and it
+must not also win at the nominal on the criterion everybody is optimising.
+
+**`DELEGATE` — a finite team against evolving problems.** The player takes one
+condition themselves and hands the rest over with an owner, a first action and a
+return condition; two of the three is "watch it" and is refused. *Trap:* exactly
+one problem rising *and* irreversible; at least one loud and stable.
+
+**`FLY` — bounded commands on undamped dynamics.** Commit a pulse and a braking
+point, then watch it run. Nothing is timed. Attacks: that stopping the input
+stops the motion. *Trap:* braking at the target itself must overshoot by more
+than the tolerance.
+
+**`RESIDUAL` — structure in what is left over.** Candidate fits side by side; the
+lowest RMS has a pattern in its residual field. Attacks: that a summary statistic
+is a verdict on a model. *Trap:* the lowest-RMS fit must be the wrong one.
+
+**`INJECT` — measure your own blind spot.** Push a population whose truth is
+known through your own pipeline and count what returns. Graded on a metric that
+is deliberately not the detection count. *Trap:* the configuration with the most
+detections must not be the best on the metric.
+
+**`ROUTE` — a sequence that survives an interruption.** Learn a route with labels,
+rebuild it without them, and after a blocked door say which place you are
+standing in from its landmark. *Trap:* no two landmarks alike; the detour must
+drop the player ahead of where they stopped. **Reach is genuinely one game** —
+only propose it where an interruption is the point.
+
+### The eight existing screen formats, for `keep` and `retype`
+
+`CHOICE` (one question, four candidates, a rebuttal per wrong one) ·
+`TRIAGE` (sort into named buckets) · `CASEBOOK` (weigh proposals against
+evidence) · `PROTOCOL` (match situations to responses) · `SEQUENCE` (put steps in
+order) · `BALLPARK` (estimate a magnitude on a log scale) · `SCIENCETANK` (argue
+before a panel) · `DIAGNOSIS` (read an instrument panel, pick among candidates).
+
+Plus four older instruments: `SWEEP` (one control, a response plotted only where
+the player looks — a resonance, a decay, a trade-off), `HOLDOUT` (fit, freeze,
+score on unseen data), `TALLY` (accumulate shots, decide when there is enough),
+`PROBE` (take readings along a chain, name where the pattern breaks).
+
+## 4b. What has actually gone wrong — read this before writing a row
+
+Five rounds of this exercise have been run against real games, and every game now
+ships. Everything below was returned at least once, and each one cost a round
+trip.
+
+**The nine that account for almost all of it.** If you read nothing else in this
+section, read these; the rounds below are the evidence for them.
+
+1. **Every threshold, target, tolerance and pass mark is a number**, and the
+   arithmetic has to work at *both* ends — the cheap move falls short, the full
+   set of right moves clears.
+2. **Every id inside a block names something declared in the same block.**
+3. **Reword options in place; never reorder them.** Rebuttals too. Both are
+   applied by position.
+4. **A `BALLPARK` needs a runnable `formula`**, not only a worked solution in
+   prose — plus distractor tiles, and no tile that *is* the answer.
+5. **Nothing on the panel may give the answer away** before the player acts: not
+   a note, not a hint, not a label.
+6. **Stay inside the reading grade in the manifest.** Long sentences, not hard
+   words, are what push it over.
+7. **The keyed answer must not repeat the prompt's own words**, or be visibly
+   longer than the alternatives.
+8. **A retype is not free** — it needs the new format's own data. Only `CHOICE`
+   needs nothing extra.
+9. **Return every row, and return the prose summary**, including what you chose
+   not to change and why.
+
+The rest of this section is chronological, and the last two rounds are the most
+useful.
+
+**The `data` block was missing entirely.** Round one returned eight well-judged
+conversions and not one carried its block — only prose describing what the block
+should contain. Nothing could be applied. See section 6: the block is the
+deliverable.
+
+**Required fields inside the block were absent.** A CHAIN with every link
+missing `transfers` (what force it carries), a DELEGATE with every problem
+missing `rate` and `consequence`. The trap arithmetic was right and the rows
+still could not be imported. Section 6 lists what each format requires; supply
+all of it.
+
+**`reveals` was omitted on every VALUE option, in two separate stops.** Buying a
+piece of evidence then changed nothing on the card. The format is *what would
+this measurement tell you*, so an option with nothing to reveal is half a card.
+Write one sentence per option saying what the player learns by buying it.
+
+**`decision` was omitted on VALUE**, so the panel fell back to repeating the
+question and printed the same sentence twice.
+
+**A trap was violated that this brief already stated.** An ALLOCATE came back
+with all four answers marked `required` — the rule is at least one required and
+at least one not, because a plan that forgoes nothing is not a plan.
+
+**Prose broke rules the game enforces.** One `why` came back at reading grade
+14.9 in a game written for grade 12. Another ended with a scope disclaimer —
+"This is generic manufacturing statistics and metrology, not explosive-component
+design" — which is forbidden: never tell the player what they are *not* doing.
+
+**A note gave the answer away before the player had read anything.** A BALANCE
+stream carried `note: "This is composition (purity), not a material-flow term"`,
+which is precisely the decision the stop exists to make. Anything that
+identifies a row's nature belongs in `unitNote` (shown only after the row is
+read) or in the verdict.
+
+**A note carried authoring commentary.** `note: "Derived from the panel: 93.9%
+in measured outputs minus 0.4% in the discarded aqueous stream"` reaches the
+player verbatim, as though it were part of the situation. Notes are what a
+person at the scene would say, not where you got the number.
+
+**Field names were approximated, and that is fine.** `budget` for `checks`, a
+`protectedItems` list instead of a flag, `elements`/`correctOrder`/
+`governingLink`, `rising: true` for `trend`, `stages` for `conditions`,
+`configurations` for `configs`, `predictionRange` for `prediction`, a `team`
+headcount instead of a roster, a locus keyed `{gain, offset}` instead of
+`{a, b}`, a CONTROL written as a per-control result table, a CLOUD written as
+`initial{center,width}` with a one-sided `boundary`.
+
+The fifth round added a dozen more, all read correctly now: `people` for a
+DELEGATE roster and `keep` / `keepYourself` / `selfProblem` for the problem
+command takes itself; `locus1`/`locus2` and `firstLocus`/`secondLocus`;
+`compartments`/`route`/`blockedDoor`/`detour` for a ROUTE; `pulseSeconds` and
+every degree-suffixed key on a FLY; a VERIFY `truth` written as `{value, unit}`
+and a menu of `measurements`; a TRIGGER stream stamped in steps with `leadTime`
+on the stages; `items[].answers` instead of `answers[].requires`; ALLOCATE items
+priced as a rate against the hours an answer asks of them; a CLOUD action written
+as `effect: {centerDelta, widthDelta}`; a boundary written as a bare number with
+`direction` beside it; and per-candidate `feasible` and criterion columns on a
+STRESS. Two sheets also keyed the new format `to` rather than `format`, with
+`from` beside it; that is read now as well.
+
+**All of these are absorbed automatically.** Do not spend any effort on getting
+names right. Spend it on the things below, which cannot be renamed into
+correctness.
+
+### The third round — read this, it is the most recent evidence
+
+Three games came back at once. The conversions were good: 22 of 23 were usable
+after the naming was absorbed. Everything that went wrong was one of these.
+
+**Nine passages came back above the reading level**, in two of the three games —
+between 14.1 and **16.0** against a stated grade 12. This is the single most
+common failure and the brief already warned about it. See §5 rule 8, which now
+says how to avoid it rather than only that you must.
+
+**A character was named who had never been introduced.** "Barros, who ships
+calibrated numbers to a hospital every month…" — her first appearance anywhere
+in the campaign, arriving as a bare surname. A player has no idea who she is.
+**At a person's first mention give the full name and enough role that the
+sentence stands alone.**
+
+**A hard word was used and never introduced.** "spectrum", on day 6 of a game
+about spectroscopy, with no glossary entry, no primer mention and no definition
+in place. If you introduce a technical word in a rewritten passage, introduce it:
+one clause in that stop's `assumes` is usually enough, and it renders above the
+question under "Takes as read".
+
+**Mechanism leaked back into a scene.** *"Chemistry separates species by
+differences in how their electrons interact, so the division first has to
+decide…"* — that is the answer, in the situation, before the question is asked.
+The scene says where you are and what has happened. Nothing else.
+
+**A stop was retyped to `BALLPARK` with no estimate block.** A retype to one of
+the eight reading formats still needs *that* format's own data: a `BALLPARK`
+needs its number tiles, values, target and tolerance; a `PROTOCOL` needs its
+scenarios and choices. Retyping to `CHOICE` is the only one that needs nothing
+extra, because the options are already there.
+
+**A pass condition was written as a sentence instead of a number.** *"lower edge
+= center − width must be greater than 1.0 Earth radius"*. Somebody then had to
+guess what fraction that meant, guessed 95.4 per cent, and the guess was close
+enough to be wrong — under it, re-centring alone cleared the bar, which is the
+exact opposite of what `CLOUD` teaches. **Every threshold, tolerance, target and
+pass mark is a number.** If you find yourself explaining a rule in words, that is
+the signal you have not decided the number yet.
+
+**An id pointed at something that was never declared.** A CONTROL whose `suspect`
+was `"upstream-of-input"` when no control had that id; a TRACE whose channels
+depended on sources missing from the source list. Every id in a block must name
+something declared in the same block.
+
+**One game returned no conversions and did not say why.** Deciding a game already
+has enough instruments is a legitimate answer — but it is an answer, and it
+belongs in the prose summary with the reasoning. Silence reads as an omission.
+
+**Four of one game's eight conversions were the same format.** Not wrong, but
+worth a thought: if two stops would work equally well as `VALUE` and as
+`PROPAGATE`, take the variety.
+
+### The fourth round — seven games at once, and what it added
+
+Forty-eight instruments are now in the books and every game imports. The
+substance keeps being good; these are what still cost round trips.
+
+**A pass mark nothing could reach.** A `CLOUD` came back where applying *every*
+narrowing action left 98.6 per cent of the distribution inside the corridor and
+`pass` was set above that. It renders, it grades, and no player can ever answer
+it correctly. **A trap has two ends and both are yours to check**: the cheap move
+must fall *short* of the pass mark, and the full set of correct actions must
+*clear* it. State both numbers in `trap_is_satisfied_by` — "re-centring alone
+reaches 0.91, all three reach 0.97, pass is 0.95" is the shape of it. The
+previous round's failure was a pass mark written as a sentence; this one was a
+pass mark written as a number that happened to be impossible. Only the second
+half of the problem had been named.
+
+**A matching pair answered by its own wording.** Three separate `PROTOCOL` pairs
+across two games could be matched by eye, because the option keyed to a prompt
+repeated the prompt's own content words. `engine/dev/probeQuestions.mjs` fails a
+pair when **two or more of the prompt's content words reappear in the keyed
+option and they are half or more of the prompt's content words** — stop words and
+crude stemming removed, so the subject's own vocabulary is allowed on both sides.
+
+The fix is almost always to change the **option**, not the prompt: say what the
+response *achieves* rather than restating the situation it belongs to.
+
+> **Fails** — prompt: *"Some escaping neutrons are scattered back toward the
+> fissile region"* · option: *"Use the layer as a neutron reflector, scattering
+> some escaping neutrons back toward the fissile region"*.
+>
+> **Passes** — the same prompt · option: *"Return part of the leakage, so a
+> smaller core reaches the same multiplication"*.
+
+Only `PROTOCOL` is checked automatically, because only there is the pairing
+explicit. The same failure on a `CHOICE` or a `SEQUENCE` passes every check and
+is just as answerable without the science, so it is on you.
+
+**Two things came back a second time, after this brief had named them.** Both are
+cheap and both bounced a game:
+
+- a stop **retyped to `BALLPARK` with no `estimate` block**. A retype is not free.
+  `CHOICE` is the only one of the eight that needs nothing extra.
+- a game returning **no conversions and no reasoning**, when the round before had
+  asked in writing for the reasoning. Judging that a game already has enough
+  instruments is a fine answer; it is still an answer, and three sentences of it
+  is all that was wanted.
+
+**The reading grade is in the manifest, as `audienceGrade`.** It used to be null
+in every sheet — the exporter looked for it in the wrong file — so the level was
+stated only in prose and nine passages came back over it. It is now a number
+beside the curriculum. Write to it.
+
+### The fifth round — all ten games at once, and what it cost
+
+Every game came back and every game now ships: 88 instruments across ten of them,
+up from 48. Ten rows had to be repaired by hand before anything could be written,
+and one defect reached a playable build. These are the ones to avoid next time.
+
+**A reordered option list moved the answer key, and nothing could see it.** Two
+`CHOICE` stops came back with all four options rewritten *and* reordered. The
+options are applied by position, so the key followed the slot rather than the
+meaning: one stop shipped keyed to "No listed element is likely to fail
+tonight" — the answer its own first rebuttal exists to refute. The book was still
+valid, the question still rendered, and every check passed.
+
+**Reword the options in place. Do not reorder them.** If an option genuinely
+belongs somewhere else in the list, say so in your prose summary. (The applier
+now re-keys by meaning and reports when it moves one, but it is guessing from
+word overlap, and it should not have to.)
+
+**Rebuttals are matched to the wrong options by position too.** With four options
+and three rebuttals, the first rebuttal answers the first *wrong* option, the
+second the next, and so on. One stop came back with the rebuttals in a different
+order from the options, so each explained the wrong choice. Same rule: keep the
+order.
+
+**Six `BALLPARK` estimates arrived that no player can answer.** This is the most
+repeated failure across all five rounds and it is always the same shape — a
+`prompt`, a `relationship`, a worked `solution` and a set of `labels`, and no
+arithmetic the panel can actually run. Written out in full, an estimate needs:
+
+| field | what it is | why it fails without it |
+| --- | --- | --- |
+| `labels` | the tile captions | — |
+| `values` | the number behind each tile, same order and length as `labels` | tiles with nothing behind them |
+| `correct` | indices of the tiles that belong in the calculation | nothing to grade the selection against |
+| `slots` | how many tiles the player places — equal to `correct.length` | a template referencing a slot nobody can fill |
+| `template` | the display form, e.g. `"{0} × {1} ÷ ({2} × {3})"` | — |
+| `formula` | the same thing as evaluable JS, tiles bound to `a, b, c…` in `correct` order, e.g. `a*b/(c*d)` | **the panel returns NaN for every answer** |
+| `target` · `tolerance` · `units` | the answer, how close counts, what it is in | — |
+
+`formula` is the one that keeps being left out, and it is the one the panel runs.
+`Math.log10`, `Math.sqrt` and the rest are available. Check it yourself: bind
+your `correct` values to `a, b, c` in order and confirm the result lands inside
+`target ± tolerance`.
+
+**And an estimate needs distractor tiles.** Three came back where every tile
+belonged in the answer, which removes the actual skill — deciding which
+quantities matter. Give at least one number that does not belong, and make it a
+plausible one: the Celsius figure beside the kelvin, a normal value beside the
+patient's, an echo term in a passive-sonar budget.
+
+**Never put the answer on a tile.** One beat-frequency estimate offered
+`147 Hz`, `150 Hz`, `1500 m/s` and `3 Hz (difference)`. The third tile is the
+answer, and the question becomes spot-the-label.
+
+**Anything with a slider needs a `step`, and the answer has to be reachable on
+it.** A `DEGENERACY` control running 15,000 to 45,000 with no step is a control
+that cannot be moved; give it one that divides the distance from the minimum to
+the true value, or the one right position is not one of the positions. Same for
+`FLY`'s brake and `STRESS`'s assumption.
+
+### Two formats that are routinely built backwards
+
+**`STRESS` — the assumption is a resource, not a demand.** `feasible[id]` is the
+**lowest** value of the assumption at which that candidate still works, and a
+candidate survives when that number is at or below the assumption's *minimum*.
+So the slider has to run the direction where **bigger means more headroom**.
+
+Two games got this wrong in opposite ways. One made the assumption a transit
+duration, which gets harsher as it grows, so every candidate read as surviving.
+The other left a candidate that fails a fixed requirement — too loud, at any
+setting — with a feasibility inside the range, so two candidates survived where
+the format needs exactly one. **A candidate that can never be chosen needs a
+`feasible` above the top of the range**; that is how this panel says "not
+available at all".
+
+Also required, and easy to miss: the robust candidate must **not** be the best on
+`optimiseOn` at the nominal. If it is, choosing well costs nothing and the slider
+is scenery.
+
+**`CLOUD` — say what `width` means.** One sheet meant one sigma by it and another
+meant the whole band, and the two readings differ by a factor of two in every
+fraction on the panel. Getting it wrong turned a stop where re-centring alone
+must fall short into one where it reaches 100 per cent. **Write `spread` and mean
+one sigma**, or state it in the field name. If you show your own working —
+"untouched, 96.3% is inside" — that number settles it, and it is worth including
+for exactly that reason.
+
+**`ALLOCATE` — a protected item still needs a price.** An item the plan may not
+spend on is usually written with a reason and no `cost`, which makes the pool
+arithmetic NaN and the stop unanswerable. Write `cost: 0`.
+
+**`ROUTE` — every compartment must be on the route.** The player rebuilds the
+whole bank in order, so a compartment that exists only on the detour is one they
+are asked to place with nowhere to put it. The interruption is carried by where
+it happens and where it rejoins; it needs no room of its own.
+
+### The minimums, so nothing is rejected for being too small
+
+A board below these is not a small version of the format — it is a board with no
+decision on it. A CONTROL with one control came back this round; with one control
+there is nothing to hold fixed and nothing to rule out.
+
+| Format | Needs at least |
+| --- | --- |
+| `TRIGGER` | 2 stages · 3 updates in the stream |
+| `VALUE` | 4 options · 1 decisive · 2 distinct axes |
+| `CLOUD` | 2 actions · at least 1 that narrows |
+| `ALLOCATE` | 4 items · 3 answers · ≥1 required and ≥1 not |
+| `TRACE` | 4 channels · 2 sharing the target · 1 independent |
+| `ATTEST` | 4 claims · 1 critical-and-unbacked · 1 critical-and-backed |
+| `CONTROL` | **3 variables** · response > 3× noise |
+| `TRIANGULATE` | 3 stations |
+| `DEGENERACY` | exactly 2 controls · 5 points on the first locus · 3 on the second |
+| `CHAIN` | 4 links · a path of ≥4 · a distractor |
+| `BALANCE` | 3 countable streams · 1 hidden |
+| `VERIFY` | truth inside the prediction range |
+| `PROPAGATE` | 3 inputs · 2 candidate measurements |
+| `STRESS` | 3 candidates · 2 criteria · exactly 1 survivor |
+| `DELEGATE` | 3 problems · 2 people · 2 first actions |
+| `RESIDUAL` | 2 candidate fits |
+| `INJECT` | 3 configurations |
+| `ROUTE` | 5 compartments |
+
+## 5. Rules that apply to every conversion
+
+1. **The interaction replaces the question. It is not added to it.** Every one of
+   the six design documents states this. If a stop becomes an instrument, the old
+   multiple choice is not also asked.
+2. **Nothing marks the answer.** No glowing correct valve, no green route, no
+   decisive option in a different colour. The player infers it from the evidence.
+3. **The panel never prints the target.** A sweep that labels the buffer region
+   has answered itself.
+4. **Difficulty is judgment, never dexterity.** Nothing timed, nothing needing a
+   cursor inside three pixels.
+5. **A wrong action gets a consequence with physics in it,** not a red X. Say what
+   the wrong choice produces.
+6. **Characters challenge reasoning; they never announce the answer** before the
+   player acts.
+7. **Numbers live in the world** — on instruments, deck plans, logs and gauges —
+   not gathered onto a detached worksheet.
+8. **Keep the reading level, and here is how.** Each game states an audience
+   grade in its manifest — usually 12. Anything more than two grades over is
+   rejected outright. This has been the most common failure in every round, so
+   it is worth being mechanical about:
+
+   - **Average about 15 words a sentence; nothing over about 25.** The measure
+     used is Flesch–Kincaid, and sentence length dominates it.
+   - **The subject's vocabulary is not the problem.** "Delay-Doppler",
+     "spontaneous fission", "airmass" are the words and they should stay. Long
+     *sentences* are what push the grade up.
+   - **Three patterns cause almost all of it**, and all three came back last
+     round: a four-item list inside one sentence; two or three abstract noun
+     phrases stacked ("the consequence envelope and warning-time estimate");
+     and a subordinate clause carrying the real content while the main clause
+     says nothing ("An orbit fit gains leverage when…").
+   - **Read the last sentence you wrote out loud.** If you run out of breath, or
+     you have to look back to find the subject, split it.
+   - A 45-word scene made of two sentences is over. The same 45 words as four
+     sentences usually is not.
+9. **Never write what the player does not do.** No scope disclaimers, no "this
+   is X, not Y", no apologising for the game. It reads as an excuse and it is
+   cut every time it appears.
+10. **A `note` on any item is what somebody at the scene would say about it.**
+   Not where the number came from, and never the thing the stop is asking the
+   player to notice. If a note would let a player skip the reasoning, it belongs
+   in the verdict.
+11. **`answerText` is required on every conversion.** It is what the verdict
+   tells a player who got it wrong. Without it they are told they were wrong and
+   never told what right was.
+
+## 6. What to send back
+
+**The same file, edited in place.** One row per stop, every row returned whether
+or not you changed it. Rewrite the prose fields directly; on the stops you are
+converting, also change `format` and add the data block. Do not invent a new
+file shape and do not send only the changed rows — the sheet is diffed against
+the book, so an unchanged row costs nothing and a missing one is ambiguous.
+
+### What is editable, and what is not
+
+**Editable** — every sentence the player reads: `title`, `task`, `scene`,
+`question`, `takeaway`, `why`, `answerText`, `assumes`, and everything under
+`text` (the options and their mechanisms, the rebuttals, the ordering cards, the
+matching rows and column headings, the proposals, the estimate's prompt,
+relationship, explanation, worked solution and its tile labels).
+
+**Leave alone** — `id`, `day`, `group`, `area`, `dayTitle`, `shape`,
+`sceneWords`, `whyWords`, `isInstrument`, and the read-only `panel` block. The
+`panel` is a shared diagnosis panel belonging to several stops; its numbers are
+the evidence a conversion is built from and editing it here would change other
+stops silently.
+
+**Reword a keyed option and the answer follows it automatically** — grading is
+by label and the applier re-syncs it. But keep the list the same length: a
+shortened `choices` array is skipped rather than guessed at.
+
+### On a converted row
+
+Change `format` to one of the nineteen, add the block under `data`, and rewrite
+`task`, `question`, `takeaway`, `why` and `answerText` so they describe the new
+action — a converted stop that keeps its old question is a stop asking something
+its panel cannot answer. Add these three alongside:
+
+```json
+"why_this_format": "what the player would DO that the old screen cannot make them do",
+"trap_is_satisfied_by": "the arithmetic, stated — see the trap on the format in section 4",
+"confidence": "high | medium | low"
+```
+
+**The `data` block is the deliverable.** Everything else on a conversion row is
+supporting prose. A row without `data` cannot be applied to the game at all: the
+engine needs the format's own numbers — the streams and their values, the
+stations and their distances, the claims and which are backed — and no amount of
+description substitutes for them. The first round of this exercise returned eight
+well-judged conversions and **not one of them carried a data block**, so none
+could be used. If you can only do one thing well, do the numbers.
+
+**Field names are forgiven; numbers are not.** `tools/check-conversions.mjs`
+normalises the near-misses that come back every time — a `budget` where the
+schema says `checks`, a separate `protectedItems` list instead of a flag, a
+`readout` object instead of a flat `baseline` and `response`. Do not spend effort
+on getting the spelling exact. Spend it on the arithmetic, because the trap is
+arithmetic and nothing can rename it into correctness.
+
+Two rules that follow from it:
+
+- **Use the numbers already in the row.** Where a stop carries a `panel`, those
+  `observed` and `reference` values are real and are what the instrument's
+  response, noise and tolerance should be built from. Inventing values when the
+  row supplies them is the most expensive mistake available here.
+- **If you must invent, say so in the row** — set `confidence: "low"` and put
+  the words "invented" in `trap_is_satisfied_by`. A flagged invention gets
+  reviewed. An unflagged one gets shipped.
+
+One JSONL file, `<theme>-conversions.jsonl`. **One row per stop you are changing
+— do not emit rows for stops you would keep**, except where you want to record
+why an obvious-looking candidate should be left alone (use `verdict: "keep"` for
+those, sparingly).
+
+```json
+{
+  "id": "deepwatch.m05.s1",
+  "verdict": "convert",
+  "from": "CHOICE",
+  "to": "BALANCE",
+  "confidence": "high",
+  "why_this_format": "The bilge level rise is what got past a pump that has been running throughout, so the graded quantity is a ledger with a hidden removal term in it. A four-option list cannot make anybody add the pump back in.",
+  "replaces": "the m05.s1 source-identification multiple choice and the m05.s2 detached rate estimate",
+  "player_does": [
+    "sample the bilge and compare conductivity against seawater and fresh-water references",
+    "mark the level, wait a minute, read it again",
+    "combine the rise, the flooded area and the pump discharge"
+  ],
+  "trap_is_satisfied_by": "the obvious streams sum to 320 L/min against a true total of 410, so leaving the pump out fails on the arithmetic",
+  "data": {
+    "total": { "amount": 410, "unit": "L/min", "label": "Inflow at the hull" },
+    "streams": [
+      { "id": "rise", "label": "Accumulation in the bilge", "value": 320,
+        "display": "8 cm over 4.0 m2 in one minute" },
+      { "id": "pump", "label": "Drain pump discharge", "value": 90,
+        "display": "90 L/min", "hidden": true, "note": "running since the alarm" },
+      { "id": "fw", "label": "Fresh-water tank level", "value": 0, "display": "unchanged" }
+    ],
+    "tolerance": 25
+  },
+  "answerText": "About 410 litres a minute — the 320 that accumulated plus the 90 the pump had already discharged during the same minute.",
+  "why": "The level in the bilge is not the leak; it is what got past the pump. Anything already being removed while you were measuring has to go back into the total, and a pump that has been running since the alarm is easy to leave out precisely because it is not a reading — nothing on the panel changes when it runs.",
+  "failure_feedback": [
+    { "action": "reporting 320 L/min", "consequence": "the estimate ignores everything the pump removed during the measurement", "who": "Hallam", "line": "That is what got past the pump." }
+  ]
+}
+```
+
+A `retype` row is much shorter:
+
+```json
+{
+  "id": "hospital.m03.s2",
+  "verdict": "retype",
+  "from": "DIAGNOSIS",
+  "to": "CHOICE",
+  "confidence": "high",
+  "why_this_format": "There is no instrument panel and no figure — `shape` shows four choices and nothing else, so it already plays as a plain multiple choice and should say so."
+}
+```
+
+### Field notes
+
+- `id` — copy it exactly from the stops file.
+- `to` — one of the nineteen format names, in capitals.
+- `confidence` — `high` / `medium` / `low`. Be honest; low-confidence rows are
+  useful and will be reviewed rather than applied.
+- `data` — the format's own block, **required on every `convert` row**. Get the
+  trap right or the row is rejected on import; the traps are stated per format in
+  section 4 and they are arithmetic, not advice. Two that are failed most often:
+  an `ALLOCATE` needs at least one answer that is *not* `required` (something the
+  plan is allowed to forgo — an optional *item* does not satisfy this, it has to
+  be an answer), and a `VERIFY` `passRatio` is a ratio bracketing 1, like
+  `[0.6, 1.6]`, not a tolerance in the measured unit.
+- `why` — 70–90 words of mechanism, rewritten for the new format if the old one
+  no longer fits. Keep the existing `why` if it still does.
+- `answerText` — required for every instrument. It is what the verdict tells a
+  player who got it wrong, and without it they are told they were wrong and never
+  told what right was.
+- `failure_feedback` — at least one entry per conversion, naming a character from
+  the stop's own scene where you can.
+
+## 7. Making the stop understandable
+
+The most common reaction to a finished instrument is **"I do not know what I am
+doing or what I am supposed to be learning."** With four options on a screen you
+can infer the task from the options. With three checkboxes and a Run button you
+cannot, and a player who cannot see the task cannot practise the reasoning.
+
+Four things answer it, and every conversion has to carry all four.
+
+**1. `scene` — the situation, 30–45 words.** Where you are, who is there, what is
+on the bench, what has just happened. No mechanism, no hint at the answer. This
+is the only place the stop says why anybody is standing here.
+
+**2. `assumes` — what the question takes as read.** One to three short clauses of
+prior knowledge the question is entitled to expect. It appears above the panel
+under "Takes as read", and it answers the question a stuck player actually has,
+which is not *what is the answer* but *am I supposed to already know something*.
+
+**3. `takeaway` — one sentence, the principle.** It appears above the panel under
+"What this is about" — **before** the answer, not after. It is the thing the
+player should be able to say afterwards, stated as a general rule rather than as
+this stop's answer. "A load path is limited by its weakest required transfer" is
+a takeaway. "The roof-to-panel anchor governs" is the answer, and must not be
+written here.
+
+**4. `hint` inside the block — what to do with *this* panel.** One or two
+sentences of local procedure: which control does what, what the readings mean,
+what the buttons cost. **Not** what the format is for in general — the engine
+already prints that.
+
+### What you do NOT have to write
+
+Every format ships its own line saying what kind of move it is, rendered above
+the controls under "What you are doing". It is the same sentence in every game,
+so do not restate it per stop. For reference, so you can pitch `hint` and
+`takeaway` around it rather than repeating it:
+
+| Format | What the engine already tells the player |
+| --- | --- |
+| `CONTROL` | change one thing, run it, put it back; a reading names a cause only if the effect follows both ways |
+| `VALUE` | you cannot buy everything; buy what would change the decision |
+| `BALANCE` | reading costs nothing, counting is a claim that it is the same quantity |
+| `ALLOCATE` | every item bought is a question answered and one given up |
+| `ATTEST` | every claim is signed; verify what would hurt if it were wrong |
+| `CHAIN` | force reaches the ground through a chain of transfers; find the weakest required one |
+| `TRACE` | keep what stands on its own measurement, name the source the rest share |
+| `TRIGGER` | set the thresholds before the board is released; you will be held to them |
+| `CLOUD` | moving the middle moves the whole band; only information narrows it |
+| `VERIFY` | lock a prediction, act, then spend to find out; not measuring is an answer too |
+| `DELEGATE` | keep the one thing nobody else can do; hand the rest over with an action and a threshold |
+| `DEGENERACY` | find how many combinations fit before committing to any of them |
+| `TRIANGULATE` | one station gives a distance, not a place |
+| `PROPAGATE` | each term contributes its width times its power |
+| `STRESS` | move the assumption to its pessimistic end before choosing |
+| `RESIDUAL` | look at what the fit leaves over, not the number underneath |
+| `INJECT` | what comes back measures your pipeline, not the world |
+| `ROUTE` | learn it as places; only that survives an interruption |
+
+### The test
+
+Read the stop back as a player would meet it: scene, takes-as-read,
+what-this-is-about, the question, what-you-are-doing, the panel. If at that
+point you could not say **what you are being asked to do** and **what you would
+know afterwards**, the stop is not finished — and the missing piece is almost
+always `takeaway`, written as this stop's answer instead of as a principle.
+
+## 8. Before you send it — run this list over your own file
+
+Every item here is something that came back wrong in an earlier round. It takes
+ten minutes and it is the difference between a pass that lands and one that
+bounces.
+
+**On every row you rewrote**
+
+- [ ] No sentence over about 25 words, in any of `scene`, `why` or `answerText`.
+- [ ] `scene` is situation only — no mechanism, nothing that hints at the answer.
+- [ ] `why` is 70–90 words of mechanism, and it is where the teaching is.
+- [ ] `takeaway` is a general principle, not this stop's answer.
+- [ ] Every person named has a full name and a role at first mention.
+- [ ] **No keyed answer repeats its prompt's words.** On a `PROTOCOL` this fails
+      a checker outright — half the prompt's content words reappearing in the
+      option it is matched to. On a `CHOICE` or a `SEQUENCE` nothing stops you,
+      and a player can still answer it by eye. Rewrite the option to say what it
+      achieves.
+- [ ] **The options are in the same order they came in**, and so are the
+      rebuttals. Both are applied by position; reordering silently re-keys the
+      question to whatever lands in that slot.
+- [ ] No option is markedly longer than the others — length alone should not
+      pick out the answer.
+- [ ] Every technical word you introduced is defined somewhere — a clause in
+      `assumes` is the cheapest place.
+- [ ] Characters still sound like themselves.
+
+**On every row you converted**
+
+- [ ] The `data` block is there.
+- [ ] It clears the minimums in §4b.
+- [ ] Every threshold, target, tolerance and pass mark is a **number**, not a
+      sentence describing one.
+- [ ] Every id inside the block names something declared in the same block.
+- [ ] The trap is satisfied at **both** ends — the cheap move falls short, the
+      full set of correct actions clears. State both numbers in
+      `trap_is_satisfied_by`, not just the one that fails.
+- [ ] `answerText` says what the right answer was and why.
+- [ ] `task` and `question` describe the new action, not the old one.
+- [ ] Nothing in a label, note or hint gives away the answer before the player
+      has done anything.
+
+**On a retype to one of the eight reading formats**
+
+- [ ] It carries that format's own data. Only `CHOICE` needs nothing extra.
+- [ ] A `BALLPARK` carries all nine estimate fields, `formula` included, and you
+      have evaluated it against `target ± tolerance` yourself.
+- [ ] At least one tile does not belong in the answer, and no tile *is* the
+      answer.
+
+**Across the whole game**
+
+- [ ] 8–10 conversions, and no day carrying more than one instrument.
+- [ ] Not all of one format — take variety where two would work equally.
+- [ ] The prose summary is written, including what you chose *not* to do.
+
+### Also send back, as plain prose
+
+This is the part a person reads, and it is worth as much as the file. **Send it
+even when your answer is "nothing to change"** — a game that came back with no
+conversions and no explanation left everybody guessing whether it had been
+considered.
+
+- **Your editorial opinion of the game.** Where the writing is good, where it is
+  flat, where the story stops carrying the science. Be direct.
+- **Questions that were too easy**, named, with what gave them away.
+- **A day sheet** for each day you touched: the stops and what each is after your
+  changes, so the balance of instruments against reading screens is visible.
+- **Curriculum and equations**: which concepts are thin or missing, and which
+  equations you moved from *mentioned only* to *computed*.
+- **What you deliberately kept.** The judgement about what not to convert is as
+  much the deliverable as the conversions.
+- **Anything the sheet could not tell you** that you needed.

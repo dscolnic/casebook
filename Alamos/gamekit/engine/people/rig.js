@@ -95,9 +95,17 @@ export function pickLook(outfit, opts = {}){
     height: child ? srandRange(1.18, 1.48) : srandRange(1.58, 1.90),
     shoulders: srandRange(0.90, 1.14),
     hairStyle: srand() < 0.62,
-    cap: !!opts.cap && srand() < (opts.capChance ?? 0.35),
-    badge: opts.badge !== false && !child,
-    overcoat: !!opts.overcoat,
+    // An outfit may ask for a hood and a shell directly. The crowd never passes
+    // these opts — so `kind: 'lead'` promised an overcoat in every theme's
+    // outfits.js and delivered one nowhere — and a theme whose people are
+    // outdoors at forty below needs to be able to say so.
+    cap: outfit.cap !== undefined
+      ? !!outfit.cap
+      : (!!opts.cap && srand() < (opts.capChance ?? 0.35)),
+    badge: outfit.badge !== undefined
+      ? (!!outfit.badge && !child)
+      : (opts.badge !== false && !child),
+    overcoat: outfit.overcoat !== undefined ? !!outfit.overcoat : !!opts.overcoat,
     accessory: opts.accessory || null,
   };
 }
@@ -111,10 +119,28 @@ function addLimbs(group, look, skinMat, topMat, botMat, shoeHex){
     arm.position.y = -0.285; arm.castShadow = true;
     // Sleeve in the garment colour, so the arm separates from the torso at a
     // distance instead of merging into one silhouette.
-    const sleeve = new THREE.Mesh(G.arm, topMat);
-    sleeve.position.y = -0.14;
-    sleeve.scale.set(1.16, 0.46, 1.16);
+    //
+    // It covered the top 46 per cent of the arm and nothing else, which is a
+    // short sleeve — every person in every game was in a t-shirt, which is fine
+    // in a hospital and wrong at forty below. An outfit can now say how far down
+    // the sleeve goes, and a parka takes the whole arm with a mitt on the end.
+    const reach = look.outfit.sleeve ?? (look.overcoat ? 1 : 0.46);
+    const sleeveMat = look.overcoat
+      ? bodyMat(look.outfit.coat ?? look.outfit.top, 0.88)
+      : topMat;
+    const sleeve = new THREE.Mesh(G.arm, sleeveMat);
+    // The sleeve hangs from the shoulder, so its centre moves down as it grows.
+    sleeve.position.y = -0.285 * reach;
+    sleeve.scale.set(1.16, reach, 1.16);
     armPivot.add(arm, sleeve);
+    if(reach >= 0.95){
+      // A mitt, because a full sleeve that stops at the wrist leaves a bare
+      // hand, which is the detail that gives the whole figure away.
+      const mitt = new THREE.Mesh(G.head, sleeveMat);
+      mitt.position.y = -0.60;
+      mitt.scale.set(0.42, 0.42, 0.42);
+      armPivot.add(mitt);
+    }
     armPivot.userData = { isArm: true, side };
     group.add(armPivot);
     limbs.push(armPivot);
@@ -228,6 +254,14 @@ export function buildExtraBody(look){
   const botMat = bodyMat(look.outfit.bottom, 0.92);
   push(G.torso, topMat, { x: 0, y: 1.18, z: 0 }, { x: look.shoulders, y: 1, z: 1 });
   push(G.hips, botMat, { x: 0, y: 0.90, z: 0 });
+  // The shell, if this outfit has one. The cheap rig skipped it, so every
+  // anonymous extra stood in the crowd in shirtsleeves while the named people
+  // beside them wore parkas — visible from the first screenshot of a camp.
+  const coatMat = bodyMat(look.outfit.coat ?? look.outfit.top, 0.88);
+  if(look.overcoat){
+    push(G.torso, coatMat, { x: 0, y: 1.12, z: 0 },
+      { x: look.shoulders * 1.1, y: 1.22, z: 1.14 });
+  }
   push(G.head, skinMat, { x: 0, y: 1.63, z: 0 }, { x: 1, y: 1.26, z: 1.06 });
   // The head was pushed pre-scaled, so face parts follow the same transform.
   const tints = faceTints(look);
@@ -239,10 +273,18 @@ export function buildExtraBody(look){
     push(G.badge, bodyMat(0xf6f4ec, 0.7), { x: 0, y: 1.21, z: 0.14 });
     push(G.lanyard, bodyMat(0x2c3742, 0.9), { x: 0, y: 1.36, z: 0.135 });
   }
+  const reach = look.outfit.sleeve ?? (look.overcoat ? 1 : 0.46);
+  const sleeveMat = look.overcoat ? coatMat : topMat;
   for(const side of [-1, 1]){
     const ax = side * 0.245 * look.shoulders;
     push(G.arm, skinMat, { x: ax, y: 1.115, z: 0 });
-    push(G.arm, topMat, { x: ax, y: 1.26, z: 0 }, { x: 1.16, y: 0.46, z: 1.16 });
+    // The sleeve hangs from the shoulder at 1.40, so its centre drops as it
+    // lengthens — the same arithmetic the articulated rig does.
+    push(G.arm, sleeveMat, { x: ax, y: 1.40 - 0.285 * reach, z: 0 },
+      { x: 1.16, y: reach, z: 1.16 });
+    if(reach >= 0.95){
+      push(G.head, sleeveMat, { x: ax, y: 0.80, z: 0 }, { x: 0.42, y: 0.42, z: 0.42 });
+    }
   }
   if(look.cap) push(G.cap, bodyMat(look.outfit.top, 0.92), { x: 0, y: 1.685, z: 0 }, { x: 1.08, y: 1.05, z: 1.08 });
   else if(look.hairStyle) push(G.cap, bodyMat(look.hair, 0.98), { x: 0, y: 1.66, z: 0 }, { x: 1.04, y: 1, z: 1.06 });

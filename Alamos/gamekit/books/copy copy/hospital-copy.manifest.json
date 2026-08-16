@@ -1,0 +1,4651 @@
+{
+ "theme": "hospital",
+ "book": "books/hospital.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "Junior Doctor · Children’s Hospital",
+   "readOnly": false
+  },
+  {
+   "id": "group.TRI.desc",
+   "original": "Emergency Department — decide who needs help first.",
+   "readOnly": false
+  },
+  {
+   "id": "group.RESP.desc",
+   "original": "Respiratory & Cardiology — air, lungs, heart and blood.",
+   "readOnly": false
+  },
+  {
+   "id": "group.NUTR.desc",
+   "original": "Nutrition, digestion, hydration, kidneys.",
+   "readOnly": false
+  },
+  {
+   "id": "group.MOVE.desc",
+   "original": "X-Ray, bones, rehab, skin — movement and healing.",
+   "readOnly": false
+  },
+  {
+   "id": "group.BRAIN.desc",
+   "original": "Brain, nerves, eyes, ears — signals and senses.",
+   "readOnly": false
+  },
+  {
+   "id": "group.DEF.desc",
+   "original": "Infection, immunity, temperature, allergy.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.role",
+   "original": "ED Director",
+   "readOnly": true
+  },
+  {
+   "id": "roster.patel.bio",
+   "original": "Dr. Patel runs the Emergency Department. Her first job every shift is triage, which means deciding who needs help first. It is not first-come-first-served, and it is not who is loudest.\n\nShe sorts by how fast someone could get worse. Breathing comes first, because the body can only go a few minutes without oxygen. Then circulation, which is blood carrying that oxygen around. Then everything else. A broken arm hurts a lot more than a quiet cough, and the quiet cough can still be the one that goes first.\n\nShe teaches new staff to watch before they touch. Is the child talking in whole sentences, or stopping for breath in the middle? Are the shoulders lifting with every breath? Those clues are free, they take four seconds, and they arrive long before any machine is switched on.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.patel.quiz.0.q",
+   "original": "How does Dr. Patel decide who gets seen first in the Emergency Department?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.a",
+   "original": "By who could get worse fastest, starting with breathing",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.wrong.0",
+   "original": "By who arrived at the hospital first",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.wrong.1",
+   "original": "By who is in the most pain right now",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.0.wrong.2",
+   "original": "By who has been waiting in the loudest part of the room",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.1.q",
+   "original": "What clue does Dr. Patel look for before she touches a patient at all?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.1.a",
+   "original": "Whether they can talk without stopping for breath",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.1.wrong.0",
+   "original": "Whether their temperature is above normal",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.1.wrong.1",
+   "original": "Whether they can stand up on their own",
+   "readOnly": false
+  },
+  {
+   "id": "roster.patel.quiz.1.wrong.2",
+   "original": "Whether their heartbeat can be heard from across the room",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.role",
+   "original": "Respiratory Lead",
+   "readOnly": true
+  },
+  {
+   "id": "roster.reyes.bio",
+   "original": "Dr. Reyes looks after children who are having trouble breathing. He says lungs are basically a huge folded-up surface: if you could spread one flat it would cover most of a classroom floor.\n\nThat surface is where the trade happens. Air comes in, oxygen crosses into the blood, and carbon dioxide crosses back out to be breathed away. Anything that narrows the tubes leading to that surface — swelling, squeezing muscle, or mucus — means less air gets through, and the child has to work harder for every breath.\n\nHis favourite measurement is the peak flow meter, a plastic tube you blow into as hard as you can. It gives a number for how fast air can leave the lungs. One number on its own means little, but the same child’s numbers over a week show whether the tubes are opening up again.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.reyes.quiz.0.q",
+   "original": "What is happening on that huge folded surface inside the lungs?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.a",
+   "original": "Fresh air gives up oxygen and takes away the gas the body is finished with",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.0",
+   "original": "Air is warmed up before it reaches the stomach",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.1",
+   "original": "Blood is cleaned of germs before it returns to the heart",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.2",
+   "original": "Water is squeezed out of the blood so it does not flood the lungs",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.1.q",
+   "original": "Why does Dr. Reyes care more about a week of peak flow numbers than about one number?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.1.a",
+   "original": "One number means little, and the change over time shows more",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.1.wrong.0",
+   "original": "One number is often measured wrong the first time",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.1.wrong.1",
+   "original": "The meter has to warm up for several days before it is accurate",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.1.wrong.2",
+   "original": "A single number only works for children over ten years old",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.role",
+   "original": "Pediatrics",
+   "readOnly": true
+  },
+  {
+   "id": "roster.chen.bio",
+   "original": "Dr. Chen works on nutrition and digestion — what food does after you swallow it, and why a child who is not eating well gets tired before they get thin.\n\nDigestion is mostly taking big things apart. Bread and pasta get broken down into sugars the body can burn. Meat, beans and eggs get broken into building blocks for muscle and repair. Most of that unpacking happens in the small intestine, which is around six metres long and lined with tiny folds so it can soak up as much as possible.\n\nThe part she has to explain most often is water. A body loses water all day through breathing, sweating and going to the toilet, and it has no way to store a spare supply. That is why a day of vomiting can make a child feel dreadful even though nothing is broken and no germ is left.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.chen.quiz.0.q",
+   "original": "Why is the small intestine lined with tiny folds?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.a",
+   "original": "The folds give it more surface to soak food up through",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.wrong.0",
+   "original": "The folds squeeze food along so it does not get stuck",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.wrong.1",
+   "original": "The folds trap germs before they reach the blood",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.0.wrong.2",
+   "original": "The folds hold water in case the body runs short",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.1.q",
+   "original": "Why can a day of vomiting leave a child feeling dreadful even after the germ has gone?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.1.a",
+   "original": "The body has no spare water, so what was lost is replaced",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.1.wrong.0",
+   "original": "The stomach needs a full day to grow a new lining",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.1.wrong.1",
+   "original": "The body stops making energy until it has eaten solid food",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chen.quiz.1.wrong.2",
+   "original": "The germ leaves behind poison that takes days to clear",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.role",
+   "original": "Orthopedics",
+   "readOnly": true
+  },
+  {
+   "id": "roster.garcia.bio",
+   "original": "Dr. Garcia looks after bones. Most of her patients arrive convinced a broken bone is the end of something, and leave knowing it is one of the few parts of the body that repairs itself completely.\n\nBone is alive. After a break, blood clots around the gap, then the body builds a soft bridge of new tissue across it, then it hardens that bridge into real bone and slowly tidies the lump away. A cast does not do the healing. It holds the two ends still and lined up so the body can do the healing.\n\nChildren’s bones have a trick adults have lost: a growth plate near each end, a band of softer tissue where new bone is added as the child gets taller. It is why children heal faster than grown-ups, and also why she takes a break near a growth plate more seriously than the same break in the middle of the bone.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.garcia.quiz.0.q",
+   "original": "What does a cast actually do for a broken bone?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.a",
+   "original": "It stops the broken ends moving so the body can mend them",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.wrong.0",
+   "original": "It supplies the minerals the bone needs to knit together",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.wrong.1",
+   "original": "It presses the ends of the bone tightly together so they fuse",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.wrong.2",
+   "original": "It keeps germs away from the break inside the arm",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.1.q",
+   "original": "What is a growth plate?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.1.a",
+   "original": "A softer strip near the end of the bone that is still growing",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.1.wrong.0",
+   "original": "The hard outer shell that protects the middle of the bone",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.1.wrong.1",
+   "original": "The joint where two bones meet and slide past each other",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.1.wrong.2",
+   "original": "The scar left behind after a break has healed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.role",
+   "original": "Neurology",
+   "readOnly": true
+  },
+  {
+   "id": "roster.kim.bio",
+   "original": "Dr. Kim works on the brain and the senses. He describes the nervous system as the hospital’s own wiring: signals travelling out to every part of the body and back, far faster than anyone can think about them.\n\nNerve signals are electrical, and that is what makes them measurable. Some of his tests involve no picture at all — he taps a knee, touches a foot with something cold, asks a child to follow a finger with their eyes, and watches which signals arrive and which do not. Where the message stops tells him where to look.\n\nThe thing he most wants people to understand is that a headache, dizziness or a strange taste are all information, not just symptoms. The brain sits behind bone and cannot be prodded, so the way it reports on itself through the senses is often the best evidence anybody gets.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.kim.quiz.0.q",
+   "original": "Why can Dr. Kim learn something from tapping a knee or asking a child to follow his finger?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.0.a",
+   "original": "He is watching where the nerve signal stops",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.0.wrong.0",
+   "original": "He is measuring how strong the child’s muscles have become",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.0.wrong.1",
+   "original": "He is checking that the bones in the leg are lined up",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.0.wrong.2",
+   "original": "He is testing how quickly the child gets tired",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.1.q",
+   "original": "How does Dr. Kim describe the nervous system?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.1.a",
+   "original": "As wiring carrying electrical signals out to the body and back",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.1.wrong.0",
+   "original": "As tubes carrying blood from the brain to the muscles",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.1.wrong.1",
+   "original": "As a store of energy the body draws on when it is tired",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kim.quiz.1.wrong.2",
+   "original": "As a filter that removes what the brain does not need to know",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.role",
+   "original": "Infection",
+   "readOnly": true
+  },
+  {
+   "id": "roster.okafor.bio",
+   "original": "Dr. Okafor works on germs and immunity. Her whole job comes down to two questions: how does this germ move between people, and how do we stand in its way?\n\nGerms travel in a few ordinary ways — on hands, in droplets from a cough, and on surfaces people touch afterwards. That is why hand-washing is the most powerful thing in the building. Soap does not poison germs; it breaks up the greasy coat around many of them and lets running water carry the whole lot away down the drain. Twenty seconds is about how long that takes.\n\nThe immune system is her other subject. White blood cells learn the shape of a germ they have met before, so the second time it arrives they recognise it and start fighting immediately instead of taking days to work out what it is. That memory is exactly what a vaccine gives, without the illness.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.okafor.quiz.0.q",
+   "original": "How does soap help against germs?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.a",
+   "original": "It loosens the oily layer around them so they rinse off",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.0",
+   "original": "It poisons the germs where they sit on the skin",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.1",
+   "original": "It dries the skin out so germs cannot survive on it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.0.wrong.2",
+   "original": "It coats the hands so germs cannot stick to them later",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.1.q",
+   "original": "Why is the second meeting with a germ usually easier than the first?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.1.a",
+   "original": "White blood cells remember its shape",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.1.wrong.0",
+   "original": "The germ becomes weaker each time it enters a body",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.1.wrong.1",
+   "original": "The body has already used up whatever the germ feeds on",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okafor.quiz.1.wrong.2",
+   "original": "The skin grows thicker where the germ got in before",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.role",
+   "original": "Charge Nurse",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.bio",
+   "original": "Nurse Lee is the charge nurse, which means they run the shift: who is in which bed, which nurse is looking after them, and what has to happen in the next hour.\n\nThe tool that runs the ward is the handover. At every shift change the team passes on each patient in the same order every single time — who they are, what happened, what has been done, what to watch for. Fixed order is the point. When people improvise, something gets missed, and the thing that gets missed is always the thing nobody thought to mention.\n\nNurse Lee also owns the observation round: temperature, breathing rate, heart rate, and how the child looks. Those numbers matter far more as a trend than as single readings. A heart rate creeping up over three rounds is a story, and it is usually the first page of it.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.nurse_lee.quiz.0.q",
+   "original": "Why does Nurse Lee insist every handover follows the same order?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.0.a",
+   "original": "When people improvise, something goes unmentioned",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.0.wrong.0",
+   "original": "A fixed order makes the handover shorter than a free conversation",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.0.wrong.1",
+   "original": "The computer system will not save notes entered in a different order",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.0.wrong.2",
+   "original": "It gives every nurse a turn to speak about their own patients",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.1.q",
+   "original": "What does Nurse Lee find most useful about the observation numbers?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.1.a",
+   "original": "The trend across several rounds, such as a heart rate creeping up",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.1.wrong.0",
+   "original": "Whether any single number is above the normal range",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.1.wrong.1",
+   "original": "Which nurse recorded them and at what time",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nurse_lee.quiz.1.wrong.2",
+   "original": "Whether the numbers match what the child says they feel",
+   "readOnly": false
+  },
+  {
+   "id": "roster.amara.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.amara.bio",
+   "original": "Amara is nine and has asthma. Her airways are more easily irritated than most people’s, so cold air, dust or a heavy cold can make the muscle around those tubes tighten up and squeeze them narrower.\n\nShe uses an inhaler with a spacer — a clear plastic chamber that clips onto the inhaler. Fired straight into the mouth, a lot of the medicine hits the back of the throat and stops there. The spacer holds the puff in the air for a moment so she can breathe it in slowly, and far more of it reaches the small airways where it is needed.\n\nShe keeps an asthma plan on the fridge at home, written with her doctor: what a good day looks like, what a bad day looks like, and who to call. She says the plan is the part that stopped her being frightened, because bad days stopped being a surprise.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.amara.quiz.0.q",
+   "original": "What does the spacer on Amara’s inhaler do?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.amara.quiz.0.a",
+   "original": "It keeps the medicine in front of her mouth for a few breaths",
+   "readOnly": false
+  },
+  {
+   "id": "roster.amara.quiz.0.wrong.0",
+   "original": "It squeezes the medicine into a stronger dose before it is breathed in",
+   "readOnly": false
+  },
+  {
+   "id": "roster.amara.quiz.0.wrong.1",
+   "original": "It warms the medicine up so that it does not make her cough",
+   "readOnly": false
+  },
+  {
+   "id": "roster.amara.quiz.0.wrong.2",
+   "original": "It counts how many puffs are left in the inhaler and shows the number",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ana.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ana.bio",
+   "original": "Ana came off her bike and landed on her wrist. It hurt to move, so the team sent her for an X-ray before anyone decided anything.\n\nAn X-ray is a kind of light your eyes cannot see, and it passes straight through soft parts like skin and muscle. Bone is much denser, so it blocks more of the beam. Wherever bone stops the X-rays, less reaches the detector on the far side, and that spot comes out white in the picture. That is why bones look bright and everything around them looks grey.\n\nThe picture took under a second and Ana felt nothing at all. The longest part was holding her arm perfectly still, because a picture taken while a wrist is moving comes out blurred in exactly the place everyone needs to look.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ana.quiz.0.q",
+   "original": "Why do bones show up white on Ana’s X-ray?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ana.quiz.0.a",
+   "original": "Bone is dense and blocks more of the beam",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ana.quiz.0.wrong.0",
+   "original": "Bone glows when the X-ray beam touches it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ana.quiz.0.wrong.1",
+   "original": "The machine adds white afterwards to make bones easier to see",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ana.quiz.0.wrong.2",
+   "original": "Bone is naturally white, so it photographs white",
+   "readOnly": false
+  },
+  {
+   "id": "roster.arjun.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.arjun.bio",
+   "original": "Arjun had a stomach bug for two days and could not keep any drink down. By the time he arrived he was dizzy standing up and had a headache, which is what a body running short of water feels like.\n\nHe has a drip in his arm — a thin tube putting fluid straight into a vein, so it does not have to survive the stomach. The bag is not plain water. It has salts dissolved in it in about the same amount the blood already carries, because cells sit in a careful balance with the fluid around them and flooding them with pure water upsets it.\n\nThe nurses call those salts electrolytes. They are the same things you lose in sweat, which is why sweat tastes salty, and why sports drinks were invented to put them back.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.arjun.quiz.0.q",
+   "original": "Why is Arjun’s drip bag salty water rather than plain water?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.arjun.quiz.0.a",
+   "original": "Cells and the liquid around them are already in balance",
+   "readOnly": false
+  },
+  {
+   "id": "roster.arjun.quiz.0.wrong.0",
+   "original": "Salt helps the fluid travel up the tube more quickly",
+   "readOnly": false
+  },
+  {
+   "id": "roster.arjun.quiz.0.wrong.1",
+   "original": "Salt stops germs growing inside the bag",
+   "readOnly": false
+  },
+  {
+   "id": "roster.arjun.quiz.0.wrong.2",
+   "original": "Salt makes the fluid taste better when it reaches the stomach",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ava.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ava.bio",
+   "original": "Ava has a peanut allergy, and she is here for a check-up rather than an emergency. She says the tiring part is not the food — it is being asked about it every single day.\n\nAn allergy is the immune system making a mistake. It is built to attack germs, but in Ava’s case it has decided a harmless peanut protein is dangerous, and it responds with the full alarm: swelling, itching, and airways narrowing. The protein is not poison. The reaction is her own body being far too enthusiastic about a false alarm.\n\nShe carries an adrenaline auto-injector and so does her teacher, and she knows exactly where both are. The other half of her plan is reading labels for the phrase \"may contain\", which is there because the same factory line may have made something else an hour earlier.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ava.quiz.0.q",
+   "original": "What is actually happening when Ava has an allergic reaction?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ava.quiz.0.a",
+   "original": "Her immune system treats a harmless protein as dangerous",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ava.quiz.0.wrong.0",
+   "original": "The peanut protein is poisoning her blood",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ava.quiz.0.wrong.1",
+   "original": "Her stomach cannot break the peanut down and it stays whole",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ava.quiz.0.wrong.2",
+   "original": "The peanut is blocking her airway on the way down",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ben.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ben.bio",
+   "original": "Ben has a clip on his finger with a small red light in it. He was told it does not hurt, which is true, and that it is measuring his blood, which he did not believe until it was explained.\n\nThe clip is a pulse oximeter. Blood carrying plenty of oxygen is a brighter red than blood that is not, and that difference changes how much light gets through a fingertip. The clip shines light through one side and measures what comes out the other, thousands of times a second, and turns it into a percentage on the screen.\n\nIt picks out the pulse too. With every heartbeat a little more blood is pushed through the finger and the reading twitches, so the same clip counts his heart rate without anyone touching his wrist.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ben.quiz.0.q",
+   "original": "How does the clip on Ben’s finger measure his oxygen?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ben.quiz.0.a",
+   "original": "Blood with more oxygen is a brighter red",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ben.quiz.0.wrong.0",
+   "original": "It takes a tiny drop of blood through the fingertip",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ben.quiz.0.wrong.1",
+   "original": "It measures how warm the finger is when blood flows through it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ben.quiz.0.wrong.2",
+   "original": "It listens to the sound of blood moving past the clip",
+   "readOnly": false
+  },
+  {
+   "id": "roster.caleb.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.caleb.bio",
+   "original": "Caleb is here for a hearing test, sitting in a very quiet room with headphones on and a button in his hand. The rule is simple: press it whenever you hear a beep, even a beep so faint you are not sure.\n\nSound is air vibrating, and how fast it vibrates decides how high the note sounds. The test walks through high and low notes separately, because hearing is not one thing that works or does not. Plenty of people hear low notes perfectly well and miss the high ones, which is why someone can hear that you are talking without making out which words.\n\nThe result is drawn as a graph called an audiogram, with pitch across the bottom and how loud a beep had to be before he heard it up the side. It maps the shape of his hearing rather than giving one score.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.caleb.quiz.0.q",
+   "original": "Why does Caleb’s hearing test use high and low beeps separately?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.caleb.quiz.0.a",
+   "original": "Someone can hear low notes well and miss high ones",
+   "readOnly": false
+  },
+  {
+   "id": "roster.caleb.quiz.0.wrong.0",
+   "original": "Low beeps are used for one ear and high beeps for the other",
+   "readOnly": false
+  },
+  {
+   "id": "roster.caleb.quiz.0.wrong.1",
+   "original": "The high beeps check the ear and the low beeps check the brain",
+   "readOnly": false
+  },
+  {
+   "id": "roster.caleb.quiz.0.wrong.2",
+   "original": "Starting low and going high stops the ears getting tired",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chloe.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.chloe.bio",
+   "original": "Chloe has type 1 diabetes and has been managing it for three years. She is here for a routine review, and she can explain the whole thing faster than most adults.\n\nSugar from food travels in the blood, but it cannot get into the cells that need to burn it without a key called insulin. Chloe’s body has stopped making that key, so the sugar stays in the blood instead of getting used — which is why she can feel tired and thirsty while the fuel is right there.\n\nShe checks her blood sugar with a small meter and gives herself insulin to match what she eats. The part she wants people to know is that it is arithmetic, not fragility: she plays football, goes on school trips, and simply does a calculation first.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.chloe.quiz.0.q",
+   "original": "Why does sugar build up in Chloe’s blood?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chloe.quiz.0.a",
+   "original": "Without insulin the sugar cannot get into the cells",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chloe.quiz.0.wrong.0",
+   "original": "Her body makes extra sugar that it does not need",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chloe.quiz.0.wrong.1",
+   "original": "Her blood cannot carry the sugar to where it is needed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.chloe.quiz.0.wrong.2",
+   "original": "The sugar in her food is a kind her body cannot break down",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dante.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.dante.bio",
+   "original": "Dante took a knock to the head in a football match and was seen straight away. He feels mostly fine, which he thinks means he can go back on Saturday, and the team have been patiently explaining why not.\n\nThe brain floats in fluid inside the skull, and that fluid is a shock absorber. A hard enough knock still shakes the brain against the inside of the bone, and the bruising that follows is what makes someone foggy, headachey or slow with words for a while afterwards.\n\nRecovery is mostly rest, including rest from screens and homework, because thinking hard uses the part that is healing. The reason the team are firm about it is that a second knock before the first has settled is much worse than either one on its own.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.dante.quiz.0.q",
+   "original": "Why does the team want Dante to rest from screens and homework, not just from sport?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dante.quiz.0.a",
+   "original": "Thinking hard uses the part of him that is healing",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dante.quiz.0.wrong.0",
+   "original": "Screen light makes the bruise on his head swell",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dante.quiz.0.wrong.1",
+   "original": "Homework would remind him of the match and upset him",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dante.quiz.0.wrong.2",
+   "original": "Reading makes the fluid around the brain drain away",
+   "readOnly": false
+  },
+  {
+   "id": "roster.deshawn.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.deshawn.bio",
+   "original": "DeShawn has sickle cell disease and knows the ward well. He came in today because of pain in his legs, and he had already started his plan at home before anyone here saw him.\n\nRed blood cells are normally round and squashy, which lets them bend through the narrowest blood vessels. His can change into a stiff curved shape, and stiff cells get stuck where soft ones would slip past. Where they pile up, that patch of the body is short of oxygen for a while, and that is what hurts.\n\nWarmth, drinking plenty and rest all help, because well-hydrated blood flows more easily. He is unimpressed by people who say he does not look ill, and points out that nothing about it happens where anybody can see.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.deshawn.quiz.0.q",
+   "original": "Why do DeShawn’s stiff red blood cells cause pain?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.deshawn.quiz.0.a",
+   "original": "They get stuck in narrow vessels, short of oxygen",
+   "readOnly": false
+  },
+  {
+   "id": "roster.deshawn.quiz.0.wrong.0",
+   "original": "They carry a chemical that irritates the muscles",
+   "readOnly": false
+  },
+  {
+   "id": "roster.deshawn.quiz.0.wrong.1",
+   "original": "They are larger than normal cells and stretch the vessels",
+   "readOnly": false
+  },
+  {
+   "id": "roster.deshawn.quiz.0.wrong.2",
+   "original": "They break apart and the pieces cut the vessel walls",
+   "readOnly": false
+  },
+  {
+   "id": "roster.eli.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.eli.bio",
+   "original": "Eli cut his hand on a broken glass while helping clear the table. It bled a lot, which frightened everyone, and stopped within a few minutes with a clean cloth pressed on it.\n\nThat is clotting. Tiny cell fragments called platelets pile into the gap and stick together, then a mesh of fibres forms across them and traps blood cells to make a plug. Pressing on a cut helps because it holds the edges close enough for that plug to bridge the gap instead of being washed away.\n\nThe cut was tidy, so the team closed it with skin glue rather than stitches. Either way the closure only holds the edges together — the healing underneath is new skin cells growing across from both sides until they meet in the middle.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.eli.quiz.0.q",
+   "original": "Why does pressing on a cut help it stop bleeding?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.eli.quiz.0.a",
+   "original": "It holds the edges close so the clot can bridge the gap",
+   "readOnly": false
+  },
+  {
+   "id": "roster.eli.quiz.0.wrong.0",
+   "original": "It pushes the blood back into the vessel it came from",
+   "readOnly": false
+  },
+  {
+   "id": "roster.eli.quiz.0.wrong.1",
+   "original": "It warms the blood so it thickens more quickly",
+   "readOnly": false
+  },
+  {
+   "id": "roster.eli.quiz.0.wrong.2",
+   "original": "It squeezes the germs out before the cut closes",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ella.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ella.bio",
+   "original": "Ella has been copying from a friend’s book because the board at the front of class had gone fuzzy. She had not mentioned it to anyone, on the reasonable grounds that it had been fuzzy for a while and she assumed it was fuzzy for everybody.\n\nSeeing clearly means light being bent to land exactly on the back of the eye. The cornea and the lens do the bending. If the eyeball is a little too long, the light comes to a focus just before it gets there, so far-away things blur while close-up things stay sharp. Glasses simply bend the light a bit less on the way in, so the focus lands in the right place.\n\nThe eye chart works by shrinking the letters row by row. The smallest row she can read tells the optometrist how much correction to put in the lens.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ella.quiz.0.q",
+   "original": "Why do far-away things look blurry to Ella?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ella.quiz.0.a",
+   "original": "Light comes to a focus slightly before it reaches the back of her eye",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ella.quiz.0.wrong.0",
+   "original": "The back of her eye is not sensitive enough to dim light",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ella.quiz.0.wrong.1",
+   "original": "Her eyes cannot move quickly enough to follow distant objects",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ella.quiz.0.wrong.2",
+   "original": "The clear front of her eye has become cloudy",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fatima.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.fatima.bio",
+   "original": "Fatima came in for a vaccination and is very clear that she does not enjoy needles. She came anyway, which the nurse pointed out is the definition of brave rather than the opposite of it.\n\nA vaccine gives the immune system a look at the shape of a germ without the illness that usually comes with it. White blood cells learn that shape and keep a memory of it. If the real germ turns up later, the response starts immediately instead of taking several days to work out what it is dealing with.\n\nA sore arm for a day is that learning happening. It is the immune system busy at the spot, not the vaccine wearing off — and it is also why some vaccines need a second dose, to make the memory stronger and longer-lasting.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.fatima.quiz.0.q",
+   "original": "What does a vaccine actually give Fatima?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fatima.quiz.0.a",
+   "original": "A memory of the germ’s shape, so a real infection is fought immediately",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fatima.quiz.0.wrong.0",
+   "original": "A dose of medicine that kills the germ if it arrives",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fatima.quiz.0.wrong.1",
+   "original": "A coating that stops the germ getting into her blood",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fatima.quiz.0.wrong.2",
+   "original": "Extra white blood cells to replace the ones she has used",
+   "readOnly": false
+  },
+  {
+   "id": "roster.harper.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.harper.bio",
+   "original": "Harper had bad tummy pain that would not settle and had an ultrasound scan on the way to finding out why. She is recovering now and mostly annoyed about missing a school trip.\n\nAn ultrasound uses sound far too high for anyone to hear. The probe sends a pulse into the body and then listens. Different tissues bounce the sound back differently, and the machine measures how long each echo takes to return — longer echo, deeper structure. From thousands of echoes it builds a picture, the same way a bat maps a dark room.\n\nBecause it is only sound, it is safe to repeat as often as needed, which is why it is often the first scan tried in children rather than the last.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.harper.quiz.0.q",
+   "original": "How does an ultrasound build its picture?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.harper.quiz.0.a",
+   "original": "It sends sound pulses in and times how long the echoes take to bounce back",
+   "readOnly": false
+  },
+  {
+   "id": "roster.harper.quiz.0.wrong.0",
+   "original": "It shines a very bright light through the skin",
+   "readOnly": false
+  },
+  {
+   "id": "roster.harper.quiz.0.wrong.1",
+   "original": "It uses a weak X-ray beam that is safe for children",
+   "readOnly": false
+  },
+  {
+   "id": "roster.harper.quiz.0.wrong.2",
+   "original": "It measures the heat coming off each organ",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ivy.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ivy.bio",
+   "original": "Ivy has earache and has spent two nights not sleeping. The doctor looked in her ear with an otoscope, which is a small light with a magnifying lens on the end.\n\nBehind the ear canal is the eardrum, a thin tight sheet that vibrates when sound hits it. A healthy one is pale and slightly see-through, and it reflects a small cone of light back at the doctor. When the space behind it is inflamed the drum looks red and pushed outward, and that reflected cone goes missing — which is a clear thing to look for rather than a matter of opinion.\n\nThe tube that normally drains that space runs down towards the throat, and in children it is shorter and flatter than in adults. That is exactly why ear infections are so much more common at Ivy’s age than at her mother’s.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ivy.quiz.0.q",
+   "original": "Why does the doctor look for a small cone of reflected light in Ivy’s ear?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ivy.quiz.0.a",
+   "original": "A healthy eardrum reflects it and an inflamed one does not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ivy.quiz.0.wrong.0",
+   "original": "The cone shows how deep the ear canal is behind the outer ear",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ivy.quiz.0.wrong.1",
+   "original": "The cone appears only when there is an infection behind the drum",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ivy.quiz.0.wrong.2",
+   "original": "The cone shows whether wax is blocking the canal further in",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jamal.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.jamal.bio",
+   "original": "Jamal broke his ankle skateboarding and is learning to use crutches, which he has discovered is much harder than it looks from the outside.\n\nThe crutches are levers. They let his arms and shoulders carry weight that his ankle cannot, and the bone underneath can only knit if it is not being loaded while it does. The cast is holding the ends still and lined up; the crutches are keeping his body weight off them.\n\nThe part nobody warned him about is what happens to a leg that does not move. Muscle shrinks surprisingly fast when it is not used, so once the cast comes off there is a second job — building the leg back up — and that takes longer than the bone did.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.jamal.quiz.0.q",
+   "original": "What job are Jamal’s crutches doing that the cast cannot?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jamal.quiz.0.a",
+   "original": "Keeping his body weight off the healing bone",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jamal.quiz.0.wrong.0",
+   "original": "Holding the broken ends still and lined up",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jamal.quiz.0.wrong.1",
+   "original": "Keeping the ankle warm so it heals faster",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jamal.quiz.0.wrong.2",
+   "original": "Stopping the muscles in the leg from shrinking",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jordan.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.jordan.bio",
+   "original": "Jordan came in with a fever and was surprised to be told the fever itself is not the problem the team are chasing.\n\nBody temperature is held near 37 degrees by a control centre in the brain, a bit like a thermostat. When the immune system detects an infection it turns that setting up on purpose. Many germs grow best at normal body temperature and do worse when it rises, and parts of the immune response work faster warm. The shivering at the start is the body making heat to reach the new setting.\n\nSo the team treat how Jordan feels and watch how he is doing, rather than chasing the number down for its own sake. What they are really watching is whether he is drinking, alert and breathing comfortably.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.jordan.quiz.0.q",
+   "original": "Why does Jordan’s body raise its own temperature during an infection?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jordan.quiz.0.a",
+   "original": "Many germs do worse when it is warmer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jordan.quiz.0.wrong.0",
+   "original": "The heat burns the germs away where they entered",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jordan.quiz.0.wrong.1",
+   "original": "A high temperature makes the body sleep so it can repair",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jordan.quiz.0.wrong.2",
+   "original": "Warmth thins the blood so it reaches the infection sooner",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jules.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.jules.bio",
+   "original": "Jules had knee surgery six weeks ago and now comes in twice a week for physiotherapy. The surgery took an afternoon. This part is taking months, and it is the part that decides how well the knee ends up working.\n\nMuscle responds to being used. Working a muscle causes tiny amounts of damage, and the body repairs it slightly stronger than before — which is why exercises get harder week by week rather than staying the same. Too little and nothing improves; too much and the repair never catches up.\n\nThe other half is the joint itself. Tissue that is not moved lays down stiff fibres that limit how far it will bend later, so early gentle movement is not impatience. It is protecting a range of motion that is much easier to keep than to win back.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.jules.quiz.0.q",
+   "original": "Why do Jules’s exercises get harder every week?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jules.quiz.0.a",
+   "original": "The body repairs a worked muscle slightly stronger",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jules.quiz.0.wrong.0",
+   "original": "The knee gets weaker over time and needs more work to keep up",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jules.quiz.0.wrong.1",
+   "original": "Harder exercises hurt less than gentle ones after surgery",
+   "readOnly": false
+  },
+  {
+   "id": "roster.jules.quiz.0.wrong.2",
+   "original": "The scar needs increasing pressure to break it down",
+   "readOnly": false
+  },
+  {
+   "id": "roster.june.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.june.bio",
+   "original": "June is booked in for an MRI scan, and the two things she was told to expect are that it is loud and that it is long. Both are true, and she has brought her own music.\n\nMRI uses a very strong magnet and radio waves, not X-rays. Bodies are mostly water, and the magnet lines up part of every water molecule; a radio pulse knocks them out of line, and the machine listens to the signal they give off as they settle back. Different tissues settle at different speeds, and that difference is what makes soft parts show up in far more detail than an X-ray can manage.\n\nThe banging noise is the machine switching its magnetic fields very fast, which makes the coils flex. And holding still matters more here than for an X-ray, because the picture is built up over minutes rather than in a fraction of a second.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.june.quiz.0.q",
+   "original": "What does an MRI scanner use to make its picture?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.june.quiz.0.a",
+   "original": "A strong magnet and radio waves, which the water in the body responds to",
+   "readOnly": false
+  },
+  {
+   "id": "roster.june.quiz.0.wrong.0",
+   "original": "A stronger X-ray beam than an ordinary X-ray machine",
+   "readOnly": false
+  },
+  {
+   "id": "roster.june.quiz.0.wrong.1",
+   "original": "Very high sound pulses and their echoes",
+   "readOnly": false
+  },
+  {
+   "id": "roster.june.quiz.0.wrong.2",
+   "original": "A dye that glows when it reaches the part being scanned",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lena.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lena.bio",
+   "original": "Lena has had a blood test and is waiting for the result. She wanted to know what actually happens to the little tube once it leaves the room, so somebody took her to look.\n\nThe tube goes into a centrifuge, which spins it very fast. Spinning makes heavier things move outward, so the blood separates into layers: red cells packed at the bottom, a thin pale layer of white cells above them, and clear yellowish plasma on top. Plasma is mostly water carrying salts, proteins and everything the body is transporting, and it is where a lot of the answers are.\n\nOnce separated, a machine can count the cells and measure what is dissolved in the plasma from a very small sample — which is why one small tube can answer several quite different questions at once.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lena.quiz.0.q",
+   "original": "What does the centrifuge do to Lena’s blood sample?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lena.quiz.0.a",
+   "original": "Spins it so the heavier cells move to the bottom",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lena.quiz.0.wrong.0",
+   "original": "Heats it so the cells release what is inside them",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lena.quiz.0.wrong.1",
+   "original": "Filters out the germs before the sample is measured",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lena.quiz.0.wrong.2",
+   "original": "Mixes it thoroughly so the reading is the same throughout",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lily.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lily.bio",
+   "original": "Lily caught her hand on a hot pan handle. Her grandfather ran it under cool water straight away and kept it there, which the team told her was exactly the right first move.\n\nSkin has layers. The top one is a barrier, and underneath is a thicker layer holding nerves, blood vessels and the cells that rebuild the barrier when it is damaged. Heat keeps damaging tissue for a while after contact ends, because the skin holds the heat; cool running water carries it away and stops the burn getting deeper.\n\nThat deeper layer is also why a burn hurts so much — it is full of nerve endings. The dressing she has now is doing one job: keeping the area clean and moist so the new barrier can grow across.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lily.quiz.0.q",
+   "original": "Why does cool running water help a fresh burn?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lily.quiz.0.a",
+   "original": "Skin holds heat, and the water carries the heat away",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lily.quiz.0.wrong.0",
+   "original": "It washes the germs out before the skin closes over",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lily.quiz.0.wrong.1",
+   "original": "It makes the skin contract so the burn covers less area",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lily.quiz.0.wrong.2",
+   "original": "It numbs the nerves so the skin can repair without pain",
+   "readOnly": false
+  },
+  {
+   "id": "roster.luis.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.luis.bio",
+   "original": "Luis is sitting with a mask over his nose and mouth, breathing a fine mist. He calls it the smoke machine. It is a nebuliser, and it is not smoke.\n\nThe machine pushes air or oxygen through liquid medicine at speed and breaks it into droplets small enough to float. Droplet size is the whole trick: too big and they land in the mouth and throat, too small and they are breathed straight back out. In between, they travel with the air deep into the small airways and settle there.\n\nIt takes about ten minutes of ordinary breathing, and it works for a child too breathless to use an inhaler properly. Nothing has to be timed or coordinated — he just breathes.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.luis.quiz.0.q",
+   "original": "Why does droplet size matter so much in Luis’s nebuliser?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.luis.quiz.0.a",
+   "original": "Big ones stop short of the lungs and very small ones are breathed out again",
+   "readOnly": false
+  },
+  {
+   "id": "roster.luis.quiz.0.wrong.0",
+   "original": "Bigger droplets carry more medicine, so bigger is always better",
+   "readOnly": false
+  },
+  {
+   "id": "roster.luis.quiz.0.wrong.1",
+   "original": "Small droplets are colder and make the airways tighten",
+   "readOnly": false
+  },
+  {
+   "id": "roster.luis.quiz.0.wrong.2",
+   "original": "The size decides how long the treatment takes to finish",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mae.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mae.bio",
+   "original": "Mae is staying overnight for a sleep study, with soft sensors stuck to her head and a band around her chest. She was worried she would never fall asleep with all of it on. Almost everybody does.\n\nThe head sensors pick up the brain’s electrical activity, which is what an EEG measures. Sleep is not one flat state: brain activity moves through stages in cycles of roughly ninety minutes, from light sleep to deep sleep and into the dreaming stage, and the pattern of those cycles is what the team are recording.\n\nThe chest band tracks her breathing and a finger clip tracks her oxygen at the same time, so the record shows what her breathing was doing at each stage — something that cannot be seen at all while someone is awake.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mae.quiz.0.q",
+   "original": "What do the sensors on Mae’s head record?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mae.quiz.0.a",
+   "original": "Tiny electrical signals from the brain, which alter as she sleeps",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mae.quiz.0.wrong.0",
+   "original": "How warm her head becomes during deep sleep",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mae.quiz.0.wrong.1",
+   "original": "How often she moves and turns over in the night",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mae.quiz.0.wrong.2",
+   "original": "What she is dreaming about while she is asleep",
+   "readOnly": false
+  },
+  {
+   "id": "roster.malik.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.malik.bio",
+   "original": "A doctor heard an extra sound in Malik’s chest during a routine check-up, so he has come back for a proper look. He is fine, and he has learned a lot about hearts in the meantime.\n\nA heartbeat is mostly the sound of valves closing — two beats, lub and dub, as the valves shut in turn to stop blood flowing backwards. A murmur is an extra whooshing sound between those beats, and it comes from blood moving turbulently rather than smoothly. Plenty of murmurs are completely harmless and simply mean the sound of normal fast-flowing blood is easy to hear through a thin chest.\n\nThey also put stickers on his chest for an ECG, which records the electrical signal that makes the heart squeeze. That signal always runs in the same order, so a trace out of order tells the doctor which part to look at.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.malik.quiz.0.q",
+   "original": "What makes the \"lub-dub\" sound of a heartbeat?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.malik.quiz.0.a",
+   "original": "Flaps shutting one after another so blood cannot run the wrong way",
+   "readOnly": false
+  },
+  {
+   "id": "roster.malik.quiz.0.wrong.0",
+   "original": "Blood hitting the wall of the heart as it is pushed out",
+   "readOnly": false
+  },
+  {
+   "id": "roster.malik.quiz.0.wrong.1",
+   "original": "The heart muscle squeezing and then relaxing again",
+   "readOnly": false
+  },
+  {
+   "id": "roster.malik.quiz.0.wrong.2",
+   "original": "Air moving in the lungs on either side of the heart",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mateo.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mateo.bio",
+   "original": "Mateo comes in every few months to have his back checked and his brace adjusted. His spine curves sideways slightly, and the team are watching whether the curve changes as he grows.\n\nA spine is a stack of small bones with soft cushions between them, and the stack is meant to be straight from behind. His leans a little, and the brace applies gentle pressure at particular points to encourage it to grow straighter — it is not squeezing anything into place, it is nudging growth in a direction over months.\n\nWhich is exactly why the appointments matter more than they seem to. The brace can only work while he is still growing, so the checks are timed against his growth rather than against the calendar.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mateo.quiz.0.q",
+   "original": "How is Mateo’s brace meant to work?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mateo.quiz.0.a",
+   "original": "Gentle pressure nudges the spine to grow straighter",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mateo.quiz.0.wrong.0",
+   "original": "It pushes the spine back into place in a single adjustment",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mateo.quiz.0.wrong.1",
+   "original": "It holds the spine completely still so it cannot bend further",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mateo.quiz.0.wrong.2",
+   "original": "It strengthens the back muscles by making them work harder",
+   "readOnly": false
+  },
+  {
+   "id": "roster.maya.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.maya.bio",
+   "original": "Maya gets migraines. They are not ordinary headaches: bright light and noise become painful, she often feels sick, and she needs a dark quiet room until it passes.\n\nThe team asked her to keep a diary — what she ate, how she slept, what the day was like — because migraines often have triggers, and a trigger is very hard to spot from memory alone. Written down over two months, patterns show up that nobody would have guessed: hers cluster after short nights and long gaps without eating.\n\nThat diary is real evidence gathering. It turned an unpredictable event into something with warning signs, which means she now sometimes gets to act before one properly arrives instead of only afterwards.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.maya.quiz.0.q",
+   "original": "Why does Maya keep a diary about her days?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.maya.quiz.0.a",
+   "original": "Triggers are hard to spot from memory, but patterns appear when they are written down over months",
+   "readOnly": false
+  },
+  {
+   "id": "roster.maya.quiz.0.wrong.0",
+   "original": "So the doctors can check that she is taking her medicine properly",
+   "readOnly": false
+  },
+  {
+   "id": "roster.maya.quiz.0.wrong.1",
+   "original": "Because writing an attack down helps it pass sooner than it would",
+   "readOnly": false
+  },
+  {
+   "id": "roster.maya.quiz.0.wrong.2",
+   "original": "To show her school how many days she has had to miss this year",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mei.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mei.bio",
+   "original": "Mei has a very contagious infection, so she is in a room on her own with a sign on the door. She is not in trouble and she is not more ill than anyone else on the ward. She is simply more catching.\n\nGerms that spread through the air travel in tiny droplets that hang around after a cough. So her room takes air out faster than it lets air in, which means air flows inward through the doorway and does not drift into the corridor. Staff put on a gown, gloves and a mask before they come in, and take them off in the doorway on the way out.\n\nThe order matters more than people expect: on before entering, off before leaving. Carrying a used glove three steps down the corridor undoes the entire arrangement, which is why there is a bin just inside the door.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mei.quiz.0.q",
+   "original": "Why does Mei’s room pull air inward from the corridor?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mei.quiz.0.a",
+   "original": "So air carrying germs does not drift out to the rest of the ward",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mei.quiz.0.wrong.0",
+   "original": "So the room stays cooler than the corridor",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mei.quiz.0.wrong.1",
+   "original": "So fresh air reaches her faster than it reaches other rooms",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mei.quiz.0.wrong.2",
+   "original": "So the smell of the medicines does not escape",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mina.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mina.bio",
+   "original": "Mina has had a urine test, which she thought was a slightly ridiculous thing to be asked for until somebody explained what it shows.\n\nKidneys are filters. All the blood in the body passes through them many times a day, and they pull out waste and extra water while keeping the things worth keeping — cells, proteins, most of the salt. Urine is what they decided to throw away, so testing it is really a way of asking the kidneys what they have been dealing with.\n\nThat is why the test looks for things that should not be there at all. Protein or blood in urine means the filter is letting through something it normally holds back, and sugar means there was more in the blood than the body could keep hold of.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mina.quiz.0.q",
+   "original": "Why does testing urine tell the team about the kidneys?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mina.quiz.0.a",
+   "original": "It is what the kidneys removed, so it shows what the body was clearing",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mina.quiz.0.wrong.0",
+   "original": "Urine is stored inside the kidneys until it is needed for a test",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mina.quiz.0.wrong.1",
+   "original": "Urine is made by the bladder and the kidneys only pass it along",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mina.quiz.0.wrong.2",
+   "original": "Urine has the same contents as blood, only weaker",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_alvarez.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mr_alvarez.bio",
+   "original": "Mr. Alvarez is a caretaker at a primary school and hurt his back lifting a stack of chairs. He is here for a check and, in his words, a telling-off he already knows the content of.\n\nThe physiotherapist showed him the mechanics with a broom handle. A back bent forward works like a long lever, and the muscles along the spine have to pull hard at a short distance from the joint to hold up a load held far away from it. Bringing the load close to the body and bending at the knees shortens that lever and moves the effort to the big muscles in the legs, which are built for it.\n\nHis exercises are less about strength than about habit. The lift that hurt him was the four hundredth of the day, not an unusually heavy one, and the fix is the same technique every time rather than a stronger back for special occasions.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mr_alvarez.quiz.0.q",
+   "original": "Why is it easier on the back to lift with the load held close to the body?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_alvarez.quiz.0.a",
+   "original": "A load held far away makes a longer lever, so the back muscles have to pull much harder",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_alvarez.quiz.0.wrong.0",
+   "original": "Holding it close warms the back muscles up before the lift",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_alvarez.quiz.0.wrong.1",
+   "original": "The load weighs less when it is nearer the body",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_alvarez.quiz.0.wrong.2",
+   "original": "Holding it close keeps the spine bent, which is safer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_bell.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mr_bell.bio",
+   "original": "Mr. Bell brought his granddaughter in and had his blood pressure taken while he waited, which is how he came to be a patient in a children’s hospital.\n\nThe cuff tightens until it briefly stops the blood moving through the artery in the arm, then lets the pressure down slowly. The machine listens for the moment blood first pushes through again, and then the moment it flows smoothly and silently once more. Those two moments give the two numbers — the pressure while the heart is pushing, and the pressure while it is refilling between beats.\n\nHe has been asked to have it checked again on a normal day rather than a hospital day, since sitting in a waiting room worrying about a grandchild is not a typical afternoon and blood pressure notices things like that.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mr_bell.quiz.0.q",
+   "original": "What are the two numbers in a blood pressure reading?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_bell.quiz.0.a",
+   "original": "How hard blood pushes when the heart squeezes, and how hard between squeezes",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_bell.quiz.0.wrong.0",
+   "original": "The pressure in the left arm and the pressure in the right arm",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_bell.quiz.0.wrong.1",
+   "original": "The heart rate and the pressure in the artery",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_bell.quiz.0.wrong.2",
+   "original": "The pressure before the cuff tightened and after it was released",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_cho.role",
+   "original": "Patient",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mr_cho.bio",
+   "original": "Mr. Cho had an operation two days ago and has been asked to get up and walk a short distance along the corridor several times a day. He would rather stay in bed, and he has been told, kindly and repeatedly, why he is not going to.\n\nBlood in the legs is pushed back up towards the heart largely by the leg muscles squeezing the veins as they work. Lie still for long enough and that pump stops, blood moves sluggishly, and sluggish blood is much more likely to clot. Walking restarts the pump. The tight stockings he is wearing help the same veins in the same way.\n\nLying still also lets the bottom of the lungs stay uninflated, which is why the nurses keep asking him to sit upright and take slow deep breaths. Both instructions are the same idea: things that are used keep working, and things that are left alone quietly stop.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mr_cho.quiz.0.q",
+   "original": "Why is Mr. Cho asked to walk so soon after his operation?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_cho.quiz.0.a",
+   "original": "Leg muscles pump blood back towards the heart, and blood that sits still is more likely to clot",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_cho.quiz.0.wrong.0",
+   "original": "Walking makes the wound close over more quickly than lying still",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_cho.quiz.0.wrong.1",
+   "original": "Moving about stops his temperature rising while the wound heals",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mr_cho.quiz.0.wrong.2",
+   "original": "Walking is how the hospital measures when he is ready to go home",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Antibody.def",
+   "original": "A tiny helper your body makes that sticks to one kind of germ, so the rest of the team can find it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Measurement.def",
+   "original": "A number found with a tool or careful count.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Observation.def",
+   "original": "Something a doctor notices with eyes or ears.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Pulse.def",
+   "original": "The beat of the heart felt in the wrist or neck.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Triage.def",
+   "original": "Deciding who needs help first based on how urgent the clue is.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.title",
+   "original": "Morning Rush",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "How doctors use clues and decide who needs help first",
+   "readOnly": true
+  },
+  {
+   "id": "m01.briefing",
+   "original": "How doctors use clues and decide who needs help first",
+   "readOnly": true
+  },
+  {
+   "id": "m01.stake",
+   "original": "It is your first shift. Three children come in at once. Ava is quiet and breathing hard. Ben is crying loudly about his ankle. Mia has not said anything at all. Nurse Alex Lee, who is showing you the ward today, says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. The loudest patient is not always the one in the most trouble.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "Who Needs You First?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "Which patient should move to the front of the line?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "your body needs air all the time",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "Breathing brings oxygen into the body. Every part needs it, all the time. So when breathing is hard, the whole body is in trouble fast. A sore ankle hurts and stays about the same. An itchy patch stays about the same too. You go to the one that can get worse quickest.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.0",
+   "original": "Ava, because breathing trouble can affect the whole body quickly.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.1",
+   "original": "Ben, because you can see his injury and Ava is sitting quietly.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.2",
+   "original": "Maya, because a rash might spread to other people in the room.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.3",
+   "original": "Whoever arrived first, so nobody waits longer than anybody else.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.rebuttals.0",
+   "original": "B. Ben, because you can see his injury and Ava is sitting quietly. — Ben can walk and talk. A hurt you can see is not always the one to fix first.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.rebuttals.1",
+   "original": "C. Maya, because a rash might spread to other people in the room. — An itchy patch can wait a little. Maya is breathing and talking just fine.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.rebuttals.2",
+   "original": "D. Whoever arrived first, so nobody waits longer than anybody else. — That is fair for a line at a shop. Here the sickest person goes first.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "Observation or Measurement?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Which item is a measurement?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "a tool can give you a number",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.choices.0",
+   "original": "Luis says his belly hurts.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.choices.1",
+   "original": "Luis looks worried.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.choices.2",
+   "original": "His temperature is 98.7°F.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.choices.3",
+   "original": "He skipped breakfast.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.rebuttals.0",
+   "original": "A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.rebuttals.1",
+   "original": "B. Luis looks worried. — Looking worried is an observation.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.rebuttals.2",
+   "original": "D. He skipped breakfast. — Skipping breakfast is part of the story or history.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "Your First Exam Room",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "Put these steps in the best order.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "Each step in a hospital routine is there to make the next one work.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "germs can travel on hands",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look. Then you write it down, so the next person knows what you saw.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.answerText",
+   "original": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.cards.0",
+   "original": "Clean your hands, so nothing from the last patient travels to Ben.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.cards.1",
+   "original": "Ask Ben what happened, and where it hurts most.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.cards.2",
+   "original": "Look closely at the sore ankle, and compare it with the other one.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.cards.3",
+   "original": "Write down the clues, so the evening nurse sees what you saw.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.title",
+   "original": "Breathing Room",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Lungs, air, oxygen, and breathing rate",
+   "readOnly": true
+  },
+  {
+   "id": "m02.briefing",
+   "original": "Lungs, air, oxygen, and breathing rate",
+   "readOnly": true
+  },
+  {
+   "id": "m02.stake",
+   "original": "Your second shift. Noah helped clean a dusty room and now he makes a whistling sound with every breath. He is sitting up very straight and would rather not lie down. Dr. Luis Reyes wants you to listen before he does. He has already checked that Noah can still talk in whole sentences. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "Follow One Breath",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Put the path of a breath in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "The lungs are the meeting place between outside air and the blood.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "air goes in through your nose and mouth",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "Air has to travel to get where it is needed. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.answerText",
+   "original": "Air enters through the nose or mouth. -> Air moves down the windpipe. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.cards.0",
+   "original": "Air enters through the nose or mouth.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.cards.1",
+   "original": "Air moves down the windpipe.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.cards.2",
+   "original": "Air reaches the lungs.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.cards.3",
+   "original": "Oxygen moves into the blood to travel around the body.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "The Dusty-Room Clue",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Which body system should the team focus on first?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "Noah helped clean a dusty storage room. Now he is wheezing. He can still talk. Each breath makes a small whistling sound. The team is with him. One clue by itself does not mean much. The useful question is which body part could make that clue. A whistle needs air squeezing through a narrow space. So the clue points somewhere.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "A clue is useful when you connect it to the body system that could produce it.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "blowing through a small gap makes a whistle",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.0",
+   "original": "The breathing system — the airways and lungs.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.1",
+   "original": "The throat and voice box, because that is where whistling sounds are made.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.2",
+   "original": "The heart and blood vessels, because a whistle could be blood rushing.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.choices.3",
+   "original": "The digestive system, because Noah breathed in dust and swallowed some.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.rebuttals.0",
+   "original": "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.rebuttals.1",
+   "original": "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.rebuttals.2",
+   "original": "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "Count the Breaths",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "Doctors often turn short counts into one-minute estimates.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "a minute has 60 seconds",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.answerText",
+   "original": "20",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.rebuttals.0",
+   "original": "A. 10 — 10 would be only two groups of 5.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.rebuttals.1",
+   "original": "B. 15 — 15 would be three groups of 5.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.rebuttals.2",
+   "original": "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.estimate.relationship",
+   "original": "A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.estimate.givens.0",
+   "original": "Use the numbers shown",
+   "readOnly": true
+  },
+  {
+   "id": "m03.title",
+   "original": "Heart on the Move",
+   "readOnly": false
+  },
+  {
+   "id": "m03.objective",
+   "original": "The heart, blood, pulse, and circulation",
+   "readOnly": true
+  },
+  {
+   "id": "m03.briefing",
+   "original": "The heart, blood, pulse, and circulation",
+   "readOnly": true
+  },
+  {
+   "id": "m03.stake",
+   "original": "Third shift. Jordan came up the stairs and his heart is racing, and his mum looks frightened. Jordan says he feels fine and wants to go back to his brother. His hands are warm and he is not out of breath now. Nurse Alex Lee has counted his pulse twice, ten minutes apart, and asks you what you saw before she says anything. Today you follow blood around the body, count a pulse, and work out why it sped up.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "The Blood Loop",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Put the simplified blood loop in order, starting at the heart.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "Circulation is a loop, not a one-way trip.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "the heart is a pump",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back. That is a loop, and it never stops all day or all night.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.answerText",
+   "original": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body. -> Blood returns from the body to the heart.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.cards.0",
+   "original": "The heart pumps blood toward the lungs.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.cards.1",
+   "original": "In the lungs, blood picks up oxygen.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.cards.2",
+   "original": "The heart pumps oxygen-rich blood to the body.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.cards.3",
+   "original": "Blood returns from the body to the heart.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "Pulse Math",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "18 beats in 15 seconds is about how many beats in 60 seconds?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "A pulse is a clue that the heart is beating and moving blood.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "a minute has 60 seconds",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.answerText",
+   "original": "72",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.rebuttals.0",
+   "original": "A. 36 — 36 is only 18 × 2.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.rebuttals.1",
+   "original": "B. 54 — 54 is 18 × 3.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.rebuttals.2",
+   "original": "D. 180 — 180 is 18 × 10.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.estimate.relationship",
+   "original": "A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.estimate.givens.0",
+   "original": "Use the numbers shown",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "Why the Faster Pulse?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "What is the best explanation?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "Body systems work together. Muscles, lungs, blood, and heart all change during exercise.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "muscles work harder when you climb stairs",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Working muscles need more oxygen. Blood is what carries oxygen. So the heart pumps faster to get more blood to them. A pulse is not one fixed number for a person. It goes up and down all day. When one part of the body works harder, another part changes to help.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "Working muscles need more oxygen, so the heart moves blood faster.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "The heart beats faster to help the body cool down after exercise.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "Climbing stairs shakes the body, which makes the heartbeat easier to feel.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "The pulse only seems faster because Jordan is paying attention to it.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "B. The heart beats faster to help the body cool down after exercise. — Cooling is mostly the skin's job, with sweat. The faster pulse is about oxygen.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "C. Climbing stairs shakes the body, which makes the heartbeat easier to feel. — Jordan is resting now, and it is still fast. Shaking would have stopped.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "D. The pulse only seems faster because Jordan is paying attention to it. — The therapist counted it. A count is a real number, not a feeling.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.title",
+   "original": "Lunch Shift",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Digestion and how food becomes usable fuel",
+   "readOnly": true
+  },
+  {
+   "id": "m04.briefing",
+   "original": "Digestion and how food becomes usable fuel",
+   "readOnly": true
+  },
+  {
+   "id": "m04.stake",
+   "original": "Fourth shift, just after lunch. Owen ate a sandwich an hour ago and his tummy hurts. He points to the middle of his tummy, and then a bit lower down. He had the same sandwich yesterday and was fine. Nurse Alex Lee wants to know what he ate and when. Today you follow food through the body and work out which part does which job. Each part is built for one job, and the order matters.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "Follow the Sandwich",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Put the food journey in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "Different organs have different jobs in one connected system.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "food gets chewed before you swallow it",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. It goes down the food tube. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.answerText",
+   "original": "The mouth chews food and mixes it with saliva. -> Food travels down the food tube to the stomach. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.cards.0",
+   "original": "The mouth chews food and mixes it with saliva.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.cards.1",
+   "original": "Food travels down the food tube to the stomach.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.cards.2",
+   "original": "The stomach mixes and breaks food down more.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.cards.3",
+   "original": "The small intestine takes many nutrients into the blood.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "Why Food Is Fuel",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Nina ran all morning and has not eaten. Why does she feel shaky?",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Food and Water Room",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "Nina ran all morning and now she feels shaky. She has not eaten since breakfast. Her nurse asks you what her body has run out of.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "The body spends what it takes in, and spends it faster when it works harder.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "food gives your body energy",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "Food is fuel. Your body breaks food down and uses the energy to move, to keep warm, and to think. Running uses a lot of energy fast. Nina ate at breakfast and then used it all up. When the fuel runs low, people feel shaky, tired, or grumpy. A snack puts the fuel back. This is why hospitals ask when someone last ate.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.0",
+   "original": "Her body used up the energy from her food, and running uses more of it.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.choices.1",
+   "original": "Her muscles got bigger from running, so they need more room.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.2",
+   "original": "She has too much water inside her from her drink bottle.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.choices.3",
+   "original": "Shaky hands are only about being nervous, not about food.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.0",
+   "original": "Muscles do get stronger with exercise, but that takes weeks. It does not make you shaky today.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.1",
+   "original": "Water is important, and it carries no energy. You can drink plenty and still run out of fuel.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.2",
+   "original": "Feeling nervous can make hands shake too. Here she is hungry, and that is easy to fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "Three Jobs, Three Organs",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "Which matching set is correct?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "A body system works because specialized parts each do a piece of the job.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "different body parts do different jobs",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "A body system works like a good team. Nobody does everything. The mouth chews, so the pieces get smaller. The stomach mixes and breaks them down more. The small intestine soaks up the tiny bits. Each part is built for its own job, and the order matters.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.0",
+   "original": "Owen—mouth; Sam—stomach; Nia—small intestine",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.1",
+   "original": "Owen—stomach; Sam—mouth; Nia—small intestine",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.2",
+   "original": "Owen—mouth; Sam—small intestine; Nia—stomach",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.3",
+   "original": "Owen—mouth; Sam—stomach; Nia—large intestine",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.rebuttals.0",
+   "original": "B. Owen—stomach; Sam—mouth; Nia—small intestine — Owen and Sam are swapped. Chewing starts in the mouth, not the stomach.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.rebuttals.1",
+   "original": "C. Owen—mouth; Sam—small intestine; Nia—stomach — Sam and Nia are swapped. Mixing comes before soaking up.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.rebuttals.2",
+   "original": "D. Owen—mouth; Sam—stomach; Nia—large intestine — Only Nia is wrong. Most nutrients go in at the small intestine.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.title",
+   "original": "Water Watch",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Hydration, kidneys, urine, and water balance",
+   "readOnly": true
+  },
+  {
+   "id": "m05.briefing",
+   "original": "Hydration, kidneys, urine, and water balance",
+   "readOnly": true
+  },
+  {
+   "id": "m05.stake",
+   "original": "Fifth shift. Mateo finished his soccer match and says he feels fine. His mouth is dry. His urine looks darker than usual. He drank one small bottle in the whole match. Nurse Alex Lee has written all of that down and wants to know what you make of it together. Today you read two clues at once and follow water through the body. Two clues pointing the same way are much stronger than one.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "The Thirsty Player",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "What body need do these clues most strongly point to?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "The body tells you when it is short of something, and thirst is one of those signals.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "you sweat when you run around",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "Water is in your blood, in every cell, and in your sweat. You lose some when you are active. Then the body gives signals. A dry mouth is one. Dark urine is another. Doctors read several signals together, because one on its own could mean lots of things. Two pointing the same way is stronger.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.choices.0",
+   "original": "The body may need more water.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.choices.1",
+   "original": "The body may need more food, because practice used up his energy.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.choices.2",
+   "original": "The body may need more sleep after a long practice.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.choices.3",
+   "original": "The body may be too warm and need to cool down.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.rebuttals.0",
+   "original": "B. The body may need more food, because practice used up his energy. — Being hungry is real. A dry mouth and dark urine are water clues, not food clues.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.rebuttals.1",
+   "original": "C. The body may need more sleep after a long practice. — Rest helps. Sleep does not make your mouth dry or your urine dark.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.rebuttals.2",
+   "original": "D. The body may be too warm and need to cool down. — Getting warm is part of it. He lost water in that sweat, and that is what the clues show.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "The Drink Tracker",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "How many cups short of what her body lost is she?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "Mrs. Lee has a drink chart by her bed. It shows 2 cups in the morning, 1 cup at lunch, and 3 cups later. A wall chart says a body her size loses about 8 cups a day. This is a math problem, not drink advice.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "Water balance is what goes in measured against what goes out, not either one alone.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "you can add up a list of numbers",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.answerText",
+   "original": "6",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.rebuttals.0",
+   "original": "A. 4 — 4 leaves out two of the cups.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.rebuttals.1",
+   "original": "B. 5 — 5 is one cup too few.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.rebuttals.2",
+   "original": "D. 7 — 7 is one cup too many.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.estimate.relationship",
+   "original": "How far behind = what she needs − what she drank. Add the drinks up first.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.estimate.givens.0",
+   "original": "Use the numbers shown",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "What the Kidneys Do",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "Put the simplified pathway in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "Harper is looking at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body always makes waste it cannot keep. The blood carries that waste. The kidneys are the filters that pull it out. But filtering never stops, and nobody can visit a bathroom all day. So the system also needs a place to hold it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "Kidneys filter; the bladder stores.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "your body makes waste it has to get rid of",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder, which stores it until you go. Two organs, one path, different jobs.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.answerText",
+   "original": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> That liquid becomes urine and moves toward the bladder. -> The bladder stores urine until it leaves the body.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.cards.0",
+   "original": "Blood flows through the kidneys.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.cards.1",
+   "original": "The kidneys remove some wastes and extra water from the blood.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.cards.2",
+   "original": "That liquid becomes urine and moves toward the bladder.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.cards.3",
+   "original": "The bladder stores urine until it leaves the body.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.title",
+   "original": "X-Ray Day",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Bones, joints, protection, and medical imaging",
+   "readOnly": true
+  },
+  {
+   "id": "m06.briefing",
+   "original": "Bones, joints, protection, and medical imaging",
+   "readOnly": true
+  },
+  {
+   "id": "m06.stake",
+   "original": "Sixth shift, and Ben is back — the boy with the sore ankle from your first day. He remembers you and is trying not to cry again. This time it is his wrist, and it is swollen. He fell onto his hand from the monkey bars an hour ago. Dr. Elena Garcia is waiting for you. Today you pick the right tool, learn what bones do, and keep Ben calm while the team gets ready.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "Why Take an X-Ray?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Which hospital tool best matches that job?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin. Nobody can see it from outside. Hospitals have many tools. Each one answers a different question. Picking the right tool matters. The wrong tool answers a question nobody asked.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "Doctors choose tools based on the kind of clue they need.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "some things are hidden under the skin",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "You cannot see a bone by looking at an arm. An X-ray makes a picture of what is under the skin, and bones show up clearly in it. That is why it is the right tool here. A thermometer gives warmth. A stethoscope gives sound. Neither one shows a shape.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.0",
+   "original": "An X-ray image",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.1",
+   "original": "A thermometer",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.2",
+   "original": "A stethoscope",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.3",
+   "original": "A tape measure, to record how swollen the wrist is",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.rebuttals.0",
+   "original": "B. A thermometer — A thermometer tells you how warm someone is. It cannot show a bone.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.rebuttals.1",
+   "original": "C. A stethoscope — A stethoscope lets you hear the heart and lungs. Bones make no sound to listen for.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.rebuttals.2",
+   "original": "D. A tape measure, to record how swollen the wrist is — Measuring the swelling is useful. It still does not show what the bone is doing.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "Skeleton Jobs",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Which set is correct?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "The skeleton supports, protects, and helps the body move.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "bones are hard and do not bend",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "Bones do more than one job. The rib cage is a cage, so it guards the heart and lungs inside it. The spine holds you up and guards the nerve cord running down your back. A joint is a place where two bones meet, and that is where you bend. Same material, three different jobs.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.0",
+   "original": "Rosa—rib cage; Mr. Bell—spine; Tess—joint",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.1",
+   "original": "Rosa—spine; Mr. Bell—rib cage; Tess—joint",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.2",
+   "original": "Rosa—rib cage; Mr. Bell—joint; Tess—spine",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.3",
+   "original": "Rosa—skull; Mr. Bell—spine; Tess—joint",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.rebuttals.0",
+   "original": "B. Rosa—spine; Mr. Bell—rib cage; Tess—joint — Rosa and Mr. Bell are swapped. The rib cage is the part that guards the chest.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.rebuttals.1",
+   "original": "C. Rosa—rib cage; Mr. Bell—joint; Tess—spine — Mr. Bell and Tess are swapped. A joint is where two bones meet and bend.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.rebuttals.2",
+   "original": "D. Rosa—skull; Mr. Bell—spine; Tess—joint — Only Rosa is wrong. The skull guards the brain, not the chest.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "Possible Broken Bone",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "Put the safe hospital response in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "moving something that is hurt can make it worse",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up, because help takes time to come. The note goes last. It writes down all of it.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.answerText",
+   "original": "1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.cards.0",
+   "original": "Stop Eli using the wrist, because moving a broken bone can damage what is around it.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.cards.1",
+   "original": "Tell the nurse or doctor, so trained help is already coming.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.cards.2",
+   "original": "Let the trained team examine the wrist and decide about an image.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.cards.3",
+   "original": "Record what happened and what the team found.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.title",
+   "original": "Rehab Race",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Muscles, joints, movement, and practice",
+   "readOnly": true
+  },
+  {
+   "id": "m07.briefing",
+   "original": "Muscles, joints, movement, and practice",
+   "readOnly": true
+  },
+  {
+   "id": "m07.stake",
+   "original": "Seventh shift. Sophie has been doing her hand exercises for a week and her fingers still will not close all the way. She wants to stop. She can close them nearly all the way in the morning and less by the afternoon. Her mum has been counting the sets at home and has the list with her. Today you follow how a body moves, learn why muscles get tired, and count out a set of exercises.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "Make the Hand Move",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Put the movement pathway in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "One movement needs several parts of the body working in turn.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "your brain is in charge of your body",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "Moving takes four things in order. The brain decides. Nerves carry that message out to the muscles. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push, which is why they come in pairs. Nothing moves until the message gets there.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.answerText",
+   "original": "The brain decides to move the hand. -> Nerves carry the message toward the muscles. -> Muscles tighten and pull. -> Bones move at the joints.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.cards.0",
+   "original": "The brain decides to move the hand.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.cards.1",
+   "original": "Nerves carry the message toward the muscles.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.cards.2",
+   "original": "Muscles tighten and pull.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.cards.3",
+   "original": "Bones move at the joints.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "Tired Muscles",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Why is rest a sensible next step in this scene?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest. Muscles use energy every time they pull. Doing one motion over and over uses it up fast. Tired is not the same as hurt. Therapists plan rest for that reason.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "Body tissues can change their activity depending on what the body is doing.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "you get tired after doing something over and over",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "Muscles use energy when they work. Do the same thing lots of times and they run low. Then they feel tired and weak. That is normal, and it is not the same as being hurt. Rest lets them fill back up. In therapy the rest is part of the plan, not a sign to stop.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.0",
+   "original": "Muscles can get tired after repeated work and need recovery time.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.1",
+   "original": "The arm is injured, and rest is how an injury heals.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.2",
+   "original": "Muscles only grow while a person is resting, so the set is finished.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.3",
+   "original": "Tiredness means the therapy is not working and should be changed.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.rebuttals.0",
+   "original": "B. The arm is injured, and rest is how an injury heals. — Nothing here says he is hurt. Tired and hurt are not the same thing.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.rebuttals.1",
+   "original": "C. Muscles only grow while a person is resting, so the set is finished. — Rest does help. That is not a reason to stop in the middle of the plan.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.rebuttals.2",
+   "original": "D. Tiredness means the therapy is not working and should be changed. — Getting tired is what is supposed to happen. It means the muscle is working.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "Therapy Sets",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "How many leg lifts are in 3 sets of 5?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. Fifteen is harder. Groups of the same size are what multiplying is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Repeated sets are groups, so multiplication helps count them quickly.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "a set is a group of the same thing",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.answerText",
+   "original": "15",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "A. 8 — 8 comes from adding 3 + 5.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "B. 10 — 10 is only two groups of 5.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "D. 35 — 35 joins the digits instead of multiplying.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.estimate.relationship",
+   "original": "Total lifts = number of sets × lifts in each set.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.estimate.givens.0",
+   "original": "Use the numbers shown",
+   "readOnly": true
+  },
+  {
+   "id": "m08.title",
+   "original": "Brain Signal Day",
+   "readOnly": false
+  },
+  {
+   "id": "m08.objective",
+   "original": "Brain, spinal cord, nerves, and fast responses",
+   "readOnly": true
+  },
+  {
+   "id": "m08.briefing",
+   "original": "Brain, spinal cord, nerves, and fast responses",
+   "readOnly": true
+  },
+  {
+   "id": "m08.stake",
+   "original": "Eighth shift. Arjun bumped his head at break. His knee is scraped and you can see it. He is also muddled about what day it is, and you can only see that if you talk to him. His friend says he asked the same question twice on the way in. Dr. Sam Kim asks which one worries you. Today you follow signals into the brain and back out, and decide who needs help first.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "The Body's Slow Messages",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Theo grew four centimetres, mostly while asleep. What told his bones to do that?",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Brain and Senses Room",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "Theo is eleven and has grown four centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "The body sends slow chemical messages, and some of them tell the body to grow.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "your blood carries things all around your body",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "The body has two ways to send messages. Nerves are fast, like pulling your hand off something hot. Hormones are slow. They are chemicals that travel in the blood and can take hours or years to finish their job. Growth hormone is one of them, and the body makes most of it during sleep. That is why Theo grew while he was asleep, and why sleep is part of growing.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.0",
+   "original": "A chemical message called a hormone, which travels in the blood and works slowly.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.choices.1",
+   "original": "A nerve message from his brain, which travels fast and stops right away.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.2",
+   "original": "The food in his stomach, which pushes his bones longer.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3",
+   "original": "Nothing told them. Bones grow at the same speed all the time.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.0",
+   "original": "Nerve messages are fast and short. Growing takes months, so it is not a nerve doing it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.1",
+   "original": "Food gives the body what it needs to build bone. It does not push bones longer.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.2",
+   "original": "Children grow faster at some ages than others, which is a sign something is telling them when.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "Touch, Think, Move",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Put the stages in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "The nervous system helps the body notice changes and respond.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "you pull your hand back from something cold",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "You cannot answer something you have not noticed yet. So the skin senses the cold first. Nerves carry that message inward. The nervous system works out what it means. Then a message goes back out to the muscles and the hand moves. It feels like one thing. It is really four, in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.answerText",
+   "original": "Skin senses the cold touch. -> Nerves carry a message inward. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.cards.0",
+   "original": "Skin senses the cold touch.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.cards.1",
+   "original": "Nerves carry a message inward.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.cards.2",
+   "original": "The nervous system processes the signal.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.cards.3",
+   "original": "A message goes to muscles and the hand moves.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "After the Head Bump",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Who should the hospital team check first?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "Three children come in after playground falls. Arjun bumped his head. Now he seems confused. He has trouble answering simple questions. Bea has a small scrape on her elbow. Cole has a sore finger and talks normally. Clues about how someone thinks and answers matter a lot. The brain is hard to check from outside. Always tell an adult after a head bump.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "In real life, children should tell an adult right away after a significant head injury or new concerning symptoms.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "your brain is inside your head",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "You can see a scrape and you cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump. Arjun is mixed up, and that is new. Bea's scrape can be cleaned. Cole's finger can wait for a picture. Only one of these could be getting worse right now.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.0",
+   "original": "Arjun, because confusion after a head injury can be an important warning sign.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.1",
+   "original": "Bea, because her scrape is bleeding and can be cleaned quickly.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.2",
+   "original": "Cole, because a sore finger might be broken and needs an image.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.3",
+   "original": "Arjun last, because he is walking and talking on his own.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.rebuttals.0",
+   "original": "B. Bea, because her scrape is bleeding and can be cleaned quickly. — A scrape does need cleaning. Bleeding you can see is not the same as danger.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.rebuttals.1",
+   "original": "C. Cole, because a sore finger might be broken and needs an image. — A picture of the finger can wait. A change in how someone thinks cannot.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.rebuttals.2",
+   "original": "D. Arjun last, because he is walking and talking on his own. — Walking and talking is good news. Being mixed up after a head bump is still a warning.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.title",
+   "original": "Sense Detective",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Eyes, ears, senses, and how the brain uses signals",
+   "readOnly": true
+  },
+  {
+   "id": "m09.briefing",
+   "original": "Eyes, ears, senses, and how the brain uses signals",
+   "readOnly": true
+  },
+  {
+   "id": "m09.stake",
+   "original": "Ninth shift. Mina says the board looks blurry, and she can read the big letters but not the small ones. Caleb cannot hear a quiet tone, though he hears you fine when you face him. Mrs. Ruiz feels dizzy when she stands, and is steady again after a minute. Three people, three clues, three different tools, and Nurse Alex Lee has put them all in one room. Today you match each one and follow how seeing works.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "Which Test Fits the Clue?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Which tool best matches Mina’s clue?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants to start simple. A test is really a question. A good first test asks what the patient just asked. Here that is what Mina can see at different sizes. Starting with the matching test saves time. It also points at what to do next.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "The best test depends on the question you are trying to answer.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "different tools check different things",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "Match the tool to the clue. The clue here is about seeing, so you want the tool made for eyes, and that is the eye chart. A hearing test checks ears. A stethoscope hears sounds. An X-ray shows bones. Every one of them is a good tool. Only one answers this question.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.0",
+   "original": "An eye chart",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.1",
+   "original": "A hearing test in the sound booth",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.2",
+   "original": "A stethoscope for listening to the heart",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.3",
+   "original": "An X-ray for bones",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.rebuttals.0",
+   "original": "B. A hearing test in the sound booth — A hearing test checks the ears. The clue here is about seeing.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.rebuttals.1",
+   "original": "C. A stethoscope for listening to the heart — A stethoscope hears sounds inside the body. Eyes make no sound.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.rebuttals.2",
+   "original": "D. An X-ray for bones — An X-ray shows bones. It does not show how well someone reads a page.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "Match the Sense",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Which body-part match is best?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Patel feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "One organ can have more than one job; the ear helps with both hearing and balance.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "your eyes see and your ears hear",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "Eyes take in light, and that is how we see. Ears take in sound, and that is how we hear. But the inner ear does a second job too. It tells the brain which way is up. That is why a problem in there can make somebody dizzy even when their hearing is fine.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.0",
+   "original": "Mina—eyes; Caleb—ears; Mrs. Patel—inner-ear balance system",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.1",
+   "original": "Mina—eyes; Caleb—inner-ear balance system; Mrs. Patel—ears",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.2",
+   "original": "Mina—eyes; Caleb—ears; Mrs. Patel—leg muscles",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.3",
+   "original": "Mina—eyes; Caleb—throat; Mrs. Patel—inner-ear balance system",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.rebuttals.0",
+   "original": "B. Mina—eyes; Caleb—inner-ear balance system; Mrs. Patel—ears — Caleb and Mrs. Patel are swapped. Hearing sound is the ears' main job.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.rebuttals.1",
+   "original": "C. Mina—eyes; Caleb—ears; Mrs. Patel—leg muscles — Only Mrs. Patel is wrong. Legs hold you up, and the inner ear tells you which way is up.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.rebuttals.2",
+   "original": "D. Mina—eyes; Caleb—throat; Mrs. Patel—inner-ear balance system — Only Caleb is wrong. The throat makes sound. The ears take it in.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "From Light to Picture",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "Put the simplified vision pathway in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "Seeing is a team job between the eyes, nerves, and brain.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "you need light to see",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "Seeing is not one step. Light comes into the eye. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.answerText",
+   "original": "Light enters the eye. -> The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.cards.0",
+   "original": "Light enters the eye.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.cards.1",
+   "original": "The back of the eye detects the light pattern.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.cards.2",
+   "original": "A nerve carries signals toward the brain.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.cards.3",
+   "original": "The brain uses the signals to make sense of what is seen.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.title",
+   "original": "Skin Shield",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Skin as a barrier, healing, and protection",
+   "readOnly": true
+  },
+  {
+   "id": "m10.briefing",
+   "original": "Skin as a barrier, healing, and protection",
+   "readOnly": true
+  },
+  {
+   "id": "m10.stake",
+   "original": "Tenth shift. Ella came off her bike. There is gravel in her knee. It has stopped bleeding on its own. June was outside too long and has a sunburn. It is on the tops of her shoulders and nowhere else. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. The body shuts the door first and repairs after.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "How a Scrape Heals",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Put the steps of healing in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "Ella has a small scrape. The team cleaned it and covered it. She asks what her body will do next. Skin is not a wrapper. It is living tissue. It fixes itself in stages, in the same order every time. First the bleeding stops. Then the cleanup. Then rebuilding. Knowing the stages tells you what is normal.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "Skin is living tissue that can repair many small injuries.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "a cut stops bleeding on its own after a while",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "Healing goes in stages. First the skin is broken open. Then the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first and does the repairs after. That is why picking a scab sets it back.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.answerText",
+   "original": "The skin barrier is broken by the scrape. -> Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.cards.0",
+   "original": "The skin barrier is broken by the scrape.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.cards.1",
+   "original": "Blood clotting helps close the damaged area.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.cards.2",
+   "original": "A scab or protective covering forms while healing continues.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.cards.3",
+   "original": "New skin grows underneath as the area repairs.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "Clean Team, Not DIY Doctor",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Put the junior-doctor actions in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "You are the junior doctor in this game. Real wound care is a job for grown-ups. Your job is to keep things safe and in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "A scrape is a break in the barrier, so everything that touches it has to be clean.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "some jobs are for grown-ups",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "Tell a grown-up first. Help takes time to come, and nothing else has to wait for it. Then clean your hands. A cut is a way in, and hands are how germs move. Then get the things they need. The grown-up cares for the cut. You keep the notes.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.answerText",
+   "original": "1. Tell the nurse or doctor, so trained help starts on its way. 2. Clean your own hands, because hands carry germs better than anything else you touch with. 3. Let the trained adult clean and cover the scrape. 4. Record what happened, and watch for instructions.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.cards.0",
+   "original": "Tell the nurse or doctor, so trained help starts on its way.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.cards.1",
+   "original": "Clean your own hands, because hands carry germs better than anything else you touch with.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.cards.2",
+   "original": "Let the trained adult clean and cover the scrape.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.cards.3",
+   "original": "Record what happened, and watch for instructions.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "What Job Did the Skin Lose?",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Which main skin job is most connected to this lesson?",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "June was outside too long. Now she has a mild sunburn. The skin doctor explains what skin does. It keeps water in. It keeps germs out. It shields everything under it. Sunlight also carries a kind of light we cannot see. Too much of it can hurt skin cells. So the shield needs shade and sunscreen too.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "Skin protects the body, but the skin itself also needs protection.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "skin covers the whole outside of you",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "Skin does several jobs at once. It holds water in. It feels touch. It cools you with sweat. But its biggest job is being a wall. Nothing gets in through skin that is whole. A scrape makes a hole in the wall, and that is the job it just lost.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.choices.0",
+   "original": "Protection from the outside environment",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.choices.1",
+   "original": "Keeping water inside the body",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.choices.2",
+   "original": "Helping the body feel touch and temperature",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.choices.3",
+   "original": "Helping the body cool down by sweating",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.rebuttals.0",
+   "original": "B. Keeping water inside the body — Skin does hold water in. A small scrape lets germs in long before it dries anyone out.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.rebuttals.1",
+   "original": "C. Helping the body feel touch and temperature — Skin does feel things. The scrape did not take that away.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.rebuttals.2",
+   "original": "D. Helping the body cool down by sweating — Skin does cool the body. One small scrape does not stop the sweating.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.title",
+   "original": "Germ Detective Shift",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Microbes, spread, evidence, and handwashing",
+   "readOnly": true
+  },
+  {
+   "id": "m11.briefing",
+   "original": "Microbes, spread, evidence, and handwashing",
+   "readOnly": true
+  },
+  {
+   "id": "m11.stake",
+   "original": "Eleventh shift. Ty and Ana are both tired today. They are in the same class, so everybody has decided it is the same bug. Dr. Amaka Okafor has not. Ty has a fever. Ana does not. They sat at different tables all week. Ana's little brother was sick last weekend. Today you work out how germs travel, why washing hands matters, and whether these two really match. Saying not enough evidence yet is a real answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "How Might It Spread?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Which matching set is most sensible?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "Knowing the route helps people choose the right prevention strategy.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "germs are too small to see",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "Germs do not all travel the same way. Some ride in tiny drops from a cough. Some are in food that was not cooked or kept right. Some sit on a doorknob until a hand picks them up. That is why the story matters. What somebody did tells you which way the germ came.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.0",
+   "original": "Ty—air droplets; Ana—food route; Lena—hands/surfaces",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.1",
+   "original": "Ty—air droplets; Ana—hands/surfaces; Lena—food route",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.2",
+   "original": "Ty—hands/surfaces; Ana—air droplets; Lena—food route",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.3",
+   "original": "Ty—food route; Ana—hands/surfaces; Lena—air droplets",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "B. Ty—air droplets; Ana—hands/surfaces; Lena—food route — Ana and Lena are swapped. Ana's clue was something she ate.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "C. Ty—hands/surfaces; Ana—air droplets; Lena—food route — Ty and Ana are swapped. Ty was near someone who was coughing.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "D. Ty—food route; Ana—hands/surfaces; Lena—air droplets — All three have moved along by one. None of them lines up with its own story.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "Handwashing Challenge",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Put the handwashing steps in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "Lena asks why the hospital has sinks everywhere. Hands touch more things than any other body part. That makes them the busiest ride for germs. Washing lifts germs off the skin. Then the water rinses them away. It only works if you wash long enough. You also have to cover the whole hand. That is why the steps are taught in order.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "Handwashing is a simple action that can break a chain of germ spread.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "soap and water clean things",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "Hands are how germs get around. Somebody touches one thing, then another, then their own face. Washing breaks that chain. Soap loosens the germs, and running water carries them away. That is why it needs both, and why the rubbing part is the part people cut short.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.answerText",
+   "original": "1. Wet hands with clean running water. 2. Use soap and scrub all parts of the hands. 3. Rinse the soap away with clean running water. 4. Dry the hands with a clean towel or air dryer.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.cards.0",
+   "original": "Wet hands with clean running water.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.cards.1",
+   "original": "Use soap and scrub all parts of the hands.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.cards.2",
+   "original": "Rinse the soap away with clean running water.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.cards.3",
+   "original": "Dry the hands with a clean towel or air dryer.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "Same Symptom, Same Germ?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "What is the best response?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The germ scientist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "Medicine is an evidence puzzle, not a one-clue guessing game.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "being tired can happen for many reasons",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "One symptom can have many causes. Lots of things make a person tired. So two tired people do not have to share a germ. You need more clues before you can say. This is a hard habit, because guessing feels faster. Saying not enough evidence yet is a real answer, not a dodge.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Not enough evidence — many different problems can make a person tired.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "Yes, because they were both in the same building this week.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "Yes, because feeling tired is an unusual thing to report.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "No, because their other clues are different, so it must be a different germ.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "B. Yes, because they were both in the same building this week. — Being in one place is a clue worth having. Lots of people share a building and are not sick.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "C. Yes, because feeling tired is an unusual thing to report. — Tired is one of the most common things people say. That is what makes it a weak clue.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "D. No, because their other clues are different, so it must be a different germ. — Different clues are worth noticing. One germ can still make two people feel different things.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.title",
+   "original": "Immune Team",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Barriers, white blood cells, antibodies, and immune memory",
+   "readOnly": true
+  },
+  {
+   "id": "m12.briefing",
+   "original": "Barriers, white blood cells, antibodies, and immune memory",
+   "readOnly": true
+  },
+  {
+   "id": "m12.stake",
+   "original": "Twelfth shift. Ruby is getting better. Nobody gave her anything, and that puzzles her. She had this illness two years ago and does not remember it. Mae is here for a shot. She is frightened of it. She wants to know how long it will hurt for. Today you follow what a body does when a germ gets in, and learn what a shot is for. A shot lets the body practise first.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "The Body Notices a Germ",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Put the body’s germ-fighting steps in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "Ruby is getting better. The immune doctor wants to show why. Four picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. Helpers have to arrive before the cleanup. The last step is the surprising one. The body keeps a record of what it met.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "Immune memory can help the body respond faster when it meets the same threat again.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "your body can fight off a cold",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "The immune system does four things, in order. A germ gets past the outside walls. Immune cells spot that something does not belong. They attack it and clear it out. Then some of them remember what it looked like. That last step is why you often do not get the same illness twice.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.answerText",
+   "original": "A germ gets past the body’s outside barriers. -> Immune cells notice signs that something does not belong. -> The immune system attacks the germ and helps clear it. -> Some immune cells remember important features for later.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.cards.0",
+   "original": "A germ gets past the body’s outside barriers.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.cards.1",
+   "original": "Immune cells notice signs that something does not belong.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.cards.2",
+   "original": "The immune system attacks the germ and helps clear it.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.cards.3",
+   "original": "Some immune cells remember important features for later.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "Meet the Defense Team",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Which set is the best match?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "Three cards need labels. Dante has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "Defense works in layers: barriers, cells, and specialized molecules.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "a team works better than one person alone",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "Your defences are a team, and each part has one job. Skin is the wall that keeps things out. White blood cells go and find things that got in. Antibodies are the part that knows one target and sticks to it. They work together, and none of them can do the other two jobs.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.choices.0",
+   "original": "Skin—barrier; white blood cells—find/fight threats; antibodies—recognize specific targets",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.choices.1",
+   "original": "Skin—barrier; white blood cells—recognize specific targets; antibodies—find/fight threats",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.choices.2",
+   "original": "Skin—find/fight threats; white blood cells—barrier; antibodies—recognize specific targets",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.choices.3",
+   "original": "Skin—recognize specific targets; white blood cells—find/fight threats; antibodies—barrier",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.rebuttals.0",
+   "original": "B. Skin—barrier; white blood cells—recognize specific targets; antibodies—find/fight threats — The last two are swapped. Antibodies are the part that knows one target.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.rebuttals.1",
+   "original": "C. Skin—find/fight threats; white blood cells—barrier; antibodies—recognize specific targets — Skin and white blood cells are swapped. Skin is a wall, not a hunter.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.rebuttals.2",
+   "original": "D. Skin—recognize specific targets; white blood cells—find/fight threats; antibodies—barrier — Skin and antibodies are swapped. Skin cannot pick out one germ from another.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "A Vaccine Visit",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "Put the clinic process in the best order.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "Mae is at the clinic with her mum. A nurse will give the shot. A shot lets the body practise, so it is ready if the real germ turns up.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "The wait at the end of a vaccine visit is part of the visit: fast reactions show up in the first few minutes.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "a shot cannot be taken back once it is given",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "Check who it is first. A shot cannot be taken back. Then tell Mae what is coming, so she can hold still. Then the nurse gives it. Then you wait a few minutes. That wait is not just being polite. If a rare fast problem starts, it starts right then, and a nurse is still there.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.answerText",
+   "original": "1. Check Mae’s name and the planned vaccine with her parent. 2. Explain what will happen, so Mae can hold still. 3. The trained clinician gives the vaccine. 4. Record it, and wait a short while before leaving.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.cards.0",
+   "original": "Check Mae’s name and the planned vaccine with her parent.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.cards.1",
+   "original": "Explain what will happen, so Mae can hold still.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.cards.2",
+   "original": "The trained clinician gives the vaccine.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.cards.3",
+   "original": "Record it, and wait a short while before leaving.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.title",
+   "original": "Temperature Trouble",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Homeostasis, sweating, shivering, and body temperature",
+   "readOnly": true
+  },
+  {
+   "id": "m13.briefing",
+   "original": "Homeostasis, sweating, shivering, and body temperature",
+   "readOnly": true
+  },
+  {
+   "id": "m13.stake",
+   "original": "Thirteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at nine o'clock and 101 at twelve. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "Hot or Cold Response?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Which explanation matches the clues?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Jamal is hot after exercise. He is sweating. Ivy got caught in the rain. She is cold and shivering. Both are with the team now. The body works hard to hold one steady temperature. Cells only work well in a narrow range. When it gets too warm, the body loses heat. When it gets too cold, the body makes heat.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "Homeostasis means the body works to keep important conditions within a useful range.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "you sweat when you are hot and shiver when you are cold",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "These two do opposite things. Sweat sits on your skin and dries. Drying takes heat away with it, so you cool down. Shivering is your muscles shaking fast, and working muscles make heat. So one cools and one warms. Your body uses both to stay at about the same temperature all day.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "Sweating helps cool; shivering uses muscle activity that helps make heat.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "Sweating and shivering both make heat, because the body is trying to warm up either way.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "Sweating cools by wetting the skin; shivering cools by moving air across it.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "Both are signs of being unwell rather than ways of holding a steady temperature.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "B. Both make heat, because the body is trying to warm up either way. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "C. Sweating cools by wetting the skin; shivering cools by moving air. — Sweating does cool. Shivering is muscles working, and working muscles make heat.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "D. Both are signs of being unwell rather than ways of holding a steady temperature. — You can be unwell and do both. A healthy body does both too, every day.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "Temperature Difference",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "How fast is her temperature rising, in degrees per hour?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "A chart shows two numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "A change on its own is not enough; how long it took is what says whether it is fast.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "you can take one number away from another",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in ten minutes would be a much bigger worry.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.answerText",
+   "original": "3°F",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.rebuttals.0",
+   "original": "A. 1°F — 101 is three, not one, above 98.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.rebuttals.1",
+   "original": "B. 2°F — 101 is three, not two, above 98.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.rebuttals.2",
+   "original": "D. 199°F — 199 comes from adding, but the question asks for the difference.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.relationship",
+   "original": "Change each hour = how much it changed ÷ how many hours it took.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.givens.0",
+   "original": "Use the numbers shown",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "How Sweat Helps Cool",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "Put the simplified cooling story in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "Parker sees sweat on his arm after exercise. The nurse explains why that helps. Turning liquid water into vapour takes energy. That energy comes from the warmest thing nearby. On skin, that is the skin itself. So sweat carries heat away as it dries. It is plain physics, not magic. A breeze helps. A very humid day does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "The body uses physical processes, not magic, to help control temperature.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "water dries up in the air",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "Sweating alone does not cool you. The drying is what cools you. Here is the order. You get warm. Sweat comes out on your skin. Some of it dries into the air. Drying needs energy, and it takes that energy as heat from your skin. That is why a wet day feels so much hotter.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.answerText",
+   "original": "The body becomes warmer during activity. -> Sweat appears on the skin. -> Some sweat evaporates into the air. -> Evaporation carries away heat and helps cool the skin.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.cards.0",
+   "original": "The body becomes warmer during activity.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.cards.1",
+   "original": "Sweat appears on the skin.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.cards.2",
+   "original": "Some sweat evaporates into the air.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.cards.3",
+   "original": "Evaporation carries away heat and helps cool the skin.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.title",
+   "original": "Allergy Alert",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Allergies, immune overreaction, and recognizing urgent breathing clues",
+   "readOnly": true
+  },
+  {
+   "id": "m14.briefing",
+   "original": "Allergies, immune overreaction, and recognizing urgent breathing clues",
+   "readOnly": true
+  },
+  {
+   "id": "m14.stake",
+   "original": "Fourteenth shift. This one moves fast. Chloe's lips are swelling and she says it is hard to breathe. She had a peanut biscuit ten minutes ago. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already walking and wants your reason as you go. Today you decide who cannot wait. You tell an allergy from a germ. Then you hand over to the emergency team. Swelling with trouble breathing cannot wait for anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "Which Allergy Patient First?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Who needs the team’s immediate attention first?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "When breathing is threatened, urgency rises sharply.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "you cannot go long without breathing",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "Swelling with trouble breathing can get dangerous in minutes. That is why Chloe goes first. Itchy eyes are horrible and they stay about the same. A big rash looks worse than a small one, but how much skin it covers is not what makes it urgent. You go by what could get worse fastest.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.0",
+   "original": "Chloe, because swelling with trouble breathing can be a medical emergency.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.1",
+   "original": "Sofia, because itchy eyes come first and treating them early stops the rest.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.2",
+   "original": "Malik, because his rash covers a large area of skin.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.3",
+   "original": "Whoever has been waiting longest, so the queue stays fair.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "B. Sofia, because itchy eyes come first and treating them early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "C. Malik, because his rash covers a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "D. Whoever has been waiting longest, so the queue stays fair. — Waiting your turn is fair most places. Here the fair thing is the sickest person first.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "Allergy or Germ Clues?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Which comparison is most sensible?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "Sofia's eyes itch every spring. That is when pollen is high. She has no fever. Ty came in earlier with a fever and a cough. His classmates were sick too. The allergist asks which story sounds like an allergy. Both patients feel unwell. So no single symptom decides it. The pattern does. What else is happening, and when.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "Doctors compare patterns, timing, and exposures instead of relying on one clue.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "some things happen at the same time every year",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "Look at the pattern, not just the word. Sofia itches when the pollen comes. It happens every year. That fits an allergy. Ty has a fever. He was near people who were sick. That fits a germ. Both feel unwell. The stories under them are not the same.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.choices.0",
+   "original": "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.choices.1",
+   "original": "Both fit an allergy pattern, because both patients feel unwell at the same time of year.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.choices.2",
+   "original": "Sofia’s itching fits an infection, because germs can make skin itch; Ty’s fever fits an allergy.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.choices.3",
+   "original": "Neither pattern can be told apart until a blood test comes back.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.rebuttals.0",
+   "original": "B. Both fit an allergy pattern, because both patients feel unwell at the same time of year. — The season is a real clue. Ty was also near sick people, and that points somewhere else.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.rebuttals.1",
+   "original": "C. Sofia’s itching fits an infection, because germs can make skin itch; Ty’s fever fits an allergy. — The two are swapped. Itching that comes back with the pollen is the allergy pattern.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.rebuttals.2",
+   "original": "D. Neither pattern can be told apart until a blood test comes back. — A test would help. The patterns already point different ways, and that is worth saying now.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "Emergency Team Handoff",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "Put the junior-doctor actions in order.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "The team is helping Chloe now. In this game you do not pick or give medicine. Your job is to get the right grown-ups fast and tell them the story.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "In an emergency the first action is the one with a clock on it, and the last is the one that protects the record.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "help takes time to arrive",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "Call first. That clock is running whether or not you do anything else. Then watch her breathing, because it can change fastest. Then say what she met and when. The team needs that before they act. Write it down last, so nobody has to guess the order later.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.answerText",
+   "original": "1. Call the emergency team, because everything else can happen while they come. 2. Stay with Chloe and watch her breathing, which is what can change fastest. 3. Tell the team what she was exposed to and when it started. 4. Write down what you saw, in the order it happened.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.cards.0",
+   "original": "Call the emergency team, because everything else can happen while they come.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.cards.1",
+   "original": "Stay with Chloe and watch her breathing, which is what can change fastest.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.cards.2",
+   "original": "Tell the team what she was exposed to and when it started.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.cards.3",
+   "original": "Write down what you saw, in the order it happened.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.title",
+   "original": "The Super Shift",
+   "readOnly": false
+  },
+  {
+   "id": "m15.objective",
+   "original": "Putting body systems, evidence, triage, and teamwork together",
+   "readOnly": true
+  },
+  {
+   "id": "m15.briefing",
+   "original": "Putting body systems, evidence, triage, and teamwork together",
+   "readOnly": true
+  },
+  {
+   "id": "m15.stake",
+   "original": "Your last shift. Six children are on the board and one room is free. Dr. Maya Patel, who runs the emergency department, is standing next to you and she is not going to say who goes first. Today you use all of it. Which clue means somebody can get worse quickly. Which tool answers which question. Which part of the hospital each child needs next. Then you hand over to the evening team, who were not here for any of today.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "Shift complete",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Six Patients, One First Room",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "Who should go to the first available room?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "The waiting board is full. Nora breathes hard and cannot finish a sentence. DeShawn can walk on a sore ankle. Mei has a fever and cough but breathes fine. Mr. Alvarez feels lightheaded but is awake. Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "Triage means asking, “Which problem could become dangerous fastest?”",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "only one person can go in first",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "This is the big pattern of the whole course. Breathing trouble can get dangerous quickly, so it goes first. Feeling lightheaded is worth a look. A fever needs care. A sore ankle needs a picture. All of them are real. Only one of them is getting worse while everybody waits.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "Nora, because significant breathing trouble can affect the whole body quickly.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "Mr. Alvarez, because feeling lightheaded could mean he is about to faint.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "Mei, because a fever could spread to the other people waiting.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "DeShawn, because he has been standing on a sore ankle the longest.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "B. Mr. Alvarez, because feeling lightheaded could mean he is about to faint. — This is worth a quick check. Hard breathing is still the bigger worry.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "C. Mei, because a fever could spread to the other people waiting. — A fever needs care. It does not get worse as fast as trouble breathing.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "D. DeShawn, because he has been standing on a sore ankle the longest. — Waiting a long time is no fun. It does not make a sore ankle the most urgent.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "Send Them to the Right Place",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "Which routing set is best?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "Nora is with the emergency team now. Five other patients still need a next stop. A hospital is not one big room. It is a set of special places. Each one is set up to answer a certain kind of question. The right place means the right test the first time. The wrong place costs a patient hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "Hospitals are teams of specialized places that work together.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "a hospital has different rooms for different things",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "Different clues need different tools. A sore ankle needs a picture of the bone. A fever needs a check for germs. Feeling faint needs some numbers taken. Itchy eyes need an allergy check. A scrape needs the wound team. Send them all one place and most of them wait for the wrong thing.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.0",
+   "original": "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.1",
+   "original": "DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.2",
+   "original": "DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.3",
+   "original": "Send all five to the emergency team, since that is where Nora went.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.rebuttals.0",
+   "original": "B. DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation — Mei and Owen are swapped. Mei has a fever, and Owen has a scrape to clean.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.rebuttals.1",
+   "original": "C. DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation — Almost every one is in the wrong room. A sore ankle needs a picture of the bone.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.rebuttals.2",
+   "original": "D. Send all five to the emergency team, since that is where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "End-of-Day Handoff",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "Put the handoff information in the best order.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What has been done. What to watch for. Careful work only helps if the next person can use it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "Science is only useful if the next person can understand and act on the evidence.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "the next person was not there when it happened",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have, so they can judge for themselves. Then what has already been done, so nobody repeats it. Then what still needs doing. Get the order wrong and they hear the answer before they know the question.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.answerText",
+   "original": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. Explain what the hospital team has already done or learned. 4. State what still needs to happen next.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.cards.0",
+   "original": "Say who the patient is and the main problem.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.cards.1",
+   "original": "Give the most important observations and measurements.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.cards.2",
+   "original": "Explain what the hospital team has already done or learned.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.cards.3",
+   "original": "State what still needs to happen, and who will do it.",
+   "readOnly": true
+  }
+ ]
+}

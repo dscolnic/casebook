@@ -13,7 +13,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 0,
-        "task": "Which explanation fits the digital alarms, independent physical checks, and shared electronics?"
+        "task": "Open the dependency chain behind each pressure reading. Keep the evidence that stands independently, then name the shared source that explains the false alarm."
       },
       {
         "group": "INTEG",
@@ -90,7 +90,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 4,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Choose the opening pulse and the angle where counter-torque begins. Run the maneuver and stop the spacecraft at 90 degrees with almost no remaining rotation."
       },
       {
         "group": "NAV",
@@ -119,7 +119,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 6,
-        "task": "Which load comes off the bus first?"
+        "task": "Allocate 41 amp-hours across life support, thermal control, guidance windows, and communications. Keep every required mission condition satisfied through the 62-hour return."
       }
     ]
   },
@@ -143,7 +143,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 7,
-        "task": "Engineers want to bolt the module in now. What has to happen first?"
+        "task": "Lock a predicted equalization current, make the protected test connection, then choose whether to spend a check on the current that actually flows."
       }
     ]
   },
@@ -181,7 +181,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 9,
-        "task": "Which explanation fits the gas, pressure, flow, and electrical readings together?"
+        "task": "Trace the air path from the cabin through the scrubber loop. Put the links in order, then name the link that governs how much carbon dioxide reaches the sorbent."
       },
       {
         "group": "THERM",
@@ -205,7 +205,7 @@ export const MISSIONS = [
       {
         "group": "COMMS",
         "lesson": 0,
-        "task": "Which explanation fits the link budget and the independent stations?"
+        "task": "Change one link condition at a time, measure received power, and reverse the change. Identify the cause only when the signal follows the change both ways."
       },
       {
         "group": "COMMS",
@@ -263,7 +263,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 13,
-        "task": "The corridor is about a degree wide. What does the room do with the time left?"
+        "task": "Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor."
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 15,
-        "task": "The panel oscillates whenever the pump runs near one speed. What do you do?"
+        "task": "The pump is needed and the panel is entering resonance. What is the safest immediate control-panel action?"
       }
     ]
   },
@@ -306,7 +306,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 17,
-        "task": "Consumables are known only to within about a day. Which return do you fly?"
+        "task": "Move the consumable-endurance assumption through its allowed range and choose the return path that remains feasible at the pessimistic end."
       },
       {
         "group": "THERM",
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 18,
-        "task": "Two stations disagree by more than either one's stated error. Do you burn?"
+        "task": "Spend the remaining tracking budget on the observation that can actually change the burn decision."
       }
     ]
   },
@@ -349,7 +349,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 19,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Choose which readiness claims to verify before entry. You have two checks for four signed claims, so spend them where an unverified error would matter most."
       },
       {
         "group": "INTEG",
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 8,
-        "task": "The review board convenes on Monday. What does the programme commit to?"
+        "task": "The review board can fund three follow-up efforts. Which proposal deserves first priority because it removes the repeated physical cause?"
       }
     ]
   }

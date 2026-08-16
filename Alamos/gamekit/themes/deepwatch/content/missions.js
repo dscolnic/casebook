@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 0,
-        "task": "Carry a message without a marker"
+        "task": "Learn the compartment route, rebuild it without labels, then recover after one door is blocked."
       }
     ]
   },
@@ -66,7 +66,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 3,
-        "task": "Which explanation accounts for every reading here?"
+        "task": "Decide what the agreement between the two navigation displays is actually worth."
       },
       {
         "group": "SONAR",
@@ -109,12 +109,12 @@ export const MISSIONS = [
       {
         "group": "DC",
         "lesson": 1,
-        "task": "Which source fits every reading on the board?"
+        "task": "Read the flows, decide which terms belong in the ledger, and close the water balance."
       },
       {
         "group": "DC",
         "lesson": 2,
-        "task": "Decide whether the pump can win"
+        "task": "Estimate the pressure driving the seawater leak"
       },
       {
         "group": "ENG",
@@ -186,7 +186,7 @@ export const MISSIONS = [
       {
         "group": "FIRE",
         "lesson": 2,
-        "task": "Match each remaining casualty to the right assignment."
+        "task": "Keep the one condition that cannot wait. Delegate every other problem with an owner, first action and return condition."
       },
       {
         "group": "NAV",
@@ -210,12 +210,12 @@ export const MISSIONS = [
       {
         "group": "ENG",
         "lesson": 4,
-        "task": "Find which machine"
+        "task": "Change one machine at a time, listen to the line, then reverse the suspected change to confirm the cause."
       },
       {
         "group": "SONAR",
         "lesson": 5,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values to estimate the contact’s line-of-sight speed."
       }
     ]
   },
@@ -234,7 +234,7 @@ export const MISSIONS = [
       {
         "group": "DC",
         "lesson": 4,
-        "task": "Work out how much water that is"
+        "task": "Turn floodwater volume into a force scale"
       },
       {
         "group": "ENG",
@@ -253,7 +253,7 @@ export const MISSIONS = [
       {
         "group": "ENG",
         "lesson": 6,
-        "task": "Trace the path"
+        "task": "Build the heat path in order, then name the link that governs how fast heat can leave the boat."
       },
       {
         "group": "ENG",
@@ -277,7 +277,7 @@ export const MISSIONS = [
       {
         "group": "ENG",
         "lesson": 8,
-        "task": "Choose the lineup"
+        "task": "Stress the plan by shrinking the time margin left before the six-hour passage ceiling, then choose the lineup that still works."
       },
       {
         "group": "ATMO",
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 6,
-        "task": "Match each term in the detection budget to what it accounts for."
+        "task": "Compute the passive-sonar signal-to-noise ratio and the margin above threshold."
       }
     ]
   },
@@ -301,7 +301,7 @@ export const MISSIONS = [
       {
         "group": "DC",
         "lesson": 5,
-        "task": "Match each check to what it proves."
+        "task": "Choose which two signed claims to verify physically before the boat dives."
       },
       {
         "group": "ATMO",
@@ -325,7 +325,7 @@ export const MISSIONS = [
       {
         "group": "ENG",
         "lesson": 9,
-        "task": "Spend the yard time"
+        "task": "Spend two yard slots across four refits and make sure the plan answers the patrol’s required capability questions."
       },
       {
         "group": "SONAR",
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 8,
-        "task": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?"
+        "task": "Calculate the beat frequency from the two spectral lines."
       }
     ]
   }

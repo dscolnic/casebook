@@ -44,8 +44,26 @@ const WORLDS = {
 // arrived as a finished submarine, and rebuilding it as generated rooms would
 // have thrown away the thing that made it worth converting.
 import { readFileSync, existsSync } from 'node:fs';
+
+// Where a theme's directory actually is. Eight are under `themes/`; two predate
+// it and live in their own package directories beside gamekit. This used to be
+// hardcoded to `themes/<name>`, which meant the two older games could only be
+// served from their own package — so `npm run dev`, `engine/dev/instruments.html`
+// and `npm run drive` all silently refused to load them, with a "Failed to
+// resolve import @theme/theme.js" that reads like a broken checkout. The same
+// map `themes.json` gives every checker now answers it here too.
+const themeDirOf = (theme) => {
+  const own = resolve(here, 'themes', theme);
+  if(existsSync(own)) return own;
+  try{
+    const reg = JSON.parse(readFileSync(resolve(here, 'themes.json'), 'utf8')).themes ?? {};
+    if(reg[theme]) return resolve(here, reg[theme]);
+  }catch{}
+  return own;
+};
+const THEME_DIR = themeDirOf(THEME);
 const read = (theme, f) => {
-  const p = resolve(here, 'themes', theme, f);
+  const p = resolve(THEME_DIR, f);
   return existsSync(p) ? readFileSync(p, 'utf8') : '';
 };
 
@@ -77,11 +95,16 @@ if(ownWorld && !existsSync(resolve(here, ownWorld))){
 export default defineConfig({
   resolve: {
     alias: {
-      '@theme': resolve(here, 'themes', THEME),
+      '@theme': THEME_DIR,
       '@world': resolve(here, world),
     },
   },
-  server: { open: true },
+  server: {
+    open: true,
+    // A theme outside the vite root has to be readable, or every module under it
+    // 403s with no explanation.
+    fs: { allow: [here, THEME_DIR, resolve(here, '..')] },
+  },
   build: {
     outDir: `dist/${THEME}`,
     rollupOptions: {

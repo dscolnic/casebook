@@ -1,0 +1,1465 @@
+# Claude-ready mission book. Follows BOOK_TEMPLATE.md conventions.
+# Exactly 15 missions, 3 stops per mission. Formats use exact importer names.
+# Diagnosis is a first-class format: the full evidence panel is visible and quiet readings matter.
+theme:
+  id: planetary_defense
+  title: Planetary Defense
+  subtitle: "Campaign Director \xB7 International NEO Response"
+groups:
+- id: DISC
+  code: DISC
+  name: Discovery & Imaging
+  color: '#315c78'
+  desc: Images, signal-to-noise, moving-object detection, and artifact rejection.
+  defaultLeader: nguyen
+  milestones:
+  - Validate the detection
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: ORBIT
+  code: ORBIT
+  name: Astrometry & Orbit
+  color: '#704f88'
+  desc: Sky position, timing, orbit fitting, covariance, and impact probability.
+  defaultLeader: rossi
+  milestones:
+  - Constrain the orbit
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: CHAR
+  code: CHAR
+  name: Physical Characterization
+  color: '#4b775f'
+  desc: Brightness, albedo, spectra, rotation, size, and composition.
+  defaultLeader: adebayo
+  milestones:
+  - Measure the body
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: RADAR
+  code: RADAR
+  name: Radar & Dynamics
+  color: '#9a741d'
+  desc: Range, delay, velocity, momentum transfer, and independent orbit constraints.
+  defaultLeader: fischer
+  milestones:
+  - Add geometric leverage
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: IMPACT
+  code: IMPACT
+  name: Entry & Consequences
+  color: '#9a3f36'
+  desc: Energy, atmospheric entry, fragmentation, consequence uncertainty, and deflection physics.
+  defaultLeader: banerjee
+  milestones:
+  - Bound the consequence
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: OPS
+  code: OPS
+  name: Survey & Response
+  color: '#3d6f52'
+  desc: Completeness, observing geometry, response decisions, communication, and long-term readiness.
+  defaultLeader: garcia
+  milestones:
+  - Turn evidence into action
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+roster:
+- id: nguyen
+  name: Dr. Linh Nguyen
+  role: Survey Imaging Lead
+  division: DISC
+  bio: Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated
+    and independent observations.
+- id: rossi
+  name: Dr. Marco Rossi
+  role: Orbit Determination Lead
+  division: ORBIT
+  bio: Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the
+    dangerous uncertainty.
+- id: adebayo
+  name: Dr. Tola Adebayo
+  role: Physical Characterization Lead
+  division: CHAR
+  bio: Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely
+    determines size or composition.
+- id: fischer
+  name: Dr. Anna Fischer
+  role: Radar Dynamics Lead
+  division: RADAR
+  bio: Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.
+- id: banerjee
+  name: Dr. Rohan Banerjee
+  role: Impact Physics Lead
+  division: IMPACT
+  bio: Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic
+    outcomes.
+- id: garcia
+  name: Dr. Isabel Garcia
+  role: Survey and Response Lead
+  division: OPS
+  bio: Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing
+    expected value with a prediction.
+glossary:
+- name: Astrometry
+  aliases:
+  - astrometry
+  def: Measurement of an object position on the sky.
+- name: Solar elongation
+  aliases:
+  - solar elongation
+  def: The angular separation between an object and the Sun as seen from the observer.
+- name: Albedo
+  aliases:
+  - albedo
+  def: The fraction of incident light a surface reflects.
+- name: Light curve
+  aliases:
+  - light curve
+  def: Brightness measured as a function of time.
+- name: Covariance
+  aliases:
+  - covariance
+  def: A description of how uncertainties in fitted quantities vary together.
+- name: Radar delay
+  aliases:
+  - radar delay
+  def: Round-trip travel time of a radar signal, used to infer range.
+missions:
+- title: The Discovery Image
+  objective: Validate a new-object candidate and preserve the measurements needed for follow-up.
+  briefing: A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real
+    Solar System object, an image artifact, or a known source.
+  stake: If the candidate is real and close, every hour of delay expands the region where it may be lost.
+  takeaway: Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather
+    than as isolated facts.
+  stops:
+  - group: DISC
+    task: Which explanation fits the motion, image shape, detector map, and independent follow-up?
+    title: Object or artifact?
+    place: Survey Telescope Control
+    scene: A survey pipeline flags a faint moving point near the ecliptic. Before an international alert goes out, the discovery
+      team must determine whether the source is a real Solar System object or a detector/image artifact.
+    takeaway: A discovery becomes convincing when motion is coherent in sky coordinates but not tied to one detector, exposure,
+      or telescope.
+    format: DIAGNOSIS
+    headline: A survey pipeline flags a faint moving point near the ecliptic.
+    readings:
+    - zone: Three survey exposures
+      label: Three survey exposures
+      value: Source moves linearly between frames
+      status: alarm
+      note: Motion is consistent in time and direction
+    - zone: Point-spread shape
+      label: Point-spread shape
+      value: Star-like in each exposure
+      status: alarm
+      note: Not a single-pixel spike
+    - zone: Detector defect map
+      label: Detector defect map
+      value: No hot pixel at those positions
+      status: alarm
+      note: The source crosses different detector pixels
+    - zone: Background stars
+      label: Background stars
+      value: Remain fixed after astrometric alignment
+      status: normal
+      note: Image registration is stable
+    - zone: Second telescope
+      label: Second telescope
+      value: Recovers source near predicted position
+      status: alarm
+      note: Independent hardware confirms motion
+    choices:
+    - label: Real moving Solar System object
+      mechanism: A point source changes sky position coherently while stars and detector coordinates remain stable.
+    - label: Cosmic-ray hit
+      mechanism: A charged particle creates a transient sharp feature in one exposure.
+    - label: Hot detector pixel
+      mechanism: A fixed detector location appears bright whenever that pixel is read.
+    - label: Image-registration artifact
+      mechanism: Misalignment makes many fixed stars appear to shift together.
+    answer: Real moving Solar System object
+    why: The source is point-like, moves across different pixels while stars remain fixed, appears repeatedly, and is recovered
+      independently. No single detector or registration artifact explains the full panel.
+  - group: DISC
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Validate the discovery
+    place: Image Processing Lab
+    scene: Order the workflow.
+    takeaway: A discovery is useful only when another observer can test it.
+    format: SEQUENCE
+    cards:
+    - Calibrate the images and identify transient or moving candidates.
+    - Reject known stars, satellites, detector defects, and catalogued objects.
+    - Measure position, time, brightness, and uncertainty for each detection.
+    - Submit the candidate and predicted follow-up region to the tracking network.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Calibration and rejection precede astrometry and follow-up.
+  - group: ORBIT
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: How far did it move?
+    place: Minor-Planet Operations Desk
+    scene: The object shifts 12 arcseconds in 20 minutes.
+    takeaway: Repeated images turn apparent motion into a measurable rate.
+    format: BALLPARK
+    question: Estimate rate in arcseconds per minute and per hour.
+    estimate:
+      labels:
+      - 12 arcsec
+      - 20 min
+      values:
+      - 12
+      - 20
+      slots: 2
+      template: '{0}/{1} x 60'
+      formula: a/b*60
+      correct:
+      - 0
+      - 1
+      target: 36
+      tolerance: 3
+      units: arcsec/hour
+      solution: 12/20 = 0.6 arcsec/min = 36 arcsec/hour.
+      prompt: The object shifts 12 arcseconds in 20 minutes.
+      question: Estimate rate in arcseconds per minute and per hour.
+- title: Confirm the Motion
+  objective: Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.
+  briefing: Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry
+    without creating a false trajectory from inconsistent reference frames.
+  stake: A weak orbit can either lose the object or falsely place Earth in its path.
+  takeaway: Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather
+    than as isolated facts.
+  stops:
+  - group: OPS
+    task: Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?
+    title: Why do the measured positions disagree?
+    place: Follow-Up Telescope Network
+    scene: Follow-up astrometry from one wide-field camera curves away from the orbit fit, while a second telescope agrees.
+      The team must decide whether the asteroid accelerated unexpectedly or one observing system carries a position-dependent
+      bias.
+    takeaway: 'Astrometric residuals can diagnose the instrument: a bias that follows focal-plane position rather than the
+      moving object is a calibration signature.'
+    format: DIAGNOSIS
+    headline: Follow-up astrometry from one wide-field camera curves away from the orbit fit, while a second telescope agrees.
+    readings:
+    - zone: Asteroid residuals
+      label: Asteroid residuals
+      value: Grow toward field edge
+      status: alarm
+      note: Small near center, larger at large radius
+    - zone: Reference-star residuals
+      label: Reference-star residuals
+      value: Show the same spatial pattern
+      status: alarm
+      note: Not unique to the asteroid
+    - zone: Exposure timestamps
+      label: Exposure timestamps
+      value: Agree with observatory clock
+      status: alarm
+      note: No measurable timing jump
+    - zone: Second telescope
+      label: Second telescope
+      value: Agrees with predicted orbit
+      status: normal
+      note: Independent instrument does not see the offset
+    - zone: Distortion calibration
+      label: Distortion calibration
+      value: Older than current camera configuration
+      status: alarm
+      note: Geometric model may be stale
+    choices:
+    - label: Focal-plane distortion calibration error
+      mechanism: A position-dependent mapping from detector coordinates to sky coordinates biases both stars and asteroid
+        near the field edge.
+    - label: Real asteroid acceleration
+      mechanism: A physical force changes only the asteroid trajectory on the sky.
+    - label: Timing error
+      mechanism: Incorrect exposure time shifts moving-object positions while fixed reference stars remain correctly mapped.
+    - label: Catalog-wide star error
+      mechanism: The reference catalog is wrong in the same way for both telescopes and all field positions.
+    answer: Focal-plane distortion calibration error
+    why: The residual follows detector position and appears in reference stars, while timestamps are sound and a second telescope
+      agrees with the orbit. That pattern localizes the problem to the camera geometry model.
+  - group: ORBIT
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build the observation arc
+    place: Astrometry Lab
+    scene: Order the process.
+    takeaway: Prediction is the operational test of an astrometric model.
+    format: SEQUENCE
+    cards:
+    - Place every measurement in a common coordinate and time system.
+    - Fit a preliminary sky-plane motion model.
+    - Inspect residuals for station, time, or field-dependent structure.
+    - Predict the next uncertainty region and schedule follow-up.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: A preliminary model becomes useful when residuals are interrogated and predictions are tested.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Buy the best next observation
+    place: Time Standards Room
+    scene: Allocate 100 follow-up credits.
+    takeaway: The best follow-up is chosen for information gain, not convenience or publicity.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Another exposure immediately from the same telescope.
+    - label: B
+      text: A later observation that lengthens the time baseline.
+    - label: C
+      text: A geographically separated observation for parallax.
+    - label: D
+      text: A press release before confirmation.
+    recommended:
+      A: 20
+      B: 45
+      C: 35
+      D: 0
+    evidence: Allocate 100 follow-up credits.
+- title: An Orbit from Sparse Data
+  objective: Construct a family of allowed orbits and choose observations that collapse the dangerous dimensions.
+  briefing: Only a short arc is available, and many three-dimensional orbits project to nearly the same sky motion. The player
+    must reason with Keplerian motion and orbit families rather than report one overconfident solution.
+  stake: An overconfident nominal orbit can hide impact solutions that remain inside the uncertainty region.
+  takeaway: Use Keplerian orbits, state vectors, degeneracy, orbital elements, prediction as an evidence chain rather than
+    as isolated facts.
+  stops:
+  - group: ORBIT
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: From angles to orbit family
+    place: Orbit Determination Center
+    scene: Order the orbit-determination logic.
+    takeaway: Uncertainty should be propagated as an ensemble of physically allowed trajectories.
+    format: SEQUENCE
+    cards:
+    - Combine timed directions and any range information.
+    - Generate state vectors consistent with the observations and uncertainties.
+    - Propagate each allowed state under gravity.
+    - Compare future sky positions and Earth-approach distances across the family.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Sparse angular data define a region of state space, not a unique orbit.
+  - group: OPS
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Which orbit feature does the data constrain?
+    place: Celestial Mechanics Group
+    scene: Match each evidence type to its strongest contribution.
+    takeaway: Orbit determination is an information-geometry problem.
+    format: PROTOCOL
+    scenarios:
+    - Longer observation arc.
+    - Radar range.
+    - Radar range rate.
+    - Observations from widely separated Earth locations.
+    choices:
+    - Curvature and mean motion.
+    - Line-of-sight distance.
+    - Line-of-sight velocity.
+    - Parallax and distance geometry.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Different observations collapse different orbit degeneracies.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Collapse the orbit uncertainty
+    place: Follow-Up Scheduling Desk
+    scene: Allocate 100 credits.
+    takeaway: A sharper-looking orbit is not a better orbit unless new evidence narrows the allowed family.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Obtain radar range if geometry permits.
+    - label: B
+      text: Extend optical tracking over additional nights.
+    - label: C
+      text: Improve the nominal orbit display without changing data.
+    - label: D
+      text: Observe from a second hemisphere or long baseline.
+    recommended:
+      A: 35
+      B: 40
+      C: 0
+      D: 25
+    evidence: Allocate 100 credits.
+- title: The Uncertainty Corridor
+  objective: Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.
+  briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret
+    probability, covariance, and nonlinear propagation without confusing low probability with zero consequence.
+  stake: Poor communication can either create panic or delay preparations for a genuine low-probability, high-consequence
+    threat.
+  takeaway: Use probability distributions, covariance, nonlinear propagation, risk corridors, decision thresholds as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: IMPACT
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Read the risk correctly
+    place: Impact Monitoring Center
+    scene: Match each statement to the scientifically defensible interpretation.
+    takeaway: Planetary-defense risk lives in the distribution, not just the best-fit trajectory.
+    format: PROTOCOL
+    scenarios:
+    - Nominal orbit misses Earth.
+    - A small fraction of allowed orbits intersect Earth.
+    - New data remove most impact solutions.
+    - Probability rises after an observation even though the nominal miss distance increases.
+    choices:
+    - A miss is not guaranteed while uncertainty remains.
+    - Impact probability is nonzero and should be monitored.
+    - Risk has decreased because the allowed region changed.
+    - Nonlinear geometry can redistribute probability; inspect the full solution set.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Nominal values and integrated probabilities answer different questions.
+  - group: ORBIT
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Probability from an ensemble
+    place: Statistical Orbit Lab
+    scene: In a simplified Monte Carlo set, 37 of 100,000 allowed trajectories strike Earth.
+    takeaway: A tiny probability can be estimated only with enough samples and a valid uncertainty model.
+    format: BALLPARK
+    question: Estimate probability as a decimal and percent.
+    estimate:
+      labels:
+      - 37 impacting samples
+      - 100000 total samples
+      values:
+      - 37
+      - 100000
+      slots: 2
+      template: '{0}/{1} x 100'
+      formula: a/b*100
+      correct:
+      - 0
+      - 1
+      target: 0.037
+      tolerance: 0.004
+      units: '%'
+      solution: 37/100000 = 3.7e-4 = 0.037%.
+      prompt: In a simplified Monte Carlo set, 37 of 100,000 allowed trajectories strike Earth.
+      question: Estimate probability as a decimal and percent.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Reduce the dangerous uncertainty
+    place: Planetary Defense Coordination Office
+    scene: Allocate 100 credits.
+    takeaway: The best observation separates the live hypotheses rather than merely adding another point.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Observe where predicted positions differ most among impact and non-impact solutions.
+    - label: B
+      text: Repeat low-leverage images that all solutions predict equally.
+    - label: C
+      text: Improve timing and astrometric bias calibration.
+    - label: D
+      text: Run independent orbit software and assumptions.
+    recommended:
+      A: 40
+      B: 10
+      C: 25
+      D: 25
+    evidence: Allocate 100 credits.
+- title: How Large Is It?
+  objective: Produce a diameter range rather than a single unsupported value.
+  briefing: "The object\u2019s brightness is known, but size depends strongly on reflectivity. The player must combine photometry,\
+    \ albedo, and thermal evidence to bound diameter."
+  stake: Impact energy depends strongly on size, so a factor-of-two diameter error becomes a much larger mass and energy error.
+  takeaway: Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than
+    as isolated facts.
+  stops:
+  - group: CHAR
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: What controls apparent brightness?
+    place: Photometry Lab
+    scene: Match each factor to its role.
+    takeaway: A bright asteroid is not necessarily large.
+    format: PROTOCOL
+    scenarios:
+    - Larger cross-sectional area.
+    - Higher reflectivity.
+    - Greater distance from the Sun.
+    - Greater distance from the observer.
+    choices:
+    - Usually increases reflected flux.
+    - Increases reflected flux for the same size and geometry.
+    - Reduces illumination.
+    - Reduces received flux through geometric spreading.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Brightness entangles size, reflectivity, and geometry.
+  - group: OPS
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Diameter-albedo degeneracy
+    place: Infrared Telescope Team
+    scene: Two objects have the same reflected brightness, but one has four times the albedo.
+    takeaway: Photometry alone cannot uniquely determine size without an albedo assumption.
+    format: BALLPARK
+    question: "How does the higher-albedo object\u2019s diameter compare?"
+    estimate:
+      labels:
+      - 4 x albedo
+      - 1 x reference brightness
+      values:
+      - 4
+      - 1
+      slots: 2
+      template: sqrt({1}/{0})
+      formula: Math.sqrt(b/a)
+      correct:
+      - 0
+      - 1
+      target: 0.5
+      tolerance: 0.05
+      units: diameter ratio
+      solution: At fixed reflected brightness, four times the albedo permits about half the diameter.
+      prompt: Two objects have the same reflected brightness, but one has four times the albedo.
+      question: "How does the higher-albedo object\u2019s diameter compare?"
+  - group: CHAR
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Bound the diameter
+    place: Physical Characterization Group
+    scene: Allocate 100 characterization credits.
+    takeaway: Physical characterization improves when methods break the same degeneracy in independent ways.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Thermal-infrared measurement.
+    - label: B
+      text: Multi-band reflected-light photometry and phase behavior.
+    - label: C
+      text: Assume the average albedo of a familiar asteroid class.
+    - label: D
+      text: Radar size constraints if available.
+    recommended:
+      A: 40
+      B: 25
+      C: 10
+      D: 25
+    evidence: Allocate 100 characterization credits.
+- title: What Is It Made Of?
+  objective: Assign a composition class with explicit alternatives and confidence.
+  briefing: Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player
+    must avoid turning a taxonomic resemblance into an exact material claim.
+  stake: Composition affects density, fragmentation, and deflection response, so an unsupported label can distort every later
+    model.
+  takeaway: Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated
+    facts.
+  stops:
+  - group: CHAR
+    task: Which explanation fits the target, standard star, airmass, and space-based comparison?
+    title: Real absorption or spectral artifact?
+    place: Spectroscopy Observatory
+    scene: A spectrum seems to show a broad absorption feature that could change the inferred surface composition. The spectroscopy
+      team checks whether the feature belongs to the asteroid, Earth atmosphere, or the detector.
+    takeaway: A spectrum contains the telescope, detector, Earth atmosphere, and target all at once; composition requires
+      separating those layers.
+    format: DIAGNOSIS
+    headline: A spectrum seems to show a broad absorption feature that could change the inferred surface composition.
+    readings:
+    - zone: Asteroid spectrum
+      label: Asteroid spectrum
+      value: Broad dip near 1.4 microns
+      status: alarm
+      note: Candidate composition feature
+    - zone: Standard-star spectrum
+      label: Standard-star spectrum
+      value: Dip at the same wavelength
+      status: alarm
+      note: Observed through the same atmosphere
+    - zone: Airmass dependence
+      label: Airmass dependence
+      value: Feature deepens at larger airmass
+      status: alarm
+      note: Tracks atmospheric path length
+    - zone: Detector flat field
+      label: Detector flat field
+      value: Stable
+      status: normal
+      note: No matching pixel-scale sensitivity defect
+    - zone: Space-based spectrum
+      label: Space-based spectrum
+      value: Feature absent
+      status: alarm
+      note: No terrestrial atmosphere in that observation
+    choices:
+    - label: Asteroid mineral absorption
+      mechanism: Surface material absorbs light at that wavelength.
+    - label: Telluric atmospheric absorption
+      mechanism: Molecules in Earth atmosphere imprint the same wavelength-dependent feature on ground-based spectra.
+    - label: Detector flat-field error
+      mechanism: Pixel sensitivity creates a fixed instrumental dip independent of atmospheric path.
+    - label: Random noise
+      mechanism: An uncorrelated fluctuation happens to mimic a broad repeatable feature.
+    answer: Telluric atmospheric absorption
+    why: The feature appears in the standard star, strengthens with airmass, is absent from space, and is not tied to detector
+      flat-field structure. It belongs to Earth atmosphere, not the asteroid.
+  - group: OPS
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: From photons to composition class
+    place: Meteorite Comparison Lab
+    scene: Order the inference chain.
+    takeaway: A good composition result retains the plausible alternatives.
+    format: SEQUENCE
+    cards:
+    - Calibrate solar, atmospheric, and instrument response.
+    - Measure reflectance as a function of wavelength.
+    - Identify robust features and compare multiple physical models.
+    - Report supported classes, alternatives, and needed follow-up.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Calibration precedes feature interpretation and model comparison.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Improve the composition claim
+    place: Composition Review Room
+    scene: Allocate 100 credits.
+    takeaway: Characterization should seek discriminating evidence rather than stronger labels.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Extend wavelength coverage.
+    - label: B
+      text: Observe at additional phase angles or rotations.
+    - label: C
+      text: Obtain polarimetry or radar texture constraints.
+    - label: D
+      text: Rename the asteroid after the preferred composition.
+    recommended:
+      A: 40
+      B: 25
+      C: 35
+      D: 0
+    evidence: Allocate 100 credits.
+- title: The Spinning Target
+  objective: Produce a rotation-state range suitable for imaging and deflection planning.
+  briefing: Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive
+    a period, identify aliases, and determine whether the body may be tumbling.
+  stake: A mistimed encounter can image or strike the wrong face of the asteroid.
+  takeaway: Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated
+    facts.
+  stops:
+  - group: CHAR
+    task: Which explanation fits the repeatability, comparison stars, filters, and observing geometry?
+    title: Rotation or observing artifact?
+    place: Time-Series Photometry Network
+    scene: The asteroid brightens and fades by a few tenths of a magnitude. The team wants to use the pattern to infer spin,
+      but first it must prove that the periodicity belongs to the object rather than clouds or detector drift.
+    takeaway: Periodicity becomes physical evidence only after environmental and instrumental periodicities are ruled out.
+    format: DIAGNOSIS
+    headline: The asteroid brightens and fades by a few tenths of a magnitude.
+    readings:
+    - zone: Asteroid brightness
+      label: Asteroid brightness
+      value: Repeats every 4.8 hours
+      status: alarm
+      note: Pattern appears across two nights
+    - zone: Comparison stars
+      label: Comparison stars
+      value: Stable to within measurement noise
+      status: normal
+      note: Sky transparency and calibration remain steady
+    - zone: Two filters
+      label: Two filters
+      value: Same period in both
+      status: alarm
+      note: Not confined to one detector response band
+    - zone: Detector position
+      label: Detector position
+      value: Object lands on different pixels
+      status: alarm
+      note: Pattern does not follow one pixel region
+    - zone: Phase-angle trend
+      label: Phase-angle trend
+      value: Slow monotonic change only
+      status: alarm
+      note: Too slow to create the repeating cycle
+    choices:
+    - label: Asteroid rotation
+      mechanism: An irregular shape or surface pattern presents changing projected brightness as the body spins.
+    - label: Passing clouds
+      mechanism: Atmospheric transparency changes all sources together.
+    - label: Detector sensitivity drift
+      mechanism: One detector region changes response with time.
+    - label: Phase-angle change
+      mechanism: The Sun-object-observer geometry changes brightness smoothly over the observing span.
+    answer: Asteroid rotation
+    why: The cycle repeats while comparison stars remain stable, survives different filters and pixels, and is much faster
+      than the phase-angle trend. The periodicity belongs to the asteroid.
+  - group: OPS
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Rotation period from repeating peaks
+    place: Rotation Dynamics Lab
+    scene: Similar maxima are separated by 3.5 hours, but an elongated body may show two maxima per rotation.
+    takeaway: A measured repetition time is not always the physical period.
+    format: BALLPARK
+    question: Estimate the candidate period.
+    estimate:
+      labels:
+      - 3.5 h between similar peaks
+      - 2 similar maxima per rotation
+      values:
+      - 3.5
+      - 2
+      slots: 2
+      template: '{0} x {1}'
+      formula: a*b
+      correct:
+      - 0
+      - 1
+      target: 7
+      tolerance: 0.5
+      units: h
+      solution: Candidate rotation period is about 7 h.
+      prompt: Similar maxima are separated by 3.5 hours, but an elongated body may show two maxima per rotation.
+      question: Estimate the candidate period.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Resolve the spin state
+    place: Mission Design Office
+    scene: Allocate 100 credits.
+    takeaway: Mission timing should be based on a rotation model tested across time and viewpoint.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Coordinate continuous longitude coverage.
+    - label: B
+      text: Obtain higher-cadence photometry during one short interval only.
+    - label: C
+      text: Combine light curves over changing viewing geometry.
+    - label: D
+      text: Plan the mission using one provisional period.
+    recommended:
+      A: 40
+      B: 15
+      C: 40
+      D: 5
+    evidence: Allocate 100 credits.
+- title: Radar Contact
+  objective: Design a radar sequence that improves both orbit and physical characterization.
+  briefing: A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and
+    reveal shape, but only if the observation plan uses the limited signal effectively.
+  stake: Missing the radar window can leave years of orbit and size uncertainty unresolved.
+  takeaway: Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than
+    as isolated facts.
+  stops:
+  - group: RADAR
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: What does radar measure?
+    place: Planetary Radar Facility
+    scene: Match each observable to its direct information.
+    takeaway: Active sensing can transform orbit and shape knowledge during a short window.
+    format: PROTOCOL
+    scenarios:
+    - Echo delay.
+    - Doppler frequency spread.
+    - Echo power versus delay.
+    - Repeated delay-Doppler images.
+    choices:
+    - Range.
+    - Distribution of line-of-sight rotational velocities.
+    - Range-resolved reflecting area and scattering.
+    - Changing shape and rotation constraints.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Radar separates distance and radial velocity dimensions that optical images often entangle.
+  - group: OPS
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Range from radar delay
+    place: Delay-Doppler Analysis Lab
+    scene: A radar echo returns after 4.0 seconds.
+    takeaway: The factor of two reflects the outbound and return travel.
+    format: BALLPARK
+    question: Estimate range.
+    estimate:
+      labels:
+      - 3.0e8 m/s
+      - 4.0 s round-trip
+      - 2 for outbound+return
+      values:
+      - 300000000.0
+      - 4
+      - 2
+      slots: 3
+      template: '{0} x {1} / {2}'
+      formula: a*b/c
+      correct:
+      - 0
+      - 1
+      - 2
+      target: 600000000.0
+      tolerance: 50000000.0
+      units: m
+      solution: Range = ct/2 = 6.0e8 m.
+      prompt: A radar echo returns after 4.0 seconds.
+      question: Estimate range.
+  - group: ORBIT
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Use the radar window
+    place: Orbit Center
+    scene: Allocate 100 observing credits.
+    takeaway: Scarce observing time should target information unavailable from routine methods.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: High-precision range and range-rate measurements.
+    - label: B
+      text: Delay-Doppler imaging across rotation.
+    - label: C
+      text: Calibration and background observations.
+    - label: D
+      text: Spend the window repeating an optical brightness measurement.
+    recommended:
+      A: 40
+      B: 35
+      C: 20
+      D: 5
+    evidence: Allocate 100 observing credits.
+- title: Impact Energy
+  objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
+  briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity
+    spans a wide range. The player must compute scales without presenting a false point estimate.
+  stake: An exaggerated point estimate can create panic; an understated one can leave emergency planning unprepared.
+  takeaway: Use mass and density, kinetic energy, scaling, uncertainty propagation, orders of magnitude as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: IMPACT
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Energy of a notional impactor
+    place: Impact Physics Group
+    scene: Use a simplified spherical object.
+    takeaway: Impact energy couples geometric, material, and orbital measurements.
+    format: BALLPARK
+    question: Estimate mass and kinetic energy.
+    estimate:
+      labels:
+      - 50 m radius
+      - 3000 kg/m^3 density
+      - 20000 m/s speed
+      values:
+      - 50
+      - 3000
+      - 20000
+      slots: 3
+      template: "0.5 x ((4\u03C0/3){0}^3 {1}) x {2}^2"
+      formula: 0.5*((4*Math.PI/3)*a*a*a*b)*c*c
+      correct:
+      - 0
+      - 1
+      - 2
+      target: 3.1416e+17
+      tolerance: 4.0e+16
+      units: J
+      solution: Mass is about 1.6e9 kg and kinetic energy about 3.1e17 J.
+      prompt: Use a simplified spherical object.
+      question: Estimate mass and kinetic energy.
+  - group: OPS
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Which uncertainty dominates?
+    place: Risk Analysis Center
+    scene: Match each parameter error to its energy effect.
+    takeaway: The most important measurement is often the one attached to the steepest scaling.
+    format: PROTOCOL
+    scenarios:
+    - Diameter is 20% larger.
+    - Density doubles.
+    - Speed is 10% larger.
+    - Albedo assumption changes inferred diameter by a factor of two.
+    choices:
+    - "Mass and energy rise by about 1.2\xB3 \u2248 1.73."
+    - Mass and energy double.
+    - "Energy rises by about 1.1\xB2 \u2248 1.21."
+    - Energy can change by about a factor of eight through size alone.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Energy scales linearly with density, cubically with diameter, and quadratically with speed.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Reduce consequence uncertainty
+    place: Emergency Planning Office
+    scene: Allocate 100 credits.
+    takeaway: Risk communication should show how physical uncertainty maps into consequence uncertainty.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Improve diameter with thermal or radar data.
+    - label: B
+      text: Improve density using composition and dynamical analogs.
+    - label: C
+      text: Refine impact speed and angle.
+    - label: D
+      text: Report only the most dramatic scenario.
+    recommended:
+      A: 45
+      B: 25
+      C: 30
+      D: 0
+    evidence: Allocate 100 credits.
+- title: Through the Atmosphere
+  objective: Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.
+  briefing: Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging
+    airburst. The player must reason about drag, strength, heating, and uncertain structure.
+  stake: Evacuation distance and shelter guidance can change dramatically between airburst and ground-impact scenarios.
+  takeaway: Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated
+    facts.
+  stops:
+  - group: IMPACT
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build an atmospheric entry model
+    place: Atmospheric Entry Lab
+    scene: Order the coupled reasoning.
+    takeaway: Atmospheric outcome is a coupled trajectory and materials problem.
+    format: SEQUENCE
+    cards:
+    - Specify mass, shape, speed, angle, strength, and atmospheric profile.
+    - Compute drag, heating, and dynamic pressure along the path.
+    - Compare loads with fragmentation and ablation criteria.
+    - Propagate fragments and energy deposition to consequence estimates.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Initial physical properties drive loads, which drive breakup and energy deposition.
+  - group: OPS
+    task: Which atmospheric-entry outcome best fits the optical, deceleration, infrasound, and ground evidence?
+    title: Why did the object break up high in the atmosphere?
+    place: High-Altitude Observation Network
+    scene: Models disagree about whether a notional object would remain intact to low altitude or fragment earlier. A simulated
+      observation set shows rapid slowing and a bright high-altitude energy release.
+    takeaway: Entry outcome is inferred from several energy-transfer signatures; brightness alone cannot tell where or how
+      the energy was deposited.
+    format: DIAGNOSIS
+    headline: Models disagree about whether a notional object would remain intact to low altitude or fragment earlier.
+    readings:
+    - zone: Optical light curve
+      label: Optical light curve
+      value: Rapid brightening at high altitude
+      status: alarm
+      note: Energy release occurs before the ground
+    - zone: Measured speed
+      label: Measured speed
+      value: Falls quickly during bright phase
+      status: alarm
+      note: Strong atmospheric deceleration
+    - zone: Infrasound
+      label: Infrasound
+      value: Broad atmospheric pulse
+      status: alarm
+      note: Consistent with distributed energy release
+    - zone: Seismic/crater signal
+      label: Seismic/crater signal
+      value: None detected
+      status: alarm
+      note: No large intact ground impact
+    - zone: Fragment tracks
+      label: Fragment tracks
+      value: Multiple fading paths
+      status: alarm
+      note: Body separates during entry
+    choices:
+    - label: Atmospheric fragmentation / airburst
+      mechanism: Aerodynamic loading breaks the object and deposits much of its energy in the atmosphere.
+    - label: Intact ground impact
+      mechanism: The body remains coherent and transfers most energy at the surface.
+    - label: Pure observational artifact
+      mechanism: The apparent breakup exists only because optical instruments saturate.
+    - label: No significant atmospheric interaction
+      mechanism: The object keeps nearly constant speed and structure through the atmosphere.
+    answer: Atmospheric fragmentation / airburst
+    why: High-altitude brightening, rapid deceleration, an atmospheric pressure-wave signal, multiple fragments, and no corresponding
+      crater form one coherent fragmentation picture.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Bound the atmospheric outcome
+    place: Consequence Modeling Center
+    scene: Allocate 100 credits.
+    takeaway: "Consequence models should expose structural uncertainty rather than bury it in one asteroid \u201Ctype.\u201D"
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Run strength and density ensembles rather than one model.
+    - label: B
+      text: Use analog fireball observations.
+    - label: C
+      text: Improve entry angle and speed.
+    - label: D
+      text: Assume every object of the same diameter behaves identically.
+    recommended:
+      A: 40
+      B: 30
+      C: 30
+      D: 0
+    evidence: Allocate 100 credits.
+- title: What Have We Failed to See?
+  objective: Design a survey strategy that improves detection and accurately reports what remains unseen.
+  briefing: The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player
+    must quantify selection effects and improve future completeness.
+  stake: The next dangerous object may occupy exactly the region the current survey systematically neglects.
+  takeaway: Use selection effects, survey completeness, limiting magnitude, cadence, population inference as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: OPS
+    task: Which explanation fits the pre-discovery geometry and the survey operating record?
+    title: Why was it missed?
+    place: Survey Strategy Center
+    scene: The object is discovered later than expected even though its brightness would normally be within survey reach.
+      The survey team must determine whether depth, weather, cadence, or sky geometry created the blind spot.
+    takeaway: Survey completeness is geometric as well as instrumental; an object can be bright enough yet effectively hidden
+      by the Sun.
+    format: DIAGNOSIS
+    headline: The object is discovered later than expected even though its brightness would normally be within survey reach.
+    readings:
+    - zone: Solar elongation before discovery
+      label: Solar elongation before discovery
+      value: Less than about 30 degrees
+      status: alarm
+      note: Object stayed close to the Sun on the sky
+    - zone: Predicted apparent brightness
+      label: Predicted apparent brightness
+      value: Within survey depth when in dark sky
+      status: alarm
+      note: Sensitivity would otherwise be adequate
+    - zone: Weather archive
+      label: Weather archive
+      value: Mostly clear
+      status: alarm
+      note: Clouds do not explain the missing weeks
+    - zone: Detector health
+      label: Detector health
+      value: Normal
+      status: normal
+      note: No prolonged camera outage
+    - zone: Survey cadence
+      label: Survey cadence
+      value: Covers the region after elongation increases
+      status: alarm
+      note: Detection follows emergence from solar glare
+    choices:
+    - label: Solar-elongation blind spot
+      mechanism: The object is geometrically too close to the Sun for normal night-sky survey coverage.
+    - label: Survey not deep enough
+      mechanism: The object is always fainter than the system detection limit.
+    - label: Bad weather
+      mechanism: Cloud cover repeatedly blocks the relevant fields.
+    - label: Pipeline/detector outage
+      mechanism: The camera or processing system fails during otherwise observable opportunities.
+    answer: Solar-elongation blind spot
+    why: The object is bright enough and the system is healthy, but it remains close to the Sun until shortly before discovery.
+      The timing of detection follows the changing observing geometry.
+  - group: OPS
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Volume gain from deeper sensitivity
+    place: Telescope Network
+    scene: A survey can detect a standard object twice as far away after an upgrade.
+    takeaway: Small gains in distance can produce large gains in searchable volume.
+    format: BALLPARK
+    question: Estimate the volume factor.
+    estimate:
+      labels:
+      - 2 x maximum distance
+      values:
+      - 2
+      slots: 1
+      template: '{0}^3'
+      formula: a*a*a
+      correct:
+      - 0
+      target: 8
+      tolerance: 0.5
+      units: volume factor
+      solution: Doubling distance gives about 2^3 = 8 times the idealized searchable volume.
+      prompt: A survey can detect a standard object twice as far away after an upgrade.
+      question: Estimate the volume factor.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Improve discovery completeness
+    place: Population Statistics Lab
+    scene: Allocate 100 survey credits.
+    takeaway: Completeness is measured by simulated recovery and known biases, not by absence of discoveries.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Greater depth for faint objects.
+    - label: B
+      text: Cadence optimized for linking motion.
+    - label: C
+      text: Wider sky and hemisphere coverage.
+    - label: D
+      text: Publish completeness as 100% because no unknown objects are catalogued.
+    recommended:
+      A: 35
+      B: 30
+      C: 35
+      D: 0
+    evidence: Allocate 100 survey credits.
+- title: Can We Move It?
+  objective: Choose a deflection demonstration and define how success will be measured.
+  briefing: Impact probability remains significant, and a reconnaissance mission could arrive years before encounter. The
+    player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.
+  stake: A poorly characterized intervention could fragment the object, miss the target, or fail to produce enough orbital
+    change.
+  takeaway: Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.
+  stops:
+  - group: IMPACT
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Velocity change from momentum transfer
+    place: Deflection Physics Lab
+    scene: "A 1,000 kg impactor strikes a 1.0\xD710^9 kg asteroid at 10,000 m/s in a perfectly inelastic lower-bound estimate."
+    takeaway: Deflection relies on small velocity change plus long lead time.
+    format: BALLPARK
+    question: Estimate asteroid velocity change.
+    estimate:
+      labels:
+      - 1.0e7 kg m/s transferred momentum
+      - 1.0e9 kg asteroid mass
+      values:
+      - 10000000.0
+      - 1000000000.0
+      slots: 2
+      template: '{0}/{1}'
+      formula: a/b
+      correct:
+      - 0
+      - 1
+      target: 0.01
+      tolerance: 0.001
+      units: m/s
+      solution: "\u0394v is about 0.01 m/s."
+      prompt: "A 1,000 kg impactor strikes a 1.0\xD710^9 kg asteroid at 10,000 m/s in a perfectly inelastic lower-bound estimate."
+      question: Estimate asteroid velocity change.
+  - group: IMPACT
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: What determines deflection success?
+    place: Mission Engineering Center
+    scene: Match each factor to its role.
+    takeaway: Deflection is an experiment whose dependent variable is the asteroid orbit.
+    format: PROTOCOL
+    scenarios:
+    - Longer lead time.
+    - Unknown asteroid mass.
+    - Uncertain momentum enhancement from ejecta.
+    - Post-impact tracking.
+    choices:
+    - "More displacement accumulates from the same \u0394v."
+    - "Makes predicted \u0394v uncertain."
+    - Changes effective transferred momentum.
+    - Measures actual orbit change rather than assumed performance.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Mission outcome depends on both applied impulse and verified orbital response.
+  - group: ORBIT
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Build the deflection campaign
+    place: Orbit Monitoring Room
+    scene: Allocate 100 credits.
+    takeaway: A deflection mission should be designed to learn its actual momentum transfer.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Reconnaissance to measure mass, shape, and rotation.
+    - label: B
+      text: Kinetic-impact mission with navigational margins.
+    - label: C
+      text: Long-term tracking before and after impact.
+    - label: D
+      text: Skip characterization to launch sooner regardless of uncertainty.
+    recommended:
+      A: 30
+      B: 40
+      C: 30
+      D: 0
+    evidence: Allocate 100 credits.
+- title: Design the Intercept
+  objective: Select an intercept architecture with enough margin to reach and accurately target the asteroid.
+  briefing: The mission must launch within a narrow window and encounter a rotating, irregular target with limited communications
+    delay. The player must integrate orbital mechanics, navigation, power, and autonomy.
+  stake: Missing the launch window or target can consume the only remaining lead time.
+  takeaway: Use launch windows, relative motion, guidance, power, communications delay as an evidence chain rather than as
+    isolated facts.
+  stops:
+  - group: OPS
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Which subsystem owns the constraint?
+    place: Trajectory Design Center
+    scene: Match each mission challenge to the strongest design response.
+    takeaway: An intercept is a coordinated prediction-and-control problem.
+    format: PROTOCOL
+    scenarios:
+    - Launch opportunity occurs only during a short geometry window.
+    - Target ephemeris uncertainty grows near encounter.
+    - Round-trip communication delay prevents real-time piloting.
+    - The target face changes with rotation.
+    choices:
+    - Protect schedule and launch readiness.
+    - Use optical navigation and late orbit updates.
+    - Provide autonomous guidance and fault response.
+    - Model rotation and target a robust impact region.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Mission design maps physical constraints into subsystem requirements.
+  - group: OPS
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build the intercept architecture
+    place: Spacecraft Systems Lab
+    scene: Order the design chain.
+    takeaway: Mission architecture should be traced from outcome to testable requirements.
+    format: SEQUENCE
+    cards:
+    - Define encounter geometry and required effect.
+    - Choose launch, cruise, and navigation strategy.
+    - Design autonomous terminal guidance and verification measurements.
+    - Test the integrated mission against off-nominal target states.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: The desired physical effect determines trajectory and guidance, which must then survive uncertainty.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Spend mission margin
+    place: Autonomy Test Range
+    scene: Allocate 100 margin credits.
+    takeaway: A successful planetary-defense mission is robust, not merely impressive at nominal conditions.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Additional launch-energy or trajectory flexibility.
+    - label: B
+      text: Better target ephemeris and onboard optical navigation.
+    - label: C
+      text: Redundant critical spacecraft functions.
+    - label: D
+      text: Maximize one headline performance number at the expense of all reserves.
+    recommended:
+      A: 30
+      B: 40
+      C: 30
+      D: 0
+    evidence: Allocate 100 margin credits.
+- title: Evacuate or Wait?
+  objective: Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.
+  briefing: The impact corridor crosses populated regions, but the probability is still changing. The player must connect
+    scientific uncertainty to staged civil decisions and avoid both complacency and panic.
+  stake: Bad communication can create casualties during an unnecessary evacuation or leave people unprepared for a real impact.
+  takeaway: Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: OPS
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Match action to evidence state
+    place: Risk Communication Center
+    scene: Match each state to a proportionate response.
+    takeaway: Preparedness can escalate in stages without claiming certainty.
+    format: PROTOCOL
+    scenarios:
+    - Very low probability with years of lead time.
+    - Rising probability with a stable regional corridor.
+    - High probability with days remaining.
+    - Probability falls after decisive tracking.
+    choices:
+    - Continue tracking and low-cost preparedness.
+    - Pre-position resources and plan corridor-specific evacuations.
+    - Execute protective actions under emergency authority.
+    - Scale back actions transparently while preserving lessons.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Action thresholds depend on consequence, lead time, and reversibility, not probability alone.
+  - group: OPS
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Expected displaced population
+    place: Emergency Management Office
+    scene: A simplified corridor contains 2 million people and current impact probability is 0.5%.
+    takeaway: Decision metrics must be interpreted according to the distribution they summarize.
+    format: BALLPARK
+    question: Compute the expectation and explain why it is not an evacuation count.
+    estimate:
+      labels:
+      - 2.0e6 exposed population
+      - 0.005 probability
+      values:
+      - 2000000.0
+      - 0.005
+      slots: 2
+      template: '{0} x {1}'
+      formula: a*b
+      correct:
+      - 0
+      - 1
+      target: 10000
+      tolerance: 800
+      units: people (expectation)
+      solution: The narrow mathematical expectation is 10,000 people; it is not an evacuation count.
+      prompt: A simplified corridor contains 2 million people and current impact probability is 0.5%.
+      question: Compute the expectation and explain why it is not an evacuation count.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Prepare without panic
+    place: Scientific Advisory Board
+    scene: Allocate 100 preparedness credits.
+    takeaway: Public trust is protected when uncertainty is paired with concrete decision rules.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Improve tracking and corridor definition.
+    - label: B
+      text: Build reversible evacuation and shelter plans.
+    - label: C
+      text: Communicate uncertainty, triggers, and protective steps.
+    - label: D
+      text: Announce an inevitable impact before the orbit is resolved.
+    recommended:
+      A: 35
+      B: 30
+      C: 35
+      D: 0
+    evidence: Allocate 100 preparedness credits.
+- title: The Final Defense Review
+  objective: Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat
+    passes.
+  briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked,
+    and which civil preparations remain necessary.
+  stake: Success against one object can create dangerous complacency about the larger unseen population.
+  takeaway: Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: OPS
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Disposition the final claims
+    place: International Review Hall
+    scene: Match each evidence state to the correct board decision.
+    takeaway: Planetary defense is a continuing evidence system, not a one-time heroic act.
+    format: PROTOCOL
+    scenarios:
+    - Post-impact tracking shows the required orbit shift with independent confirmation.
+    - The nominal miss is safe, but a poorly constrained tail remains.
+    - Civil plans are ready but based on an outdated corridor.
+    - The object is no longer threatening, but survey gaps remain.
+    choices:
+    - Accept the deflection claim and continue verification.
+    - Continue targeted observations; do not collapse the distribution to the nominal.
+    - Update plans before operational use.
+    - Fund long-term survey and preparedness improvements.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Final review separates mission success, residual orbital uncertainty, civil readiness, and future capability.
+  - group: ORBIT
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build the final public record
+    place: Orbit Monitoring Center
+    scene: Order the synthesis.
+    takeaway: Public accountability should preserve both technical reasoning and decision authority.
+    format: SEQUENCE
+    cards:
+    - State the discovery history and evolving uncertainty.
+    - Explain physical characterization and consequence ranges.
+    - Document intervention, measured orbit change, and residual risk.
+    - Publish long-term monitoring, survey, and governance responsibilities.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: The record follows the chain from detection through stewardship.
+  - group: OPS
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Fund the planetary-defense legacy
+    place: Mission Operations
+    scene: Allocate 100 long-term credits.
+    takeaway: The durable defense is an institution that can repeatedly detect, learn, decide, and act.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Survey completeness and rapid follow-up networks.
+    - label: B
+      text: Characterization and deflection demonstration missions.
+    - label: C
+      text: International decision protocols and civil preparedness.
+    - label: D
+      text: Assume the next object will be found early automatically.
+    recommended:
+      A: 35
+      B: 35
+      C: 30
+      D: 0
+    evidence: Allocate 100 long-term credits.

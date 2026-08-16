@@ -126,7 +126,7 @@ export const INTERIORS = {
           "status": "high"
         },
         {
-          "label": "Forecast",
+          "label": "Forecast, day 8",
           "value": "10 to 18",
           "status": "normal"
         }

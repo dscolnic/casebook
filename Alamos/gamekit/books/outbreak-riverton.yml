@@ -264,6 +264,12 @@ roster:
 
 # Terms the game may explain in place.
 glossary:
+  - name: Epidemiology
+    aliases:
+      - epidemiology
+      - epidemiologist
+      - epidemiological
+    def: The study of how health events are spread through a population, and what makes them spread that way.
   - name: Antibody
     aliases:
       - antibody
@@ -376,14 +382,16 @@ missions:
         task: Is this a signal, and what on the desk decides it?
         title: Signal or noise?
         place: Emergency Department Network
-        scene: Seven patients across three hospitals, four days, and the same four symptoms in every one of them. Morales has the surveillance printout, the reporting routes and the catchment figures spread out on the desk. The press office has asked twice whether it should say anything. Nothing goes out until somebody calls this.
-        takeaway: A count becomes a signal only when something says what was expected instead.
+        scene: Seven patients across three hospitals, four days, and the same four symptoms. Dr. Sofia Morales, the epidemiology lead, has the surveillance printout, reporting routes and catchment figures on the desk. The press office has asked twice whether it should say anything.
         assumes:
           - a rate is a count measured against a population and a length of time
           - surveillance only sees the patients who reached it
+          - epidemiology is the study of how health events are distributed in populations and what factors shape them
+        takeaway: A count becomes a signal only when something says what was expected instead.
         format: DIAGNOSIS
-        headline: Seven cases in four days, against a syndrome the city logs about twice a year.
         question: Is this a signal, and what on the desk decides it?
+        why: "A count is not a signal. What makes it one is a comparison against something written down beforehand, and the baseline here is about two a year — so seven in four days is a departure of a couple of hundredfold, not a busy week. The reading that matters most is the quiet one: two of the seven were found on manual chart review, outside the alert rule. Had every case arrived through that one rule, the cluster could have belonged to the rule. Two found another way is what makes it real."
+        headline: Seven cases in four days, against a syndrome the city logs about twice a year.
         readings:
           - zone: Count
             label: Cases meeting the syndrome
@@ -419,7 +427,6 @@ missions:
           - label: Impossible to say — there is no denominator
             mechanism: Seven is a numerator
         answer: A real departure from the baseline
-        why: "A count is not a signal. What makes it one is a comparison against something written down beforehand, and the baseline here is about two a year — so seven in four days is a departure of a couple of hundredfold, not a busy week. The reading that matters most is the quiet one: two of the seven were found on manual chart review, outside the alert rule. Had every case arrived through that one rule, the cluster could have belonged to the rule. Two found another way is what makes it real."
         rebuttals:
           - The alert rule is the right worry, and it is the one this panel rules out. Five cases came through it and two did not, so the pattern survives being looked for a second way.
           - Autumn respiratory illness would lift the other syndromes with it. The panel shows those flat, so whatever this is, it is not the season.
@@ -428,12 +435,13 @@ missions:
         task: Order the build so each step can be checked before the next one depends on it.
         title: Build the provisional case definition
         place: Epidemiology Operations Room
-        scene: Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Lena Ortiz, who runs clinical physiology, wants one definition, built in the right order.
-        takeaway: Operational definitions convert vague concern into reproducible observation.
-        format: SEQUENCE
+        scene: Three hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.
         assumes:
           - a curve is only meaningful if every hospital counted the same thing
           - a test can be wrong by missing cases or by counting the wrong ones
+        takeaway: Operational definitions convert vague concern into reproducible observation.
+        format: SEQUENCE
+        why: A case definition is an instrument, and like any instrument it is wrong in a known direction. Too narrow and the spread is invisible; too wide and the count fills with the ordinary respiratory illness of a city in autumn. That is why it is tested twice before it is issued — against patients already known to be cases, which catches a definition that is too narrow, and against obvious non-cases, which catches one that is too wide. A definition nobody tested is a curve nobody can interpret.
         rebuttals:
           - Records first, because the shared features have to come out of the patients rather than out of the drafting. Specifying symptoms before reading the notes is writing down what you expected to find.
           - Symptoms, timing and geography next, because those three are what a clinician at four in the morning actually applies. A definition that cannot be applied at speed is not an operational definition.
@@ -445,28 +453,51 @@ missions:
           - Test the definition on known cases and obvious non-cases.
           - Attach a revision date and the known uncertainty to the definition the hospitals apply.
         order: [1, 0, 2, 3]
-        why: A case definition is an instrument, and like any instrument it is wrong in a known direction. Too narrow and the spread is invisible; too wide and the count fills with the ordinary respiratory illness of a city in autumn. That is why it is tested twice before it is issued — against patients already known to be cases, which catches a definition that is too narrow, and against obvious non-cases, which catches one that is too wide. A definition nobody tested is a curve nobody can interpret.
       - group: POP
-        task: What does the office start this afternoon?
+        task: Spend the single response slot on the evidence that makes tomorrow’s citywide case data interpretable.
         title: Spend the first response reserve
         place: Clinical Data Office
-        scene: One reserve of response money, and three things the room wants to spend it on. Ortiz needs one of them started this afternoon; the other two wait until tomorrow at the earliest. Nothing measured so far would change a decision.
-        takeaway: Comparable observations come before independent ones, because everything else is read against them.
+        scene: Dr. Sofia Morales, the epidemiology lead, has one response slot she can start this afternoon. Four proposals are ready, and tomorrow’s hospital reports will arrive before any second project can begin.
         assumes:
-          - two sources can agree and still be wrong together if they were collected the same way
-        format: CHOICE
-        question: What does the office start this afternoon?
-        choices:
-          - A standardised line list across all three hospitals.
-          - Interviews with every hospital director for an expert impression.
-          - Wastewater sampling in the affected and comparison neighbourhoods.
-          - A citywide warning, before transmission is understood.
-        answer: A standardised line list across all three hospitals.
-        why: Three hospitals are about to produce three curves, and curves only add up if the same definition made them. The line list is what turns three sets of impressions into one set of observations with dates and denominators — and every later stream, the wastewater included, gets read against it. Start anywhere else and the first thing tomorrow's data has to be compared with does not exist yet.
-        rebuttals:
-          - Interviews are fast and return impressions. An impression has no denominator, so it cannot say whether seven in four days is a departure from anything.
-          - Wastewater is the right second stream, and it is valuable precisely because it does not depend on who chose to seek care. It cannot name a patient or define a case, which is what this week needs.
-          - A warning issued before transmission is understood spends credibility on a hypothesis, and credibility is what every later message depends on.
+          - three hospitals can only be combined if they count cases the same way
+          - an independent signal can be valuable without defining an individual case
+        takeaway: The best first measurement is the one that makes later evidence comparable and decision-ready.
+        format: VALUE
+        question: Which first purchase changes what the response team can reliably conclude tomorrow?
+        value:
+          hint: You can start one project before tomorrow’s hospital reports arrive. Open each card to see what new conclusion it would make possible, then spend the slot.
+          budget:
+            amount: 1
+            unit: response start
+            label: Projects that can begin this afternoon
+          decision: Choose the first action that makes tomorrow's citywide outbreak picture interpretable.
+          options:
+            - id: line_list
+              label: Standardised line list across all three hospitals
+              cost: 1
+              axis: measurement standardization
+              decisive: true
+              reveals: Whether all three hospitals are counting the same observable case definition with dates and catchment denominators.
+            - id: director_interviews
+              label: Interview every hospital director
+              cost: 1
+              axis: expert opinion
+              decisive: false
+              reveals: Clinicians' impressions of how unusual the week feels, without a common denominator or case definition.
+            - id: wastewater
+              label: Start wastewater sampling in affected and comparison areas
+              cost: 1
+              axis: independent population surveillance
+              decisive: false
+              reveals: A community-level signal that does not depend on care seeking, but cannot define or identify clinical cases.
+            - id: warning
+              label: Issue a citywide warning now
+              cost: 1
+              axis: public communication
+              decisive: false
+              reveals: No new physical evidence; it commits public credibility before the transmission picture is established.
+        answerText: Start the standardised line list. Tomorrow’s hospital counts can only become one interpretable curve if they use the same case definition, dates and denominators. Wastewater is a valuable independent stream, but it cannot repair incompatible clinical counting after the fact.
+        why: Three hospitals are about to produce three curves. Those curves can be combined only if the same operational definition created them. A standard line list preserves dates, symptoms and denominators in one comparable structure. Wastewater adds an independent population signal, but it cannot define a patient case. Expert impressions have no common denominator, and a warning adds no evidence. The first scarce action should make tomorrow’s observations comparable; the independent streams become more useful once there is a clinical baseline to compare with.
   - title: What Kind of Agent?
     objective: Classify the broad agent category and identify the next discriminating test.
     briefing: Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.
@@ -477,16 +508,17 @@ missions:
         task: Which explanation fits every reading, including the quiet negative controls?
         title: What kind of agent fits the whole panel?
         place: Hospital Pathology Suite
-        scene: Pathology has four results from the same positive specimens and will not put a name to any of it. The four are on the light box in front of you. Ortiz needs a class of agent before the diagnostic bench can choose a method at all.
+        scene: Pathology has four results from the same positive specimens and still cannot name the agent class. The samples are waiting under the hood. Dr. Lena Ortiz needs a defensible broad classification before the diagnostic team commits its overnight run.
+        assumes:
+          - cells and viruses differ in whether they can copy themselves alone
+          - a negative control is a result, not an absence of one
         takeaway: Agent classification should combine cellular structure, host dependence, molecular evidence, and controls rather than rely on one striking image.
         format: DIAGNOSIS
+        why: The negative cellular tests do most of the classification work. No cellular forms are seen, the bacterial marker is absent, and the fungal-wall assay is negative. The signal rises only with living host cells, which supports an agent that depends on host machinery. A clean extraction blank makes laboratory carryover less likely. Together these observations support a virus-like class. They do not establish whether the genome is RNA or DNA, and they do not identify the exact agent.
         rebuttals:
           - A bacterium is a cell and would leave cellular evidence — a marker, a wall, something under the microscope. Three separate looks for that came back empty.
           - A fungus would show cell-wall material on the stain built to find it. That stain is negative, and it is a stain that rarely misses.
           - Contamination is the right suspicion whenever a signal appears from nowhere, and it is checked by the blank. This blank is clean, so the signal came in with the specimens.
-        assumes:
-          - cells and viruses differ in whether they can copy themselves alone
-          - a negative control is a result, not an absence of one
         headline: Pathology has several clues from the same positive specimens.
         readings:
           - zone: Microscope
@@ -515,7 +547,7 @@ missions:
             status: normal
             note: No target signal in the blank
         choices:
-          - label: An RNA virus-like agent
+          - label: A virus-like agent
             mechanism: Not a cell of its own, and it can only copy itself inside a living host cell.
           - label: A bacterium of some kind
             mechanism: A cellular organism, which would leave bacterial markers and structures behind.
@@ -523,8 +555,7 @@ missions:
             mechanism: A cellular organism with a cell wall the stain is built to find.
           - label: Laboratory contamination
             mechanism: Target material loose in the workflow rather than anything in the patients.
-        answer: An RNA virus-like agent
-        why: "The negatives are doing the work here. No cellular forms under the microscope, no bacterial marker, no fungal cell wall — three ways of being a cell, all absent. What is present is dependence: signal rises only where living host cells are, which is what an agent that cannot copy itself alone looks like. And the clean extraction blank is what stops the whole panel being about the laboratory instead of the patient."
+        answer: A virus-like agent
       - group: POP
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From specimen to broad classification
@@ -547,26 +578,27 @@ missions:
         order: [0, 1, 2, 3]
         why: Each step is only interpretable if the one before it held. Comparing against controls first is what separates the agent from the specimen it arrived in — measure a structure in a contaminated preparation and you have measured the contamination, at high magnification. Size and structure then say whether this is cellular at all, and only once you know that does asking whether it copies itself alone mean anything.
       - group: MOL
-        task: The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?
-        title: Why the assay stops at fifty-five degrees
+        task: A reporter enzyme works after 37 °C pre-incubation and loses most activity after 55 °C. What is the strongest interpretation?
+        title: When heat changes an enzyme assay
         place: Molecular Diagnostics Bench
-        scene: The amplification runs cleanly in the 37-degree block and produces nothing in the 55-degree one. Same reagents, same sample, same operator, twenty minutes apart.
-        takeaway: An enzyme is a protein with a shape, and the shape is what the reaction depends on.
-        format: CHOICE
+        scene: A separate reporter-enzyme assay runs normally after a 37-degree pre-incubation and loses most activity after the same enzyme is held at 55 degrees. Substrate, buffer and reading method are unchanged.
         assumes:
           - a protein's function depends on it keeping its shape
-        question: The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?
+          - a buffer is a chemical system that resists large pH changes when acid or base is added
+        takeaway: A controlled comparison can show which part of an assay is sensitive to changed conditions.
+        format: CHOICE
+        question: What does the temperature comparison show about the catalyst?
+        why: Enzyme activity depends on both molecular motion and protein structure. Modest warming can speed collisions, but enough heat can disrupt the shape that creates the active site. Here the same reporter enzyme, substrate, buffer and readout are used after two pre-incubation temperatures. The cleanest interpretation is loss of enzyme activity at the higher temperature. This is not a PCR cycling rule, and it does not show that a target nucleic acid was destroyed. The experiment is specifically about the catalyst.
         choices:
-          - An enzyme is catalysing it, and above its range the protein denatures and stops working.
-          - The reaction takes in heat, so more heat should always drive it faster.
-          - The sample degraded, which is why the warmer block produced nothing.
-          - Heat destroyed the target sequence, so there was nothing left to amplify.
-        answer: An enzyme is catalysing it, and above its range the protein denatures and stops working.
-        why: Enzymes are proteins, and a protein's catalytic site is a shape. Warming speeds a reaction until the temperature starts unfolding that shape, after which the rate collapses — which is why enzyme activity has an optimum rather than rising without limit. The two blocks differ in nothing but temperature, so the sample and the target are the same in both; what changed is whether the catalyst was still folded. It is also why the thermostable enzymes this assay uses are worth their cost.
+          - The higher temperature disrupted the enzyme’s functional structure.
+          - Because the reaction absorbs heat, increasing temperature must always increase its rate.
+          - The patient sample degraded even though this assay used the same reporter enzyme.
+          - The target sequence was destroyed by 55 °C even though the target was not the variable being heated.
+        answer: The higher temperature disrupted the enzyme’s functional structure.
         rebuttals:
-          - Rate rises with temperature only while the catalyst survives it, and this one did not.
-          - Both blocks had the same sample, split twenty minutes apart. Degradation would have hit both.
-          - DNA is stable well above 55 degrees; it separates into strands there and is not destroyed.
+          - Reaction rates can rise with temperature only while the catalyst remains functional. Protein stability puts a limit on that trend.
+          - The variable here is the reporter enzyme’s pre-incubation temperature, not a different patient sample.
+          - The assay isolates enzyme activity; it does not establish destruction of a nucleic-acid target.
   - title: The Point of Entry
     objective: Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.
     briefing: The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine how membrane structure, receptors, and transport explain this selectivity.
@@ -598,9 +630,13 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Choose the membrane mechanism
         place: Membrane Biology Lab
-        scene: Four observations from the culture bench, each describing something moving across a membrane. Adeyemi wants each one named by its mechanism before the entry model goes any further, and she does not want the names guessed from the molecules.
+        scene: Four observations from the culture bench each describe something moving across a membrane. The cell biologist wants each one named by its mechanism before the entry model goes further, without guessing from the molecule names.
+        assumes:
+          - a concentration gradient has a direction
+          - ATP is the cell's energy currency
         takeaway: Transport mechanisms are inferred from constraints, not memorized from molecule names alone.
         format: PROTOCOL
+        why: "Three constraints tell these apart and none of them is the name of the molecule. Which way it goes: downhill needs no energy, uphill does, and the ATP consumption is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, an ion cannot and needs a pore. And how big it is: a bound particle too large for any channel is taken in by the membrane wrapping it."
         columns:
           - What the molecule does
           - Which mechanism that is
@@ -609,9 +645,6 @@ missions:
           - Downhill but through a selective pore is facilitated diffusion. Still no energy spent; the protein supplies the selectivity, not the push.
           - Uphill with ATP consumed is active transport, and the energy cost is the thing that identifies it.
           - A large bound particle enclosed by the membrane is endocytosis — a different process from anything crossing the bilayer.
-        assumes:
-          - a concentration gradient has a direction
-          - ATP is the cell's energy currency
         scenarios:
           - A small nonpolar molecule moves down its concentration gradient.
           - An ion moves down its gradient through a selective protein pore.
@@ -623,28 +656,75 @@ missions:
           - Active transport.
           - Endocytosis.
         mapping: [0, 1, 2, 3]
-        why: "Three constraints tell these apart and none of them is the name of the molecule. Which way it goes: downhill needs no energy, uphill does, and the ATP consumption is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, an ion cannot and needs a pore. And how big it is: a bound particle too large for any channel is taken in by the membrane wrapping it."
       - group: CELL
-        task: Which experiment locates the step where resistant cells stop the process?
+        task: Change one condition at a time, reverse the strongest effect, and decide whether the surface-receptor step is causally required for entry.
         title: Separate binding from entry
         place: Structural Biology Room
-        scene: Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.
-        takeaway: Experiments built on a mechanism should identify the earliest point at which two conditions diverge.
-        format: CHOICE
+        scene: Dr. Maya Chen, the cell biology lead, has a simulated labelled-particle entry assay on vulnerable airway cells. Three perturbations are ready, and the therapy meeting needs evidence about the first physical step.
         assumes:
-          - a chain of steps fails at its earliest broken link
-        question: Which experiment locates the step where resistant cells stop the process?
-        choices:
-          - Measure receptor abundance on vulnerable and resistant cells.
-          - Track whether bound material is taken into the cell.
-          - Measure a late cellular response in both cell types.
-          - Increase the exposure until every cell shows damage.
-        answer: Measure receptor abundance on vulnerable and resistant cells.
-        why: "Entry is a chain: bind the receptor, be taken in, escape the compartment, release the genome. The earliest step at which two cell types diverge is the cause, and everything downstream of it is a consequence — so measuring a late step on a cell that never bound the agent tells you nothing. Receptor abundance tests the first step, which is why it is the only measurement whose result changes what the next experiment should be."
-        rebuttals:
-          - Internalisation is the right second experiment and it is only interpretable once you know both cell types can bind. Run it after, not instead.
-          - A late response tells you something already went wrong upstream, which is what you knew before you started.
-          - Flooding the system until everything is damaged destroys the difference between the two cell types, which is the entire measurement.
+          - a causal test changes one factor while holding the others fixed
+          - a reversible effect is stronger evidence than a one-way coincidence
+        takeaway: A causal mechanism is stronger when changing one proposed link changes the response and reversing that change restores it.
+        format: CONTROL
+        question: Which single change makes the entry signal follow the receptor interaction rather than exposure or antibody handling?
+        control:
+          dataProvenance: invented simulated, non-infectious classroom fluorescence values; mechanism is source-derived
+          hint: Keep two controls fixed while changing the third. A useful cause should move the entry signal when changed and restore it when reversed.
+          noise: 5
+          variables:
+            - id: receptor_blocker
+              label: Surface-receptor blocker
+              baseline: "off"
+              changed: "on"
+              result: 22
+              deltaFromBaseline: -78
+            - id: matched_antibody
+              label: Matched control antibody
+              baseline: "off"
+              changed: "on"
+              result: 97
+              deltaFromBaseline: -3
+            - id: particle_dose
+              label: Labelled-particle exposure
+              baseline: 1×
+              changed: 2×
+              result: 181
+              deltaFromBaseline: 81
+          states:
+            - id: baseline
+              receptor_blocker: "off"
+              matched_antibody: "off"
+              particle_dose: 1×
+              response: 100
+            - id: block_receptor
+              receptor_blocker: "on"
+              matched_antibody: "off"
+              particle_dose: 1×
+              response: 22
+            - id: control_antibody
+              receptor_blocker: "off"
+              matched_antibody: "on"
+              particle_dose: 1×
+              response: 97
+            - id: double_dose
+              receptor_blocker: "off"
+              matched_antibody: "off"
+              particle_dose: 2×
+              response: 181
+            - id: blocker_washout
+              receptor_blocker: "off"
+              matched_antibody: "off"
+              particle_dose: 1×
+              response: 96
+          ambiguousIfMultipleChanges: true
+          requiresReversal: true
+          baseline: 100
+          response: -78
+          changedReading: 22
+          responseUnit: fluorescence units
+          truth: receptor_blocker
+        answerText: The entry signal follows the receptor-blocking perturbation. It falls from about 100 to 22 units when the interaction is blocked. After washout it returns to about 96. The matched antibody does not reproduce the drop, so ordinary antibody handling does not explain it.
+        why: Receptor abundance is only an indirect clue. A causal test asks whether the proposed interaction is required for entry. Blocking that interaction while keeping dose and handling fixed sharply lowers the entry signal. A matched antibody leaves the signal unchanged, which controls for adding an antibody at all. Washing the blocker away restores entry, so the effect follows the manipulated link in both directions. Doubling exposure changes signal size but does not explain why the receptor-specific perturbation removes entry under otherwise matched conditions.
   - title: Hijacked Cells
     objective: Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.
     briefing: Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.
@@ -676,9 +756,12 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Locate the molecular change
         place: Gene Expression Lab
-        scene: Four patterns from the gene-expression bench, each pairing a measurement with another measurement. Adeyemi wants each one placed at the stage it reports on, before anybody proposes a gene worth targeting.
+        scene: Four patterns from the gene-expression bench each pair one measurement with another. The cell biologist wants each pattern placed at the stage it reports on before anyone proposes a host pathway to target.
+        assumes:
+          - the amount of a protein and the amount of its message are measured separately
         takeaway: The central dogma is a chain of measurable transformations, not a claim that every stage changes together.
         format: PROTOCOL
+        why: RNA abundance, protein abundance, sequence and activity are four different measurements, and the central dogma is a chain of transformations rather than a promise that they move together. Message up with protein flat means the message is not being turned into protein, or the protein is being destroyed as fast as it is made. Protein up with message unchanged means the opposite end. And a protein present in normal amounts but not working is a claim about the molecule, not about how much of it there is.
         columns:
           - What the data show
           - Where the change could be
@@ -687,8 +770,6 @@ missions:
           - Protein rising on unchanged RNA points to more efficient translation or slower degradation. Nothing about the gene has changed.
           - One codon changed and one amino acid substituted is a sequence change, and it is visible only in the sequence.
           - Normal amount with low activity is about folding, modification or the active site — the molecule is there and cannot do the job.
-        assumes:
-          - the amount of a protein and the amount of its message are measured separately
         scenarios:
           - RNA rises while protein stays constant.
           - RNA is unchanged while protein rises.
@@ -700,24 +781,23 @@ missions:
           - A missense sequence change.
           - Possible folding, modification, or active-site defect.
         mapping: [0, 1, 2, 3]
-        why: RNA abundance, protein abundance, sequence and activity are four different measurements, and the central dogma is a chain of transformations rather than a promise that they move together. Message up with protein flat means the message is not being turned into protein, or the protein is being destroyed as fast as it is made. Protein up with message unchanged means the opposite end. And a protein present in normal amounts but not working is a claim about the molecule, not about how much of it there is.
       - group: MOL
         task: Abundance alone fits every mechanism. Which measurement do you make first?
         title: Find the controlling stage
         place: Protein Analysis Core
-        scene: An unfamiliar protein is fortyfold more abundant in affected cells than in controls. The transcript for it has not been quantified, the core has money for two measurements, and the team is already arguing about which gene to target.
-        takeaway: Mechanism requires measurements that span the full causal chain.
-        format: CHOICE
+        scene: A familiar human protein is fortyfold more abundant in affected cells than in matched controls. Its messenger RNA has not been quantified, the core can fund two measurements, and the team is already arguing about which host pathway changed.
         assumes:
           - a protein's abundance is set by how fast it is made and how fast it is destroyed
+        takeaway: Protein abundance alone cannot distinguish increased transcription, changed translation, or altered degradation.
+        format: CHOICE
         question: Abundance alone fits every mechanism. Which measurement do you make first?
+        why: "A fortyfold protein increase is compatible with several mechanisms: more messenger RNA, more protein made from each RNA molecule, or slower protein degradation. The first measurement should sit upstream of the other two. Quantifying messenger RNA over the same time course tests whether transcript abundance moved with the protein. If RNA also rises strongly, increased transcription becomes a leading contributor. If RNA stays flat, the investigation moves downstream to translation efficiency and protein turnover instead of pretending the protein result already identified the cause."
         choices:
           - Quantify the protein's messenger RNA across time.
           - Measure ribosome association with that RNA.
           - Measure the protein's half-life and degradation rate.
           - Sequence the neighbouring chromosomal region.
         answer: Quantify the protein's messenger RNA across time.
-        why: "A fortyfold rise in a protein is consistent with three different stages doing the work: more transcript made, the same transcript translated more efficiently, or the protein destroyed more slowly. Quantifying the transcript splits them, because it is upstream of the other two. If the message rose fortyfold as well, transcription is the controlling stage and the rest is bookkeeping. If it did not move, transcription is out and the cause is downstream of it."
         rebuttals:
           - Ribosome association asks whether translation changed, and it only means something once you know whether the amount of message changed underneath it.
           - Half-life asks whether the protein is simply being destroyed more slowly. A real possibility, and the third measurement rather than the first.
@@ -750,80 +830,90 @@ missions:
         order: [0, 1, 2, 3]
         why: A patient result is the output of a controlled process, and read before the controls are read it is an instrument reading rather than evidence. Identity has to survive extraction or the result belongs to no one. The controls have to be in the run, not added afterwards — a positive control shows the chemistry worked, and a no-template control shows the signal did not come from the room. Only when they behave is the patient well worth interpreting.
       - group: MOL
-        task: Which explanation best fits the patient results and all of the controls?
+        task: Open the dependency chain behind each result, keep the evidence that still stands, and name the shared source that makes the amplification positives unreliable.
         title: Why did the assay turn positive?
         place: PCR Diagnostics Lab
-        scene: The overnight run flagged several patients positive. The controls and a second platform ran alongside them, and all of it is on the screen in front of you. Hospitals are waiting to isolate on this result.
-        takeaway: "A control is part of the evidence, not a decoration: a positive blank can overturn an apparently impressive patient signal."
-        format: DIAGNOSIS
-        rebuttals:
-          - True positives would not put a signal in a tube containing no sample. That well is the one reading that cannot be explained by infected patients.
-          - Reagent failure would stop true target amplifying, and the positive control amplified exactly as expected.
-          - Inhibition suppresses amplification and produces false negatives. This plate has the opposite problem.
+        scene: Dr. Ravi Patel has patient wells, two controls and an independent platform on one screen. One ward has already cleared isolation rooms. If this run is wrong, patients will be moved before the morning team arrives.
         assumes:
-          - a no-template control contains water and no sample
-          - two methods with different chemistry fail in different ways
+          - a no-template control contains no patient sample
+          - two methods with different chemistry can fail for different reasons
+        takeaway: Agreement is not independent evidence when several results inherit the same contamination path.
+        format: TRACE
+        question: Which results share one workflow dependency, and what independent evidence survives it?
+        trace:
+          hint: Do not count positive wells. Open what each result depends on, keep evidence built on a different path, and identify the dependency shared by the unreliable signals.
+          target: workflow_carryover
+          channels:
+            - id: patient_amp
+              label: Patient amplification wells
+              reading: several positive signals (expected positive if target is present and the run is clean)
+              depends:
+                - patient_material
+                - amp_chemistry
+                - workflow_carryover
+            - id: ntc
+              label: No-template control
+              reading: positive target signal (expected should remain negative)
+              depends:
+                - amp_chemistry
+                - workflow_carryover
+            - id: positive_control
+              label: Known positive control
+              independent: true
+              reading: amplifies as expected (expected chemistry can amplify target)
+              depends:
+                - amp_chemistry
+                - control_template
+            - id: orthogonal
+              label: Independent patient platform
+              independent: true
+              reading: target not detected in the same patients (expected separate preparation and chemistry)
+              depends:
+                - patient_material
+                - orthogonal_chemistry
+                - independent_prep
+          resources:
+            - id: patient_material
+              label: Patient material
+            - id: amp_chemistry
+              label: Amplification chemistry
+            - id: workflow_carryover
+              label: Amplification-workflow carryover
+            - id: control_template
+              label: Known positive-control template
+            - id: orthogonal_chemistry
+              label: Independent platform chemistry
+            - id: independent_prep
+              label: Independent sample preparation
+          independent:
+            - positive_control
+            - orthogonal
+        answerText: The patient wells and no-template control share the amplification workflow, so carryover can create both signals. Keep the facts that the chemistry can work and that the independent platform did not confirm the target. The amplification run is invalid for classifying these patients.
+        why: A no-template control has no patient material, so a target signal there must come from the workflow or reagents. That same path is shared by the patient amplification wells, which makes their positive signals ambiguous. The known positive control still shows that the chemistry can amplify target, but it cannot rescue a contaminated run. The independent platform uses different preparation and chemistry, so its negative result remains informative. The correct inference comes from tracing dependencies, not from counting how many wells on one plate are positive.
         headline: The overnight amplification run flags several patient samples as positive, but one control is also behaving strangely.
-        readings:
-          - zone: Patient wells
-            label: Patient wells
-            value: Target signal detected
-            status: alarm
-            note: Several patient samples cross the detection threshold
-          - zone: No-template control
-            label: No-template control
-            value: Target signal detected
-            status: alarm
-            note: This control should contain no target material
-          - zone: Positive control
-            label: Positive control
-            value: Detected at expected level
-            status: alarm
-            note: Core amplification chemistry is functioning
-          - zone: Independent platform
-            label: Independent platform
-            value: Patient target not detected
-            status: normal
-            note: Uses a different detection method
-          - zone: Instrument baseline
-            label: Instrument baseline
-            value: Stable
-            status: normal
-            note: No broad detector drift is present
-        choices:
-          - label: True patient positives
-            mechanism: The patient samples contain the target and the controls are behaving normally.
-          - label: Carryover contamination
-            mechanism: Target material entered part of the amplification workflow, making samples and the no-template control positive.
-          - label: Reagent failure
-            mechanism: The reaction chemistry failed, so true target should not amplify reliably.
-          - label: Sample inhibition
-            mechanism: Something in patient material suppresses amplification and tends to create false negatives.
-        answer: Carryover contamination
-        why: A control is part of the evidence, not a decoration on it. The no-template control is water — there is nothing in it to amplify — so a target signal there means target material is loose in the workflow, and anything the workflow touched is suspect. The positive control working rules out failed chemistry, and an independent platform not finding the target in the same patients rules out the patients. One quiet well overturns an impressive-looking plate.
       - group: POP
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: What does a positive mean?
         place: Clinical Statistics Desk
-        scene: The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The clinical statistics desk has the assay's performance figures and the size of the group in front of it.
-        takeaway: Clinical meaning depends on both test performance and the population being tested.
-        format: BALLPARK
+        scene: The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The statistics desk has a ten-thousand-person validation table with reference status and assay results.
         assumes:
           - prevalence is the share of a population that has the condition
           - sensitivity and specificity are properties of a test, not of a population
-        why: Specificity is a property of the test; the fraction of positives that are real is a property of the test and the population together. Moving this assay from the ward to the city changes nothing about the chemistry and almost everything about what a positive means.
+        takeaway: Positive predictive value depends on prevalence as well as sensitivity and specificity.
+        format: BALLPARK
         question: Estimate the chance that a positive result is a true case.
+        why: "The validation table lets all three quantities be computed. Among 100 infected people, 90 test positive and 10 test negative, giving 90 per cent sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 test positive, giving 99 per cent specificity. The same counts also show why a positive is less decisive in a low-prevalence group: there are 90 true positives but 99 false positives. So only 90 of 189 positive tests are true cases, about 48 per cent."
         estimate:
-          relationship: Of everyone tested, the true positives are prevalence × sensitivity; the false positives are (1 − prevalence) × (1 − specificity). The answer is true positives as a share of all positives.
-          prompt: The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The screening group is ten thousand people, about one per cent of whom are infected, and the assay detects nine in ten infections and clears ninety-nine in a hundred uninfected people.
-          question: Estimate the chance that a positive result is a true case.
+          relationship: Sensitivity = TP ÷ (TP+FN). Specificity = TN ÷ (TN+FP). PPV = TP ÷ (TP+FP).
+          prompt: A reference method identifies 100 infected and 9,900 uninfected people in a 10,000-person validation group. The assay gives 90 true positives, 10 false negatives, 9,801 true negatives and 99 false positives.
+          question: Estimate sensitivity, specificity, and the chance that a positive result is a true case.
           labels:
-            - 10,000 people screened
-            - 0.01 (prevalence in the screening group)
-            - 0.90 (sensitivity)
-            - 0.99 (specificity)
-            - 0.30 (prevalence on the affected ward)
-            - 0.10 (the fraction reporting symptoms)
+            - 90 true positives
+            - 10 false negatives
+            - 9,801 true negatives
+            - 99 false positives
+            - 100 infected
+            - 9,900 uninfected
           values: [10000, 0.01, 0.9, 0.99, 0.3, 0.1]
           slots: 4
           template: "{0}×{1}×{2} ÷ ( {0}×{1}×{2} + {0}×(1−{1})×(1−{3}) ) × 100"
@@ -832,8 +922,8 @@ missions:
           target: 47.62
           tolerance: 3
           units: "%"
-          solution: 90 true positives against 99 false ones, so about 48% of positives are real.
-          explanation: A hundred infected people give ninety true positives; the nine thousand nine hundred uninfected give ninety-nine false ones, because one per cent of a large number is a large number. The same assay on the affected ward, where prevalence is thirty per cent, would return positives that are almost all real.
+          solution: Sensitivity ≈ 90%, specificity ≈ 99%, PPV ≈ 48%.
+          explanation: Sensitivity is 90/100 = 90%. Specificity is 9,801/9,900 = 99%. PPV is 90/(90+99) ≈ 48%. A highly specific test can still produce many false positives when the condition is uncommon.
   - title: Why Are Some Patients Sicker?
     objective: Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.
     briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.
@@ -841,56 +931,50 @@ missions:
     takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
-        task: Which bottleneck fits the whole heart-and-lung panel?
+        task: Assemble the oxygen path from air to tissue, then name the link that the full panel makes most likely to be limiting.
         title: Locate the oxygen-delivery failure
         place: Intensive Care Unit
-        scene: Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.
-        takeaway: A normal reading at one point in a chain is evidence about where the fault is not.
-        format: DIAGNOSIS
-        rebuttals:
-          - Ventilation failure would usually push carbon dioxide up as oxygen falls, because the same failing airflow carries both. This carbon dioxide is near normal.
-          - Circulatory failure means oxygenated blood that never arrives, and cardiac output here is 5.2 L/min. The blood is moving.
-          - Anaemia limits how much oxygen each litre can carry, and haemoglobin is 14 g/dL. The carriage is not the problem.
+        scene: A patient’s oxygenation is worsening while Dr. Lena Ortiz reviews the bedside console. It shows PaCO₂ 39 mmHg, low arterial oxygen, haemoglobin 14 g/dL, cardiac output 5.2 L/min and new lung imaging. The team needs the bottleneck before rounds.
         assumes:
-          - oxygen travels air to lung to blood to tissue, and each handover can fail separately
+          - oxygen must move from air to alveoli, blood and tissues in sequence
+          - a normal reading at one link makes a simple failure there less likely
+        takeaway: A transport chain is localized by tracing every required handoff and using normal links to narrow where the bottleneck lies.
+        format: CHAIN
+        question: Where does the oxygen-delivery chain most likely fail in this panel?
+        chain:
+          hint: Build the route oxygen must follow. Then use each reading to ask which link is still compatible with the failure; the largest number on the screen is not automatically the governing one.
+          distractor: circulation
+          links:
+            - id: ventilation
+              label: Ventilation to the alveoli
+              transfers: fresh gas from the airways to the alveoli
+              reading: PaCO₂ 39 mmHg
+            - id: gas_exchange
+              label: Air–blood gas exchange
+              transfers: oxygen across the alveolar-capillary interface
+              reading: arterial oxygen low; diffuse alveolar involvement on imaging
+            - id: hemoglobin
+              label: Haemoglobin carriage
+              transfers: oxygen bound in circulating blood
+              reading: haemoglobin 14 g/dL
+            - id: circulation
+              label: Cardiac flow
+              transfers: oxygenated blood through the systemic circulation
+              reading: cardiac output 5.2 L/min
+            - id: tissue_delivery
+              label: Tissue delivery and use
+              transfers: oxygen from capillary blood to cells
+              reading: downstream metabolic evidence not yet complete
+          order:
+            - ventilation
+            - gas_exchange
+            - hemoglobin
+            - circulation
+            - tissue_delivery
+          governing: gas_exchange
+        answerText: The leading bottleneck is gas exchange at the air–blood interface. PaCO₂ near normal makes isolated global hypoventilation less likely, haemoglobin is adequate, and measured cardiac output is not low. Low arterial oxygen plus diffuse alveolar disease points most strongly to the lung handoff.
+        why: "Oxygen delivery is a chain, so no single normal value proves the patient is safe. Near-normal PaCO₂ makes isolated global hypoventilation less likely. Haemoglobin of 14 g/dL is adequate for carriage, and a cardiac output of 5.2 L/min does not support a simple low-flow explanation. The abnormal evidence sits at the lung handoff: arterial oxygen is low and imaging shows diffuse alveolar involvement. Mixed disorders remain possible, so the next step is to measure downstream consequences rather than treat one normal link as a complete clearance."
         headline: Two patients have severe fatigue and low tissue oxygen delivery.
-        readings:
-          - zone: Arterial oxygen saturation
-            label: Arterial oxygen saturation
-            value: 86%
-            status: alarm
-            note: Lower than expected
-          - zone: End-tidal carbon dioxide
-            label: End-tidal carbon dioxide
-            value: 39 mmHg
-            status: normal
-            note: Near the expected resting range
-          - zone: Cardiac output
-            label: Cardiac output
-            value: 5.2 L/min
-            status: normal
-            note: Near the expected adult resting range
-          - zone: Hemoglobin
-            label: Hemoglobin
-            value: 14 g/dL
-            status: normal
-            note: Near the expected adult range
-          - zone: Lung imaging
-            label: Lung imaging
-            value: Diffuse gas-exchange abnormality
-            status: normal
-            note: No evidence of a primary pump failure
-        choices:
-          - label: Ventilation failure
-            mechanism: Too little fresh air reaches the alveoli; carbon dioxide would often rise along with falling oxygen.
-          - label: Gas-exchange failure
-            mechanism: Air reaches the lungs, but oxygen transfer from alveoli into blood is impaired.
-          - label: Circulatory delivery failure
-            mechanism: Oxygenated blood is present but cardiac output is too low to deliver it to tissues.
-          - label: Too little hemoglobin
-            mechanism: Blood flow and lung exchange may be adequate, but too little hemoglobin limits oxygen carriage.
-        answer: Gas-exchange failure
-        why: Oxygen delivery is a chain, and normal values at one link are not reassurance — they are evidence that the failure is elsewhere. Carbon dioxide near normal says air is reaching the alveoli, so ventilation is working. Cardiac output normal says the pump is moving blood. Haemoglobin normal says the blood can carry oxygen. What is left is the handover between air and blood, and the imaging says the same thing.
       - group: POP
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Estimate oxygen delivery
@@ -923,26 +1007,49 @@ missions:
           solution: 3 × 0.20 = 0.6 L O₂/min, against 1.0 for the comparison patient.
           explanation: Delivery is a rate, and it is the product of what each litre carries and how many litres arrive. Saturation and haemoglobin describe the content term and cannot on their own say how much oxygen reaches anything.
       - group: CLIN
-        task: One bedside measurement before the team commits to a treatment. Which?
-        title: Measure the failing link
+        task: Use the blood-buffer relationship to estimate arterial pH and interpret what the pair of values supports.
+        title: Read the downstream acid–base signal
         place: Clinical Chemistry Bench
-        scene: Saturation is 84 per cent, carbon dioxide is normal, cardiac output is normal, and the lactate has not been sent. The patient is deteriorating and there is time for one more measurement at the bedside before the team commits.
-        takeaway: Integrated physiology requires evidence from multiple points along the transport chain.
-        format: CHOICE
+        scene: The oxygen-delivery panel points toward a lung bottleneck, but the team still needs a downstream consequence. Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg; lactate is still pending.
         assumes:
-          - a failure shows itself at the point in a chain where the numbers stop matching
-        question: One bedside measurement before the team commits to a treatment. Which?
+          - bicarbonate is the major measured base in this buffer pair
+          - PaCO₂ is the arterial carbon-dioxide pressure in mmHg
+        takeaway: Acid–base status reflects both bicarbonate and carbon dioxide, so one number should not be interpreted alone.
+        format: BALLPARK
+        question: Estimate the pH from bicarbonate 14 mmol/L and PaCO₂ 31 mmHg.
+        answerText: The estimate is about pH 7.28. The low bicarbonate drives the pH downward, while the lower PaCO₂ partly compensates. The acid–base result supports a metabolic component but does not identify its cause by itself.
+        why: For the blood bicarbonate buffer, dissolved carbon dioxide is proportional to PaCO₂. The useful clinical form is pH = 6.1 + log₁₀([HCO₃⁻]/(0.03×PaCO₂)). With bicarbonate 14 and PaCO₂ 31, the ratio is about 15 and the pH is about 7.28. The low bicarbonate supports a metabolic acid–base disturbance, while the reduced PaCO₂ moves pH upward as respiratory compensation. The calculation does not identify the cause by itself; the pending lactate and the rest of the oxygen-delivery evidence still matter.
         choices:
           - Tissue lactate and acid-base status.
           - Arterial oxygenation and carbon dioxide.
           - Cardiac output, or a validated stand-in for flow.
           - The same blood-oxygen reading, repeated on three devices.
         answer: Tissue lactate and acid-base status.
-        why: Oxygen delivery is a chain — lungs, blood, pump, tissue — and the panel has measured the top of it. Saturation is 84 per cent, which is low; carbon dioxide and cardiac output are normal, which rules out ventilation failure and pump failure. Nobody has measured the far end, which is whether the tissue is actually failing to meet demand in the tissues, which is the thing the treatment is meant to change.
         rebuttals:
           - Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.
           - Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.
           - Three identical devices agreeing tells you the devices agree. It does not add an independent observation.
+        estimate:
+          prompt: Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg.
+          question: Estimate arterial pH using the blood bicarbonate Henderson–Hasselbalch relation.
+          values: [6.1, 14, 0.03, 31, 7.4, 40]
+          correct: [0, 1, 2, 3]
+          slots: 4
+          template: "{0} + log10({1} ÷ ({2} × {3}))"
+          formula: a + Math.log10(b/(c*d))
+          target: 7.28
+          tolerance: 0.03
+          units: pH
+          relationship: pH = 6.1 + log10([HCO₃⁻] ÷ (0.03 × PaCO₂)).
+          explanation: 0.03 × 31 ≈ 0.93. Then 14 ÷ 0.93 ≈ 15.1, log10(15.1) ≈ 1.18, and pH ≈ 7.28. Low bicarbonate lowers pH; lower PaCO₂ partially compensates.
+          solution: pH ≈ 7.28, consistent with acidemia and a metabolic component with respiratory compensation.
+          labels:
+            - 6.1  (apparent pKa)
+            - 14 mmol/L  (bicarbonate)
+            - 0.03 mmol/L/mmHg  (CO₂ solubility)
+            - 31 mmHg  (PaCO₂)
+            - 7.40  (the middle of the normal pH range)
+            - 40 mmHg  (a normal PaCO₂, not this patient's)
   - title: The Immune System Turns
     objective: Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.
     briefing: Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish protective immune responses from damaging dysregulation.
@@ -1022,26 +1129,50 @@ missions:
         answer: Inflammation out of control
         why: Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.
       - group: CLIN
-        task: The ward wants to start drugs that damp the immune system tonight. What do you do?
+        task: Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it.
         title: Treat the mechanism, not the marker
         place: Pathology Archive
-        scene: Late deterioration is killing patients and the ward wants to start drugs that damp the immune system tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.
-        takeaway: Intervention should follow evidence about what the immune system is doing, where, and when.
-        format: CHOICE
+        scene: Dr. Nia Okafor, the immunology lead, has one rapid laboratory slot before tonight’s treatment conference. Patients are worsening late, and four measurements from archived samples could return on different timescales.
         assumes:
-          - suppressing a response removes it whether or not it is the thing causing harm
-        question: The ward wants to start drugs that damp the immune system tonight. What do you do?
-        choices:
-          - Measure agent burden and inflammatory markers together over time first.
-          - Suppress the immune response immediately in everyone deteriorating.
-          - Compare immune-cell states in improving and worsening patients.
-          - Send pathology on affected tissue to identify what is being damaged.
-        answer: Measure agent burden and inflammatory markers together over time first.
-        why: "Two drivers fit the same bedside picture: a pathogen still replicating, and a host response that has itself become the injury. They are distinguished by direction, not by level — in the first, viral load is high or rising while inflammatory markers follow it; in the second, load is falling while the markers keep climbing. A single time point cannot separate them, because both can produce the same numbers on any given morning. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection."
-        rebuttals:
-          - Suppressing now treats one hypothesis as settled. If agent burden is still rising in some of these patients, it removes their only defence.
-          - Comparing immune-cell states is the right study and returns in days. The ward is asking about tonight.
-          - Pathology says where the damage is. It does not say whether the pathogen is still driving it, which is the question the treatment turns on.
+          - the same bedside deterioration can arise from different mechanisms
+          - a trend over time can distinguish mechanisms that overlap at one time point
+        takeaway: The most valuable measurement is the one whose possible outcomes separate competing mechanisms that would lead to different actions.
+        format: VALUE
+        question: Which measurement most changes the mechanism the team should carry into tonight’s treatment discussion?
+        value:
+          hint: You can get one result before tonight. Open each option to see what it would reveal about the two competing mechanisms, then spend the slot.
+          budget:
+            amount: 1
+            unit: rapid laboratory slot
+            label: Results available before tonight's conference
+          decision: Choose which mechanism—continuing agent activity or host-driven inflammation—has the stronger time-course support.
+          options:
+            - id: paired_trends
+              label: Paired agent burden and inflammatory markers across two time points
+              cost: 1
+              axis: causal direction over time
+              decisive: true
+              reveals: Whether agent burden and inflammation rise together or separate as burden falls while inflammation continues upward.
+            - id: single_marker
+              label: Repeat one inflammatory marker now
+              cost: 1
+              axis: current inflammatory level
+              decisive: false
+              reveals: Whether inflammation is high at this moment, without showing whether it is following or outlasting agent burden.
+            - id: cell_states
+              label: Deep immune-cell state profiling
+              cost: 1
+              axis: immune-cell phenotype
+              decisive: false
+              reveals: Which immune-cell programs are active, but not a rapid paired trajectory for the immediate mechanism question.
+            - id: pathology
+              label: Detailed tissue pathology
+              cost: 1
+              axis: location and pattern of injury
+              decisive: false
+              reveals: Where tissue injury is occurring, without by itself establishing whether continuing agent activity or the host response is driving it.
+        answerText: Use the rapid slot for paired agent-burden and inflammatory-marker measurements across time. The key evidence is direction. Falling burden with rising inflammation supports a host-driven late phase more strongly than one high inflammatory value. It also separates the mechanism better than a detailed picture of where injury occurred.
+        why: A single inflammatory value can be high while the agent is still driving disease or after the immune response becomes the main source of injury. The mechanisms separate when their trajectories separate. If agent burden falls while inflammatory markers continue rising, the host-driven explanation gains support. If both rise together, ongoing agent activity remains plausible. Cell-state profiling and pathology add useful detail, but they do not answer the urgent causal question as directly. The most valuable measurement is the one that splits the live hypotheses before the decision.
   - title: The Hidden Transmission Route
     objective: Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.
     briefing: Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.
@@ -1053,30 +1184,30 @@ missions:
         title: Match the surveillance signal
         place: Wastewater Treatment Plant
         scene: Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.
-        takeaway: Transmission inference depends on who is observed, when, and through which sampling process.
+        assumes:
+          - who ends up in a dataset is decided by how the data was collected
+        takeaway: Surveillance streams observe different populations; timing differences can reveal hidden transmission, but wastewater detection does not by itself establish a transmission route.
         format: PROTOCOL
+        why: Each surveillance stream samples a different population. Wastewater can detect community shedding without requiring people to seek care. It can therefore move before hospital admissions. It does not identify an individual, and a positive sewer signal does not prove waterborne transmission. Household interviews can reveal exposure timing but depend on recall and participation. A volunteer transit survey can be biased by who agrees to answer. Prevalence counts everyone currently ill, so it can remain high even after incidence — the number of new cases — begins to fall.
         columns:
           - What the surveillance shows
           - What it supports
         rebuttals:
-          - Wastewater rising before admissions is a population signal that arrives early and can never name a patient.
+          - A wastewater rise can precede clinical trends because it samples community shedding. It is a population signal, not an individual diagnosis or proof that sewage is the exposure route.
           - Exposures found before symptom onset are evidence about when transmission happens, from the only stream that asks people directly.
           - A volunteer sample at one station is a sample of volunteers at one station — the bias is in who agreed, not in the measurement.
           - Prevalence stays high after incidence falls when the illness lasts a long time. The two are different quantities and this is how they come apart.
-        assumes:
-          - who ends up in a dataset is decided by how the data was collected
         scenarios:
           - Wastewater concentration rises before hospital admissions.
           - Household interviews show several exposures before symptoms.
           - A transit survey samples only volunteers at one station.
           - Hospital prevalence remains high after new admissions decline.
         choices:
-          - Possible early population-level signal, but not individual diagnosis.
+          - Early community shedding signal; not evidence by itself of waterborne transmission.
           - Evidence that infectious contact may precede symptoms.
           - Potentially biased sample that may not represent riders.
           - Long illness duration can keep prevalence high after incidence falls.
         mapping: [0, 1, 2, 3]
-        why: What a stream can reveal is fixed by who is observed, when, and how they came to be observed. Wastewater sees everyone connected to the sewer whether or not they sought care, which makes it early and anonymous at the same time. Household interviews reach only households that agreed. A volunteer survey at one station samples volunteers at one station. And prevalence counts everybody currently ill, so it stays high while people are still ill even after new cases stop.
       - group: CELL
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: How many by morning
@@ -1187,26 +1318,66 @@ missions:
         order: [0, 1, 2, 3]
         why: "A positive animal is not a reservoir. What turns it into one is a design that could have found the agent somewhere else and did not, which is why the order matters: exposure patterns say where to sample, and sampling built around comparison sites is what makes a prevalence figure mean anything. Only then do prevalence and genetic relatedness across hosts say whether this species is in the transmission cycle, and only then can repeated spillover be tested rather than assumed."
       - group: POP
-        task: One field campaign. What is its design?
+        task: Allocate the twenty slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.
         title: Choose the One Health campaign
         place: Comparative Genomics Lab
-        scene: There is one field campaign to fund and its design decides what can be concluded from it. Trappers, a genomics bench and a nervous agriculture department are all waiting on the answer.
-        takeaway: One Health decisions should connect human, animal, and environmental evidence before intervention.
-        format: CHOICE
+        scene: Dr. Arjun Singh, the One Health lead, has one field campaign and twenty sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.
         assumes:
-          - a sample tells you about the population it was drawn from and no other
-        question: One field campaign. What is its design?
-        choices:
-          - Stratify sampling across species, habitat, season and comparison sites.
-          - Sample the most feared species intensively near one case household.
-          - Sequence every positive sample from humans and animals.
-          - Remove wildlife from the flood plain while the investigation continues.
-        answer: Stratify sampling across species, habitat, season and comparison sites.
-        why: A reservoir claim is a claim about prevalence — this species, in this place, carries the agent more than others do. Prevalence only means something against a design that could have found it somewhere else, so sampling one colony intensively produces a number with nothing to compare it against. Comparison sites and comparison species are what separate a reservoir from a bystander that caught it from people.
-        rebuttals:
-          - Sampling hard around one household guarantees a positive that cannot be generalised, and it will be the species people were already afraid of.
-          - "Sequencing is essential and comes second: you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals."
-          - Removing wildlife before involvement is established destroys the evidence, and does nothing at all if the reservoir is a species nobody removed.
+          - a sample represents the population it was drawn from
+          - a reservoir claim needs evidence that can distinguish persistence from spillback
+        takeaway: A field design is defined by the alternative explanations it can rule out with the samples it chooses to collect.
+        format: ALLOCATE
+        question: Which sampling plan preserves the comparisons needed to test the reservoir hypothesis?
+        allocate:
+          dataProvenance: invented classroom package sizes; sampling logic is source-derived
+          hint: Every package buys a comparison and consumes field capacity. Keep the questions about geography, species and persistence answerable before spending anything on extra depth at one convenient site.
+          pool:
+            amount: 20
+            unit: sampling slots
+            label: Field campaign capacity
+          items:
+            - id: human_data
+              label: Existing human case locations and exposure histories
+              cost: 0
+              note: Already available; they guide sampling but do not establish an animal reservoir by themselves.
+              protected: true
+            - id: candidate_case
+              label: Candidate species at case-linked sites
+              cost: 6
+            - id: candidate_compare
+              label: Same candidate species at comparison sites
+              cost: 5
+            - id: comparison_species
+              label: Comparison species in the same habitats
+              cost: 4
+            - id: repeat_time
+              label: Repeat sampling at a second time point
+              cost: 5
+            - id: deep_household
+              label: Extra dense sampling around one case household
+              cost: 6
+          answers:
+            - required: true
+              requires:
+                - candidate_case
+                - candidate_compare
+              question: Is carriage concentrated at case-linked sites rather than everywhere sampled?
+            - required: true
+              requires:
+                - candidate_case
+                - comparison_species
+              question: Is the candidate species different from other species sharing the habitat?
+            - required: true
+              requires:
+                - candidate_case
+                - repeat_time
+              question: Does the pattern persist across time rather than reflect one spillback episode?
+            - required: false
+              requires:
+                - deep_household
+              question: How precisely can one household cluster be mapped?
+        answerText: Use the twenty slots on the candidate species at case-linked sites, the same species at comparison sites, comparison species, and a repeat time point. That plan preserves geography, species and persistence tests. Extra depth around one household is the question the fixed campaign should forgo.
+        why: "A positive animal near a human case is compatible with several stories: reservoir, spillback from people, or shared exposure. The design has to create comparisons that separate those stories. Sampling the same species away from cases tests geography. Sampling other species in the same habitat tests species specificity. Returning later tests persistence. Sequencing can then compare what the field design actually found, but it cannot rescue a biased sample. Spending the campaign on one feared species near one household produces a precise result that cannot establish the population process."
   - title: The Mutation
     objective: Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.
     briefing: A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.
@@ -1239,14 +1410,15 @@ missions:
         title: Selection or sampling artifact?
         place: Evolutionary Dynamics Group
         scene: A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.
-        takeaway: A frequency change is an observation; selection is an explanation that requires controls against sampling, founder effects, and technical drift.
+        assumes:
+          - a change in who gets tested changes what the tests find
+        takeaway: A changing share needs competing explanations tested before it can support a claim about biological advantage.
         format: DIAGNOSIS
+        why: A rising frequency is an observation, not a direct measurement of fitness. Selection is one explanation, alongside founder effects, changing sampling and technical bias. The checks here weaken those alternatives. The rise repeats across hospital systems, sequencing quality is stable, neutral control variants stay comparatively flat, and the trend survives adjustment for place and date. Together that makes selection the leading explanation in this panel. It does not measure the size of a transmission advantage. Repeated growth-rate comparisons or functional evidence would strengthen that claim.
         rebuttals:
           - A changing sampling mix would move the neutral control variants too, because they ride on the same samples. Those are flat.
           - A sequencing artefact would show as changing depth or coverage, and the depth is stable across the four weeks.
           - A single founder cluster would not repeat across three independent hospital systems, and it would not survive adjusting for place.
-        assumes:
-          - a change in who gets tested changes what the tests find
         headline: A genetic variant rises quickly in the city data.
         readings:
           - zone: Variant frequency
@@ -1275,27 +1447,26 @@ missions:
             status: alarm
             note: Comparison reduces a major sampling confounder
         choices:
-          - label: Real selective advantage
-            mechanism: The variant has a reproducible growth advantage and increases in frequency across independent populations.
+          - label: Selection is the leading explanation
+            mechanism: The variant shows a reproducible rise across comparable populations after major sampling and technical alternatives are checked.
           - label: Changing sampling mix
             mechanism: The apparent rise is created because later samples come from different places or patient groups.
           - label: Sequencing artifact
             mechanism: A technical change makes the variant easier to detect over time.
           - label: Single founder event only
-            mechanism: One early cluster happens to contain the variant, with no broader growth advantage.
-        answer: Real selective advantage
-        why: A frequency change is an observation; selection is one explanation for it, and it competes with founder effects, with a change in who is being sampled, and with a technical shift. Each of those is ruled out by a specific check here. Three independent hospital systems showing the same rise is not one cluster. Stable sequencing depth is not a technical change. Neutral variants staying flat means the whole population was not resampled. And the rise survives adjustment for place and date.
+            mechanism: One early cluster happens to contain the variant, with no broader reproducible rise.
+        answer: Selection is the leading explanation
       - group: POP
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Track a rising variant
         place: Regional Surveillance Hub
-        scene: Before anybody argues about why the variant is rising, the surveillance hub needs the rise itself. Week one and week three sequenced different numbers of samples.
-        takeaway: Evolutionary inference begins with accurate frequencies and then tests causal explanations.
-        format: BALLPARK
+        scene: The variant briefing starts in thirty minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.
         assumes:
           - a fraction needs both a numerator and the denominator it came from
-        why: A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.
+        takeaway: Evolutionary inference begins with accurate frequencies and then tests causal explanations.
+        format: BALLPARK
         question: Estimate the change in variant frequency, in percentage points.
+        why: A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.
         estimate:
           relationship: A share = the count ÷ the number sequenced. Take the share in each week, then the difference.
           prompt: In week one, 40 of 400 sequenced samples carried the variant. In week three, 180 of 600 did. The denominators are what make the two weeks comparable.
@@ -1327,15 +1498,16 @@ missions:
         task: Which explanation fits the complete treatment-response panel?
         title: Why did the therapy fail?
         place: Clinical Ward
-        scene: A therapy that worked is failing. The ward has the drug levels, the agent burden over time, the sequence at the target site and a reference isolate, and it wants to change everybody's prescription this afternoon.
+        scene: A therapy that worked is failing, and another patient has deteriorated overnight. The ward has drug levels, burden over time, the target-site sequence and a reference isolate. Pharmacy wants a new plan before the afternoon doses are prepared.
+        assumes:
+          - a drug only works if it reaches the target at a high enough concentration
         takeaway: Evolution can be observed in real time when a treatment changes which variants are most successful.
         format: DIAGNOSIS
+        why: Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached a concentration that works and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.
         rebuttals:
           - Poor delivery means the drug never arrives, and the concentration is inside the range where the drug works with an initial response to prove it.
           - A misidentified agent would not have responded at all, and this one fell before it came back.
           - Assay contamination would not spare the reference isolate, which was run alongside and remains sensitive.
-        assumes:
-          - a drug only works if it reaches the target at a high enough concentration
         headline: A treatment initially suppresses the infectious agent, but the signal rebounds while the patient is still receiving therapy.
         readings:
           - zone: Drug concentration
@@ -1373,7 +1545,6 @@ missions:
           - label: Assay contamination
             mechanism: The rebound is an artificial laboratory signal unrelated to the patient.
         answer: Evolved resistance
-        why: Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached a concentration that works and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.
       - group: POP
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: How resistance spreads
@@ -1399,19 +1570,19 @@ missions:
         task: One thing before anybody's prescription changes. Which?
         title: Recover treatment effectiveness
         place: Pharmacology Unit
-        scene: Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had dosing on record, and trough levels in the range where the drug works.
-        takeaway: A resistance response should combine evolutionary evidence with pharmacology and patient safety.
-        format: CHOICE
+        scene: Effectiveness has fallen from 82 to 51 per cent in nine weeks. Eleven failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.
         assumes:
           - a matched comparison is what turns a finding into evidence
+        takeaway: A resistance response should combine evolutionary evidence with pharmacology and patient safety.
+        format: CHOICE
         question: One thing before anybody's prescription changes. Which?
+        why: Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over nine weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.
         choices:
           - Sequence the failures alongside matched successful cases.
           - Measure drug exposure and adherence objectively.
           - Increase the dose for every patient on the ward.
           - Test combinations and alternative targets under a clinical protocol.
         answer: Sequence the failures alongside matched successful cases.
-        why: "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations inside the range close the first two: the drug arrived where it was meant to be. That leaves the target, and a fall from 82 to 51 per cent over nine weeks is the shape of selection rather than the shape of a supply problem. A matched successes are the control that turns a resistance-associated variant into evidence rather than a coincidence."
         rebuttals:
           - Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.
           - Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.
@@ -1427,8 +1598,11 @@ missions:
         title: Choose the intervention layer
         place: Vaccine Design Lab
         scene: The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.
+        assumes:
+          - an infection has a before, a during and an after, and different tools act at each
         takeaway: A layered strategy is stronger when each intervention has a defined mechanism and failure mode.
         format: PROTOCOL
+        why: Each class acts at a different point, which is why a layered strategy is stronger than a bigger version of any one of them. Blocking entry acts before or during establishment of infection. An anti-inflammatory acts later on host injury rather than directly on the agent. Vaccination builds immune memory before exposure and can reduce infection or severe disease, depending on the vaccine and agent. Ventilation, isolation and contact reduction work at the population level. Different mechanisms create different strengths, timing constraints and failure modes.
         columns:
           - What you want to do
           - How you do it
@@ -1437,8 +1611,6 @@ missions:
           - Shortening severe inflammatory disease is treatment after infection, and it is staged — given at the wrong moment it suppresses a response that is still needed.
           - Immune memory before exposure is vaccination, and its whole value is that it arrives first.
           - Ventilation, isolation and contact reduction act on transmission rather than on any patient, which is why they work whatever the agent turns out to be.
-        assumes:
-          - an infection has a before, a during and an after, and different tools act at each
         scenarios:
           - Prevent initial cell entry.
           - Shorten severe inflammatory disease after infection.
@@ -1450,7 +1622,6 @@ missions:
           - Vaccination.
           - Ventilation, isolation, masking, or contact reduction as appropriate.
         mapping: [0, 1, 2, 3]
-        why: Each class acts at a different point, which is why a layered strategy is stronger than a bigger version of any one of them. Blocking entry acts before infection is established. An anti-inflammatory acts after it is, on the damage rather than the agent. Immune memory created before exposure changes who can be infected at all. And reducing contact works on the population rather than the patient, which is why it keeps working while the biology is still unknown. Different mechanisms means different failure modes.
       - group: POP
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From candidate to justified trial
@@ -1473,26 +1644,69 @@ missions:
         order: [0, 1, 2, 3]
         why: Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; animal and laboratory evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.
       - group: POP
-        task: The city can start one layer this month. Which?
+        task: Allocate three funding slots to a portfolio that acts now, preserves a longer-horizon layer, and avoids depending on one shared mechanism.
         title: Build a layered intervention portfolio
         place: Public Health Strategy Room
-        scene: One portfolio, six plausible layers, and enough money for three. Each layer is estimated to cut transmission by 15 to 30 per cent on its own, the estimates come from different settings, and the city would like to be told the crisis is under control.
-        takeaway: Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.
-        format: CHOICE
+        scene: Dr. Nia Okafor, the immunology lead, has six plausible intervention layers and only three funding slots. Some can work this month; others take longer or share the same failure mode.
         assumes:
-          - two tools that fail for the same reason fail at the same time
-        question: The city can start one layer this month. Which?
-        choices:
-          - Ventilation and rapid-isolation improvements.
-          - A vaccine candidate against a conserved surface feature.
-          - A drug aimed at a validated host or agent pathway.
-          - A publicity campaign stating that the crisis is under control.
-        answer: Ventilation and rapid-isolation improvements.
-        why: "Layers are chosen for mechanism and for timing, not by ranking their headline effects. The six estimates all sit between 15 and 30 per cent and all come from other settings, so the numbers cannot separate them here. Mechanism can: measures sharing one — three that depend on people staying home — fail in the same week, while ventilation and isolation act on transmission opportunity whatever the biology turns out to be. Timing settles the rest, because those two work this month, which is the month the other candidates spend in development."
-        rebuttals:
-          - The vaccine is the strongest long-run layer and protects nobody during the months it takes to make. Start it too; it is not what this month buys.
-          - A drug depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.
-          - A campaign announcing control is not a layer. It has no mechanism, and it fails in exactly the way that costs the most.
+          - different mechanisms can fail for different reasons
+          - a portfolio gives up some good options because its resources are finite
+        takeaway: A strong intervention portfolio combines different mechanisms and timescales instead of simply taking the three largest headline effects.
+        format: ALLOCATE
+        question: Which three-layer portfolio still answers the response needs if one assumption fails?
+        allocate:
+          dataProvenance: invented one-slot authoring packages; intervention mechanisms and timing are source-derived
+          hint: You have three slots, not six. Keep an immediate transmission package and a different longer-horizon mechanism alive; the panel shows which response questions each choice preserves.
+          pool:
+            amount: 3
+            unit: funding slots
+            label: Intervention packages that can be started
+          items:
+            - id: ventilation
+              label: Ventilation upgrades in high-risk indoor settings
+              cost: 1
+            - id: rapid_isolation
+              label: Rapid testing, isolation support and contact response
+              cost: 1
+            - id: vaccine
+              label: Vaccine platform against a conserved target
+              cost: 1
+            - id: therapeutic
+              label: Targeted therapeutic development
+              cost: 1
+            - id: paid_leave
+              label: Paid stay-home support for exposed workers
+              cost: 1
+            - id: publicity
+              label: Publicity campaign declaring the crisis controlled
+              cost: 1
+          answers:
+            - required: true
+              requires:
+                - ventilation
+              question: Reduce indoor transmission opportunity this month
+            - required: true
+              requires:
+                - rapid_isolation
+              question: Interrupt detected transmission chains this month
+            - required: true
+              requires:
+                - vaccine
+              question: Preserve a longer-horizon immune layer
+            - required: false
+              requires:
+                - therapeutic
+              question: Develop a treatment option for infected patients
+            - required: false
+              requires:
+                - paid_leave
+              question: Reduce the cost of staying home when exposed
+            - required: false
+              requires:
+                - publicity
+              question: Create a reassuring public message without new evidence
+        answerText: Fund ventilation, rapid isolation and the vaccine platform. The first two act this month through different operational routes, while the vaccine preserves a longer-horizon biological layer. The three-slot limit means useful treatment and support projects may still need other funding; the publicity-only option answers no scientific response need.
+        why: Layered control is stronger when the layers do not all wait for the same event or fail for the same reason. Ventilation reduces exposure opportunities without depending on who has been diagnosed. Rapid isolation acts after detection and shortens opportunities for onward spread. A vaccine takes longer, but it adds a distinct immune mechanism for the future. Treatment and paid leave can also matter, but the fixed three-slot portfolio cannot buy everything. The point is to preserve different mechanisms and timescales under a real resource constraint.
   - title: The Trial Signal
     objective: Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value or headline percentage.
     briefing: Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must distinguish a real effect from random variation and decide whether the trial should expand.
@@ -1500,26 +1714,27 @@ missions:
     takeaway: Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
-        task: Blood pH is 7.28 with a low bicarbonate. What is that telling you?
-        title: What the pH is telling you
+        task: One site enrolled younger patients and contributes much of the apparent benefit. What should the trial team do before attributing the difference to treatment?
+        title: Did the comparison stay fair?
         place: Clinical Physiology Suite
-        scene: Arterial pH 7.28, bicarbonate low, and the patient is breathing fast. The registrar has read the fast breathing as the problem and wants to sedate it down.
-        takeaway: Blood pH is defended by a buffer system, so a shifted pH means the buffer has been overwhelmed.
-        format: CHOICE
+        scene: One large trial site enrolled much younger patients than the others. It also supplies much of the apparent benefit. The original analysis plan already includes site-stratified estimates and a treatment-by-site check. The health ministry wants an answer today.
         assumes:
-          - blood is buffered, and normal arterial pH sits near 7.4
-        question: Blood pH is 7.28 with a low bicarbonate. What is that telling you?
+          - randomization balances groups in expectation, not perfectly inside every site
+          - an analysis chosen after seeing outcomes can introduce bias
+        takeaway: Randomization protects the treatment comparison on average; an imbalanced site pattern should be examined with pre-specified analyses.
+        format: CHOICE
+        question: How should the team handle the site imbalance without choosing the analysis after seeing the outcome?
+        why: Randomization makes treatment groups comparable in expectation, not identical in every subgroup. A site that enrolled younger participants can create a pattern worth checking. That matters especially when the site carries much of the apparent effect. Use the site-stratified and interaction analyses specified before outcomes were seen. Then inspect consistency and data quality, and report the heterogeneity. Dropping the inconvenient site or inventing a new subgroup after seeing the result would make the analysis depend on the outcome.
         choices:
-          - Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.
-          - The fast breathing has caused the acidity and slowing it will correct the pH.
-          - A pH of 7.28 is within the normal range and needs no explanation.
-          - The bicarbonate is low because the patient is breathing off carbon dioxide.
-        answer: Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.
-        why: "Bicarbonate is the blood's main buffer: it neutralises added acid and is consumed doing it, so a low bicarbonate with a low pH means acid is being produced faster than it is cleared. Breathing fast blows off carbon dioxide, which pushes the pH back up — it is the compensation, not the cause, and sedating it removes the one mechanism currently holding the pH where it is. Find and treat the acid; the respiratory rate is a symptom being useful."
+          - Use the pre-specified site-stratified analysis and test whether treatment effects differ materially by site.
+          - Delete the young site because it makes the treatment look too effective.
+          - Ignore site entirely because randomization guarantees identical groups everywhere.
+          - Create new age cutoffs after seeing the result until the treatment effect becomes stable.
+        answer: Use the pre-specified site-stratified analysis and test whether treatment effects differ materially by site.
         rebuttals:
-          - Hyperventilation raises pH. It cannot be the cause of an acidity it is opposing.
-          - Normal arterial pH is about 7.35 to 7.45, and the body defends it hard; 7.28 is a real derangement.
-          - Blowing off carbon dioxide lowers carbonic acid, not bicarbonate stores.
+          - Removing a site because of its result makes inclusion depend on the outcome and can bias the estimate.
+          - Randomization does not guarantee perfect balance inside every site or subgroup; heterogeneity still needs to be examined.
+          - Post-hoc subgroup hunting can manufacture apparently stable stories. Pre-specified analyses preserve the meaning of the comparison.
       - group: POP
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Read effect size and uncertainty
@@ -1553,26 +1768,26 @@ missions:
           solution: Risks of 0.10 and 0.05, an absolute reduction of 0.05, so about 20.
           explanation: The same result is a halving of risk, a five-percentage-point reduction, and one benefit per twenty treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy.
       - group: POP
-        task: Promising, imprecise, and the adverse events are uneven. What does the board decide?
+        task: The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?
         title: Continue, expand, or pause?
         place: Independent Safety Board
-        scene: The effect is 24 per cent with a confidence interval running from 3 to 41, and there are seven adverse events in one arm against two in the other on 180 participants. The safety board has to say what happens next, and enrolment is paused until it does.
-        takeaway: A mature trial decision can be encouraging and cautious at the same time.
-        format: CHOICE
+        scene: The estimated benefit is 24 per cent, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.
         assumes:
           - a wider interval means less is known, not that the effect is smaller
+        takeaway: Benefit and safety must both be judged through the pre-specified monitoring plan; a positive benefit estimate does not override a possible safety signal.
+        format: CHOICE
         question: Promising, imprecise, and the adverse events are uneven. What does the board decide?
+        why: A confidence interval from 3 to 41 per cent is compatible with benefit across a wide range of sizes. Excluding zero under the planned model is evidence against no effect, not proof that the exact benefit is known. Seven serious adverse events versus two may be chance or a safety signal; raw counts alone do not decide which. Precision depends on sample size, event frequency and design. The board should apply the pre-specified safety boundary and event review. It can then resume, modify, expand or stop according to that plan.
         choices:
-          - Expand enrolment under the same pre-specified analysis.
-          - Declare success and stop collecting data.
-          - Add measurements of the mechanism to explain why it works.
-          - Pause the trial until the adverse events are fully investigated.
-        answer: Expand enrolment under the same pre-specified analysis.
-        why: The effect is real — the interval excludes zero — and it is too wide to act on, since 3 per cent and 41 per cent imply different policies. Width is fixed by the number of participants and by nothing else, so more argument cannot narrow it and more enrolment can. The adverse imbalance, seven against two, is small enough to be chance at this size and is exactly what a pre-specified stopping rule exists to judge. Keeping that analysis is what makes the extra participants add precision instead of adding a second chance to find a positive result.
+          - Apply the pre-specified safety review and resume or expand only if its boundary permits.
+          - Declare success because the benefit interval excludes zero.
+          - Ignore the adverse-event imbalance and collect only mechanism data.
+          - Permanently stop the trial solely because seven events exceed two, without applying the planned safety review.
+        answer: Apply the pre-specified safety review and resume or expand only if its boundary permits.
         rebuttals:
-          - Stopping now converts an imprecise estimate into a permanent one, and the imprecision is the whole reason the board was convened.
-          - Mechanism is worth knowing and does not narrow the interval the decision turns on.
-          - Pausing is right if the safety signal is real, and the safety board's monitoring is what establishes that — it runs alongside enrolment rather than instead of it.
+          - A benefit signal does not erase the safety analysis. Stopping for efficacy alone would freeze both the imprecision and the unresolved adverse-event question.
+          - Mechanism can be informative but it does not replace independent adjudication of serious adverse events.
+          - The imbalance deserves review, but raw counts without the planned boundary, event definitions, exposure time and adjudication are not by themselves the stopping rule.
   - title: Containment or Adaptation?
     objective: Use scenarios and trigger-based policies instead of pretending one forecast is certain.
     briefing: The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation, and long-term adaptation while the biological parameters remain uncertain.
@@ -1604,13 +1819,13 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Hospital capacity threshold
         place: Hospital Capacity Center
-        scene: The region has 120 staffed critical-care beds. Ninety are already full. Severe cases are arriving at about eight a day, and the average stay is somewhere near six days — a figure nobody has actually checked.
-        takeaway: Simple bounds can reveal which missing data are decision-critical.
-        format: BALLPARK
+        scene: The region has 120 staffed critical-care beds, and 90 are already full. Severe cases are arriving at about eight a day. The transfer centre is calling neighbouring hospitals while the council asks how many days remain.
         assumes:
           - a bound is what you can say before the missing number arrives
-        why: A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.
+        takeaway: Simple bounds can reveal which missing data are decision-critical.
+        format: BALLPARK
         question: Estimate the upper bound on time to capacity, assuming nobody is discharged.
+        why: A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.
         estimate:
           relationship: Time to fill = beds free ÷ arrivals per day.
           prompt: The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about eight a day, and the average stay is around six days.
@@ -1632,26 +1847,58 @@ missions:
           solution: 30 ÷ 8 ≈ 3.75 days, if nobody leaves.
           explanation: Total beds is the wrong numerator, because ninety of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes.
       - group: POP
-        task: A policy the council can defend for a month. Which?
+        task: Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter.
         title: Choose an adaptive policy
         place: City Command
-        scene: The outbreak is geographically uneven and the council wants a policy it can defend for a month. Three districts, three different trajectories, and one decision.
-        takeaway: Good policy is a feedback system, not a one-time guess.
-        format: CHOICE
+        scene: Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75 per cent and a short worst-case trace from the capacity model. Two reversible actions each need lead time.
         assumes:
-          - a policy tied to an observable can change without anybody having been wrong
-        question: A policy the council can defend for a month. Which?
-        choices:
-          - Citywide measures tied to hospital and growth thresholds.
-          - Targeted containment wherever transmission chains are traceable.
-          - Capacity expansion and protection of vulnerable populations.
-          - Commit to one policy now and hold it whatever the data show.
-        answer: Citywide measures tied to hospital and growth thresholds.
-        why: Three districts on three trajectories cannot be served by one fixed measure, and uncertainty is not resolved by choosing more confidently. A policy tied to observable triggers — a case rate, a hospital occupancy, a test positivity — changes when the outbreak changes, in a way that was announced before it happened. That is also what lets it be relaxed without anybody having to admit they were wrong — which is what keeps it defensible for a month.
-        rebuttals:
-          - Targeted containment is cheap and effective where chains are traceable, and it fails silently where they are not. Nothing in it tells you it has stopped working.
-          - Capacity expansion protects the outcome that matters and does nothing about transmission, so it raises the ceiling without slowing the climb.
-          - Committing regardless of new evidence is the only option here that cannot learn, which in a month of an uneven outbreak is the one guaranteed to be wrong somewhere.
+          - a trigger is written before the next number arrives
+          - reversible preparations still need time to take effect
+        takeaway: Adaptive policy works best when observable thresholds and lead times are committed before the evidence moves.
+        format: TRIGGER
+        question: Which precommitted thresholds keep the response ahead of the capacity boundary?
+        trigger:
+          dataProvenance: invented policy thresholds applied to a source-derived worst-case occupancy trace
+          hint: Write both thresholds before releasing the trace. The staffing action needs one day of lead time; the surge-bed action also needs one. A rule that fires after the capacity boundary is reached is too late.
+          scale:
+            min: 70
+            max: 100
+            unit: "% staffed critical-care beds occupied"
+            label: Critical-care occupancy
+          stream:
+            - t: 0
+              value: 75
+              hoursLeft: 72
+              at: day 0
+              update: 75 % staffed critical-care beds occupied
+            - t: 1
+              value: 82
+              hoursLeft: 48
+              at: day 1
+              update: 82 % staffed critical-care beds occupied
+            - t: 2
+              value: 88
+              hoursLeft: 24
+              at: day 2
+              update: 88 % staffed critical-care beds occupied
+            - t: 3
+              value: 95
+              hoursLeft: 0
+              at: day 3
+              update: 95 % staffed critical-care beds occupied
+          failureBoundary:
+            value: 95
+            unit: "% occupied"
+            label: Authored capacity emergency boundary
+          conditions:
+            - id: staffing
+              label: Activate overflow staffing and transfer planning
+              leadHours: 24
+            - id: surge
+              label: Open regional surge-bed capacity
+              leadHours: 24
+        answerText: Set the first trigger near 80 per cent occupancy and the second near 88 per cent before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95 per cent makes the same actions operationally late.
+        why: A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, ninety of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.
   - title: The Final Briefing
     objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
     briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.
@@ -1659,72 +1906,80 @@ missions:
     takeaway: Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
-        task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
+        task: Spend the two independent checks on the critical claims that still lack adequate backing, then disposition the final report.
         title: Disposition the final claims
         place: Scientific Review Hall
-        scene: Four claims are going into the final report and they are not equally well supported. The review board has to decide what to say about each, and the document will outlive everybody in the room.
-        takeaway: Scientific conclusions should carry the strength and limits of their supporting evidence.
-        format: PROTOCOL
-        columns:
-          - What the evidence supports
-          - What you do with it
-        rebuttals:
-          - Independent streams agreeing is the strongest evidence in the report, and treating it as provisional wastes the only thing the response can plan on.
-          - One small observational sample identifies a subgroup worth confirming. Published as established, it becomes policy about people nobody measured properly.
-          - A benefit whose duration is unknown is used conditionally, with follow-up — the uncertainty is about how long, not about whether.
-          - A plausible unconfirmed reservoir justifies more investigation. Acting on it destroys the evidence and may not touch the actual source.
+        scene: The emergency is closing, and the final evidence wall contains four signed claims that will enter Riverton’s permanent record. Two independent checks remain before publication. Their scientific evidence chains are not equally complete.
         assumes:
-          - evidence comes in strengths, and a conclusion inherits the weakest one it rests on
-        scenarios:
-          - Multiple independent data streams support the transmission route.
-          - A severe-risk subgroup is suggested by one small observational sample.
-          - An intervention lowers hospitalization with monitored safety but long-term duration is unknown.
-          - An animal reservoir remains plausible but unconfirmed.
-        choices:
-          - Treat as established enough for operational planning while continuing surveillance.
-          - Label as provisional and collect representative confirmatory data.
-          - Use conditionally with follow-up and duration studies.
-          - Avoid destructive ecological action; continue targeted One Health investigation.
-        mapping: [0, 1, 2, 3]
-        why: The failure mode here is uniform treatment — publishing the weakest claim with the confidence of the strongest, or holding back the strongest because the weakest is unresolved. Multiple independent data streams agreeing is the strongest thing on the list and can carry operational planning. One small observational sample is a hypothesis worth collecting data on. A benefit shown with unknown duration can be used with follow-up attached. And a plausible unconfirmed reservoir is a reason to keep investigating, not a reason to destroy anything.
+          - a signed statement records a claim but does not independently verify the condition
+          - strong conclusions need evidence chains that can survive one failed source
+        takeaway: Scientific claims should be communicated at the strength their independent evidence can support.
+        format: ATTEST
+        question: Which claims need verification before the report can carry them at their proposed strength?
+        attest:
+          dataProvenance: invented final-review check budget; claim strengths are source-derived
+          hint: Every card is signed. You can independently check two. Spend those checks where a wrong critical claim would change the report and where independent backing is still missing.
+          claims:
+            - id: transmission
+              label: The main transmission route is established enough for operational planning
+              critical: true
+              backed: true
+              evidence: Multiple independent surveillance and exposure streams already converge on the route.
+            - id: risk_group
+              label: The proposed severe-risk subgroup is established for citywide policy
+              critical: true
+              backed: false
+              evidence: Collect a representative confirmatory sample rather than relying on one small observational group.
+            - id: treatment_duration
+              label: The monitored treatment benefit can be assumed to persist beyond eight weeks
+              critical: true
+              backed: false
+              evidence: Extend follow-up and reproduce the duration estimate under the planned analysis.
+            - id: reservoir
+              label: The suspected animal species is the confirmed reservoir
+              critical: false
+              backed: false
+              evidence: Complete comparison-site, species and repeat-time One Health evidence before making a reservoir claim.
+          checks: 2
+        answerText: Use the two checks on the severe-risk subgroup and the treatment-duration claim. The transmission route already has independent backing. The animal reservoir should remain explicitly unresolved rather than being promoted to a confirmed claim without the field evidence needed to support it.
+        why: A final report should not force every claim to the same confidence. The transmission route is backed by independent evidence and can support operational planning. A severe-risk subgroup from one small observational sample needs representative confirmation before it becomes citywide policy. A treatment benefit measured only through eight weeks cannot establish longer duration without follow-up. The suspected reservoir remains a live hypothesis and can stay in the report as unresolved. Verification capacity belongs on critical claims whose current evidence chain is weakest, not on claims that are already independently reconstructed.
       - group: POP
         task: Order the briefing by how much weight each claim can carry.
         title: Build the public explanation
         place: City Command
-        scene: The mayor is on air in an hour. The transmission route is settled, the animal reservoir is not, and the treatment works under conditions nobody has tested past eight weeks. The draft opens with the actions.
-        takeaway: A public account is ordered by the strength of its evidence, not by the order the work happened in.
-        format: SEQUENCE
+        scene: The mayor goes live in an hour. The transmission route is settled, the animal reservoir is not, and treatment has only eight weeks of follow-up. Every sentence in the draft will be replayed after the emergency ends.
         assumes:
           - an audience judges a claim by how it was supported, once it knows
+        takeaway: A public account is ordered by the strength of its evidence, not by the order the work happened in.
+        format: SEQUENCE
+        why: The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.
         cards:
           - The transmission route, which three independent data streams agree on.
           - The severe-risk subgroup, which one small observational sample suggests.
           - The animal reservoir, which remains plausible and unconfirmed.
           - What it would take to settle each open question, and when the city revisits it.
         order: [0, 1, 2, 3]
-        why: The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.
       - group: POP
-        task: The emergency budget closes this month. What does the city commit it to?
+        task: The emergency budget closes this month. Which durable capability should receive the protected outbreak-surveillance funding?
         title: Fund the post-crisis legacy
         place: Public Briefing Room
-        scene: "The emergency budget closes in three weeks, and anything uncommitted returns to the state. Four proposals against funding for two: the sequencing bench that found the variant, the sewer sampling network, the animal survey, and the clinic that took the first cases."
-        takeaway: The final responsibility is to convert crisis knowledge into durable public capability.
-        format: CHOICE
+        scene: The emergency budget ends in three weeks. Unprotected contracts and sampling programs stop with it. Sequencing, wastewater surveillance, field ecology and clinical readiness all want the last outbreak-specific line. The council votes before the month closes.
         assumes:
           - capability that is not funded to continue stops when the emergency does
-        question: The emergency budget closes this month. What does the city commit it to?
+        takeaway: Legacy funding should preserve an integrated early-warning capability and the ability to interpret its signals, not just the instrument that was most visible this time.
+        format: CHOICE
+        question: Which capability should the city protect when the emergency budget closes?
+        why: The durable capability is an integrated surveillance system rather than one favored instrument. Clinical, wastewater and genomic streams see different parts of transmission. They become more useful when compared through shared metadata and analysis. Field ecology should remain available when a One Health signal appears, while routine clinical readiness belongs in the broader health system. The emergency line should protect cross-stream early warning and interpretation capacity that would otherwise disappear. Records and methods should be preserved as a low-cost requirement rather than a competing project.
         choices:
-          - Integrated clinical, environmental and genomic surveillance.
-          - Health-system resilience and workforce training.
-          - Preserving the data, methods and after-action record.
-          - Closing the records once the review is published.
-        answer: Integrated clinical, environmental and genomic surveillance.
-        why: "Rank the four by what depends on them. Every week of warning this outbreak got came from a signal somebody was already collecting: the sequencing bench found the variant, and the sewer network found transmission before the hospitals did. Every other response, treatment included, is evaluated against what those two report. The clinic matters and can be funded from routine health money; the animal survey answers a question that is no longer urgent. Surveillance is also the only item that has to run continuously to be worth anything, which is exactly what a closing budget should endow rather than leave to next year's argument."
+          - Integrated clinical, environmental and genomic surveillance with shared analysis.
+          - Keep the sequencing bench as the protected core because it found the rising variant.
+          - Keep wastewater sampling as the protected core because it produced the earliest signal this time.
+          - End the outbreak-specific records program and rebuild the system when the next event starts.
+        answer: Integrated clinical, environmental and genomic surveillance with shared analysis.
         rebuttals:
-          - Resilience and training decide whether detection helps, and they are the next call. They do nothing if nothing detects the next event.
-          - Preserving the record costs very little and should happen regardless. It is a filing decision, not what an emergency budget is for.
-          - Closing the records removes the only account of how any of this was measured, and the next response would start from nothing.
-
+          - Sequencing is powerful but depends on representative samples and cannot replace clinical or environmental context.
+          - Wastewater can provide early population signals but cannot characterize every clinical consequence or transmission mechanism by itself.
+          - Discarding the records removes the provenance, baselines and lessons needed to interpret the next signal.
 # What is inside each room.
 interiors:
   CLIN:

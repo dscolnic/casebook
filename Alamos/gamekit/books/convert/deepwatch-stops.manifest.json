@@ -1,0 +1,602 @@
+{
+ "theme": "deepwatch",
+ "book": "books/deep-watch.yml",
+ "course": "Physics of waves and sound, with an engineering-systems unit",
+ "curriculum": [
+  "Sound as a wave: frequency, wavelength, speed",
+  "Sound in water: refraction, layers, propagation paths",
+  "Reflection, absorption and transmission loss",
+  "Doppler shift",
+  "Resonance and harmonics",
+  "Spectra: broadband and narrowband",
+  "Signal-to-noise and detection thresholds",
+  "Bearings, triangulation and geometry",
+  "Relative motion, vectors and dead reckoning",
+  "Buoyancy and Archimedes",
+  "Pressure, depth and hydrostatics",
+  "Trim, stability and centre of gravity",
+  "Fluid flow and cavitation",
+  "Thermodynamics and heat engines",
+  "Circuits, grounding and electrical faults",
+  "Gas laws and life support",
+  "Combustion, the fire triangle and reflash",
+  "Dependency order and interlocks",
+  "Instruments versus indicators: validating a reading",
+  "Risk, redundancy and failure propagation",
+  "Interference, beats and phase",
+  "Standing waves and cavity resonance",
+  "Diffraction, beamwidth and array directivity",
+  "Decibels and logarithmic scales",
+  "Snell's law, ray paths and shadow zones",
+  "The sonar equation: source level, transmission loss, noise",
+  "Speed, time, distance and closest point of approach",
+  "Materials under pressure: stress, strength, the pressure hull",
+  "Batteries, DC distribution and grounding",
+  "Human factors: checklists, handover and communication"
+ ],
+ "equations": [
+  {
+   "e": "v = fλ",
+   "about": "wave speed, frequency and wavelength",
+   "symbols": [
+    [
+     "v",
+     "speed of sound in water, about 1500 metres per second"
+    ],
+    [
+     "f",
+     "frequency, in hertz"
+    ],
+    [
+     "λ",
+     "wavelength, in metres"
+    ]
+   ]
+  },
+  {
+   "e": "Δf / f = v / c",
+   "about": "Doppler shift as a closing speed",
+   "symbols": [
+    [
+     "Δf",
+     "the shift in frequency, in hertz"
+    ],
+    [
+     "f",
+     "the frequency being transmitted"
+    ],
+    [
+     "v",
+     "closing speed along the line of sight"
+    ],
+    [
+     "c",
+     "speed of sound in water"
+    ]
+   ]
+  },
+  {
+   "e": "dB = 10·log₁₀(P/P₀)",
+   "about": "the decibel, and why 3 dB is a doubling",
+   "symbols": [
+    [
+     "dB",
+     "the level, in decibels"
+    ],
+    [
+     "P",
+     "the power being measured"
+    ],
+    [
+     "P₀",
+     "the reference power it is quoted against"
+    ]
+   ]
+  },
+  {
+   "e": "SL − 2TL + TS − NL ≥ DT",
+   "about": "the sonar equation as a detection budget",
+   "symbols": [
+    [
+     "SL",
+     "source level of the noise"
+    ],
+    [
+     "TL",
+     "transmission loss, once each way"
+    ],
+    [
+     "TS",
+     "target strength of the contact"
+    ],
+    [
+     "NL",
+     "noise level at the array"
+    ],
+    [
+     "DT",
+     "detection threshold the operator needs"
+    ]
+   ]
+  },
+  {
+   "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
+   "about": "Snell's law — why sound bends at a layer",
+   "symbols": [
+    [
+     "θ₁",
+     "angle in the first layer"
+    ],
+    [
+     "v₁",
+     "sound speed in that layer"
+    ],
+    [
+     "θ₂",
+     "angle in the second layer"
+    ],
+    [
+     "v₂",
+     "sound speed there"
+    ]
+   ]
+  },
+  {
+   "e": "d = ½vt",
+   "about": "echo ranging on a two-way travel time",
+   "symbols": [
+    [
+     "d",
+     "range to the contact, in metres"
+    ],
+    [
+     "v",
+     "speed of sound in water"
+    ],
+    [
+     "t",
+     "the round-trip travel time, in seconds"
+    ]
+   ]
+  },
+  {
+   "e": "p = ρgh",
+   "about": "hydrostatic pressure with depth",
+   "symbols": [
+    [
+     "p",
+     "pressure, in pascals"
+    ],
+    [
+     "ρ",
+     "density of seawater, about 1025 kilograms per cubic metre"
+    ],
+    [
+     "g",
+     "9.81 metres per second squared"
+    ],
+    [
+     "h",
+     "depth, in metres"
+    ]
+   ]
+  },
+  {
+   "e": "F_b = ρVg",
+   "about": "Archimedes — buoyancy from displaced volume",
+   "symbols": [
+    [
+     "F_b",
+     "buoyant force, in newtons"
+    ],
+    [
+     "ρ",
+     "density of the water"
+    ],
+    [
+     "V",
+     "volume of water displaced, in cubic metres"
+    ],
+    [
+     "g",
+     "9.81 metres per second squared"
+    ]
+   ]
+  },
+  {
+   "e": "f_beat = |f₁ − f₂|",
+   "about": "beats between two close frequencies",
+   "symbols": [
+    [
+     "f_beat",
+     "the beat frequency you hear, in hertz"
+    ],
+    [
+     "f₁",
+     "one source frequency"
+    ],
+    [
+     "f₂",
+     "the other"
+    ]
+   ]
+  },
+  {
+   "e": "PV = nRT",
+   "about": "the gas law behind a life-support margin",
+   "symbols": [
+    [
+     "P",
+     "pressure"
+    ],
+    [
+     "V",
+     "volume"
+    ],
+    [
+     "n",
+     "moles of gas"
+    ],
+    [
+     "R",
+     "the gas constant"
+    ],
+    [
+     "T",
+     "absolute temperature, in kelvin"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Reasoning Under Pressure Beneath the Surface",
+ "groups": [
+  {
+   "id": "SONAR",
+   "name": "Sonar & Acoustics",
+   "desc": "What the water carries, what the boat makes, and how to tell them apart."
+  },
+  {
+   "id": "NAV",
+   "name": "Navigation & Position",
+   "desc": "Where the boat is, how old that answer is, and how wrong it is allowed to be."
+  },
+  {
+   "id": "DC",
+   "name": "Damage Control",
+   "desc": "Water in the boat — finding it, stopping it, and knowing whether you are winning."
+  },
+  {
+   "id": "FIRE",
+   "name": "Fire & Electrical",
+   "desc": "Fire aboard is an electrical problem until the power is proved gone."
+  },
+  {
+   "id": "ATMO",
+   "name": "Atmosphere & Life Support",
+   "desc": "The air is a system with sources, sinks and a flow path, and people are in it."
+  },
+  {
+   "id": "ENG",
+   "name": "Propulsion & Engineering",
+   "desc": "What turns the shaft, what cools it, and what the boat gives away by running it."
+  }
+ ],
+ "stops": [
+  {
+   "id": "deepwatch.m01.s1",
+   "day": 1,
+   "group": "DC",
+   "format": "SEQUENCE",
+   "title": "What a walkdown is for"
+  },
+  {
+   "id": "deepwatch.m01.s2",
+   "day": 1,
+   "group": "ENG",
+   "format": "PROTOCOL",
+   "title": "Every fitting is an argument"
+  },
+  {
+   "id": "deepwatch.m01.s3",
+   "day": 1,
+   "group": "NAV",
+   "format": "ROUTE",
+   "title": "The trip back without a waypoint"
+  },
+  {
+   "id": "deepwatch.m02.s1",
+   "day": 2,
+   "group": "SONAR",
+   "format": "PROTOCOL",
+   "title": "Four traces, one of them ours"
+  },
+  {
+   "id": "deepwatch.m02.s2",
+   "day": 2,
+   "group": "SONAR",
+   "format": "CHOICE",
+   "title": "The trace that will not resolve"
+  },
+  {
+   "id": "deepwatch.m02.s3",
+   "day": 2,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "The bearing that does not move"
+  },
+  {
+   "id": "deepwatch.m03.s1",
+   "day": 3,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "How far the water has carried us"
+  },
+  {
+   "id": "deepwatch.m03.s2",
+   "day": 3,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Two displays, one source"
+  },
+  {
+   "id": "deepwatch.m03.s3",
+   "day": 3,
+   "group": "SONAR",
+   "format": "CHOICE",
+   "title": "Where the sound will not go"
+  },
+  {
+   "id": "deepwatch.m04.s1",
+   "day": 4,
+   "group": "SONAR",
+   "format": "SEQUENCE",
+   "title": "What has to be true before the boat commits"
+  },
+  {
+   "id": "deepwatch.m04.s2",
+   "day": 4,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "The margin that survives being wrong"
+  },
+  {
+   "id": "deepwatch.m04.s3",
+   "day": 4,
+   "group": "ENG",
+   "format": "CHOICE",
+   "title": "The one shaft speed that rings"
+  },
+  {
+   "id": "deepwatch.m05.s1",
+   "day": 5,
+   "group": "DC",
+   "format": "BALANCE",
+   "title": "Under the deck plates"
+  },
+  {
+   "id": "deepwatch.m05.s2",
+   "day": 5,
+   "group": "DC",
+   "format": "BALLPARK",
+   "title": "What ninety metres puts behind the valve"
+  },
+  {
+   "id": "deepwatch.m05.s3",
+   "day": 5,
+   "group": "ENG",
+   "format": "PROTOCOL",
+   "title": "What else that valve feeds"
+  },
+  {
+   "id": "deepwatch.m06.s1",
+   "day": 6,
+   "group": "FIRE",
+   "format": "PROTOCOL",
+   "title": "Three legs, three different actions"
+  },
+  {
+   "id": "deepwatch.m06.s2",
+   "day": 6,
+   "group": "FIRE",
+   "format": "SEQUENCE",
+   "title": "What a lamp is worth"
+  },
+  {
+   "id": "deepwatch.m06.s3",
+   "day": 6,
+   "group": "ATMO",
+   "format": "CHOICE",
+   "title": "Smoke is not only a breathing problem"
+  },
+  {
+   "id": "deepwatch.m07.s1",
+   "day": 7,
+   "group": "ATMO",
+   "format": "CHOICE",
+   "title": "The compartment the scrubber cannot reach"
+  },
+  {
+   "id": "deepwatch.m07.s2",
+   "day": 7,
+   "group": "ATMO",
+   "format": "BALLPARK",
+   "title": "Nine people and a shut damper"
+  },
+  {
+   "id": "deepwatch.m07.s3",
+   "day": 7,
+   "group": "ENG",
+   "format": "CHOICE",
+   "title": "What one fan takes with it"
+  },
+  {
+   "id": "deepwatch.m08.s1",
+   "day": 8,
+   "group": "DC",
+   "format": "TRIAGE",
+   "title": "Four casualties, one crew"
+  },
+  {
+   "id": "deepwatch.m08.s2",
+   "day": 8,
+   "group": "FIRE",
+   "format": "DELEGATE",
+   "title": "Who does the things you are not doing"
+  },
+  {
+   "id": "deepwatch.m08.s3",
+   "day": 8,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Slowing down as a decision"
+  },
+  {
+   "id": "deepwatch.m09.s1",
+   "day": 9,
+   "group": "SONAR",
+   "format": "CHOICE",
+   "title": "The rise on every bearing"
+  },
+  {
+   "id": "deepwatch.m09.s2",
+   "day": 9,
+   "group": "ENG",
+   "format": "CONTROL",
+   "title": "Narrowing it to one mount"
+  },
+  {
+   "id": "deepwatch.m09.s3",
+   "day": 9,
+   "group": "SONAR",
+   "format": "BALLPARK",
+   "title": "What the shifted line says about speed"
+  },
+  {
+   "id": "deepwatch.m10.s1",
+   "day": 10,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Three gauges, one problem"
+  },
+  {
+   "id": "deepwatch.m10.s2",
+   "day": 10,
+   "group": "DC",
+   "format": "BALLPARK",
+   "title": "What 1.6 cubic metres of seawater is worth"
+  },
+  {
+   "id": "deepwatch.m10.s3",
+   "day": 10,
+   "group": "ENG",
+   "format": "PROTOCOL",
+   "title": "What each control actually does"
+  },
+  {
+   "id": "deepwatch.m11.s1",
+   "day": 11,
+   "group": "ENG",
+   "format": "CHAIN",
+   "title": "From the sea to the bearing"
+  },
+  {
+   "id": "deepwatch.m11.s2",
+   "day": 11,
+   "group": "ENG",
+   "format": "CHOICE",
+   "title": "One link is not handing the heat on"
+  },
+  {
+   "id": "deepwatch.m11.s3",
+   "day": 11,
+   "group": "FIRE",
+   "format": "CHOICE",
+   "title": "The breaker nobody logged"
+  },
+  {
+   "id": "deepwatch.m12.s1",
+   "day": 12,
+   "group": "ENG",
+   "format": "STRESS",
+   "title": "Four hours of quiet"
+  },
+  {
+   "id": "deepwatch.m12.s2",
+   "day": 12,
+   "group": "ATMO",
+   "format": "BALLPARK",
+   "title": "How long one scrubber lasts"
+  },
+  {
+   "id": "deepwatch.m12.s3",
+   "day": 12,
+   "group": "SONAR",
+   "format": "BALLPARK",
+   "title": "What silence buys, term by term"
+  },
+  {
+   "id": "deepwatch.m13.s1",
+   "day": 13,
+   "group": "DC",
+   "format": "ATTEST",
+   "title": "What the checklist is actually asking"
+  },
+  {
+   "id": "deepwatch.m13.s2",
+   "day": 13,
+   "group": "ATMO",
+   "format": "SEQUENCE",
+   "title": "Dampers before dive"
+  },
+  {
+   "id": "deepwatch.m13.s3",
+   "day": 13,
+   "group": "FIRE",
+   "format": "CHOICE",
+   "title": "What the last watch left open"
+  },
+  {
+   "id": "deepwatch.m14.s1",
+   "day": 14,
+   "group": "ENG",
+   "format": "ALLOCATE",
+   "title": "What the boat should buy"
+  },
+  {
+   "id": "deepwatch.m14.s2",
+   "day": 14,
+   "group": "SONAR",
+   "format": "BALLPARK",
+   "title": "What twelve decibels is worth"
+  },
+  {
+   "id": "deepwatch.m14.s3",
+   "day": 14,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "The value of a different failure"
+  },
+  {
+   "id": "deepwatch.m15.s1",
+   "day": 15,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Five small problems"
+  },
+  {
+   "id": "deepwatch.m15.s2",
+   "day": 15,
+   "group": "DC",
+   "format": "PROTOCOL",
+   "title": "Everything you are not doing yourself"
+  },
+  {
+   "id": "deepwatch.m15.s3",
+   "day": 15,
+   "group": "SONAR",
+   "format": "BALLPARK",
+   "title": "Why the level pulses three times a second"
+  }
+ ]
+}

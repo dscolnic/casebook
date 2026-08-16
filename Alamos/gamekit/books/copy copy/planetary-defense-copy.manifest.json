@@ -1,0 +1,4506 @@
+{
+ "theme": "planetary_defense",
+ "book": "books/planetary-defense.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "Campaign Director · International NEO Response",
+   "readOnly": false
+  },
+  {
+   "id": "group.DISC.desc",
+   "original": "Images, signal-to-noise, moving-object detection, and artifact rejection.",
+   "readOnly": false
+  },
+  {
+   "id": "group.ORBIT.desc",
+   "original": "Sky position, timing, orbit fitting, covariance, and impact probability.",
+   "readOnly": false
+  },
+  {
+   "id": "group.CHAR.desc",
+   "original": "Brightness, albedo, spectra, rotation, size, and composition.",
+   "readOnly": false
+  },
+  {
+   "id": "group.RADAR.desc",
+   "original": "Range, delay, velocity, momentum transfer, and independent orbit constraints.",
+   "readOnly": false
+  },
+  {
+   "id": "group.IMPACT.desc",
+   "original": "Energy, atmospheric entry, fragmentation, consequence uncertainty, and deflection physics.",
+   "readOnly": false
+  },
+  {
+   "id": "group.OPS.desc",
+   "original": "Completeness, observing geometry, response decisions, communication, and long-term readiness.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.role",
+   "original": "Survey Imaging Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.bio",
+   "original": "Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.quiz.0.q",
+   "original": "How does Nguyen separate a real moving object from a detector artefact?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.quiz.0.a",
+   "original": "It appears in independent exposures and moves consistently",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.quiz.0.wrong.0",
+   "original": "Artefacts are always brighter on the frame than a real detection is",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.quiz.0.wrong.1",
+   "original": "Real objects appear on only one detector at a time",
+   "readOnly": false
+  },
+  {
+   "id": "roster.nguyen.quiz.0.wrong.2",
+   "original": "Cosmic rays are removed by the telescope's own software",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.role",
+   "original": "Orbit Determination Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.bio",
+   "original": "Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.quiz.0.q",
+   "original": "Why does Rossi treat a position as a timed measurement rather than a point?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.quiz.0.a",
+   "original": "An orbit is fitted to when as much as where",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.quiz.0.wrong.0",
+   "original": "A position is only valid for the night on which it was taken",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.quiz.0.wrong.1",
+   "original": "Timing decides which telescope gets credit for the observation",
+   "readOnly": false
+  },
+  {
+   "id": "roster.rossi.quiz.0.wrong.2",
+   "original": "The covariance is computed from exposure length",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.role",
+   "original": "Physical Characterization Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.bio",
+   "original": "Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.quiz.0.q",
+   "original": "Why will Adebayo not give a diameter from brightness alone?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.quiz.0.a",
+   "original": "Brightness is size and reflectivity together",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.quiz.0.wrong.0",
+   "original": "Brightness cannot be measured accurately at the faintest magnitudes",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.quiz.0.wrong.1",
+   "original": "Diameter requires a radar detection by definition",
+   "readOnly": false
+  },
+  {
+   "id": "roster.adebayo.quiz.0.wrong.2",
+   "original": "Reflectivity is the same for every asteroid of a given type",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.role",
+   "original": "Radar Dynamics Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.bio",
+   "original": "Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.quiz.0.q",
+   "original": "What does radar add that optical astrometry cannot give?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.quiz.0.a",
+   "original": "A direct distance and line-of-sight speed",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.quiz.0.wrong.0",
+   "original": "A far more accurate measurement of the very same position on the sky",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.quiz.0.wrong.1",
+   "original": "The object's composition from the returned frequency",
+   "readOnly": false
+  },
+  {
+   "id": "roster.fischer.quiz.0.wrong.2",
+   "original": "Observations that can be made in daylight",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.role",
+   "original": "Impact Physics Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.bio",
+   "original": "Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.quiz.0.q",
+   "original": "Why does Banerjee give consequence as a range rather than a number?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.quiz.0.a",
+   "original": "Three uncertain inputs multiply through the calculation",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.quiz.0.wrong.0",
+   "original": "A range is required by protocol before any public statement is made",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.quiz.0.wrong.1",
+   "original": "Deterministic answers are only possible after entry",
+   "readOnly": false
+  },
+  {
+   "id": "roster.banerjee.quiz.0.wrong.2",
+   "original": "The range describes how likely an impact is",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.role",
+   "original": "Survey and Response Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.bio",
+   "original": "Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.q",
+   "original": "What is Garcia guarding against when she says expected value is not a prediction?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.a",
+   "original": "A tiny chance of something enormous gives a number nobody will see",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.wrong.0",
+   "original": "Expected value cannot be computed before the orbit is known",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.wrong.1",
+   "original": "Probabilities below one per cent are not meaningful to a general audience",
+   "readOnly": false
+  },
+  {
+   "id": "roster.garcia.quiz.0.wrong.2",
+   "original": "The public always misreads percentages",
+   "readOnly": false
+  },
+  {
+   "id": "roster.virtanen.role",
+   "original": "Survey Pipeline Scientist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.virtanen.bio",
+   "original": "Owns the software that decides which of the night's forty thousand detections\na human being ever sees. Most of what it flags is a satellite, a cosmic ray or\na column of hot pixels.\n\nHer measure of the pipeline is not how many objects it finds but how many real\nones it throws away, which can only be known by feeding it synthetic objects\nand counting how many come back.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.virtanen.quiz.0.q",
+   "original": "How does Virtanen measure whether the survey is missing objects?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.virtanen.quiz.0.a",
+   "original": "By planting known objects and seeing how many are found",
+   "readOnly": false
+  },
+  {
+   "id": "roster.virtanen.quiz.0.wrong.0",
+   "original": "By comparing the number found this year with last year",
+   "readOnly": false
+  },
+  {
+   "id": "roster.virtanen.quiz.0.wrong.1",
+   "original": "By checking that no uncatalogued objects appear in the catalogue",
+   "readOnly": false
+  },
+  {
+   "id": "roster.virtanen.quiz.0.wrong.2",
+   "original": "By observing the same field twice on the same night",
+   "readOnly": false
+  },
+  {
+   "id": "roster.delacroix.role",
+   "original": "Astrometrist",
+   "readOnly": false
+  },
+  {
+   "id": "roster.delacroix.bio",
+   "original": "Turns images into positions, which sounds mechanical and is where most orbit\nerrors are actually born. A position is only as good as the star catalogue it\nwas measured against and the clock that timestamped it.\n\nHe looks for structure in residuals across the focal plane. A bias that grows\ntoward the corner of a detector is an instrument problem wearing the costume\nof an orbital one.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.delacroix.quiz.0.q",
+   "original": "What does Delacroix conclude from residuals that grow toward one corner of the detector?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.delacroix.quiz.0.a",
+   "original": "The error follows position on the detector, not the sky",
+   "readOnly": false
+  },
+  {
+   "id": "roster.delacroix.quiz.0.wrong.0",
+   "original": "The object is accelerating in a way gravity does not explain",
+   "readOnly": false
+  },
+  {
+   "id": "roster.delacroix.quiz.0.wrong.1",
+   "original": "The exposure times were recorded in the wrong time standard",
+   "readOnly": false
+  },
+  {
+   "id": "roster.delacroix.quiz.0.wrong.2",
+   "original": "The telescope was tracking at the wrong rate",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sorokin.role",
+   "original": "Thermal Infrared Observer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sorokin.bio",
+   "original": "Measures asteroids in the infrared, where what is seen is heat the body\nre-radiates rather than sunlight it reflects. That breaks the tie between a\nsmall bright object and a large dark one.\n\nReflected light alone gives brightness, which is the product of size and\nreflectivity. Two unknowns, one measurement — and every consequence estimate\ndownstream cubes whichever size you guessed.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.sorokin.quiz.0.q",
+   "original": "Why does Sorokin's infrared measurement pin down a diameter that optical brightness cannot?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sorokin.quiz.0.a",
+   "original": "Thermal emission depends on size and temperature, not reflectivity",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sorokin.quiz.0.wrong.0",
+   "original": "Infrared telescopes have better angular resolution",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sorokin.quiz.0.wrong.1",
+   "original": "Reflected light cannot be measured for faint objects",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sorokin.quiz.0.wrong.2",
+   "original": "The infrared band is unaffected by distance",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.role",
+   "original": "Radar Astronomer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.bio",
+   "original": "Transmits at an asteroid and listens for the echo, which is the only method in\nthis campaign that measures a distance directly instead of inferring it.\n\nThe catch is geometry. Radar strength falls with the fourth power of distance,\nso the technique that collapses an orbit works for a few days per apparition\nand then not at all for years.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.mbeki.quiz.0.q",
+   "original": "Why is a radar window so short and so valuable?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.a",
+   "original": "The returned signal weakens as the fourth power of range",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.wrong.0",
+   "original": "The transmitter overheats after a few hours of use",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.wrong.1",
+   "original": "Radar requires the object to be in the Earth's shadow",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mbeki.quiz.0.wrong.2",
+   "original": "Other observatories are booked for optical work at exactly the same hours",
+   "readOnly": false
+  },
+  {
+   "id": "roster.schulz.role",
+   "original": "Impact Physics Modeller",
+   "readOnly": false
+  },
+  {
+   "id": "roster.schulz.bio",
+   "original": "Models what happens between the top of the atmosphere and the ground, where\nan object either arrives intact, breaks up and deposits its energy as a burst,\nor does something in between.\n\nWhich of those happens depends on the body's strength, and strength is the\nquantity nobody has measured for the object in question. Her models therefore\nproduce distributions, and she resists every request to reduce one to a\nheadline number.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.schulz.quiz.0.q",
+   "original": "Why do Schulz's entry models produce a range of outcomes rather than one?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.schulz.quiz.0.a",
+   "original": "The body's strength is unmeasured, and it decides whether it fragments",
+   "readOnly": false
+  },
+  {
+   "id": "roster.schulz.quiz.0.wrong.0",
+   "original": "Atmospheric density at those heights is never known to better than a factor of two",
+   "readOnly": false
+  },
+  {
+   "id": "roster.schulz.quiz.0.wrong.1",
+   "original": "The models are run on different computers with different rounding",
+   "readOnly": false
+  },
+  {
+   "id": "roster.schulz.quiz.0.wrong.2",
+   "original": "Entry angle cannot be determined before impact",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ellery.role",
+   "original": "Preparedness Coordinator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ellery.bio",
+   "original": "Translates a probability that keeps moving into actions that people can take\nwithout being made fools of when it moves again.\n\nHer tool is the pre-agreed trigger: what has to be observed, by when, for a\ngiven protective step to begin. Announced in advance, it survives a\nprobability that falls; announced afterwards, it looks like improvisation.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ellery.quiz.0.q",
+   "original": "Why does Ellery agree protective triggers before the probability settles?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ellery.quiz.0.a",
+   "original": "A step tied to a stated observation survives the probability changing",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ellery.quiz.0.wrong.0",
+   "original": "Triggers reduce the uncertainty in the orbit determination",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ellery.quiz.0.wrong.1",
+   "original": "Regulations require evacuation plans to be filed in advance",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ellery.quiz.0.wrong.2",
+   "original": "Announcing them early is what stops the media reporting the risk badly",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Albedo.def",
+   "original": "The fraction of incident light a surface reflects.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Astrometry.def",
+   "original": "Measurement of an object position on the sky.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Astronomical unit.def",
+   "original": "The average Earth–Sun distance, about 150 million kilometres. Orbit sizes are quoted in it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Calibration.def",
+   "original": "The correction between what an instrument reads and what is true, established against something known.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Covariance.def",
+   "original": "A description of how uncertainties in fitted quantities vary together.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Ephemeris.def",
+   "original": "A table of where an object will be, night by night, computed from its orbit. Its uncertainty is what a telescope has to search.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Light curve.def",
+   "original": "Brightness measured as a function of time.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Parallax.def",
+   "original": "The apparent shift of an object against the background stars when the observer moves. With a known baseline it gives a distance by triangle.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Polarimetry.def",
+   "original": "Measuring how light is polarised after reflection, which constrains what a surface is made of and how rough it is.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Radar delay.def",
+   "original": "Round-trip travel time of a radar signal, used to infer range.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Solar elongation.def",
+   "original": "The angular separation between an object and the Sun as seen from the observer.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.title",
+   "original": "The Discovery Image",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.briefing",
+   "original": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.stake",
+   "original": "Eleven days before the object passes Earth, the automated survey run by Aino Virtanen has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "Object or artifact?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.place",
+   "original": "Survey Telescope Control",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "The survey software has flagged a faint point that moved between three exposures, in a field holding satellite trails and a hot pixel column. The alert about to go out would task observatories on three continents.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "A discovery becomes convincing when motion is coherent in sky coordinates but not tied to one detector, exposure, or telescope.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "a detector has its own defects, and they sit still in detector coordinates",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.headline",
+   "original": "The survey software flags a faint moving point near the ecliptic.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "A real Solar System object moves in the sky, not on the chip. That is the whole test, and four readings apply it. The source is star-like in every frame, so it is not a cosmic ray, which arrives once and sharp. It lands on different pixels while the background stars stay fixed, so it is not a hot pixel. And a second telescope on another mountain found it near the predicted place — an object that exists for instruments that are not this one.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.0",
+   "original": "Real Solar System object",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.0.mechanism",
+   "original": "A point source changes sky position coherently while stars and detector coordinates remain stable.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.1",
+   "original": "Cosmic-ray hit",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.1.mechanism",
+   "original": "A charged particle creates a transient sharp feature in one exposure.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2",
+   "original": "Hot detector pixel",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2.mechanism",
+   "original": "A fixed detector location appears bright whenever that pixel is read.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3",
+   "original": "Frame-alignment artifact",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3.mechanism",
+   "original": "Misalignment makes many fixed stars appear to shift together.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.0",
+   "original": "A cosmic ray is a single sharp hit in one exposure. This source is star-like in all three and keeps moving.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.1",
+   "original": "A hot pixel is bright wherever that pixel is read, so it stays put in detector coordinates. This one crosses pixels.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.2",
+   "original": "An alignment error moves many stars together. Here the stars stay fixed and one point does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "Validate the discovery",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.place",
+   "original": "Image Processing Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Forty thousand catalogued stars, two satellite trails and a hot pixel column share the frames with the moving point. The pipeline runs tonight in an order somebody will have to defend.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "A discovery is useful only when another observer can test it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "a prediction somebody else can test is what makes a claim checkable",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "Rejection has to come after calibration and before measurement, or every step measures the wrong thing. An uncalibrated frame gives positions that are wrong for instrumental reasons. Measuring before rejecting means astrometry on satellite trails and known asteroids. And the last step is what makes this a discovery rather than a claim: a predicted region hands somebody else a place to point and a way to prove you wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.0",
+   "original": "Bias, dark and flat first — positions off an uncalibrated frame are wrong in a way no later step recovers.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.1",
+   "original": "Cross-match second: stars, satellites, defects and catalogued objects, or you will measure them very precisely.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.2",
+   "original": "Positions and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.3",
+   "original": "The ephemeris last, with a region. That is the step that makes this falsifiable by somebody who is not you.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.0",
+   "original": "Apply the bias, dark and flat frames, and solve plate constants for each exposure.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.1",
+   "original": "Cross-match every source in the field against the star catalogue, the satellite element sets and the defect mask.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.2",
+   "original": "Fit positions, magnitudes and per-measurement uncertainties against the observatory clock.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.3",
+   "original": "Post an ephemeris with a predicted uncertainty region where another observatory can check it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "How far did it move?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.place",
+   "original": "Minor-Planet Operations Desk",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "The object shifted between two frames twenty minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "Repeated images turn apparent motion into a measurable rate.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "a rate is an amount divided by the time it took",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.question",
+   "original": "Estimate the apparent motion in arcseconds per hour.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "Twelve arcseconds in twenty minutes is 0.6 an arcsecond a minute, which is 36 an hour. The 60 in the equation is minutes per hour, so the interval has to be in minutes too. Hand it the same twenty minutes written as 1,200 seconds and the answer comes out sixty times too small — which would look like a main-belt object rather than something close.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.estimate.prompt",
+   "original": "The object shifts 12 arcseconds in 20 minutes, and the desk needs a rate before it can predict where to look next.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.estimate.question",
+   "original": "Estimate the apparent motion in arcseconds per hour.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.estimate.explanation",
+   "original": "The 60 in the template is minutes per hour, so the interval has to be in minutes. Handing it the same interval in seconds gives an answer 60 times too small — which would look like a main-belt object rather than something close.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.estimate.relationship",
+   "original": "Rate = distance moved ÷ time taken. Multiply by 60 to go from per minute to per hour.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.title",
+   "original": "Confirm the Motion",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.briefing",
+   "original": "Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.stake",
+   "original": "Ten days to the pass, and six observatories have reported positions to Hugo Delacroix, the campaign astrometrist. Two used a different time standard, one recorded no plate solution at all, and one camera's measurements curve away from the orbit fit in a way that looks systematic rather than random. Today you build one clean track out of all of it and buy the next observation. Delacroix will not weight anything down until the room agrees how. A weak track loses the object after the pass, when it will be too faint to find again for years.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "Why do the measured positions disagree?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.place",
+   "original": "Follow-Up Telescope Network",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "Astrometry from one wide-field camera curves away from the orbit fit while a second telescope agrees with it. Everything the network has on both is on the screen, and the orbit is due to be published tonight.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "An error that tracks the apparatus rather than the target is telling you about the apparatus.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "reference stars in the same frame are a control on the frame itself",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.headline",
+   "original": "Follow-up astrometry from one wide-field camera curves away from the orbit fit, while a second telescope agrees.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "The reference stars are the control, and they show the same spatial pattern as the asteroid. A residual that follows position on the focal plane belongs to the camera, not to the sky — real acceleration would move the asteroid and leave the stars alone. The timestamps agree with the observatory clock, so it is not timing. A second telescope agrees with the orbit, so it is not the orbit. What is left is the mapping from detector to sky, and the distortion calibration is older than the camera.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.0",
+   "original": "Focal-plane distortion calibration error",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.choices.0.mechanism",
+   "original": "A position-dependent mapping from detector coordinates to sky coordinates biases both stars and asteroid near the field edge.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1",
+   "original": "Real asteroid acceleration",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1.mechanism",
+   "original": "A physical force changes only the asteroid trajectory on the sky.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.2",
+   "original": "Timing error",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.2.mechanism",
+   "original": "Incorrect exposure time shifts moving-object positions while fixed reference stars remain correctly mapped.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3",
+   "original": "Catalog-wide star error",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3.mechanism",
+   "original": "The reference catalog is wrong in the same way for both telescopes and all field positions.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.0",
+   "original": "Real acceleration acts on the asteroid alone. The reference stars would not follow it, and here they do.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.1",
+   "original": "A timing error shifts moving objects and leaves fixed stars correctly placed. Both are displaced here, and the clock checks out.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.2",
+   "original": "A catalogue-wide star error would show at the second telescope too, and across the whole field rather than growing toward one edge.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "Build the observation arc",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.place",
+   "original": "Astrometry Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "Six observatories have reported. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. The next uncertainty region has to come out of this.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "Prediction is the operational test of an astrometric model.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "measurements only combine if they are in the same frame and the same clock",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "Nothing can be fitted across six observatories until every measurement is in one frame and one clock. Mix two time standards and the fit still converges — it just converges on the wrong orbit, and nothing in the residuals says so. Then read the residuals for structure rather than size: scatter is noise, but a pattern that follows one station or one part of a detector is a fault in the instrument. And the output that counts is where the object will be next, because that is the only claim the sky can refute.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.0",
+   "original": "Common frame and clock first: two time standards in one fit is an error nobody sees in the residuals afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.1",
+   "original": "A preliminary motion model second — you need something to take residuals against.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.2",
+   "original": "Residuals third, and read for structure. Scatter is noise; a pattern following one station is a fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.3",
+   "original": "The prediction last. The test of an astrometric model is where the object turns up, not how well it fits where it has been.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.0",
+   "original": "Place every measurement in a common coordinate and time system.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.1",
+   "original": "Fit a preliminary sky-plane motion model.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.2",
+   "original": "Inspect residuals for station, time, or field-dependent structure.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.3",
+   "original": "State where the object will be on the following night, to the precision a telescope can be pointed with.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "Buy the best next observation",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.place",
+   "original": "Time Standards Room",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "Four hours of discretionary time on a 2-metre telescope. The object is at magnitude 22.4 and setting two hours after dusk, the arc is four hours long, and the same field is observable again in six nights. A press office has been asking since lunchtime.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "The best follow-up is chosen for information gain, not convenience or publicity.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "a short arc is consistent with many orbits at once",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.question",
+   "original": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "The orbit family is wide because the arc is short — four hours of a multi-year orbit — and arc length is the quantity that collapses it. Work out what each option adds. A second exposure tonight arrives from nearly the same place in the orbit, so the fit gains a measurement it already effectively has. Parallax constrains distance, which is not what is loose here. Six nights later the object has moved along its path, so the same instrument now measures a genuinely different geometry, and the family of orbits consistent with both points is far narrower. The press release adds no measurement at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.0",
+   "original": "A later observation that lengthens the time baseline.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.choices.1",
+   "original": "Another exposure immediately, from the same telescope.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.2",
+   "original": "A geographically separated observation, for parallax.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.3",
+   "original": "A press release, before the object is confirmed.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.0",
+   "original": "Another exposure tonight adds a measurement almost identical to the ones already held, and identical measurements do not narrow an orbit.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.1",
+   "original": "A separated observation adds parallax, which constrains distance rather than arc. It is the right second booking and answers a different question.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.2",
+   "original": "A release before confirmation spends the only thing the office cannot buy back, on an object that may not survive the next night.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.title",
+   "original": "An Orbit from Sparse Data",
+   "readOnly": false
+  },
+  {
+   "id": "m03.objective",
+   "original": "Construct a family of allowed orbits and choose observations that collapse the dangerous dimensions.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.briefing",
+   "original": "Only a short arc is available, and many three-dimensional orbits project to nearly the same sky motion. The player must reason with Keplerian motion and orbit families rather than report one overconfident solution.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.stake",
+   "original": "Nine days to the pass, and the orbit determination lead, Marco Rossi, has stopped quoting a single orbit. Every orbit that fits the observations draws almost the same line across the sky, and they disagree about everything that matters afterwards — this pass is harmless in all of them, and some of them come back in eight years to hit. Today you work out what the data actually pins down and choose the observations that collapse the rest. The single line through the middle is the most dangerous object in this campaign, because it looks like knowledge.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Use Keplerian orbits, state vectors, degeneracy, orbital elements, prediction as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "From angles to orbit family",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.place",
+   "original": "Orbit Determination Center",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "Uncertainty should be carried forward as an ensemble of physically allowed trajectories.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "angles alone do not fix a distance",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "Sparse angular data define a region of state space rather than a single orbit, and the honest procedure is to keep the whole family. Combining the timed directions with any range comes first because range is what angles cannot supply. Generating the states consistent with the observations *and their uncertainties* is what makes it a family rather than a best fit. Each is then carried forward under gravity, and the spread in where they end up is the answer — not the middle of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.0",
+   "original": "Directions and any range first: a set of angles alone leaves the distance free, which is the dimension the whole problem turns on.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.1",
+   "original": "Generate states consistent with the uncertainties, not just the best fit. The best fit is one member of the family and has no special status.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.2",
+   "original": "Carry each one forward under gravity — the family has to be carried forward, not the average of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.3",
+   "original": "Compare the approach distances last. The spread across the family is the result; collapsing it to one number throws the question away.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.0",
+   "original": "Combine timed directions and any range information.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.1",
+   "original": "Generate state vectors consistent with the observations and uncertainties.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.2",
+   "original": "Carry each allowed state forward under gravity.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.3",
+   "original": "Compare future sky positions and Earth-approach distances across the family.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "Which orbit feature does the data constrain?",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "Match each part of the orbit to the observation that pins it down. Each choice is used once.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.place",
+   "original": "Celestial Mechanics Group",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "Four kinds of evidence are on offer and the group has to say what each one buys before it spends any telescope time. Each is strong in a different direction.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "Orbit determination is an information-geometry problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "different measurements constrain different parts of an orbit",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "Orbit determination is an information problem before it is an arithmetic one: what to buy next depends on which direction of the uncertainty is widest. Time is what makes curvature visible, so a longer arc constrains the shape. Radar range fixes that distance directly, as a time of flight. Range rate fixes how fast the distance changes. And two widely separated observers see the object against different backgrounds, which is distance from geometry alone.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.0",
+   "original": "Keep observing until the arc is long enough. Over hours the path looks straight, and the curvature that only shows over weeks is what fixes the mean motion, from which Kepler's third law gives the rest.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.1",
+   "original": "Take a radar range. The delay of the echo is a time of flight, so multiplying half of it by the speed of light gives the line-of-sight distance to within metres.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.2",
+   "original": "Take a radar range rate. The returned frequency is shifted in proportion to the line-of-sight speed, so one echo carries the velocity as well as the distance.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.3",
+   "original": "Observe from two widely separated places on Earth at once. The direction to the object differs slightly between the sites, and that parallax angle across a known baseline gives the distance by triangle.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.0",
+   "original": "The size and period of an orbit live in how the path curves, and curvature is what time on the sky makes visible.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.1",
+   "original": "A distance along the line of sight is a time of flight, which is what a radar echo delivers directly.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.2",
+   "original": "How fast that distance is changing is a velocity, and the Doppler shift of the echo is proportional to it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.3",
+   "original": "Two observers far apart see the object against slightly different backgrounds, and that angle with a known baseline is a distance from geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.0",
+   "original": "The size and period of the orbit.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.1",
+   "original": "The distance to the object right now.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.2",
+   "original": "How fast that distance is changing.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.3",
+   "original": "A distance from geometry alone, with no orbit assumed.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "Collapse the orbit uncertainty",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "Radar has a window in nine days. What do you do with the nine nights before it?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.place",
+   "original": "Follow-Up Scheduling Desk",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "The allowed orbits form a family, not a line: at Earth's distance they sweep a corridor 40,000 km wide. The arc is eleven hours long, the object fades below the survey limit in twelve nights, and radar has a window in nine days.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "A sharper-looking orbit is not a better orbit unless new evidence narrows the allowed family.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "an orbit narrows only when new evidence arrives",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.question",
+   "original": "Radar has a window in nine days. What do you do with the nine nights before it?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Two different things are being traded here, and they are not alternatives. Once the object is beyond reach, the geometry it would have shown has moved on and cannot be revisited, so an unused night is arc lost permanently rather than deferred. Radar, when the window opens, measures range and range rate directly, which optical astrometry never does, and it collapses the corridor by orders of magnitude. But radar has to be pointed, and how well it can be pointed depends on the arc that exists by then. So the nine nights are not a substitute for the radar window; they are what makes it usable.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "Extend optical tracking over as many of them as the weather allows.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "Hold the telescopes and wait for the radar range.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "Observe from a second hemisphere for a parallax baseline.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "Reprocess the existing data into a sharper nominal orbit.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "Waiting for radar makes the whole campaign depend on one window and one weather forecast, and leaves the arc as short as it is tonight.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "A second hemisphere adds parallax where the schedule allows it, and it does not replace the nights of arc that are about to be lost.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "A sharper-looking orbit drawn from the same data is the most dangerous product on this list, because it looks like progress and narrows nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.title",
+   "original": "The Uncertainty Corridor",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.briefing",
+   "original": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.stake",
+   "original": "Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the uncertainty that is actually driving the number. You get one chance to explain it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "Read the risk correctly",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.place",
+   "original": "Impact Monitoring Center",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "The nominal orbit misses Earth. Four statements about what that does and does not mean are on the board at the monitoring centre, and a press line goes out this afternoon.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "Planetary-defense risk lives in the distribution, not just the best-fit trajectory.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "a best-fit trajectory is the middle of a distribution, not the whole of it",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "Risk lives in the distribution of allowed trajectories rather than in the best-fit one, and that has consequences people find counter-intuitive. A nominal miss with allowed solutions passing through Earth is a real risk with a small probability. New data that remove impact solutions lower it legitimately. And probability can *rise* after an observation while the nominal miss distance grows, because shrinking the uncertainty region can concentrate what is left onto Earth. The number moving is not the same as somebody having been wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.0",
+   "original": "A miss is not guaranteed while uncertainty remains.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.1",
+   "original": "Impact probability is nonzero and should be monitored.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.2",
+   "original": "Risk has decreased because the allowed region changed.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.3",
+   "original": "Nonlinear geometry can redistribute probability; inspect the full solution set.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.0",
+   "original": "A nominal miss is the middle of a distribution. It guarantees nothing while the distribution still reaches Earth.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.1",
+   "original": "A thin set of impacting solutions is a nonzero probability, and small is not the same as absent.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.2",
+   "original": "Data that remove impact solutions really do lower the risk — that is what the number is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.3",
+   "original": "A rising probability beside a growing nominal miss is geometry redistributing what is left, not an error.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.0",
+   "original": "Nominal orbit misses Earth.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.1",
+   "original": "A small fraction of allowed orbits intersect Earth.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.2",
+   "original": "New data remove most impact solutions.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.3",
+   "original": "Probability rises after an observation even though the nominal miss distance increases.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "Probability from an ensemble",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Statistical Orbit Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "A simplified Monte Carlo run has finished at the statistical orbit lab. What it produced is a count of samples, and the figure that leaves this room will be quoted in public for years.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "A tiny probability can be estimated only with enough samples and a valid uncertainty model.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "a probability can be estimated by counting outcomes over trials",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.question",
+   "original": "Estimate the impact probability, as a percentage.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "The figure is only as good as the sampling behind it, and it will be quoted in public long after the assumptions are forgotten.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.prompt",
+   "original": "In a simplified Monte Carlo set, 37 of 100,000 sampled trajectories consistent with the observations strike Earth.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.question",
+   "original": "Estimate the impact probability, as a percentage.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.estimate.explanation",
+   "original": "The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. A thousand samples could not have resolved a probability this small at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.estimate.relationship",
+   "original": "Probability = impacting samples ÷ total samples. Multiply by 100 for a percentage.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "Reduce the dangerous uncertainty",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "A thin set of solutions still hits Earth. Where do you point next week?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.place",
+   "original": "Planetary Defense Coordination Office",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "The nominal orbit misses by 4 Earth radii. About 1 in 600 of the solutions inside the uncertainty do not, and next Tuesday those solutions put the object 8 arcseconds from where the rest of the family puts it. Every night after that, the two predictions converge again.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "The best observation separates the live hypotheses rather than merely adding another point.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "a measurement is informative where the candidate explanations disagree",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.question",
+   "original": "A thin set of solutions still hits Earth. Where do you point next week?",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "A measurement is only informative where the live hypotheses disagree. Here that is one night. On Tuesday the impacting solutions and the missing ones sit 8 arcseconds apart, which any follow-up telescope resolves. Before and after, the two families predict the same position within the errors. An observation then is certain to confirm what nobody disputed. So the rule for scheduling follow-up is to point where the predictions diverge, not where the object is brightest — and that condition is a place and a date rather than a telescope.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.0",
+   "original": "Where the impacting and non-impacting solutions predict different positions.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.1",
+   "original": "Wherever the object is brightest and easiest to measure.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.2",
+   "original": "At the same fields again, to improve the astrometric bias calibration.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.3",
+   "original": "Nowhere new — run the arc through independent orbit software.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.0",
+   "original": "The brightest field is the easiest measurement and the least informative one; every solution already agrees about where the object will be.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.1",
+   "original": "Bias calibration improves every measurement a little and separates the two families not at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.2",
+   "original": "Independent software checks the arithmetic rather than the sky. Worth doing, and it adds no observation.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.title",
+   "original": "How Large Is It?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Produce a diameter range rather than a single unsupported value.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.briefing",
+   "original": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.stake",
+   "original": "Six days to the pass, and this is the day the campaign has been dreading. Irina Sorokin, who observes in the thermal infrared, has been waiting on telescope time all week. Everything anybody wants to know about the eight-year return scales with size, and the size rests on how bright the object looked in a survey image. Brightness alone allows anything from 120 metres to 600. At the small end this is a city and an evacuation. At the large end it is a country, and a decade of bad harvests for everyone else. Nobody can tell you which, and no amount of staring at the discovery image will. Today you buy the measurement that breaks the tie.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "What controls apparent brightness?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.place",
+   "original": "Photometry Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Four things that change reflected flux are on the board.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "A bright asteroid is not necessarily large.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "light spreads out with distance",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "Brightness is the product of all four, which is why the size everybody wants is entangled with a reflectivity nobody has measured. A bigger cross-section reflects more. A more reflective surface reflects more of what arrives. Distance from the Sun sets how much arrives in the first place. Distance from the observer sets how much of what leaves the object reaches the telescope. The same flux comes from a small bright body close in or a large dark one further out.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.0",
+   "original": "Usually increases reflected flux.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.1",
+   "original": "Increases reflected flux for the same size and geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.2",
+   "original": "Reduces illumination.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.choices.3",
+   "original": "Reduces received flux through geometric spreading.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.0",
+   "original": "A larger cross-section intercepts and returns more light — the term everybody assumes is the only one.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.1",
+   "original": "Higher reflectivity returns more of what arrives, at the same size. This is the one that makes brightness ambiguous.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.2",
+   "original": "Greater distance from the Sun means less light arriving to be reflected at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.rebuttals.3",
+   "original": "Greater distance from the observer spreads what does return, so less of it reaches the telescope.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.0",
+   "original": "Larger cross-sectional area.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.1",
+   "original": "Higher reflectivity.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.2",
+   "original": "Greater distance from the Sun.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scenarios.3",
+   "original": "Greater distance from the observer.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "Diameter-albedo degeneracy",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.place",
+   "original": "Infrared Telescope Team",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "Brightness alone cannot uniquely determine size without an albedo assumption.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "the area of a disc goes as the square of its diameter",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.question",
+   "original": "How does the higher-albedo object's diameter compare?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: brightness alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.prompt",
+   "original": "Two objects show the same reflected brightness and one has four times the albedo of the other. Reflected flux scales with cross-sectional area times reflectivity.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.question",
+   "original": "How does the higher-albedo object's diameter compare?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.estimate.explanation",
+   "original": "Brightness fixes the product of area and reflectivity, so four times the reflectivity requires a quarter of the area — and diameter goes as the square root of area, not as area. The tile that has already taken the square root is the trap.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.estimate.relationship",
+   "original": "At the same brightness, reflecting area varies inversely with albedo — and diameter is the square root of area.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "Bound the diameter",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "The diameter rests on an albedo borrowed from another class. What do you measure?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.place",
+   "original": "Physical Characterization Group",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "Reflectivity alone allows anything from 120 metres to 600 metres, and the consequence scales with the cube of it. One end of that range is a city. The other is a country. The characterisation group has time for one measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "Physical characterization improves when methods break the same degeneracy in independent ways.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "a quantity inferred through an assumption is only as good as the assumption",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.question",
+   "original": "The diameter rests on an albedo borrowed from another class. What do you measure?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "Brightness in reflected light is size times albedo, so one number cannot separate them — which is why the range runs from 120 to 600 metres and the consequence, going as the cube, from a city to a country. Thermal infrared measures the heat the surface emits, and that depends on size and temperature rather than on reflectivity, so it constrains the size from outside the degeneracy. Any further measurement in reflected light, however precise, still carries an assumed albedo inside it the answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.0",
+   "original": "Thermal-infrared emission.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.choices.1",
+   "original": "Multi-band reflected light and phase behaviour.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.2",
+   "original": "Radar, as soon as the geometry allows it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.3",
+   "original": "Nothing — adopt the average albedo of the assumed class.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.0",
+   "original": "Brightness in several colours, and phase behaviour, constrain the surface itself, and the size stays entangled with whatever they imply about it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.1",
+   "original": "Radar gives a diameter directly and only when the geometry allows, which it will not for months. Book it; do not wait on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.2",
+   "original": "Adopting the class average is free and reproduces exactly the problem it was meant to solve, with the assumption now buried in a number.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.title",
+   "original": "What Is It Made Of?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Assign a composition class with explicit alternatives and confidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.briefing",
+   "original": "Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.stake",
+   "original": "Five days out. A broad dip has appeared near 1.4 microns in the spectrum, and if it is real it changes the composition class the characterization lead, Tola Adebayo, has already named in a draft circular. Today you decide whether that feature belongs to the asteroid, and what would make the claim solid. This is not a label for a catalogue. Density comes from composition, mass comes from density, and so does strength — which decides whether the body holds together when a spacecraft hits it in three years' time. Every model built after today inherits whatever is written today.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "Real absorption or spectral artifact?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Which explanation fits the target, standard star, airmass, and space-based comparison?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.place",
+   "original": "Spectroscopy Observatory",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. The observatory has the standard star, the airmass record and a space-based spectrum of the same object.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "A spectrum contains the telescope, detector, Earth atmosphere, and target all at once; composition requires separating those layers.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "a ground-based spectrum is taken through the Earth's atmosphere",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.headline",
+   "original": "A spectrum seems to show a broad absorption feature that could change the inferred surface composition.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "A ground-based spectrum contains the telescope, the detector, the Earth's atmosphere and the target, all at once. Three readings separate them here. The standard star has the same dip, and a star does not share an asteroid's minerals — only its air. The feature deepens with airmass, which is more atmosphere in the path. And it is absent from a spectrum taken above the atmosphere entirely. Water vapour absorbs near this wavelength, which is why 1.4 microns is where this trap lives.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.0",
+   "original": "Asteroid mineral absorption",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.0.mechanism",
+   "original": "Surface material absorbs light at that wavelength.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.1",
+   "original": "Telluric atmospheric absorption",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.choices.1.mechanism",
+   "original": "Molecules in Earth atmosphere imprint the same wavelength-dependent feature on ground-based spectra.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2",
+   "original": "Detector flat-field error",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2.mechanism",
+   "original": "Pixel sensitivity creates a fixed instrumental dip independent of atmospheric path.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3",
+   "original": "Random noise",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3.mechanism",
+   "original": "An uncorrelated fluctuation happens to mimic a broad repeatable feature.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.0",
+   "original": "A mineral absorption belongs to the surface, so it would not appear in a standard star observed the same night.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.1",
+   "original": "A flat-field error is fixed in the detector and would not deepen as the telescope looks through more air.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.2",
+   "original": "Noise does not reproduce as the same broad feature at the same wavelength in two different objects.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "From photons to composition class",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.place",
+   "original": "Meteorite Comparison Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "A good composition result retains the plausible alternatives.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "what a telescope records includes everything the light passed through",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "Calibration has to come before interpretation because the Sun, the atmosphere and the instrument are all in the recorded signal, and a feature identified before they are removed may belong to any of them. Reflectance against wavelength is then a property of the object. Only then is it worth asking which features are robust — and comparing several physical models rather than one is what stops space weathering being read as composition. The report keeps the alternatives, because three models still fit.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.0",
+   "original": "Calibrate first: the Sun's own spectrum and the atmosphere's are in the recording, and a band found before they are removed may be theirs.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.1",
+   "original": "Reflectance second — it is the quantity that belongs to the object rather than to the observation.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.2",
+   "original": "Robust features and several models third, because weathering, grain size and geometry all mimic a compositional difference.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.3",
+   "original": "Report the alternatives last. A class stated without them is a claim the data cannot support.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.0",
+   "original": "Calibrate solar, atmospheric, and instrument response.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.1",
+   "original": "Measure reflectance as a function of wavelength.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.2",
+   "original": "Identify robust features and compare multiple physical models.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.cards.3",
+   "original": "Report supported classes, alternatives, and needed follow-up.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "Improve the composition claim",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.place",
+   "original": "Composition Review Room",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "The draft circular names a composition class outright. Behind it are one spectrum, at one phase angle, on one rotation — and the deflection team is about to size a spacecraft from the density that class implies.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "Characterization should seek discriminating evidence rather than stronger labels.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "a measurement made one way can be wrong one way",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.question",
+   "original": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Three mineral models already reproduce every feature of this spectrum within the noise, so the class in the draft circular is not a measurement — it is one of three readings of the same data. Extending the wavelength coverage is what separates them: the models agree in the visible and diverge in the near infrared, where the absorption bands sit. Note what is being asked of this claim. A density is about to size a spacecraft, so a class assigned from data that could not have contradicted it is not yet a measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.0",
+   "original": "Wavelength coverage extended beyond the current range.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.choices.1",
+   "original": "Observations at other phase angles and rotational phases.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.2",
+   "original": "Polarimetry or a radar texture constraint.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.3",
+   "original": "Nothing further — publish the class and note the uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.0",
+   "original": "Other phase angles and rotations test whether the surface is uniform, which matters once the candidate classes are narrowed rather than before.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.1",
+   "original": "Polarimetry and radar texture constrain grain structure by different physics and are the right independent check on whichever class survives.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.2",
+   "original": "Publishing the class with a note attached is the same claim in smaller type, and the deflection team will size a spacecraft from the density it implies.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.title",
+   "original": "The Spinning Target",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Produce a rotation-state range suitable for imaging and deflection planning.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.briefing",
+   "original": "Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive a period, identify aliases, and determine whether the body may be tumbling.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.stake",
+   "original": "Four days to the pass. The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours — and one observatory's nightly window repeats on almost the same interval, which the survey imaging lead, Linh Nguyen, noticed and nobody wanted to hear. Today you decide whether you are watching the object turn or watching your own schedule, and pin the spin state down. An intercept will be aimed using this number, years from now, at a body it can see for a few hours. Get it wrong and it arrives at the wrong face, or misses.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "Rotation or observing artifact?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Which explanation fits the repeatability, comparison stars, filters, and observing geometry?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.place",
+   "original": "Time-Series Photometry Network",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours. The network wants to use that as the rotation period for mission planning, and the comparison stars are on the same frames.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "Periodicity becomes physical evidence only after environmental and instrumental periodicities are ruled out.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "the atmosphere and the instrument have their own rhythms",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.headline",
+   "original": "The asteroid brightens and fades by a few tenths of a magnitude.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "Periodicity becomes physical evidence only after the periodicities of the atmosphere, the instrument and the observing schedule have been ruled out — which is what the comparison stars and the second filter are for. Stars on the same frames are stable, so it is not transparency. The period survives a change of filter, so it is not one detector channel. The object lands on different pixels, so it is not a patch of the chip. And the phase-angle trend is far slower than 4.8 hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.0",
+   "original": "Asteroid rotation",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.choices.0.mechanism",
+   "original": "An irregular shape or surface pattern presents changing projected brightness as the body spins.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.1",
+   "original": "Passing clouds",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.1.mechanism",
+   "original": "Atmospheric transparency changes all sources together.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.2",
+   "original": "Detector sensitivity drift",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.2.mechanism",
+   "original": "One detector region changes response with time.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.3",
+   "original": "Phase-angle change",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.choices.3.mechanism",
+   "original": "The Sun-object-observer geometry changes brightness smoothly over the observing span.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.0",
+   "original": "Passing cloud changes every source in the frame together, and the comparison stars are steady to within noise.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.1",
+   "original": "A detector drift belongs to a region of the chip, and this repeats while the object moves across pixels.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.rebuttals.2",
+   "original": "The phase angle changes slowly and monotonically over the whole run. It cannot produce a cycle every few hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "Rotation period from repeating peaks",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.place",
+   "original": "Rotation Dynamics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "Similar maxima in the light curve are separated by 3.5 hours. An elongated body presents its long profile twice in every turn, and the spacecraft has to arrive at a known face.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "A measured repetition time is not always the physical period.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "a shape that repeats twice per turn is seen twice per turn",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.question",
+   "original": "Estimate the candidate rotation period.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "A spacecraft arriving at the wrong rotational phase meets a different face of the target than the one it was designed for, and the factor of two is where that error comes from.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.prompt",
+   "original": "Similar maxima in the light curve are separated by 3.5 hours, and an elongated body presents its long profile twice per rotation.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.question",
+   "original": "Estimate the candidate rotation period.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.estimate.explanation",
+   "original": "The repetition time is not the period. Multiplying rather than dividing is the whole point: a body that shows two maxima per rotation repeats twice as often as it turns, so the period is longer than the spacing, not shorter.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.estimate.relationship",
+   "original": "Period = time between maxima × the number of maxima in one full turn.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "Resolve the spin state",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.place",
+   "original": "Mission Design Office",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "The light curve varies by a factor of three over about seven hours, which could be one rotation, half of one, or a tumbling body seen from a changing angle. The spacecraft launches on whichever is true.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Mission timing should be based on a rotation model tested across time and viewpoint.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "a gap in coverage can hide a period",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.question",
+   "original": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "A single site sees the object for a few hours a night, so the light curve has gaps the length of its daylight — and a period can hide in a gap. A seven-hour variation observed from one place is consistent with a seven-hour rotation, a fourteen-hour one seen at half phase, or a tumbling body whose aspect is changing. Stations spread round the Earth fill the gaps, which removes the aliases before anything is fitted rather than afterwards. That matters here because the spacecraft's approach geometry is designed against whichever answer is adopted.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.0",
+   "original": "Continuous longitude coverage across several observatories.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.choices.1",
+   "original": "Brightness measured more often through one long night.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.2",
+   "original": "Light curves combined across changing viewing geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.3",
+   "original": "A provisional period, adopted now so the design can proceed.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "Measuring more often through one night refines a curve that may be the wrong curve, at higher precision.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "Combining light curves across changing geometry is what tests whether one period explains all of them, and it needs a gap-free curve to combine.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "Adopting a provisional period is the failure this stop exists to prevent: the spacecraft arrives at a rotational phase chosen by an assumption.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.title",
+   "original": "Radar Contact",
+   "readOnly": false
+  },
+  {
+   "id": "m08.objective",
+   "original": "Design a radar sequence that improves both orbit and physical characterization.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.briefing",
+   "original": "A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and reveal shape, but only if the observation plan uses the limited signal effectively.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.stake",
+   "original": "The pass is tonight, and Fischer has the dish. The radar window is four hours wide, and this geometry does not return for eleven years — after the encounter that everybody is now worried about. Three of the four things the room wants can be got another way. Today you decide what radar is uniquely for and write the sequence. An orbit built from angles alone is starved of exactly what this dish can add, and it resolves detail at a scale nothing optical here can reach. Tonight the size question closes for good, or it stays open for a decade.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "What does radar measure?",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Match each quantity to the radar observable that measures it. Each choice is used once.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Planetary Radar Facility",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "The radar window opens in hours and the room has to agree what each observable delivers before it writes the sequence. Four of them are on the board.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "Active sensing can transform orbit and shape knowledge during a short window.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "radar sends a signal out and measures what comes back",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "Radar separates dimensions that optical images entangle, and each observable separates a different one. Echo delay is time of flight, so it is a distance, measured rather than fitted. Doppler spread across the echo is the range of line-of-sight velocities across the body, which is rotation. Echo power against delay says how much surface sits at each distance, which is shape and roughness. And repeated delay-Doppler images across a rotation build the three-dimensional model none of the others gives on its own.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.0",
+   "original": "Time the echo. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the range, and the clock is good enough to place a body millions of kilometres away to within metres.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.1",
+   "original": "Measure how far the returned frequency is spread out. One limb of a rotating body turns toward us while the other turns away, so the echo comes back smeared across a band of Doppler shifts whose width scales with the rotation speed.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.2",
+   "original": "Read echo power against delay. The near face answers first, so power arriving later came from further in, and the run of power with time is a profile of the target in depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3",
+   "original": "Build delay-Doppler images on successive nights through a full turn. Each image is one projection of the body, and a sequence taken across changing aspect is what a shape model is fitted to.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.0",
+   "original": "A distance is a time multiplied by a speed, and the delay of the echo is the one timed quantity a radar returns.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.1",
+   "original": "Rotation appears as a spread of line-of-sight velocities across the body, and a spread of velocities is a spread of frequencies.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.2",
+   "original": "Where along the line of sight an echo came from is carried by when it arrives, so power against delay resolves the surface in range.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.3",
+   "original": "A three-dimensional shape needs the body seen from several aspects, which is what repetition through a rotation provides.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.0",
+   "original": "Distance to the object.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.1",
+   "original": "How fast the object is rotating.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.2",
+   "original": "How much of the body sits at each depth.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scenarios.3",
+   "original": "The three-dimensional shape, and the spin that carries it around.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "Diameter from angular width",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.place",
+   "original": "Coordination Office",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "Radar has the distance to fifteen metres and the east dome measured the object's angular width the same night. Two numbers on two different desks, and no size anywhere.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "An angle becomes a size only when it is multiplied by a distance.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "an angle on the sky is a size divided by the distance to the thing",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.question",
+   "original": "Estimate the diameter of the object.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "An angular width is not a size. It is a size divided by a distance, so the same 0.10 arcsec is three hundred metres at the radar distance and forty thousand kilometres at the distance of a star. The 206,265 is how many arcseconds fit in a radian, and the small-angle rule only holds because the angle is tiny: at 0.10 arcsec the difference between the angle and its sine is far below the measurement error. Use the astronomical unit instead of the measured range and the answer comes out 250 times too large, which is the difference between a city and a continent.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.prompt",
+   "original": "Radar puts the object 6.0×10^8 m away, and the dome measured an angular width of 0.10 arcsec.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.question",
+   "original": "Estimate the diameter of the object.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.estimate.explanation",
+   "original": "The distance has to be the measured one. An astronomical unit in that slot gives a diameter of 70 km.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.relationship",
+   "original": "Diameter = angular width in radians × distance. An arcsecond is 1/206,265 of a radian.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "What this pass does to the next one",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.place",
+   "original": "Orbit Determination",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "The radar fit puts this pass 2.4 Earth radii out, and the same fit says the object comes back in eleven years. Earth is about to bend its path by far more than the measurement error.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "A close approach rewrites the orbit it happens on, so safety is a claim about the returns after it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "a planet's gravity changes the path of anything that passes close to it",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.question",
+   "original": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "Passing 2.4 Earth radii out means passing deep inside Earth's gravity, which changes the object's speed and direction and therefore its period. A different period means a different arrival time at the next return, and small regions of this pass — keyholes — map onto an impact eleven years later. That is why a measured miss is not the end of the calculation: the orbit that matters is the one this encounter creates, not the one that brought it here. The work is carrying the orbit forward through the encounter, and it needs this pass measured precisely for exactly that reason.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.0",
+   "original": "How this approach changes the orbit, and whether the new path threads a keyhole on the next return.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.1",
+   "original": "Nothing further. The miss distance is measured and the object is receding.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.2",
+   "original": "The albedo, so the size is known before the object comes back.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.3",
+   "original": "A fresh astrometric arc after the pass, and nothing beyond it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.0",
+   "original": "A measured miss settles this pass and says nothing about the orbit the encounter creates.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.1",
+   "original": "Albedo gives size. Size does not tell you where the object will be in eleven years.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.2",
+   "original": "A later arc is needed and is not sufficient — without carrying the orbit forward through the encounter there is nothing to compare it against.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.title",
+   "original": "Impact Energy",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.briefing",
+   "original": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.stake",
+   "original": "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly four hundred megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "Energy of a notional impactor",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.place",
+   "original": "Impact Physics Group",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "Civil defence will not convene anybody without an energy figure. The impact physics group has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "Impact energy couples geometric, material, and orbital measurements.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "kinetic energy depends on mass and on speed",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.1",
+   "original": "the volume of a sphere goes as the cube of its radius",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.question",
+   "original": "Estimate the impact kinetic energy.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "Mass is the volume of a sphere times its density, and energy is half that mass times the speed squared. The trap is the first number: the formula takes a radius, and a diameter dropped into it gives an object eight times too heavy. That factor of eight is the same one that makes the size measurement worth more than any other, which is what the next stop is about.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.prompt",
+   "original": "The best current estimates are a radius near 90 metres, a density around 2,600 kg per cubic metre, and an approach speed of about 20 kilometres a second.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.question",
+   "original": "Estimate the impact kinetic energy.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.estimate.explanation",
+   "original": "The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.estimate.relationship",
+   "original": "Mass = density × volume, and the volume of a sphere is (4π/3) × radius³. Kinetic energy = ½ × mass × speed².",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "The speed it actually arrives at",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.place",
+   "original": "Coordination Office",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "Earth's gravity adds speed on the way in, and energy goes as the square of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.question",
+   "original": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "An object falling towards Earth arrives with its approach speed and the speed Earth's gravity has added, combined in quadrature: the square root of 12² + 11.2², which is about 16.4 km/s. Because kinetic energy goes as the square of speed, that is not a 37% correction to the briefing but an 80% one. Drag matters lower down and cannot be applied before the object reaches the atmosphere. Nothing about this is optional: the same factor turns a survivable airburst into a regional event in the consequence model.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.0",
+   "original": "Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.1",
+   "original": "Nothing. Speed far from Earth and speed at the top of the atmosphere are the same.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.2",
+   "original": "The atmosphere slows it first, so entry is lower than 12 km/s.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.3",
+   "original": "It matters only for the crater, not for the energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.0",
+   "original": "The two speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.1",
+   "original": "The atmosphere decelerates the object after entry, so it cannot lower the speed at which entry begins.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.2",
+   "original": "Energy is proportional to the square of entry speed, so the speed error propagates straight into the energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "Reduce consequence uncertainty",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.place",
+   "original": "Emergency Planning Office",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "Risk communication should show how physical uncertainty maps into consequence uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "the widest term in a product dominates the uncertainty of the result",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.question",
+   "original": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "Rank the inputs by the exponent they carry. Kinetic energy goes as mass times speed squared, and mass goes as the cube of the diameter — so a factor of two in size is a factor of eight in energy, while the same factor in density is a factor of two, and entry angle changes the outcome by less again. That is why the size measurement dominates a range spanning two orders of magnitude. The measurement worth buying is always the one attached to the steepest exponent, and that ranking can be done before any of them is made.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.0",
+   "original": "The diameter, from thermal infrared or radar.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.choices.1",
+   "original": "The density, from composition and dynamical analogues.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.2",
+   "original": "The entry speed and angle.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.3",
+   "original": "None — report the worst case and plan against that.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.0",
+   "original": "Density enters linearly and is genuinely uncertain. Worth improving, and worth a third as much per factor of error.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.1",
+   "original": "Speed enters squared and is already the best determined of the three, so there is least left to win there.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.2",
+   "original": "Reporting only the worst case resolves nothing and spends public attention on a number that cannot be defended when it is questioned.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.title",
+   "original": "Through the Atmosphere",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.briefing",
+   "original": "Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging airburst. The player must reason about drag, strength, heating, and uncertain structure.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.stake",
+   "original": "Two weeks after the pass, and Marta Schulz, who models impact physics, has three groups modelling the same object from the same data. One has it reaching the ground, one has it coming apart thirty kilometres up, one is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Strength is the property we can least measure from here, and the one that decides what people are told to do.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "From joules to megatons",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.place",
+   "original": "Entry and Consequences Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "A quantity is only communicable once it is in the units the decision is made in.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "one megaton of TNT is 4.184×10^15 joules",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.question",
+   "original": "Estimate the energy in megatons of TNT.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "Dividing 3.1×10^17 by 4.184×10^15 means dividing 3.1 by 4.184 and subtracting the exponents: about 0.74×10^2, so roughly 74 megatons. Working in joules with an audience that thinks in megatons is how a factor of a thousand survives a briefing: shift the exponent by one and 74 megatons becomes 7.4, which is the difference between a regional catastrophe and a large conventional explosion. The check is cheap — count the powers of ten before you read the mantissa, and say the unit out loud with the number.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.estimate.prompt",
+   "original": "The entry model gives 3.1×10^17 J, and the call is conducted in megatons of TNT.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.estimate.question",
+   "original": "Estimate the energy in megatons of TNT.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.estimate.explanation",
+   "original": "Subtract the exponents first — 10^17 ÷ 10^15 is 10^2 — then divide 3.1 by 4.184.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.estimate.relationship",
+   "original": "Energy in megatons = energy in joules ÷ 4.184×10^15 joules per megaton.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "Why did the object break up high in the atmosphere?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.place",
+   "original": "High-Altitude Observation Network",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "A notional entry has been observed across four instruments and the ground survey has come back. The consequence office needs to know where the energy went before it writes an evacuation distance.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "Entry outcome is inferred from several energy-transfer signatures; brightness alone cannot tell where or how the energy was deposited.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "energy deposited in the air does not arrive at the ground",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.headline",
+   "original": "Models disagree about whether a notional object would remain intact to low altitude or fragment earlier.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "Where an object deposits its energy is read from several signatures at once, and here the silent channel does as much work as the loud ones. Rapid brightening high up with speed falling quickly is a body being stopped by air rather than by ground. A pulse of low-frequency sound is energy going into the atmosphere. Multiple fading tracks are fragments. And no seismic signal and no crater says that whatever happened, it did not happen at the surface.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.0",
+   "original": "Atmospheric fragmentation / airburst",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.choices.0.mechanism",
+   "original": "Aerodynamic loading breaks the object and deposits much of its energy in the atmosphere.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.1",
+   "original": "Intact ground impact",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.1.mechanism",
+   "original": "The body remains coherent and transfers most energy at the surface.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.2",
+   "original": "Pure observational artifact",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.2.mechanism",
+   "original": "The apparent breakup exists only because optical instruments saturate.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.3",
+   "original": "No significant atmospheric interaction",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.choices.3.mechanism",
+   "original": "The object keeps nearly constant speed and structure through the atmosphere.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.0",
+   "original": "An intact ground impact transfers most of its energy at the surface, and that leaves a seismic signal and a crater. Neither is there.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.1",
+   "original": "Saturating optics do not decelerate the object, and the speed measurement is independent of the brightness one.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.2",
+   "original": "No significant atmospheric interaction means roughly constant speed. This one slowed sharply during the bright phase.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "Bound the atmospheric outcome",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.place",
+   "original": "Consequence Modeling Center",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "Three groups modelled the same 3.1×10^17 J entry and returned a ground impact, a fragmentation event at 30 km, and an airburst at 12 km. Each assumed a different material strength — 1 MPa, 10 MPa, 50 MPa — because nobody has measured it. The planning office needs something this week.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "Consequence models should expose structural uncertainty rather than bury it in one asteroid “type.”",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "an unmeasured input does not become known by being assumed",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.question",
+   "original": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "The three groups disagree because they assumed 1, 10 and 50 MPa for a strength nobody has measured — not because anybody made an arithmetic error. So a fourth run, or a meeting that picks one, produces a single answer whose confidence is manufactured. An ensemble over the plausible strength and density range carries the ignorance into the output, where the planning office can see which outcomes are robust and which depend entirely on an unmeasured number. That is a usable product: it tells them what to prepare for at every strength, rather than what to prepare for if one guess happens to be right.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.0",
+   "original": "Strength and density ensembles rather than one model run.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.choices.1",
+   "original": "Comparison against observed analogue fireballs.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.2",
+   "original": "A better measurement of the entry angle and speed.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.3",
+   "original": "A single agreed model, so the planning office has one answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.0",
+   "original": "Analogue fireballs calibrate the models against events that actually happened, and they are the right check on the ensemble once it exists.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.1",
+   "original": "Entry angle and speed are genuinely measurable and are not what the three models disagree about.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.2",
+   "original": "One agreed answer is what the planning office wants and the least defensible thing to give it: the disagreement is the finding.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.title",
+   "original": "What Have We Failed to See?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Design a survey strategy that improves detection and accurately reports what remains unseen.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.briefing",
+   "original": "The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.stake",
+   "original": "A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Anything approaching from the direction of the Sun cannot be seen from the ground at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "Use selection effects, survey completeness, limiting magnitude, how often the survey looks, population inference as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "Why was it missed?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.place",
+   "original": "Survey Strategy Center",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "The object was found later than its brightness alone would predict. The survey's operating record, the weather archive and its pre-discovery geometry are all on the desk at the strategy centre.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "Survey completeness is geometric as well as instrumental; an object can be bright enough yet effectively hidden by the Sun.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "a telescope on the ground can only work at night",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.headline",
+   "original": "The object is discovered later than expected even though its brightness would normally be within survey reach.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "Completeness is geometric as well as instrumental, and this object was bright enough and effectively invisible at the same time. Its solar elongation was under about thirty degrees, which puts it in twilight where no ground survey can work. Everything else on the panel says the survey was healthy: the weather was clear, the detector was fine, and the predicted brightness was within reach whenever the object was in dark sky. It was found as soon as the geometry allowed, and not before.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.0",
+   "original": "Solar-elongation blind spot",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.0.mechanism",
+   "original": "The object is geometrically too close to the Sun for normal night-sky survey coverage.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.1",
+   "original": "Survey not deep enough",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.1.mechanism",
+   "original": "The object is always fainter than the system detection limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2",
+   "original": "Bad weather",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.2.mechanism",
+   "original": "Cloud cover repeatedly blocks the relevant fields.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3",
+   "original": "Pipeline/detector outage",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3.mechanism",
+   "original": "The camera or processing system fails during otherwise observable opportunities.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "A survey too shallow would never reach it, and the record says its brightness was within reach whenever it was in dark sky.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "Bad weather blocks fields at random, and the archive is mostly clear across the period.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "A detector or pipeline outage would show in the operating record. Detector health is normal throughout.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "Volume gain from deeper sensitivity",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.place",
+   "original": "Telescope Network",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "A survey upgrade would let it detect a standard object twice as far away, and the board wants to know what that buys before it signs anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "Small gains in distance can produce large gains in searchable volume.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "a searchable region is roughly a sphere",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.question",
+   "original": "Estimate the factor by which the searchable volume grows.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "The searchable region is roughly a sphere, so its volume goes as the cube of how far the survey can see. Twice the range is eight times the volume, and the number of objects found scales with it. Square the two instead and you get four, which is the answer for an area — but a survey searches a volume, not a patch of sky.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.estimate.prompt",
+   "original": "A survey upgrade lets it detect a standard object twice as far away. The searchable region is roughly a sphere.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.estimate.question",
+   "original": "Estimate the factor by which the searchable volume grows.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.estimate.explanation",
+   "original": "The exponent is in the template because it comes from the geometry rather than from a measurement; what the player supplies is the distance gain. Doubling the range and squaring it is the area answer, and the survey searches a volume.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.estimate.relationship",
+   "original": "A searchable region is roughly a sphere, so volume goes as the cube of the distance limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "Improve discovery completeness",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.place",
+   "original": "Population Statistics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "This object was found 11 days before closest approach, 28 degrees from the Sun, at magnitude 21.8 against a survey limit of 22.0. It had been above that limit for seven weeks, in a part of the sky the survey does not cover. The population lab has one upgrade to propose.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "Completeness is measured by simulated recovery and known biases, not by absence of discoveries.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "what a survey has not found is not the same as what is not there",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.question",
+   "original": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "The numbers say which upgrade would have helped. At magnitude 21.8 against a limit of 22.0, this object was bright enough for the survey for seven weeks; what hid it was 28 degrees of solar elongation, in sky the survey does not cover. So depth added to the same sky finds it on exactly the same night it was found anyway, while sky coverage nearer the Sun — or a spacecraft looking from somewhere other than Earth — finds it weeks earlier. Completeness is a function of where you point as much as how faint you reach, and this object was hidden by the first, not the seconde same night.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Wider sky and hemisphere coverage, including low solar elongations.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "Greater depth, to reach fainter and darker bodies.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "A pattern of return visits optimised for linking detections into tracked objects.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "Nothing — report completeness from the fraction already catalogued.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "Greater depth finds fainter and darker bodies across the sky already covered, and would not have moved this discovery by a day.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "Returning to the same patch turns detections into tracked objects, which requires the detection first.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "Reporting completeness from the catalogue counts the objects that were found using the objects that were found. It is the reasoning this discovery disproved.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.title",
+   "original": "Can We Move It?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Choose a deflection demonstration and define how success will be measured.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.briefing",
+   "original": "Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.stake",
+   "original": "Four months after the pass, Fischer has the radar orbit, and the encounter is seven and a half years out — which sounds like plenty and is not, because a deflection has to be launched years before it arrives. Fischer's orbit is the best this campaign will ever have, and it is already two months old. Today you size the nudge and decide how success will be measured. On a weak body the push can break the object apart, and several fragments on the same path is worse than one. So what has to be measured is not what you launched but what actually happened to the orbit.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "Velocity change from momentum transfer",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.place",
+   "original": "Deflection Physics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "A kinetic impactor is being sized at the deflection lab. The spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "Deflection relies on small velocity change plus long lead time.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "momentum is mass times velocity, and it is conserved in a collision",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.question",
+   "original": "Estimate the asteroid's change in speed.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "A centimetre and a half per second sounds like nothing. Applied five years before the encounter it accumulates into about two and a half thousand kilometres, and ejecta thrown off the far side can double that. Most of an Earth radius, bought with one launch, is the whole basis of deflection — and it only works because it was applied early.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.estimate.prompt",
+   "original": "A 10,000 kg impactor strikes the 7.9 × 10⁹ kg asteroid at 12,000 metres per second, in a perfectly inelastic lower-bound estimate.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.estimate.question",
+   "original": "Estimate the asteroid's change in speed.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.estimate.explanation",
+   "original": "Conservation of momentum needs the impactor's mass and speed, not the asteroid's encounter speed with Earth. The ejecta enhancement is real and would raise this figure — it is left out because nobody can predict it, which is exactly why the mission has to measure it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.estimate.relationship",
+   "original": "Momentum = mass × speed, and it is conserved. Velocity change = momentum transferred ÷ the mass it is given to.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "What determines deflection success?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.place",
+   "original": "Mission Engineering Center",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "A kinetic impactor could reach the object four years before encounter. Four things decide how far it moves, and the mission engineering centre has measured none of them well.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "Deflection is an experiment whose dependent variable is the asteroid orbit.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "a small velocity change accumulates into a large displacement over time",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "Deflection is an experiment whose dependent variable is the asteroid's orbit, and each of these four sits at a different point in it. Lead time turns the same velocity change into more accumulated displacement, which is why early is worth more than large. An unknown mass makes the predicted velocity change uncertain in direct proportion, because that mass is the denominator. Ejecta thrown off the surface carry away momentum of their own and enhance the transfer by a factor nobody can calculate. And tracking afterwards is the only thing that measures what actually happened.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.0",
+   "original": "More displacement accumulates from the same Δv.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.1",
+   "original": "Makes predicted Δv uncertain.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.2",
+   "original": "Changes effective transferred momentum.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.3",
+   "original": "Measures actual orbit change rather than assumed performance.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.0",
+   "original": "More lead time multiplies the same velocity change into more displacement. It is the cheapest term in the problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.1",
+   "original": "The asteroid's mass divides the transferred momentum, so an uncertain mass is an uncertain result in direct proportion.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.2",
+   "original": "Ejecta leaving the surface carry momentum away and add to the transfer — a real effect with a factor nobody can predict.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.3",
+   "original": "Post-impact tracking measures the orbit change that happened rather than the one that was predicted. Without it the mission is a demonstration.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.0",
+   "original": "Longer lead time.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.1",
+   "original": "Unknown asteroid mass.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.2",
+   "original": "Uncertain momentum enhancement from ejecta.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.3",
+   "original": "Post-impact tracking.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "Build the deflection campaign",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "The impactor is funded. What must the campaign add that the impactor alone does not?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.place",
+   "original": "Orbit Monitoring Room",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Scouting first would cost a year of that lead time.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "A deflection mission should be designed to learn its actual momentum transfer.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "an experiment needs a measurement of its own outcome",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.question",
+   "original": "The impactor is funded. What must the campaign add that the impactor alone does not?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "The thing a deflection has to produce is a change in the orbit, so the campaign has to measure the orbit before and after. Without that, the mission is a demonstration: the spacecraft hit something, and nobody can say what it did. The ejecta thrown off the surface add momentum by a factor nobody can calculate in advance, so the only way anyone learns it is by measuring one real impact.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.0",
+   "original": "Long-term tracking, before and after the impact.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.choices.1",
+   "original": "Scout it first to measure the mass, delaying the impactor by a year.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.2",
+   "original": "Additional navigational margin on the impactor itself.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.3",
+   "original": "Nothing — the impact is the experiment.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.0",
+   "original": "Scouting measures the mass the predicted velocity change depends on, and it costs a year of the lead time that makes any velocity change effective.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.1",
+   "original": "Navigational margin decides whether the spacecraft hits. It says nothing about what happened to the orbit when it did.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.2",
+   "original": "An impact with no measurement is a demonstration rather than an experiment, and it leaves the next campaign exactly as uncertain as this one.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.title",
+   "original": "Design the Intercept",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Select an intercept architecture with enough margin to reach and accurately target the asteroid.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.briefing",
+   "original": "The mission must launch within a narrow window and encounter a rotating, irregular target with limited communications delay. The player must integrate orbital mechanics, navigation, power, and autonomy.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.stake",
+   "original": "Nine months after the pass, and Garcia has to sign the architecture. The launch window is nineteen days wide and the composition result that would say what you are aiming at comes back eight days after it closes. Today you find which subsystem is really setting the limit and decide where to spend margin. This is the decision the whole campaign turns on, because lead time is the only resource that cannot be bought back. Miss this window and there is no second attempt and no cheaper version — only telling people where to stand in seven years.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "Use launch windows, relative motion, guidance, power, communications delay as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "Which subsystem owns the constraint?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.place",
+   "original": "Trajectory Design Center",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Four mission challenges are on the board at the trajectory design centre, and each one is somebody else's problem to solve. Nobody has said which.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "An intercept is a coordinated prediction-and-control problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "a spacecraft cannot be flown in real time across light-minutes",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "Mission design maps a physical constraint onto the subsystem that can actually answer it, and the responses are not interchangeable. A launch window that exists only during a short geometry is answered by launch performance and schedule, because no amount of onboard cleverness recovers a missed window. Ephemeris error growing toward encounter is answered by measuring the target from the spacecraft, late. Light-time that rules out piloting is answered by autonomy. And a face that changes with rotation is answered by knowing the spin before arrival.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "Protect schedule and launch readiness.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "Use optical navigation and late orbit updates.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "Provide autonomous guidance and fault response.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "Pin down the spin state in advance and aim where the surface stays presented.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "A short geometric window is a schedule and launch-performance problem. It closes whether or not the spacecraft is ready.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "Ephemeris error growing near encounter is answered by measuring the target from the spacecraft, because that is when the error matters.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "Round-trip light time rules out steering from the ground, so the vehicle has to decide for itself.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.3",
+   "original": "A rotating target needs its spin state known before arrival, which is an observing problem rather than a guidance one.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.0",
+   "original": "Launch opportunity occurs only during a short geometry window.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.1",
+   "original": "Target ephemeris uncertainty grows near encounter.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.2",
+   "original": "Round-trip communication delay prevents real-time piloting.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.3",
+   "original": "The target face changes with rotation.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "When does it come back?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "Match each orbit to the period it must have.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.place",
+   "original": "Coordination Office",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Nobody has turned the distances into times.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "An orbit's size fixes its period, so a launch window is a consequence of the orbit rather than a choice.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "Kepler's third law relates the size of an orbit to the time it takes",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.question",
+   "original": "Match each semi-major axis to the orbital period it implies.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "Kepler's third law says the square of the period equals the cube of the semi-major axis, in years and astronomical units: the period is the axis raised to one and a half. At 1.6 AU that is about 2 years, at 2.5 AU about 4, and at 4 AU about 8. Nothing else about the orbit enters — not its shape, not the object's mass — which is why an arc long enough to fix the axis also fixes every launch window that follows from it.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.0",
+   "original": "About 1.0 year",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.1",
+   "original": "About 2.0 years",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.2",
+   "original": "About 4.0 years",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.3",
+   "original": "About 8.0 years",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.0",
+   "original": "Period is not proportional to the axis. Doubling the axis nearly triples the period.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.1",
+   "original": "The eccentricity changes where the object is in its orbit, not how long the orbit takes.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.2",
+   "original": "The object's mass is negligible against the Sun's, so it does not enter the period at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.scenarios.0",
+   "original": "Semi-major axis 1.0 AU",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.scenarios.1",
+   "original": "Semi-major axis 1.6 AU",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.scenarios.2",
+   "original": "Semi-major axis 2.5 AU",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.scenarios.3",
+   "original": "Semi-major axis 4.0 AU",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "Why a centimetre a second is enough",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.place",
+   "original": "Coordination Office",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "The impactor design gives the object a speed change of about one centimetre a second, against an orbital speed near 25 kilometres a second. The room is being asked how that can possibly matter.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "A tiny nudge applied early buys a large miss later, and the currency is time.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "an object in orbit is moving at tens of kilometres a second",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.question",
+   "original": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "Orbital speed here is about 25 km/s, so a centimetre a second is one part in two and a half million — nothing, applied once. What makes it work is that a speed change along the direction of travel changes the orbital period, and a changed period means the object arrives at a slightly different time, every orbit, for as long as you have. Years of that becomes thousands of kilometres of miss distance. Push it sideways instead and you get almost nothing: the orbit tilts and the arrival time barely moves, which is why deflection is planned decades out and along-track.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.0",
+   "original": "Along the orbit it changes the period, so the arrival-time shift grows with every return.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.choices.1",
+   "original": "It is a large fraction of the object's orbital speed, so the path moves immediately.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.2",
+   "original": "The push is sideways, which tilts the orbit out of Earth's plane before the pass.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.choices.3",
+   "original": "Momentum is not conserved in a very fast impact, so the object gains more than it is given.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.0",
+   "original": "A centimetre a second against 25 kilometres a second is one part in 2.5 million, which does nothing on its own.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.1",
+   "original": "An out-of-plane push tilts the orbit and hardly changes when the object arrives, which is what the miss distance depends on.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.2",
+   "original": "Momentum is conserved. That is exactly why the impactor's momentum, plus the ejecta's, is what moves the object at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.title",
+   "original": "Evacuate or Wait?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.briefing",
+   "original": "The impact corridor crosses populated regions, but the probability is still changing. The player must connect scientific uncertainty to staged civil decisions and avoid both complacency and panic.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.stake",
+   "original": "Three years in. The impactor launched two years ago and reaches the asteroid in eleven days, five years before the encounter. The probability has moved twice this month, both times downward, and Ellery's draft evacuation plan has been seen by two regional governments who are being asked to fund it now — and this time Rossi is the one who is right, because what she would spend is trust she cannot get back. Today you match what gets done to what is actually known. Stockpiles and plans are cheap and reversible. Moving nine million people is neither, and it kills people directly. Both mistakes here have a body count, and only one of them would ever be reported as yours.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "Match action to evidence state",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.place",
+   "original": "Risk Communication Center",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "The corridor crosses populated regions and the probability is still moving. Four evidence states are on the board at the communication centre, each needing its own level of response.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "Preparedness can escalate in stages without claiming certainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "a reversible action can be taken and undone; an irreversible one cannot",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "Action thresholds depend on consequence, lead time and reversibility rather than on probability alone. A very low probability with years in hand justifies tracking and cheap preparation, because there is time to learn more. A rising probability with a stable corridor justifies pre-positioning, which is reversible. High probability with days left justifies protective action under emergency authority, because the time to learn more has gone. And a probability that falls justifies standing down publicly and saying why — which is what makes the next escalation believable.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.0",
+   "original": "Continue tracking and low-cost preparedness.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.1",
+   "original": "Pre-position resources and plan corridor-specific evacuations.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.2",
+   "original": "Execute protective actions under emergency authority.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.3",
+   "original": "Scale back actions transparently while preserving lessons.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "Very low probability with years of lead time buys the cheapest thing: keep watching, and prepare in ways that cost nothing if it comes to nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "A rising probability over a stable corridor justifies pre-positioning, precisely because pre-positioning can be undone.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "High probability with days left is when reversibility stops being the deciding factor and consequence takes over.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.3",
+   "original": "A falling probability is stood down in public, with the reason. Quietly dropping it is how the next warning is disbelieved.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.0",
+   "original": "Very low probability with years of lead time.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.1",
+   "original": "Rising probability with a stable regional corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.2",
+   "original": "High probability with days remaining.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scenarios.3",
+   "original": "Probability falls after decisive tracking.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "Expected displaced population",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.place",
+   "original": "Emergency Management Office",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "The emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and it has to write something on a form today.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "Decision metrics must be interpreted according to the distribution they summarize.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "an expectation is a probability multiplied by a consequence",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.question",
+   "original": "Estimate the expected displaced population.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "The same expectation arises from a small chance of a very large displacement and a near-certainty of a small one, and those call for entirely different preparations. The summary is only usable alongside the distribution it summarises.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.prompt",
+   "original": "A simplified corridor contains 9 million people and the current impact probability is 0.5 per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.question",
+   "original": "Estimate the expected displaced population.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.estimate.explanation",
+   "original": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of a hundred.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.relationship",
+   "original": "An expectation = the consequence × the probability of it happening.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "Prepare without panic",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "The probability has moved twice this month, both times downward. What does the board issue?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.place",
+   "original": "Scientific Advisory Board",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "The corridor crosses nine million people and 300 km of coastline. The impact probability was 1 in 180 on the 3rd, 1 in 640 on the 11th, and 1 in 900 today, each move following a new observation. Regional authorities want something they can act on.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "Public trust is protected when uncertainty is paired with concrete decision rules.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "credibility spent on one message is not available for the next",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.question",
+   "original": "The probability has moved twice this month, both times downward. What does the board issue?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "The probability has gone 1 in 180, 1 in 640, 1 in 900 in eight days, each move following a new observation — and it will move again. A statement of the current number alone has to be withdrawn each time, and three withdrawals is how an authority stops being believed. An advisory that states what is being prepared, at what threshold, and what observation would change it can absorb the next revision without reading as a reversal, because the change was announced in advance as a condition. That is what keeps the next message credible, which is the thing actually at staked.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.0",
+   "original": "The uncertainty, published together with the triggers and protective steps.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.choices.1",
+   "original": "A statement that tracking continues and there is no cause for concern.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.2",
+   "original": "An instruction to begin corridor evacuation planning immediately.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.3",
+   "original": "A warning that an impact should now be treated as likely.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.0",
+   "original": "Reassurance with no trigger attached has to be withdrawn from scratch if the probability moves back up, and it will be read as the board having been wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.1",
+   "original": "Corridor evacuation planning is exactly what the triggers should start. Starting it without them makes it impossible to stop.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.2",
+   "original": "Calling an impact likely before the orbit is resolved spends the credibility that every later message, including the reassuring ones, depends on.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.title",
+   "original": "The Final Defense Review",
+   "readOnly": false
+  },
+  {
+   "id": "m15.objective",
+   "original": "Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.briefing",
+   "original": "The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.stake",
+   "original": "Eight years after the discovery, and the encounter is next week. The impactor struck five years ago; tracking since then puts the object about two Earth radii out, and some five thousand kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next one is up there now, unfound, and the survey line that caught this one expires in eleven months.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Disposition the final claims",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.place",
+   "original": "International Review Hall",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Whatever it writes will be read by whoever runs the next one.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "Planetary defense is a continuing evidence system, not a one-time heroic act.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "a conclusion is only as strong as the evidence under it",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "Final review separates mission success, residual orbital uncertainty, civil readiness and future capability, because they are four different states and giving them one confidence is how a document becomes untrustworthy. Tracking that confirms the orbit shift independently is strong enough to accept while verification continues. A poorly constrained tail is a reason to keep observing rather than to collapse the distribution onto the nominal. Plans built on an outdated corridor have to be updated before anybody uses them. And survey gaps outlive this object entirely.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "Accept the deflection claim and continue verification.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "Continue targeted observations; do not collapse the distribution to the nominal.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "Update plans before operational use.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "Fund long-term survey and preparedness improvements.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "An independently confirmed orbit shift is the strongest claim here and can be accepted, with verification continuing.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "A poorly constrained tail is not a safe nominal. Collapsing the distribution onto its middle is the error the whole campaign was about.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "Civil plans against an outdated corridor are worse than no plans, because somebody will use them.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.3",
+   "original": "Survey gaps have nothing to do with this object and everything to do with the next one.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.0",
+   "original": "Post-impact tracking shows the required orbit shift with independent confirmation.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.1",
+   "original": "The nominal miss is safe, but a poorly constrained tail remains.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.2",
+   "original": "Civil plans are ready but based on an outdated corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.3",
+   "original": "The object is no longer threatening, but survey gaps remain.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "Build the final public record",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "Order the record so each claim can be checked against the one before it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.place",
+   "original": "Orbit Monitoring Center",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "The board has one account to publish. The object was found late, characterised in stages, deflected by a measured but imprecise amount, and it leaves behind a risk that is small rather than zero.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "A record is ordered so each claim can be checked against the one before it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "a record is read by people who were not there",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "The record is ordered so that each claim can be checked against the one before it: the consequence range only means something beside the diameter it came from, and the measured deflection only means something beside the prediction it was tested against. Ending on residual risk and its owner is what stops the document reading as a conclusion.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.0",
+   "original": "The discovery, and how wide the uncertainty was at each stage of narrowing it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.1",
+   "original": "The physical characterisation, and the consequence range it implied.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.2",
+   "original": "The intervention, and the orbit change measured against the one predicted.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.3",
+   "original": "The residual risk, and who is funded to keep watching it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "Fund the planetary-defense legacy",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "The campaign budget ends with this review. What survives it?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.place",
+   "original": "Mission Operations",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "The campaign budget ends with this review. This object was found 11 days before closest approach; the survey that found it reaches magnitude 22 and covers a third of the sky a month, and two of the four follow-up sites are funded only to the end of the year.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "The durable defense is an institution that can repeatedly detect, learn, decide, and act.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "warning time is produced by finding things, not by planning for them",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.question",
+   "original": "The campaign budget ends with this review. What survives it?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "Trace the constraints back. Eleven days of warning is why the radar window mattered so much, why the deflection option was never available, and why the consequence work had to run on an unmeasured strength. Every one of those was set by the discovery date, and the discovery date is produced by survey and follow-up capacity and by nothing else. Deflection hardware, consequence models and communications plans all become more effective with more warning and cannot manufacture any. So the thing to protect through the budget is the capability that generates the number every other capability depends on in the campaign that followed.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.0",
+   "original": "Survey completeness and the rapid follow-up network.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.1",
+   "original": "Characterisation and deflection demonstration missions.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.2",
+   "original": "International decision protocols and civil preparedness.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.3",
+   "original": "Nothing new — discovery is now routine and happens automatically.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.0",
+   "original": "Characterisation and deflection demonstrations convert warning time into options, and they need the warning time to exist first.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.1",
+   "original": "Protocols and civil preparedness turn options into action, and they inherit the same dependency one step further down.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.2",
+   "original": "Assuming discovery is automatic is the assumption this object spent eight years disproving, from a blind spot the survey still has.",
+   "readOnly": false
+  },
+  {
+   "id": "copy.DISC",
+   "original": "<p>The survey dome and its image processing room. Everything this campaign knows started as photons here.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.ORBIT",
+   "original": "<p>Orbit determination. Where a set of angles becomes a family of possible futures.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.CHAR",
+   "original": "<p>Spectroscopy and characterization. Size, reflectivity, spin and composition — the physical body itself.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.RADAR",
+   "original": "<p>The planetary radar. It measures distance directly, and only when the geometry allows.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.IMPACT",
+   "original": "<p>Entry and consequences. What the atmosphere does to an arriving body, and what is left over.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.OPS",
+   "original": "<p>The coordination office. Telescope time, international protocol, and what the public is told.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.BOARD",
+   "original": "<p>The briefing hall. The board meets here, and the record it publishes outlives everyone in the room.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.TIME",
+   "original": "<p>Time and frequency standards. Every timestamp on this mountain traces back to this building.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.ARCHIVE",
+   "original": "<p>The plate and data archive. Objects are often found years later in images already taken.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.DISC.caption",
+   "original": "A detection is a claim that something moved, not that something is there.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.DISC.standLine",
+   "original": "One faint moving point, two satellite trails and a hot pixel column in the same field.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ORBIT.caption",
+   "original": "A short arc allows a family of orbits, and some members of it hit the Earth.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ORBIT.standLine",
+   "original": "Six observatories reporting, two time standards, and an arc four hours long.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CHAR.caption",
+   "original": "A bright asteroid is not necessarily a large one.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.CHAR.standLine",
+   "original": "One brightness, one assumed albedo, and a diameter the consequence model cubes.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.RADAR.caption",
+   "original": "Four hours of dish time collapse an orbit that a month of imaging cannot.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.RADAR.standLine",
+   "original": "A window four hours wide that does not open again for eleven years.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.IMPACT.caption",
+   "original": "The same diameter can produce a crater or a burst ten kilometres up.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.IMPACT.standLine",
+   "original": "Three entry models, one reaching the ground, and a strength nobody has measured.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.OPS.caption",
+   "original": "Observing time is the scarce quantity, and information gain is what it should buy.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.OPS.standLine",
+   "original": "Four hours of discretionary time, four proposals, and a press office asking for a line.",
+   "readOnly": false
+  }
+ ]
+}

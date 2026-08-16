@@ -18,8 +18,8 @@ export const CURRICULUM = {
         "play": "Compare the two records from one earthquake",
         "task": "Compare the two records from one earthquake",
         "question": "What does the difference between the two records mean?",
-        "answer": "The soft ground under the Flats amplified and lengthened the shaking.",
-        "why": "Waves slow down as they come up into softer ground, and slow waves carry the same energy with bigger motions, so the shaking grows. Soft ground also rings: it holds the motion and gives it back over several more seconds, at the periods the layer itself prefers. Rock does neither. That is why the two records differ by a factor of three at eleven hundred metres, and it is the reason the same earthquake destroyed one half of this town and rattled the other.\n",
+        "answer": "The Flats record is about three times the rock-site amplitude in the strongest band, so A_soft/A_rock ≈ 3 there. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.",
+        "why": "Soft ground can amplify and lengthen shaking in a particular period band. Here the two records give A_soft/A_rock ≈ 3 for the strongest motion. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.",
         "rebuttals": [
           "Both instruments checked out against a second sensor this morning; the difference is real.",
           "Eleven hundred metres is nothing against a source twenty kilometres away, so distance cannot explain a factor of three.",
@@ -88,12 +88,12 @@ export const CURRICULUM = {
         "task": "Locate the source from arrival times",
         "question": "Estimate the distance from this station to the source.",
         "answer": "About 100 km.",
-        "why": "Both waves leave at the same instant and travel the same path, but the P wave is faster, so the gap between their arrivals is a clock that has been running since the earthquake started. For shallow crust the two speeds work out at roughly eight kilometres for every second of gap. One station turns that into a radius and knows only that the source is somewhere on a circle; three stations turn three circles into a point, which is why a network exists at all.\n",
+        "why": "Both waves leave together, but the P wave travels faster. Their arrival-time gap therefore grows with distance from the source. For shallow crust, about eight kilometres of source distance corresponds to each second of S-minus-P separation. The 13-second gap gives about 104 km. One station supplies only a radius, so the source still lies somewhere on a circle. A network combines several station distances to locate the source region rather than mistaking one distance for a position.",
         "givens": [
           "The S minus P interval is 13 seconds",
           "Distance is about 8 km for each second of that gap"
         ],
-        "relationship": "Distance = the S-minus-P interval × 8 km per second, because the two waves left together and travel at different speeds.\n",
+        "relationship": "Distance = the S-minus-P interval × 8 km per second, because the two waves left together and travel at different speeds.",
         "calcKey": "SEIS-2"
       },
       "assumes": [
@@ -126,7 +126,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "The instrument in the basement",
       "scene": "There is an accelerograph in the hospital basement, installed in 1998 and never used in anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed for 0.35.",
-      "takeaway": "A record from inside the building itself turns an assessment from an estimate into a measurement.",
+      "takeaway": "A building-mounted accelerograph measures one part of the demand directly; it does not turn a code design value into a damage threshold.",
       "place": "Seismic Network",
       "story": "There is an accelerograph in the hospital basement, installed in 1998 and never used in anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed for 0.35.",
       "game": {
@@ -135,9 +135,9 @@ export const CURRICULUM = {
         "setup": "Seismic Network",
         "play": "Check what the hospital actually experienced",
         "task": "Check what the hospital actually experienced",
-        "question": "What does the basement record let the office say?",
+        "question": "What can the 0.31 g basement record legitimately add to the assessment?",
         "answer": "That this building saw a little less than it was designed for.",
-        "why": "A record from the building's own basement removes the largest guess in the whole assessment: what this structure was actually asked to do. Everywhere else the office is estimating demand from a map. Here it is measured. It does not clear the building — a structure can be damaged below its design level, particularly at connections, and the plant room is still unopened — but it does mean the frame was not pushed past what it was built for, which is why three floors of inspection found nothing.\n",
+        "why": "The basement instrument removes major uncertainty about the motion at this site: peak base acceleration was 0.31 g. Comparing that with the 0.35 g design input is useful context, but a code design value is not a tripwire below which damage is impossible. Structural demand also depends on frequency content, duration, ductility, detailing and component response. The record therefore shows that base acceleration was not obviously beyond the nominal design input, while the plant-room restraint and observed-condition inspection remain separate questions.",
         "rebuttals": [
           "Staying below a design value makes damage less likely, and does not prove there is none.",
           "One record from one earthquake is not grounds to revise a design standard.",
@@ -179,10 +179,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "A rate is not a schedule",
-      "scene": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from.",
+      "scene": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from. The sentence is due for the afternoon public bulletin.",
       "takeaway": "A rate says how often, not when or how large, and writing it as a date makes a promise nobody can keep.",
       "place": "Seismic Network",
-      "story": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from.",
+      "story": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from. The sentence is due for the afternoon public bulletin.",
       "game": {
         "type": "CHOICE",
         "title": "A rate is not a schedule",
@@ -191,7 +191,7 @@ export const CURRICULUM = {
         "task": "Say what a forecast does not claim",
         "question": "What can the forecast honestly say?",
         "answer": "That the rate is falling, with a number per week and a range.",
-        "why": "The fit gives a rate and an uncertainty on that rate, and nothing else. It cannot give an end date, because a power law fades rather than stops. It cannot rule out a large event — the magnitudes in a sequence follow their own distribution, and a bigger one is always possible and always less likely. And it cannot promise that each day is safer, because the rate is an average and the sequence is random around it. Everything the forecast can say is still useful, and the useful part is a number per week.\n",
+        "why": "The fit gives an expected rate and uncertainty, not an end date. A power law fades rather than stops, so the forecast cannot name the day aftershocks finish. It also cannot rule out a larger event; larger aftershocks are simply less common. Daily counts will wander above and below the smooth fitted curve because the sequence is random. The useful statement is therefore a rate over a stated interval, with a range, rather than a calendar promise about the next event or the end of the sequence.",
         "rebuttals": [
           "A power-law decay fades into the background and has no end date to promise.",
           "Magnitudes follow their own distribution, so a larger event is always possible and never ruled out.",
@@ -234,7 +234,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Before the next one",
       "scene": "Nothing on the Parade is dangerous today. The same parapets, on the same walls, will be here for the next earthquake, and the recurrence interval on this fault is about 140 years.",
-      "takeaway": "The cheapest moment to fix a known failure mode is while the scaffolding is still up and everybody still believes in it.",
+      "takeaway": "Fix a repeatedly observed, low-cost life-safety failure mode while access is already in place; do not let an average recurrence interval become a countdown clock.",
       "place": "Seismic Network",
       "story": "Nothing on the Parade is dangerous today. The same parapets, on the same walls, will be here for the next earthquake, and the recurrence interval on this fault is about 140 years.",
       "game": {
@@ -245,11 +245,11 @@ export const CURRICULUM = {
         "task": "Decide what is worth doing now",
         "question": "Decide what is worth doing now",
         "answer": "",
-        "why": "Tying parapets back is the highest-value work in this town and it is boring, which is why it does not get done. It is cheap, it addresses the failure mode that actually happened on every one of these buildings, and the scaffolding needed to do it is standing in the street right now. A full seismic assessment of each building produces knowledge and no strengthening. Demolition removes the street. Waiting for a grant scheme means doing it after the scaffolding comes down, at three times the price, if at all.\n",
+        "why": "Tying parapets back has an unusually strong case: the failure mode occurred repeatedly, the retrofit acts directly on it, and scaffolding already in place makes the marginal cost much lower. The quoted 140-year recurrence interval is not a promise of 140 quiet years after this event; earthquakes do not reset a calendar. That statistic belongs in long-term hazard context, not in the argument for waiting. Act now because the defect is known, the consequence is falling masonry, and the cheapest access window is open.",
         "proposals": [
           {
             "label": "A",
-            "text": "Tie the parapets back to the floor structure now"
+            "text": "Tie the parapets back to the floor structure now, while the scaffolding is up."
           },
           {
             "label": "B",
@@ -257,7 +257,7 @@ export const CURRICULUM = {
           },
           {
             "label": "C",
-            "text": "Wait for the strengthening grant scheme"
+            "text": "Wait for the strengthening grant scheme, which opens next year."
           },
           {
             "label": "D",
@@ -268,78 +268,171 @@ export const CURRICULUM = {
           "A": 55,
           "D": 20
         },
-        "research": "Every parapet on the Parade came down and no wall behind one did. Tying back costs about\n£8,000 a building with scaffolding already standing, and about £25,000 without. The\nrecurrence interval on this fault is roughly 140 years and the last event was 6 days ago.\nThe grant scheme opens in eleven months and is oversubscribed in its first week each year.\n"
+        "research": "Every parapet on the Parade came down and no wall behind one did. Tying back costs about\n£8,000 a building with scaffolding already standing, and about £25,000 without. The\nrecurrence interval on this fault is roughly 140 years and the last event was 6 days ago.\nThe grant scheme opens in eleven months and is oversubscribed in its first week each year."
       },
       "assumes": [
         "a hazard that has occurred will occur again"
+      ],
+      "equations": [
+        {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        }
       ]
     },
     {
       "day": 6,
       "title": "Measuring against the wrong zero",
-      "scene": "Cardoso has a temporary instrument on outcropping rock two hundred metres away, running for five days. Across eleven aftershocks it reads consistently lower than the vault, by a factor near 1.6.",
-      "takeaway": "A ratio is only as good as its denominator, and a faulty reference moves every result computed from it.",
+      "scene": "Cardoso's five-day side-by-side check is finished, and the benchmark used since day one no longer stands unchanged. Navarro lays five fortnight conclusions beside the corrected station report. Some may survive untouched; others may force a redraw before the next briefing.",
+      "takeaway": "A shared reference error propagates only through conclusions that depend on it; independent measurements should not be discarded with the common source.",
       "place": "Seismic Network",
-      "story": "Cardoso has a temporary instrument on outcropping rock two hundred metres away, running for five days. Across eleven aftershocks it reads consistently lower than the vault, by a factor near 1.6.",
+      "story": "Cardoso's five-day side-by-side check is finished, and the benchmark used since day one no longer stands unchanged. Navarro lays five fortnight conclusions beside the corrected station report. Some may survive untouched; others may force a redraw before the next briefing.",
       "game": {
-        "type": "CHOICE",
+        "type": "TRACE",
         "title": "Measuring against the wrong zero",
         "setup": "Seismic Network",
-        "play": "Say what a mis-sited reference does",
-        "task": "Say what a mis-sited reference does",
-        "question": "What does the vault's own amplification do to the fortnight's numbers?",
-        "answer": "Every amplification quoted is too small, since the reference amplified too.",
-        "why": "Amplification is a ratio, and the vault was the denominator. If the denominator has been 1.6 times bigger than it should have been, every ratio computed from it has been about 1.6 times too small — so the Flats did not shake three times harder than rock, they shook nearer five. The soft-site records themselves are fine; nothing about them changed. And the magnitudes are computed from a network of many stations, so one mis-sited vault barely moves them.\n",
-        "rebuttals": [
-          "The errors do not cancel, because only one of the two sites is affected and it is the reference.",
-          "The soft-site records were measured correctly and do not need recomputing.",
-          "Magnitudes come from many stations at once, so one station's siting hardly moves them."
-        ],
-        "choices": [
-          "Nothing, since both records were affected in the same way and the errors cancel.",
-          "Every amplification quoted is too small, since the reference amplified too.",
-          "The soft-site records are wrong and need to be recomputed from scratch.",
-          "The magnitudes computed for the sequence are all too large."
-        ],
-        "correctChoice": "Every amplification quoted is too small, since the reference amplified too."
+        "play": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
+        "task": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
+        "question": "Which conclusions actually inherit the bad reference, and which remain supported by independent evidence?",
+        "answer": "Revise the Flats amplitude ratio and any planning factor copied from it. With the vault itself amplified by about 1.6, a threefold Flats-to-vault ratio becomes roughly 4.8 relative to competent rock. Keep the hospital 0.31 g, the network M_w 6.8 and the Marina Court diagnosis; their evidence chains do not use the vault.",
+        "why": "A ratio inherits errors from both its numerator and denominator. The Flats-to-vault value near three therefore changes when the vault is found to amplify by about 1.6. The corrected competent-rock ratio is roughly 3 × 1.6 = 4.8. Any planning factor copied from that ratio shares the same reference dependency. By contrast, the hospital basement accelerograph, the network moment magnitude and Marina Court's survey evidence do not use the vault. Dependency tracing limits the correction to the conclusions that actually share the bad reference.",
+        "trace": {
+          "channels": [
+            {
+              "id": "ratio",
+              "label": "Flats motion comparison",
+              "reading": "3.0 (expected value published in the fortnight report)",
+              "depends": [
+                "flats_record",
+                "vault_ref"
+              ]
+            },
+            {
+              "id": "planning_factor",
+              "label": "Rebuilding demand factor",
+              "reading": "3.0 (expected value carried in the district planning memo)",
+              "depends": [
+                "flats_record",
+                "vault_ref"
+              ]
+            },
+            {
+              "id": "hospital_pga",
+              "label": "Hospital base acceleration",
+              "reading": "0.31 g (expected hospital instrument record)",
+              "depends": [
+                "hospital_record"
+              ]
+            },
+            {
+              "id": "magnitude",
+              "label": "Final event magnitude",
+              "reading": "M_w 6.8 (expected final agency bulletin)",
+              "depends": [
+                "network_solution"
+              ]
+            },
+            {
+              "id": "marina",
+              "label": "Marina Court failure diagnosis",
+              "reading": "settlement, heave and sand ejecta documented (expected field assessment record)",
+              "depends": [
+                "marina_survey"
+              ]
+            }
+          ],
+          "resources": [
+            {
+              "id": "vault_ref",
+              "label": "Reference-station site response"
+            },
+            {
+              "id": "flats_record",
+              "label": "Flats accelerograph record"
+            },
+            {
+              "id": "hospital_record",
+              "label": "Hospital basement accelerograph"
+            },
+            {
+              "id": "network_solution",
+              "label": "Multi-station source solution"
+            },
+            {
+              "id": "marina_survey",
+              "label": "Marina Court survey and ground observations"
+            }
+          ],
+          "independent": [
+            "hospital_pga",
+            "magnitude",
+            "marina"
+          ],
+          "target": "vault_ref",
+          "hint": "Open each conclusion and inspect the sources underneath it. Keep conclusions whose evidence chain does not pass through the suspect reference, then name the source shared by the conclusions that fail.",
+          "commit": "Correct it"
+        }
       },
       "assumes": [
         "a comparison is only as good as the thing compared against"
       ],
       "equations": [
         {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
+          "e": "M₀ = μ · A · D",
+          "c": "seismic moment, and what makes a big earthquake big",
           "v": [
             [
-              "n(t)",
-              "aftershocks per day at time t"
+              "M₀",
+              "seismic moment, in newton metres"
             ],
             [
-              "t",
-              "days since the mainshock"
+              "μ",
+              "rigidity of the rock, about 30 GPa"
             ],
             [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
+              "A",
+              "area of fault that slipped, in square metres"
+            ],
+            [
+              "D",
+              "average slip on it, in metres"
             ]
           ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+          "s": "The size of an earthquake is the area that moved times how far it moved times how stiff the rock is, which is why a long rupture matters more than a violent one."
         },
         {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
+          "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
+          "c": "moment magnitude, and why the scale is logarithmic",
           "v": [
             [
-              "A_soft",
-              "shaking measured on the soft site"
+              "M_w",
+              "moment magnitude, no units"
             ],
             [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
+              "M₀",
+              "seismic moment, in newton metres"
+            ],
+            [
+              "⅔ and 6.06",
+              "constants that make the scale line up with the older ones"
             ]
           ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
         }
       ]
     },
@@ -358,7 +451,7 @@ export const CURRICULUM = {
         "task": "Sort the findings by their evidence",
         "question": "Sort the findings by their evidence",
         "answer": "",
-        "why": "The vault siting is the strongest thing in the file: a trench log from 1998 and five days of side-by-side recording against outcropping rock. The hospital's demand is measured too, by its own instrument, and it is a single event at a single building. Marina Court's cause is an inference — good geotechnics applied to a survey, with no borehole under the raft itself. And what the fill will do in the next earthquake is a projection from a corrected ratio and a handful of boreholes, which is the weakest thing here and the one the plan clause rests on. Saying that out loud is not undermining the clause; it is what makes it defensible.\n",
+        "why": "The four claims deserve different labels because their evidence chains differ. The vault siting error is directly documented and independently checked against competent rock. The hospital's 0.31 g is a direct measurement for one location and one event. Marina Court's mechanism is a strong inference from survey, ejecta and geotechnical behaviour rather than a direct observation beneath the raft. Future Flats amplification is conditional on corrected site-response evidence and the frequency content of a future earthquake. Stating those limits makes the report more useful, not weaker.",
         "rebuttals": [
           "The vault error has a 1998 trench log and five days of side-by-side recording behind it.",
           "The hospital's 0.31 g came from an instrument in its own basement, for one event.",
@@ -433,31 +526,83 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Where the first day of assessment goes",
-      "scene": "Six assessors, two halves of a town and one day. Okonkwo wants them where the buildings are worst. Bram Halvorsen wants them where the most people are waiting to go home.",
-      "takeaway": "Send inspectors where the answer will change what happens next, not where the damage photographs best.",
+      "scene": "Six assessors are free for one day. Four hundred displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
+      "takeaway": "A finite inspection team should be spent on the questions whose answers can still change what happens today.",
       "place": "Structural Assessment",
-      "story": "Six assessors, two halves of a town and one day. Okonkwo wants them where the buildings are worst. Bram Halvorsen wants them where the most people are waiting to go home.",
+      "story": "Six assessors are free for one day. Four hundred displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
       "game": {
-        "type": "TRIAGE",
+        "type": "ALLOCATE",
         "title": "Where the first day of assessment goes",
         "setup": "Structural Assessment",
-        "play": "Send the assessors somewhere first",
-        "task": "Send the assessors somewhere first",
-        "question": "Where does the first day of assessment go?",
-        "answer": "The Flats terraces — 400 households out, most repairable.",
-        "why": "An inspection is worth what it changes. Four hundred households are sleeping in a hall waiting on a placard, and most of those buildings will come back green or yellow, so a day spent there sends hundreds of people home. Marina Court is already cordoned and already empty, so an assessment today changes nobody's night. The Parade is the same: the damage has happened, the street is shut, and knowing more about it this afternoon moves nothing. Damage is not the same as urgency.\n",
-        "rebuttals": [
-          "Marina Court is cordoned and empty, so a placard on it today changes nobody's night.",
-          "The timber houses are standing and their occupants are mostly back in already.",
-          "The Parade's street is closed and its damage is done; more detail there moves nothing today."
-        ],
-        "choices": [
-          "The Flats terraces — 400 households out, most repairable.",
-          "Marina Court, which is visibly leaning and already cordoned with nobody inside.",
-          "Upper Town's timber houses, which are off their piles but standing.",
-          "The Parade, where the parapets already fell and the street is closed."
-        ],
-        "correctChoice": "The Flats terraces — 400 households out, most repairable."
+        "play": "Allocate the six assessor-days across the four inspection packages, then check which operational questions the plan can answer.",
+        "task": "Allocate the six assessor-days across the four inspection packages, then check which operational questions the plan can answer.",
+        "question": "Can your allocation preserve a same-day re-occupancy decision for the waiting Flats households while accepting that some lower-value questions will wait?",
+        "answer": "Keep at least four assessor-days on the Flats sweep so the waiting households can receive an occupancy decision today. Spend the remaining two days on one optional question; the other useful questions have to wait because the team cannot buy all four packages.",
+        "why": "Assessment capacity is a finite pool, so every useful inspection has an opportunity cost. The Flats package can resolve an occupancy decision for hundreds of displaced households. Marina Court and the Parade already have protective controls in place, so extra detail there changes less today. Upper Town follow-up is useful but not essential to the immediate re-occupancy decision. The allocation should therefore preserve the Flats question first, then spend remaining capacity only where another answer is worth the assessor-days it consumes.",
+        "allocate": {
+          "pool": {
+            "amount": 6,
+            "unit": "assessor-days",
+            "mode": "scalar"
+          },
+          "items": [
+            {
+              "id": "existing_controls",
+              "label": "Existing cordons and closure orders",
+              "cost": 0,
+              "protected": true
+            },
+            {
+              "id": "flats",
+              "label": "Flats terrace re-occupancy sweep",
+              "cost": 4
+            },
+            {
+              "id": "marina",
+              "label": "Additional Marina Court documentation",
+              "cost": 2
+            },
+            {
+              "id": "upper",
+              "label": "Upper Town timber-house follow-up",
+              "cost": 2
+            },
+            {
+              "id": "parade",
+              "label": "Detailed Parade damage documentation",
+              "cost": 2
+            }
+          ],
+          "answers": [
+            {
+              "question": "Can the waiting Flats households receive an occupancy decision today?",
+              "requires": [
+                "flats"
+              ],
+              "required": true
+            },
+            {
+              "question": "Can Marina Court be described in more detail today?",
+              "requires": [
+                "marina"
+              ]
+            },
+            {
+              "question": "Can the standing Upper Town houses receive an extra follow-up today?",
+              "requires": [
+                "upper"
+              ]
+            },
+            {
+              "question": "Can the already-closed Parade be documented in more detail today?",
+              "requires": [
+                "parade"
+              ]
+            }
+          ],
+          "hint": "Drag inspection packages into the six-day pool. The live panel shows which questions the current plan can answer; you do not need to answer every question today.",
+          "commit": "Commit the plan"
+        }
       },
       "assumes": [
         "an assessment programme is a queue, and the order is a decision"
@@ -467,7 +612,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Six minutes outside a building",
       "scene": "Whitcombe's form has eleven boxes and a place for the colour. He filled four hundred of them in two days, and he has kept a second list of everything he did not look at.",
-      "takeaway": "A rapid assessment samples the outside and the obvious, so a green placard is a statement about what was visible.",
+      "takeaway": "A rapid assessment is triage: it records observed hazards and access limits, not a complete structural evaluation.",
       "place": "Structural Assessment",
       "story": "Whitcombe's form has eleven boxes and a place for the colour. He filled four hundred of them in two days, and he has kept a second list of everything he did not look at.",
       "game": {
@@ -478,7 +623,7 @@ export const CURRICULUM = {
         "task": "Say what a rapid assessment actually samples",
         "question": "Say what a rapid assessment actually samples",
         "answer": "",
-        "why": "A rapid assessment is a triage tool. It is meant to clear the obviously safe and stop the obviously dangerous being entered, quickly, when there are more buildings than engineers. What it can see is exterior damage, gross leaning, and the condition of the visible load path. What it cannot see is anything behind a lining, any connection inside a wall, the state of a foundation, or damage in a part of the building nobody opened. The colour is honest about none of that unless the form is read with it, which is why the second list matters more than the first.\n",
+        "why": "A rapid assessment is designed to screen many buildings quickly after a disaster. It can identify gross leaning, collapse hazards, obvious structural distress and accessible life-safety problems. It cannot establish the condition of concealed connections, inaccessible rooms, foundations or every member in the load path. The discipline is therefore two-part: record what was observed and record what could not be observed. A green placard is useful only when later users do not silently expand its scope beyond the inspection that produced it.",
         "rebuttals": [
           "Cracking visible from the street is exactly what a rapid assessment is designed to catch.",
           "A connection inside a wall cannot be seen from outside and is not covered by the walk-past.",
@@ -532,10 +677,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What eight degrees does",
-      "scene": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building.",
-      "takeaway": "A lean is dangerous through the extra moment it puts on the frame, not because it looks alarming.",
+      "scene": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building. The survey sheet and column plan are open beside him.",
+      "takeaway": "The lean matters because gravity now acts with eccentricity, creating P–Δ effects and extra bending demand in the frame.",
       "place": "Structural Assessment",
-      "story": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building.",
+      "story": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building. The survey sheet and column plan are open beside him.",
       "game": {
         "type": "CHOICE",
         "title": "What eight degrees does",
@@ -544,7 +689,7 @@ export const CURRICULUM = {
         "task": "Decide what the lean actually costs",
         "question": "What is the engineering objection to leaving Marina Court standing?",
         "answer": "That the weight now acts off-centre, adding bending to columns built to be squashed.",
-        "why": "A column is very good at being squashed and much worse at being bent. Once the building leans, every floor's weight acts to one side of the column below it, and that offset multiplies up the height into a bending moment nobody designed for. It is a real and computable objection, and it is the one that decides whether people may go back in. Fear is not an engineering reason, and the frame itself has not been damaged — which is exactly why the argument has to be made in moments rather than in adjectives.\n",
+        "why": "A column is efficient when its gravity load stays close to its axis. Once the building leans, the weight above acts with an offset, creating additional bending moment; as lateral displacement grows, the gravity load can amplify that demand through P–Δ effects. The engineering question is therefore not whether eight degrees looks frightening, but whether the measured geometry, member capacities and continued ground stability leave adequate margin. The undamaged frame is encouraging evidence, not permission to ignore the new load path.",
         "rebuttals": [
           "The lean stops when the pore pressure dissipates; it is not a process that runs away by itself.",
           "Public confidence is a real cost and a reason to explain, not a reason a structure is unsafe.",
@@ -580,53 +725,88 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
+        },
+        {
+          "e": "A_soft / A_rock",
+          "c": "site amplification — the same wave on two grounds",
+          "v": [
+            [
+              "A_soft",
+              "shaking measured on the soft site"
+            ],
+            [
+              "A_rock",
+              "shaking measured on rock nearby, in the same units"
+            ]
+          ],
+          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
       ]
     },
     {
       "day": 4,
       "title": "A hall with nothing in the middle",
-      "scene": "The gym is 34 metres across with a steel truss roof and precast concrete side panels. The classrooms next door are small rooms with walls every four metres and no damage at all.",
-      "takeaway": "A wall is only as good as its connection to the roof, and a long-span hall has few places to make that connection.",
+      "scene": "Bay Road School's gym has a long roof, heavy precast wall panels and no interior bracing line. The structural drawings are pinned across a table. One panel connection tested poorly, but the larger members look undamaged.",
+      "takeaway": "A lateral system works only when every required transfer carries force continuously from the moving mass to the foundation.",
       "place": "Structural Assessment",
-      "story": "The gym is 34 metres across with a steel truss roof and precast concrete side panels. The classrooms next door are small rooms with walls every four metres and no damage at all.",
+      "story": "Bay Road School's gym has a long roof, heavy precast wall panels and no interior bracing line. The structural drawings are pinned across a table. One panel connection tested poorly, but the larger members look undamaged.",
       "game": {
-        "type": "PROTOCOL",
+        "type": "CHAIN",
         "title": "A hall with nothing in the middle",
         "setup": "Structural Assessment",
-        "play": "Find where the load path stops",
-        "task": "Find where the load path stops",
-        "question": "Find where the load path stops",
-        "answer": "",
-        "why": "In the classroom block the earthquake force meets a wall every four metres and goes straight down: short paths, plenty of them, nothing to break. The gym has none of that. Its force has to travel along the roof to the end walls, which means the roof has to act as a stiff plate and the panels have to be tied to it well enough to drag along. Every one of those requirements is a connection, and connections are what fail. The panels themselves are strong and they are the last thing to worry about.\n",
-        "rebuttals": [
-          "Walls every four metres give the classroom block a short, redundant path to the ground.",
-          "A 34 m roof has to act as a plate to carry force to the end walls, which is a demanding job.",
-          "The tie between panel and roof is the link that has to drag the wall along, and it is small.",
-          "The panels are strong in themselves; strength was never the question for them."
-        ],
-        "scenarios": [
-          "The classroom block's walls, every four metres.",
-          "The gymnasium roof, spanning 34 metres.",
-          "The tie between the precast panel and the roof.",
-          "The precast panel itself."
-        ],
-        "choices": [
-          "Carries the force straight down over a short path, many times over.",
-          "Has to act as a stiff plate and carry the force sideways to the end walls.",
-          "Has to drag the wall along with the roof, and is the smallest thing in the chain.",
-          "Is strong in its own plane, and was never the weak part."
-        ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "columns": [
-          "The part",
-          "What it has to do in the earthquake"
-        ]
+        "play": "Assemble the horizontal load path from panel inertia to the ground, then identify the required transfer whose failure opens that path.",
+        "task": "Assemble the horizontal load path from panel inertia to the ground, then identify the required transfer whose failure opens that path.",
+        "question": "Which link governs the panel load path when the building shakes sideways?",
+        "answer": "The force path is panel inertia → panel-to-roof tie → roof diaphragm → resisting wall or frame → foundation. The governing link is the panel-to-roof tie. If that connection lets go, the size of the panel, roof and end wall cannot preserve a continuous path for the panel force.",
+        "why": "Earthquake inertia does not disappear because the visible structural members are large. A base-shear relation such as V = C_sW estimates a total lateral demand, but that force still needs a continuous path to the ground. For the gym panel, inertia crosses the panel-to-roof tie, enters the roof diaphragm, reaches the resisting end wall or frame, and then reaches the foundation. The small tie is therefore load-bearing in the literal sense: if it opens, the rest of the strong path cannot collect that panel's force.",
+        "chain": {
+          "links": [
+            {
+              "id": "panel_inertia",
+              "label": "Horizontal inertia of the precast panel",
+              "transfers": "lateral inertial force within the panel"
+            },
+            {
+              "id": "panel_tie",
+              "label": "Tie between the precast panel and the roof",
+              "transfers": "panel force into the roof diaphragm"
+            },
+            {
+              "id": "roof_diaphragm",
+              "label": "Roof diaphragm carrying force toward the end wall",
+              "transfers": "collected lateral force across the roof"
+            },
+            {
+              "id": "end_wall",
+              "label": "Resisting end wall or frame",
+              "transfers": "roof shear into the vertical lateral system"
+            },
+            {
+              "id": "foundation",
+              "label": "Foundation and ground",
+              "transfers": "base shear into the ground"
+            },
+            {
+              "id": "panel_body",
+              "label": "The large precast panel body",
+              "transfers": "internal forces within the panel"
+            }
+          ],
+          "order": [
+            "panel_inertia",
+            "panel_tie",
+            "roof_diaphragm",
+            "end_wall",
+            "foundation"
+          ],
+          "governing": "panel_tie",
+          "distractor": "panel_body",
+          "decoys": [
+            "panel_body"
+          ],
+          "hint": "Arrange the force transfers from the moving panel to the ground. Then choose the required link whose loss would open the otherwise continuous path.",
+          "commit": "Name the governing transfer"
+        }
       },
       "assumes": [
         "a horizontal force has to travel through a building to reach the ground"
@@ -656,47 +836,56 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The part nobody has seen",
-      "scene": "Three days of inspection have cleared the frame, the cladding and the stairs. What is left is a plant room on the roof, holding two water tanks, that nobody has opened.",
-      "takeaway": "When most of a building is resolved, the placard is being held by whatever is left, and it is worth naming precisely.",
+      "scene": "Ninety patients remain on the ground floor while two upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
+      "takeaway": "A signed or checked record is useful only to the extent that it is backed by observation of the condition it claims.",
       "place": "Structural Assessment",
-      "story": "Three days of inspection have cleared the frame, the cladding and the stairs. What is left is a plant room on the roof, holding two water tanks, that nobody has opened.",
+      "story": "Ninety patients remain on the ground floor while two upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
       "game": {
-        "type": "CASEBOOK",
+        "type": "ATTEST",
         "title": "The part nobody has seen",
         "setup": "Structural Assessment",
-        "play": "Say what is actually unresolved",
-        "task": "Say what is actually unresolved",
-        "question": "Say what is actually unresolved",
-        "answer": "",
-        "why": "A yellow placard is not a fog: it is one or more specific unresolved items, and the discipline is to write them down until the list is short enough to finish. Frame, cladding and stairs are cleared and cannot be what is holding this. Two full water tanks on a roof are a large mass in the worst possible place, and their restraint has not been seen. That is the item. Naming it turns four days of general anxiety into one afternoon with a ladder and a torch.\n",
-        "rebuttals": [
-          "The frame has been inspected on every floor and is not what is holding the placard.",
-          "Cladding was cleared on day two and is a falling hazard rather than a structural one.",
-          "The stairs were the first thing checked, because they are the escape route.",
-          "Two full tanks high on a building are a large mass with unknown restraint, which is the open item."
-        ],
-        "scenarios": [
-          "The reinforced concrete frame.",
-          "The external cladding panels.",
-          "The main stair core.",
-          "The roof plant room and its two water tanks."
-        ],
-        "choices": [
-          "Cleared on inspection, all floors.",
-          "Cleared, and a falling hazard rather than a structural question.",
-          "Cleared first, because it is the escape route.",
-          "Unresolved — nobody has opened it, and it holds a large mass high up."
-        ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "columns": [
-          "The part of the hospital",
-          "Where it stands"
-        ]
+        "play": "Inspect what backs each recorded claim, then spend the single direct-verification visit before the placard review.",
+        "task": "Inspect what backs each recorded claim, then spend the single direct-verification visit before the placard review.",
+        "question": "Which critical claim still needs physical verification on the current building?",
+        "answer": "Verify the roof plant room. The frame, cladding and stairs already have direct observations behind them. The two full water tanks and their restraints are the critical condition nobody has seen, so that unbacked claim is the one holding the placard review open.",
+        "why": "A yellow placard should reduce to specific unresolved conditions, not a general feeling that more inspection is always safer. The frame, cladding and main stair already have direct observations behind their claims. The roof plant room does not. Its full water tanks add substantial mass high in the building, and nobody has seen their restraints. With one verification visit, repeating a comfortable backed inspection wastes the chance to resolve the one critical claim that still lacks physical evidence on the present configuration.",
+        "attest": {
+          "claims": [
+            {
+              "id": "frame",
+              "label": "The reinforced-concrete frame has no observed condition requiring the current restriction",
+              "signedBy": "—",
+              "evidence": "Three days of frame inspection on all accessible floors.",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "cladding",
+              "label": "The external cladding does not present the unresolved structural issue",
+              "signedBy": "—",
+              "evidence": "Cladding inspection completed on day two.",
+              "backed": true
+            },
+            {
+              "id": "stairs",
+              "label": "The main stair and egress route are usable for the proposed occupancy",
+              "signedBy": "—",
+              "evidence": "The stair core was directly inspected because it is the main escape route.",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "plant_room",
+              "label": "The roof water-tank restraints are adequate for the proposed occupancy",
+              "signedBy": "—",
+              "evidence": "No direct observation; the roof plant room remains unvisited.",
+              "critical": true
+            }
+          ],
+          "checks": 1,
+          "hint": "Open the backing attached to each claim before spending the visit. You have one direct verification before the placard review.",
+          "commit": "Close the list"
+        }
       },
       "assumes": [
         "a building's parts can be cleared separately"
@@ -705,10 +894,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Damaged, and waiting to be asked again",
-      "scene": "Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished.",
+      "scene": "Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
       "takeaway": "Damage lowers the capacity, so the same aftershock that was survivable last week may not be this week.",
       "place": "Structural Assessment",
-      "story": "Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished.",
+      "story": "Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
       "game": {
         "type": "CHOICE",
         "title": "Damaged, and waiting to be asked again",
@@ -717,7 +906,7 @@ export const CURRICULUM = {
         "task": "Say what the falling rate means for a cracked building",
         "question": "Why does a falling aftershock rate still leave these eleven buildings urgent?",
         "answer": "Because their capacity has fallen, so a smaller aftershock is now enough.",
-        "why": "Risk is hazard against capacity, and the earthquake moved both. The hazard is falling with the sequence, which is the good news. But a cracked shear wall may have lost a third of what it could carry, and the shaking that would now be enough to hurt it is far more common than the shaking that damaged it. A magnitude 5 aftershock is many times more likely than another 6.8, and against a weakened building it is the one that matters. That is why the eleven get shored this week rather than next month.\n",
+        "why": "The hazard is declining, but the buildings are not the same buildings they were before the mainshock. Cracked shear walls may have lost capacity, so a smaller aftershock can now produce additional distress. That does not mean every magnitude-5 event will damage them or that the exact remaining capacity is known. It means the acceptable demand has changed. The eleven buildings therefore stay urgent because the sequence still supplies repeated loading while their structural reserve is reduced and has not yet been restored.",
         "rebuttals": [
           "Rates do fluctuate, but the case here does not depend on the rate rising.",
           "An aftershock is not inherently worse than a mainshock; what changed is the building.",
@@ -778,61 +967,28 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Which way the cracks run",
-      "scene": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced.",
-      "takeaway": "The shape of a failure records the direction of the force that caused it.",
+      "scene": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced. Photographs of all three columns are clipped to the sheet.",
+      "takeaway": "The shape and repetition of damage can narrow the failure mechanism, but pattern recognition alone cannot establish remaining strength.",
       "place": "Structural Assessment",
-      "story": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced.",
+      "story": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced. Photographs of all three columns are clipped to the sheet.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "CHOICE",
         "title": "Which way the cracks run",
         "setup": "Structural Assessment",
         "play": "Which explanation fits the pattern?",
         "task": "Which explanation fits the pattern?",
         "question": "Which explanation fits the pattern?",
         "answer": "Shear from reversing earthquake load",
-        "why": "Diagonal cracks form across the direction of tension, and shear puts tension on a diagonal. Cracks in both directions mean the load came both ways, which is what shaking does and what settlement and gravity cannot. The rest of the evidence rules out the alternatives cleanly: compression failure crushes and spalls the cover, and there is none; settlement produces a slow single-direction distortion, not a crossed X; and the concrete tested above its specification. Fine, numerous, evenly spaced cracking is also the good version of this story — the reinforcement was working.\n",
+        "why": "Diagonal cracking is consistent with principal tension produced by shear, and crossed diagonals fit load reversals during earthquake shaking. The pattern is therefore much more consistent with cyclic shear demand than with simple long-term settlement or axial crushing. Fine, distributed cracks can indicate that reinforcement is controlling crack widths rather than allowing one brittle split, but that is not the same as proving the column is safe. Crack pattern identifies a likely mechanism; residual capacity still needs an engineering check.",
         "rebuttals": [
           "Compression failure spalls the cover concrete, and the cover here is intact.",
           "Settlement acts slowly and in one direction; it does not open crossed diagonals.",
           "The cores came back above the specified strength, so weak material is not the explanation."
         ],
-        "headline": "Fine diagonal cracks cross in both directions across three ground-floor columns.",
-        "readings": [
-          {
-            "zone": "Column A",
-            "label": "Crack direction",
-            "value": "diagonal both ways",
-            "status": "alarm"
-          },
-          {
-            "zone": "Column A",
-            "label": "Crack width",
-            "value": "0.3 mm",
-            "status": "normal"
-          },
-          {
-            "zone": "Column B",
-            "label": "Cover concrete",
-            "value": "intact",
-            "status": "normal"
-          },
-          {
-            "zone": "Column C",
-            "label": "Crack spacing",
-            "value": "even",
-            "status": "normal"
-          },
-          {
-            "zone": "Core sample",
-            "label": "Strength",
-            "value": "28 MPa",
-            "status": "normal"
-          }
-        ],
         "choices": [
           {
             "label": "Shear from reversing earthquake load",
-            "mechanism": "Load pushed one way then the other"
+            "mechanism": "Load pushed one way then the other, opening diagonal cracks in both directions."
           },
           {
             "label": "Overloading in compression",
@@ -851,72 +1007,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a crack runs across the direction of the tension that opened it"
-      ]
-    },
-    {
-      "day": 8,
-      "title": "A real crack, and an unknown building",
-      "scene": "The photograph shows a column with a horizontal crack about a metre above the floor, in a basement with pipework and no daylight. There is no scale in the frame and no way to tell which column it is.",
-      "takeaway": "A photograph establishes that something exists somewhere, and everything else about it has to be gone and got.",
-      "place": "Structural Assessment",
-      "story": "The photograph shows a column with a horizontal crack about a metre above the floor, in a basement with pipework and no daylight. There is no scale in the frame and no way to tell which column it is.",
-      "game": {
-        "type": "CHOICE",
-        "title": "A real crack, and an unknown building",
-        "setup": "Structural Assessment",
-        "play": "Say what the photograph establishes",
-        "task": "Say what the photograph establishes",
-        "question": "What has the photograph established?",
-        "answer": "That a crack exists somewhere the green placard never covered.",
-        "why": "It is real evidence and it is thin evidence, and both of those matter. Real, because a crack in a photograph is a crack. Thin, because without a scale nobody can say whether it is 0.2 mm or 2 mm, without a location nobody can say which column carries what, and a horizontal crack a metre up could be shear, a construction joint, or a shrinkage crack that has been there for thirty years. What it does establish, unarguably, is that the basement was never inspected — which the green placard's own form already said.\n",
-        "rebuttals": [
-          "Nothing about width, location or age is available from the image, so evacuation is not supported by it.",
-          "Who took a photograph does not change what is in it, and dismissing it on that basis is how a process loses trust.",
-          "The team recorded that the basement was not inspected, which is the opposite of negligence."
-        ],
-        "choices": [
-          "That the building is unsafe and should be evacuated tonight.",
-          "That a crack exists somewhere the green placard never covered.",
-          "Nothing, because it was not taken by an engineer under controlled conditions.",
-          "That the assessment team was negligent in issuing a green placard."
-        ],
-        "correctChoice": "That a crack exists somewhere the green placard never covered."
-      },
-      "assumes": [
-        "a photograph records what was in front of the lens"
-      ]
-    },
-    {
-      "day": 9,
-      "title": "Walls that fall outward",
-      "scene": "On the Parade, every parapet came down into the street and no wall fell inward. The buildings behind them are undamaged, and their timber floors are still connected.",
-      "takeaway": "Unreinforced masonry fails out of plane, so the free top of a wall goes first and the tied part stays.",
-      "place": "Structural Assessment",
-      "story": "On the Parade, every parapet came down into the street and no wall fell inward. The buildings behind them are undamaged, and their timber floors are still connected.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Walls that fall outward",
-        "setup": "Structural Assessment",
-        "play": "Say why the masonry failed the way it did",
-        "task": "Say why the masonry failed the way it did",
-        "question": "Why did the parapets fall and the walls below them stay?",
-        "answer": "The parapet has nothing tying its top back, and the wall below is held by the floors.",
-        "why": "A masonry wall out of plane is only as good as what holds it. Where the floors meet it, the wall is tied back every few metres and cannot go far. Above the roof line there is nothing: the parapet is a free-standing cantilever of heavy brick with no tension capacity, and shaking is exactly the load it cannot take. Height does amplify the motion a little, and the parapet is thinner, but neither of those is the reason — a tied parapet of the same brick and the same thickness stays up.\n",
-        "rebuttals": [
-          "The mortar is continuous through both on these buildings; there is no later work.",
-          "Amplification with height is real and small, and a tied parapet of the same brick survives it.",
-          "Thinness matters less than restraint — what is missing at the top is anything to pull against."
-        ],
-        "choices": [
-          "The parapets were built later and with weaker mortar than the walls.",
-          "The parapet has nothing tying its top back, and the wall below is held by the floors.",
-          "The shaking was stronger at parapet height because the building amplified it.",
-          "Parapets are thinner than walls, so they were the weakest part."
-        ],
-        "correctChoice": "The parapet has nothing tying its top back, and the wall below is held by the floors."
-      },
-      "assumes": [
-        "masonry is strong in compression and weak in tension"
       ],
       "equations": [
         {
@@ -937,7 +1027,75 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "title": "A real crack, and an unknown building",
+      "scene": "The photograph has already been passed around town. It shows a basement column with a horizontal crack, pipework and no daylight. There is no scale, no building number and no way to tell which column it is.",
+      "takeaway": "An authenticated photograph can establish an observation while leaving scale, location, age and mechanism unresolved.",
+      "place": "Structural Assessment",
+      "story": "The photograph has already been passed around town. It shows a basement column with a horizontal crack, pipework and no daylight. There is no scale, no building number and no way to tell which column it is.",
+      "game": {
+        "type": "CHOICE",
+        "title": "A real crack, and an unknown building",
+        "setup": "Structural Assessment",
+        "play": "Say what the photograph establishes",
+        "task": "Say what the photograph establishes",
+        "question": "What has the photograph established?",
+        "answer": "That a crack exists somewhere the green placard never covered.",
+        "why": "Once the image is accepted as genuine, the crack is evidence, but its scope is narrow. The photograph has no scale, exact location, earlier comparison or useful view of the surrounding structure. It cannot establish the crack's width, age, importance or cause. It does establish that a basement area outside the rapid inspection contains a real feature worth checking. The response is therefore to locate it and gather context quickly. The photograph alone neither justifies evacuation nor supports dismissing the observation.",
+        "rebuttals": [
+          "Nothing about width, location or age is available from the image, so evacuation is not supported by it.",
+          "Who took a photograph does not change what is in it, and dismissing it on that basis is how a process loses trust.",
+          "The team recorded that the basement was not inspected, which is the opposite of negligence."
+        ],
+        "choices": [
+          "That the building is unsafe and should be evacuated tonight.",
+          "That a crack exists somewhere the green placard never covered.",
+          "Nothing, because it was not taken by an engineer under controlled conditions.",
+          "That the assessment team was negligent in issuing a green placard."
+        ],
+        "correctChoice": "That a crack exists somewhere the green placard never covered."
+      },
+      "assumes": [
+        "a photograph records what was in front of the lens"
+      ]
+    },
+    {
+      "day": 9,
+      "title": "Walls that fall outward",
+      "scene": "Owners are asking when the Parade can reopen. Every parapet fell outward into the street, while the buildings behind them remain standing. Timber floors are still connected. The fallen masonry is tagged by frontage, and the barriers are still up.",
+      "takeaway": "Unreinforced masonry fails out of plane, so the free top of a wall goes first and the tied part stays.",
+      "place": "Structural Assessment",
+      "story": "Owners are asking when the Parade can reopen. Every parapet fell outward into the street, while the buildings behind them remain standing. Timber floors are still connected. The fallen masonry is tagged by frontage, and the barriers are still up.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Walls that fall outward",
+        "setup": "Structural Assessment",
+        "play": "Say why the masonry failed the way it did",
+        "task": "Say why the masonry failed the way it did",
+        "question": "Why did the parapets fall and the walls below them stay?",
+        "answer": "The parapet has nothing tying its top back, and the wall below is held by the floors.",
+        "why": "Unreinforced masonry parapets are vulnerable because they project above the roof line and may be poorly tied back. Horizontal shaking produces out-of-plane inertia. Gravity can then carry a detached parapet into the street. The walls below may survive because floors and roofs restrain them at lower levels. Tying the top of the wall back to the roof or floor system directly repairs that missing restraint. The observed failure is local and repeatable, so the retrofit can target the connection rather than treating the whole building as equally deficient.",
+        "rebuttals": [
+          "The mortar is continuous through both on these buildings; there is no later work.",
+          "Amplification with height is real and small, and a tied parapet of the same brick survives it.",
+          "Thinness matters less than restraint — what is missing at the top is anything to pull against."
+        ],
+        "choices": [
+          "The parapets were built later and with weaker mortar than the walls.",
+          "The parapet has nothing tying its top back, and the wall below is held by the floors.",
+          "The shaking was stronger at parapet height because the building amplified it.",
+          "Parapets are thinner than walls, so they were the weakest part."
+        ],
+        "correctChoice": "The parapet has nothing tying its top back, and the wall below is held by the floors."
+      },
+      "assumes": [
+        "masonry is strong in compression and weak in tension"
+      ],
+      "equations": [
         {
           "e": "A_soft / A_rock",
           "c": "site amplification — the same wave on two grounds",
@@ -959,7 +1117,7 @@ export const CURRICULUM = {
       "day": 10,
       "title": "A smaller shake against a weaker building",
       "scene": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. Eleven buildings have been shored since Friday, and two of them have new cracking this afternoon.",
-      "takeaway": "Shoring holds a building up and does not restore what it lost, so new damage in a small aftershock is expected rather than surprising.",
+      "takeaway": "New cracking during a smaller aftershock is evidence that residual capacity or detailing deserves escalation; it is not a complete diagnosis by itself.",
       "place": "Structural Assessment",
       "story": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. Eleven buildings have been shored since Friday, and two of them have new cracking this afternoon.",
       "game": {
@@ -970,7 +1128,7 @@ export const CURRICULUM = {
         "task": "Work out what the 5.1 did to the shored buildings",
         "question": "What do the two buildings with new cracking tell the office?",
         "answer": "That these two are near their reduced capacity, which is what shoring bought time against.",
-        "why": "Shoring is a prop under a damaged structure. It carries load the structure can no longer carry and it does not give anything back — the cracked wall is still cracked, and its capacity is still lower than it was a fortnight ago. So a small aftershock producing new cracking is the system telling you what it already told you: these two are close to the edge, and they need strengthening or emptying rather than another week of props. That is information, and it arrived cheaply.\n",
+        "why": "Shoring is temporary load support, not restoration of the damaged structural system. New cracking during a smaller aftershock therefore matters: it shows that the current combination of residual capacity, shoring and aftershock demand produced additional distress. That is a reason to maintain or tighten restrictions and perform a focused reassessment before deciding on strengthening, evacuation or a revised shore scheme. It does not by itself prove the shoring failed, identify the exact damaged mechanism, or tell you how close the building is to collapse.",
         "rebuttals": [
           "The shoring is still standing and doing its job; nothing about it failed.",
           "Network stations either side of those streets recorded the same motion, so the shaking was not local.",
@@ -1031,19 +1189,19 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "What outlives the emergency",
-      "scene": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened.",
-      "takeaway": "Keep the practices that would have caught this fortnight's mistakes, and drop the ones that only paid off because it was abnormal.",
+      "scene": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened. The emergency procedures are being rewritten into the permanent manual.",
+      "takeaway": "An unknown only becomes safer when it has an owner, a deadline and a rule that prevents final clearance from silently forgetting it.",
       "place": "Structural Assessment",
-      "story": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened.",
+      "story": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened. The emergency procedures are being rewritten into the permanent manual.",
       "game": {
         "type": "TRIAGE",
         "title": "What outlives the emergency",
         "setup": "Structural Assessment",
-        "play": "Decide which of the fortnight's practices survives",
-        "task": "Decide which of the fortnight's practices survives",
-        "question": "Which practice is most worth keeping permanently?",
+        "play": "Choose the permanent practice that closes the repeated blind spot",
+        "task": "Choose the permanent practice that closes the repeated blind spot",
+        "question": "Which permanent practice would most directly prevent the school, hospital and Ferry Street failure mode from repeating?",
         "answer": "Recording, on every inspection, the parts of the building nobody could see.",
-        "why": "One of these would have caught almost everything that went wrong. The school gym, the hospital plant room and the Ferry Street basement were all invisible to the inspection that cleared them, and all three were on Whitcombe's second list — a list nobody was required to act on. Making that list part of the placard turns an unknown into a task. Two engineers per placard halves throughput to reduce an error rate nobody has measured. The daily meeting was right for a fortnight and is not a standing commitment. And re-inspecting after every magnitude 4 is a rule that will be quietly abandoned the first ordinary year it applies to.\n",
+        "why": "A permanent practice should catch recurring failure modes at a cost the office will actually keep paying. The school gym, hospital plant room and Ferry Street basement were all outside the first inspection scope, yet the omissions were written down. Making that unresolved list actionable would have exposed each gap. Two engineers on every placard would halve throughput without a measured benefit. Daily public meetings were useful only during the crisis. Re-inspecting every shored building after every magnitude-4 event is so broad that staff would eventually stop following the rule.",
         "rebuttals": [
           "Doubling up on placards halves the number of buildings cleared per day, for an error rate nobody has quantified.",
           "A daily public meeting was right during the emergency and is not sustainable as a standing practice.",
@@ -1088,7 +1246,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Ground that people put there",
       "scene": "Navarro has an 1892 survey and a photograph from 1948. Where Bay Road now runs there was a tidal creek, and the port was pumped into place out of the dredger over four summers.",
-      "takeaway": "Hydraulic fill is loose, saturated and young, which is the recipe for liquefaction.",
+      "takeaway": "Liquefaction needs susceptible soil, enough saturation and strong cyclic loading; young hydraulic fill often supplies the first two.",
       "place": "Geotechnical",
       "story": "Navarro has an 1892 survey and a photograph from 1948. Where Bay Road now runs there was a tidal creek, and the port was pumped into place out of the dredger over four summers.",
       "game": {
@@ -1099,7 +1257,7 @@ export const CURRICULUM = {
         "task": "Say what the ground under the Flats is made of",
         "question": "Say what the ground under the Flats is made of",
         "answer": "",
-        "why": "Fill pumped from a dredger settles loose and stays loose: the grains are dropped through water rather than pressed together over centuries, and the water never leaves. Loose, saturated and uniform is precisely the ground that liquefies, because shaking can push the grains closer and the water has nowhere to go. Rock is none of those things. The old creek line matters because it is where the loosest and wettest material sits, and it is where every sand fan in this town came out.\n",
+        "why": "Hydraulic fill is deposited loose and commonly remains saturated. During shaking, grains try to rearrange while water cannot escape quickly. Effective stress is σ' = σ − u: as pore-water pressure u rises, the grain-to-grain stress σ' falls. If that contact stress becomes very small, the soil can lose much of its shear strength and behave like a fluid. The old creek line matters because it marks especially wet, loose fill, which is also where the sand ejecta appeared.",
         "rebuttals": [
           "Hydraulic fill is dropped through water, so it settles loose and stays saturated.",
           "The granite bench is neither loose nor saturated, so its behaviour under shaking is nothing like the fill.",
@@ -1134,6 +1292,33 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "σ = F / A, ε = ΔL / L",
+          "c": "stress and strain, and the yield point between them",
+          "v": [
+            [
+              "σ",
+              "stress, in megapascals"
+            ],
+            [
+              "F",
+              "force carried, in newtons"
+            ],
+            [
+              "A",
+              "cross-sectional area, in square metres"
+            ],
+            [
+              "ε",
+              "strain, a ratio with no units"
+            ],
+            [
+              "ΔL / L",
+              "how much it stretched over how long it was"
+            ]
+          ],
+          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
+        },
+        {
           "e": "σ' = σ − u",
           "c": "effective stress, and how liquefaction happens",
           "v": [
@@ -1151,21 +1336,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
       ]
     },
@@ -1177,51 +1347,18 @@ export const CURRICULUM = {
       "place": "Geotechnical",
       "story": "Navarro's survey: the raft is intact, level within itself, and rotated. One side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "CHOICE",
         "title": "The raft is fine and the building is not",
         "setup": "Geotechnical",
         "play": "Which explanation fits every observation?",
         "task": "Which explanation fits every observation?",
         "question": "Which explanation fits every observation?",
         "answer": "The ground liquefied and lost bearing capacity under one side",
-        "why": "Everything points down rather than up. The frame is plumb within itself and the raft is uncracked, so nothing in the building yielded — a structural failure cannot produce a perfect rotation of an undamaged box. Settlement on one edge with heave on the other is exactly what happens when soil under one side turns to a heavy liquid and squeezes out sideways, and the ejecta in the street on the low side is that soil arriving at the surface. The building did what it was built to do; the ground stopped doing what everyone assumed it would.\n",
+        "why": "The observations point to support beneath the raft rather than distortion within the frame. The raft is intact and the building rotated almost as a rigid body; one edge settled while the other heaved, with fresh sand ejecta concentrated on the low side. During liquefaction, excess pore pressure can sharply reduce effective stress and bearing resistance, allowing settlement and lateral movement without the frame itself yielding. That does not prove every detail, but it is the hypothesis that explains the survey, ejecta and undamaged frame together.",
         "rebuttals": [
           "A yielded frame shows distortion within itself, and this one is plumb to a tenth of a degree.",
           "A construction fault would have been visible for years and would not come with fresh ejecta.",
           "A single directional pulse does not settle one edge by 340 mm and lift the other."
-        ],
-        "headline": "A six-storey block is eight degrees out of plumb, with no damage to its structure.",
-        "readings": [
-          {
-            "zone": "Raft foundation",
-            "label": "Cracking",
-            "value": "none",
-            "status": "normal"
-          },
-          {
-            "zone": "Frame",
-            "label": "Out of plumb within itself",
-            "value": "0.1°",
-            "status": "normal"
-          },
-          {
-            "zone": "North edge",
-            "label": "Settlement",
-            "value": "340 mm",
-            "status": "alarm"
-          },
-          {
-            "zone": "South edge",
-            "label": "Heave",
-            "value": "90 mm",
-            "status": "alarm"
-          },
-          {
-            "zone": "Street",
-            "label": "Ejecta",
-            "value": "heavy on the north side",
-            "status": "alarm"
-          }
         ],
         "choices": [
           {
@@ -1230,7 +1367,7 @@ export const CURRICULUM = {
           },
           {
             "label": "The ground liquefied and lost bearing capacity under one side",
-            "mechanism": "Liquefied soil cannot carry the pressure under the raft"
+            "mechanism": "Liquefied soil cannot carry the pressure under the raft, so the raft rotates into it."
           },
           {
             "label": "The raft was built out of level and this predates the earthquake",
@@ -1299,7 +1436,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Soft ground, three days on",
       "scene": "Thandi Mbeki has been on Ferry Street with a hand auger. The sand fans have dried, the water table has dropped back, and the surface bears a person easily and a truck not at all.",
-      "takeaway": "Liquefaction is a condition during shaking; what is left afterwards is disturbed ground with a different problem.",
+      "takeaway": "Liquefaction is transient, but the ground left behind can have settlement, voids and uncertain bearing capacity even after pore pressure dissipates.",
       "place": "Geotechnical",
       "story": "Thandi Mbeki has been on Ferry Street with a hand auger. The sand fans have dried, the water table has dropped back, and the surface bears a person easily and a truck not at all.",
       "game": {
@@ -1308,9 +1445,9 @@ export const CURRICULUM = {
         "setup": "Geotechnical",
         "play": "Say whether the liquefied street is dangerous or just unusable",
         "task": "Say whether the liquefied street is dangerous or just unusable",
-        "question": "What is the honest status of Ferry Street now?",
+        "question": "What is the defensible status of Ferry Street now?",
         "answer": "Drained and disturbed — walkable, no heavy vehicles, and liable to go again.",
-        "why": "Liquefaction needs shaking to sustain it. Once the shaking stops, the excess water pressure bleeds away over hours and the grains take up contact again, which is why the fans have dried and the surface holds a person. What does not come back quickly is the density and the fabric of the ground: it has been rearranged, and it is looser and less able to carry a concentrated load than it was. And because the material is still loose and still saturated below, a strong enough aftershock can do the whole thing again.\n",
+        "why": "Liquefaction needs high pore pressure during shaking. Afterward, that excess pressure drains away and grain contacts recover. The ground can still be badly changed. Settlement, lateral spreading, ejecta, local voids and uneven stiffness may remain. Some loose sand may even become denser, so calling the whole deposit 'looser' is too simple. A dry surface also says little about truck support. Ferry Street is disturbed ground with heavy-load capacity unverified. Susceptible saturated layers could liquefy again in a strong aftershock.",
         "rebuttals": [
           "Pore pressure dissipates in hours, so the ground is not still liquefied three days on.",
           "Dry at the surface is not recovered underneath; the fabric of the ground has changed.",
@@ -1329,6 +1466,25 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        },
+        {
           "e": "σ' = σ − u",
           "c": "effective stress, and how liquefaction happens",
           "v": [
@@ -1346,35 +1502,16 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
       ]
     },
     {
       "day": 4,
       "title": "What still stands",
-      "scene": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not.",
+      "scene": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not. The corrected vault report is clipped beside the board.",
       "takeaway": "A bad reference invalidates what was measured against it and leaves what was measured directly alone.",
       "place": "Geotechnical",
-      "story": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not.",
+      "story": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not. The corrected vault report is clipped beside the board.",
       "game": {
         "type": "CASEBOOK",
         "title": "What still stands",
@@ -1383,7 +1520,7 @@ export const CURRICULUM = {
         "task": "Sort the fortnight's conclusions",
         "question": "Sort the fortnight's conclusions",
         "answer": "",
-        "why": "Trace each one back to what it actually used. The amplification factor was the vault ratio itself, so it falls and is restated higher. Marina Court's diagnosis came from settlement, heave and ejecta — a survey and a photograph, no reference station anywhere in it — so it stands. The hospital's demand came from an instrument in its own basement, which owes the vault nothing. And the case for tying parapets rests on the fact that every parapet on the Parade fell, which is an observation about buildings and not a number at all.\n",
+        "why": "Trace each conclusion to the evidence that supports it. The Flats amplification ratio directly used the vault as its reference, so it must be restated. Marina Court's diagnosis came from settlement, heave, ejecta and structural survey. The hospital's 0.31 g came from its own basement instrument. The parapet case rests on observed building failures and restraint details. Those conclusions may deserve other checks, but this reference-station error does not erase them. One bad denominator should not become an excuse to discard unrelated evidence.",
         "rebuttals": [
           "The amplification factor was the vault ratio, so it is the one conclusion that falls outright.",
           "Marina Court was diagnosed from settlement, heave and ejecta, with no reference station involved.",
@@ -1457,7 +1594,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Wetting ground that has already failed",
       "scene": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
-      "takeaway": "Making a hazard more likely is not the same as causing it, and it is usually cheaper to stop.",
+      "takeaway": "Raising the water table reduces effective stress in susceptible fill, increasing liquefaction susceptibility during renewed shaking without causing liquefaction by itself.",
       "place": "Geotechnical",
       "story": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
       "game": {
@@ -1468,7 +1605,7 @@ export const CURRICULUM = {
         "task": "Say what water does to fill",
         "question": "Why does the burst main matter more here than it would in Upper Town?",
         "answer": "Because a higher water table in loose fill raises pore pressure before any shaking starts.",
-        "why": "Ground carries load through grain contact, and what is left over after the water pressure is what holds the grains together. Raise the water table and you raise that pressure before any shaking starts, which means less shaking is needed to close the gap and float the grains apart. On the granite bench there is no loose saturated material to do this to. Here there is fifteen metres of it, under houses, and the sequence is not over.\n",
+        "why": "Soil skeleton strength depends on effective stress at the grain contacts. In the simple relation σ' = σ − u, raising pore-water pressure u lowers effective stress σ' if total stress σ is unchanged. A burst main can therefore reduce the margin in loose saturated fill before another strong aftershock. The leak alone does not cause liquefaction; cyclic shaking is still required. On competent granite, the same water leak is an infrastructure problem without this pore-pressure failure mechanism.",
         "rebuttals": [
           "Pipe age explains why it burst and not why the consequence is worse on this ground.",
           "Washing sand about is a nuisance; the pore pressure is the mechanism that matters.",
@@ -1487,57 +1624,69 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
+          "e": "σ = F / A, ε = ΔL / L",
+          "c": "stress and strain, and the yield point between them",
           "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
             [
               "σ",
-              "total stress from the weight above, in kilopascals"
+              "stress, in megapascals"
             ],
             [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
+              "F",
+              "force carried, in newtons"
+            ],
+            [
+              "A",
+              "cross-sectional area, in square metres"
+            ],
+            [
+              "ε",
+              "strain, a ratio with no units"
+            ],
+            [
+              "ΔL / L",
+              "how much it stretched over how long it was"
             ]
           ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
+          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
         },
         {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
           "v": [
             [
-              "A_soft",
-              "shaking measured on the soft site"
+              "FoS",
+              "factor of safety, no units"
             ],
             [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
       ]
     },
     {
       "day": 6,
       "title": "Fixing the ground instead of the building",
-      "scene": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it.",
-      "takeaway": "Improving the ground removes the mechanism; strengthening the building only survives it.",
+      "scene": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it. The council wants one approach written into the rebuild guidance.",
+      "takeaway": "Ground improvement reduces liquefaction susceptibility or its consequences; structural foundations can instead bypass or accommodate some ground deformation.",
       "place": "Geotechnical",
-      "story": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it.",
+      "story": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it. The council wants one approach written into the rebuild guidance.",
       "game": {
         "type": "CHOICE",
         "title": "Fixing the ground instead of the building",
         "setup": "Geotechnical",
         "play": "Say what ground improvement actually does",
         "task": "Say what ground improvement actually does",
-        "question": "What is the difference between improving the ground and strengthening the foundation?",
+        "question": "What is the engineering difference between treating the ground and designing the foundation around the hazard?",
         "answer": "Improvement stops the fill liquefying; a stiff foundation only rides it out.",
-        "why": "They address different halves of the problem. Densification packs the grains closer and drainage gives the water somewhere to go, so the pore pressure never reaches the point where the ground floats apart — the mechanism is gone. A raft or a piled foundation leaves the ground exactly as it is and makes the building stiff enough to settle as one piece instead of tearing. Both are legitimate. Only the first also protects the road, the pipes and the neighbour's house, which is what makes it a plan question rather than a building question.\n",
+        "why": "The two strategies act at different places in the system. Densification can increase density and cyclic resistance; drains or stone columns may also help dissipate excess pore pressure, depending on the design. That reduces liquefaction susceptibility rather than guaranteeing the soil can never liquefy. Structural solutions such as piles or rafts may bypass weak layers or tolerate differential movement, but they leave roads, buried utilities and neighbouring sites exposed to ground deformation. Both can be legitimate; the town-level question is which consequences the policy is trying to reduce.",
         "rebuttals": [
           "The two are not equivalent, since one removes the mechanism and one accommodates it.",
           "Improvement is generally more expensive per site, not less, though it covers more than the building.",
@@ -1595,25 +1744,25 @@ export const CURRICULUM = {
   "MAT": [
     {
       "day": 1,
-      "title": "The bolt in the panel",
+      "title": "What the tested anchors actually carried",
       "scene": "Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design drawing says 40 kilonewtons each. The first came out at 24, the second at 27.",
-      "takeaway": "What a connection can carry is a measurement, and a drawing is a statement of intent.",
+      "takeaway": "Two pull tests can show a serious capacity shortfall; they do not by themselves establish a code-level factor of safety for every anchor in the building.",
       "place": "Materials & Testing",
       "story": "Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design drawing says 40 kilonewtons each. The first came out at 24, the second at 27.",
       "game": {
         "type": "BALLPARK",
-        "title": "The bolt in the panel",
+        "title": "What the tested anchors actually carried",
         "setup": "Materials & Testing",
-        "play": "Test what the connection can carry",
-        "task": "Test what the connection can carry",
-        "question": "Estimate the factor of safety on the panel connection.",
+        "play": "Compare the measured anchor capacity with the estimated earthquake demand",
+        "task": "Compare the measured anchor capacity with the estimated earthquake demand",
+        "question": "Estimate the observed capacity-to-demand ratio for the two tested anchors.",
         "answer": "About 0.8 — below one.",
-        "why": "A factor of safety is capacity divided by demand, and both halves have to be real numbers. The capacity here is what the anchors actually pulled out at, not what the drawing says they should, and the demand is what this earthquake asked of them. Below one does not mean the panel fell off — it means the margin was used up and something else, friction or a neighbouring anchor, carried the difference. That is a building that survived by accident rather than by design.\n",
+        "why": "The two tests average 25.5 kN against an assessed demand of 31 kN, giving an observed capacity-to-demand ratio of about 0.82. That identifies a problem: these specimens did not demonstrate capacity above the estimated demand. Calling 0.82 a formal factor of safety would overstate what two tests establish, because design checks include variability, failure mode and resistance factors. The practical conclusion is simpler: restrict the gym, obtain representative testing and design a repair before the connection is relied on again.",
         "givens": [
           "The anchors tested at a mean of 25.5 kN",
           "The assessed demand on each is 31 kN"
         ],
-        "relationship": "Factor of safety = what it can carry ÷ what was asked of it.",
+        "relationship": "Observed capacity-to-demand ratio = mean tested capacity ÷ assessed demand.",
         "calcKey": "MAT-1"
       },
       "assumes": [
@@ -1645,19 +1794,19 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A number, with a method attached",
-      "scene": "Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25.",
-      "takeaway": "A core gives the strength of the concrete, which is a different question from whether the column is damaged.",
+      "scene": "Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
+      "takeaway": "Core tests characterize sampled concrete; they do not certify the residual capacity of the cracked columns.",
       "place": "Materials & Testing",
-      "story": "Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25.",
+      "story": "Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
       "game": {
         "type": "CHOICE",
         "title": "A number, with a method attached",
         "setup": "Materials & Testing",
         "play": "Get a strength from a damaged column",
         "task": "Get a strength from a damaged column",
-        "question": "What do the four core results establish?",
+        "question": "What is the strongest claim these four core results support?",
         "answer": "That the concrete meets the strength the design assumed, which is one input and not the answer.",
-        "why": "A core tests material, not structure. It answers one question — is this concrete as strong as the drawing said — and the answer is yes, comfortably, at a mean of 28 against a specified 25. What it cannot tell you is whether the column is still able to do its job, because a column's capacity depends on its reinforcement, its ties, and whether the cracking has broken the bond between steel and concrete. Good material in a damaged member is common, and it is why the crack pattern is a separate investigation.\n",
+        "why": "The four cores are 28, 31, 24 and 30 MPa, centred near the specified 25 MPa strength. That argues against grossly weak concrete as the main explanation. Stress is σ = F/A and strain is ε = ΔL/L. A core test does not reconstruct the in-place force, strain, reinforcement or confinement of the damaged column. Member capacity therefore remains a separate question. The cores narrow the diagnosis; they do not prove every column met its design strength or retained its original capacity.",
         "rebuttals": [
           "Cracking is a structural observation; a core says nothing about it either way.",
           "One building's concrete exceeding its specification says nothing about whether the design was conservative.",
@@ -1675,6 +1824,33 @@ export const CURRICULUM = {
         "concrete strength is measured by crushing a sample of known size"
       ],
       "equations": [
+        {
+          "e": "σ = F / A, ε = ΔL / L",
+          "c": "stress and strain, and the yield point between them",
+          "v": [
+            [
+              "σ",
+              "stress, in megapascals"
+            ],
+            [
+              "F",
+              "force carried, in newtons"
+            ],
+            [
+              "A",
+              "cross-sectional area, in square metres"
+            ],
+            [
+              "ε",
+              "strain, a ratio with no units"
+            ],
+            [
+              "ΔL / L",
+              "how much it stretched over how long it was"
+            ]
+          ],
+          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
+        },
         {
           "e": "FoS = capacity / demand",
           "c": "factor of safety as a ratio, not a feeling",
@@ -1699,19 +1875,19 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Down there with a torch",
-      "scene": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same.",
-      "takeaway": "A defect that appears at the same height on every column follows how the building was built, not how it was shaken.",
+      "scene": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same. The original construction drawings are open on a crate nearby.",
+      "takeaway": "When the same feature repeats at the same place in many members, look first for a shared detail before assuming separate failures.",
       "place": "Materials & Testing",
-      "story": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same.",
+      "story": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same. The original construction drawings are open on a crate nearby.",
       "game": {
         "type": "CHOICE",
         "title": "Down there with a torch",
         "setup": "Materials & Testing",
-        "play": "Work out what the crack is",
-        "task": "Work out what the crack is",
-        "question": "What is the most likely explanation for the crack?",
+        "play": "Choose the leading hypothesis and the check that would distinguish it",
+        "task": "Choose the leading hypothesis and the check that would distinguish it",
+        "question": "What is the best-supported explanation to test first?",
         "answer": "A construction joint at the top of the first pour.",
-        "why": "Earthquake damage is not tidy. It concentrates where the demand and the weakness meet, so it varies from column to column and it runs diagonally when it is shear. A crack that is horizontal, the same width, at exactly the same height on six columns in a row is following something the builders did, and the obvious candidate is the lift height of the first pour. That does not make it harmless — a joint can still be a plane of weakness — but it makes it a different question, and one that was as true a month ago as it is today.\n",
+        "why": "A horizontal feature of nearly identical height and width across six columns strongly suggests a construction detail shared by all six, such as the top of a concrete lift. That is more likely than six independent shear failures producing the same geometry. But earthquake damage can also exploit construction joints, so 'construction joint' is a hypothesis, not an automatic clearance. Check drawings or pour records, inspect displacement and spalling across the joint, and compare with undamaged columns before deciding whether the earthquake changed its condition.",
         "rebuttals": [
           "Earthquake shear runs diagonally and varies column to column; this is horizontal and uniform.",
           "Settlement would show as differential movement and cracking in the slab, and there is none.",
@@ -1727,57 +1903,64 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a defect that repeats in a pattern usually has a construction cause"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
       ]
     },
     {
       "day": 4,
       "title": "What you can learn without breaking it",
-      "scene": "Ferreira has four options for the Parade's brickwork, and the owners have made it clear that cutting large holes in a listed façade is not one of them.",
-      "takeaway": "Choose the least destructive test that still answers the question you actually have.",
+      "scene": "Ferreira has four test proposals for the Parade's listed brickwork. The scaffold permit allows one small trial location this week, and owners will not accept large-scale destructive sampling. A tie-back design still needs a defensible capacity number.",
+      "takeaway": "A precise test is valuable only when it measures the property that the pending design decision actually needs.",
       "place": "Materials & Testing",
-      "story": "Ferreira has four options for the Parade's brickwork, and the owners have made it clear that cutting large holes in a listed façade is not one of them.",
+      "story": "Ferreira has four test proposals for the Parade's listed brickwork. The scaffold permit allows one small trial location this week, and owners will not accept large-scale destructive sampling. A tie-back design still needs a defensible capacity number.",
       "game": {
-        "type": "TRIAGE",
+        "type": "VALUE",
         "title": "What you can learn without breaking it",
         "setup": "Materials & Testing",
-        "play": "Choose what to test on an old wall",
-        "task": "Choose what to test on an old wall",
-        "question": "Which test tells you the most about whether these walls can be tied back?",
-        "answer": "Pull-out tests on trial anchors in the existing brickwork.",
-        "why": "The question is not how strong the brick is; it is whether an anchor drilled into this particular old wall will hold when the parapet tries to leave. That is exactly what a pull-out test on a trial anchor measures, in the real material, at the real depth, and it leaves a hole the size of the anchor. Crushing bricks answers a question nobody asked and destroys listed fabric to do it. The hammer and the penknife are useful for a general sense of condition, and neither produces a capacity anyone can design against.\n",
-        "rebuttals": [
-          "Brick compressive strength is not the limiting property when the failure mode is a tie pulling out.",
-          "A rebound hammer gives surface hardness, which does not convert to anchor capacity in old masonry.",
-          "A penknife survey grades mortar condition, which is useful context and not a number to design with."
-        ],
-        "choices": [
-          "Pull-out tests on trial anchors in the existing brickwork.",
-          "Compressive tests on bricks cut from the wall.",
-          "A rebound hammer survey across the façade.",
-          "A visual mortar-joint survey with a penknife."
-        ],
-        "correctChoice": "Pull-out tests on trial anchors in the existing brickwork."
+        "play": "Spend the listed-façade disturbance allowance on the test that can actually support the proposed anchor design.",
+        "task": "Spend the listed-façade disturbance allowance on the test that can actually support the proposed anchor design.",
+        "question": "Which measurement answers the capacity question the retrofit depends on?",
+        "answer": "Use the disturbance allowance on a representative trial-anchor pull-out test. It measures the capacity the proposed tie-back actually needs in the real wall. Brick crushing, rebound hardness and mortar condition may be useful supporting evidence, but none provides the anchor pull-out capacity needed for this design.",
+        "why": "The design question is whether an anchor installed in this old wall can transfer the required force. A trial-anchor pull-out test measures that property directly in the existing masonry and at the intended embedment. Brick compressive strength, rebound hardness and mortar condition can all describe parts of the wall, but none is the same as anchor pull-out capacity. The listed façade also makes disturbance a real cost. The best test therefore couples decision relevance with the smallest adequate physical intervention.",
+        "value": {
+          "budget": {
+            "amount": 1,
+            "unit": "fabric-impact points"
+          },
+          "decision": "Choose a measurement that can support the pull-out capacity used in the proposed tie-back design.",
+          "options": [
+            {
+              "id": "pullout",
+              "label": "Pull-out test on a trial anchor in the existing brickwork",
+              "cost": 1,
+              "axis": "anchor pull-out capacity",
+              "reveals": "The force a representative installed anchor can transfer before pull-out in the existing wall.",
+              "decisive": true
+            },
+            {
+              "id": "brick_core",
+              "label": "Cut masonry samples for compressive testing",
+              "cost": 4,
+              "axis": "brick compressive strength",
+              "reveals": "The compressive strength of removed masonry samples, not the installed anchor pull-out capacity."
+            },
+            {
+              "id": "rebound",
+              "label": "Rebound-hammer survey across the façade",
+              "cost": 0.2,
+              "axis": "surface hardness",
+              "reveals": "Relative surface hardness and variability across the façade without an anchor-capacity measurement."
+            },
+            {
+              "id": "mortar",
+              "label": "Visual and penknife survey of mortar joints",
+              "cost": 0.1,
+              "axis": "mortar condition",
+              "reveals": "Where mortar is soft or deteriorated, useful context that does not quantify tie-anchor pull-out resistance."
+            }
+          ],
+          "hint": "Open each test card and read both what it measures and how much listed fabric it consumes. The design decision is about a tie anchor in the existing wall.",
+          "commit": "Commit the decision"
+        }
       },
       "assumes": [
         "a test can be destructive, semi-destructive or neither"
@@ -1806,20 +1989,20 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "What densification buys",
-      "scene": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after.",
-      "takeaway": "Ground improvement is measurable, so a plan clause can be written against a number rather than an intention.",
+      "title": "A measurable acceptance target",
+      "scene": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
+      "takeaway": "CPT resistance is a measurable quality-control indicator; a 2.75-fold increase in qc is not automatically a 2.75-fold increase in liquefaction resistance.",
       "place": "Materials & Testing",
-      "story": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after.",
+      "story": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
       "game": {
         "type": "BALLPARK",
-        "title": "What densification buys",
+        "title": "A measurable acceptance target",
         "setup": "Materials & Testing",
-        "play": "Put a number on what a stone column does",
-        "task": "Put a number on what a stone column does",
-        "question": "Estimate the factor by which the trial panel improved.",
+        "play": "Quantify the change in cone resistance without turning it into a false safety factor",
+        "task": "Quantify the change in cone resistance without turning it into a false safety factor",
+        "question": "By what factor did the measured cone resistance increase?",
         "answer": "About 2.8 times.",
-        "why": "Cone resistance is a direct measure of how densely packed and interlocked the grains are, which is the property that decides whether shaking can rearrange them. It is the right number to write a clause against, because it can be tested after the work by anybody: a contractor either delivers the resistance or does not. Compare that with a clause that says the ground shall be improved, which is an intention nobody can measure and everybody can argue about five years later.\n",
+        "why": "The measured cone resistance rose from 4 to 11 MPa, a factor of 2.75. That is a strong, auditable construction-control result: the treated ground is substantially more resistant to penetration at that location. But qc is an input to liquefaction evaluation, not a direct safety factor. Cyclic resistance also depends on overburden, fines, groundwater and the design method used. A good specification can therefore require a target corrected CPT resistance or verified performance profile without claiming that '2.75 times qc' means '2.75 times safer.'",
         "givens": [
           "Cone resistance before treatment was 4 MPa",
           "Cone resistance after treatment was 11 MPa"
@@ -1828,23 +2011,46 @@ export const CURRICULUM = {
         "calcKey": "MAT-5"
       },
       "assumes": [
-        "a cone test measures the resistance of ground to penetration"
+        "CPT stands for cone penetration test: a standard cone is pushed into the ground and its resistance is recorded"
       ],
       "equations": [
         {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
           "v": [
             [
-              "A_soft",
-              "shaking measured on the soft site"
+              "FoS",
+              "factor of safety, no units"
             ],
             [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        },
+        {
+          "e": "σ' = σ − u",
+          "c": "effective stress, and how liquefaction happens",
+          "v": [
+            [
+              "σ'",
+              "effective stress holding the grains together, in kilopascals"
+            ],
+            [
+              "σ",
+              "total stress from the weight above, in kilopascals"
+            ],
+            [
+              "u",
+              "pore water pressure between the grains, in kilopascals"
+            ]
+          ],
+          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
         }
       ]
     }
@@ -1854,18 +2060,18 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Why the number moved",
       "scene": "Tanaka has both agency bulletins on the desk. The early one used the first stations to report; the later one used the whole network and the long-period part of the record.",
-      "takeaway": "An early magnitude is a first estimate on partial data, and a revision is the method working rather than failing.",
+      "takeaway": "A magnitude revision means the estimate changed as the available waveform and network coverage improved; the earthquake itself did not change.",
       "place": "Hazard & Forecasting",
       "story": "Tanaka has both agency bulletins on the desk. The early one used the first stations to report; the later one used the whole network and the long-period part of the record.",
       "game": {
         "type": "CHOICE",
         "title": "Why the number moved",
         "setup": "Hazard & Forecasting",
-        "play": "Explain 6.6 against 6.8",
-        "task": "Explain 6.6 against 6.8",
-        "question": "What does the change from 6.6 to 6.8 tell the public?",
-        "answer": "The later figure used more stations and the long-period signal.",
-        "why": "An automatic magnitude is computed in minutes from whichever stations have reported, using the part of the record that arrives first. A large earthquake keeps radiating energy at long periods for tens of seconds after that, and only the full network and the long-period part of the signal capture all of it. So early estimates of big events run low and get revised up. Nothing about the ground changed between the two bulletins; the measurement got better.\n",
+        "play": "Explain what changed between the 6.6 and 6.8 solutions",
+        "task": "Explain what changed between the 6.6 and 6.8 solutions",
+        "question": "Which explanation of the 6.6-to-6.8 revision is scientifically defensible?",
+        "answer": "The later 6.8 estimate uses more complete waveform and network information. From the moment-magnitude relation, a 0.2 increase gives 10^(1.5×0.2) ≈ 2 times the seismic moment. The earthquake itself did not grow during the six hours between bulletins.",
+        "why": "Rapid magnitude estimates use the stations and waveform available in the first minutes. Later solutions can use more stations and longer-period motion, so the estimate may change. Seismic moment is M₀ = μAD: rigidity times fault area times average slip. Moment magnitude is logarithmic: M_w = ⅔ log₁₀ M₀ − 6.06 when M₀ is in newton metres. A 0.2 rise gives a moment ratio 10^(1.5×0.2) ≈ 2, so the revision is physically meaningful without implying the earthquake grew later.",
         "rebuttals": [
           "The earthquake was over in under a minute; nothing about it changed six hours later.",
           "Neither agency was wrong — each stated what its data supported at the time it was issued.",
@@ -1930,10 +2136,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The ones worth a second visit",
-      "scene": "Two engineers are free tomorrow. Tanaka lays out four candidates from the four hundred, each of which somebody has asked about.",
+      "scene": "The field roster locks in ten minutes. Two engineers are free tomorrow, four addresses are on Tanaka's board, and each has somebody waiting for an answer. Once the roster closes, the other three wait another day.",
       "takeaway": "Re-inspect where the first look was least able to see and the consequence of being wrong is largest.",
       "place": "Hazard & Forecasting",
-      "story": "Two engineers are free tomorrow. Tanaka lays out four candidates from the four hundred, each of which somebody has asked about.",
+      "story": "The field roster locks in ten minutes. Two engineers are free tomorrow, four addresses are on Tanaka's board, and each has somebody waiting for an answer. Once the roster closes, the other three wait another day.",
       "game": {
         "type": "TRIAGE",
         "title": "The ones worth a second visit",
@@ -1942,7 +2148,7 @@ export const CURRICULUM = {
         "task": "Decide which buildings get looked at again",
         "question": "Which building gets the detailed evaluation first?",
         "answer": "The hospital, yellow, occupied by ninety patients, with an unopened plant room.",
-        "why": "Two things decide this: how much the first inspection could not see, and what it costs to be wrong. The hospital is worst on both. It has ninety people inside it now, it is holding a yellow that nobody can resolve without opening the plant room, and every day it stays yellow is a day the district's care is running somewhere else. The red warehouse is empty and already restricted, so nothing changes today. The two green buildings are low consequence, and anxiety, while real, is a reason for a phone call rather than for an engineer.\n",
+        "why": "A second inspection is valuable when the first one left an important condition unseen and the consequence of being wrong is high. The hospital is worst on both counts. Ninety patients are inside, and the unresolved plant room is exactly the item preventing a clearer placard. The red warehouse is empty and already restricted, so another visit changes little today. The two green buildings have lower consequence. Their owners still deserve answers, but that can begin with communication rather than a scarce engineer-day.",
         "rebuttals": [
           "A cracked front step is a non-structural defect on a low-consequence building.",
           "The warehouse is empty and red; a second look changes nothing about who is at risk today.",
@@ -1963,10 +2169,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What four more days buys",
-      "scene": "Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences rather than as principles.",
+      "scene": "Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences rather than as principles. The review board meets again at the end of the week.",
       "takeaway": "A decision to wait is a decision with an outcome, and it has to be compared with the outcome of deciding now.",
       "place": "Hazard & Forecasting",
-      "story": "Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences rather than as principles.",
+      "story": "Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences rather than as principles. The review board meets again at the end of the week.",
       "game": {
         "type": "CHOICE",
         "title": "What four more days buys",
@@ -1975,7 +2181,7 @@ export const CURRICULUM = {
         "task": "Put the cost of waiting into the same units",
         "question": "How should the office weigh four more days of evidence-gathering?",
         "answer": "Against what the delay costs, and what the evidence could change.",
-        "why": "Both sides of this are real and both can be estimated. On one side, four days of transfers at the rate the log shows, with the harm that comes from care given late and far away. On the other, the chance that coring the shear walls changes the placard at all — which is low, because the frame has already been cleared and the open item is a plant room that can be looked at this afternoon. Evidence that cannot change the decision is not worth its delay, and that is the test rather than a preference for caution.\n",
+        "why": "Both sides of the decision have consequences and both can be estimated. Delay carries transfers, postponed care and operational strain. Additional testing is worthwhile when it has a realistic chance of changing the safety decision. Here the frame has already been inspected and the unresolved item is the unvisited roof plant room with heavy tanks; a four-day coring programme answers a different question. The disciplined test is therefore value of information: what decision could this evidence change, how likely is that, and what is paid while waiting for it?",
         "rebuttals": [
           "Evidence-first is a good instinct and not a rule; the question is what this evidence could change.",
           "The forecast bears on the hazard but says nothing about the cost of the building standing empty.",
@@ -1993,6 +2199,33 @@ export const CURRICULUM = {
         "a delay has consequences that can be counted"
       ],
       "equations": [
+        {
+          "e": "σ = F / A, ε = ΔL / L",
+          "c": "stress and strain, and the yield point between them",
+          "v": [
+            [
+              "σ",
+              "stress, in megapascals"
+            ],
+            [
+              "F",
+              "force carried, in newtons"
+            ],
+            [
+              "A",
+              "cross-sectional area, in square metres"
+            ],
+            [
+              "ε",
+              "strain, a ratio with no units"
+            ],
+            [
+              "ΔL / L",
+              "how much it stretched over how long it was"
+            ]
+          ],
+          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
+        },
         {
           "e": "n(t) = K / (c + t)^p",
           "c": "aftershock rate, falling as a power law",
@@ -2018,7 +2251,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "The rate, falling",
       "scene": "Day one had 96 events above magnitude 3. Day two had 52, day three 41, day four 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
-      "takeaway": "Aftershocks decay as a power law, so the rate halves with each doubling of time rather than ending on a date.",
+      "takeaway": "A simple Omori-style decay gives a central rate estimate; the real forecast also needs uncertainty around that curve.",
       "place": "Hazard & Forecasting",
       "story": "Day one had 96 events above magnitude 3. Day two had 52, day three 41, day four 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
       "game": {
@@ -2029,12 +2262,12 @@ export const CURRICULUM = {
         "task": "Fit the decay and say what it predicts",
         "question": "Estimate the number of magnitude 3+ aftershocks on day eight.",
         "answer": "About 13.",
-        "why": "Omori's law says the rate goes roughly as one over the time since the mainshock. That has a particular consequence: what matters is not how many days have passed but how many doublings. Going from day four to day eight is one doubling, so the rate roughly halves again. It also means the sequence has no end date — it fades into the background rate of a region that has always had earthquakes, which is why a notice promising an end is a notice that will be wrong.\n",
+        "why": "A simple Omori-style model writes the aftershock rate as n(t) = K/(c+t)^p. When p is near one and c is small after the first day, doubling elapsed time roughly halves the central rate. Day four had 26 magnitude-3-plus events, so day eight gives about 26 × 4/8 = 13. Real sequences scatter around that curve, and K, c and p are fitted with uncertainty. Thirteen is therefore an expected rate, not a quota or a scheduled event.",
         "givens": [
           "Day four had 26 events above magnitude 3",
           "Day eight is twice as far from the mainshock"
         ],
-        "relationship": "Rate ≈ K ÷ elapsed time, so doubling the time since the mainshock roughly halves the number of events per day.\n",
+        "relationship": "Rate ≈ K ÷ elapsed time, so doubling the time since the mainshock roughly halves the number of events per day.",
         "calcKey": "HAZ-4"
       },
       "assumes": [
@@ -2065,10 +2298,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "A condition, not a date",
-      "scene": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office.",
+      "scene": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
       "takeaway": "Tie a decision to a condition somebody can check, and it stays honest whatever the ground does next.",
       "place": "Hazard & Forecasting",
-      "story": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office.",
+      "story": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
       "game": {
         "type": "CHOICE",
         "title": "A condition, not a date",
@@ -2077,7 +2310,7 @@ export const CURRICULUM = {
         "task": "Set what has to be true for people to go home",
         "question": "What should the office commit to?",
         "answer": "A condition — each stretch lifts when its recorded hazard is resolved.",
-        "why": "A date is a promise about the world, and the office does not control the world. A condition is a promise about the office, which is the thing it can keep — and publishing the list turns a wait into something residents can watch progress on, which is most of what people are asking for when they ask for a date. The aftershock rate is the wrong trigger because it is not the hazard on any of these streets, and waiting for detailed assessment of every building means nobody goes home for a month.\n",
+        "why": "A date promises something about the ground that the office cannot control. A condition promises what evidence the office will require before changing the restriction. Publishing those conditions turns an open-ended wait into visible progress. Residents can see what remains: utility clearance, access checks, targeted assessment or repair. The aftershock rate is a poor release trigger because it does not measure the local hazard on a specific street. The commitment should therefore name the observations and actions that will justify reopening, not a day selected for reassurance.",
         "rebuttals": [
           "A date is a promise about ground behaviour and repair work that nobody can guarantee.",
           "The aftershock rate is not the hazard recorded on any of these stretches.",
@@ -2119,10 +2352,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Five times, not three",
-      "scene": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan.",
-      "takeaway": "A correction to a hazard figure changes what should be built, not what has already happened.",
+      "scene": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.",
+      "takeaway": "Correcting site response changes forward-looking hazard and design assumptions; it does not rewrite damage that was observed directly.",
       "place": "Hazard & Forecasting",
-      "story": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan.",
+      "story": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.",
       "game": {
         "type": "CHOICE",
         "title": "Five times, not three",
@@ -2131,7 +2364,7 @@ export const CURRICULUM = {
         "task": "Decide what a bigger amplification changes",
         "question": "What does the corrected amplification change?",
         "answer": "The design values for rebuilding in the Flats, and the case for ground improvement there.",
-        "why": "Placards were issued from damage that engineers looked at, not from a predicted amplification, so they do not move. What does move is everything forward-looking: what a new building on that fill has to be designed for, whether ground improvement is worth its cost before anybody rebuilds, and what the district plan says about the next event. The earthquake that happened is unaffected — the correction changes the expectation, not the history — but the town is about to rebuild on that ground, and it now knows more about it.\n",
+        "why": "Placards came from observed building conditions, so a corrected site-amplification ratio does not automatically change them. Future design work is different. The Flats site-response model, rebuilding values and case for ground improvement must all be reconsidered. One amplification number is not a complete design spectrum because response also varies with frequency. The correction changes assumptions about future shaking demand. It does not change the earthquake magnitude already measured or the cracks already documented.",
         "rebuttals": [
           "Placards came from inspecting damage, not from a predicted amplification factor.",
           "The magnitude is a property of the source and is computed from many stations.",
@@ -2149,6 +2382,25 @@ export const CURRICULUM = {
         "design values are chosen from expected shaking"
       ],
       "equations": [
+        {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        },
         {
           "e": "A_soft / A_rock",
           "c": "site amplification — the same wave on two grounds",
@@ -2169,10 +2421,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "The number that has to be a range",
-      "scene": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and Okonkwo wants to know what the range is for.",
+      "scene": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and Okonkwo wants to know what the range is for. The staffing appendix cannot be signed until she chooses the wording.",
       "takeaway": "A forecast without a range cannot size a decision, because the decision is sized against the range.",
       "place": "Hazard & Forecasting",
-      "story": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and Okonkwo wants to know what the range is for.",
+      "story": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and Okonkwo wants to know what the range is for. The staffing appendix cannot be signed until she chooses the wording.",
       "game": {
         "type": "CHOICE",
         "title": "The number that has to be a range",
@@ -2181,7 +2433,7 @@ export const CURRICULUM = {
         "task": "State the forecast as a range",
         "question": "Why does the forecast go in as a range rather than a single number?",
         "answer": "Because what people have to plan against is the upper end, and a single number deletes it.",
-        "why": "Nobody staffs an emergency to the average week. They staff it to a week that is worse than average, and how much worse is exactly what the range says. A single number tells a planner nothing about how far the sequence might run above it, so the planner invents a margin — usually badly, usually too small. The range is also the honest part: it says which part of the behaviour is well constrained by four hundred recorded events and which is not.\n",
+        "why": "Nobody staffs an emergency to the average week. They staff it to a week that is worse than average, and how much worse is exactly what the range says. A single number tells a planner nothing about how far the sequence might run above it, so the planner invents a margin — usually badly, usually too small. The range is also the honest part: it says which part of the behaviour is well constrained by four hundred recorded events and which is not.",
         "rebuttals": [
           "Caution is not the reason; the range is a quantity the staffing calculation needs as an input.",
           "The model's quality is what the range states, which is the opposite of hiding it.",
@@ -2256,7 +2508,7 @@ export const CURRICULUM = {
         "task": "Say it in a way that survives being repeated",
         "question": "Say it in a way that survives being repeated",
         "answer": "",
-        "why": "People act on the first thing they can use, so the action goes first: what to do about the building you are standing outside. The reason comes next, because a reason is what makes an instruction survive being repeated by somebody else. The magnitude revision belongs third — it matters, but nobody does anything differently because of it — and the aftershock forecast last, framed as a rate, because it is the part most likely to be misread as a prediction of a particular event.\n",
+        "why": "People act on the first thing they can use, so the action goes first. The reason comes next because it helps the instruction survive retelling. The magnitude revision belongs after the immediate action and explanation. It matters scientifically, but it does not change what someone should do outside this building. The aftershock forecast comes last and must be framed as a rate. That keeps a useful probability statement from being repeated as a prediction of a particular event.",
         "cards": [
           "What to do about the building you are standing outside.",
           "Why, in one sentence.",
@@ -2299,7 +2551,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Green does not mean safe",
       "scene": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
-      "takeaway": "A verdict covers what was looked at, and its wording should not promise more.",
+      "takeaway": "A placard is an occupancy decision based on a defined inspection, not a warranty that every hidden part is undamaged.",
       "place": "Public Safety",
       "story": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
       "game": {
@@ -2310,7 +2562,7 @@ export const CURRICULUM = {
         "task": "Explain what green means to somebody standing in the street",
         "question": "What does a green placard entitle somebody to be told?",
         "answer": "That no restriction was found from what could be inspected, and what was not inspected is listed.",
-        "why": "The honest sentence is narrow and it is still useful: an engineer looked, from outside and from what was accessible, and found nothing that stops you going in. It says nothing about the parts nobody could see, nothing about repairs, and nothing about the next earthquake. Saying more than that is how a green placard becomes a promise, and a promise is what gets broken when an aftershock finds the connection nobody opened a wall to look at.\n",
+        "why": "The public message should be specific. The rapid inspection found no observed condition requiring an occupancy restriction in the areas that could be assessed. The form also records what the team could not inspect. That is different from promising the building is undamaged or fully evaluated. It also does not guarantee safety in every aftershock. The limitation is scientifically useful because it tells the owner what the inspection actually established and which unresolved areas may still need follow-up before a particular use resumes.",
         "rebuttals": [
           "Nothing in a rapid assessment checks a whole building, so \"checked throughout\" is untrue.",
           "Green is not a statement about repair work; plenty of green buildings need it.",
@@ -2352,42 +2604,59 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What knocking it down would fix",
-      "scene": "Halvorsen wants it gone this week. Delacroix points out that the twelve buildings around it stand on the same ground, and nobody is proposing to demolish those.",
-      "takeaway": "Demolishing the visible case leaves the condition that produced it, and the condition is under the whole street.",
+      "scene": "Halvorsen wants Marina Court demolished this week. Delacroix has twelve neighbouring buildings on the same reclaimed ground and five investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
+      "takeaway": "The best next measurement is the one that can change the decision you still have to make, not the one that studies the most visible damage.",
       "place": "Public Safety",
-      "story": "Halvorsen wants it gone this week. Delacroix points out that the twelve buildings around it stand on the same ground, and nobody is proposing to demolish those.",
+      "story": "Halvorsen wants Marina Court demolished this week. Delacroix has twelve neighbouring buildings on the same reclaimed ground and five investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "VALUE",
         "title": "What knocking it down would fix",
         "setup": "Public Safety",
-        "play": "Answer the demolition question",
-        "task": "Answer the demolition question",
-        "question": "Answer the demolition question",
-        "answer": "",
-        "why": "Demolition removes the hazard from this building and none of the hazard from the street. The ground that failed here runs under twelve more blocks, and nothing about knocking down Marina Court tells anybody which of those is next. The measurement that changes decisions is a ground investigation across the Flats, because it is the only one that generalises. Straightening the building is real engineering and slow. Doing nothing is not available — the lean has to be monitored — but monitoring is cheap and buys the time the investigation needs.\n",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Investigate the ground across the Flats"
+        "play": "Spend the five-day investigation budget on evidence that can change the town-wide decision about the ground beneath Marina Court and its neighbours.",
+        "task": "Spend the five-day investigation budget on evidence that can change the town-wide decision about the ground beneath Marina Court and its neighbours.",
+        "question": "Which investigation buys information that generalises beyond the one building already cordoned?",
+        "answer": "Buy the corridor-wide ground investigation. Marina Court still needs its cordon and monitoring, but CPTs, boreholes and groundwater data can show whether the same failure mechanism threatens neighbouring blocks. Demolition or underpinning may later be justified, but neither answers the town-wide ground question.",
+        "why": "Demolition can remove Marina Court as a visible hazard, but it does not reveal whether the same ground condition extends beneath nearby buildings. A corridor investigation can. CPTs, boreholes and groundwater checks test the ground shared by several sites while the existing cordon controls the known building hazard. Extra lean monitoring or a one-building underpinning concept answer narrower questions. Value of information therefore depends on the decision the evidence can change, not on how dramatic or precise the proposed work sounds.",
+        "value": {
+          "budget": {
+            "amount": 5,
+            "unit": "investigation-days"
           },
-          {
-            "label": "B",
-            "text": "Monitor the lean weekly and leave the cordon in place while that runs."
-          },
-          {
-            "label": "C",
-            "text": "Demolish Marina Court this week and reassure the town."
-          },
-          {
-            "label": "D",
-            "text": "Underpin and straighten the building"
-          }
-        ],
-        "recommended": {
-          "A": 45,
-          "B": 30
-        },
-        "research": "The raft is uncracked and the frame is plumb within itself. Twelve blocks stand on the same\nfill. Demolition would take three weeks and cost about the same as investigating the whole\nFlats. Nobody is inside the building. The lean has not changed in three days of readings.\n"
+          "decision": "Decide whether the ground condition that affected Marina Court also requires action on neighbouring blocks.",
+          "options": [
+            {
+              "id": "ground_campaign",
+              "label": "CPTs, boreholes and groundwater checks across the Flats corridor",
+              "cost": 3,
+              "axis": "extent of susceptible ground",
+              "reveals": "Whether the same loose saturated layers and groundwater conditions continue beneath neighbouring blocks.",
+              "decisive": true
+            },
+            {
+              "id": "lean_monitor",
+              "label": "Increase Marina Court lean monitoring",
+              "cost": 1,
+              "axis": "motion of the known building",
+              "reveals": "Whether the already-cordoned building is continuing to rotate or has stabilised over the monitoring window."
+            },
+            {
+              "id": "demolition_plan",
+              "label": "Advance demolition engineering for Marina Court",
+              "cost": 4,
+              "axis": "removal of the known hazard",
+              "reveals": "How the known building could be removed safely, without establishing whether nearby buildings share its ground condition."
+            },
+            {
+              "id": "underpin_concept",
+              "label": "Develop an underpinning concept for Marina Court alone",
+              "cost": 4,
+              "axis": "single-building intervention",
+              "reveals": "How one foundation might be strengthened, without mapping the extent of the underlying susceptible fill."
+            }
+          ],
+          "hint": "Open each proposal to see what decision its result could change. The five-day investigation window is fixed, and the current cordon remains in place during the work.",
+          "commit": "Commit the decision"
+        }
       },
       "assumes": [
         "a decision can treat a symptom or a cause"
@@ -2396,10 +2665,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Four hundred children on Monday",
-      "scene": "The classrooms are sound and the gym is not. Halvorsen points out that a school without a hall is still a school, and that a district without a school is four hundred families who cannot work.",
+      "scene": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
       "takeaway": "The useful question is which parts can be occupied, not whether the site is open or shut.",
       "place": "Public Safety",
-      "story": "The classrooms are sound and the gym is not. Halvorsen points out that a school without a hall is still a school, and that a district without a school is four hundred families who cannot work.",
+      "story": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
       "game": {
         "type": "CHOICE",
         "title": "Four hundred children on Monday",
@@ -2408,7 +2677,7 @@ export const CURRICULUM = {
         "task": "Say what happens to term",
         "question": "What should happen to Bay Road School on Monday?",
         "answer": "Open the classrooms and close the gymnasium until the panel connections are fixed.",
-        "why": "Placards are per building, and so is the reasoning. The classroom block has a short, redundant load path and came through with nothing; keeping it shut protects nobody and costs four hundred families a working week. The gym has a measured factor of safety below one on the connection that holds its walls to its roof, and that is a specific, fixable defect. Closing the whole site treats the two as one thing, which is the error the green placard made in the first place.\n",
+        "why": "The useful decision is component-specific. The classroom block has no identified structural deficiency, while the gym has heavy panels attached by connections whose tested capacity is below the estimated demand. If the gym can be physically isolated from classroom access and egress, the classrooms can reopen while the hall remains closed and the connections are repaired. If routes or falling hazards overlap, that separation has to be solved first. Partial occupancy is not optimism; it is a controlled use tied to the actual defect.",
         "rebuttals": [
           "The green placard covered what could be seen from outside, and the gym was locked.",
           "Closing the classrooms protects nobody, since nothing in them is deficient.",
@@ -2450,10 +2719,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Part of a building, for part of a purpose",
-      "scene": "The library is the only hall in the district big enough for the public meeting on Monday, and three of its ground-floor columns are cracked in shear.",
+      "scene": "Monday's public meeting has two hundred residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
       "takeaway": "Restricted use is a real option between open and shut, and it has to name what the restriction is protecting against.",
       "place": "Public Safety",
-      "story": "The library is the only hall in the district big enough for the public meeting on Monday, and three of its ground-floor columns are cracked in shear.",
+      "story": "Monday's public meeting has two hundred residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
       "game": {
         "type": "SEQUENCE",
         "title": "Part of a building, for part of a purpose",
@@ -2462,7 +2731,7 @@ export const CURRICULUM = {
         "task": "Decide what the building may be used for meanwhile",
         "question": "Decide what the building may be used for meanwhile",
         "answer": "",
-        "why": "Restricted use only means something if the restriction matches the defect. The defect is load capacity in three ground-floor columns, so the first move is to take load off them, which means shoring. Then limit what goes back on: numbers, not areas, because it is weight and crowd movement that matter here. Then the time limit, so the restriction expires rather than becoming permanent by neglect. The public meeting is last because it is the use, and the use is decided by what the first three steps allow — not the other way round.\n",
+        "why": "Partial occupancy is an engineering boundary, not a hopeful label. The meeting can use the hall only if occupied routes and seating stay outside the hazard zone. Damaged columns must also be isolated or supported as required. The temporary use must be defined in writing. A restriction saying only 'part of the building' is too vague to enforce. The plan should name the permitted area, excluded area, route and duration. That preserves usable space without silently widening the claim made by the assessment.",
         "cards": [
           "Shore the three cracked columns to take load off them.",
           "Set an occupancy limit by number of people, and post it.",
@@ -2478,106 +2747,74 @@ export const CURRICULUM = {
       },
       "assumes": [
         "occupancy can be limited by number, by area or by time"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
       ]
     },
     {
       "day": 6,
       "title": "Three reasons wearing one line",
-      "scene": "Delacroix walks the boundary with the log. The northern arc is under the Parade's parapets. The eastern leg follows the gas main. The southern leg has no note against it at all.",
-      "takeaway": "Every part of a cordon should name the hazard it answers, or it cannot be lifted when that hazard goes.",
+      "scene": "Shopkeepers are waiting at the tape with deliveries and keys in hand. Delacroix walks the cordon with the boundary log. Three stretches have written reasons. The southern leg is still closed, but nobody can point to the hazard it is controlling.",
+      "takeaway": "Every cordon segment is a claim about a current hazard, and each claim should remain traceable to evidence that can be rechecked.",
       "place": "Public Safety",
-      "story": "Delacroix walks the boundary with the log. The northern arc is under the Parade's parapets. The eastern leg follows the gas main. The southern leg has no note against it at all.",
+      "story": "Shopkeepers are waiting at the tape with deliveries and keys in hand. Delacroix walks the cordon with the boundary log. Three stretches have written reasons. The southern leg is still closed, but nobody can point to the hazard it is controlling.",
       "game": {
-        "type": "CASEBOOK",
+        "type": "ATTEST",
         "title": "Three reasons wearing one line",
         "setup": "Public Safety",
-        "play": "Say what each part of the cordon is for",
-        "task": "Say what each part of the cordon is for",
-        "question": "Say what each part of the cordon is for",
-        "answer": "",
-        "why": "A cordon lifts hazard by hazard, and that only works if somebody wrote down which hazard each stretch answers. Under the Parade the hazard is overhead and it ends when the parapets are taken down or tied back. On the gas main it ends when the utility signs the line off. On the liquefied street the hazard is not falling masonry at all — it is a road that cannot carry a fire appliance, which is about access rather than about danger to somebody walking. And the southern leg has no reason recorded, which means it is being held because it was drawn, and that is the one to look at first.\n",
-        "rebuttals": [
-          "Overhead masonry ends as a hazard when the parapet is removed or tied, which is scheduled work.",
-          "The gas leg lifts when the utility signs the main off, and that is somebody else's decision to make.",
-          "A road too soft for an appliance is an access problem, which is a different argument from danger on foot.",
-          "A stretch with no recorded reason is being held by habit, which is why it goes first."
-        ],
-        "scenarios": [
-          "The northern arc, under the Parade's parapets.",
-          "The eastern leg, along the gas main.",
-          "Ferry Street, where the road surface has liquefied.",
-          "The southern leg, with no note against it."
-        ],
-        "choices": [
-          "Overhead falling hazard — lifts when the parapets are down or tied.",
-          "A utility hazard — lifts when the gas company signs the main off.",
-          "Access — the road will not carry a fire appliance, which is not the same as unsafe on foot.",
-          "Nothing recorded. It is being held out of habit and should be reviewed first."
-        ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "columns": [
-          "The stretch of cordon",
-          "What it is actually answering"
-        ]
+        "play": "Review the backing for each cordon segment, then spend one field verification before tonight's boundary map is reissued.",
+        "task": "Review the backing for each cordon segment, then spend one field verification before tonight's boundary map is reissued.",
+        "question": "Which current exclusion claim most needs to be checked against the physical condition on the ground?",
+        "answer": "Verify the southern leg first. Its exclusion is a current safety claim with no recorded physical basis. If a hazard is present, document it and keep the segment. If none is found, the line should not survive merely because it was drawn during the first response.",
+        "why": "A cordon can contain several hazards, each with its own condition for removal. The Parade segment has an overhead-masonry basis. The gas-main segment depends on utility status. Ferry Street is an access restriction for heavy emergency vehicles. The southern leg is different. The map still excludes people, but the log contains no recorded hazard supporting that claim. With one field check before the map is reissued, the unbacked segment deserves verification before a restriction with direct support is checked again.",
+        "attest": {
+          "claims": [
+            {
+              "id": "north",
+              "label": "Keep the northern arc closed to pedestrian access",
+              "signedBy": "—",
+              "evidence": "Unsecured Parade parapets are documented directly above this arc.",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "east",
+              "label": "Keep the eastern leg closed while the gas-main status is unresolved",
+              "signedBy": "—",
+              "evidence": "Utility isolation and sign-off status are recorded for this main.",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "ferry",
+              "label": "Keep Ferry Street restricted to heavy emergency vehicles",
+              "signedBy": "—",
+              "evidence": "Road-support observations show the disturbed surface cannot yet support the appliance route.",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "south",
+              "label": "Keep the southern leg inside the public exclusion boundary",
+              "signedBy": "—",
+              "evidence": "No hazard or access reason is recorded for this segment.",
+              "critical": true
+            }
+          ],
+          "checks": 1,
+          "hint": "Open the evidence attached to each segment. You can physically recheck one segment before the new map is issued; a line on the map is not itself evidence of a present hazard.",
+          "commit": "Close the list"
+        }
       },
       "assumes": [
         "a boundary can be drawn for more than one reason"
-      ],
-      "equations": [
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        }
       ]
     },
     {
       "day": 7,
       "title": "The meeting",
-      "scene": "Two hundred people, one photograph everybody has seen, and an office that has to explain both what it found tonight and why it did not find it on day one.",
+      "scene": "Two hundred people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
       "takeaway": "Say what was found, what it means and what the process missed, in that order, and commit to the part you control.",
       "place": "Public Safety",
-      "story": "Two hundred people, one photograph everybody has seen, and an office that has to explain both what it found tonight and why it did not find it on day one.",
+      "story": "Two hundred people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
       "game": {
         "type": "SEQUENCE",
         "title": "The meeting",
@@ -2586,7 +2823,7 @@ export const CURRICULUM = {
         "task": "Say it at six o'clock",
         "question": "Say it at six o'clock",
         "answer": "",
-        "why": "The finding goes first because that is what everybody came for, and because withholding it while explaining process reads as evasion. Its meaning comes second: a construction joint rather than earthquake damage, which is the substance. Third is the honest part about the gap — the basement was never inspected, it was written down at the time, and nobody acted on the list. Last is what changes, because a commitment only lands after people believe the first three. Reversing any of this is how a meeting becomes an argument about the office instead of about the building.\n",
+        "why": "The finding goes first because that is what everyone came to hear. Its meaning follows: the repeated horizontal crack fits a construction joint better than new earthquake shear damage. Then the office should state the process gap plainly. The basement was not inspected, the omission was recorded, and nobody acted on the list. The final step is the change in practice. This order keeps the meeting focused on evidence first. It also turns acknowledgment of a process failure into a specific corrective action rather than a defensive argument.",
         "cards": [
           "What was found in the basement tonight, plainly.",
           "What it means — a construction joint, not earthquake damage.",
@@ -2607,83 +2844,112 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Which of the three cannot wait",
-      "scene": "Halvorsen has the three on the whiteboard and wants an order, not a discussion. Two of them are already as bad as they are going to get.",
-      "takeaway": "Rank by how fast it worsens and how cheaply it can be stopped, not by how alarming it sounds.",
+      "scene": "Three calls land within minutes: a burst main is feeding water into the Flats, several vulnerable buildings need checks after the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.",
+      "takeaway": "Good delegation couples every handoff to a first action and a condition for returning the problem, while scarce expert attention stays on the judgment that cannot be automated.",
       "place": "Public Safety",
-      "story": "Halvorsen has the three on the whiteboard and wants an order, not a discussion. Two of them are already as bad as they are going to get.",
+      "story": "Three calls land within minutes: a burst main is feeding water into the Flats, several vulnerable buildings need checks after the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.",
       "game": {
-        "type": "TRIAGE",
+        "type": "DELEGATE",
         "title": "Which of the three cannot wait",
         "setup": "Public Safety",
-        "play": "Decide what the office does first",
-        "task": "Decide what the office does first",
-        "question": "What gets the office's attention first?",
-        "answer": "The burst main, pouring water into loose fill under occupied houses.",
-        "why": "The aftershock is over. Whatever it did is done, and the re-checks matter but they are the same work tomorrow morning. The gymnasium decision has a deadline and a known answer — the anchors tested below demand, and that has not changed since Tuesday. The main is the only one still getting worse every minute: it is raising pore pressure in exactly the material that liquefied a week ago, under houses people are sleeping in, and it is also the one that can be stopped with a phone call to somebody who can close a valve.\n",
-        "rebuttals": [
-          "The aftershock has finished; the re-checks it triggers are tomorrow's work and lose nothing by waiting.",
-          "The gymnasium answer has not changed since the anchors were tested, so meeting the deadline is a phone call.",
-          "The shored buildings should be re-checked, and none of them is deteriorating in the next hour."
-        ],
-        "choices": [
-          "The burst main, pouring water into loose fill under occupied houses.",
-          "The magnitude 5.1 aftershock, which has already happened.",
-          "The school gymnasium decision, due at five.",
-          "The eleven shored buildings, which should be re-checked after any aftershock."
-        ],
-        "correctChoice": "The burst main, pouring water into loose fill under occupied houses."
+        "play": "Keep one incident under your own engineering attention and delegate the others with an owner, a first action and a return condition.",
+        "task": "Keep one incident under your own engineering attention and delegate the others with an owner, a first action and a return condition.",
+        "question": "How do you divide the team so the worsening condition is stopped, the life-safety consequence is checked and the stable deadline does not consume the field response?",
+        "answer": "Keep the post-aftershock building checks under direct engineering attention. Send the utility liaison to isolate the burst main immediately. Give the school communication to the desk engineer. Every handoff needs an owner, a first action and a return condition, so field judgment stays on uncertain building consequences.",
+        "why": "The burst main is actively worsening the ground condition, so utility isolation starts immediately. The M5.1 aftershock is over, but vulnerable or shored buildings may have new distress. That uncertainty needs engineering judgment before restrictions change. The school decision is already technically settled and mainly needs communication. Parallel work is therefore better than a single ranked list. Stop the growing input, keep direct attention on uncertain building consequences, and hand the stable message to the desk.",
+        "delegate": {
+          "team": [
+            {
+              "id": "utility",
+              "label": "utility"
+            },
+            {
+              "id": "player",
+              "label": "player"
+            },
+            {
+              "id": "desk",
+              "label": "desk"
+            }
+          ],
+          "firstActions": [
+            {
+              "id": "a1",
+              "label": "Order immediate isolation of the main and confirm that flow is stopping"
+            },
+            {
+              "id": "a2",
+              "label": "Start rapid re-checks at the highest-risk occupied or shored buildings"
+            },
+            {
+              "id": "a3",
+              "label": "Issue the classroom-open and gym-closed message with the route controls"
+            }
+          ],
+          "problems": [
+            {
+              "id": "burst_main",
+              "label": "Burst water main over liquefaction-susceptible fill",
+              "trend": "rising",
+              "rate": "worsens while uncontrolled flow continues",
+              "consequence": "additional water raises pore pressure and can reduce effective-stress margin before another strong aftershock",
+              "irreversible": true,
+              "loud": true
+            },
+            {
+              "id": "aftershock_checks",
+              "label": "Known vulnerable occupied or shored buildings after the M5.1 aftershock",
+              "trend": "not rising",
+              "rate": "new damage, if present, occurred during the completed aftershock",
+              "consequence": "restrictions could be relaxed or retained on the wrong structural condition without a focused re-check",
+              "delegable": false
+            },
+            {
+              "id": "school_deadline",
+              "label": "Bay Road School reopening communication deadline",
+              "trend": "not rising",
+              "rate": "communication deadline approaches but the technical conclusion is unchanged",
+              "consequence": "families lack a clear route and occupancy message even though the engineering decision already exists",
+              "loud": true
+            }
+          ],
+          "first": "aftershock_checks",
+          "hint": "Assign each handoff to a role that can take its first real action. The handoff is incomplete until it also says what result or threshold brings the problem back to you.",
+          "commit": "Take the watch"
+        }
       },
       "assumes": [
         "a problem still growing is different from one that has finished"
       ],
       "equations": [
         {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
           "v": [
             [
-              "FoS",
-              "factor of safety, no units"
+              "n(t)",
+              "aftershocks per day at time t"
             ],
             [
-              "capacity",
-              "what the element can carry"
+              "t",
+              "days since the mainshock"
             ],
             [
-              "demand",
-              "what the earthquake asked of it, in the same units"
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
             ]
           ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
       ]
     },
     {
       "day": 9,
       "title": "What the next five years hold",
-      "scene": "The clause goes in or it does not, and it cannot be reopened for five years. Delacroix wants to know what each version means for somebody rebuilding next spring.",
-      "takeaway": "Requiring something commits you to the years in which people have to comply with it, and that has to be planned too.",
+      "scene": "The clause goes in or it does not, and nobody can reopen it for five years. Delacroix is holding the spring rebuild schedule beside the draft ordinance. The geotechnical section is the last unresolved page.",
+      "takeaway": "Science can define the hazard and performance target; the rebuilding policy must also specify affordability, phasing and who carries the cost.",
       "place": "Public Safety",
-      "story": "The clause goes in or it does not, and it cannot be reopened for five years. Delacroix wants to know what each version means for somebody rebuilding next spring.",
+      "story": "The clause goes in or it does not, and nobody can reopen it for five years. Delacroix is holding the spring rebuild schedule beside the draft ordinance. The geotechnical section is the last unresolved page.",
       "game": {
         "type": "PROTOCOL",
         "title": "What the next five years hold",
@@ -2692,7 +2958,7 @@ export const CURRICULUM = {
         "task": "Commit, and say what the commitment contains",
         "question": "Commit, and say what the commitment contains",
         "answer": "",
-        "why": "A requirement is not relief; it is a bill with a date. If the clause goes in, the ground under the Flats stops being the town's worst hazard over about a decade, and in the meantime four hundred households face a cost they did not budget for — which means the clause has to arrive with a scheme, or it will simply stop people rebuilding. If it stays out, rebuilding is quick and cheap and the same fill is under the same streets for the next event. Both are defensible. Only one of them is what the corrected amplification points at.\n",
+        "why": "The engineering evidence can define the ground hazard and the performance a treatment programme should demonstrate. It cannot decide who pays or how quickly households must comply. A requirement without financing can stall rebuilding. No requirement can reproduce the same vulnerability. A workable policy therefore states where the rule applies and names a measurable geotechnical acceptance target. It also provides funding or phasing and a review process as new site data arrive. That separates the technical standard from the political choices needed to implement it.",
         "rebuttals": [
           "With the clause, the ground improves street by street over about a decade as sites are rebuilt.",
           "With the clause, four hundred households meet a cost they have not budgeted for, so it needs a scheme beside it.",
@@ -2748,7 +3014,7 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "SEIS-2": {
-    "prompt": "The P wave arrived at 04:12:19 and the S wave at 04:12:32. Use 8 km for each second of separation.\n",
+    "prompt": "The P wave arrived at 04:12:19 and the S wave at 04:12:32. Use 8 km for each second of separation.",
     "question": "Choose the two arrival times and the constant.",
     "labels": [
       "32 s  (S arrival, seconds past the minute)",
@@ -2776,10 +3042,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 12,
     "units": "km",
     "solution": "d = (32 − 19) × 8 = 104 km.",
-    "explanation": "About a hundred kilometres to the source. The magnitude and the depth are both real numbers about this earthquake and neither belongs in this calculation — one is how big it was, the other is how deep, and this is how far.\n"
+    "explanation": "About a hundred kilometres to the source. The magnitude and the depth are both real numbers about this earthquake and neither belongs in this calculation — one is how big it was, the other is how deep, and this is how far."
   },
   "MAT-1": {
-    "prompt": "The two anchors tested at 24 kN and 27 kN. The assessed demand on each anchor from this earthquake is 31 kN.\n",
+    "prompt": "The two anchors tested at 24 kN and 27 kN. The assessed demand on each anchor from this earthquake is 31 kN.",
     "question": "Choose the tested capacity and the demand.",
     "labels": [
       "25.5 kN  (mean tested capacity)",
@@ -2805,11 +3071,11 @@ export const BALLPARK_CALCS = {
     "target": 0.82,
     "tolerance": 0.12,
     "units": "(ratio)",
-    "solution": "FoS = 25.5 ÷ 31 ≈ 0.8.",
-    "explanation": "About 0.8, which is below one. The design capacity of 40 kN is what the drawing intended and is not what these anchors did; the span and the panel count belong to other calculations.\n"
+    "solution": "Observed ratio = 25.5 ÷ 31 ≈ 0.82.",
+    "explanation": "About 0.82, below one. This is an observed ratio from two specimens, not by itself a formal code factor of safety; variability and design resistance factors still matter."
   },
   "HAZ-4": {
-    "prompt": "Day four had 26 events above magnitude 3, and the rate falls roughly as one over elapsed time. Day eight is twice as far from the mainshock as day four.\n",
+    "prompt": "Day four had 26 events above magnitude 3, and the rate falls roughly as one over elapsed time. Day eight is twice as far from the mainshock as day four.",
     "question": "Choose the day-four count and the ratio of the two times.",
     "labels": [
       "26  (events on day four)",
@@ -2836,10 +3102,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 4,
     "units": "events",
     "solution": "n ≈ 26 ÷ 2 ≈ 13 events on day eight.",
-    "explanation": "About thirteen. The day-one count and the running total describe the sequence so far, and the magnitude is the size of the mainshock rather than anything about the rate.\n"
+    "explanation": "About thirteen. The day-one count and the running total describe the sequence so far, and the magnitude is the size of the mainshock rather than anything about the rate."
   },
   "MAT-5": {
-    "prompt": "The trial panel tested at 4 MPa cone resistance before treatment and 11 MPa after.\n",
+    "prompt": "The trial panel tested at 4 MPa cone resistance before treatment and 11 MPa after.",
     "question": "Choose the two cone resistances.",
     "labels": [
       "11 MPa  (after treatment)",
@@ -2866,7 +3132,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.5,
     "units": "× stronger",
     "solution": "11 ÷ 4 ≈ 2.8 times the original resistance.",
-    "explanation": "Nearly three times. The fill depth, the amplification factor and the library's concrete strength are all real numbers from this fortnight and none of them belongs here.\n"
+    "explanation": "Nearly three times. The fill depth, the amplification factor and the library's concrete strength are all real numbers from this fortnight and none of them belongs here."
   }
 };
 

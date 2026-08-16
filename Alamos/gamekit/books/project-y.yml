@@ -1556,16 +1556,17 @@ missions:
         mapping: [0, 1, 2, 3]
         answerText: Need the number of protons -> Read atomic number Z; Need the number of neutrons -> Compute A - Z; Need to decide whether two atoms are isotopes -> Compare Z while A differs; Need the net charge of a neutral atom -> Set electron count equal to Z
       - group: CM
-        call: Connect isotopes to chemistry
         task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
         title: Isotopes and chemical identity
-        setup: Match each question to the relevant property.
         scene: Chemistry and Metallurgy is being asked what it can and cannot deliver, and the answer turns on one fact about isotopes. Everything shipped here has both a chemical form and an isotopic composition.
         assumes:
           - chemical bonding is done by electrons
         takeaway: Materials work must track both chemical form and isotopic composition.
         format: PROTOCOL
-        why: Isotopes of an element carry the same proton count and nearly the same electrons. So they form the same compounds and answer to the same reagents. That is exactly why ordinary chemistry cannot tell them apart, or pull them apart. Nuclear stability is a different matter. It is set inside the nucleus, and half-lives can differ by a factor of a million between isotopes of one element. Mass spectrometry sorts by mass-to-charge ratio. That responds to the one difference chemistry ignores, which is why separation happens at Oak Ridge and costs what it costs.
+        answerText: "Will two isotopes form similar chemical compounds? -> Yes: bonding is set by electron structure, which extra neutrons barely disturb.; Will they have the same half-life? -> No: stability is set inside the nucleus and can differ by orders of magnitude.; Can mass spectrometry distinguish them? -> Yes: sorting by mass-to-charge ratio responds to exactly the difference chemistry ignores.; Does atomic number determine the element? -> Yes: the proton count fixes the electron structure and therefore the chemical identity."
+        why: "Isotopes of an element carry the same proton count and nearly the same electrons, so they form the same compounds and answer to the same reagents. Ordinary chemistry therefore has almost no handle for separating them. Nuclear stability is different: it is set inside the nucleus, and half-lives can differ enormously between isotopes of one element. Mass spectrometry sorts by mass-to-charge ratio, responding to the difference chemistry mostly ignores. That is why isotopic separation is a physical problem as well as a chemical one."
+        call: Connect isotopes to chemistry
+        setup: Match each question to the relevant property.
         rebuttals:
           - Two isotopes form similar compounds, because bonding is set by electron structure and extra neutrons barely disturb it.
           - They do not share a half-life. Stability lives inside the nucleus, and it can differ by orders of magnitude.
@@ -1585,18 +1586,18 @@ missions:
           - "Yes: sorting by mass-to-charge ratio responds to exactly the difference chemistry ignores."
           - "Yes: the proton count fixes the electron structure and therefore the chemical identity."
         mapping: [0, 1, 2, 3]
-        answerText: "Will two isotopes form similar chemical compounds? -> Yes: bonding is set by electron structure, which extra neutrons barely disturb.; Will they have the same half-life? -> No: stability is set inside the nucleus and can differ by orders of magnitude.; Can mass spectrometry distinguish them? -> Yes: sorting by mass-to-charge ratio responds to exactly the difference chemistry ignores.; Does atomic number determine the element? -> Yes: the proton count fixes the electron structure and therefore the chemical identity."
       - group: P
-        call: Turn ionization into a signal
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Ionization and detector signals
-        setup: Order a generic detector chain.
         scene: The Physics Division cannot see a single neutron or alpha particle, and neither can anybody else. Everything the Hill will claim about cross sections, backgrounds and yields rests on a chain of conversions working in order.
         assumes:
           - radiation deposits energy in whatever it passes through
         takeaway: A detector measures the consequences of an interaction, not radiation directly.
         format: SEQUENCE
+        answerText: 2 -> 3 -> 4 -> 5 (Radiation deposits energy in the sensitive material -> The material sets free charge or light -> Electronics collect and amplify the response -> The data system digitizes and stores a pulse)
         why: A detector measures the consequences of an interaction, never the radiation itself. Energy has to be deposited in the sensitive material first — nothing downstream exists until that happens. That deposit sets free charge or light, which is the transducer step and the one that decides what the instrument is sensitive to at all. Electronics then collect and amplify a response too small to handle raw. The data system digitises and stores a pulse last. Get the chain wrong and you are measuring your own apparatus.
+        call: Turn ionization into a signal
+        setup: Order the detector chain from deposited energy to stored data.
         rebuttals:
           - Energy deposited in the sensitive material is where everything starts. No deposit, no signal, however good the electronics are.
           - "Free charge or light is the transducer step: the point where a nuclear event becomes something electrical."
@@ -1608,7 +1609,6 @@ missions:
           - Electronics collect and amplify the response
           - The data system digitizes and stores a pulse
         order: [0, 1, 2, 3]
-        answerText: 2 -> 3 -> 4 -> 5 (Radiation deposits energy in the sensitive material -> The material sets free charge or light -> Electronics collect and amplify the response -> The data system digitizes and stores a pulse)
   - title: Account for nuclear energy
     objective: Connect mass, binding energy, calibration, and the program’s competing early architectures.
     briefing: The next step is to understand why nuclear changes involve such large energy scales, how a measurement system assigns an energy value, and why Los Alamos initially pursued more than one technical path.
@@ -1616,19 +1616,20 @@ missions:
     takeaway: Mass defect sets the nuclear energy scale, but that scale becomes useful only after instruments and engineering goals are calibrated.
     stops:
       - group: T
-        call: Estimate binding energy
-        task: Estimate the total binding energy in MeV.
+        task: Estimate the total binding energy and the binding energy per nucleon.
         title: Mass defect and binding energy
-        setup: A medium-heavy nucleus has about 200 nucleons and a mass defect of about 0.008 atomic mass units per nucleon.
-        scene: "A theorist at the blackboard wants a number before lunch: how tightly a medium-heavy nucleus is bound. This arithmetic is the reason the laboratory exists at all."
+        scene: "A theorist at the blackboard wants a number before lunch: how tightly a medium-heavy nucleus is bound. The arithmetic is small enough for one line, but the energy scale is the reason this laboratory exists at all."
         assumes:
           - mass and energy are related by E = mc², with E the energy, m the mass and c the speed of light
         takeaway: Tiny changes in mass correspond to large nuclear energies.
         format: BALLPARK
+        answerText: About 1.5×10^3 MeV total, or about 7.5 MeV per nucleon.
         why: A bound nucleus weighs less than the loose protons and neutrons that went into it. That missing mass is the binding energy holding it together. The conversion factor is the speed of light squared. So a mass difference far too small to weigh becomes an energy larger than any chemical reaction can produce. Work in atomic mass units and one unit is about 931 MeV. That is what turns a defect of eight thousandths of a unit per nucleon into more than a thousand MeV for the whole nucleus.
+        call: Estimate binding energy
+        setup: A medium-heavy nucleus has about 200 nucleons and a mass defect of about 0.008 atomic mass units per nucleon.
         estimate:
-          prompt: A medium-heavy nucleus has about 200 nucleons, and nuclei of that size show a mass defect of roughly 0.008 atomic mass units per nucleon. One atomic mass unit is worth about 931 MeV. Estimate the total binding energy.
-          question: Choose the mass defect per nucleon, the nucleon count, and the mass-to-energy conversion.
+          prompt: A medium-heavy nucleus has about 200 nucleons, with a mass defect of roughly 0.008 atomic mass units per nucleon. One atomic mass unit is worth about 931 MeV. Estimate both the binding energy per nucleon and the total binding energy.
+          question: Choose the mass defect per nucleon, the nucleon count, and the mass-to-energy conversion; compute B/A first and then B.
           labels:
             - 0.008 u/nucleon
             - 200 nucleons
@@ -1642,48 +1643,86 @@ missions:
           target: 1489.6
           tolerance: 80
           units: MeV
-          solution: 0.008 u/nucleon × 200 nucleons × 931 MeV/u ≈ 1.5×10³ MeV.
-          explanation: "A single medium-heavy nucleus is bound by roughly 1,500 MeV. Set that against the few electron-volts holding a chemical bond: the nuclear scale is something like a hundred million times larger per particle, which is the whole reason a nuclear device and a chemical explosive are not the same category of thing. The binding energy per nucleon here, about 7.5 MeV, is the quantity the curve plots on the next day."
+          solution: B/A ≈ 0.008 u/nucleon × 931 MeV/u ≈ 7.45 MeV/nucleon. Then B ≈ 7.45 MeV/nucleon × 200 nucleons ≈ 1.49×10³ MeV.
+          explanation: The mass defect per nucleon gives about 7.5 MeV of binding per nucleon. Multiplying by about 200 nucleons gives roughly 1,500 MeV for the whole nucleus. The first number is what is plotted on the binding-energy-per-nucleon curve; the second is the total energy needed to separate this nucleus completely.
           givens:
             - Mass defect is about 0.008 u per nucleon
             - A nucleus of this size has about 200 nucleons
             - 1 atomic mass unit corresponds to about 931 MeV
-          relationship: Binding energy = mass defect per nucleon × number of nucleons × the energy equivalent of one mass unit.
-        answerText: About 1.5 x 10^3 MeV.
+          relationship: Binding energy per nucleon B/A = mass defect per nucleon × 931 MeV/u. Total binding energy B = (B/A) × A.
       - group: P
-        call: Calibrate measured energy
-        task: Arrange the four cards from earliest cause or prerequisite to latest result.
-        title: Energy calibration across instruments
-        setup: Order the calibration workflow.
-        scene: A spectrum is on the bench and somebody has written particle energies along the bottom of it. Los Alamos is about to compare spectra taken on different instruments in different buildings.
+        task: Use the first reference line to map every gain-and-offset pair it allows. Then add the second line and lock the calibration that satisfies both.
+        title: One reference line is not a calibration
+        scene: Two Physics groups bring spectra from different instruments, and the peaks refuse to line up. Each group trusts its own axis. An afternoon comparison meeting is approaching, and somebody has to decide whether the disagreement belongs to the samples or to the instruments.
         assumes:
-          - an instrument records something electrical, not the quantity you wanted
-        takeaway: Calibration is a measured mapping, not a label pasted onto the x-axis.
-        format: SEQUENCE
-        why: "The instrument never measured energy. It measured the size of electrical pulses, and the axis is a claim that a particular pulse size corresponds to a particular deposited energy. That claim has to be established before an unknown spectrum means anything, which fixes the order: spectra from known reference lines first, then the peak channel positions, then a fit that maps channel to energy. Only then can the calibration be applied to unknown peaks — and the uncertainty in the fit has to travel with it."
-        rebuttals:
-          - Acquire the reference spectra first. Without lines of known energy there is nothing to calibrate against.
-          - Locate the peak channels second. The peak position is the measured quantity; the energy is not, yet.
-          - Fit channel to energy third. This is the mapping, and it is where the uncertainty in the calibration is born.
-          - Apply it to the unknowns last, and carry the uncertainty through. An uncalibrated axis is a confident-looking way to compare two things that were never comparable.
-        cards:
-          - Acquire spectra from known reference lines
-          - Locate peak channel positions
-          - Fit channel-to-energy relationship
-          - Apply the calibration to unknown peaks and carry the uncertainty with it
-        order: [0, 1, 2, 3]
-        answerText: 2 -> 3 -> 4 -> 5 (Acquire spectra from known reference lines -> Locate peak channel positions -> Fit channel-to-energy relationship -> Apply the calibration to unknown peaks and carry the uncertainty with it)
+          - a straight-line calibration can have both a slope and an offset
+          - one equation cannot determine two unknowns
+        takeaway: One calibration point cannot determine both a slope and an offset; a second independent point breaks that degeneracy.
+        format: DEGENERACY
+        question: Which gain and offset are fixed by both reference lines?
+        degeneracy:
+          hint: Move gain and offset until the 500 keV reference lands on its marked channel. Notice that many pairs work. Then reveal the 1000 keV reference and satisfy both lines at once.
+          controls:
+            - id: gain
+              label: Gain
+              min: 1.5
+              max: 2.5
+              step: 0.1
+              unit: keV/channel
+            - id: offset
+              label: Offset
+              min: -150
+              max: 150
+              step: 10
+              unit: keV
+          truth:
+            a: 2
+            b: 0
+          locus:
+            - a: 1.6
+              b: 100
+            - a: 1.8
+              b: 50
+            - a: 2
+              b: 0
+            - a: 2.2
+              b: -50
+            - a: 2.4
+              b: -100
+          second:
+            label: Reference line B
+            locus:
+              - a: 1.8
+                b: 100
+              - a: 1.9
+                b: 50
+              - a: 2
+                b: 0
+              - a: 2.1
+                b: -50
+              - a: 2.2
+                b: -100
+          observable:
+            label: Reference line A
+          tolerance:
+            a: 0.05
+            b: 10
+        answerText: Gain = 2.0 keV per channel and offset = 0 keV. The first line alone permits many combinations; the second line leaves only their intersection.
+        why: "A straight-line calibration has two unknowns: gain and offset. One known line gives only one equation, so many gain-and-offset pairs reproduce it exactly. That is not noise; it is missing information. A second line at a different energy supplies a second equation. The two allowed loci cross at one point, fixing both parameters. This is why a convincing-looking one-point calibration can still place every unknown peak at the wrong energy."
+        call: Calibrate measured energy
+        setup: Order the calibration workflow.
       - group: E
-        call: Compare the early architectures
         task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
         title: Two weapon architectures at Los Alamos
-        setup: Oppenheimer asks the Ordnance Division to classify the program consequences of the two early weapon concepts without using design dimensions.
-        scene: Oppenheimer has asked Ordnance to lay out the programme consequences of the two assembly concepts, without discussing any design dimensions. The choice decides which divisions grow and what the site does for two years.
+        scene: Oppenheimer has asked Ordnance for a recommendation before the next program meeting. Two assembly concepts are still alive, but choosing between them commits people, buildings, and months of work. The room is waiting for a decision that will reshape the Hill.
         assumes:
           - a chain reaction needs the material held together long enough to grow
         takeaway: Weapon architecture determines the entire downstream engineering program.
         format: PROTOCOL
+        answerText: A design relies on bringing two separated pieces together along one axis. -> Gun-type architecture; A design relies on a converging wave that must preserve three-dimensional symmetry. -> Implosion architecture; A concept is comparatively straightforward to reason about but becomes unsuitable for reactor-produced plutonium. -> Gun-type program consequence; A concept demands a large diagnostic and high-explosive development program. -> Implosion program consequence
         why: Both concepts aim at the same goal. Bring subcritical material together fast enough that a chain reaction can grow before the assembly blows itself apart. They get there by completely different routes. A gun-type device drives one piece into another along one axis. That is a linear problem with a long history behind it. Implosion squeezes one piece inward with a converging wave, and nobody has built one. The two are not merely different shapes. They create different organisations, different test programmes and different risks.
+        call: Compare the early architectures
+        setup: Oppenheimer asks the Ordnance Division to classify the program consequences of the two early weapon concepts without using design dimensions.
         rebuttals:
           - A long device driving one subcritical piece into another along a single axis is the gun-type architecture. One dimension, and a well-understood one.
           - A compact device squeezing the material inward from every direction is implosion. The difficulty is that it has to work in three dimensions at once.
@@ -1703,7 +1742,6 @@ missions:
           - "Abandon the gun-type route for this material: the chain would begin before the pieces were fully together, whatever the engineering merits."
           - Build an implosion-development program focused on timing, on how evenly the squeeze arrives, on diagnostics, and on explosive components that behave the same way twice.
         mapping: [0, 1, 2, 3]
-        answerText: A design relies on bringing two separated pieces together along one axis. -> Gun-type architecture; A design relies on a converging wave that must preserve three-dimensional symmetry. -> Implosion architecture; A concept is comparatively straightforward to reason about but becomes unsuitable for reactor-produced plutonium. -> Gun-type program consequence; A concept demands a large diagnostic and high-explosive development program. -> Implosion program consequence
   - title: Follow radioactivity through the laboratory
     objective: Treat decay as a quantitative process that must survive chemistry and background measurement.
     briefing: A radioactive sample changes while it is being prepared and measured. Follow the same evidence chain from the decay law, through tracer chemistry, to a defensible background measurement.
@@ -1711,19 +1749,20 @@ missions:
     takeaway: A count rate is not automatically a decay rate; time dependence, chemical recovery, and background all matter.
     stops:
       - group: T
-        call: Model radioactive decay
-        task: Estimate the number remaining.
+        task: Estimate how many nuclei remain after the shift, then use the half-life to estimate the sample's activity at that moment.
         title: Radioactive decay law
-        setup: A tracer with a 2-hour half-life starts at 10,000 nuclei and is left for a 6-hour shift.
         scene: A tracer sample has been sitting through a six-hour shift and somebody needs to know what is left in it. Every count taken here is a count of something that has been decaying since it was made.
         assumes:
           - a half-life is the time for half of a large population to decay
-        takeaway: Half-life is a population statement produced by random individual decays.
+        takeaway: Half-life fixes both how a population falls with time and, through the decay constant, its activity at any moment.
         format: BALLPARK
-        why: Decay is random for any single nucleus and predictable for a large population. After one half-life about half the original nuclei remain. After two, a quarter. After three, an eighth. That holds regardless of how many you started with, which is what makes decay usable as a clock and as a correction. A six-hour shift against a two-hour half-life is three halvings. So the shift length is part of the measurement, not a detail about when it was taken.
+        answerText: About 1,250 nuclei remain. With λ = ln2/(2 h) ≈ 9.6×10^-5 s^-1, the activity is A = λN ≈ 0.12 decays/s, or 0.12 Bq.
+        why: "Decay is random for one nucleus and predictable for a large population. Six hours is three two-hour half-lives, so 10,000 nuclei fall to one eighth, or about 1,250. Half-life also fixes the decay constant: λ = ln2/t½. For a two-hour half-life, λ is about 9.6×10⁻⁵ s⁻¹. Activity is then A = λN, so the remaining sample produces about 0.12 decays each second. Population and count rate are linked by the same decay law."
+        call: Model radioactive decay
+        setup: A tracer with a 2-hour half-life starts at 10,000 nuclei and is left for a 6-hour shift.
         estimate:
-          prompt: A tracer with a two-hour half-life is left on the bench for a six-hour shift, starting from 10,000 nuclei. Each half-life leaves half of what was there. Estimate how many nuclei remain.
-          question: Choose the starting population, the decay factor, and the number of half-lives that elapse.
+          prompt: A tracer starts with 10,000 nuclei, has a two-hour half-life, and sits for six hours. Estimate how many nuclei remain. Then use λ = ln2/t½ and A = λN to estimate the activity.
+          question: Choose the starting population, the number of half-lives, and the half-life needed to find λ.
           labels:
             - 10,000 nuclei
             - 1/2
@@ -1737,13 +1776,12 @@ missions:
           target: 1250
           tolerance: 80
           units: nuclei
-          solution: 10,000 × (1/2)³ ≈ 1,250 nuclei.
-          explanation: "Six hours at a two-hour half-life is three half-lives, not dozens: the number of half-lives is the elapsed time divided by the half-life. Each one halves the survivors, so three of them leave an eighth."
+          solution: λ = 0.693/7,200 s ≈ 9.6×10⁻⁵ s⁻¹. Then N(21,600 s) = 10,000e^(−λt) ≈ 1,250 nuclei. Finally A = λN ≈ 0.12 s⁻¹ = 0.12 Bq.
+          explanation: Six hours is three half-lives, so one eighth of the original population remains. The same half-life gives the decay constant, which turns the surviving population into an expected decay rate.
           givens:
             - Each half-life leaves one-half of the previous amount
             - A 6-hour wait is three 2-hour half-lives
-          relationship: After n half-lives, what is left = the starting number × (½)ⁿ.
-        answerText: About 1,250 nuclei.
+          relationship: First λ = ln2/t½. Then N(t) = N₀e^(−λt), and activity is A = λN.
       - group: CM
         call: Use a radiochemical tracer
         task: Estimate the chemical yield.
@@ -1779,18 +1817,36 @@ missions:
           relationship: Yield = recovered ÷ started, as a percentage.
         answerText: About 80%.
       - group: P
-        call: Measure the background
-        task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
-        title: Background measurement
-        setup: You are deciding whether a weak sample is really emitting anything.
+        task: Change one condition at a time, compare the count rate, and confirm the cause by removing it and then restoring it.
+        title: Find what carries the background
         scene: A weak sample has been counting for an hour and the question is whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.
         assumes:
-          - a detector records events even with no sample present
-        takeaway: Background subtraction is credible only when the background is measured under comparable conditions.
-        format: DIAGNOSIS
-        why: A detector counts events with no sample present. Cosmic rays, natural activity in the walls and containers, and the electronics all contribute. Subtracting a background only means something if it was measured the same way as the sample. Same geometry, same shielding, same instrument, close enough in time that nothing has drifted. So the background is taken with the instrument you will use, not merely in the room you will use it in. An excess that follows the instrument to a clean room was never coming from the sample.
-        pack: p6
-        answerText: The detector or its holder is contaminated
+          - background is measured with no sample present
+          - one changed variable can be tested against a stable baseline
+        takeaway: A suspected cause is strongest when changing only that cause moves the reading and reversing the change restores it.
+        format: CONTROL
+        question: Which part of the counting station carries the excess?
+        control:
+          hint: Start from the no-sample rate. Change one thing only. A useful change must move the excess by much more than the repeat scatter, and you must restore the original condition once.
+          baseline: 131
+          noise: 4
+          tolerance: 6
+          observable:
+            label: Original detector, no sample
+            unit: counts/min
+          response: -36
+          truth: detector
+          variables:
+            - id: lead
+              label: Add external lead
+            - id: room
+              label: Move original detector to clean room
+            - id: detector
+              label: Substitute clean identical detector
+        answerText: The original detector or its holder is contaminated. With no sample it reads about 131 counts/min; a clean identical detector is near the normal 95 counts/min background, and restoring the original hardware restores the excess.
+        why: "The sample cannot explain a count excess that remains after the sample is removed. Extra shielding cannot explain it when more lead changes nothing. The decisive comparison is hardware: the original detector still runs high in a clean room, while an identical clean detector in the same room returns to the normal background. Put the original detector back and the excess returns. That reversal makes contamination of the detector or holder a causal result rather than a correlation."
+        call: Measure the background
+        setup: You are deciding whether a weak sample is really emitting anything.
   - title: Measure interactions, not impressions
     objective: Learn how cross sections, counting statistics, and analytical yield turn observations into quantitative evidence.
     briefing: The laboratory now needs probabilities rather than anecdotes. Estimate how often an interaction occurs, determine whether a count difference is statistically meaningful, and verify that the chemistry did not lose an unknown fraction of the sample.
@@ -1798,19 +1854,20 @@ missions:
     takeaway: Reliable nuclear evidence combines interaction probability, statistical uncertainty, and a measured recovery or efficiency.
     stops:
       - group: T
-        call: Interpret a cross section
-        task: Estimate the macroscopic cross section and the mean free path.
+        task: Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.
         title: Reaction cross sections
-        setup: A solid has number density n = 10^22 cm^-3, and the cross section is 1 barn = 10^-24 cm^2.
         scene: The Theoretical Division needs a reaction rate and has a cross section written in barns. Nearly every number this laboratory argues about is built out of the multiplication that follows.
         assumes:
           - a cross section is expressed as an area
-        takeaway: Cross section becomes experimentally useful when combined with the number of targets per volume.
+        takeaway: Number density turns a microscopic cross section into an interaction probability per length, which sets both mean free path and exponential attenuation.
         format: BALLPARK
-        why: A cross section is not the physical size of a nucleus. It is how likely an interaction is, given as an area so it can be multiplied by how many targets a beam actually passes through. Probability per nucleus times nuclei per volume gives the macroscopic cross section, an inverse length — how much interaction there is per centimetre travelled. Invert that and you have the mean free path, the average distance before the interaction happens. Multiply the powers of ten first; the arithmetic is easier than the units.
+        answerText: Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after one mean free path I/I₀ = e^-1 ≈ 0.37.
+        why: "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After one mean free path, x = 1/Σ, so the exponent is minus one and about 37 percent of an uncollided beam remains. One parameter connects all three ideas."
+        call: Interpret a cross section
+        setup: A solid has number density n = 10^22 cm^-3, and the cross section is 1 barn = 10^-24 cm^2.
         estimate:
-          prompt: A solid holds about 10^22 nuclei per cubic centimetre, and the neutron cross section of interest is about one barn, or 10^-24 cm^2. Estimate the mean free path from lambda = 1/(n sigma).
-          question: Choose the numerator, the number density, and the cross section.
+          prompt: A solid has number density 10^22 cm^-3 and a neutron cross section of 1 barn = 10^-24 cm^2. Estimate Σ, the mean free path, and the uncollided fraction left after one mean free path.
+          question: Choose the number density and cross section, then use the resulting Σ in both 1/Σ and e^-Σx.
           labels:
             - "1"
             - 10²² cm⁻³
@@ -1824,24 +1881,24 @@ missions:
           target: 100
           tolerance: 15
           units: cm
-          solution: 1 ÷ (10²² cm⁻³ × 10⁻²⁴ cm²) ≈ 10² cm.
-          explanation: "Multiply the powers of ten first: n sigma is about 0.01 cm⁻¹, so the mean free path is around a metre. A barn-scale cross section makes solid matter surprisingly transparent to neutrons, which is why assemblies must be large or reflected."
+          solution: Σ = 10²²×10⁻²⁴ = 10⁻² cm⁻¹. mfp = 1/Σ = 100 cm. At x = 100 cm, I/I₀ = e⁻¹ ≈ 0.37.
+          explanation: Here Σ is 0.01 cm⁻¹, so the mean free path is about 100 cm. Setting x equal to that mean free path makes Σx = 1, leaving e⁻¹ ≈ 0.37 of the uncollided beam.
           givens:
             - Sigma = n sigma
             - Mean free path = 1/Sigma
-          relationship: Mean free path = 1 ÷ (number density × cross section).
-        answerText: Sigma is about 0.01 cm^-1; the mean free path is about 100 cm.
+          relationship: Σ = nσ; mean free path = 1/Σ; attenuation is I/I₀ = e^-Σx.
       - group: P
-        call: Use Poisson statistics
         task: Estimate the fractional statistical uncertainty.
         title: Poisson counting statistics
-        setup: A run records 400 net counts with negligible background uncertainty.
-        scene: A run has finished with four hundred net counts and somebody wants to know how well it is known. Beam time, material and shift hours are all scarce here.
+        scene: A run has finished with four hundred net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.
         assumes:
           - radioactive decays arrive at random
         takeaway: Four times as many counts are needed to cut statistical uncertainty in half.
         format: BALLPARK
-        why: "A repeat of the same run would not give the same total, and for counting like this the typical fluctuation grows like the square root of the number of counts. So the fractional uncertainty is one over that square root, and it falls slowly: four hundred counts gives five per cent, and halving that to two and a half means counting four times as long. That is what makes this a planning tool rather than a curiosity. Knowing what a longer run would actually buy is how experiments get planned instead of wished for."
+        answerText: About 5%.
+        why: "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. Four hundred counts gives five percent. To cut that in half, to 2.5 percent, you need four times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively."
+        call: Use Poisson statistics
+        setup: A run records 400 net counts with negligible background uncertainty.
         estimate:
           prompt: A counting run records 400 net counts, and Poisson fluctuations are about √N. Estimate the fractional statistical uncertainty.
           question: Choose the numerator and the count total.
@@ -1864,20 +1921,48 @@ missions:
             - Poisson fluctuation is about sqrt(N)
             - Fractional uncertainty is sqrt(N)/N
           relationship: Fractional uncertainty = 1 ÷ the square root of the number of counts.
-        answerText: About 5%.
       - group: CM
-        call: Verify yield and purity
-        task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
-        title: Analytical yield and purity
-        setup: You are reconciling a separation batch whose numbers do not close.
-        scene: A separation batch has come back and the numbers do not close. Downstream, somebody is going to cast this material assuming the report meant what they thought it meant.
+        task: Read the reported quantities, decide which belong in the material ledger, and close the input to within the allowed tolerance.
+        title: Close the material balance
+        scene: A separation batch has come back and the numbers do not close. Downstream, somebody is going to cast this material assuming the report meant what they thought it meant, so Chemistry has to close the ledger before release.
         assumes:
-          - a report can be accurate and still answer the wrong question
-        takeaway: Every materials report should state both quantity and quality.
-        format: DIAGNOSIS
-        why: Three different quantities are being confused. Chemical yield is the fraction of target material recovered. Radiochemical purity is the fraction of the measured activity that belongs to the species you wanted. Isotopic purity is the fraction of atoms of the right isotope. A batch can score well on one and badly on another, and each failure means something different upstream — so a yield figure is only as complete as the list of loss routes somebody actually measured. Material left on the vessel walls is not in any of the three numbers.
-        pack: cm8
-        answerText: Target adsorbed onto the vessel walls
+          - percent of input material can be added across mutually exclusive output routes
+          - purity and recovered quantity are different measurements
+        takeaway: A purity result cannot substitute for a closed material balance; losses outside measured process streams must still be counted.
+        format: BALANCE
+        question: Which uncounted route closes the material balance?
+        balance:
+          hint: Read every card before counting it. Only percentages of the original target material belong in this ledger; a percentage describing composition answers a different question.
+          total:
+            amount: 100
+            unit: "% of input"
+            label: Target material entering the separation
+          streams:
+            - id: product
+              label: Recorded product and other measured outputs
+              value: 93.5
+              display: 93.5% of input
+            - id: aqueous
+              label: Discarded aqueous stream
+              value: 0.4
+              display: 0.4% of input
+            - id: walls
+              label: Material recovered by vessel-wall swab
+              value: 5.8
+              display: 5.8% of input
+              hidden: true
+              note: This result is filed with the vessel inspection rather than the process-stream ledger.
+            - id: purity
+              label: Fraction of counts from the target isotope
+              value: 91
+              display: 91%
+              countable: false
+              unitNote: This is a fraction of measured activity, not a fraction of the original material input.
+          tolerance: 0.5
+        answerText: Count the vessel-wall loss. Recorded outputs account for 93.9% of the input; adding the 5.8% found on the walls gives 99.7%, which closes the 100% input within rounding.
+        why: The input is one hundred percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.
+        call: Verify yield and purity
+        setup: You are reconciling a separation batch whose numbers do not close.
   - title: Track neutrons through matter
     objective: Connect moderation, neutron detection, and the historical reason plutonium forced a different design path.
     briefing: Neutrons change energy, direction, and detectability as they move through matter. Use that foundation to understand why the plutonium program could not simply copy the first architecture.
@@ -1916,29 +2001,87 @@ missions:
         mapping: [0, 1, 2, 3]
         answerText: "Neutron loses energy but remains a neutron -> Elastic scattering. A billiard-ball collision: the target recoils with whatever share of the motion it can take, and the particle carries on with the rest; Neutron disappears and a compound nucleus forms -> Absorption. The target keeps the particle and becomes a heavier, excited species, so the travelling population drops by one; Direction changes with little energy loss -> Scattering off a heavy nucleus. The target barely recoils, so it takes almost nothing away and the path bends instead of slowing; A material slows neutrons efficiently through repeated collisions -> Moderation by light nuclei. A target of nearly the same mass can carry away a large fraction in a single hit, so a few dozen encounters reach thermal speeds"
       - group: P
-        call: Detect neutrons reliably
-        task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
-        title: Neutron detection
-        setup: You are checking a neutron counter that reads well below prediction.
+        task: Open the dependency chain behind each check, keep the evidence that does not share the counter threshold, and name the shared source that explains the low recorded rate.
+        title: Are the neutrons missing, or the counts?
         scene: A neutron counter is reading well below prediction and nobody yet knows whether the physics or the instrument is at fault. The measurement about to be built on this counter is one the whole plutonium programme depends on.
         assumes:
-          - a detector responds to charge, and a neutron carries none
-        takeaway: The best neutron detector depends on energy range, timing, and whether real-time data are required.
-        format: DIAGNOSIS
-        why: A neutron carries no charge, so it cannot ionise a detector the way an alpha particle does. Every neutron detector works indirectly. It turns the neutron into something charged, or into light, or into a radioactive product counted later. Each conversion has its own efficiency and its own energy range. Each is a place a count can be lost with nothing looking broken. So before believing a low number, find one measurement that does not go through the same electronics. A threshold set too high loses real events silently.
-        pack: p15
-        answerText: The discriminator threshold is set too high
+          - a neutron detector converts an interaction into an electrical pulse
+          - a discriminator rejects pulses below a set threshold
+        takeaway: Independent evidence can separate a missing physical signal from a failure in the instrument that reports it.
+        format: TRACE
+        question: Are neutrons failing to arrive, or is the counting chain discarding them?
+        trace:
+          hint: Open each reading and trace what it depends on. Keep at least one measurement that can see neutron arrival without using the discriminator, then identify the dependency shared by the failed counting readouts.
+          target: threshold
+          channels:
+            - id: counter
+              label: Recorded counter rate
+              reading: 340 counts/min (expected about 1,200 counts/min)
+              depends:
+                - source
+                - geometry
+                - detector_conversion
+                - threshold
+            - id: pulseheight
+              label: Pulse-height distribution
+              reading: large population just below the threshold (expected distribution clear of threshold)
+              depends:
+                - detector_conversion
+                - threshold
+            - id: foil
+              label: Activation foil at detector face
+              independent: true
+              reading: activity as predicted (expected activity as predicted)
+              depends:
+                - source
+                - geometry
+                - foil_activation
+            - id: geometry
+              label: Inverse-square geometry check
+              independent: true
+              reading: follows 1/r² within 4% (expected follows 1/r²)
+              depends:
+                - source
+                - geometry
+            - id: repeat
+              label: Five repeat counter runs
+              reading: all within 4% (expected about 5% statistical scatter)
+              depends:
+                - detector_conversion
+                - threshold
+          tolerance: 0
+          resources:
+            - id: threshold
+              label: Discriminator threshold
+            - id: source
+              label: Source strength
+            - id: geometry
+              label: Source-detector geometry
+            - id: detector
+              label: Detector conversion efficiency
+            - id: detector_conversion
+              label: detector conversion
+            - id: foil_activation
+              label: foil activation
+          independent:
+            - foil
+            - geometry
+        answerText: The neutrons are arriving; the discriminator threshold is too high. The activation foil sees the expected exposure while the counter records only 340/min and many real pulses sit just below the cut.
+        why: "The main counter is low, but that result depends on every stage of the counting chain. The activation foil does not: it sees the expected neutron exposure without using the discriminator electronics. Geometry also behaves as expected under the inverse-square check. Meanwhile the pulse-height distribution piles up just below the discriminator threshold. Those observations can all be true together only if neutrons are arriving and real detector pulses are being rejected. Agreement among dependent readouts is not independent evidence."
+        call: Detect neutrons reliably
+        setup: You are checking a neutron counter that reads well below prediction.
       - group: X
-        call: Explain why plutonium required implosion
         task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
         title: Why plutonium required implosion
-        setup: Match each observation to its implication for the plutonium weapon program.
-        scene: Measurements on reactor-produced plutonium have come back from the counters and Ordnance has been called in. What follows is the largest redirection of the programme so far.
+        scene: Measurements on reactor-produced plutonium have come back from the counters and Ordnance has been called in. The result changes not one component but the direction of the entire programme, and the reason has to be understood before the reorganization makes sense.
         assumes:
           - a chain reaction started early releases energy early
         takeaway: Material physics can determine the required system architecture.
         format: PROTOCOL
+        answerText: "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background -> Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat; A comparatively slow assembly remains vulnerable to an early neutron -> Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early; An early chain reaction can disrupt the assembly before the intended state is reached -> Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result; Los Alamos therefore reorganizes around a fast squeeze that arrives evenly from every side -> Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time"
         why: "Reactor-produced plutonium contains isotopes that emit neutrons on their own. The material supplies its own stray neutrons, at a rate nobody chose. A slow assembly spends longer in the state where one of those could start the chain. A chain that starts early releases enough energy to blow the pieces apart before most of the material has reacted. That is pre-initiation. It is a property of the material, not a defect better workmanship can fix. Implosion is the answer: squeeze from all sides, and cut the vulnerable time."
+        call: Explain why plutonium required implosion
+        setup: Match each observation to its implication for the plutonium weapon program.
         rebuttals:
           - The higher spontaneous-neutron background in reactor-produced plutonium is a material measurement. It is the fact everything downstream follows from.
           - "A slow assembly staying vulnerable longer is the timing consequence: more time in the dangerous state means more chances for a stray neutron."
@@ -1958,7 +2101,6 @@ missions:
           - "Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result."
           - Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time.
         mapping: [0, 1, 2, 3]
-        answerText: "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background -> Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat; A comparatively slow assembly remains vulnerable to an early neutron -> Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early; An early chain reaction can disrupt the assembly before the intended state is reached -> Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result; Los Alamos therefore reorganizes around a fast squeeze that arrives evenly from every side -> Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time"
   - title: Recognize the design pivot
     objective: Use neutron-background evidence to understand why one path was abandoned and inward compression became central.
     briefing: A new material property changes the program. First identify the background process, then see why the earlier approach became unacceptable, and finally translate the problem into the idea of inward compression.
@@ -1966,16 +2108,17 @@ missions:
     takeaway: Programs must change architecture when new evidence invalidates an original assumption.
     stops:
       - group: T
-        call: Understand spontaneous-fission backgrounds
         task: Estimate the neutrons expected during the slow assembly, then compare with the fast one.
         title: Spontaneous fission and neutron backgrounds
-        setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.
         scene: A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. Two assembly schemes are on the table, and one takes a thousand times longer than the other.
         assumes:
           - some heavy nuclei split without being hit by anything
         takeaway: The same background source term is negligible or decisive depending on how long the system is exposed to it.
         format: BALLPARK
-        why: A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends entirely on how long the assembly spends in a state where one stray neutron could start something, because the expected number of neutrons is the rate multiplied by that window. A process lasting a thousandth of a second sees a thousand times as many chances as one lasting a millionth. Same source term, same material, and two completely different verdicts — which is the whole reason to do the arithmetic rather than argue about the number.
+        answerText: About 10 neutrons for the slow assembly, against about 0.01 for the fast one.
+        why: A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees a thousand times as many chances as one lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.
+        call: Understand spontaneous-fission backgrounds
+        setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.
         estimate:
           prompt: A sample emits spontaneous-fission neutrons at about 10⁴ per second, and a slow mechanical assembly takes about 10⁻³ s to complete. Estimate how many neutrons are expected during the assembly window.
           question: Choose the spontaneous-fission rate and the assembly time.
@@ -1999,7 +2142,6 @@ missions:
             - Slow assembly window = 10^-3 s
             - Fast assembly window = 10^-6 s
           relationship: Expected events = the rate × the length of the window they could land in.
-        answerText: About 10 neutrons for the slow assembly, against about 0.01 for the fast one.
       - group: E
         call: Explain why Thin Man was abandoned
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
@@ -2024,16 +2166,17 @@ missions:
         order: [0, 1, 2, 3]
         answerText: 1 -> 2 -> 3 -> 4 (Measure an unexpectedly high spontaneous-neutron background in reactor-produced plutonium. -> Recognize that a slow assembly could begin reacting before the intended configuration was reached. -> Conclude that the plutonium gun concept carried an unacceptable pre-initiation risk. -> Concentrate the plutonium effort on the faster implosion approach that became Fat Man.)
       - group: X
-        call: Move from outward detonation to inward compression
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: From outward detonation to inward compression
-        setup: Order the high-level physical chain; no lens geometry or explosive recipe is included.
         scene: Ordinary high explosive detonates outward from wherever it was lit, and every intuition anybody on the Hill has comes from that. Implosion needs the opposite, and nobody has done it before.
         assumes:
           - a detonation travels outward from where it starts
         takeaway: The central challenge is controlled convergence, not simply a larger explosion.
         format: SEQUENCE
+        answerText: 1 -> 2 -> 3 -> 4 (Initiate the approved outer high-explosive system at multiple controlled points. -> Shape and redirect the resulting waves toward the center. -> Drive an inward-moving pressure front through inert surrounding layers and the plutonium assembly. -> Increase density rapidly enough to change the neutron-balance condition before expansion begins.)
         why: The central problem is controlled convergence rather than raw explosive power. The outer explosive system is initiated at multiple controlled points, because one point gives one outward wave and nothing else. Those waves are then shaped and redirected toward the centre — this is the step that has no precedent. The resulting inward front drives through the inert layers and the assembly. And the density has to rise fast enough to change the neutron balance before expansion begins, which is what makes speed part of the physics rather than a preference.
+        call: Move from outward detonation to inward compression
+        setup: Order the physical chain from initiation through inward compression.
         rebuttals:
           - Initiating at multiple controlled points comes first. A single point produces a single outward wave, and there is nothing to shape.
           - Shaping and redirecting the waves toward the centre is the step with no precedent, and it is what the lens programme exists for.
@@ -2045,7 +2188,6 @@ missions:
           - Drive an inward-moving pressure front through inert surrounding layers and the plutonium assembly.
           - Increase density rapidly enough to change the neutron-balance condition before expansion begins.
         order: [0, 1, 2, 3]
-        answerText: 1 -> 2 -> 3 -> 4 (Initiate the approved outer high-explosive system at multiple controlled points. -> Shape and redirect the resulting waves toward the center. -> Drive an inward-moving pressure front through inert surrounding layers and the plutonium assembly. -> Increase density rapidly enough to change the neutron-balance condition before expansion begins.)
   - title: Understand matter under compression
     objective: Connect equations of state, material phases, and wave shaping without jumping directly to a full system.
     briefing: Compression depends on how materials respond under pressure and how waves cross boundaries. Build the physical picture from bulk matter, to material phase behavior, to the purpose of wave shaping.
@@ -2099,36 +2241,36 @@ missions:
         pack: cm12
         answerText: A trace impurity stabilised an extra phase
       - group: X
-        call: Explain what an explosive lens does
-        task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
+        task: Match each lens-program question to the measurement or engineering action that can answer it.
         title: What an explosive lens does
-        setup: Match each lens-program question to the relevant physics or engineering idea.
         scene: The lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. Every part of that analogy has to be earned against real firing data.
         assumes:
           - a lens bends light by slowing it in some places more than others
         takeaway: A conceptual analogy must still be tested against the actual nonlinear physics.
         format: PROTOCOL
+        answerText: Do the candidate materials carry fronts at different speeds? -> Measure each propagation speed separately; Can those differences produce the intended arrival surface? -> Compare arrival times around the driven surface; Are joints and density variations distorting the result? -> Qualify as-built segments against repeat diagnostic shots; Is the final wave symmetric? -> Use independent timing and radiographic records around the assembly.
         why: An explosive lens puts together explosives with different detonation speeds. A front crossing the boundary between them is reshaped, and that speed contrast is the working principle. The boundaries are shaped so faster and slower paths arrive together, as one inward-curving front. Manufacturing then matters as physics. A gap or a property change at a segment boundary distorts the wave crossing it. And symmetry has to be measured rather than assumed, because detonation is violent and nonlinear in a way light is not.
+        call: Turn lens claims into measurements
+        setup: Match each program question to the evidence needed to answer it.
         rebuttals:
-          - Different regions transmitting the wave at different speeds is the detonation-velocity contrast. It is the property the whole device is built out of.
-          - Shaping the interfaces so different paths arrive together is wavefront shaping — the geometry, which the velocity contrast makes possible.
-          - Segment boundaries and material variation distorting the wave is manufacturing control. It is where a good design becomes a bad component.
-          - Determining whether the wave converges symmetrically is a measurement problem, and it is the one that says whether any of the three above worked.
+          - The speed contrast has to be measured as a material property before geometry can use it.
+          - Whether the interface does the intended shaping is an arrival-time question once the materials are combined.
+          - Manufacturing variation matters because an as-built boundary can change the propagation path even when the drawing is correct.
+          - Symmetry is an observed wavefront property. Build records alone cannot establish it.
         columns:
-          - What the lens has to do
-          - How it does it
+          - Question the lens program must settle
+          - Evidence or action that settles it
         scenarios:
-          - Different regions of the assembly transmit the detonation wave at different speeds.
-          - Interfaces are shaped so different paths reach the desired wavefront together.
-          - Segment boundaries and material variation can distort the wave.
-          - Diagnostics must determine whether the wave is converging symmetrically.
+          - Do the candidate materials carry the detonation front at sufficiently different speeds to create a useful contrast?
+          - When the materials are combined, do different paths arrive on the intended inward-moving surface together?
+          - Are segment joints and material variation distorting otherwise repeatable results?
+          - Is the wave actually converging symmetrically around the assembly?
         choices:
-          - Pair two explosives whose burn rates disagree. That mismatch in how fast each one carries a front is the raw material a lens is built from.
-          - Shape the material boundary so faster and slower paths combine into the desired inward-curving wavefront.
-          - Hold manufacture to tolerance and inspect every joint, because a gap or a few percent of density redirects the front as it crosses.
-          - Read arrival times around the sphere and photograph it in flight with x-rays, so the shape of the front is a record rather than an intention.
+          - Measure the propagation speed of each candidate explosive separately before combining them.
+          - Compare arrival times around the driven surface after the fast and slow regions have acted together.
+          - Qualify as-built segments and joints against repeated diagnostic firings rather than relying only on dimensions.
+          - Use independent timing and radiographic records around the assembly to reconstruct the wavefront.
         mapping: [0, 1, 2, 3]
-        answerText: Different regions of the assembly transmit the detonation wave at different speeds -> Pair two explosives whose burn rates disagree. That mismatch in how fast each one carries a front is the raw material a lens is built from; Interfaces are shaped so different paths reach the desired wavefront together -> Shape the material boundary so faster and slower paths combine into the desired inward-curving wavefront; Segment boundaries and material variation can distort the wave -> Hold manufacture to tolerance and inspect every joint, because a gap or a few percent of density redirects the front as it crosses; Diagnostics must determine whether the wave is converging symmetrically -> Read arrival times around the sphere and photograph it in flight with x-rays, so the shape of the front is a record rather than an intention
   - title: Make symmetry measurable
     objective: Turn a qualitative demand for symmetry into calibrated timing evidence and an engineering requirement.
     briefing: “Nearly simultaneous” is not a measurement. Define a symmetry metric, calibrate the timing channels that observe it, and see why simultaneity became a system requirement.
@@ -2170,29 +2312,48 @@ missions:
           relationship: Elapsed time = half-life × log2(first rate ÷ present rate).
         answerText: 8,000 to 500 is a factor of 16, which is four half-lives, so about 48 hours.
       - group: P
-        call: Calibrate timing channels
-        task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
-        title: Timing calibration
-        setup: You are finding out why a timing array disagrees with itself.
+        task: Change one part of the timing chain at a time. Compare the arrival-time spread after each substitution, then restore the live path to confirm which change actually removes the jitter.
+        title: Find where timing jitter enters
         scene: A timing array is disagreeing with itself, and until that is settled no symmetry claim from it means anything. The Hill is about to spend months measuring differences of nanoseconds.
         assumes:
-          - an instrument adds its own delays to what it records
-        takeaway: Timing systems require both a common reference and channel-by-channel calibration.
-        format: DIAGNOSIS
-        why: Every channel has to share one clock and have its own delays known. Cable length adds time. An electronic threshold shifts when a pulse is registered. A larger pulse crosses a threshold sooner than a smaller one even when the physical event was simultaneous. All of that is instrument, not physics — and the useful distinction is that a fixed error can be calibrated out, while a random one has to be engineered out. A channel with an uncalibrated delay produces a beautiful, repeatable, wrong answer.
-        pack: p12
-        answerText: Random jitter at the threshold
+          - a fixed delay shifts a distribution while random jitter broadens it
+          - a controlled substitution changes one part of a measurement chain at a time
+        takeaway: A controlled substitution localizes an instrument error only when one change removes the effect and reversing that change brings it back.
+        format: CONTROL
+        question: Which part of the live timing path is responsible for the broad arrival-time spread?
+        control:
+          hint: Run one substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.
+          baseline: 14
+          noise: 1
+          tolerance: 2
+          observable:
+            label: Live timing path
+            unit: ns
+          response: -13
+          truth: detector_pulse
+          variables:
+            - id: detector_pulse
+              label: Bypass live detector pulse formation with identical pulses injected at the electronics inputs
+            - id: cables
+              label: Replace the channel cables with equal-length reference leads while keeping live detector pulses
+            - id: discriminator
+              label: Replace the discriminator stage with a reference unit while keeping live detector pulses
+        answerText: The broad random spread enters in the live detector-pulse stage before the electronics-input injection point. Only bypassing that stage collapses the spread from 14 ns to about 1 ns, and restoring the live path brings the 14 ns spread back.
+        why: A useful control changes one suspected part of the measurement chain while leaving the rest in place. The live timing path shows a 14 ns spread. Equalized cables or a replacement discriminator leave nearly the same broad distribution, so neither explains it. Identical pulses injected at the electronics inputs collapse the spread to about 1 ns. When the live detector path is restored, the broad spread returns. The changing element is therefore the live pulse-formation stage upstream of the injection point.
+        call: Calibrate timing channels
+        setup: You are finding out why a timing array disagrees with itself.
       - group: E
-        call: Translate simultaneity into engineering
         task: Estimate the delay difference.
         title: Why simultaneity became an engineering requirement
-        setup: This exercise uses generic signal-cable values and does not state an actual Fat Man tolerance.
-        scene: Many detonators have to act so nearly together that their separate waves merge into one inward-moving shape. The values in this exercise are generic, not an actual tolerance.
+        scene: Several initiation channels have to act so nearly together that their separate wavefronts merge into one coordinated event. On the timing bench, path length is one measurable source of delay, and the conversion from length to time has to be explicit.
         assumes:
           - a signal travels along a cable at a finite speed
         takeaway: Timing synchronization is a physical interface, not merely a clock-setting problem.
         format: BALLPARK
+        answerText: Delta t = 0.40/(2.0 x 10^8) = 2 x 10^-9 s, or 2 ns.
         why: "A small delay at one point does not produce a slightly worse implosion; it produces an asymmetric one. So simultaneity stops being a matter of setting clocks and becomes a physical interface problem: a difference in cable path length is a difference in arrival time, at the speed the signal travels. Divide the path mismatch by that speed and the answer is in nanoseconds. Cables, capacitors, switches and firing units all contribute time, and all of it has to be accounted for rather than assumed small."
+        call: Translate simultaneity into engineering
+        setup: Two timing channels on the bench differ only in signal-cable path length.
         estimate:
           prompt: Two signal paths differ in length by 0.4 m, and signals travel at 2×10⁸ m/s in the cable. Estimate the timing difference in nanoseconds.
           question: Choose the path mismatch, the signal speed, and the seconds-to-nanoseconds conversion.
@@ -2216,7 +2377,6 @@ missions:
             - Two cable paths differ by 0.40 m
             - Delay difference = path difference / signal speed
           relationship: Delay = path mismatch ÷ signal speed. Multiply by 10⁹ to turn seconds into nanoseconds.
-        answerText: Delta t = 0.40/(2.0 x 10^8) = 2 x 10^-9 s, or 2 ns.
   - title: Build evidence with real materials
     objective: Use mechanical properties, inert mockups, and high-speed imaging to test a difficult system safely.
     briefing: The project needs evidence before a full integrated event. Characterize the materials, build representative non-nuclear hardware, and choose diagnostics that reveal fast internal behavior.
@@ -2224,50 +2384,52 @@ missions:
     takeaway: Mockups are useful only when their materials, geometry, and diagnostics preserve the question being tested.
     stops:
       - group: CM
-        call: Characterize mechanical properties
         task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
         title: Mechanical properties
-        setup: You are running the failure analysis on a component that broke in service.
-        scene: A component has failed in service and the failure analysis has landed on your bench. This programme cannot spare either the material or the weeks.
+        scene: A component has failed in service and the failure analysis has landed on your bench. This programme cannot spare either the material or the weeks, so the question is what changed between the qualified coupon and this actual part.
         assumes:
           - a material can be strong in one sense and weak in another
         takeaway: Strength, stiffness, hardness, and toughness should not be treated as synonyms.
         format: DIAGNOSIS
-        why: Four properties are involved and they are not synonyms. Elastic modulus is stiffness — how much it deflects under load. Yield strength is where permanent deformation begins. Hardness is resistance to indentation. Toughness is how much energy the material absorbs before it fractures. A material can be hard and brittle, or soft and very tough, so choosing the wrong one of these as 'strong' is how a part that passed every specification arrives cracked. A part is only as good as the property nobody inspected.
-        pack: cm17
         answerText: Machining damaged the surface layer
+        why: Four properties are involved and they are not synonyms. Elastic modulus is stiffness — how much it deflects under load. Yield strength is where permanent deformation begins. Hardness is resistance to indentation. Toughness is how much energy the material absorbs before it fractures. A material can be hard and brittle, or soft and very tough, so choosing the wrong one of these as 'strong' is how a part that passed every specification arrives cracked. A part is only as good as the property nobody inspected.
+        call: Characterize mechanical properties
+        setup: You are running the failure analysis on a component that broke in service.
+        pack: cm17
       - group: E
-        call: Use mockups and inert assemblies
         task: The written limit is well below the critical mass. What is the argument for keeping it there?
         title: Why the limit is written down
         place: Chemistry and Metallurgy Building
-        scene: Two half-assemblies go on the same bench this afternoon. The procedure sets a mass limit and a spacing. Both sit well below anything calculated to be critical.
+        scene: Two half-assemblies go on the same bench this afternoon. The procedure sets a mass limit and a spacing, both comfortably inside the calculated physical boundary, and the crew wants to know why the written margin is deliberately larger.
         assumes:
           - criticality depends on geometry and surroundings as well as on mass
-        takeaway: Administrative limits sit far below the physical limit, because the failures are human rather than nuclear.
+        takeaway: Administrative limits create margin against combinations of mass, geometry, reflection, moderation, and ordinary handling error.
         format: CHOICE
+        answerText: The written limit is kept well inside the physical boundary so one credible handling mistake or environmental change does not consume the whole margin.
         why: Criticality depends on mass, geometry, reflection and moderation. Any of those can change by accident. A hand nearby reflects neutrons. A spilled solution moderates them. A second piece on the bench adds mass. The written limit sits far below the physical one, so one human error cannot reach it. It is written down so the margin does not depend on who is on shift. Two of this laboratory's fatal accidents were exactly that error.
+        call: Apply a criticality-safety margin
         rebuttals:
-          - The calculations are good; the limit exists because the inputs to them get changed by accident.
-          - A physical limit reached by surprise kills people. The written limit is what keeps distance from it.
-          - Reflection is possible at any mass, and a hand or a bench is a reflector.
+          - The written margin is not primarily a penalty for bad theory. It is protection against inputs changing during real handling.
+          - A subcritical piece can still interact with another piece or with reflecting and moderating material nearby.
+          - Critical mass is not a single environment-free number. Geometry and surroundings remain part of the physical problem.
         choices:
-          - The margin absorbs the mistakes that happen — a miscount, a moved reflector.
-          - The calculation of critical mass is unreliable, so the limit compensates for it.
-          - "It is a formality: the physical limit is the only one that matters."
-          - Below the limit the material cannot be reflected, so geometry no longer matters.
-        answer: The margin absorbs the mistakes that happen — a miscount, a moved reflector.
+          - It keeps any single credible handling error from consuming the entire safety margin.
+          - It mainly compensates for uncertainty in the calculated critical mass, so better calculations should let the limit move close to that value.
+          - It guarantees each piece is safe in isolation, so spacing and nearby materials no longer matter once the mass limit is met.
+          - It standardizes inventory control; the surrounding geometry is already fully represented by the critical-mass number.
+        answer: It keeps any single credible handling error from consuming the entire safety margin.
       - group: P
-        call: Apply high-speed imaging and radiography
         task: Estimate the blur distance.
         title: High-speed imaging and radiography
-        setup: An object moves at 500 m/s during a 1 microsecond exposure.
-        scene: Everything worth seeing during an implosion happens inside an opaque assembly, in microseconds. These photographs are the evidence the design argument gets settled with.
+        scene: On the analysis table are high-speed photographs from yesterday’s implosion test. Beside them sit several radiographs of the opaque assembly. Each image is labeled with its exposure time. The notebook also lists estimated object speeds and the feature sizes the team wants measured.
         assumes:
           - a photograph records everything that happened while the shutter was open
         takeaway: Exposure time sets a direct spatial-blur limit for rapidly moving objects.
         format: BALLPARK
-        why: "Anything moving during the exposure travels a real distance. That distance is blur: speed times exposure time. Five hundred metres per second across one microsecond is half a millimetre. That is the resolution limit whatever the optics can do. Exposure time, viewing angle, penetration and timing together decide what an image can establish. Blur is the one nobody can argue with afterwards, because it is arithmetic rather than judgement."
+        answerText: 0.5 mm.
+        why: "Anything moving during the exposure travels a real distance, and that distance becomes motion blur: speed times exposure time. Five hundred metres per second across one microsecond is half a millimetre. That is a resolution limit even if the optics are perfect. Exposure time, viewing angle, penetration, and timing all decide what an image can establish. Blur is especially useful because it is calculable before the shot, so the diagnostic can be designed around the feature size rather than judged afterwards."
+        call: Apply high-speed imaging and radiography
+        setup: An object moves at 500 m/s during a 1 microsecond exposure.
         estimate:
           prompt: An object moving at 500 m/s is recorded with a 1-microsecond (10⁻⁶ s) exposure. Estimate the motion blur in millimetres.
           question: Choose the speed, the exposure time, and the metres-to-millimetres conversion.
@@ -2289,7 +2451,6 @@ missions:
           givens:
             - Blur distance = speed x exposure time
           relationship: Motion blur = speed × exposure time. Multiply by 1,000 to turn metres into millimetres.
-        answerText: 0.5 mm.
   - title: Synchronize many channels
     objective: Compare physical timescales, qualify initiation hardware, and coordinate many channels as one system.
     briefing: A multi-channel system can fail even when every part works separately. Compare the relevant timescales, establish lot-acceptance evidence, and then confront synchronization across the full set of channels.
@@ -2297,16 +2458,17 @@ missions:
     takeaway: Synchronization is a systems problem involving component variability, signal timing, and shared failure modes.
     stops:
       - group: T
-        call: Compare competing timescales
         task: Estimate how far ahead the early side runs, in millimetres.
         title: Competing timescales
-        setup: A shock front crosses a generic assembly at about 8 x 10^3 m/s. Two initiation channels fire 0.5 microseconds apart. These are classroom values, not a Fat Man specification.
-        scene: Several clocks run at once during a nuclear explosion, and the whole design problem lives in the gaps between them. The figures here are classroom values.
+        scene: Several physical clocks run at once during rapid compression, and the design problem lives in the gaps between them. On a test fixture, two initiation channels have different timestamps, and the team has the measured wave speed and a ruler.
         assumes:
           - a wave crosses a distance in a time set by its speed
         takeaway: Processes separated by many orders of magnitude often require different numerical or experimental treatments.
         format: BALLPARK
+        answerText: About 4 mm.
         why: "Several clocks run at once. Neutron generations multiply on one. The material compresses on another. The assembly begins to blow itself apart on a third. The device works only if multiplication outruns disassembly. These processes differ by many powers of ten, so no single calculation or experiment can hold all of them. The interfaces between them are where it gets hard. This is one: a timing disagreement becomes a geometric error at the speed the wave travels. Half a microsecond is millimetres of asymmetry."
+        call: Compare competing timescales
+        setup: A shock front crosses a test fixture at about 8 x 10^3 m/s. Two initiation channels fire 0.5 microseconds apart.
         estimate:
           prompt: A shock front crosses the assembly at about 8×10³ m/s. Two initiation channels fire 0.5 microseconds (5×10⁻⁷ s) apart. Estimate how far ahead the early side’s front runs by the time the late one starts, in millimetres.
           question: Choose the wave speed, the channel spread, and the metres-to-millimetres conversion.
@@ -2330,39 +2492,63 @@ missions:
             - Channel spread = 0.5 microseconds = 5 x 10^-7 s
             - Lead distance = speed x time
           relationship: Distance = speed × time. Multiply by 1,000 to turn metres into millimetres.
-        answerText: About 4 mm.
       - group: E
-        call: Qualify detonator lots
-        task: The detonator programme can run one of these. Which?
-        title: Detonator development and lot acceptance
-        setup: The detonator program has three competing requests for its next 100 credits.
-        scene: The detonator programme has three competing requests and enough credit for one hundred points of work. A detonator turns an electrical pulse into the start of an explosive wave.
+        task: Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.
+        title: What evidence qualifies a lot?
+        scene: The detonator programme has competing requests and one hundred points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.
         assumes:
-          - a sample of a production run says something about the rest of it
-        takeaway: Reliability belongs to the manufactured population, not the prototype champion.
-        format: CHOICE
-        why: Implosion does not need a good detonator. It needs every unit in a lot to fire inside a spread of well under a microsecond, because the symmetry depends on simultaneity and the worst unit sets the result. That is a property of a manufactured population rather than of a design, so the evidence has to be a distribution — mean and spread from a sample large enough to bound the tail. Testing the best units, or a handful chosen by an engineer, measures the way to know it is to sample the population and look at the tail.
-        rebuttals:
-          - One unit fired repeatedly measures that unit. It says nothing about the next thirty off the line, which is what the device will be built from.
-          - Dimensional inspection catches parts outside the drawing. The requirement here is written in nanoseconds, and two parts inside the same tolerance can fire measurably apart.
-          - Waiting for the full-system trial makes every component a suspect at once when it disappoints, and there is one trial.
-        choices:
-          - Sample several lots and measure the timing spread of each.
-          - Build one unit to the best achievable standard and fire it repeatedly.
-          - Tighten the drawing tolerances and re-inspect the parts dimensionally.
-          - Wait for the first full-system trial and judge the detonators from it.
-        answer: Sample several lots and measure the timing spread of each.
+          - a sample can estimate the spread of a production population
+          - a component test is more diagnostic than an integrated test when the component itself is the question
+        takeaway: Reliability is a property of a manufactured population, so acceptance evidence must measure its distribution rather than its best member.
+        format: VALUE
+        question: Which measurement tells you whether a production lot is reliable?
+        value:
+          hint: You can buy one test plan. Read what each plan would reveal before spending the credits; the release decision is about the manufactured population.
+          budget:
+            amount: 100
+            unit: credits
+          decision: Release or hold a production lot based on evidence about its timing-performance distribution.
+          options:
+            - id: lots
+              label: Sample several lots and measure timing spread
+              cost: 100
+              axis: population timing distribution
+              decisive: true
+              reveals: Whether the manufactured population, including its tail, meets the timing-performance requirement.
+            - id: champion
+              label: Build one best-achievable unit and fire it repeatedly
+              cost: 100
+              axis: single-unit repeatability
+              decisive: false
+              reveals: How repeatable one specially prepared unit is, without showing lot-to-lot or unit-to-unit spread.
+            - id: dimensions
+              label: Tighten drawing tolerances and re-inspect dimensions
+              cost: 100
+              axis: dimensional conformance
+              decisive: false
+              reveals: Whether parts match the drawing more closely, not whether accepted parts fire with the required timing spread.
+            - id: system
+              label: Wait for the next full-system trial
+              cost: 100
+              axis: integrated outcome
+              decisive: false
+              reveals: Whether the whole system performed, while leaving many component causes entangled if it did not.
+        answerText: Spend the test budget sampling several lots and measuring the timing spread of each. That evidence directly tests the population being accepted.
+        why: A single excellent unit can be repeatable and still say nothing about the next units off the line. Lot acceptance is a population claim. The evidence therefore has to sample the population and measure the spread of the quantity that matters. Dimensional inspection checks conformance to a drawing, not timing performance. A full-system test mixes too many causes together. Sampling several lots gives a distribution, exposes tails, and directly answers the decision the programme must make.
+        call: Qualify detonator lots
+        setup: The detonator program has three competing requests for its next 100 credits.
       - group: X
-        call: Synchronize many channels
         task: Estimate sigma_total.
         title: Synchronizing many channels
-        setup: Three independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.
-        scene: Dozens of detonators and diagnostic channels have to share one time reference, and the delays come from everywhere. A budget that omits one term is how a system passes every check and fails as a whole.
+        scene: The timing-budget meeting has stalled. Each subsystem lead insists that their contribution is small, yet the combined requirement is close enough that nobody wants to sign it. The system cannot move to the next review until one number closes the argument.
         assumes:
           - independent errors do not simply add
         takeaway: A timing budget must include the full measurement chain.
         format: BALLPARK
+        answerText: sigma_total = sqrt(29), about 5.4 ns.
         why: "The physical system contributes some delay, cable lengths contribute more, a trigger threshold shifts the moment a pulse is registered, and the recording instrument adds its own. Los Alamos handles this by building a timing budget: every contribution named, measured and combined. Independent contributions add in quadrature — squared, summed, square-rooted — so the largest term dominates and several smaller ones still raise the total. Two, three and four nanoseconds do not make nine; they make about five and a half."
+        call: Synchronize many channels
+        setup: Three independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.
         estimate:
           prompt: Three independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.
           question: Choose the three component uncertainties to combine in quadrature.
@@ -2386,7 +2572,6 @@ missions:
             - sigma_total = sqrt(2^2 + 3^2 + 4^2) ns
             - Do not add signs, because these are uncertainty scales
           relationship: "Independent timing errors add in quadrature: the root of the sum of the squares. They do not add straight."
-        answerText: sigma_total = sqrt(29), about 5.4 ns.
   - title: Build an uncertainty budget
     objective: Combine theoretical uncertainty, measurements that share an error, and system-level evidence into one decision tool.
     briefing: More data do not automatically produce more confidence. Carry uncertain inputs through, identify measurements that share an error, and assign the uncertainty that belongs to the integrated compression claim.
@@ -2394,16 +2579,17 @@ missions:
     takeaway: Uncertainties must be traced through the full evidence chain, especially when measurements share hardware or assumptions.
     stops:
       - group: T
-        call: Carry independent uncertainties through
         task: Estimate the total fractional uncertainty.
         title: Carrying uncertainty through
-        setup: A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.
         scene: A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.
         assumes:
           - two independent errors are unlikely to be wrong the same way at once
         takeaway: Adding independent uncertainties linearly is usually too pessimistic; ignoring correlation can be too optimistic.
         format: BALLPARK
-        why: "Independent uncertainties combine in quadrature: each is squared, the squares are added, and the root is taken. Eight per cent and six per cent make ten, not fourteen. The consequence is that the largest term dominates and small ones matter far less than intuition suggests — halving the six per cent moves the total barely at all, while halving the eight per cent moves it a great deal. For a laboratory with limited people and time, that ranking is the point: the first job of an uncertainty calculation is to say where effort should go."
+        answerText: About 10%.
+        why: "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. Eight percent and six percent make ten, not fourteen. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent."
+        call: Carry independent uncertainties through
+        setup: A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.
         estimate:
           prompt: A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the two are independent. Estimate the combined uncertainty.
           question: Choose the two component uncertainties to combine in quadrature.
@@ -2425,18 +2611,18 @@ missions:
           givens:
             - Independent fractional uncertainties combine in quadrature
           relationship: "Independent uncertainties add in quadrature: the root of the sum of the squares."
-        answerText: About 10%.
       - group: P
-        call: Recognize measurements that share an error
         task: A nucleus at rest splits into a heavy and a light fragment. Which carries more kinetic energy?
         title: Where the fragments go
         place: Diagnostics Bay
-        scene: A nucleus at rest splits into two fragments, one heavy and one light. The team is arguing about which one carries more of the kinetic energy.
+        scene: A nucleus initially at rest splits into a heavy fragment and a light fragment. The team has measured the fragment masses and is arguing about which one should carry the larger share of kinetic energy before looking at the detector data.
         assumes:
           - momentum is conserved in an isolated system
         takeaway: Momentum conservation fixes the ratio of fragment speeds, and energy follows from it.
         format: CHOICE
-        why: "The nucleus was at rest, so total momentum is zero and the fragments leave with equal and opposite momentum: the lighter one moves faster in inverse proportion to its mass. Kinetic energy is momentum squared over twice the mass, so with momenta equal the energies go as one over mass — the lighter fragment takes the larger share. Both conservation laws are doing separate work here, which is the point: momentum fixes the speeds, and energy then follows from them."
+        answerText: The lighter fragment carries more kinetic energy. Equal and opposite momenta imply K = p²/(2m), so at the same |p| the smaller mass has the larger kinetic energy.
+        why: The nucleus starts at rest, so total momentum is zero. The two fragments therefore leave with equal and opposite momentum. The lighter fragment must move faster because the momentum magnitude is the same for both. Kinetic energy can be written as p²/(2m). At equal momentum, the smaller mass has the larger kinetic energy. Momentum conservation fixes the relation between the motions; the energy formula then tells how the released energy is divided.
+        call: Recognize measurements that share an error
         rebuttals:
           - Kinetic energy at fixed momentum falls with mass rather than rising with it.
           - Equal momenta do not mean equal energies, because energy depends on momentum squared over mass.
@@ -2448,18 +2634,18 @@ missions:
           - It cannot be decided without knowing the two binding energies.
         answer: "The lighter one: equal and opposite momenta give it the greater speed."
       - group: X
-        call: Build the implosion uncertainty budget
         task: Read the whole reading panel, then select the two causes that together account for every reading. No single cause does.
         title: Build the implosion uncertainty budget
-        setup: You are assigning an implosion trial's anomalies to the right uncertainty terms.
-        scene: An implosion trial has produced anomalies and each one has to be assigned to the term it belongs to. This programme has very little effort left to spend in the wrong place.
+        scene: An implosion trial has returned two anomalies, and the next development cycle can afford only one major push. Division leads are waiting outside the analysis room to learn where the effort goes. Name the wrong source and weeks disappear into the wrong fix.
         assumes:
           - two problems can have two different causes
         takeaway: Improvement starts by naming the dominant source of uncertainty.
         format: DIAGNOSIS
-        why: "A budget lists the separate contributions: material properties, geometry, timing, diagnostics, models. For each one it estimates how much it moves the final claim. Its value is not the total but the ranking. Improvement starts with the dominant source, and effort spent anywhere else changes nothing. The honesty of it matters here too. When two anomalies sit in different subsystems, the budget has two entries. Force one cause onto both and you misattribute one of them — and that is the entry somebody then goes and works on."
-        pack: x18
         answerText: Explosive lot-to-lot wave-speed variation + Attenuation-model error in the density inversion
+        why: "A budget lists the separate contributions: material properties, geometry, timing, diagnostics, models. For each one it estimates how much it moves the final claim. Its value is not the total but the ranking. Improvement starts with the dominant source, and effort spent anywhere else changes nothing. The honesty of it matters here too. When two anomalies sit in different subsystems, the budget has two entries. Force one cause onto both and you misattribute one of them — and that is the entry somebody then goes and works on."
+        call: Build the implosion uncertainty budget
+        setup: You are assigning an implosion trial's anomalies to the right uncertainty terms.
+        pack: x18
   - title: Design the integrated non-nuclear campaign
     objective: Set acceptance criteria, instrument the trial, identify the critical path, and choose tests that discriminate among explanations.
     briefing: The project is ready to combine subsystems without nuclear material. Define what counts as acceptable, preserve interpretable measurements, schedule the dependencies, and make the campaign answer the most important unresolved question.
@@ -2467,16 +2653,17 @@ missions:
     takeaway: An integrated trial succeeds when criteria, diagnostics, schedule, and scientific discrimination are designed together.
     stops:
       - group: CM
-        call: Set acceptance criteria
         task: Estimate the conservative lower bound of the measurement.
         title: Acceptance criteria
-        setup: A property must be at least 100 units. The measurement is 102 with uncertainty +/-3 units.
         scene: A property has to be at least a hundred units and the measurement reads a hundred and two, plus or minus three. Material this scarce cannot be scrapped casually, or accepted on hope.
         assumes:
           - a measurement has a range, not just a value
         takeaway: Acceptance criteria need explicit rules for uncertainty and borderline results.
         format: BALLPARK
-        why: An acceptance criterion turns good material into something testable. A limit, a method, and a stated uncertainty. Results near the boundary are exactly why the rule has to say what to do about that uncertainty. Agreed in advance, rather than argued over once the number is on the table. The low end of this measurement is ninety-nine, which is under the limit. So the result is not a clean pass, whatever the middle of it says. A rule that reads only the central value is a rule that fails at the boundary.
+        answerText: About 99 units, which is below the 100-unit threshold, so it is not an unambiguous pass.
+        why: "An acceptance criterion turns a desired property into a rule: a limit, a measurement method, and a stated uncertainty. Results near the boundary are why the uncertainty rule must be agreed before the number is known. Here the central value is 102, but the lower plausible value is 99. That falls below the 100-unit requirement, so the measurement does not demonstrate a clean pass. Reading only the midpoint treats an uncertain measurement as though it were exact."
+        call: Set acceptance criteria
+        setup: A property must be at least 100 units. The measurement is 102 with uncertainty +/-3 units.
         estimate:
           prompt: A property must be at least 100 units. The measurement reads 102 units with an uncertainty of ±3 units. Estimate the conservative lower bound.
           question: Choose the measured value and the uncertainty.
@@ -2498,39 +2685,63 @@ missions:
           givens:
             - The lower plausible value is about 99
           relationship: The lower bound of a result = the measured value − its uncertainty. Compare that against the threshold, not the central value.
-        answerText: About 99 units, which is below the 100-unit threshold, so it is not an unambiguous pass.
       - group: P
-        call: Instrument the non-nuclear test
-        task: One week of facility time. Which test do you run?
-        title: Instrumented non-nuclear tests
-        setup: Three test concepts compete for one week of facility time.
-        scene: Three test concepts are competing for one week of facility time. A non-nuclear test uses inert or surrogate material to reproduce motion, timing and shock behaviour without a chain reaction.
+        task: Spend the single week of facility time on the test whose possible outcomes would separate the competing timing hypotheses.
+        title: Buy the test that can decide
+        scene: Three team leads are waiting outside the facility office, each with a test they say cannot wait. There is one week of access left in the schedule, and only one proposal can take it. The scheduler needs one name before Monday.
         assumes:
-          - an experiment is worth what it can rule out
-        takeaway: A small decisive test can be more valuable than a large ambiguous one.
-        format: CHOICE
-        why: "A test earns its facility time by being able to come out either way and by changing what the programme does next. Work out, before firing, what each possible result would mean: if both hypotheses predict the same trace, the shot cannot tell them apart and its cost buys nothing but reassurance. That is why the quantity that separates them is chosen first and the instrumentation designed around it, rather than instrumenting whatever is easy and hoping the record settles something. A result that both hypotheses predict is an expensive way of learning nothing, however large the shot was."
-        rebuttals:
-          - A full assembly with limited diagnostics produces a spectacular record with too many possible causes to attribute anything to.
-          - Repeating one condition measures the scatter at a point already known, and separates no hypothesis at all.
-          - A repeat with no configuration record cannot be compared with the shot it is repeating, which is the only thing that would have made it useful.
-        choices:
-          - A small test that cleanly separates the two competing timing hypotheses.
-          - A full-scale assembly shot, with the diagnostics that will fit around it.
-          - A long series of repeat shots at one condition, for the statistics.
-          - A repeat of last month’s test, whose configuration record was never written up.
-        answer: A small test that cleanly separates the two competing timing hypotheses.
+          - an experiment is useful when different explanations predict different outcomes
+          - facility time is limited
+        takeaway: A test is valuable when its possible outcomes distinguish competing explanations, not when it merely produces more data.
+        format: VALUE
+        question: Which test changes the programme's next decision?
+        value:
+          hint: You have one facility week. Open each plan to see what its result would tell you, then spend the week on the evidence that can separate the two timing explanations.
+          budget:
+            amount: 1
+            unit: facility week
+          decision: Choose which timing explanation to pursue in the next design cycle.
+          options:
+            - id: discriminate
+              label: Small test aimed at the timing signature where the hypotheses differ
+              cost: 1
+              axis: hypothesis separation
+              decisive: true
+              reveals: Which timing hypothesis survives when the one observable they predict differently is measured.
+            - id: fullscale
+              label: Full-scale assembly shot with limited diagnostics
+              cost: 1
+              axis: integrated performance
+              decisive: false
+              reveals: Whether the integrated assembly performs well or badly, while leaving several causes capable of producing the same result.
+            - id: repeats
+              label: Long repeat series at the already-tested condition
+              cost: 1
+              axis: repeatability
+              decisive: false
+              reveals: The statistical scatter at a condition already known, without distinguishing the two explanations.
+            - id: undocumented
+              label: Repeat last month's poorly documented configuration
+              cost: 1
+              axis: comparability
+              decisive: false
+              reveals: A new outcome that cannot be cleanly compared with the old one because the original configuration is uncertain.
+        answerText: Use the week on the small test that cleanly separates the two timing hypotheses. Its outcomes point to different explanations, so the result changes what the programme does next.
+        why: Before a test is run, each hypothesis should predict what the chosen observable will do. If both hypotheses predict the same trace, even perfect data cannot separate them. Repeating one condition can reduce statistical uncertainty while leaving the decision unchanged. A large integrated shot can also be ambiguous if several causes move the same output. The valuable test is the smallest one whose outcomes differ between the hypotheses, with diagnostics aimed directly at that difference.
+        call: Instrument the non-nuclear test
+        setup: Three test concepts compete for one week of facility time.
       - group: E
-        call: Identify the critical path
         task: Estimate how much a parallel chain can slip before it controls the date.
         title: Critical path to an integrated trial
-        setup: "A simplified schedule has three dependency chains: lens inspection at 3 + 4 + 2 weeks, electrical qualification at 2 + 3 + 2, and casing work at 2 + 2 + 3."
-        scene: Three chains of work are running in parallel and the integrated trial cannot happen until the longest one finishes. Fat Man's schedule is managed this way.
+        scene: "Three chains of work are running in parallel, and the integrated trial cannot happen until the longest one finishes. Fat Man's schedule is managed this way: the calendar is controlled by dependencies, not by how many tasks look busy."
         assumes:
           - work that can happen in parallel does not add up
         takeaway: Schedule management starts with dependencies, not activity counts.
         format: BALLPARK
+        answerText: Two weeks of float; a third week of slippage makes it the new critical path.
         why: The longest chain is the critical path. It is the only place where adding people or shifts moves the date. Effort poured into a task that is not on it changes nothing, however busy it makes everyone. It is spent on float that was already there. Float is the gap between the controlling chain and the one being worked on, and it is finite. Enough slippage on a parallel chain makes that chain the new critical path. At which point the whole calculation has to be done again.
+        call: Identify the critical path
+        setup: "A simplified schedule has three dependency chains: lens inspection at 3 + 4 + 2 weeks, electrical qualification at 2 + 3 + 2, and casing work at 2 + 2 + 3."
         estimate:
           prompt: The controlling chain of an integrated trial runs 9 weeks. A parallel chain in the same trial runs 7 weeks. Estimate how much the parallel chain can slip before it becomes the chain that sets the date.
           question: Choose the controlling chain duration and the parallel chain duration.
@@ -2554,28 +2765,28 @@ missions:
             - Each other chain totals 7 weeks
             - Float = controlling chain - parallel chain
           relationship: Float on a parallel chain = the length of the controlling chain − the length of that chain.
-        answerText: Two weeks of float; a third week of slippage makes it the new critical path.
       - group: X
-        call: Plan the integrated campaign
         task: A half-scale shot is fired. Which of its results transfer to full scale?
         title: What a scaled shot can and cannot tell you
         place: Implosion Test Range
-        scene: "A half-scale shot is proposed: an eighth of the explosive, two weeks instead of six. The detonation velocity is 8.8 km/s at either size, the reaction zone is a fraction of a millimetre at either size, and the room is arguing about which numbers carry over."
+        scene: "A half-scale shot is proposed: an eighth of the explosive and a much shorter schedule. The material detonation velocity is listed at both scales, and the team has geometric dimensions, reaction-zone measurements, and timing records spread across the table."
         assumes:
           - a dimensionless ratio has the same value at any scale
         takeaway: A scaled experiment reproduces the dimensionless quantities, and only what depends on them transfers.
         format: CHOICE
+        answerText: Only conclusions governed by matched dimensionless groups transfer directly. Effects tied to fixed material length or time scales must be checked separately.
         why: "Scaling works through dimensionless groups: reproduce those and the phenomena they govern reproduce too. What does not scale is anything with a dimension of its own — a detonation velocity, a diffusion length, a reaction time — because halving the geometry does not halve them. So a half-scale shot can settle a symmetry question governed by ratios and cannot settle a timing margin measured in microseconds. The discipline is to state, before firing, which quantities the shot is entitled to decide."
+        call: Decide what scaling preserves
         rebuttals:
-          - "Similar geometry is necessary and not sufficient: the material timescales stay where they are."
-          - Plenty transfers. Ratios and shapes are exactly what a scaled shot is for.
-          - Timings are the classic thing that does NOT scale, because they are fixed by material properties.
+          - Unchanged velocity does not make absolute timing transferable when the path length changes.
+          - A single scale factor works only when every relevant physical length and time scales with the geometry; intrinsic material scales do not.
+          - Scaled experiments can be quantitatively predictive when the dimensionless groups governing the phenomenon are matched.
         choices:
-          - Anything set by dimensionless ratios transfers, and anything set by a length does not.
-          - All of it, since the geometry is similar and physics does not care about size.
-          - None of it, because the materials behave differently at different sizes.
-          - Only the timings, since time is the same at any scale.
-        answer: Anything set by dimensionless ratios transfers, and anything set by a length does not.
+          - Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to fixed material length or time scales.
+          - Transfer the wave timing directly because detonation velocity is unchanged, even though every geometric path is shorter.
+          - Transfer all geometric and timing conclusions after multiplying lengths and times by the same scale factor.
+          - Treat the scaled shot as qualitative only, because material properties prevent any quantitative similarity between scales.
+        answer: Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to fixed material length or time scales.
   - title: Treat Trinity as an experiment
     objective: Define what the integrated test must answer, align field engineering with diagnostics, and validate predictions against independent evidence.
     briefing: A dramatic event is not automatically a useful experiment. Specify the questions in advance, build the field system around the evidence needs, cover the failure modes with diagnostics, and establish how predictions will be judged.
@@ -2583,47 +2794,48 @@ missions:
     takeaway: A decisive test requires predeclared questions, independent diagnostics, and a comparison between predicted and observed outcomes.
     stops:
       - group: X
-        call: State what Trinity had to answer
-        task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
+        task: Match each question Trinity must answer to the evidence that can actually settle that question.
         title: What Trinity had to answer
-        setup: Match each question to the evidence Trinity was intended to provide.
-        scene: Trinity is being written as a set of questions before it becomes an event, and this is that document. There is one device and one attempt.
+        scene: Trinity is being written as a set of questions before it becomes an event. One full-system attempt will carry dozens of expectations, and every division wants its own result treated as decisive. There will be no second shot to clarify what the first one meant.
         assumes:
           - a test proves what it was designed to ask
         takeaway: A full-system test should be written as a set of questions before it becomes an event.
         format: PROTOCOL
-        why: A test without its questions written down in advance becomes an argument afterwards about what it proved. Four questions are in play and they are answerable by different evidence. Whether the integrated configuration produces the predicted chain reaction needs the full-scale event, because no component test assembles the whole chain. Whether the firing system acted in sequence comes from timing records, and survives a disappointing nuclear result. How the effects compare with pre-test predictions tests the theory rather than the device. And the hazards reach past the site and past the day.
+        answerText: Integrated nuclear performance -> Full-system yield/effects record; firing coordination -> Independent timing traces; model validation -> Comparison with the pre-test prediction envelope; hazards -> Post-event measurements that track exposure, contamination, and changing conditions for people and surroundings.
+        why: A test without its questions written down in advance becomes an argument afterwards about what it proved. Different questions need different evidence. Full-system nuclear performance requires the integrated event. Firing-system coordination comes from timing records and can be judged even if another part disappoints. Comparing observed effects with pre-test predictions tests the model. Safety evidence addresses hazards at and beyond the site. Writing those questions first keeps one dramatic outcome from swallowing every other claim the experiment was designed to answer.
+        call: Write Trinity as an experiment
+        setup: Match each pre-shot question to the evidence that can settle it.
         rebuttals:
-          - Whether the integrated configuration produces the predicted chain reaction is the nuclear-performance question, and only a full-scale test can answer it.
-          - Whether the firing and initiation system acted in coordinated sequence comes from timing records — and it is answerable even if the nuclear result disappoints.
-          - Comparing observed effects with the pre-test predictions is model validation. The predictions spanned a wide range, so this tests the theory rather than the device.
-          - The radiological and physical hazards are the safety question, and it is the only one with obligations to people who were not present.
+          - Only the integrated event can answer the full-system performance question; component timing traces cannot substitute for it.
+          - Coordination is a timing question, so it needs time-resolved records rather than a single overall outcome.
+          - Model validation requires a prediction made before the observation, then a direct comparison with what occurred.
+          - Consequences affecting people and surroundings cannot be read from the overall event alone. They need observations that continue afterward and show what changed where.
         columns:
-          - What the test had to answer
-          - Which kind of question that is
+          - Question written before the shot
+          - Evidence that can answer it
         scenarios:
           - Would the integrated implosion configuration produce the predicted nuclear chain reaction?
           - Did the firing and initiation system act in the required coordinated sequence?
           - How did observed effects compare with the broad range of pre-test yield predictions?
           - What radiological and physical hazards existed at and beyond the site?
         choices:
-          - The nuclear-performance question. Only a full-scale test can answer it, because no component test assembles the whole chain.
-          - The ordnance-integration question. Answerable from timing records, and answerable even if the nuclear result disappoints.
-          - The model-validation question. The pre-test predictions spanned a wide range, so this tests the theory rather than the device.
-          - The safety-and-consequence question. It reaches past the site and past the day of the test, and it is the only one with obligations to people who were not present.
+          - The full-system yield and effects record from the event itself.
+          - Independent timing traces showing when the firing and diagnostic channels acted.
+          - A comparison between observed effects and the prediction envelope written before the shot.
+          - A set of measurements collected after the event that tracks exposure, contamination, and changing conditions for people and surroundings.
         mapping: [0, 1, 2, 3]
-        answerText: Would the integrated implosion configuration produce the predicted nuclear chain reaction? -> The nuclear-performance question. Only a full-scale test can answer it, because no component test assembles the whole chain.; Did the firing and initiation system act in the required coordinated sequence? -> The ordnance-integration question. Answerable from timing records, and answerable even if the nuclear result disappoints.; How did observed effects compare with the broad range of pre-test yield predictions? -> The model-validation question. The pre-test predictions spanned a wide range, so this tests the theory rather than the device.; What radiological and physical hazards existed at and beyond the site? -> The safety-and-consequence question. It reaches past the site and past the day of the test, and it is the only one with obligations to people who were not present.
       - group: E
-        call: Coordinate Trinity field engineering
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Trinity field engineering
-        setup: Order the high-level field-integration sequence without operational assembly details.
-        scene: The device is a small part of what has to work in the desert. Trinity is scheduled around a weather window, and a missed interface is not recoverable inside it.
+        scene: The desert crew has the tower, cables, cameras, power, and communications spread across a schedule that is running out of room. Bainbridge has a forecast that closes the window in four days, whatever is unfinished. Every team wants to know whether the field is truly ready.
         assumes:
           - a schedule set by weather cannot be extended
         takeaway: Field integration is ordered so that every interface is proved before the thing that needs it arrives.
         format: SEQUENCE
-        why: Field integration succeeds or fails on interfaces, and an interface has to be proved before the thing that depends on it arrives. Site survey, power, communications and controlled access come first because everything after them runs on them. Each electrical and diagnostic interface is then installed and independently inspected while there is still time to replace one. Only then does the approved assembly come into field configuration — once it is at the tower, replacing a cable run means undoing the step before it. The countdown runs against defined hold points, and the site is documented afterwards.
+        answerText: 1. Survey the site and establish power, communications and controlled access, which everything after this runs on. 2. Install and independently inspect each electrical and diagnostic interface, while there is still time to replace one. 3. Bring the approved assembly into the field configuration, once every interface it will use has been proved. 4. Run the countdown against defined hold points, then secure and document the site.
+        why: Field integration succeeds or fails on interfaces, and each interface has to be proved before the thing that depends on it arrives. Site survey, power, communications, and controlled access come first. Electrical and diagnostic interfaces are installed and independently inspected while replacement is still possible. Only then does the approved assembly enter the field configuration. The countdown runs against defined hold points, and the site is secured and documented afterwards. The order preserves the ability to find and correct a failed interface before it becomes buried inside the next step.
+        call: Coordinate Trinity field engineering
+        setup: Order the field-integration sequence.
         rebuttals:
           - Survey, power, communications and access come first. Everything after this runs on them, and none of it can be installed before they exist.
           - Install and independently inspect each interface second — while there is still time to replace one, which is the whole reason it is here rather than later.
@@ -2635,10 +2847,8 @@ missions:
           - Bring the approved assembly up the tower into its field configuration.
           - Run the countdown against the defined hold points, and record what every instrument saw.
         order: [0, 1, 2, 3]
-        answerText: 1. Survey the site and establish power, communications and controlled access, which everything after this runs on. 2. Install and independently inspect each electrical and diagnostic interface, while there is still time to replace one. 3. Bring the approved assembly into the field configuration, once every interface it will use has been proved. 4. Run the countdown against defined hold points, then secure and document the site.
       - group: P
-        call: Cover the diagnostic failure modes
-        task: How should the count-rate data be plotted, and what does the plot then give you?
+        task: Which transformation makes exponential decay linear, and what physical quantity comes from the slope?
         title: The plot that makes a decay a straight line
         place: Diagnostics Bay
         scene: Two counters have produced a table of count rate against time, and the notebook has it plotted on ordinary axes as a curve that nobody can read a number off.
@@ -2646,19 +2856,20 @@ missions:
           - a logarithm turns a constant ratio into a constant difference
         takeaway: Plotting a logarithm turns an exponential into a straight line, and its slope is the decay constant.
         format: CHOICE
-        why: "An exponential plotted on linear axes is a curve, and a curve is hard to read and harder to check. Take the logarithm of the count rate and the same data is a straight line whose slope is minus the decay constant — so the half-life comes out of a ruler rather than a guess. It also makes the failures visible: a second component appears as a break in slope, and background appears as the line flattening onto a floor. Choosing the axes is part of the measurement."
+        answerText: Plot ln(count rate) versus time. The slope is −λ, and the half-life follows from t½ = ln2/λ.
+        why: "An exponential plotted on linear axes is a curve, which is hard to check by eye. Take the logarithm of the count rate and the same data becomes a straight line. Its slope is minus the decay constant, so the half-life follows from t½ = ln2/λ. The transformed plot also exposes failures: a second component can change the slope, while background can flatten the line at late times. Choosing the axes is part of the measurement."
+        call: Linearize an exponential
         rebuttals:
-          - Curvature on linear axes is not readable in that way; two different processes look similar.
-          - Log-log straightens power laws, not exponentials.
-          - Squaring the time straightens nothing here; the relationship is exponential in time.
+          - A straight-line fit on linear axes is only a local approximation to an exponential and its slope changes with time.
+          - A log-log plot linearizes power laws. Exponential decay becomes linear when only the count-rate axis is logged.
+          - Taking the reciprocal does not turn an exponential into a line; it produces another exponential.
         choices:
-          - "Log of count rate against time, whose slope is the decay constant."
-          - "Count rate against time: the curvature itself gives the half-life directly."
-          - "Log of count rate against log of time: a straight line for any decay process."
-          - Count rate against the square of time, which straightens exponential data.
-        answer: "Log of count rate against time, whose slope is the decay constant."
+          - Plot ln(count rate) against time; the slope is −λ, so t½ = ln2/λ.
+          - Plot count rate against time and fit a straight line to the late-time points; the slope is −λ.
+          - Plot ln(count rate) against ln(time); the slope is −λ for any radioactive decay.
+          - Plot 1/(count rate) against time; the slope gives the half-life directly.
+        answer: Plot ln(count rate) against time; the slope is −λ, so t½ = ln2/λ.
       - group: T
-        call: Validate the model
         task: Why does splitting uranium release energy while splitting carbon would absorb it?
         title: Where the energy in fission comes from
         place: Theoretical Division
@@ -2667,17 +2878,19 @@ missions:
           - a nucleus is held together by binding energy
         takeaway: The binding-energy-per-nucleon curve says which way a nuclear reaction releases energy.
         format: CHOICE
+        answerText: Fission releases energy when the products are more tightly bound per nucleon than the original heavy nucleus. The mass difference between those states appears as released energy.
         why: Binding energy per nucleon rises steeply from hydrogen, peaks around iron and nickel, and falls slowly to uranium. A reaction releases energy when its products sit HIGHER on that curve than its reactants, because the products are more tightly bound. Uranium splitting into two mid-mass fragments moves up the curve, so energy comes out. Carbon splitting would move down it, so energy would have to go in. The same curve is why fusion of light nuclei also releases energy — from the other side of the peak.
+        call: Read the binding-energy curve
         rebuttals:
-          - Instability sets the rate at which something decays, not how much energy the reaction releases.
-          - Repulsion is part of why heavy nuclei are less tightly bound, but the energy released is the change in binding energy of the whole system.
-          - Splitting light nuclei costs energy. That is what the left-hand side of the curve means.
+          - Coulomb repulsion contributes to why heavy nuclei are less tightly bound, but the reaction energy is the total binding-energy difference between initial and final nuclei.
+          - The number of fragments does not determine the sign of the reaction energy. The binding energies of reactants and products do.
+          - Radioactivity concerns whether a process occurs spontaneously and how fast. The energy balance is set by the masses and binding energies of the states.
         choices:
-          - Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting.
-          - Heavy nuclei are unstable and light nuclei are stable, and instability is itself the energy source.
-          - Uranium has more protons, so electrostatic repulsion supplies the energy directly.
-          - Splitting always releases energy; carbon simply releases less of it.
-        answer: Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting.
+          - The fragments lie higher on the binding-energy-per-nucleon curve, so the products are more tightly bound and the mass difference appears as released energy.
+          - The fragments separate electrically after the split, so nearly all released energy is simply Coulomb repulsion and the binding-energy change is secondary bookkeeping.
+          - Any heavy nucleus releases energy when divided because the same mass is distributed among more particles and therefore more kinetic degrees of freedom.
+          - Uranium releases energy because it is radioactive; a stable nucleus such as carbon would have no available nuclear energy to release.
+        answer: The fragments lie higher on the binding-energy-per-nucleon curve, so the products are more tightly bound and the mass difference appears as released energy.
   - title: Reconcile evidence and freeze the design
     objective: Compare prediction bands with observations, release materials, reconcile theory and experiment, and control post-test changes.
     briefing: The test has produced data, but the program still must decide what those data mean. Compare observations with uncertainty bands, verify the material record, resolve disagreements between model and measurement, and freeze only the changes supported by evidence.
@@ -2719,58 +2932,84 @@ missions:
           relationship: Distance in sigma = |observed − predicted| ÷ the measurement uncertainty.
         answerText: "|21 - 20|/2 = 0.5 sigma. The observation is consistent with the prediction band, but a band that wide makes consistency weak evidence; it does not confirm every model assumption, and diagnostics that disagree with each other still need explaining."
       - group: CM
-        call: Complete the materials release review
-        task: Why can the chemists not separate uranium-235 from uranium-238?
+        task: Why is ordinary chemistry a poor way to separate uranium-235 from uranium-238 in bulk?
         title: Why separation is a physical problem
         place: Chemistry and Metallurgy Building
-        scene: A request has come in for a chemical route to separate uranium-235 from uranium-238, on the grounds that the chemists separate everything else.
+        scene: At Chemistry and Metallurgy, a production planner brings a request to enrich uranium-235 relative to uranium-238 by an ordinary chemical route. The division has been asked to decide whether the two isotopes give chemistry enough contrast to make that plan practical.
         assumes:
           - chemical behaviour is set by electrons, and isotopes differ only in the nucleus
-        takeaway: Isotopes of an element are chemically alike, so separating them means exploiting a mass difference.
+        takeaway: Isotopes of one element have nearly the same electron structure, so practical enrichment must exploit a tiny isotope-dependent physical difference.
         format: CHOICE
-        why: "Chemical behaviour is decided by electrons, and the two isotopes have the same number of them in the same arrangement — so a chemical process cannot prefer one. What differs is mass, by about one part in 235, and every enrichment method exploits that: diffusion rates through a barrier, deflection in a magnetic field, centrifugal separation. That factor of 1.004 in the physics is why enrichment plants are the size of towns while the chemistry of uranium fits in a beaker."
+        answerText: Ordinary chemistry offers almost no selectivity because the isotopes have nearly identical electron structures. Enrichment has to exploit a small isotope-dependent physical difference, especially mass.
+        why: Chemical behaviour is controlled mainly by electrons, and the two uranium isotopes have the same electron count and almost the same electronic structure. Their ordinary chemical reactions are therefore nearly identical. The useful contrast is the small mass difference, about one part in 235, which can be exploited by processes that respond to mass or mass-to-charge ratio. The tiny size of that contrast is why isotope enrichment requires repeated separation stages rather than one ordinary chemical reaction.
+        call: Identify the usable isotope contrast
         rebuttals:
-          - It is not a matter of degree. A chemical route has no property to select on at all.
-          - Density is irrelevant; both isotopes have essentially the same chemistry in solution.
-          - Radioactivity is a hazard to manage, not the reason chemical separation fails.
+          - The limitation is not mainly reaction speed or handling. The electronic structures that drive ordinary chemistry are almost the same.
+          - A tiny isotope mass difference does not make bulk solutions separate by ordinary settling or filtration.
+          - A detector can identify radiation from a population, but that does not provide a practical chemical force that sorts neutral atoms into separate bulk streams.
         choices:
-          - The two isotopes have the same electron structure, so chemistry treats them identically.
-          - The chemistry differs only slightly, so the process would simply take longer.
-          - Uranium is too dense for solution chemistry to work at all.
-          - They can be separated chemically; the difficulty is the radioactivity.
-        answer: The two isotopes have the same electron structure, so chemistry treats them identically.
+          - Their electron structures are nearly identical, so ordinary chemical reactions provide almost no selectivity; enrichment instead exploits a small isotope-dependent physical difference.
+          - Their chemical reaction rates differ enough for separation, but the difference is too slow to be useful only because uranium compounds are difficult to handle.
+          - Their densities differ by about one part in 235, so settling or filtration is the natural route but requires extremely long columns.
+          - Their radioactivities differ, so radiation detectors can sort individual atoms even though the chemistry itself cannot.
+        answer: Their electron structures are nearly identical, so ordinary chemical reactions provide almost no selectivity; enrichment instead exploits a small isotope-dependent physical difference.
       - group: T
-        call: Reconcile theory and experiment
-        task: Theory and experiment differ by three standard deviations. What does the division do?
-        title: Theory-experiment reconciliation
-        setup: Theory and experiment disagree by three standard deviations.
-        scene: Theory and experiment disagree by three standard deviations and the division has to decide what to do about it. Arguing about which explanation is right is cheaper than finding out, and worth less.
+        task: Choose two follow-up checks. Buy evidence that can distinguish a shared calibration problem from a real physics discrepancy.
+        title: Spend the follow-up checks on independence
+        scene: Theory and experiment disagree by three standard deviations. The division can complete two follow-up checks before the next review, and every extra run that repeats the same dependency consumes one of those chances.
         assumes:
-          - three standard deviations is a real disagreement, not noise
-        takeaway: The best response to disagreement is a test that can separate competing causes.
-        format: CHOICE
-        why: Two numbers that share a calibration can be three sigma apart because one error was counted twice. The audit is cheap enough to do first. What has to follow it is a measurement whose outcome differs depending on which explanation is true. A detector artefact, a missing physical effect, or an approximation pushed past its range all predict different things. Design the test that separates them, and spend the credits there rather than on the one that reassures.
-        rebuttals:
-          - Retuning parameters to force agreement hides the discrepancy inside a number and destroys the only evidence that something was wrong.
-          - More of the same data carries the same systematic. It narrows the statistical error around a value that may be biased.
-          - Adopting the experimental value settles the disagreement by whoever wrote it down last, and leaves the cause in place for the next comparison.
-        choices:
-          - Audit the shared calibrations, then design a measurement that tells the explanations apart.
-          - Retune the uncertain parameters until the model reproduces the measurement.
-          - Collect more of the same data, to see whether the gap narrows.
-          - Adopt the experimental value and record the disagreement in the report.
-        answer: Audit the shared calibrations, then design a measurement that tells the explanations apart.
+          - a systematic error does not average away with more repeats
+          - independent measurements should not share the same critical calibration
+        takeaway: When theory and experiment disagree, the next measurements should attack shared systematics and add evidence based on different dependencies.
+        format: VALUE
+        question: Which two checks can change the interpretation of the disagreement?
+        value:
+          hint: You can fund two checks. Read what each one would reveal. One should test a shared dependency; the other should stand on a different measurement chain.
+          budget:
+            amount: 2
+            unit: follow-up checks
+          decision: Decide whether the three-sigma gap is best treated as a shared systematic or as a discrepancy that survives independent measurement.
+          options:
+            - id: audit
+              label: Audit the calibration shared by the original comparison
+              cost: 1
+              axis: shared systematic
+              decisive: true
+              reveals: Whether a common calibration bias can account for the apparent disagreement.
+            - id: independent
+              label: Repeat the observable with a different detector or calibration path
+              cost: 1
+              axis: independent measurement
+              decisive: true
+              reveals: Whether the discrepancy survives when the critical dependency chain changes.
+            - id: more
+              label: Collect more data with the same setup
+              cost: 1
+              axis: statistical precision
+              decisive: false
+              reveals: A smaller random error bar around a result that still carries the same systematic dependencies.
+            - id: retune
+              label: Retune uncertain model parameters until the curves agree
+              cost: 1
+              axis: model flexibility
+              decisive: false
+              reveals: That the model can be adjusted to match the datum, without identifying why the original prediction missed it.
+        answerText: Use the two checks on the shared-calibration audit and an independent measurement with a different dependency chain. Together they can distinguish common bias from a discrepancy that survives independent evidence.
+        why: More of the same data reduces random error but carries the same systematic dependencies. Retuning the model can hide the discrepancy without explaining it. First audit the calibration shared by the measurements, because a common bias can create a confident disagreement. Then use a measurement based on different hardware or a different calibration path. If the discrepancy survives independent evidence, the case for missing physics strengthens. If it disappears, the original measurement chain becomes the leading suspect.
+        call: Reconcile theory and experiment
+        setup: Theory and experiment disagree by three standard deviations.
       - group: E
-        call: Control the post-Trinity design freeze
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Post-Trinity design freeze
-        setup: Order the post-test decision process.
-        scene: Trinity has produced new evidence and there is almost no time to use it. The pressure at this moment is to keep improving, and every unlogged improvement breaks the link between the test and the article.
+        scene: "Trinity has produced new evidence, and a last-minute improvement is already being argued over. Drawings are moving toward production while engineers are still proposing changes. The room has one uncomfortable question: what can still change without severing the link to what was tested?"
         assumes:
           - what was tested and what gets built can drift apart
         takeaway: A freeze comes before the paperwork, or the paperwork describes something still changing.
         format: SEQUENCE
+        answerText: 1. Recover and reconcile the timing, hydrodynamic and radiation records into one account of the shot. 2. Compare that account with the pre-test predictions, and name what is still unexplained. 3. Approve only the changes the evidence supports, and freeze the configuration. 4. Update assembly records, procedures and training against the frozen configuration.
         why: Each stage is the input to the next. The timing, hydrodynamic and radiation records are reconciled into one account of the shot, because there is nothing to compare until they agree with each other. That account is then compared with the pre-test predictions, and what remains unexplained is named rather than absorbed. Only then can the evidence-supported changes be approved and the configuration frozen. The freeze comes before the paperwork — reverse those two and the documents describe a configuration that is still moving.
+        call: Control the post-Trinity design freeze
+        setup: Order the post-test decision process.
         rebuttals:
           - Reconcile the records into one account of the shot first. Three disagreeing records are not evidence about anything yet.
           - Compare that account with the pre-test predictions second, and name what is still unexplained. An unnamed discrepancy is one nobody will return to.
@@ -2782,7 +3021,6 @@ missions:
           - Approve only the changes the evidence supports, and freeze the configuration.
           - Update assembly records, procedures and training against the frozen configuration.
         order: [0, 1, 2, 3]
-        answerText: 1. Recover and reconcile the timing, hydrodynamic and radiation records into one account of the shot. 2. Compare that account with the pre-test predictions, and name what is still unexplained. 3. Approve only the changes the evidence supports, and freeze the configuration. 4. Update assembly records, procedures and training against the frozen configuration.
   - title: Complete the evidence chain—and confront responsibility
     objective: Close the technical reviews while recognizing that scientific completion does not settle the human and political consequences.
     briefing: The final mission asks each scientific line to state what it knows, what remains uncertain, and what follows from the work. Complete the theory, diagnostic, and materials dossiers, then address the responsibilities scientists debated after Trinity.
@@ -2790,37 +3028,39 @@ missions:
     takeaway: Technical readiness and historical responsibility are different judgments; a complete curriculum must examine both.
     stops:
       - group: T
-        call: Hold the final theory review
-        task: Fusing hydrogen releases energy. Why is it so much harder to bring about than fission?
+        task: If fusion releases energy, why is it difficult to start?
         title: Why light nuclei release energy too
         place: Theoretical Division
-        scene: The curve on the board runs from 1.1 MeV per nucleon at deuterium to 8.8 at iron and back to 7.6 at uranium. A younger member of the division has asked what happens at the light end of it, where the slope is steepest.
+        scene: The binding-energy curve on the board rises steeply from light nuclei toward iron. A younger theorist has noticed that fusion moves uphill on that same curve and asks why an energy-releasing reaction does not simply happen whenever light nuclei meet.
         assumes:
           - like charges repel, and the nuclear force acts only at very short range
         takeaway: Fusion of light nuclei releases energy for the same reason fission of heavy ones does, and it is harder to start.
         format: CHOICE
+        answerText: Fusion can release energy and still be hard to start because two positive nuclei repel each other. They must get extremely close before the short-range nuclear force can bind them.
         why: "Fusion moves up the binding-energy curve from the light end, so it releases energy — more per nucleon than fission does. The difficulty is getting there: two positive nuclei repel, and the nuclear force that binds them only reaches across about a femtometre. Closing that gap needs kinetic energy, which means temperatures of millions of kelvin, whereas fission needs only a slow neutron and no barrier at all. Energy released and ease of ignition are separate questions, and confusing them is the usual error."
+        call: Separate energy release from ignition
         rebuttals:
-          - Fusion releases more energy per nucleon than fission, not less.
-          - Light nuclei are LESS tightly bound per nucleon, which is exactly why fusing them gains energy.
-          - A neutron initiates fission. Fusion is initiated by temperature and pressure.
+          - A neutron is not required to remove the Coulomb barrier in ordinary light-nucleus fusion; the reactant nuclei themselves must get close enough to interact.
+          - The nuclear force is short-ranged, not switched on by high speed. High kinetic energy helps the nuclei approach despite their electrostatic repulsion.
+          - Light nuclei begin well below the iron peak in binding energy per nucleon, which is why fusion can release substantial energy.
         choices:
-          - Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them.
-          - Fusion releases less energy per reaction, so less is available to sustain it.
-          - Light nuclei are more tightly bound already, so there is little to gain.
-          - Fusion requires a neutron to start it, and free neutrons are scarce.
-        answer: Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them.
+          - The nuclei are positively charged, so they must approach through electrostatic repulsion before the short-range nuclear force can bind them.
+          - The products are more tightly bound, but the released energy cannot appear until a neutron first removes the electrical charge barrier.
+          - The strong nuclear force becomes effective only when nuclei are moving rapidly, so high temperature is needed to strengthen the force itself.
+          - Light nuclei are already close to the peak of the binding-energy curve, so fusion releases too little energy to sustain further reactions.
+        answer: The nuclei are positively charged, so they must approach through electrostatic repulsion before the short-range nuclear force can bind them.
       - group: P
-        call: Hold the diagnostic readiness review
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Final diagnostic readiness review
-        setup: Order the final readiness chain.
-        scene: The readiness review asks whether the instruments will actually record what happens. There is exactly one event to record, and a diagnostic that saturates produces nothing at all.
+        scene: The final readiness review asks whether the instruments will actually record what happens. There is exactly one event to record, no repeat shot to recover a missed observable, and a diagnostic that saturates or loses timing can erase an answer permanently.
         assumes:
           - an instrument can be working and still miss the event
         takeaway: The final product is a trustworthy evidence system, not merely a collection of sensors.
         format: SEQUENCE
+        answerText: 2 -> 3 -> 4 -> 5 (Verify calibration and configuration records -> Run end-to-end timing and health checks -> Demonstrate independent coverage of critical observables -> Approve deployment with named residual risks and contingencies)
         why: Calibration and configuration records come first. An instrument nobody can describe afterwards produces data nobody can use. End-to-end timing and health checks then prove the chain works as a chain, rather than as a set of working parts. Independent coverage of the critical observables comes next — independent, so one failure does not take a whole answer with it. Deployment is approved with the residual risks named and a backup for each. Readiness means failures will be recognised, not that there are none.
+        call: Hold the diagnostic readiness review
+        setup: Order the final readiness chain.
         rebuttals:
           - Verify calibration and configuration records first. An instrument nobody can describe afterwards produces data nobody can use.
           - Run end-to-end timing and health checks second. Every part working is not the same as the chain working.
@@ -2832,50 +3072,73 @@ missions:
           - Demonstrate independent coverage of critical observables
           - Approve deployment with named residual risks and contingencies
         order: [0, 1, 2, 3]
-        answerText: 2 -> 3 -> 4 -> 5 (Verify calibration and configuration records -> Run end-to-end timing and health checks -> Demonstrate independent coverage of critical observables -> Approve deployment with named residual risks and contingencies)
       - group: CM
-        call: Complete the materials dossier
-        task: One last improvement to the division’s materials capability. Which?
-        title: Final chemistry and metallurgy dossier
-        setup: The division has one final 100-credit improvement budget.
+        task: Spend the final 100-credit improvement budget on the evidence system that will remain useful when the next batch behaves differently.
+        title: Leave a materials capability, not just better numbers
         scene: The final dossier has to show more than that components existed. The division has one last hundred credits of improvement to spend, and the choice says what it thinks a materials capability is.
         assumes:
-          - somebody will read this after everyone who made it has gone
-        takeaway: The final materials capability joins chemistry, structure, properties, and traceability.
-        format: CHOICE
-        why: A measurement says what one batch was on one day. A record that links process conditions to measured properties says what the process does. That is a different claim, and a more durable one. It is also the only form that lets somebody a year from now diagnose a batch that came out different — and this metal has several solid phases and very little data behind its diagram.
-        rebuttals:
-          - Independent composition measurements and microscope work verify a batch and are already required. They produce more measurements with nothing connecting them.
-          - Re-measuring released material improves numbers on parts that are already installed and links none of them to how they were made.
-          - More throughput on the same records makes more material that nobody can characterise afterwards.
-        choices:
-          - Records linking each batch’s conditions to its measured properties.
-          - Independent composition measurements and microscope work on every batch.
-          - Re-measurement of the batches already released, to a tighter tolerance.
-          - Higher production throughput, with the measurements and records unchanged.
-        answer: Records linking each batch’s conditions to its measured properties.
+          - future batches may differ from today's batch
+          - a record is useful when it preserves relationships, not only isolated measurements
+        takeaway: A durable materials programme links process conditions to composition, structure, properties, and traceable batch records.
+        format: VALUE
+        question: Which investment creates the most durable materials capability?
+        value:
+          hint: You can fund one improvement. Open each option and ask what a future team would learn when a later batch comes out different.
+          budget:
+            amount: 100
+            unit: credits
+          decision: Choose the improvement that best preserves the ability to explain and correct future batch variation.
+          options:
+            - id: records
+              label: Link each batch's process conditions to measured properties
+              cost: 100
+              axis: process-property traceability
+              decisive: true
+              reveals: Which process conditions consistently travel with changes in composition, structure, or performance across batches.
+            - id: independent
+              label: Add independent composition and microscopy checks to every batch
+              cost: 100
+              axis: batch verification
+              decisive: false
+              reveals: Whether each batch's measurements agree across methods, without linking differences back to how the batch was made.
+            - id: remeasure
+              label: Re-measure released batches to tighter tolerance
+              cost: 100
+              axis: measurement precision
+              decisive: false
+              reveals: More precise values for material already released, without explaining the process conditions that produced those values.
+            - id: throughput
+              label: Raise production throughput with records unchanged
+              cost: 100
+              axis: production volume
+              decisive: false
+              reveals: How much more material can be produced, while preserving the same blind spot about why batches differ.
+        answerText: Spend the 100 credits on records that link each batch's process conditions to its measured composition, structure, and properties. That creates an evidence chain future staff can use to explain variation.
+        why: Another measurement can describe one batch more precisely, but it does not explain why the next batch differs. A process-to-properties record connects what was done to what the material became. That relationship can be tested across batches and used later to diagnose a change in structure or performance. Extra composition checks, tighter remeasurement, and higher throughput all have value, but none creates that causal record. The durable capability is the evidence chain linking process history to measured properties.
+        call: Complete the materials dossier
+        setup: The division has one final 100-credit improvement budget.
       - group: X
-        call: Examine scientific responsibility after Trinity
-        task: The physics is settled and the decisions that follow are not physics. What does the laboratory owe?
+        task: Which statement best separates the laboratory's technical responsibility from the political decision that follows?
         title: Scientific responsibility after Trinity
-        setup: Allocate 100 discussion credits among three historically grounded priorities.
-        scene: Trinity yielded about 20 kilotons, the fireball was seen 200 miles away, and the fallout reached cattle 30 miles downwind. A petition signed by 155 scientists is circulating at another site, the laboratory has been asked for a technical opinion, and the questions that follow are not ones physics can settle.
+        scene: After Trinity, reports of yield, fallout, and measurement uncertainty are spread across the laboratory. Officials outside the site are asking what the results mean. Scientists now have to decide what belongs in their technical assessment before it leaves Los Alamos.
         assumes:
           - a technical question and a decision about its use are different questions
-        takeaway: Expertise carries obligations when scientific work changes the scale of possible harm.
+        takeaway: Technical expertise carries a duty to communicate consequences and uncertainty clearly without turning expertise into political authority.
         format: CHOICE
-        why: "The people making the decision cannot weigh what only this laboratory knows: the yield actually achieved, the radiological aftermath, and how uncertain both still are. That knowledge does not confer authority over the decision, and withholding it does not remove the laboratory from the consequences either. What the position has to distinguish is a technical judgement, which these scientists are uniquely able to give, from a political one, which they are not — and to state which is which. Szilard’s petition and the Franck Report were both attempts to put exactly that on the record. Expertise does not settle the question; withholding it removes the one thing expertise can contribute to it."
+        answerText: Provide the technical consequences and uncertainties clearly, and distinguish that assessment from any policy recommendation. Expertise informs the decision without becoming the authority that makes it.
+        why: Scientists can report what the instruments measured. They can estimate likely effects and state how uncertain those estimates are. That information matters because officials cannot judge consequences they have never been shown. Scientists can also explain which conclusions are well supported and which depend on assumptions. They do not get the final policy decision simply because they know the technical details. Their responsibility is to make the evidence and uncertainty clear before others decide what to do with it.
+        call: Define the laboratory's responsibility
+        setup: Separate what scientific expertise can establish from who has authority to decide.
         rebuttals:
-          - Leaving it to the government assumes the government already holds the technical picture. In the summer of 1945 it did not, and only the laboratory could supply it.
-          - Refusing to continue was a position several people took, and it changes who does the work rather than what the decision-makers know about its effects.
-          - Postwar control was argued for by many of the same people, in the same documents. It is a claim about the years after, and it leaves the question in front of them unanswered.
+          - Raw measurements require technical interpretation before non-specialists can understand their consequences; refusing that interpretation withholds part of the expertise.
+          - Expertise strengthens a technical assessment but does not by itself confer authority over the political decision.
+          - "Waiting until after the decision defeats the purpose of technical advice: the relevant consequences and uncertainties are needed before the choice is made."
         choices:
-          - A clear account of the expected humanitarian and radiological consequences, given to those deciding.
-          - "Nothing beyond the technical work: the decision belongs to the elected government."
-          - A refusal to continue technical work until the decision has been taken.
-          - An argument for postwar international control, and silence on the immediate decision.
-        answer: A clear account of the expected humanitarian and radiological consequences, given to those deciding.
-
+          - Provide a clear technical account of expected consequences and uncertainties, while labeling separately any policy recommendation.
+          - Limit the laboratory's contribution to raw instrument readings, because translating them into expected consequences would cross into policy.
+          - Treat scientific expertise as authority to decide the policy, because the laboratory understands the technical facts better than outside officials.
+          - Withhold a technical assessment until political leaders choose a course, so the laboratory cannot be seen as influencing the decision.
+        answer: Provide a clear technical account of expected consequences and uncertainties, while labeling separately any policy recommendation.
 # Lessons no mission stop points at — review variants and spares. Reachable as callbacks.
 lessons:
   - group: T

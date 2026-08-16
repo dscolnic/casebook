@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "METER",
         "lesson": 0,
-        "task": "Which explanation fits every record, including the ones that look fine?"
+        "task": "Open the timing dependencies, keep the evidence that stands independently, and name the failed time source."
       }
     ]
   },
@@ -37,7 +37,7 @@ export const MISSIONS = [
       {
         "group": "TRANS",
         "lesson": 0,
-        "task": "Put the overload response in the order it has to happen"
+        "task": "Set the overload action thresholds before the corridor trend is released."
       },
       {
         "group": "LOAD",
@@ -95,7 +95,7 @@ export const MISSIONS = [
       {
         "group": "TRANS",
         "lesson": 2,
-        "task": "Settle the argument between the meter and the scope"
+        "task": "Check whether the scope and meter are consistent with the same sine-wave voltage."
       }
     ]
   },
@@ -114,12 +114,12 @@ export const MISSIONS = [
       {
         "group": "GEN",
         "lesson": 2,
-        "task": "Say why the transmission side is at high voltage"
+        "task": "Work out what the voltage step-up does to current and line loss."
       },
       {
         "group": "OPS",
         "lesson": 3,
-        "task": "Fund the evidence that would change tonight's decision"
+        "task": "Spend the evidence budget on measurements that can change the reserve decision before the evening peak."
       }
     ]
   },
@@ -162,12 +162,12 @@ export const MISSIONS = [
       {
         "group": "METER",
         "lesson": 2,
-        "task": "Explain how the instrument reads a wire it never touches"
+        "task": "Use the test loop to isolate what makes the current transformer produce a secondary signal."
       },
       {
         "group": "DIST",
         "lesson": 2,
-        "task": "Decide who may approach the failed cable"
+        "task": "Choose the last protection step before the crew approaches the conductor."
       }
     ]
   },
@@ -205,7 +205,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 6,
-        "task": "Which explanation fits every reading, including the ones that look fine?"
+        "task": "Find every shortfall-and-inertia pair that fits the measured frequency slope, then use an independent inertia estimate to break the ambiguity."
       },
       {
         "group": "METER",
@@ -234,7 +234,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 7,
-        "task": "Put the restoration in the order it has to happen"
+        "task": "Build the black-start power path in order, then identify the link that governs whether the large station can start."
       },
       {
         "group": "DIST",
@@ -253,7 +253,7 @@ export const MISSIONS = [
       {
         "group": "METER",
         "lesson": 4,
-        "task": "Which explanation fits every reading, including the steady ones?"
+        "task": "Choose the explanation that fits the sensor, infrared survey and sag estimate together."
       },
       {
         "group": "TRANS",
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "GEN",
         "lesson": 5,
-        "task": "Separate tonight's measured comforts from its habits"
+        "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan."
       }
     ]
   },
@@ -301,7 +301,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 10,
-        "task": "Decide what the room does first"
+        "task": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition."
       },
       {
         "group": "TRANS",
@@ -349,7 +349,7 @@ export const MISSIONS = [
       {
         "group": "METER",
         "lesson": 6,
-        "task": "Sort the fortnight's claims by the evidence under them"
+        "task": "Choose which report claims to verify before signing, with fewer checks than claims."
       },
       {
         "group": "LOAD",

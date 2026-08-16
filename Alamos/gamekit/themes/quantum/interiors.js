@@ -52,7 +52,7 @@ export const INTERIORS = {
         },
         {
           "label": "Process window",
-          "value": "spring",
+          "value": "spring, oxidation changed",
           "status": "high"
         }
       ]
@@ -82,7 +82,7 @@ export const INTERIORS = {
         },
         {
           "label": "Defect",
-          "value": "4.55 GHz",
+          "value": "4.55 GHz, avoid",
           "status": "alarm"
         }
       ]
@@ -112,7 +112,7 @@ export const INTERIORS = {
         },
         {
           "label": "Bell value",
-          "value": 2.78,
+          "value": "2.78, rerunning",
           "status": "high"
         }
       ]

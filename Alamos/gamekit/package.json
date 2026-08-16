@@ -17,7 +17,8 @@
     "drive": "node engine/dev/instrumentDrive.mjs",
     "export-stops": "node tools/export-stops.mjs",
     "check-conversions": "node tools/check-conversions.mjs",
-    "apply-conversions": "node tools/apply-conversions.mjs"
+    "apply-conversions": "node tools/apply-conversions.mjs",
+    "gallery": "node tools/gallery.mjs"
   },
   "dependencies": {
     "three": "^0.160.0"

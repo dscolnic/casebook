@@ -1,0 +1,4521 @@
+{
+ "theme": "blackout",
+ "book": "books/blackout.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "System Operator · Calder Interconnection",
+   "readOnly": false
+  },
+  {
+   "id": "group.OPS.desc",
+   "original": "The whole network at once, and the decisions that cannot wait for certainty.",
+   "readOnly": false
+  },
+  {
+   "id": "group.GEN.desc",
+   "original": "Machines that turn something into torque, and what they can be asked to do next.",
+   "readOnly": false
+  },
+  {
+   "id": "group.TRANS.desc",
+   "original": "Getting power a long way, and the relays that decide when to give up on a line.",
+   "readOnly": false
+  },
+  {
+   "id": "group.DIST.desc",
+   "original": "The last few kilometres, where the network stops being a diagram and becomes a street.",
+   "readOnly": false
+  },
+  {
+   "id": "group.LOAD.desc",
+   "original": "What people are about to do, and how much of it the system has to be ready for.",
+   "readOnly": false
+  },
+  {
+   "id": "group.METER.desc",
+   "original": "Whether the numbers everybody is arguing about are the numbers.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.role",
+   "original": "Shift Supervisor, System Operations",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.bio",
+   "original": "Twenty-two years on the desk, eleven of them on nights. She runs the room\nthe way a bridge is run: nobody touches a control without saying out loud\nwhat they expect to happen, and then whether it did.\n\nHer rule is that frequency is the only number on the wall that belongs to\neverybody. Voltage is local and can be argued about; frequency is the whole\ninterconnection agreeing or failing to agree, and it moves before anything\nelse does.\n\nHer limit is that she is paid to act before the picture is complete. The\noperator who waits for certainty is the operator who watches the cascade.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.reyes.quiz.0.q",
+   "original": "Why does Reyes treat frequency differently from voltage?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.a",
+   "original": "Frequency is one number for the whole interconnection",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.0",
+   "original": "Voltage instruments are more accurate than frequency instruments during a disturbance",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.1",
+   "original": "Voltage cannot be measured while the system is swinging",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.2",
+   "original": "Frequency matters at the generators and nowhere else",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.role",
+   "original": "Generation Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.bio",
+   "original": "Came up through turbine commissioning and still walks a machine hall\nlistening rather than reading. She can tell a governor hunting from the\nsound of it before the trend on the screen has moved.\n\nWhat she wants understood is that a generator is a flywheel first and a\npower source second. The stored rotational energy is what buys the seconds\nin which anybody gets to make a decision.\n\nHer limit is ramp rate. A machine that can supply four hundred megawatts\ncannot supply them in the ninety seconds after a trip, and no amount of\nwanting changes the thermal gradient in a steam drum.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.haddad.quiz.0.q",
+   "original": "Why does Haddad describe a generator as a flywheel first?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.a",
+   "original": "Its stored rotational energy slows the frequency change",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.wrong.0",
+   "original": "Because a flywheel stores more energy per tonne than a boiler and its steam plant do",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.wrong.1",
+   "original": "Because the turbine and the flywheel are the same component",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haddad.quiz.0.wrong.2",
+   "original": "Because rotational energy costs less per megawatt than fuel",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.role",
+   "original": "Protection Engineer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.bio",
+   "original": "Sets the relays, which means he designs the conditions under which the\nnetwork is allowed to give up on part of itself. He describes the job as\nwriting the rules for an argument that will happen in eighty milliseconds\nwith nobody present.\n\nA relay that never trips is not a cautious relay, it is a relay that lets a\nfault burn. A relay that trips early takes out a healthy line and moves the\noverload somewhere less convenient. Coordination is the whole discipline.\n\nHis limit is that he is protecting against faults he has to imagine in\nadvance, and the cascade always finds the sequence nobody drew.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.novak.quiz.0.q",
+   "original": "Why does Novak call a relay setting the rules for an argument nobody attends?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.a",
+   "original": "The relay has to decide alone, in milliseconds, from settings written months earlier",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.wrong.0",
+   "original": "Relay settings are agreed by a standing committee that never meets in the same room",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.wrong.1",
+   "original": "The argument is between the two ends of a line that cannot talk to each other in time",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.wrong.2",
+   "original": "Nobody is allowed in the yard while protection is live",
+   "readOnly": false
+  },
+  {
+   "id": "roster.obi.role",
+   "original": "Distribution Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.obi.bio",
+   "original": "Runs the feeders, which is where the network acquires customers, trees and\nopinions. She points out that every elegant thing decided in the control\nroom arrives here as a van, a pole and somebody's evening.\n\nHer measure of a restoration is not megawatts, it is households and how\nlong they waited, and she will say so in a meeting about megawatts.\n\nHer limit is that the low-voltage network is only sparsely instrumented.\nPast the substation she is often reasoning from the shape of the load\nrather than from a reading.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.obi.quiz.0.q",
+   "original": "Why does Obi resist reporting restoration purely in megawatts?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.obi.quiz.0.a",
+   "original": "A few large customers can dominate the megawatts restored",
+   "readOnly": false
+  },
+  {
+   "id": "roster.obi.quiz.0.wrong.0",
+   "original": "Megawatts restored is a settlement quantity and is not available until afterwards",
+   "readOnly": false
+  },
+  {
+   "id": "roster.obi.quiz.0.wrong.1",
+   "original": "Household supply is not counted in the system total",
+   "readOnly": false
+  },
+  {
+   "id": "roster.obi.quiz.0.wrong.2",
+   "original": "Distribution work is measured in amperes rather than in watts",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindgren.role",
+   "original": "Load Forecasting",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindgren.bio",
+   "original": "Forecasts demand, which he insists is a branch of anthropology conducted\nwith a thermometer. Weather, the television schedule, the school holidays\nand whether it gets dark before people get home.\n\nHe is precise about what a forecast is: a distribution, not a number. The\nuseful output is the width, because the width is what the reserve has to\ncover.\n\nHis limit is that the events worth forecasting are rare by construction, so\nthe model is always best calibrated for the days that matter least.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lindgren.quiz.0.q",
+   "original": "What does Lindgren mean by calling forecasting anthropology with a thermometer?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindgren.quiz.0.a",
+   "original": "Demand is what people do, and weather is only one of the things that decides it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindgren.quiz.0.wrong.0",
+   "original": "Forecasters interview a panel of households about their heating every winter",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindgren.quiz.0.wrong.1",
+   "original": "The model is built from historical temperature alone",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindgren.quiz.0.wrong.2",
+   "original": "Demand can be predicted from population size and nothing else",
+   "readOnly": false
+  },
+  {
+   "id": "roster.farrow.role",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "roster.farrow.bio",
+   "original": "Owns the question nobody wants to open during an incident: is that number\nthe number. Instrument transformers, telemetry lag, clock skew, and the\ncheerful confidence of a meter reading the wrong side of a saturated core.\n\nShe keeps the traceability chain because after the event there will be an\ninquiry, and the inquiry will run on the records rather than on anybody's\nmemory of the night.\n\nHer limit is that she is usually reconstructing rather than observing, and\nthe highest-value seconds are the ones with the worst data.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.farrow.quiz.0.q",
+   "original": "Why does Farrow distrust telemetry during a fast disturbance?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.farrow.quiz.0.a",
+   "original": "Scan rates and clock skew can put readings in the wrong order",
+   "readOnly": false
+  },
+  {
+   "id": "roster.farrow.quiz.0.wrong.0",
+   "original": "Instrument transformers saturate during a fault and stop reporting altogether",
+   "readOnly": false
+  },
+  {
+   "id": "roster.farrow.quiz.0.wrong.1",
+   "original": "Telemetry stops being sent once frequency leaves its band",
+   "readOnly": false
+  },
+  {
+   "id": "roster.farrow.quiz.0.wrong.2",
+   "original": "Digital meters are less accurate than the analogue ones they replaced",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitlock.role",
+   "original": "Assistant Operator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitlock.bio",
+   "original": "Second seat on nights, three years in, and the person who actually keeps\nthe log. Has read every sequence-of-events report the company owns and can\nquote which ones contradict the official account.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.whitlock.quiz.0.q",
+   "original": "Why is the log Whitlock keeps worth more than the reports written afterwards?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitlock.quiz.0.a",
+   "original": "It records what the room knew at the time, before anybody knew how it ended",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitlock.quiz.0.wrong.0",
+   "original": "It is the only document the regulator is entitled to ask the company for",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitlock.quiz.0.wrong.1",
+   "original": "Reports are written afterwards by people who were not on shift that night",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitlock.quiz.0.wrong.2",
+   "original": "The log records exact times and the reports do not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sarraf.role",
+   "original": "Wind Fleet Controller",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sarraf.bio",
+   "original": "Dispatches the ridge fleet from a desk with more forecast on it than\ntelemetry. Explains patiently and often that curtailing a turbine is not\nwaste when the alternative is a line at its thermal limit.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.sarraf.quiz.0.q",
+   "original": "Why does Sarraf say curtailing a turbine is not waste?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sarraf.quiz.0.a",
+   "original": "Energy that cannot reach a customer was never available, whatever the wind was doing",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sarraf.quiz.0.wrong.0",
+   "original": "Curtailed output is held in storage and released later the same night",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sarraf.quiz.0.wrong.1",
+   "original": "The fleet is paid the same under contract whether it runs or not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.sarraf.quiz.0.wrong.2",
+   "original": "Turbines last longer when they are not run at full output",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dube.role",
+   "original": "Substation Technician",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dube.bio",
+   "original": "Does the switching in the yard when the control room asks for it, in the\norder it is written, reading it back before he touches anything. Has opinions\nabout people who improvise switching sequences.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.dube.quiz.0.q",
+   "original": "Why does Dube read a switching order back before he touches anything?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dube.quiz.0.a",
+   "original": "Saying it aloud is the one chance to catch a wrong item before it is irreversible",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dube.quiz.0.wrong.0",
+   "original": "The control room records the readback afterwards as proof of who is liable",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dube.quiz.0.wrong.1",
+   "original": "Reading aloud is required by the radio protocol in the yard",
+   "readOnly": false
+  },
+  {
+   "id": "roster.dube.quiz.0.wrong.2",
+   "original": "It gives the control room time to cancel the instruction",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kowalczyk.role",
+   "original": "Field Crew Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kowalczyk.bio",
+   "original": "Runs the crew that finds the fault, which is usually a tree, and puts the\nfeeder back. Knows which streets have the hospital, the dialysis clinic and\nthe two houses on home oxygen.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.kowalczyk.quiz.0.q",
+   "original": "Why does Kowalczyk know which streets have the dialysis clinic on them?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kowalczyk.quiz.0.a",
+   "original": "Restoration order is decided by what waiting costs, not by how many houses are on the feeder",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kowalczyk.quiz.0.wrong.0",
+   "original": "Those streets are required by law to be restored first in every outage",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kowalczyk.quiz.0.wrong.1",
+   "original": "Medical addresses are the only ones the fault-finding system records",
+   "readOnly": false
+  },
+  {
+   "id": "roster.kowalczyk.quiz.0.wrong.2",
+   "original": "Crews are paid a premium for restoring critical premises",
+   "readOnly": false
+  },
+  {
+   "id": "roster.alvarez.role",
+   "original": "Demand Analyst",
+   "readOnly": false
+  },
+  {
+   "id": "roster.alvarez.bio",
+   "original": "Builds the load curves and the counterfactuals. Spends the day after an\nevent working out what demand would have been if the event had not happened,\nwhich is the number every settlement argument turns on.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.alvarez.quiz.0.q",
+   "original": "What is Alvarez's counterfactual demand curve for?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.alvarez.quiz.0.a",
+   "original": "It says what demand would have been without the event, which is what the loss is measured against",
+   "readOnly": false
+  },
+  {
+   "id": "roster.alvarez.quiz.0.wrong.0",
+   "original": "It predicts what demand will be over the course of the following week",
+   "readOnly": false
+  },
+  {
+   "id": "roster.alvarez.quiz.0.wrong.1",
+   "original": "It shows which feeders were restored in which order",
+   "readOnly": false
+  },
+  {
+   "id": "roster.alvarez.quiz.0.wrong.2",
+   "original": "It converts megawatts into megawatt-hours for the report",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergström.role",
+   "original": "Calibration Technician",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergström.bio",
+   "original": "Keeps the standards traceable and the calibration records current. The\ncheerful arbiter of whether a disputed reading is admissible, and immune to\nbeing hurried.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.bergström.quiz.0.q",
+   "original": "Why will Bergström not be hurried over a disputed reading?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergström.quiz.0.a",
+   "original": "A reading is only admissible if the instrument's traceability can be shown, and that takes as long as it takes",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergström.quiz.0.wrong.0",
+   "original": "Calibration records can only be updated at the end of an accounting month",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergström.quiz.0.wrong.1",
+   "original": "She is the only person permitted to touch the standards",
+   "readOnly": false
+  },
+  {
+   "id": "roster.bergström.quiz.0.wrong.2",
+   "original": "A rushed calibration would damage the reference instrument",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Frequency.def",
+   "original": "How many times a second the alternating supply completes a cycle. It is the same number everywhere on one interconnection, and it moves up when generation exceeds demand and down when demand exceeds generation.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Load.def",
+   "original": "The total power being drawn from the system at a given moment.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Megawatt.def",
+   "original": "A million watts. The unit a power system is argued about in; a large generating unit is a few hundred of them.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.SCADA.def",
+   "original": "The monitoring system that collects readings from substations and presents them in the control room. It samples every few seconds, which is slow compared with a fault.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Inertia.def",
+   "original": "The rotational energy stored in spinning generators. It resists a change in frequency, which is what buys time for anything else to respond.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.RMS.def",
+   "original": "The steady value that would deliver the same power as a varying one. Mains voltages are quoted this way, not as their peak.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Power factor.def",
+   "original": "The fraction of the apparent power that does real work, equal to the cosine of the angle between voltage and current.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Reactive power.def",
+   "original": "Power that flows back and forth without being consumed. It does no work but it occupies capacity and it is what moves voltage.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Apparent power.def",
+   "original": "The product of RMS voltage and RMS current, whatever the phase between them. It is what a cable and a transformer are rated for.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Droop.def",
+   "original": "A deliberate setting that makes a generator reduce output as frequency rises, so several machines share a change in load without fighting each other.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Contingency.def",
+   "original": "A credible single failure the system is required to survive without shedding load.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Load shedding.def",
+   "original": "Disconnecting customers on purpose to bring demand down to what generation can supply.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Calibration.def",
+   "original": "Checking an instrument against a standard already known to be right, so that its readings mean something. A drifted instrument is confident and wrong, and it does not say which.",
+   "readOnly": true
+  },
+  {
+   "id": "glossary.Instrument transformer.def",
+   "original": "A device that scales a large voltage or current down to something a meter can read safely.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Feeder.def",
+   "original": "One distribution circuit leaving a substation, with the homes and businesses it supplies spread along it.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.title",
+   "original": "The number on the wall",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "Establish what the frequency is actually telling the room before anybody acts on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.briefing",
+   "original": "A unit tripped at 04:12 and the frequency has not come back to where it started.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.stake",
+   "original": "Tuesday, 04:12, and the largest unit on the Calder system has tripped without warning. Frequency fell and then steadied somewhere below where it began, which Dolores Reyes says matters more than the fall itself — a system that stops falling has found a new balance, and the new balance is short. Nadia Haddad has machines that can make up the shortfall but not in the next two minutes. June Farrow wants the records checked before anybody calls it a lost unit, and Reyes is not waiting: a system this far short does not get more certain while you read about it. This morning Reyes is right. Today you read what the frequency is telling you, work out how much generation actually went missing, and decide what to ask for first. Read it as a fault on one machine and you will spend the morning fixing the wrong thing.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "What a frequency trend is evidence of",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "From a falling trend to a statement about the system",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "The wall shows frequency dropping for eight seconds and then flattening, low. Aaron Whitlock, the assistant operator, has the log open and wants to know what to write in it. Two people in the room have already named a cause.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "A frequency deviation is a statement about the whole interconnection, not about one machine.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "an alternating supply has a frequency measured in cycles per second",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "Frequency is set by the balance between what the machines generate and what the customers draw, everywhere at once. That is because every synchronous machine on the system turns in step. So a fall means demand now exceeds generation. The rate of the fall measures the size of the mismatch against the spinning inertia that was there to absorb it. Flattening is not recovery. The governors have found a new equilibrium at a lower speed, and it will stay there until something adds real power. Voltage tells you where the problem is. Frequency tells you that there is one, and how large.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.0",
+   "original": "The machines are all turning in step, so this is one system-wide quantity.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.1",
+   "original": "The steepness measures the mismatch against the inertia that was there to absorb it.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2",
+   "original": "The governors have found a new balance at a lower speed, and it will stay there.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3",
+   "original": "Voltage is local, which is what makes it useful for saying where rather than whether.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.0",
+   "original": "A common frequency across the system is the machines turning in step, not a coincidence of separate meters.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.1",
+   "original": "The rate of fall measures the size of the mismatch against the inertia available, which is why it is the first number to read.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.2",
+   "original": "Flattening low is a new equilibrium the governors have settled into, not the system recovering.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.3",
+   "original": "Voltage is the local quantity; it tells you where, and it is why it disagrees between substations.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.scenarios.0",
+   "original": "Every substation reports the same frequency to two decimal places.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.scenarios.1",
+   "original": "The trend fell steeply for the first two seconds, then more slowly.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.scenarios.2",
+   "original": "The frequency has stopped falling and is sitting below its starting value.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.scenarios.3",
+   "original": "Two substations report voltages that differ by three per cent.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "How much power actually left the system",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Estimate the generation that went missing",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.place",
+   "original": "Generation Hall",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Haddad needs a number before she starts anything. The only clean evidence is the first two seconds of the trend, and the inertia figure for what was online overnight.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "The initial rate of frequency change measures the size of the imbalance, given the inertia.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "a rate of change can be read off the steep part of a trend",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.question",
+   "original": "Estimate the generation lost at the moment of the trip.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "In the first instant after a trip nothing has responded yet. No governor, no reserve. The only thing opposing the imbalance is the rotational energy already spinning. That gives the swing relation: the rate of frequency change equals the power imbalance divided by twice the stored inertia, in the same units. Rearranged, the imbalance is the rate of change times twice the inertia, times the nominal frequency to get back to megawatts. It is the cleanest measurement the first two seconds offer, and it arrives before any telemetry from the tripped plant.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.answerText",
+   "original": "About 300 MW.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.estimate.prompt",
+   "original": "Frequency fell at 0.30 Hz per second over the first two seconds. The machines online held 25,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.estimate.question",
+   "original": "Choose the stored energy, the rate of fall and the nominal frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.estimate.explanation",
+   "original": "About three hundred megawatts. That is a unit, not a faulty meter. The settled deviation and the generation online are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.estimate.relationship",
+   "original": "Power imbalance = 2 × the stored kinetic energy × the rate of frequency change ÷ the nominal frequency, with the energy in megawatt-seconds and the rate in hertz per second.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.estimate.givens.0",
+   "original": "Stored kinetic energy online is 25,000 MW·s",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.estimate.givens.1",
+   "original": "Initial rate of fall is 0.30 Hz per second",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.estimate.givens.2",
+   "original": "Nominal frequency is 50 Hz",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "The order the records claim things happened in",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "Which explanation fits every record, including the ones that look fine?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "June Farrow has three records of the same eight seconds and they do not agree about what happened first. The inquiry will run on these, and one of them is timestamped from a clock nobody has checked since spring.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "A sequence of events is a claim about order, and order needs clocks that were traceable at the time.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "a recorded value has a time attached to it, and the time can be wrong",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.headline",
+   "original": "Three records of the same eight seconds disagree about which happened first.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "A record carries two different claims and they fail independently. The absolute timestamp says when, and it is only as good as the clock that stamped it. The intervals between a record's own entries say in what order and how far apart. Those survive a drifting clock intact. Here the relay's intervals agree with the GPS-locked recorder while its absolute time does not, which is exactly the signature of drift rather than of an early operation. The SCADA scan is not wrong either — it is simply too slow to order anything inside a four-second window, and treating its two samples as a sequence is how an inquiry invents a cause.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.choices.0",
+   "original": "The relay operated 1.6 seconds before the trip",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.0.mechanism",
+   "original": "Its timestamp is earlier",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.1",
+   "original": "The relay clock has drifted and its ordering is still good",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.choices.1.mechanism",
+   "original": "Its intervals match the fast recorder even though its absolute time does not.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.2",
+   "original": "The fast recorder is the one that is wrong",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.2.mechanism",
+   "original": "A single instrument disagreeing with two others is usually the faulty one.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.3",
+   "original": "Nothing to explain — records always disagree slightly",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.3.mechanism",
+   "original": "Ordinary scatter between systems",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.0",
+   "original": "Reading the early timestamp as an early operation trusts the absolute time, which is the part that failed.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.1",
+   "original": "The fast recorder is GPS-locked and the relay's own intervals agree with it, so it is the reference here.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.2",
+   "original": "Records that disagree by 1.6 seconds in a fault sequence are not ordinary scatter; that is longer than the whole event.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.title",
+   "original": "What the line can carry",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Decide which circuit takes the flow once one path is gone.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.briefing",
+   "original": "With the unit off, the flow has redistributed and one corridor is running warm.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.stake",
+   "original": "Wednesday, and the replacement generation is coming from the wrong side of the system, which means it is arriving down two circuits instead of three. Piotr Novak has a corridor sitting above its continuous rating and a relay that will take the decision away from the room in about forty minutes if nobody else does. The forty minutes comes off a thermal record June Farrow has not verified, and she says so. Thabo Dube is in the yard waiting for a switching instruction. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move generation or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes two cold ones.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "What you do before a relay does it for you",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Put the overload response in the order it has to happen",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.place",
+   "original": "Transmission Control",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "The corridor is at 108 per cent of continuous rating and rising slowly. Novak wants the response in an order he can hand to Dube as a written instruction.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "The order is set by what is reversible: measure, then reduce, then reconfigure, then shed.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "a conductor heats up over minutes, not instantly",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "A conductor's rating is a thermal limit reached over time. So the first move is to establish how much time there is: the emergency rating, and the minutes it is good for. Then the cheapest reversible action, which is to redispatch generation so less flow takes that path. Reconfiguring the network comes next, because switching changes what the remaining contingencies are and cannot be undone in seconds. Shedding load is last. Not because it is drastic, but because it is the only step that takes the decision away from customers, and every earlier step that works makes it unnecessary. In the wrong order, an operator sheds load to protect a line that could have been unloaded by moving two hundred megawatts.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.cards.0",
+   "original": "Establish the emergency rating and how long it is valid for.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.cards.1",
+   "original": "Redispatch generation so less flow takes the loaded path.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.cards.2",
+   "original": "Reconfigure the network to open another route.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.cards.3",
+   "original": "Shed load on the feeders behind the constraint.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "The power that never arrives",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Estimate the loss in the loaded corridor",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.place",
+   "original": "Load & Forecasting",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "Sten Lindgren, who forecasts demand, wants the loss figure before the morning call. The argument about moving generation is really an argument about waste.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "Loss rises with the square of current, which is why a small overload costs more than it looks.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "current through a resistance dissipates power as heat",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.question",
+   "original": "Estimate the power lost as heat in the loaded corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "Loss in a conductor is the current squared times the resistance, and the square is the whole point. A circuit carrying ten per cent more current does not lose ten per cent more, it loses about twenty-one per cent more, and the heat is what the thermal rating is about in the first place. This is also the argument for transmitting at high voltage: for a given power, raising the voltage lowers the current, and lowering the current lowers the loss by its square. The resistance here is the whole corridor's, and the answer is a real quantity of fuel nobody gets to sell.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.answerText",
+   "original": "About 17 MW.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.prompt",
+   "original": "The corridor is carrying 1,150 A per phase through a total resistance of 4.2 ohms, on three phases.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.estimate.question",
+   "original": "Choose the current, the resistance and the number of phases.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.estimate.explanation",
+   "original": "About seventeen megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.estimate.relationship",
+   "original": "Loss = the number of phases × the current squared × the resistance, which is why loss rises with the square of current and not in step with it.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.estimate.givens.0",
+   "original": "Current is 1,150 A per phase",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.givens.1",
+   "original": "Corridor resistance is 4.2 Ω",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.estimate.givens.2",
+   "original": "There are three phases",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "The contingency you are actually protecting against",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "Choose what to do about the warm corridor",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "Reyes wants a decision. The corridor is inside its emergency rating for another half hour, and the question on the table is what happens to the rest of the system if it goes.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "A rating is only interesting alongside what the flow does when that element is gone.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "a network is required to survive the loss of any single element",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.question",
+   "original": "What makes the loaded corridor a problem worth acting on now?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "Running above a continuous rating is a decision about time and temperature. The emergency rating exists so that decision can be made. What turns this from expensive into dangerous is the contingency. One corridor is already loaded. Lose it, and its flow lands on neighbours that are not rated for the sum. That second trip is a relay working correctly, not a choice anybody makes. This is the whole of the N-1 rule. The system is not required to be comfortable. It is required to survive any single failure without cascading. So the question is never whether this line is hot. It is what is hot after the next thing goes.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.choices.0",
+   "original": "It is above its continuous rating, and continuous ratings are not meant to be exceeded at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.1",
+   "original": "If it trips, the flow lands on a circuit that cannot carry it, and the next trip is not optional.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.choices.2",
+   "original": "The loss of seventeen megawatts is expensive and the fuel has to be paid for by somebody.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.3",
+   "original": "The relay protecting it may be miscoordinated and could operate before its setting.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.0",
+   "original": "Continuous ratings are exceeded deliberately and often; that is what an emergency rating is for.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.1",
+   "original": "The loss matters and is worth about seventeen megawatts of fuel, but expense is not what makes this urgent.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.2",
+   "original": "Miscoordination is a real fault worth finding, and it is not what is happening here.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.title",
+   "original": "The last few kilometres",
+   "readOnly": true
+  },
+  {
+   "id": "m03.objective",
+   "original": "Get customers back on in an order that can be defended afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.briefing",
+   "original": "Eleven feeders are still dead and the crews can only be in one place at a time.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.stake",
+   "original": "Thursday, and the transmission side is steady, but eleven distribution feeders are still dead. Chinelo Obi has three crews and fourteen thousand households in the dark. One of her circuits carries a dialysis clinic. Another carries a thousand homes. Ewa Kowalczyk is at the first fault already, and it is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Restoration is a series of choices about people, made with instruments that only see the substation.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "Why the far end sits low",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Estimate the volt drop to the end of the feeder",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.place",
+   "original": "Distribution Depot",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "The substation end of the feeder is at nominal voltage. Customers four kilometres along it are complaining, and the only meter is back at the substation.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "Volt drop is set by the current and by both parts of the line's impedance.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "current flowing through a resistance produces a drop in voltage",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.question",
+   "original": "Estimate the volt drop from the substation to the far end.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "A conductor is not a wire in a diagram. It has resistance and it has reactance, and current through either one costs voltage. The two do not add straight, because the current is not in step with the voltage. The resistance takes its share in proportion to the in-phase part of the current, and the reactance takes its share in proportion to the out-of-phase part. That is why power factor appears in a question about voltage. It also explains why adding reactive support at the far end lifts the voltage without sending any more real power down the line.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.estimate.prompt",
+   "original": "The feeder carries 310 A. Over four kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.estimate.question",
+   "original": "Choose the current, both parts of the impedance, and the two parts of the angle.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.explanation",
+   "original": "About six hundred volts lost along the way, on an eleven thousand volt feeder. That is over five per cent, which is why the far end complains while the substation meter looks healthy. The nominal voltage is what the drop is judged against. It is not part of working the drop out.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.estimate.relationship",
+   "original": "Volt drop ≈ the current × (the resistance × cos φ + the reactance × sin φ), with cos φ the power factor of the load.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.estimate.givens.0",
+   "original": "Feeder current is 310 A",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.givens.1",
+   "original": "Resistance is 1.8 Ω and reactance is 0.9 Ω",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.estimate.givens.2",
+   "original": "Power factor is 0.95, so sin φ is 0.31",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "What actually limits a conductor",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "Match each observation to what it constrains",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "Novak is asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is actually about.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "Current sets the heat, voltage sets the insulation, and the two limits are separate.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "a conductor warms up as current passes through it",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "Two different limits get confused. Heat comes from current, and it does not care what voltage the conductor is at. The insulation and the clearances care about voltage, and they do not care what current is flowing. So a circuit can be at nominal voltage and still be over its thermal limit, which is the case in front of the room. Volt drop is a third thing again, a consequence of current, and it is a customer problem rather than a safety one. Sag is where heat turns into a clearance question, which is the one place the two meet.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.choices.0",
+   "original": "A heat limit, set by current and not by voltage at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.1",
+   "original": "An insulation limit, set by voltage and not by current.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.2",
+   "original": "A volt drop, which is a consequence of current along the line's impedance.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.choices.3",
+   "original": "A clearance limit, which is where a heat limit turns into a safety one.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.0",
+   "original": "Heating is proportional to current squared and is independent of the voltage the conductor sits at.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.1",
+   "original": "Insulation and clearance are set by voltage, and are unaffected by how much current flows.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.2",
+   "original": "Volt drop follows from current along the impedance, and it reaches the customer before it reaches a limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.rebuttals.3",
+   "original": "Sag is thermal expansion, which is the one point where a heat limit becomes a clearance limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.0",
+   "original": "The conductor is running at 78 °C on a 75 °C continuous rating.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.1",
+   "original": "The circuit has been switched to a higher nominal voltage than it was built for.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.2",
+   "original": "Customers at the end of the circuit report low voltage in the evening peak.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.scenarios.3",
+   "original": "The span over the road has dropped by a metre since the morning.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "The order somebody will read back to you",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "Decide which circuit gets the crew first",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one clinic and one pumping station.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "The first crew goes where the consequence of waiting is worst, not where the count is biggest.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "a crew can only work one fault at a time",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.question",
+   "original": "Which feeder should take the first crew?",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Two things decide this, and household count is only one of them. The first is what waiting costs, and for a dialysis clinic it is measured in treatments rather than in inconvenience. The second is how long the work takes, because a one-hour job frees the crew to take the next fault the same shift. The clinic circuit is worst on the first and best on the second, so it goes first on both counts. The largest feeder is a four-hour job and stays a four-hour job whenever it is started. The unlocated fault cannot be scheduled at all until somebody has found it. The pumping station is already supplied, which is what a standby supply is for.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "The feeder with 4,100 households, faulted at the substation end, four hours' work.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "The dialysis clinic feeder — 180 homes, one pole, an hour's work.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "The feeder with 2,600 households and a fault nobody has located yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "The feeder feeding the water pumping station, already on its standby supply.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "The biggest count is a four-hour job, and starting it commits a crew for the whole shift.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "A fault nobody has located cannot be given a duration, so it cannot be scheduled against the others.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "The pumping station is running on its standby supply, so it is not off, and it can wait.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.title",
+   "original": "Is that number the number",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Establish which readings the incident account is allowed to rest on.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.briefing",
+   "original": "The report is due and two of the figures in it come from instruments nobody has checked.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.stake",
+   "original": "Friday, and the account of Tuesday night has to be written down. Dolores Reyes wants it filed today so the week can close. June Farrow will not sign it while two of its figures come from instruments last calibrated in the spring. Nadia Haddad needs a machine back on the bars before the evening peak, and there is a right order for that which is not the order anybody is in a hurry to follow. Today you work out what the system was actually delivering, put the steps of synchronising a machine in the order physics requires, and settle an argument between a meter and an oscilloscope. This time Farrow is right, and the delay is the cheapest thing in the week: a number in a report outlives everybody who knew what it meant.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "A reading is a claim about one quantity, and two instruments can disagree while both are right.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "What three phases actually add up to",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Estimate the power the circuit was delivering",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "Farrow has line voltage, line current and a power factor from the night of the event. The report claims a figure for delivered power that nobody has reproduced.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "Three-phase power from line quantities carries a factor of root three, and it is not three.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "a three-phase supply carries power on three conductors at once",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.question",
+   "original": "Estimate the real power the circuit was delivering.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "The tempting mistake is to multiply by three, because there are three phases. The factor is the square root of three instead, and the reason is that line voltage is measured between two phases rather than from one phase to neutral. Those two ways of measuring differ by root three, and the formula written in line quantities carries it. Power factor then takes its usual bite, because only the in-phase part of the current does work. Get the factor wrong and the answer is out by about seventy per cent, which is more than enough to change what the report concludes.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.estimate.prompt",
+   "original": "The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root three is about 1.732.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.estimate.question",
+   "original": "Choose root three, the line voltage, the line current and the power factor.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.estimate.explanation",
+   "original": "About five and a half megawatts. Using three instead of root three gives nearly ten, which is a different circuit. The phase count is a real fact about the system and is not the multiplier here. Sin φ belongs to the reactive part, which is a separate question.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.estimate.relationship",
+   "original": "Real power = √3 × the line voltage × the line current × the power factor, with the voltage measured between lines rather than to neutral.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.estimate.givens.0",
+   "original": "Line voltage is 11,000 V and line current is 310 A",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.estimate.givens.1",
+   "original": "Power factor is 0.95",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.estimate.givens.2",
+   "original": "Root three is about 1.732",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "Four things that have to agree before the breaker closes",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Put the steps of synchronising in the order physics requires",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Generation Hall",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "Haddad has a machine at rest and a system running at nominal. She wants the sequence written down before anybody is standing at the panel.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "Speed, then voltage, then phase angle, and only then the breaker.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "a generator joined to a live system is forced to turn at the system's speed",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "Each step removes one way of getting hurt, and the order is set by how violent the mismatch is. Speed comes first, because closing onto a system turning at a different rate slams the rotor into step and can shear a shaft. Voltage next, because a difference in size drives a heavy current of reactive power the instant the contacts meet. Phase angle after that, since it is the last thing left and the one that has to be caught in a narrow window as the two drift past each other. The breaker closes last, on all three conditions at once, which is the only moment it is safe.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.cards.0",
+   "original": "Bring the machine up to the system's frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.1",
+   "original": "Match the machine's voltage to the system's.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.2",
+   "original": "Wait for the phase angle between them to close on zero.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.3",
+   "original": "Close the breaker.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "Two instruments, two quantities",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "Settle the argument between the meter and the scope",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "An oscilloscope on the busbar shows a peak of 325 volts. The panel meter beside it reads 230. Both were calibrated last month and neither has moved.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "Peak and RMS are different quantities, and one is the other divided by root two.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "an alternating voltage changes continuously through each cycle",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.question",
+   "original": "Which instrument is reporting the wrong voltage?",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "An alternating voltage does not have one value, so any single number is a summary and the summary has to be named. The peak is the highest the waveform reaches. The RMS value is the steady voltage that would deliver the same power into a resistance, and for a sine wave it is the peak divided by root two. Divide 325 by 1.414 and the meter's 230 comes straight out. This is why mains voltages are quoted as RMS everywhere: it is the figure that predicts heating and power. The peak still matters, but it matters to insulation rather than to power.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.0",
+   "original": "The oscilloscope, because 325 volts is not a voltage this system runs at.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.1",
+   "original": "Neither, since the scope shows peak and the meter shows RMS.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.choices.2",
+   "original": "The meter, because it is averaging and averaging loses the true value.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.choices.3",
+   "original": "Both, because two instruments this far apart cannot both be calibrated.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.0",
+   "original": "325 volts is exactly what a 230 volt RMS supply peaks at, so it is the expected figure, not an impossible one.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.1",
+   "original": "The meter is reporting RMS rather than a simple average, and RMS is the quantity that predicts power.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.rebuttals.2",
+   "original": "Both instruments agree once you notice they are reporting different quantities, so neither is out of calibration.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.title",
+   "original": "Enough in the tank",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Decide what the system is holding back, and whether it is enough.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.briefing",
+   "original": "Tomorrow's peak is colder than the forecast the reserve was set against.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.stake",
+   "original": "Monday, and the forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the number has not changed much but the width has, and the width is what the reserve has to cover. Rafael Alvarez has the storage figures from the weekend and they are worse than the brochure. Dolores Reyes has to say tonight how much generation is held back and how much is sold. Today you work out what the battery will really give back, decide why the transmission side runs at high voltage at all, and choose what evidence is worth buying before the peak. Hold too much back and it is wasted. Hold too little and Thursday happens again.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "What comes out against what went in",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "Estimate what the store gives back",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.place",
+   "original": "Load & Forecasting",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "The battery took charge overnight on Saturday and discharged into Sunday's peak. Alvarez has both totals and the brochure figure, and the three do not agree.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "Round-trip efficiency is measured on the energy, not on the power rating.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "storing energy and recovering it both lose some of it",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.question",
+   "original": "Estimate the round-trip efficiency of the store.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "Everything that moves energy in and out loses a share of it, in the converter, in the chemistry and in keeping itself cool. Round-trip efficiency is the plain ratio of what came out to what went in, over a whole cycle, and it is the only figure that tells you what the store is worth as reserve. A power rating is a different claim: it says how fast, not how much. Duration is a third one again. Read the rating as reserve and you will count megawatts the store cannot sustain for long enough to matter.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.estimate.prompt",
+   "original": "The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for four hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.estimate.question",
+   "original": "Choose the energy out and the energy in.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.estimate.explanation",
+   "original": "Eighty-five per cent, so fifteen per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.estimate.relationship",
+   "original": "Round-trip efficiency = the energy out ÷ the energy in, measured over a full cycle.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.estimate.givens.0",
+   "original": "Energy in was 220 MWh",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.estimate.givens.1",
+   "original": "Energy returned was 187 MWh",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "The reason the wires are not at wall voltage",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "Say why the transmission side is at high voltage",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.place",
+   "original": "Generation Hall",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "a transformer changes voltage in proportion to its turns",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.question",
+   "original": "Why is power sent long distances at high voltage?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "Power is voltage times current, so a given amount of power can be sent as a lot of current at low voltage or a little current at high voltage. Loss in the conductor is the current squared times the resistance, and that square is what decides the matter. Halve the current and the loss falls to a quarter. A transformer is what makes the trade available, changing voltage in proportion to its turns while leaving the power almost untouched. This is the whole reason a transmission system exists as a separate voltage level rather than as long extension leads.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.choices.0",
+   "original": "Because high voltage pushes the power along the line faster.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.1",
+   "original": "Because higher voltage means less current, and loss goes as current squared.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.choices.2",
+   "original": "Because insulation is cheaper than conductor, so high voltage costs less to build.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.3",
+   "original": "Because generators cannot be built to produce power at low voltage.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.0",
+   "original": "Power travels at nearly the speed of light on any line; voltage does not change how fast it arrives.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.1",
+   "original": "Insulation for high voltage is expensive rather than cheap, and it is a cost accepted to save the loss.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.2",
+   "original": "Generators are built at whatever voltage suits the machine, and a transformer takes it from there.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "What is worth knowing before the peak",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "Fund the evidence that would change tonight's decision",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "Buy the measurement whose result would change the decision, not the one that is easiest to get.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "information is only worth buying if a decision turns on it",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "Evidence is worth what the decision it changes is worth. A reserve is set against the width of a forecast, so the measurement that narrows the width is the one that moves the number: how the load actually responds to that fourth degree of cold. Second to it is what the store will really return, since the reserve is partly made of it and the brochure figure has already been shown wrong. Repeating a measurement that is already good buys precision nobody is short of. Anything whose result arrives after the peak cannot change a decision taken before it, however interesting the answer is.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.proposals.0",
+   "original": "Measure how much extra load the last degree of cold actually brings on",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.1",
+   "original": "Re-test the store's round-trip efficiency at the discharge rate the peak would use.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.2",
+   "original": "Repeat the frequency-response test on the machine that already passed it in the autumn.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.proposals.3",
+   "original": "Commission a full survey of feeder-level demand",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.evidence",
+   "original": "The forecast peak has moved by 400 MW of width rather than of centre. The reserve currently held\nis 310 MW. The store is counted as 50 MW of that, on a brochure figure of 92 per cent that the\nweekend's own numbers put at 85. The machine tested in the autumn has not been touched since.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.title",
+   "original": "Where the current actually goes",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Work out how flow divides between paths before switching changes them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.briefing",
+   "original": "Two circuits share the same corridor and they are not sharing it equally.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.stake",
+   "original": "Tuesday, a week on, and the corridor has two circuits in it rather than one. Piotr Novak points out that this does not halve anything. The flow divides according to what each path costs it, and the newer circuit is the lower-impedance one, so it is taking two thirds of the load while the older one idles. Thabo Dube is waiting to be told which one to switch out for the morning's work. Today you work out how the current splits, decide what a node can and cannot hide, and say which arrangement leaves the least exposure. Switch the wrong one and the remaining circuit finds out what the sum was.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "Current divides between parallel paths in inverse proportion to their impedance, whatever anybody intended.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "How the flow splits between two paths",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Estimate the current in the older circuit",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "Nine hundred amps leave the busbar for the same destination by two routes. The older circuit is six ohms, the newer one three, and only the total is metered.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "The lower-impedance path takes the larger share, in inverse proportion.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "two paths between the same two points carry the same voltage across them",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.question",
+   "original": "Estimate the current flowing in the older, higher-impedance circuit.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "Both circuits start and finish at the same two busbars, so the voltage across each is identical. By Ohm's law the current in each is that voltage divided by its own impedance, which means the smaller impedance carries the larger current. Working the shares out gives each path the other one's impedance over the sum. This is why adding a circuit does not split flow evenly, and why a new low-impedance line can quietly overload itself while an old one sits half empty. Nothing on the total meter shows any of it.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.estimate.prompt",
+   "original": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.estimate.question",
+   "original": "Choose the total current, the other path's impedance and the sum of the two.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.estimate.explanation",
+   "original": "Three hundred amps in the old circuit and six hundred in the new one. Each path takes the other's impedance over the sum, so the low-impedance route carries twice as much. The busbar voltage is the same for both, which is why it cancels and never enters the arithmetic.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.estimate.relationship",
+   "original": "Current in one of two parallel paths = the total × the other path's impedance ÷ the sum of the two impedances.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.estimate.givens.0",
+   "original": "Total current is 900 A",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.estimate.givens.1",
+   "original": "The older circuit is 6 Ω and the newer is 3 Ω",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "What a node has to add up to",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Say what the busbar meter can and cannot tell you",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "A conservation law bounds the parts of a system without identifying any of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "charge does not accumulate at a junction",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.question",
+   "original": "What does the 900 A total tell you about the two circuits?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "Charge does not pile up at a junction, so whatever arrives has to leave. That is the whole content of the current law, and it is a constraint rather than a solution: it fixes the sum and says nothing about the split. To get the split you need the impedances, which is a different measurement. Assuming an even share is the common error and here it is wrong by a factor of two. Assuming each path carries the full total confuses parallel with series. The total is real and useful; it is simply one equation with two unknowns in it.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.0",
+   "original": "Both circuits are carrying 450 A, since the total divides between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.choices.1",
+   "original": "The two currents must add to 900 A, and nothing in that figure says how.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.choices.2",
+   "original": "Each circuit is carrying 900 A, because they are in parallel across the same busbar.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.choices.3",
+   "original": "Nothing at all, because a total is not a measurement of anything real.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.0",
+   "original": "An even split needs equal impedances, and these differ by a factor of two.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.1",
+   "original": "In parallel the voltage is shared and the current divides; it is series connection where the current is common.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.rebuttals.2",
+   "original": "A total is a real constraint and it is exactly one equation; it just is not two.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "What is common and what divides",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "Match each connection to what it shares",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.place",
+   "original": "Distribution Depot",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "Obi is training a new starter and wants the four cases on the whiteboard matched to what stays the same across each arrangement.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "Series shares the current and divides the voltage; parallel shares the voltage and divides the current.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "a circuit can be connected end to end or side by side",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Two arrangements, and the thing that stays common is what tells them apart. End to end there is only one path, so every element passes the same current and the supply voltage divides between them in proportion to impedance. Side by side each element sees the whole voltage, so the current divides instead. Everything else follows. Adding a parallel branch lowers the combined impedance and raises the total current, while adding a series element raises the impedance and lowers it. Getting these the wrong way round is how somebody sizes a fuse for the wrong number.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.choices.0",
+   "original": "The current is the same in all of them, and the voltage divides between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.1",
+   "original": "The voltage is the same across all of them, and the current divides between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.2",
+   "original": "The combined impedance falls, so the total current rises.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.3",
+   "original": "The combined impedance rises, so the current falls everywhere in the loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.0",
+   "original": "One path end to end means one current through everything, with the voltage dividing between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.1",
+   "original": "Side by side each branch sees the full voltage, so what divides is the current.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.2",
+   "original": "Another parallel branch offers another route, lowering the combined impedance and raising the total.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.3",
+   "original": "Another element in line adds impedance and reduces the current everywhere in that loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scenarios.0",
+   "original": "Three elements connected end to end in one loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scenarios.1",
+   "original": "Three elements connected side by side across the same two points.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scenarios.2",
+   "original": "A fourth branch is added side by side to an existing three.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scenarios.3",
+   "original": "A fourth element is added end to end into an existing loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.title",
+   "original": "Eighty milliseconds",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Establish what a fault does before anybody can respond to it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.briefing",
+   "original": "A cable failed at the substation and the protection cleared it before the alarm reached the room.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.stake",
+   "original": "Wednesday, and a cable failed inside the substation at 13:40. The protection cleared it in under a tenth of a second, which is the whole story: nobody in the control room saw the fault, they saw the aftermath. Piotr Novak needs the fault current worked out before he will sign the switchgear back into service. June Farrow wants to know how a current transformer produces a reading from a wire it never touches. Ewa Kowalczyk has a crew standing at a gate and a rule about earthing that they are quietly impatient with. Today you size the fault, explain the instrument, and decide who may approach.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "A fault is limited only by impedance, which is why the numbers are enormous and the times are tiny.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "What a short circuit is limited by",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Estimate the current the fault drew",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "The cable failed phase to earth. Phase voltage is 6,350 volts and the total impedance back to the source is 0.42 ohms. Novak wants the current the switchgear had to interrupt.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "Fault current is the driving voltage over the impedance of the path, and nothing else limits it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "a short circuit leaves almost no impedance in the path",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.question",
+   "original": "Estimate the current that flowed during the fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "Normal load current is set by what the customer is drawing. Fault current is not: the load has been bypassed, so the only thing left to limit the flow is the impedance of the source, the transformer and the cable back to it. That is a very small number, and dividing the phase voltage by it gives a current tens of times larger than anything the circuit carries in service. This is why switchgear is rated for a breaking current rather than a running one, and why the clearing time is quoted in milliseconds. The energy released goes as the current squared times the time.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.estimate.prompt",
+   "original": "Phase voltage at the fault was 6,350 V. Total impedance of the source, transformer and cable back to it is 0.42 Ω. Normal load on the circuit is 310 A.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.estimate.question",
+   "original": "Choose the driving voltage and the impedance of the path.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.explanation",
+   "original": "About fifteen thousand amps, roughly fifty times the normal load. The load current does not limit a fault, because the fault has gone around the load. The clearing time matters for the energy released rather than for the size of the current.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.estimate.relationship",
+   "original": "Fault current = the driving phase voltage ÷ the total impedance of the path back to the source, with the load bypassed and contributing nothing.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.estimate.givens.0",
+   "original": "Phase voltage is 6,350 V",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.givens.1",
+   "original": "Impedance back to the source is 0.42 Ω",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "A reading taken without a connection",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Explain how the instrument reads a wire it never touches",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "Farrow has a current transformer clamped around a conductor at eleven thousand volts, feeding a meter on the panel at five amps. Nothing connects the two circuits.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "Two circuits with no connection between them can still be coupled through what changes around them.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "a changing magnetic field produces a voltage in a nearby conductor",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.question",
+   "original": "How does the current transformer produce its reading?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "A current in a conductor makes a magnetic field around it. If the current alternates, the field alternates with it, and a changing field through a coil drives a voltage in that coil. That is Faraday's law, and it is the whole basis of the instrument: the two circuits share a magnetic path and no electrical one, which is what keeps the meter and the person reading it at low voltage. It is also why a current transformer works only on alternating current. On direct current the field is steady, nothing changes, and the reading is zero.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.0",
+   "original": "The changing magnetic field induces a current in the second winding.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.choices.1",
+   "original": "A small amount of current leaks across the insulation into the meter circuit.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.2",
+   "original": "The conductor warms the core, and the meter reads the temperature rise.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.3",
+   "original": "The meter senses the electric field around the conductor and infers the current from it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.0",
+   "original": "Leakage across insulation is a fault, not a measuring principle, and it would be far too small and unstable to read.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.1",
+   "original": "The core does warm slightly, and it is a loss rather than the signal.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.2",
+   "original": "There is an electric field around the conductor, and it depends on the voltage rather than on the current.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "The ground is not at one voltage",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "Decide who may approach the failed cable",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.place",
+   "original": "Distribution Depot",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "The cable is out of service and the crew wants to start. Kowalczyk has not applied earths yet, and the substation is fed from two directions.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Isolation is not proof of safety, and earthing is what makes it provable.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "a conductor can be re-energised from more than one direction",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.question",
+   "original": "What has to happen before the crew touches the cable?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "Each step covers a different way of getting hurt, so all of them are needed. Opening one end leaves the other end able to feed the cable, and this substation has supply from two directions. Testing dead proves the state at the moment of the test and says nothing about a minute later, which is why earths follow it. An applied earth is what makes a mistake survivable, because it gives any returning current a path that is not through somebody. It also holds the conductor near the potential of the ground the crew is standing on, which is what step and touch voltage is about.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.choices.0",
+   "original": "Switch it out at both ends, then test it dead and apply earths at the point of work.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.choices.1",
+   "original": "Switch it out at the near end, since one open point breaks the circuit.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.2",
+   "original": "Test it dead with an instrument, which proves nothing can arrive while they work.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.3",
+   "original": "Wait for the fault current to decay, then work quickly and stay clear of the ends.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "One open point still leaves the second supply able to energise the cable.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "Testing dead is a snapshot, and earths are what make it stay true while the work goes on.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "Fault current does not linger; the danger is re-energisation, which no amount of working quickly prevents.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.title",
+   "original": "Merit order",
+   "readOnly": true
+  },
+  {
+   "id": "m08.objective",
+   "original": "Decide what runs tomorrow, and what is held back for the day it is needed.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.briefing",
+   "original": "The cheapest generation is on the ridge and it will not say what it is doing after four.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.stake",
+   "original": "Thursday, and tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing for money and cannot promise any of it, and she is tired of being asked to. Nadia Haddad has expensive machines that can be told exactly what to do. Dolores Reyes has to sign an order that puts them in sequence. Today you forecast the peak from the load curve, decide what merit order actually means when the cheapest plant is the least certain, and choose what to do with more wind than the corridor can carry.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "The peak, and how far the cold moves it",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Estimate tomorrow's peak from the curve",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Load & Forecasting",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below zero, and tomorrow is minus four.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "A forecast is a base shape plus a sensitivity, and the sensitivity is measured rather than assumed.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "demand rises as the temperature falls, roughly in step",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.question",
+   "original": "Estimate tomorrow's evening peak.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "A load curve is the same shape most days, because people do the same things at the same times. What moves it is weather, and the useful form of that is a sensitivity: how many megawatts one degree is worth on this system, measured from this winter's own data rather than from a textbook. Base plus sensitivity times degrees gets the centre of the forecast. It does not get the width, which is what the reserve has to cover, and the width comes from how wrong the temperature forecast itself can be. Both numbers are needed and they answer different questions.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.estimate.prompt",
+   "original": "Base Friday peak for this week of the year is 6,400 MW. Demand sensitivity is 120 MW per degree below zero. Tomorrow's forecast is minus four degrees.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.estimate.question",
+   "original": "Choose the base peak, the sensitivity and the degrees below zero.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.estimate.explanation",
+   "original": "About 6,900 megawatts at the centre of the forecast. The reserve is what covers the width around that centre, so it is a separate decision and not part of this sum. Add it in here and you have double-counted the thing the reserve exists for.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.estimate.relationship",
+   "original": "Forecast peak = the base peak for that day and season + the demand sensitivity × the degrees below zero, with the sensitivity measured from this winter's own data.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.estimate.givens.0",
+   "original": "Base peak is 6,400 MW",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.estimate.givens.1",
+   "original": "Sensitivity is 120 MW per degree below zero",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.estimate.givens.2",
+   "original": "Tomorrow is four degrees below zero",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "Cheapest first, and the exceptions that are not exceptions",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Match each plant to why it is dispatched where it is",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "Merit order is cost order, corrected for what the system also needs from a machine.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "generation is scheduled in order of what it costs to run",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "Dispatch starts from cost, because running the cheapest first is what makes electricity affordable. Then three things bend it. Plant with almost no running cost goes first and cannot be relied on, so it displaces fuel without displacing the need for something reliable behind it. Plant that can change output quickly is worth holding part-loaded, because reserve is a service and a machine at full output cannot provide it. And plant in the right place can be needed regardless of price, when the alternative is a corridor over its limit. None of these is charity. Each is the system paying for something other than energy.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.choices.0",
+   "original": "First in the stack on cost, with something reliable behind it because the output is not promised.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.1",
+   "original": "Held part-loaded on purpose, because reserve is a service and only a part-loaded machine can sell it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.2",
+   "original": "Kept off because running it would push flow onto a corridor that cannot take it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.choices.3",
+   "original": "Run out of merit order because of where it is, not what it costs.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.0",
+   "original": "Near-zero running cost puts it first in the stack, and the uncertainty is why something reliable still has to be behind it.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.1",
+   "original": "Holding a fast machine part-loaded is buying reserve, which a machine at full output cannot sell.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.2",
+   "original": "Being in the right place can be worth more than being cheap, when the cheap alternative overloads a corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.rebuttals.3",
+   "original": "Expensive and slow means last, and it is the plant the system is trying not to need.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.0",
+   "original": "The ridge fleet, almost free to run, output not promised beyond four hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.1",
+   "original": "A gas machine that can move 40 MW a minute, deliberately left at half output.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.2",
+   "original": "An old station on the wrong side of the corridor, kept off despite being mid-priced.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scenarios.3",
+   "original": "An old station on the right side of a constraint, run despite being expensive.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "When the cheapest power cannot get out",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Decide what to do with more wind than the corridor can carry",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.place",
+   "original": "Generation Hall",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "Sarraf's ridge could produce 340 megawatts tonight. The corridor out of the valley is good for about 190 before it is at its limit, and there is nothing else to send it to.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "Curtailment is what a network limit looks like from the generator's end.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "power has to have a path to where it is used",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "Energy that cannot reach a customer is not energy, and a corridor at its thermal limit is a hard wall rather than a preference. So some of that output has to stop, and the question is only how the system pays for it and what it buys instead. Reinforcing the corridor fixes it permanently and takes years. Storage on the ridge moves the surplus in time rather than in space, which is exactly the right shape for this problem. Paying the fleet to curtail is the immediate answer and buys nothing lasting. Doing nothing is not available: the relay will curtail it less gracefully.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.proposals.0",
+   "original": "Install storage at the ridge",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.proposals.1",
+   "original": "Pay the fleet to curtail tonight",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.proposals.2",
+   "original": "Reinforce the corridor with a second circuit",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.proposals.3",
+   "original": "Run the corridor above its limit and accept the risk while the wind lasts.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.evidence",
+   "original": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps forty times a winter. Storage at the ridge would be about 50 MW for four hours,\nat 85 per cent round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.title",
+   "original": "The system splits",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Work out what an island is, and whether the one that has formed can hold.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.briefing",
+   "original": "The corridor tripped and the valley is now running on its own, for the moment.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.stake",
+   "original": "Friday, 18:20, and the corridor tripped at the worst hour of the worst day — the same corridor the room chose to hold inside its emergency rating a week ago, on a thermal record nobody had checked. The valley did not go dark. It separated, and it is now an island of its own with the ridge, one gas machine and about a fifth of the demand it had at lunchtime. Dolores Reyes has minutes to decide whether to help it survive or shut it down deliberately. Nadia Haddad says the one machine in there has almost no inertia behind it. Chinelo Obi has the customer numbers. Today you work out what is holding that island's frequency up, decide what stored energy is actually available, and choose whether to keep it or collapse it.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "An island lives or dies on whether generation inside it can follow the load inside it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "Why the island's frequency is falling slowly",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Which explanation fits every reading, including the ones that look fine?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "The island's frequency is drifting down at a tenth of a hertz per second. Its one machine is at full output and the ridge is at nine per cent of capacity, in a rising wind.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "Inverter-connected generation supplies power without supplying inertia, which changes what a deviation means.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "an island's frequency depends only on what is inside it",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.headline",
+   "original": "The island is short of generation and its frequency is falling more slowly than it should.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "A slow fall is not evidence of a small shortfall. It is evidence that something is reducing demand as the frequency drops, and a good deal of load does exactly that: motors slow, and the power they draw falls with them. That buys time and it is not a solution, because the frequency is still going the wrong way. The ridge is not helping here in the way people assume. Its machines reach the system through inverters, so they can deliver power without delivering any stored rotational energy, and an island leaning on them has less inertia than its megawatts suggest. Voltage being normal rules out a different fault, not this one.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.0",
+   "original": "The island has plenty of reserve after all",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.0.mechanism",
+   "original": "A slow fall means the shortfall is small.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.1",
+   "original": "The load is shedding itself as the frequency falls",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.1.mechanism",
+   "original": "Some demand falls away with frequency",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.2",
+   "original": "The ridge is providing inertia",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.2.mechanism",
+   "original": "Its spinning mass is holding the frequency up.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.3",
+   "original": "The frequency meter is faulty",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.3.mechanism",
+   "original": "Voltage is normal",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.rebuttals.0",
+   "original": "A slow fall with the only dispatchable machine at maximum is not reserve; it is demand quietly falling away.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.1",
+   "original": "Inverter-connected plant supplies power without inertia, so its megawatts do not slow the frequency change.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.2",
+   "original": "Voltage is normal because this is a power balance problem rather than a reactive one, so it rules out the wrong fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "What is stored, and for how long",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Say where an island's short-term energy actually comes from",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "Farrow is asked to list what the island has to draw on in the first ten seconds. Two of the four things on her list cannot help at that timescale.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "Every store has a timescale, and matching the store to the timescale is the whole trick.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "energy can be stored in a spinning mass, in a magnetic field or in a chemical cell",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "Each store answers over a different interval and confusing them is how a plan fails. Rotational energy in a spinning machine is there instantly, without anybody asking, and it is gone in seconds. A battery through an inverter responds in well under a second and can hold for hours, which makes it the most useful thing an island can have. Energy in the magnetic fields of transformers and lines is real, and it is a fraction of a cycle: nothing dispatchable. Boiler thermal storage is minutes away, useful for the recovery and useless for the first ten seconds.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.choices.0",
+   "original": "Instantly and without being asked, for a few seconds only.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.1",
+   "original": "Within a second of being asked, and for hours if needed.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.2",
+   "original": "For a fraction of one cycle, which is what inductance and capacitance hold and is too brief to dispatch.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.choices.3",
+   "original": "After several minutes, which suits the recovery rather than the emergency.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.0",
+   "original": "Rotational energy arrives instantly with no command and is spent within seconds.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.1",
+   "original": "A battery through an inverter answers in well under a second and can hold for hours, which is the useful combination.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.2",
+   "original": "Energy in inductance and capacitance is real and lasts a fraction of a cycle, so nothing can be dispatched from it.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.rebuttals.3",
+   "original": "Boiler storage is a matter of minutes, which helps the recovery and not the first ten seconds.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.scenarios.0",
+   "original": "The rotating mass of the gas machine.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.scenarios.1",
+   "original": "The ridge's battery, through its inverter.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.scenarios.2",
+   "original": "The inductance of the island's transformers, and the capacitance of its lines.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.scenarios.3",
+   "original": "Heat in the gas machine's boiler and steam drum.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "Keeping it, or collapsing it on purpose",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "Choose what to do about the island",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.place",
+   "original": "Distribution Depot",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "Obi has 26,000 households inside the island and a frequency still falling. Holding it needs demand off. Collapsing it means all of them, and a longer way back.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "Shedding some load to keep an island alive is usually cheaper than restoring it from nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "restoring a collapsed island takes longer than holding a live one",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.question",
+   "original": "What should be done with the island?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "An island with its only dispatchable machine at maximum has one lever left, and that is demand. Shedding a fifth stops the fall and keeps four fifths of the valley supplied, which is a far better outcome than everybody off. Letting it collapse costs all 26,000 households and buys a restoration measured in hours, because a dead network has to be built back piece by piece. Waiting on wind is betting the island on a forecast. Reconnecting now is the worst of the four: two systems at different frequencies must not be joined, and doing it would trip the machine and take the island down anyway.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.choices.0",
+   "original": "Shed about a fifth of the island's load now, to stop the fall and keep the rest supplied.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.choices.1",
+   "original": "Let it collapse, and restore the whole valley from the main system once the corridor is back.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.2",
+   "original": "Hold on without shedding, on the chance the rising wind lifts the ridge's output in time.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.choices.3",
+   "original": "Reconnect it to the main system immediately, before the frequency falls any further.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.0",
+   "original": "Collapsing it loses every customer and turns a shedding problem into a restoration measured in hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.1",
+   "original": "Waiting on the wind bets the island on a forecast, with nothing in reserve if the forecast is late.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.2",
+   "original": "Two systems at different frequencies cannot be joined; attempting it trips the machine and collapses the island.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.title",
+   "original": "Cranking path",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Build a live system out of a dead one, in the only order that works.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.briefing",
+   "original": "The valley collapsed at 19:04 and nothing in it can start without power it has not got.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.stake",
+   "original": "Saturday, 19:04, and the island went. The valley is dark and every machine in it needs electricity to start: the boiler feed pumps, the fans, the control systems, the switchgear itself. Nadia Haddad has one small hydro set at the head of the valley that can start on its own, and Thabo Dube has a yard full of open switches. Dolores Reyes has to decide the order, and there is only one that works. Today you cost the energy the valley has already lost, work out why the small set matters more than the large one, and write the restoration in the sequence physics allows rather than the one people want.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "A dead system is rebuilt from one machine that needs nothing, outward along a path chosen in advance.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "What the dark hours actually cost",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Estimate the energy the valley has not had",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.place",
+   "original": "Generation Hall",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "The valley was drawing about 300 megawatts when it went. Haddad expects the restoration to take two and a half hours, and the report will want the figure in energy rather than power.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "Power is a rate and energy is the amount, and the settlement is always in energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "power sustained over a period of time delivers energy",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.question",
+   "original": "Estimate the energy not delivered during the restoration.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "Power says how fast energy is being delivered. Energy says how much arrived. The two are confused constantly, because both get called demand. Multiply the power by the time it was sustained and the result is energy — megawatt-hours, if the power was in megawatts and the time in hours. That is the number every settlement, every compensation claim and every inquiry runs on, because it is the one that scales with duration. Two systems can lose the same megawatts and owe entirely different amounts. The difference is only how long they took to come back.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.estimate.prompt",
+   "original": "The valley was drawing about 300 MW when it collapsed. The restoration is expected to take about two and a half hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.estimate.question",
+   "original": "Choose the power and the duration.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.estimate.explanation",
+   "original": "Seven hundred and fifty megawatt-hours never delivered. The household count and the frequency are both central to the story and neither belongs in this calculation. One is who was affected; the other is why it happened.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.estimate.relationship",
+   "original": "Energy = the power × the time it is sustained for, in megawatt-hours when power is in megawatts.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.estimate.givens.0",
+   "original": "Demand at collapse was about 300 MW",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.estimate.givens.1",
+   "original": "Restoration is expected to take about 2.5 hours",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "The order physics allows",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Put the restoration in the order it has to happen",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "One hydro set that can start unaided, a dead network, and a room full of people who want the big station back first. Reyes needs the sequence written before anybody switches anything.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "Start with the machine that needs nothing, build a path to a machine that needs a little, and grow outward.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "most generating plant needs an electrical supply before it can start",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "Almost every large machine needs power to start, so a dead system cannot be restarted from its biggest asset. It has to begin with the one plant that needs nothing external, which here is the hydro set: open a gate and it turns. That machine then energises a narrow path to a larger station so its pumps and fans can run, and only then can the large station be brought up. Load is added in small blocks throughout, because each block is a step change the tiny live system has to absorb. Reconnecting to the neighbouring system comes last, and only once the island is stable enough to be synchronised to it rather than dragged into step.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.cards.0",
+   "original": "Start the hydro set, which needs no outside supply.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.cards.1",
+   "original": "Energise a narrow path from it to the large station's own supply.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.cards.2",
+   "original": "Bring the large station up, now that its pumps and fans can run.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.cards.3",
+   "original": "Add load in small blocks, and synchronise to the neighbouring system last.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "Why it cannot go faster",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Match each restoration step to the reason it is limited",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.place",
+   "original": "Distribution Depot",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "Obi has crews asking why they are switching a few streets at a time when the substation is live and the whole feeder could be closed in one movement.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "Every restoration step is limited by something different, and hurrying the wrong one collapses it again.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "a small live system is disturbed more by a given block of load than a large one",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "The limits change as the system grows. Very early, the live island is tiny and a block of load is enormous relative to it, so blocks stay small: this is a frequency limit. Energising long circuits with almost no load on them raises voltage rather than lowering it, which is a reactive limit and the opposite of most people's instinct. Cold load picks up higher than normal, because every thermostat in the street is calling at once. And synchronising two live systems is a matching problem, not a capacity one. Four steps, four different constraints.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.choices.0",
+   "original": "A frequency limit, because a small system cannot absorb a large step.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.1",
+   "original": "A reactive limit, because a lightly loaded line raises the voltage at its far end.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.2",
+   "original": "A cold-load limit, because everything that was cut off comes back on at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.choices.3",
+   "original": "A matching limit, because frequency, voltage and angle must agree before the breaker closes.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.0",
+   "original": "Early on the island is small, so a given block is a large fraction of it, and that is a frequency limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.1",
+   "original": "A long line energised with little load on it pushes voltage up rather than down, which is a reactive limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.2",
+   "original": "Cold load returns above its normal value, because everything that was cut off is calling at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.rebuttals.3",
+   "original": "Joining two live systems is a matching problem in frequency, voltage and angle, not a question of capacity.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.0",
+   "original": "Adding the first blocks of load to a very small live island.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.1",
+   "original": "Energising a long, lightly loaded circuit out to the next substation.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.2",
+   "original": "Restoring a residential feeder that has been off for two hours in winter.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.scenarios.3",
+   "original": "Joining the restored island back to the neighbouring system.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.title",
+   "original": "Six hours, not forty minutes",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Re-read the week from a record nobody had checked.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.briefing",
+   "original": "Farrow has traced the corridor's thermal record, and the number the room worked from was wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.stake",
+   "original": "Sunday, and June Farrow has finished tracing the corridor's thermal history. The emergency rating that bought the room forty minutes a week ago was calculated from a sensor that had been reading eleven degrees low since a firmware update in the spring. The corridor was not forty minutes from its limit. It had been above continuous rating for six hours, and it had been there twice before. Dolores Reyes has to decide what that does to every decision taken since. Today you work out what a drifted sensor does to a rating, decide which of the week's conclusions still stand, and say what you would have done differently. Nothing in the week was reasoned badly. It was reasoned from a number.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "A conclusion is only as good as the measurement under it, and a drifted instrument leaves the reasoning intact and the answer wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "The sensor that was confident and wrong",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Which explanation fits every reading, including the steady ones?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "Farrow has three sources for the corridor's temperature that week: the sensor, an infrared survey from the ground, and the sag measured off a photograph. Two of them agree with each other.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "Precision is repeatability; accuracy is being right. A drifted sensor has the first and not the second.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "an instrument can be precise and still be offset from the truth",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.headline",
+   "original": "The corridor's own sensor disagrees with two independent measurements of the same week.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "Tight scatter is the trap. It says the instrument repeats, and repeating is not the same as being right: a constant offset produces beautifully consistent readings that are all wrong by the same amount. Two methods that share nothing with the sensor, and nothing much with each other, both put the conductor about eleven degrees hotter, and the firmware date says when the offset arrived. Sag does depend on tension, which is why it is corroboration rather than proof — and corroboration from an unrelated method is exactly what a drifted instrument cannot produce.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.0",
+   "original": "The sensor is correct and both other methods are crude",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.0.mechanism",
+   "original": "Its scatter is tiny",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.1",
+   "original": "The sensor has a fixed offset from the firmware update",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.choices.1.mechanism",
+   "original": "It repeats well and sits low",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2",
+   "original": "The corridor really did run at two temperatures",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.2.mechanism",
+   "original": "Different parts of a long conductor can differ.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3",
+   "original": "The photograph is unreliable and should be discarded",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.choices.3.mechanism",
+   "original": "Sag depends on tension as well as temperature.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "Tight scatter proves the sensor repeats itself, which is what a constant offset looks like from the inside.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "A long conductor does vary along its length, and not by eleven degrees in the same direction on every survey.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "Sag is sensitive to tension, which makes it weak alone and useful as the second independent method.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "What a rating is a statement about",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Say what the corrected temperature does to the rating",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "Novak has the corrected figures. At 89 degrees the corridor was not inside an emergency rating at all, and the relay that never operated is now the thing he wants explained.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "A rating is a temperature expressed as a current, so a wrong temperature makes the current limit meaningless.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "a conductor's rating is a limit on temperature rather than on current",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.question",
+   "original": "What does the corrected temperature change about that week?",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "A thermal rating is not a fuse setting. It is the current at which the conductor reaches a temperature the operator has agreed to accept, chosen so the metal keeps its strength and the span keeps its clearance. Surviving a higher temperature does not validate it, because the damage a rating protects against is cumulative: annealing and loss of tensile strength accumulate over hours above limit and show up years later as a span that fails in a wind nobody thought was remarkable. The relay is not the backstop either. Protection watches for faults, not for a conductor slowly cooking.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.choices.0",
+   "original": "Nothing important, because the corridor did not actually fail during those six hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.1",
+   "original": "The corridor was outside its rating, so the decisions that assumed a margin had none.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.choices.2",
+   "original": "The rating was too conservative, since the corridor survived a temperature above it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.choices.3",
+   "original": "The relay must have been miscoordinated, because it should have tripped at 89 degrees.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.0",
+   "original": "Not failing is not the same as being inside a limit; the damage a rating prevents is cumulative and invisible at the time.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.1",
+   "original": "A rating that is survived once has not been shown conservative, any more than a corner taken too fast proves the speed limit wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.rebuttals.2",
+   "original": "Protection looks for faults on a timescale of milliseconds; it does not and cannot watch a conductor's temperature.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "What survives a bad number",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "Decide which of the week's conclusions still stand",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "Reyes has the week's decisions on the board and one wrong input underneath several of them. She wants each one marked as still good, now unsupported, or wrong.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "A bad input invalidates what rested on it and leaves the rest standing, and telling them apart is the work.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "a conclusion can depend on one input or on several",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "One wrong number does not void a week. It voids whatever leaned on it, and the job is tracing which. The choice to hold the corridor rested entirely on the duration, so it falls. The loss calculation used current and resistance and never touched temperature, so it stands. The restoration order was argued from consequence and household counts, which the sensor never entered. And the decision to shed a fifth of the island was taken on a frequency the sensor has nothing to do with — it was right then and it is right now, which is worth saying out loud, because a room that treats every past decision as suspect after one bad number stops being able to decide anything.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Falls. It rested on the duration, and the duration was wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "Stands. It used current and resistance, and never used temperature.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "Stands. It was argued from consequence and household counts.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "Stands, and should be said out loud. It was taken on frequency, which the sensor never touched.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "Holding the corridor rested on the duration and nothing else, so it is the one decision that falls outright.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "The loss figure came from current and resistance, neither of which the sensor touched.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "The restoration order was argued from consequence and household counts, which the thermal record never entered.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.3",
+   "original": "The island shed was taken on frequency, which the sensor has nothing to do with; it was right then and still is.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scenarios.0",
+   "original": "Holding the corridor inside its emergency rating rather than redispatching.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scenarios.1",
+   "original": "The seventeen megawatts of loss calculated for the corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scenarios.2",
+   "original": "The order the eleven feeders were restored in.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scenarios.3",
+   "original": "Shedding a fifth of the island to hold its frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.title",
+   "original": "A shift where nothing happens",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Run an ordinary evening, and notice what ordinary is now resting on.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.briefing",
+   "original": "The forecast holds, every circuit is inside limits, and nothing needs deciding.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.stake",
+   "original": "Monday, and it is a quiet shift. The forecast is holding to within thirty megawatts, every corridor is comfortably inside rating, the ridge is producing steadily, and there is nothing on the board that needs a decision. Aaron Whitlock has the log open with almost nothing in it. Dolores Reyes uses these evenings to walk the room and ask what everybody is assuming, because a quiet shift is the only time anybody has to. Today you check what the system would do if one thing went, read a trend that is behaving, and say which of tonight's comforts is actually a measurement and which is a habit. Nothing will go wrong tonight. Nothing went wrong the Monday before last, either.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "A quiet system is a set of assumptions nobody is currently being forced to check.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "The failure that has not happened",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Say what the contingency check is actually asking",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "An N-1 check is a statement about single failures, and it says nothing about two.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "a system is required to survive any one credible failure",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.question",
+   "original": "What does a clean contingency check tell you tonight?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list, and it says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. Each alone was survivable. The check had been clean all week.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.choices.0",
+   "original": "That the system is safe, because every failure it considers has been survived on paper.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.1",
+   "original": "That any single credible failure leaves the system inside limits, and nothing more.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.choices.2",
+   "original": "That nothing will fail tonight, since the check has found no weaknesses.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.3",
+   "original": "That the margins are too generous, since everything passes comfortably.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.0",
+   "original": "Safe is a stronger word than the check earns; it clears single failures from a list, not everything.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.1",
+   "original": "The check says nothing about likelihood, only about whether the system stays inside limits afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.2",
+   "original": "Passing comfortably is what the margin is for; a check that only just passed would be the alarming one.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "The trend with nothing wrong with it",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Read a forecast that is behaving",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.place",
+   "original": "Load & Forecasting",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "Lindgren's forecast has tracked within thirty megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "One good night is not evidence about the method, because the width was never a claim about tonight.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "a forecast can be right by luck as easily as by skill on any one day",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "A forecast is a distribution. Landing inside thirty megawatts on a mild Monday is what the middle of that distribution looks like and it tells you almost nothing, because mild Mondays are the days the model was best calibrated for. The evidence that matters is how it behaves on the days it was least calibrated for, which are rare by construction. So a run of good nights is not a reason to hold less reserve, and one bad night on a cold snap is not a reason to distrust the method either. Both are single draws. The width is the claim, and the width is tested over a season.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.choices.0",
+   "original": "Very little. It is the easiest day the model has, and the middle of its own distribution.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.1",
+   "original": "The part of the range that matters, since that is where the model is least calibrated.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.2",
+   "original": "Nine draws from the middle, which does not license holding less reserve.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.choices.3",
+   "original": "The only one of these that is evidence about the method rather than about a night.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.0",
+   "original": "A quiet Monday is the middle of the distribution and the easiest day the model has; it confirms very little.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.1",
+   "original": "Cold snaps are where the model is least calibrated, so they are where the width is actually tested.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.2",
+   "original": "A run of accurate nights does not narrow the width, because the width was never a claim about any one night.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.rebuttals.3",
+   "original": "One miss on an unusual day is a single draw, and it does not condemn the method any more than a hit vindicates it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.0",
+   "original": "The forecast tracked within thirty megawatts on a mild Monday.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.1",
+   "original": "The forecast missed by four hundred megawatts on the coldest night of last winter.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.2",
+   "original": "The forecast has been accurate for nine consecutive evenings.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scenarios.3",
+   "original": "The forecast's stated width has held over three winters.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "Which of these is a measurement",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "Separate tonight's measured comforts from its habits",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.place",
+   "original": "Generation Hall",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "Haddad lists four reasons the room is relaxed tonight. Two of them are numbers somebody took. Two are things everyone has stopped checking.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "An assumption that has not been measured recently is a habit wearing a number's clothes.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "a figure can be current, or it can be inherited",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.question",
+   "original": "Which of tonight's four comforts is the one most worth checking?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "Three of these are current measurements or long-run evidence. The fourth is an inherited number about a fleet that has doubled, and inertia is the quantity the whole first week turned on — it sets how fast frequency moves when something goes. Worse, it is the one figure on the list that has moved in the wrong direction as the fleet grew, because inverter-connected plant supplies power without supplying rotational energy. So the number is old, it is load-bearing, and the change since it was written makes it optimistic rather than merely stale. That combination is what makes it first.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.choices.0",
+   "original": "The reserve figure, taken from this evening's own dispatch and metering.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.1",
+   "original": "The ridge's inertia, from a figure written when the fleet was smaller.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.choices.2",
+   "original": "The corridor loading, read live off the yard's own instruments an hour ago.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.3",
+   "original": "The forecast width, held over three winters of outcomes.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.0",
+   "original": "The reserve figure came off tonight's own dispatch and metering, so it is as current as anything here.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.1",
+   "original": "Corridor loading was read live an hour ago from the yard's instruments.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.2",
+   "original": "The forecast width is the one item backed by three winters of outcomes rather than by one night.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.title",
+   "original": "Three things at once",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Rank three simultaneous problems, and hold the reasoning while they interfere.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.briefing",
+   "original": "A fault, a forecast miss and a plant coming off at the same hour, and one room.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.stake",
+   "original": "Thursday, 16:40, and three things arrive together. A cable fault has taken a feeder with 3,300 households on it. Ravi Lindgren's forecast is running two hundred megawatts under actual and still climbing. And the gas machine that has carried the evening peak all week has to come off at eighteen hundred for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores Reyes has one control room, one crew on shift and about eighty minutes. Today you decide what gets attention first, work out what the corridor is costing at the higher flow, and put the evening's moves in an order that does not undo itself. None of these is new. All three at once is.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "Which of the three cannot wait",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Decide what the room does first",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Reyes has the three on the board and asks for an order, not an opinion. Whitlock notes that two of them are already as bad as they are going to get.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "Rank by rate of deterioration and by how cheap the fix is, not by how bad the headline sounds.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "a problem that is still growing is different from one that has finished growing",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.question",
+   "original": "Which of the three gets the room's attention first?",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "The fault is bad and it is finished: those households are off, a crew is on the way, and nothing the control room does in the next hour changes the outcome. The machine coming off is a known time and a known quantity, which makes it schedulable. The forecast error is neither — it is growing, it eats the reserve that covers both of the others, and every minute spent elsewhere is a minute of margin gone. It also has the cheapest fix on the board, because reserve can be brought forward with a phone call and a fault cannot be repaired with one.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "The forecast running two hundred megawatts under and still climbing.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "The cable fault, with 3,300 households off and a crew already dispatched.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "The gas machine coming off at eighteen hundred for a fuel limit.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "The corridor loading, which has risen but is still inside its rating.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "The fault has stopped getting worse; a crew is already committed and the room cannot speed the repair.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "The machine coming off is a known megawatt figure at a known hour, which makes it a plan rather than an emergency.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "The corridor is inside its rating, and it is a consequence of the other three rather than a fourth problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "Loss when the load turns up anyway",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "Work out the corridor's loss at the higher flow",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "When a quantity enters squared, a small change in it is a large change in the result.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "loss in a conductor rises with the square of the current",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.question",
+   "original": "Estimate the power now lost as heat in the corridor.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "Same relation, worse number. Loss is current squared times resistance, three phases of it. The square is why the redistribution matters more than it sounds. Current has risen about eleven per cent. The heat has risen nearly a quarter. All of it goes into a conductor whose rating is a temperature limit rather than a current limit. The figure is also the argument for spending eighty minutes moving generation rather than watching it. Every megawatt taken off this path comes back twice over in heat nobody has to shed.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.answerText",
+   "original": "About 21 MW.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.estimate.prompt",
+   "original": "The corridor is now carrying 1,280 A per phase through the same total resistance of 4.2 ohms, on three phases.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.question",
+   "original": "Choose the current, the resistance and the number of phases.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.explanation",
+   "original": "About twenty-one megawatts, against seventeen an hour ago. Current rose by eleven per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.relationship",
+   "original": "Loss = the number of phases × the current squared × the resistance, so a small rise in current is a larger rise in heat.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.estimate.givens.0",
+   "original": "Current is now 1,280 A per phase",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.estimate.givens.1",
+   "original": "Corridor resistance is still 4.2 Ω",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.estimate.givens.2",
+   "original": "There are three phases",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "An order that survives being carried out",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "Order the evening's moves so none of them undoes another",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.place",
+   "original": "Load & Forecasting",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "Do the moves that improve your information first and the moves you cannot undo last.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "some actions change the value of the actions that follow them",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at eighteen hundred. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last. Switching changes which contingencies are credible, and a change made on the old forecast would only be argued again on the new one.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s3.cards.0",
+   "original": "Correct the forecast, so every other figure is sized against a real demand.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.1",
+   "original": "Bring reserve forward to cover the machine coming off at eighteen hundred.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.2",
+   "original": "Start loading the replacement plant, which needs the minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.3",
+   "original": "Reconfigure the network around the faulted feeder.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.title",
+   "original": "The last morning it can be changed",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Commit the corridor to a course, knowing the window closes today.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.briefing",
+   "original": "The reinforcement decision from last week has a date on it, and the date is today.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.stake",
+   "original": "Monday, and the corridor decision comes back for the last time. The outage window that would let a second circuit be strung this year closes at close of business, and if it closes the next one is eighteen months out. June Farrow has the corrected thermal record, which says the corridor has spent more hours over limit than anybody thought. Amira Haddad has a storage quote that expires with the window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected record does to the corridor's remaining life, decide what the money buys, and say what the decision commits the system to for the next eighteen months. Last week this was a preference. This morning it is the last morning.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "A reversible decision is a cheap one, and the moment it stops being reversible is the moment it needs the whole argument.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "Hours over limit, added up",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Say what the corrected hours do to the conductor",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "Farrow's corrected record has the corridor above continuous rating for about ninety hours over three years. She wants to know whether that is a maintenance note or a design problem.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "Thermal damage integrates over time, so ninety scattered hours count as ninety hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "time spent above a thermal limit accumulates rather than resetting",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.question",
+   "original": "What do ninety accumulated hours above continuous rating mean for the conductor?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "Annealing is not a state the metal comes back from. Above about ninety-five degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now, and a record that explains why only after somebody adds up the hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.0",
+   "original": "Nothing, because the conductor cooled fully between every one of those periods.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.1",
+   "original": "The aluminium has lost strength for good, and its life is shorter than designed.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.2",
+   "original": "The conductor has been proven capable of the higher current and can be re-rated upward.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.3",
+   "original": "The record is too old to act on, since most of those hours were more than a year ago.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "Cooling restores the temperature and not the strength; the loss is in the grain structure, and it is permanent.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "Surviving a current is not the same as being rated for it, because the damage is cumulative rather than immediate.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "The damage does not age out; hours from two years ago are still hours the metal spent losing strength.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "What the window is worth",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Commit the money before the window closes",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.place",
+   "original": "Transmission & Protection",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "Two options, one budget, one afternoon. Novak points out that only one of them still exists tomorrow, and Haddad points out that only one of them fixes the corridor.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "When one path closes today, its value includes everything the eighteen-month delay would cost.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "an option with an expiry date is worth more than the same option without one",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "This is not the same question as last week, because one option now expires. Reinforcement is the only choice that removes the constraint rather than working around it, and today is the last day it can be started this year — so its cost includes eighteen months of curtailment, ninety more hours of annealing, and every evening the room has to hold a corridor it has now measured as weaker than it thought. Storage is genuinely good and it is a workaround; it moves surplus in time, it does not raise a thermal limit, and it will still be purchasable in the spring. Curtailing buys another eighteen months of the same week. Doing nothing spends the window for free.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.proposals.0",
+   "original": "Commit the outage window today and string the second circuit this year.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.proposals.1",
+   "original": "Buy the ridge storage on the expiring quote and put reinforcement to the spring.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.proposals.2",
+   "original": "Keep curtailing and revisit both when the next window opens in eighteen months.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.proposals.3",
+   "original": "Hold the budget until the corrected thermal record has been independently reviewed.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.evidence",
+   "original": "The outage window closes at close of business and the next is eighteen months out. The corrected\nrecord has the corridor above continuous rating for about ninety hours over three years. Storage\nwould be 50 MW for four hours and does not change a thermal rating. Curtailment on nights like\nlast Friday runs about forty nights a winter. The review Farrow would want takes three weeks.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "The eighteen months you just bought",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "Say what the decision commits the room to",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "Committing to a fix commits you to running the system without it until it arrives, and that has to be planned too.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "a decision to build something is also a decision about the years before it exists",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "A build is not relief. It is a date. Between today and that date the corridor is exactly as weak as it was this morning, and now known to be weaker. The room inherits three years of damage and no new capacity. So the emergency rating is recalculated on the corrected sensor. The curtailment nights are budgeted rather than absorbed. The contingency case is run at the corridor's real strength. The one thing the decision buys today is a closed argument, and a closed argument is what lets a shift act at 16:40.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.choices.0",
+   "original": "Has to be recalculated, because it came from the sensor that read eleven degrees low.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.1",
+   "original": "Becomes a budgeted cost, because nothing about the corridor changes until the circuit exists.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.2",
+   "original": "Has to be rerun at the conductor's real strength rather than its design strength.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.3",
+   "original": "Is closed, which is what lets a shift act at 16:40 without reopening it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.0",
+   "original": "The emergency rating has to be recalculated, because the one in use was derived from the drifted sensor.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.1",
+   "original": "Curtailment nights become a budgeted cost rather than a surprise, since the corridor is unchanged until the circuit exists.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.2",
+   "original": "The contingency case has to be rerun at the corridor's real strength rather than its design strength.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.3",
+   "original": "The argument is settled, which is what lets a shift act quickly without reopening the decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.0",
+   "original": "The emergency rating in the operating instructions.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.1",
+   "original": "Roughly forty curtailment nights a winter.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.2",
+   "original": "The corridor's contingency case.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scenarios.3",
+   "original": "The corridor argument itself.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.title",
+   "original": "What we know, and how well",
+   "readOnly": false
+  },
+  {
+   "id": "m15.objective",
+   "original": "Say how strongly each of the fortnight's claims is held, and what outlives the emergency.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.briefing",
+   "original": "The event report has to state what is established, what is inferred and what is still a guess.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.stake",
+   "original": "Friday, and the fortnight goes into a report. Dolores Reyes will not sign a document that states everything at the same confidence, because a reader who cannot tell a measurement from an inference will act on both the same way. June Farrow has the evidence file. Ravi Lindgren wants his forecast width in as a range rather than a number. Piotr Novak wants the sensor drift written as a finding rather than an excuse. Today you sort the fortnight's claims by how strongly each is held, put numbers on the ones that deserve them, and decide which of the emergency's changes should become permanent practice. This is the part of the fortnight that will still matter in a year.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Measured, inferred, assumed",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "Sort the fortnight's claims by the evidence under them",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.place",
+   "original": "Metering & Standards",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "Farrow has four statements from the fortnight, all of which the room believes. They are not held for the same reasons and she will not let them into the report as equals.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "Sorting claims by their evidence is what lets a later reader know which ones to check first.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "a claim can rest on a measurement, on an inference from one, or on nothing yet",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "The sensor's offset is the strongest thing in the file. Two independent methods agree, and the firmware date says when it started. The lost strength is an inference: sound metallurgy on a corrected record, with no sample pulled. The storage figure is one weekend at one discharge rate, which is real evidence and thin evidence at once. The cause of the trip is still unestablished. The room has a plausible story and no proof. Writing it as a finding would be the sensor's own mistake, one level up.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "Established. Two independent methods agree and the firmware date fixes when it began.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "Inferred. Good metallurgy on a corrected record, with no sample pulled.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "Measured once. One weekend at one discharge rate, which is thin.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "Unestablished. A plausible story with no proof, and it goes in as an open question.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "The sensor offset has two independent methods and a firmware date, which is as strong as anything in the file.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "The lost strength is an inference from a corrected record; sound, and untested on an actual sample.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "The store's efficiency rests on one weekend at one discharge rate, which is real and thin at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.3",
+   "original": "The cause of the trip has a plausible story and no proof, and it goes in as an open question.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.0",
+   "original": "The corridor sensor reads about eleven degrees low.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.1",
+   "original": "The conductor has lost tensile strength it will not recover.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.2",
+   "original": "The ridge store returns about 85 per cent rather than 92.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.3",
+   "original": "A particular relay setting caused the original trip.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "The number that has to be a range",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "Put a range on the forecast rather than a number",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.place",
+   "original": "Load & Forecasting",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "A prediction is only usable by a planner if it says how wrong it might be.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "a forecast is a distribution rather than a single value",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.question",
+   "original": "Why does the winter peak go in as a range rather than as a single figure?",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "Reserve is not held against the expected peak. It is held against the amount by which the peak might exceed it, which is a property of the width and not of the centre. A report that states a single megawatt figure has deleted the only quantity a planner needs, and the planner then invents one — usually badly, and usually optimistically. The width is also the honest part: it says which conditions the model was calibrated for and which it was not, so a cold snap outside that range reads as expected rather than as a failure of the method.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.0",
+   "original": "Because a range is more cautious, and caution is appropriate after an event like this one.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.1",
+   "original": "Because the reserve is sized against the width, not the centre.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s2.choices.2",
+   "original": "Because the model is not accurate enough yet to state a single number honestly.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.choices.3",
+   "original": "Because a range cannot be shown to be wrong afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.0",
+   "original": "Caution is not the reason; the width is a specific quantity the reserve calculation needs as an input.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.1",
+   "original": "The model's accuracy is what the width states, which is the opposite of hiding it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.2",
+   "original": "A range makes the claim checkable rather than unfalsifiable, because outcomes outside it count against the width.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "What outlives the emergency",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "Decide which of the fortnight's changes becomes permanent",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.place",
+   "original": "System Operations",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "Four things the room started doing under pressure. Reyes asks which of them are worth their cost on an ordinary Monday, when nothing is going wrong.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "Keep the practices that would have caught the fault early, and drop the ones that only paid off because the fortnight was abnormal.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "a practice adopted under pressure has a cost that only shows up later",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.question",
+   "original": "Which of the fortnight's changes is most worth keeping permanently?",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "One of these would have caught the whole thing. The sensor's offset survived for months because nothing was ever compared against it, and an independent check costs a survey and an afternoon. Elevated reserve is expensive every night and only useful on the rare ones, which is what a width is for deciding rather than a fortnight. More frequent loading reports would not have helped at all, because the readings were wrong rather than late — more of a wrong number is not information. And a second signature on shedding adds minutes to the one decision in the fortnight that was correct and had to be fast.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.0",
+   "original": "Cross-checking any instrument that a decision rests on against an independent method.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.1",
+   "original": "Holding reserve at the fortnight's elevated level all winter.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.2",
+   "original": "Reporting corridor loading to the control room every fifteen minutes rather than every hour.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.3",
+   "original": "Requiring two operators to sign any load-shedding decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.0",
+   "original": "Elevated reserve costs money every night for a benefit on a handful, which is a width question rather than a policy.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.1",
+   "original": "The loading readings were wrong, not late; reporting a wrong number four times as often adds nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.2",
+   "original": "A second signature slows the one decision that was both correct and time-critical.",
+   "readOnly": false
+  },
+  {
+   "id": "copy.OPS",
+   "original": "<p>The control room. One long desk, a wall of the whole interconnection, and the only number on it that belongs to everybody.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.GEN",
+   "original": "<p>The machine hall. Four sets turning in step with every other machine on the system, which is what lets one number describe all of them.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.TRANS",
+   "original": "<p>Protection and switching. The rules for an argument that will happen in eighty milliseconds with nobody present.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.DIST",
+   "original": "<p>The depot. Where the network stops being a diagram and turns into a van, a pole and somebody's evening.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.LOAD",
+   "original": "<p>Forecasting. Weather, the school holidays, and whether it gets dark before people get home.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.METER",
+   "original": "<p>Standards. The question nobody wants opened during an incident: is that number the number.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.GATE",
+   "original": "<p>The gatehouse. Badge, permit to work, and the day's calls.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.STORE",
+   "original": "<p>Spares and cable. Nothing here is interesting until the night a restoration is limited by it.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.TRAINING",
+   "original": "<p>The simulator room. Last year's event, replayed at quarter speed, with the log open beside it.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.OPS.caption",
+   "original": "Frequency is the whole system's supply and demand, arriving as a number.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.OPS.standLine",
+   "original": "One unit off, frequency settled low, and two people already naming a cause.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.GEN.caption",
+   "original": "A generator is a flywheel first and a power source second.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.GEN.standLine",
+   "original": "Four machines online, one tripped, and a ramp rate nobody can argue with.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.TRANS.caption",
+   "original": "A rating is a time and a temperature, not a wall.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.TRANS.standLine",
+   "original": "One corridor above continuous rating, and a relay that will decide in forty minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.DIST.caption",
+   "original": "Restoration is measured in households and how long they waited.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.DIST.standLine",
+   "original": "Eleven feeders out, and two of them have the clinic on them.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.LOAD.caption",
+   "original": "A forecast is a distribution, and the width is what the reserve has to cover.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.LOAD.standLine",
+   "original": "Tomorrow's peak, and two estimates a factor apart on the cold snap.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.METER.caption",
+   "original": "A sequence of events is a claim about order, and order needs clocks.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.METER.standLine",
+   "original": "Three records of the same eight seconds, disagreeing about what came first.",
+   "readOnly": false
+  }
+ ]
+}

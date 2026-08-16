@@ -66,7 +66,7 @@ export const MISSIONS = [
       {
         "group": "WATER",
         "lesson": 1,
-        "task": "Build a river mass-balance survey"
+        "task": "Use the common-ion effect to clear the limit"
       },
       {
         "group": "WATER",
@@ -143,7 +143,7 @@ export const MISSIONS = [
       {
         "group": "ENERGY",
         "lesson": 2,
-        "task": "Is the assumed reaction happening?"
+        "task": "Heat release is not the spontaneity test"
       }
     ]
   },
@@ -239,7 +239,7 @@ export const MISSIONS = [
       {
         "group": "WATER",
         "lesson": 8,
-        "task": "Manage the new contaminant reservoir"
+        "task": "Predict whether the salty pond freezes"
       }
     ]
   },
@@ -354,7 +354,7 @@ export const MISSIONS = [
       {
         "group": "TREAT",
         "lesson": 7,
-        "task": "Build the public chemistry narrative"
+        "task": "Audit the electrochemical removal from the charge passed"
       },
       {
         "group": "TREAT",

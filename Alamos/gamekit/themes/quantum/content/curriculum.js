@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Which stage the leak is on",
-      "scene": "The cryostat is open in service mode, six stages down the chain, each one colder than the one above it. Okafor has last cooldown's numbers on a clipboard and a thermometer at every stage, and she is not going to say which one she suspects.",
+      "scene": "Delft's slot is now on the calendar, but Ridgeway's fridge has stalled above its normal base temperature. The cryostat is open in service mode, six stages down the chain. Okafor has last cooldown's numbers and a thermometer at every stage.",
       "takeaway": "A refrigerator's stage-by-stage temperature pattern can localise a heat load instead of merely announcing that one exists.",
       "place": "Cryogenics & Vacuum",
-      "story": "The cryostat is open in service mode, six stages down the chain, each one colder than the one above it. Okafor has last cooldown's numbers on a clipboard and a thermometer at every stage, and she is not going to say which one she suspects.",
+      "story": "Delft's slot is now on the calendar, but Ridgeway's fridge has stalled above its normal base temperature. The cryostat is open in service mode, six stages down the chain. Okafor has last cooldown's numbers and a thermometer at every stage.",
       "game": {
         "type": "PROBE",
         "title": "Which stage the leak is on",
@@ -19,7 +19,7 @@ export const CURRICULUM = {
         "task": "Find where the heat is arriving",
         "question": "The bottom of the fridge is warm and the top may not be. Take the readings you think you need — at which stage is the heat arriving?",
         "answer": "The still. It is the first stage that has moved — a quarter of a kelvin above last cooldown, with its heater working 40 per cent harder — and everything below it is warm because the load is above them, not because their own cooling has failed.",
-        "why": "Two stages held exactly what they held last time, which is what rules almost everything out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm the top of the chain first, and the top of the chain has not moved. From the still downwards every stage is high and working harder, and heat only behaves that way when it is being delivered from above. So the deepest stage is the worst affected and is not where the problem is — the load enters at the first stage that departs, and the stages below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not below, which is exactly what a line added since the last cooldown and heat-sunk at only the easy stages does. Okafor's cable is now worth looking at, not because cables are always guilty but because this pattern is what an unanchored one predicts.\n",
+        "why": "Two stages held exactly what they held last time, which is what rules almost everything out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm the top of the chain first, and the top of the chain has not moved. From the still downwards every stage is high and working harder, and heat only behaves that way when it is being delivered from above. So the deepest stage is the worst affected and is not where the problem is — the load enters at the first stage that departs, and the stages below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not below, which is exactly what a line added since the last cooldown and heat-sunk at only the easy stages does. Okafor's cable is now worth looking at, not because cables are always guilty but because this pattern is what an unanchored one predicts.",
         "probe": {
           "stations": [
             {
@@ -80,10 +80,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The energy of one quantum against the energy of the room",
-      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
+      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes two energy scales beside it — one quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
       "takeaway": "Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.",
       "place": "Cryogenics & Vacuum",
-      "story": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
+      "story": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes two energy scales beside it — one quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
       "game": {
         "type": "BALLPARK",
         "title": "The energy of one quantum against the energy of the room",
@@ -92,12 +92,12 @@ export const CURRICULUM = {
         "task": "Say why 42 millikelvin is not close enough",
         "question": "Using the two energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
         "answer": "About 0.34 per cent.",
-        "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"\n",
+        "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"",
         "givens": [
           "One quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
           "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J"
         ],
-        "relationship": "For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.\n",
+        "relationship": "For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.",
         "calcKey": "CRYO-2"
       },
       "assumes": [
@@ -291,10 +291,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "One bad qubit out of twelve",
-      "scene": "Lindqvist has the coupon from the same run. The junction resistances on it spread twice as wide as usual, which puts several qubits in the frequency range where defects are common.",
+      "scene": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "takeaway": "A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.",
       "place": "Fabrication & Materials",
-      "story": "Lindqvist has the coupon from the same run. The junction resistances on it spread twice as wide as usual, which puts several qubits in the frequency range where defects are common.",
+      "story": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "game": {
         "type": "SCIENCETANK",
         "title": "One bad qubit out of twelve",
@@ -303,15 +303,15 @@ export const CURRICULUM = {
         "task": "Decide whether to keep this chip",
         "question": "Decide whether to keep this chip",
         "answer": "",
-        "why": "The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the ten-day campaign. The present chip has eleven qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.\n",
+        "why": "The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has eleven qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.",
         "proposals": [
           {
             "label": "A",
-            "text": "Keep this chip"
+            "text": "Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report twelve qubits with one of them worse."
           },
           {
             "label": "B",
-            "text": "Swap in the spare chip now"
+            "text": "Swap in the spare chip now, even though it came from the same fabrication run, at four days of warm-up and cooldown."
           },
           {
             "label": "C",
@@ -326,7 +326,7 @@ export const CURRICULUM = {
           "A": 50,
           "C": 25
         },
-        "research": "The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four\ndays out of the ten before the review. The spare comes from the same suspicious run. Junction\nresistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been\ncharacterised on any chip in this lab.\n"
+        "research": "The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four\ndays out of the ten before the review. The spare comes from the same suspicious run. Junction\nresistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been\ncharacterised on any chip in this lab."
       },
       "assumes": [
         "a fabrication run produces chips with a spread of properties"
@@ -432,10 +432,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Something else that absorbs at that frequency",
-      "scene": "The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally cycled. It appears on three chips from one processing window and on none of the others.",
+      "scene": "By breakfast Lindqvist has three chips from one processing window lined up on the bench. The same narrow feature appears on all three and shifts after thermal cycling. Chips from every other window are clean. The fabrication log is open beside them.",
       "takeaway": "A narrow, repeatable spectral feature can be used as a fingerprint, but identifying its microscopic cause requires ruling out competing modes and artefacts.",
       "place": "Fabrication & Materials",
-      "story": "The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally cycled. It appears on three chips from one processing window and on none of the others.",
+      "story": "By breakfast Lindqvist has three chips from one processing window lined up on the bench. The same narrow feature appears on all three and shifts after thermal cycling. Chips from every other window are clean. The fabrication log is open beside them.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Something else that absorbs at that frequency",
@@ -444,7 +444,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits all of it?",
         "question": "Which explanation fits all of it?",
         "answer": "A two-level defect in the junction oxide",
-        "why": "The evidence strongly favours a device-local material resonance. The feature appears only on chips from one process window, survives changes in shared room-temperature electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit or a generator artefact should have different cross-chip behaviour, while thermal photons usually change linewidths and backgrounds rather than producing the same isolated chip-specific line. A two-level material defect is therefore the leading hypothesis. Calling it specifically a defect in the junction oxide would require more localisation evidence than this spectrum alone provides.\n",
+        "why": "The evidence strongly favours a device-local material resonance. The feature appears only on chips from one process window, survives changes in shared room-temperature electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit or a generator artefact should have different cross-chip behaviour, while thermal photons usually change linewidths and backgrounds rather than producing the same isolated chip-specific line. A two-level material defect is therefore the leading hypothesis. Calling it specifically a defect in the junction oxide would require more localisation evidence than this spectrum alone provides.",
         "rebuttals": [
           "A neighbouring qubit sits at a design frequency and would show on every chip, not three.",
           "Thermal photons broaden the response instead of producing a narrow line, and the fridge is at 11 mK.",
@@ -461,13 +461,13 @@ export const CURRICULUM = {
           {
             "zone": "Feature",
             "label": "Frequency",
-            "value": "fixed",
+            "value": "fixed, moves on thermal cycling",
             "status": "alarm"
           },
           {
             "zone": "Chips",
             "label": "Where it appears",
-            "value": "3 of 14",
+            "value": "3 of 14, all one window",
             "status": "alarm"
           },
           {
@@ -566,19 +566,19 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What is worth doing at the wrong temperature",
-      "scene": "Fixing the heat leak means a warm-up and another cooldown: four days. Mensah has the machine for those four days at 42 millikelvin and wants to know what is worth running.",
+      "scene": "Fixing the heat leak means a warm-up and another cooldown: four days. With Delft's slot approaching, Mensah does not want four empty days and asks what work remains interpretable while the device is off its normal temperature.",
       "takeaway": "An off-nominal machine can still produce useful diagnostics, but those data must not be mistaken for nominal performance.",
       "place": "Control & Readout",
-      "story": "Fixing the heat leak means a warm-up and another cooldown: four days. Mensah has the machine for those four days at 42 millikelvin and wants to know what is worth running.",
+      "story": "Fixing the heat leak means a warm-up and another cooldown: four days. With Delft's slot approaching, Mensah does not want four empty days and asks what work remains interpretable while the device is off its normal temperature.",
       "game": {
         "type": "TRIAGE",
         "title": "What is worth doing at the wrong temperature",
         "setup": "Control & Readout",
         "play": "Decide what to measure while the fridge is warm",
         "task": "Decide what to measure while the fridge is warm",
-        "question": "What is the best use of the four warm days if the review needs nominal device performance?",
+        "question": "What is the best use of the off-nominal period if Ridgeway needs trustworthy baseline numbers before the Delft run?",
         "answer": "Warm checks — wiring and electronics, which the chip cannot affect.",
-        "why": "The machine is not useless at 42 millikelvin, but the question attached to each measurement changes. Thermal population can be measured precisely, and temperature-dependent T1, readout and resonator occupancy can diagnose what the heat is doing. Those are useful *warm-state diagnostics*, not the nominal figures the review needs. The best use of the downtime is therefore work whose interpretation survives the off-nominal temperature — wiring continuity, attenuation, gain and timing — plus explicitly labelled temperature diagnostics. Review-quality coherence, readout and benchmarking should be repeated after the fridge returns to its normal operating point.\n",
+        "why": "The machine is not useless at 42 millikelvin, but the question attached to each measurement changes. Thermal population can be measured precisely, and temperature-dependent T1, readout and resonator occupancy can diagnose what the heat is doing. Those are useful *warm-state diagnostics*, not the nominal figures the review needs. The best use of the downtime is therefore work whose interpretation survives the off-nominal temperature — wiring continuity, attenuation, gain and timing — plus explicitly labelled temperature diagnostics. Review-quality coherence, readout and benchmarking should be repeated after the fridge returns to its normal operating point.",
         "rebuttals": [
           "A coherence time at 42 mK is a real measurement of the warm configuration, not a nominal-performance number for an 11 mK device.",
           "A sub-one-per-cent thermal population is already comparable with the error budget of a high-fidelity readout, and temperature can affect more than equilibrium population.",
@@ -628,10 +628,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Where the qubit actually is",
-      "scene": "Mensah has the drive on the twelfth qubit and a readout that reports how much of the population ends up excited. The design put this qubit at 5.02 gigahertz, and the readout there has been flat all morning.",
+      "scene": "The fridge is back at base temperature. Mensah has the drive on the twelfth qubit and a readout that reports how much population ends up excited. The design put this qubit at 5.02 gigahertz, but the readout there has been flat all morning.",
       "takeaway": "A designed transition frequency is a target; spectroscopy tells you where the fabricated device actually responds.",
       "place": "Control & Readout",
-      "story": "Mensah has the drive on the twelfth qubit and a readout that reports how much of the population ends up excited. The design put this qubit at 5.02 gigahertz, and the readout there has been flat all morning.",
+      "story": "The fridge is back at base temperature. Mensah has the drive on the twelfth qubit and a readout that reports how much population ends up excited. The design put this qubit at 5.02 gigahertz, but the readout there has been flat all morning.",
       "game": {
         "type": "SWEEP",
         "title": "Where the qubit actually is",
@@ -640,7 +640,7 @@ export const CURRICULUM = {
         "task": "Read a frequency sweep",
         "question": "Nothing responds at the design frequency. Which frequency does this qubit absorb the drive at?",
         "answer": "4.61 GHz, where nearly the whole population is driven into the excited state. The much weaker feature near 4.55 GHz is real and is not the qubit.",
-        "why": "A qubit absorbs a drive only close to its own transition, so the frequency where the population goes up is the transition. It is nowhere near 5.02 GHz because that number was a prediction: the frequency depends on a junction barrier about a nanometre thick, and no process controls a nanometre exactly. Two responses appear, and size is what separates them — a transition driven on resonance takes almost the whole population, while the small feature takes a sixth of it and is something else on the chip. Which of the two is the qubit can be settled by driving harder and watching only one of them saturate.\n",
+        "why": "A qubit absorbs a drive only close to its own transition, so the frequency where the population goes up is the transition. It is nowhere near 5.02 GHz because that number was a prediction: the frequency depends on a junction barrier about a nanometre thick, and no process controls a nanometre exactly. Two responses appear, and size is what separates them — a transition driven on resonance takes almost the whole population, while the small feature takes a sixth of it and is something else on the chip. Which of the two is the qubit can be settled by driving harder and watching only one of them saturate.",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -816,10 +816,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What happens between the chip and the answer",
-      "scene": "Nakamura walks the chain: resonator, then a metre of cable, an isolator, a parametric amplifier at the mixing chamber, a semiconductor amplifier at 4 kelvin, more cable, a digitiser at room temperature.",
+      "scene": "The device is cold, the qubit is located, and its coherence is measured. Before Ridgeway sends the experiment to Delft, Nakamura walks the final readout path: resonator, cable, isolator, parametric amplifier, 4-kelvin amplifier, more cable, then the room-temperature digitiser.",
       "takeaway": "In a cascaded readout chain, noise added early — and loss before the first high-gain amplifier — is especially costly.",
       "place": "Control & Readout",
-      "story": "Nakamura walks the chain: resonator, then a metre of cable, an isolator, a parametric amplifier at the mixing chamber, a semiconductor amplifier at 4 kelvin, more cable, a digitiser at room temperature.",
+      "story": "The device is cold, the qubit is located, and its coherence is measured. Before Ridgeway sends the experiment to Delft, Nakamura walks the final readout path: resonator, cable, isolator, parametric amplifier, 4-kelvin amplifier, more cable, then the room-temperature digitiser.",
       "game": {
         "type": "SEQUENCE",
         "title": "What happens between the chip and the answer",
@@ -828,7 +828,7 @@ export const CURRICULUM = {
         "task": "Follow the signal out",
         "question": "Follow the signal out",
         "answer": "",
-        "why": "\"A useful rule comes from the noise budget for cascaded amplifiers: once the signal has been given large low-noise gain, the noise of later stages is divided by that gain when referred back to the input. That makes the first high-gain amplifier extremely important. Loss before it is just as serious because it throws away signal before the gain arrives. The cold parametric amplifier is therefore placed close to the device and behind only the components needed to protect and route the signal; the warmer semiconductor amplifier then supplies robust additional gain.\"\n",
+        "why": "\"A useful rule comes from the noise budget for cascaded amplifiers: once the signal has been given large low-noise gain, the noise of later stages is divided by that gain when referred back to the input. That makes the first high-gain amplifier extremely important. Loss before it is just as serious because it throws away signal before the gain arrives. The cold parametric amplifier is therefore placed close to the device and behind only the components needed to protect and route the signal; the warmer semiconductor amplifier then supplies robust additional gain.\"",
         "cards": [
           "The resonator, which shifts frequency depending on the qubit's state.",
           "The parametric amplifier near the base stage, which provides the first high-gain, low-noise amplification.",
@@ -1334,10 +1334,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Scoring yourself on your own training set",
-      "scene": "Castellan has Ridgeway's own session on screen and both trays of shots beside it. Delft's device beats this one on coherence, on gate error and on readout separation, and reports a circuit fidelity a third lower. The one difference in the two pipelines is which shots the number is measured on.",
+      "scene": "Delft's message is on the main screen: their hardware has better coherence, lower gate error and cleaner readout, yet their circuit fidelity is a third lower. Castellan puts Ridgeway's two trays of shots beside it. Something in the comparison does not add up.",
       "takeaway": "A rule chosen on a sample is scored generously by that sample, so the only honest number comes from data the rule has never seen.",
       "place": "Control & Readout",
-      "story": "Castellan has Ridgeway's own session on screen and both trays of shots beside it. Delft's device beats this one on coherence, on gate error and on readout separation, and reports a circuit fidelity a third lower. The one difference in the two pipelines is which shots the number is measured on.",
+      "story": "Delft's message is on the main screen: their hardware has better coherence, lower gate error and cleaner readout, yet their circuit fidelity is a third lower. Castellan puts Ridgeway's two trays of shots beside it. Something in the comparison does not add up.",
       "game": {
         "type": "HOLDOUT",
         "title": "Scoring yourself on your own training set",
@@ -1346,7 +1346,7 @@ export const CURRICULUM = {
         "task": "Say what the retraining did",
         "question": "Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?",
         "answer": "About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the two per cent it appeared to gain was a feature of that one sample.",
-        "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the two clouds, which the next batch of shots also has, and the spike is a property of four thousand particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.\n",
+        "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the two clouds, which the next batch of shots also has, and the spike is a property of four thousand particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.",
         "holdout": {
           "axis": {
             "label": "Discriminator threshold",
@@ -1634,10 +1634,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Energy out, or phase scrambled",
-      "scene": "Holm has two measurements running on the same qubit at every delay. One reports how much excitation is still there. The other reports how much phase coherence is still there. Neither number has been read off yet.",
+      "scene": "The qubit can now be found and flipped, but Holm still does not know how long its state remains useful. He has two measurements running at every delay: one for excitation left behind, the other for phase coherence. Neither curve has been read yet.",
       "takeaway": "Comparing T1 with T2 tells you whether energy loss alone can explain the observed loss of coherence.",
       "place": "Error & Verification",
-      "story": "Holm has two measurements running on the same qubit at every delay. One reports how much excitation is still there. The other reports how much phase coherence is still there. Neither number has been read off yet.",
+      "story": "The qubit can now be found and flipped, but Holm still does not know how long its state remains useful. He has two measurements running at every delay: one for excitation left behind, the other for phase coherence. Neither curve has been read yet.",
       "game": {
         "type": "SWEEP",
         "title": "Energy out, or phase scrambled",
@@ -1646,7 +1646,7 @@ export const CURRICULUM = {
         "task": "Say what the two numbers mean together",
         "question": "Both curves fall, and not together. At what delay has the phase coherence dropped to a third of where it started?",
         "answer": "About 32 microseconds. The population is still at 0.70 there, and does not reach a third until about 90 — so T2 is 32 microseconds against a T1 of 90.",
-        "why": "Read at the same place on both curves, the two times come out a factor of three apart, and that gap is the diagnosis. Energy is leaving slowly; something is scrambling phase three times faster without taking any energy at all, which is what slow noise shifting the qubit's frequency between repetitions does. The two have different cures — energy loss is materials and fridge, dephasing is usually wiring — so the ratio decides who spends the week. It is also a bound worth carrying: coherence can never exceed twice the relaxation time, so this device could have reached 180 and is managing a fifth of that.\n",
+        "why": "Read at the same place on both curves, the two times come out a factor of three apart, and that gap is the diagnosis. Energy is leaving slowly; something is scrambling phase three times faster without taking any energy at all, which is what slow noise shifting the qubit's frequency between repetitions does. The two have different cures — energy loss is materials and fridge, dephasing is usually wiring — so the ratio decides who spends the week. It is also a bound worth carrying: coherence can never exceed twice the relaxation time, so this device could have reached 180 and is managing a fifth of that.",
         "sweep": {
           "mode": "boundary",
           "axis": {
@@ -1803,10 +1803,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Whose error is it",
-      "scene": "A diagnostic circuit reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what can honestly be inferred about the remaining circuit contribution.",
+      "scene": "The first end-to-end diagnostic is in. It reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
       "takeaway": "An observed error rate is only a diagnosis after you state the model used to separate preparation, gates and measurement.",
       "place": "Error & Verification",
-      "story": "A diagnostic circuit reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what can honestly be inferred about the remaining circuit contribution.",
+      "story": "The first end-to-end diagnostic is in. It reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
       "game": {
         "type": "CASEBOOK",
         "title": "Whose error is it",
@@ -1815,7 +1815,7 @@ export const CURRICULUM = {
         "task": "Take the readout out of the qubit number",
         "question": "Take the readout out of the qubit number",
         "answer": "",
-        "why": "\"For small, approximately independent error probabilities, adding the contributions is a useful first-order budget, but it is not an exact law. The 8 per cent observed error therefore suggests that several per cent remain for gate and circuit effects after accounting for readout and preparation. A more careful analysis would model how the errors compose rather than simply subtracting percentages. The educational point is the separation: the number a user sees is not automatically the number a pulse engineer should optimise.\"\n",
+        "why": "\"For small, approximately independent error probabilities, adding the contributions is a useful first-order budget, but it is not an exact law. The 8 per cent observed error therefore suggests that several per cent remain for gate and circuit effects after accounting for readout and preparation. A more careful analysis would model how the errors compose rather than simply subtracting percentages. The educational point is the separation: the number a user sees is not automatically the number a pulse engineer should optimise.\"",
         "rebuttals": [
           "Readout error is measurable on its own by preparing a known state and reading it straight back.",
           "State preparation error is measured the same way and is small on this device.",
@@ -1873,10 +1873,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What you would need back",
-      "scene": "Holm writes down what Delft would have to receive and return for the run to count as a check rather than a courtesy. Because Delft's hardware is different, Ridgeway can share the logical circuit and protocol but not expect Delft to reuse Ridgeway's device-specific microwave calibrations.",
+      "scene": "An email from Delft is open on Holm's screen: their independent-device slot begins in ten days, and the next opening is a quarter away. Holm starts a list of exactly what Ridgeway would have to send, and what would have to come back.",
       "takeaway": "A useful replication shares enough method to repeat the experiment while keeping independent the choices that are actually being tested.",
       "place": "Error & Verification",
-      "story": "Holm writes down what Delft would have to receive and return for the run to count as a check rather than a courtesy. Because Delft's hardware is different, Ridgeway can share the logical circuit and protocol but not expect Delft to reuse Ridgeway's device-specific microwave calibrations.",
+      "story": "An email from Delft is open on Holm's screen: their independent-device slot begins in ten days, and the next opening is a quarter away. Holm starts a list of exactly what Ridgeway would have to send, and what would have to come back.",
       "game": {
         "type": "PROTOCOL",
         "title": "What you would need back",
@@ -1885,23 +1885,23 @@ export const CURRICULUM = {
         "task": "Decide what makes a replication worth the name",
         "question": "Decide what makes a replication worth the name",
         "answer": "",
-        "why": "\"An independent run should reproduce the scientific procedure without needlessly reproducing Ridgeway's hidden assumptions. Delft needs the circuit and enough implementation detail to run the same intended experiment. Ridgeway should ask for raw shots so both groups can examine the result, but it should preserve an analysis path that does not import Ridgeway's fitted discriminator or device-specific calibration. The expected numerical result should also be withheld until Delft has frozen its analysis. Independence is not all-or-nothing: shared instructions define the experiment, while independent calibration and analysis make disagreement informative.\"\n",
+        "why": "An independent run should reproduce the scientific procedure without needlessly reproducing Ridgeway's hidden assumptions. Delft needs the circuit and enough implementation detail to run the same intended experiment. Ridgeway should ask for the raw single-shot results so both groups can examine them, but Delft should build its own readout rule and device calibration. The expected numerical result should also be withheld until Delft has frozen its analysis. Shared instructions define the experiment; independent calibration and analysis make disagreement informative.",
         "rebuttals": [
           "The logical circuit and protocol have to go, but Delft must translate them into controls appropriate to its own hardware; copying Ridgeway's analog pulse calibration would defeat part of the independence.",
-          "Raw shots have to come back, because the analysis is part of what is being checked.",
-          "Importing Ridgeway's fitted calibration into the primary Delft analysis would preserve a common failure mode; a shared-pipeline comparison can be done later as a diagnostic.",
+          "The returned observations let both groups examine the result while still allowing the analysis choices to differ.",
+          "Importing Ridgeway's fitted rule into Delft's primary analysis would preserve a common failure mode; a shared-pipeline comparison can be done later as a diagnostic.",
           "Withholding the expected number prevents an avoidable source of confirmation bias while Delft makes its analysis choices."
         ],
         "scenarios": [
           "The logical circuit, preparation/measurement definitions and protocol.",
-          "The raw single-shot data from their run.",
-          "Ridgeway's discriminator and calibration files.",
+          "The raw single-shot results from their run.",
+          "Ridgeway's fitted readout rule and device-calibration files.",
           "The result Ridgeway expects to see."
         ],
         "choices": [
           "Goes: the circuit and the information needed to implement the intended operations on Delft's hardware.",
-          "Comes back: the raw shots and enough metadata to analyse them independently.",
-          "Stays here, or the two runs share the step that manufactures agreement.",
+          "Lets both labs inspect the same evidence without forcing the same analysis.",
+          "Keep it local so the second analysis retains a genuinely different failure mode.",
           "Withheld until Delft has frozen its own figure, since knowing it changes every fork."
         ],
         "mapping": [
@@ -2200,10 +2200,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Four correlations, one number",
-      "scene": "Two qubits are entangled and the analyser has four setting pairs loaded. Each shot returns one outcome from each qubit, and the pair either agrees or it does not. Nothing has been run yet.",
+      "scene": "Holm has left one blank line in the review deck for the Bell result. Two entangled qubits are ready, four analyser settings are loaded, and the room is waiting on a number that does not exist yet. Every shot returns two outcomes.",
       "takeaway": "The CHSH statistic combines four measured correlations; the classical bound and quantum prediction are comparisons made after the data are combined.",
       "place": "Error & Verification",
-      "story": "Two qubits are entangled and the analyser has four setting pairs loaded. Each shot returns one outcome from each qubit, and the pair either agrees or it does not. Nothing has been run yet.",
+      "story": "Holm has left one blank line in the review deck for the Bell result. Two entangled qubits are ready, four analyser settings are loaded, and the room is waiting on a number that does not exist yet. Every shot returns two outcomes.",
       "game": {
         "type": "TALLY",
         "title": "Four correlations, one number",
@@ -2212,7 +2212,7 @@ export const CURRICULUM = {
         "task": "Compute the quantity",
         "question": "Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?",
         "answer": "About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.",
-        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those four values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why a hundred shots per setting can put the combination either side of two and four hundred usually does not. The bound of two belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.\n",
+        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those four values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why a hundred shots per setting can put the combination either side of two and four hundred usually does not. The bound of two belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
         "tally": {
           "settings": [
             {
@@ -2438,10 +2438,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "What a correction is for",
-      "scene": "Petrova drafts. The question is whether the correction names the cause or only the number, and whether it goes out before the rerun finishes.",
+      "scene": "The correction window closes today. Petrova has the draft open while the held-out rerun is still running in the next room. If Ridgeway waits for the final number, the window closes; if it files now, the correction must state exactly what is known.",
       "takeaway": "A useful correction tells readers what changed, why it changed, and which conclusions the mechanism can and cannot affect.",
       "place": "Error & Verification",
-      "story": "Petrova drafts. The question is whether the correction names the cause or only the number, and whether it goes out before the rerun finishes.",
+      "story": "The correction window closes today. Petrova has the draft open while the held-out rerun is still running in the next room. If Ridgeway waits for the final number, the window closes; if it files now, the correction must state exactly what is known.",
       "game": {
         "type": "PROTOCOL",
         "title": "What a correction is for",
@@ -2450,7 +2450,7 @@ export const CURRICULUM = {
         "task": "Say what the correction has to contain",
         "question": "Say what the correction has to contain",
         "answer": "",
-        "why": "Changing only the headline number leaves other groups unable to recognise the same failure mode in their own analysis. Naming the mechanism — fitting and evaluating the discriminator on the same data — makes the correction actionable. Defining the scope matters just as much because readers need to know which Ridgeway results passed through that step and which did not. The rerun can be labelled preliminary or in progress; completeness is valuable, but waiting past a hard correction deadline would preserve a number the group already knows is biased.\n",
+        "why": "Changing only the headline number leaves other groups unable to recognise the same failure mode in their own analysis. Naming the mechanism — fitting and evaluating the discriminator on the same data — makes the correction actionable. Defining the scope matters just as much because readers need to know which Ridgeway results passed through that step and which did not. The rerun can be labelled preliminary or in progress; completeness is valuable, but waiting past a hard correction deadline would preserve a number the group already knows is biased.",
         "rebuttals": [
           "The number has to be corrected, but a changed number alone does not tell readers what failure mode to look for.",
           "Naming the mechanism makes the correction actionable because another group can test whether its own analysis has the same dependency.",
@@ -2577,28 +2577,28 @@ export const CURRICULUM = {
   "SENSE": [
     {
       "day": 1,
-      "title": "What Raghavan sends",
-      "scene": "Elena Barros, who ships numbers to a hospital every month, has the least romantic view of this in the building: work goes out when somebody else needs it, and it goes out with its uncertainties.",
+      "title": "What goes out on Friday",
+      "scene": "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does.",
       "takeaway": "Sharing a reproducible method before the final claim is settled can create evidence without committing to the final answer.",
       "place": "Quantum Sensing",
-      "story": "Elena Barros, who ships numbers to a hospital every month, has the least romantic view of this in the building: work goes out when somebody else needs it, and it goes out with its uncertainties.",
+      "story": "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "What Raghavan sends",
+        "title": "What goes out on Friday",
         "setup": "Quantum Sensing",
         "play": "Decide what goes out on Friday",
         "task": "Decide what goes out on Friday",
         "question": "Decide what goes out on Friday",
         "answer": "",
-        "why": "The Delft window is short and the point of using a different device is to create an independent test. Sending the circuit, implementation notes and stated uncertainties does not require Ridgeway to send its expected result or claim that its own number is final. Waiting until every local number is polished forfeits the independent run. Sending the expected value with the method would weaken the check, while publishing before the cross-check turns an opportunity for pre-publication diagnosis into a post-publication dispute.\n",
+        "why": "The Delft window is short and the point of using a different device is to create an independent test. Sending the circuit, implementation notes and stated uncertainties does not require Ridgeway to send its expected result or claim that its own number is final. Waiting until every local number is polished forfeits the independent run. Sending the expected value with the method would weaken the check, while publishing before the cross-check turns an opportunity for pre-publication diagnosis into a post-publication dispute.",
         "proposals": [
           {
             "label": "A",
-            "text": "Send the logical circuit"
+            "text": "Send the logical circuit, protocol and uncertainties, while withholding Ridgeway's numerical result until Delft freezes its analysis, with every uncertainty stated, and ask for raw shots back."
           },
           {
             "label": "B",
-            "text": "Wait until every local calibration and fidelity number is final before sending anything"
+            "text": "Wait until every local calibration and performance number is final before sending anything, and ask Delft for a window next quarter."
           },
           {
             "label": "C",
@@ -2613,7 +2613,7 @@ export const CURRICULUM = {
           "A": 60,
           "B": 15
         },
-        "research": "Delft's window is ten days and the next is a quarter away. Their device is a different design,\nwhich is what makes it an independent check. Ridgeway's own result has been measured on one device\nby one group. The review is in five days. Delft has asked for sequences only, not for results.\n"
+        "research": "Delft's independent-device slot begins in ten days and the next is a quarter away. Their device is a different design, which is what makes it an independent check. Ridgeway's own result has been measured on one device by one group. The external review follows soon after the Delft run. Delft has asked for sequences only, not for results."
       },
       "assumes": [
         "a result can be shared at different levels of completeness"
@@ -2925,31 +2925,31 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Copying a state is not the same as transferring one",
-      "scene": "\"Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all: it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies, although quantum information can in principle be physically transferred or teleported.\"",
+      "scene": "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
       "takeaway": "The no-cloning theorem forbids making a perfect duplicate of an arbitrary unknown quantum state; it does not forbid transferring quantum information.",
       "place": "Networks & Security",
-      "story": "\"Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all: it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies, although quantum information can in principle be physically transferred or teleported.\"",
+      "story": "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
       "game": {
         "type": "CHOICE",
         "title": "Copying a state is not the same as transferring one",
         "setup": "Networks & Security",
         "play": "Distinguish no-cloning from communication",
         "task": "Distinguish no-cloning from communication",
-        "question": "Why can Ridgeway email the circuit description but not email a complete classical description that lets Delft reconstruct an arbitrary unknown prepared state exactly?",
-        "answer": "An unknown state cannot be copied, so only instructions can go.",
-        "why": "\"A classical circuit description is ordinary information and can be copied without limit. An arbitrary unknown quantum state is different: there is no universal physical operation that takes one copy and produces two perfect copies of it. That is the no-cloning theorem. It does *not* mean quantum information can never travel. A physical quantum system can be sent, or an unknown state can be transferred by quantum teleportation when entanglement and classical communication are available; in either case the original is not left behind as a second perfect copy. For this replication Delft needs the preparation instructions, not Ridgeway's particular instance of the state.\"\n",
+        "question": "Why can Ridgeway email the preparation instructions but not email a complete classical description that lets Delft reconstruct an arbitrary unknown prepared state exactly?",
+        "answer": "Because the state contains too much information for any classical file, even if many identical copies were available.",
+        "why": "A classical preparation recipe is ordinary information and can be copied without limit. An arbitrary unknown quantum state is different: there is no universal physical operation that takes one copy and produces two perfect copies of it. That is the no-cloning theorem. It does not say quantum information can never travel; a physical quantum system can be transferred. The restriction is that the original cannot remain behind as a second perfect copy. For this replication Delft needs the preparation instructions, not Ridgeway's particular instance of the state.",
         "rebuttals": [
-          "Decoherence limits real channels, but it is not the principle behind no-cloning.",
-          "Quantum information can be transferred physically or by teleportation; the restriction is on leaving behind a second perfect copy.",
-          "State tomography uses many independently prepared copies and does not violate energy conservation or no-cloning."
+          "The obstacle is not file size. The no-cloning rule applies to an arbitrary unknown state when only the state itself is available.",
+          "Quantum information can be physically transferred; the restriction is on producing a second perfect copy while leaving the first intact.",
+          "The preparation recipe is classical information and can be copied freely. Delft can use it to prepare a new state of its own."
         ],
         "choices": [
-          "Because any transmitted qubit must decohere, even in a perfect quantum channel.",
-          "An unknown state cannot be copied, so only instructions can go.",
-          "Because state transfer is impossible unless Ridgeway and Delft are connected by the same physical qubit.",
-          "Because measuring enough copies to reconstruct the state would violate energy conservation."
+          "Because an unknown quantum state cannot be perfectly duplicated from one copy.",
+          "Because the state contains too much information for any classical file, even if many identical copies were available.",
+          "Because a quantum state can never be transferred from one physical system to another.",
+          "Because copying the preparation instructions would create a second copy of Ridgeway's original state."
         ],
-        "correctChoice": "An unknown state cannot be copied, so only instructions can go."
+        "correctChoice": "Because the state contains too much information for any classical file, even if many identical copies were available."
       },
       "assumes": [
         "classical descriptions can be copied freely, while an arbitrary unknown quantum state cannot be perfectly cloned"
@@ -3094,11 +3094,11 @@ export const CURRICULUM = {
         "proposals": [
           {
             "label": "A",
-            "text": "Publish a small-scale validation of the estimator against exact classical results and controlled noise"
+            "text": "Publish a small-scale validation of the estimator against exact classical results and controlled noise, where the exact answer is known, and say nothing about the rival result."
           },
           {
             "label": "B",
-            "text": "Wait for Delft before saying anything"
+            "text": "Wait for Delft before saying anything, even though Delft is testing a different question"
           },
           {
             "label": "C",
@@ -3122,10 +3122,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Which of the three cannot wait",
-      "scene": "Raghavan puts the three on the board. Two of them have already done whatever they are going to do.",
+      "scene": "Within twenty minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
       "takeaway": "Urgency is a product of ongoing damage, downstream reach and time-to-containment, not simply deadline pressure.",
       "place": "Networks & Security",
-      "story": "Raghavan puts the three on the board. Two of them have already done whatever they are going to do.",
+      "story": "Within twenty minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
       "game": {
         "type": "TRIAGE",
         "title": "Which of the three cannot wait",
@@ -3134,7 +3134,7 @@ export const CURRICULUM = {
         "task": "Decide what the group does first",
         "question": "What gets the group's attention first?",
         "answer": "The clock — everything since the last comparison is unbounded.",
-        "why": "\"The fibre cut has stopped the QKD link and cannot be repaired by the laboratory this afternoon; the unfinished block is not yet secret key and can be quarantined. The review pack has a hard deadline but a known workflow and reruns already in progress. The clock discrepancy is different: if the reference has drifted, every new frequency measurement made against it inherits the same scale error, so the affected set grows until the reference is checked or isolated. A repeat comparison can bound that risk quickly, which puts the clock first.\"\n",
+        "why": "\"The fibre cut has stopped the QKD link and cannot be repaired by the laboratory this afternoon; the unfinished block is not yet secret key and can be quarantined. The review pack has a hard deadline but a known workflow and reruns already in progress. The clock discrepancy is different: if the reference has drifted, every new frequency measurement made against it inherits the same scale error, so the affected set grows until the reference is checked or isolated. A repeat comparison can bound that risk quickly, which puts the clock first.\"",
         "rebuttals": [
           "The unfinished QKD data are not automatically compromised by the cut; they simply cannot be called secret key until the protocol's authenticated post-processing establishes security.",
           "A deadline matters, but the clock can contaminate additional measurements every hour and can be checked quickly.",
@@ -3249,10 +3249,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What each version costs",
-      "scene": "Raghavan wants the consequences of both versions written down before anybody signs, so that the group is choosing rather than drifting.",
+      "scene": "Raghavan closes the conference-room door and puts two versions on the screen. One changes the headline before the correction window closes; the other leaves it standing. Before anybody signs, he wants the cost of each choice written underneath it.",
       "takeaway": "When both action and inaction have costs, compare their reversible and irreversible consequences rather than treating silence as the zero-cost option.",
       "place": "Networks & Security",
-      "story": "Raghavan wants the consequences of both versions written down before anybody signs, so that the group is choosing rather than drifting.",
+      "story": "Raghavan closes the conference-room door and puts two versions on the screen. One changes the headline before the correction window closes; the other leaves it standing. Before anybody signs, he wants the cost of each choice written underneath it.",
       "game": {
         "type": "CASEBOOK",
         "title": "What each version costs",
@@ -3261,7 +3261,7 @@ export const CURRICULUM = {
         "task": "Decide what the group commits to",
         "question": "Decide what the group commits to",
         "answer": "",
-        "why": "Correcting now costs a smaller headline, an awkward explanation and the possibility that the final rerun moves the number again. Not correcting preserves a value the group already has evidence is biased and lets the correction deadline expire; Delft also has independent data that could surface the issue later. The asymmetry is not simply embarrassment versus no embarrassment. One path preserves the ability to update the scientific record while stating what is still provisional; the other deliberately gives up that option.\n",
+        "why": "Correcting now costs a smaller headline, an awkward explanation and the possibility that the final rerun moves the number again. Not correcting preserves a value the group already has evidence is biased and lets the correction deadline expire; Delft also has independent data that could surface the issue later. The asymmetry is not simply embarrassment versus no embarrassment. One path preserves the ability to update the scientific record while stating what is still provisional; the other deliberately gives up that option.",
         "rebuttals": [
           "A prompt correction can state what is provisional; the cost is visible uncertainty now rather than loss of the ability to correct later.",
           "Silence is not cost-free once the deadline closes, because the group would later have to explain both the biased number and the decision to leave it.",
@@ -3300,7 +3300,7 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "CRYO-2": {
-    "prompt": "For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT, use p_excited ≈ e^(−hf/kT).\n",
+    "prompt": "For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT, use p_excited ≈ e^(−hf/kT).",
     "question": "Choose the quantum energy and the thermal energy.",
     "labels": [
       "3.3e-24  (hf at 5 GHz, in joules)",
@@ -3327,7 +3327,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.002,
     "units": "of the qubits",
     "solution": "e^(−3.3e-24 / 5.8e-25) = e^(−5.7) ≈ 0.003.",
-    "explanation": "About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly seven orders of magnitude even though the absolute population is still below one per cent.\n"
+    "explanation": "About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly seven orders of magnitude even though the absolute population is still below one per cent."
   },
   "CTRL-3": {
     "prompt": "The population completes a full Rabi cycle every 84 nanoseconds.\n",

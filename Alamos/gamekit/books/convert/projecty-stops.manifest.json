@@ -1,0 +1,585 @@
+{
+ "theme": "projecty",
+ "book": "books/project-y.yml",
+ "course": "AP Physics 2 nuclear unit, with the nuclear chemistry of AP Chemistry",
+ "curriculum": [
+  "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+  "Mass defect, binding energy and E = mc²",
+  "Binding energy per nucleon and the stability curve",
+  "Radioactive decay modes: alpha, beta, gamma",
+  "Decay constant, half-life and activity",
+  "Exponential decay and logarithms",
+  "Fission, neutron multiplication and chain reactions",
+  "Criticality: mass, geometry, reflectors, moderation",
+  "Fusion",
+  "Cross sections and mean free path",
+  "Attenuation of radiation through matter",
+  "Detectors: ionisation, count rate, efficiency, dead time",
+  "Counting statistics and uncertainty",
+  "Shielding, dose and radiation protection",
+  "Conservation of energy and momentum in reactions",
+  "Units and conversions: MeV, u, barns, scientific notation",
+  "Order-of-magnitude estimation from givens",
+  "Materials: phases, allotropes, alloys, density",
+  "Shock waves, compression and hydrodynamics",
+  "Experimental method: controls, calibration, systematic vs random error",
+  "Isotope separation and enrichment",
+  "Penetrating power and range of alpha, beta, gamma",
+  "Inverse-square law for radiation intensity",
+  "Descriptive statistics: mean, spread, standard deviation",
+  "Graphical analysis: semi-log plots and slopes",
+  "Pressure, temperature and equations of state",
+  "Chemical explosives: energy release and detonation velocity",
+  "Timing, synchronisation and simultaneity of events",
+  "Dimensional analysis and scaling laws",
+  "Criticality safety: administrative limits and controls"
+ ],
+ "equations": [
+  {
+   "e": "E = mc²",
+   "about": "mass defect converted to binding energy",
+   "symbols": [
+    [
+     "E",
+     "energy released, in joules"
+    ],
+    [
+     "m",
+     "the mass that went missing, in kilograms"
+    ],
+    [
+     "c",
+     "the speed of light, 3.0 × 10⁸ metres per second"
+    ]
+   ]
+  },
+  {
+   "e": "B / A",
+   "about": "binding energy per nucleon, and the stability curve it plots",
+   "symbols": [
+    [
+     "B",
+     "total binding energy of the nucleus, in MeV"
+    ],
+    [
+     "A",
+     "the number of nucleons in it"
+    ]
+   ]
+  },
+  {
+   "e": "N(t) = N₀e^(−λt)",
+   "about": "exponential decay of a population",
+   "symbols": [
+    [
+     "N(t)",
+     "how many nuclei are left at time t"
+    ],
+    [
+     "N₀",
+     "how many there were at the start"
+    ],
+    [
+     "λ",
+     "decay constant, in per second"
+    ],
+    [
+     "t",
+     "elapsed time, in seconds"
+    ]
+   ]
+  },
+  {
+   "e": "λ = ln2 / t½",
+   "about": "decay constant from half-life",
+   "symbols": [
+    [
+     "λ",
+     "decay constant, in per second"
+    ],
+    [
+     "ln2",
+     "0.693"
+    ],
+    [
+     "t½",
+     "half-life, the time for half of it to go"
+    ]
+   ]
+  },
+  {
+   "e": "A = λN",
+   "about": "activity from a decay constant and a population",
+   "symbols": [
+    [
+     "A",
+     "activity, in decays per second"
+    ],
+    [
+     "λ",
+     "decay constant, in per second"
+    ],
+    [
+     "N",
+     "how many nuclei are present"
+    ]
+   ]
+  },
+  {
+   "e": "Σ = nσ",
+   "about": "macroscopic cross section from number density",
+   "symbols": [
+    [
+     "Σ",
+     "macroscopic cross section, in per centimetre"
+    ],
+    [
+     "n",
+     "nuclei per cubic centimetre"
+    ],
+    [
+     "σ",
+     "microscopic cross section, the target area of one nucleus"
+    ]
+   ]
+  },
+  {
+   "e": "mfp = 1 / Σ",
+   "about": "mean free path as the inverse of interaction per length",
+   "symbols": [
+    [
+     "mfp",
+     "mean free path, in centimetres"
+    ],
+    [
+     "Σ",
+     "macroscopic cross section, in per centimetre"
+    ]
+   ]
+  },
+  {
+   "e": "I = I₀e^(−Σx)",
+   "about": "exponential attenuation through matter",
+   "symbols": [
+    [
+     "I",
+     "intensity after the material"
+    ],
+    [
+     "I₀",
+     "intensity before it"
+    ],
+    [
+     "Σ",
+     "macroscopic cross section, in per centimetre"
+    ],
+    [
+     "x",
+     "thickness, in centimetres"
+    ]
+   ]
+  },
+  {
+   "e": "σ = √N",
+   "about": "Poisson counting uncertainty, and why precision costs time",
+   "symbols": [
+    [
+     "σ",
+     "the standard deviation of the count"
+    ],
+    [
+     "N",
+     "the number of counts recorded"
+    ]
+   ]
+  },
+  {
+   "e": "I ∝ 1 / r²",
+   "about": "inverse-square fall-off of radiation intensity",
+   "symbols": [
+    [
+     "I",
+     "intensity at the detector"
+    ],
+    [
+     "r",
+     "distance from the source, in metres"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Los Alamos · 1943–45",
+ "groups": [
+  {
+   "id": "T",
+   "name": "Theory & Calculations",
+   "desc": "Neutron physics, decay, reaction rates, and carrying uncertainty through a calculation."
+  },
+  {
+   "id": "P",
+   "name": "Experimental Physics & Diagnostics",
+   "desc": "Counting statistics, detector behavior, timing, and diagnostic reliability."
+  },
+  {
+   "id": "CM",
+   "name": "Chemistry & Metallurgy",
+   "desc": "Isotopes, materials properties, contamination control, and repeatable handling."
+  },
+  {
+   "id": "E",
+   "name": "Ordnance & Engineering",
+   "desc": "Interfaces, timing logic, qualification tests, and instrumented engineering trials."
+  },
+  {
+   "id": "X",
+   "name": "Implosion & Systems Integration",
+   "desc": "Integrate theory, diagnostics, materials, and engineering into one evidence chain."
+  }
+ ],
+ "stops": [
+  {
+   "id": "projecty.m01.s1",
+   "day": 1,
+   "group": "T",
+   "format": "PROTOCOL",
+   "title": "The nucleus as a physical system"
+  },
+  {
+   "id": "projecty.m01.s2",
+   "day": 1,
+   "group": "CM",
+   "format": "PROTOCOL",
+   "title": "Isotopes and chemical identity"
+  },
+  {
+   "id": "projecty.m01.s3",
+   "day": 1,
+   "group": "P",
+   "format": "SEQUENCE",
+   "title": "Ionization and detector signals"
+  },
+  {
+   "id": "projecty.m02.s1",
+   "day": 2,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Mass defect and binding energy"
+  },
+  {
+   "id": "projecty.m02.s2",
+   "day": 2,
+   "group": "P",
+   "format": "DEGENERACY",
+   "title": "One reference line is not a calibration"
+  },
+  {
+   "id": "projecty.m02.s3",
+   "day": 2,
+   "group": "E",
+   "format": "PROTOCOL",
+   "title": "Two weapon architectures at Los Alamos"
+  },
+  {
+   "id": "projecty.m03.s1",
+   "day": 3,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Radioactive decay law"
+  },
+  {
+   "id": "projecty.m03.s2",
+   "day": 3,
+   "group": "CM",
+   "format": "BALLPARK",
+   "title": "Radiochemical tracers"
+  },
+  {
+   "id": "projecty.m03.s3",
+   "day": 3,
+   "group": "P",
+   "format": "CONTROL",
+   "title": "Find what carries the background"
+  },
+  {
+   "id": "projecty.m04.s1",
+   "day": 4,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Reaction cross sections"
+  },
+  {
+   "id": "projecty.m04.s2",
+   "day": 4,
+   "group": "P",
+   "format": "BALLPARK",
+   "title": "Poisson counting statistics"
+  },
+  {
+   "id": "projecty.m04.s3",
+   "day": 4,
+   "group": "CM",
+   "format": "BALANCE",
+   "title": "Close the material balance"
+  },
+  {
+   "id": "projecty.m05.s1",
+   "day": 5,
+   "group": "T",
+   "format": "PROTOCOL",
+   "title": "Neutron energy and moderation"
+  },
+  {
+   "id": "projecty.m05.s2",
+   "day": 5,
+   "group": "P",
+   "format": "TRACE",
+   "title": "Are the neutrons missing, or the counts?"
+  },
+  {
+   "id": "projecty.m05.s3",
+   "day": 5,
+   "group": "X",
+   "format": "PROTOCOL",
+   "title": "Why plutonium required implosion"
+  },
+  {
+   "id": "projecty.m06.s1",
+   "day": 6,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Spontaneous fission and neutron backgrounds"
+  },
+  {
+   "id": "projecty.m06.s2",
+   "day": 6,
+   "group": "E",
+   "format": "SEQUENCE",
+   "title": "Why Thin Man was abandoned"
+  },
+  {
+   "id": "projecty.m06.s3",
+   "day": 6,
+   "group": "X",
+   "format": "SEQUENCE",
+   "title": "From outward detonation to inward compression"
+  },
+  {
+   "id": "projecty.m07.s1",
+   "day": 7,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Equations of state"
+  },
+  {
+   "id": "projecty.m07.s2",
+   "day": 7,
+   "group": "CM",
+   "format": "DIAGNOSIS",
+   "title": "Phase diagrams"
+  },
+  {
+   "id": "projecty.m07.s3",
+   "day": 7,
+   "group": "X",
+   "format": "PROTOCOL",
+   "title": "What an explosive lens does"
+  },
+  {
+   "id": "projecty.m08.s1",
+   "day": 8,
+   "group": "X",
+   "format": "BALLPARK",
+   "title": "How many half-lives have passed"
+  },
+  {
+   "id": "projecty.m08.s2",
+   "day": 8,
+   "group": "P",
+   "format": "CONTROL",
+   "title": "Find where timing jitter enters"
+  },
+  {
+   "id": "projecty.m08.s3",
+   "day": 8,
+   "group": "E",
+   "format": "BALLPARK",
+   "title": "Why simultaneity became an engineering requirement"
+  },
+  {
+   "id": "projecty.m09.s1",
+   "day": 9,
+   "group": "CM",
+   "format": "DIAGNOSIS",
+   "title": "Mechanical properties"
+  },
+  {
+   "id": "projecty.m09.s2",
+   "day": 9,
+   "group": "E",
+   "format": "CHOICE",
+   "title": "Why the limit is written down"
+  },
+  {
+   "id": "projecty.m09.s3",
+   "day": 9,
+   "group": "P",
+   "format": "BALLPARK",
+   "title": "High-speed imaging and radiography"
+  },
+  {
+   "id": "projecty.m10.s1",
+   "day": 10,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Competing timescales"
+  },
+  {
+   "id": "projecty.m10.s2",
+   "day": 10,
+   "group": "E",
+   "format": "VALUE",
+   "title": "What evidence qualifies a lot?"
+  },
+  {
+   "id": "projecty.m10.s3",
+   "day": 10,
+   "group": "X",
+   "format": "BALLPARK",
+   "title": "Synchronizing many channels"
+  },
+  {
+   "id": "projecty.m11.s1",
+   "day": 11,
+   "group": "T",
+   "format": "BALLPARK",
+   "title": "Carrying uncertainty through"
+  },
+  {
+   "id": "projecty.m11.s2",
+   "day": 11,
+   "group": "P",
+   "format": "CHOICE",
+   "title": "Where the fragments go"
+  },
+  {
+   "id": "projecty.m11.s3",
+   "day": 11,
+   "group": "X",
+   "format": "DIAGNOSIS",
+   "title": "Build the implosion uncertainty budget"
+  },
+  {
+   "id": "projecty.m12.s1",
+   "day": 12,
+   "group": "CM",
+   "format": "BALLPARK",
+   "title": "Acceptance criteria"
+  },
+  {
+   "id": "projecty.m12.s2",
+   "day": 12,
+   "group": "P",
+   "format": "VALUE",
+   "title": "Buy the test that can decide"
+  },
+  {
+   "id": "projecty.m12.s3",
+   "day": 12,
+   "group": "E",
+   "format": "BALLPARK",
+   "title": "Critical path to an integrated trial"
+  },
+  {
+   "id": "projecty.m12.s4",
+   "day": 12,
+   "group": "X",
+   "format": "CHOICE",
+   "title": "What a scaled shot can and cannot tell you"
+  },
+  {
+   "id": "projecty.m13.s1",
+   "day": 13,
+   "group": "X",
+   "format": "PROTOCOL",
+   "title": "What Trinity had to answer"
+  },
+  {
+   "id": "projecty.m13.s2",
+   "day": 13,
+   "group": "E",
+   "format": "SEQUENCE",
+   "title": "Trinity field engineering"
+  },
+  {
+   "id": "projecty.m13.s3",
+   "day": 13,
+   "group": "P",
+   "format": "CHOICE",
+   "title": "The plot that makes a decay a straight line"
+  },
+  {
+   "id": "projecty.m13.s4",
+   "day": 13,
+   "group": "T",
+   "format": "CHOICE",
+   "title": "Where the energy in fission comes from"
+  },
+  {
+   "id": "projecty.m14.s1",
+   "day": 14,
+   "group": "X",
+   "format": "BALLPARK",
+   "title": "Compare a prediction band with an observation"
+  },
+  {
+   "id": "projecty.m14.s2",
+   "day": 14,
+   "group": "CM",
+   "format": "CHOICE",
+   "title": "Why separation is a physical problem"
+  },
+  {
+   "id": "projecty.m14.s3",
+   "day": 14,
+   "group": "T",
+   "format": "VALUE",
+   "title": "Spend the follow-up checks on independence"
+  },
+  {
+   "id": "projecty.m14.s4",
+   "day": 14,
+   "group": "E",
+   "format": "SEQUENCE",
+   "title": "Post-Trinity design freeze"
+  },
+  {
+   "id": "projecty.m15.s1",
+   "day": 15,
+   "group": "T",
+   "format": "CHOICE",
+   "title": "Why light nuclei release energy too"
+  },
+  {
+   "id": "projecty.m15.s2",
+   "day": 15,
+   "group": "P",
+   "format": "SEQUENCE",
+   "title": "Final diagnostic readiness review"
+  },
+  {
+   "id": "projecty.m15.s3",
+   "day": 15,
+   "group": "CM",
+   "format": "VALUE",
+   "title": "Leave a materials capability, not just better numbers"
+  },
+  {
+   "id": "projecty.m15.s4",
+   "day": 15,
+   "group": "X",
+   "format": "CHOICE",
+   "title": "Scientific responsibility after Trinity"
+  }
+ ]
+}

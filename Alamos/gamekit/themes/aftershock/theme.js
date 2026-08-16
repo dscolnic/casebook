@@ -110,7 +110,11 @@ export default {
     // Dust. It reaches past the range front so the horizon ranks read, and it is
     // warmer and dirtier than the other games' haze — three days of pulverised
     // masonry has not settled yet.
-    fog: { colour: 0xc4bcae, near: 120, far: 900 },
+    // Near was 120 and the middle distance read clean, which fought the smoke
+    // columns and the drifting dust in props.js — a town on fire down the
+    // street and crisp air between here and it. 90 puts the haze on the next
+    // block, and the horizon ranks still come through at 900.
+    fog: { colour: 0xc4bcae, near: 90, far: 900 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
     exposure: 0.88,
     // How wide the player is, for collision. 0.45 suits a street; a place with

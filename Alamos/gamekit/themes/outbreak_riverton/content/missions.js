@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 2,
-        "task": "What does the office start this afternoon?"
+        "task": "Spend the single response slot on the evidence that makes tomorrow’s citywide case data interpretable."
       }
     ]
   },
@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "MOL",
         "lesson": 0,
-        "task": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?"
+        "task": "A reporter enzyme works after 37 °C pre-incubation and loses most activity after 55 °C. What is the strongest interpretation?"
       }
     ]
   },
@@ -71,7 +71,7 @@ export const MISSIONS = [
       {
         "group": "CELL",
         "lesson": 2,
-        "task": "Which experiment locates the step where resistant cells stop the process?"
+        "task": "Change one condition at a time, reverse the strongest effect, and decide whether the surface-receptor step is causally required for entry."
       }
     ]
   },
@@ -114,7 +114,7 @@ export const MISSIONS = [
       {
         "group": "MOL",
         "lesson": 5,
-        "task": "Which explanation best fits the patient results and all of the controls?"
+        "task": "Open the dependency chain behind each result, keep the evidence that still stands, and name the shared source that makes the amplification positives unreliable."
       },
       {
         "group": "POP",
@@ -133,7 +133,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 1,
-        "task": "Which bottleneck fits the whole heart-and-lung panel?"
+        "task": "Assemble the oxygen path from air to tissue, then name the link that the full panel makes most likely to be limiting."
       },
       {
         "group": "POP",
@@ -143,7 +143,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 2,
-        "task": "One bedside measurement before the team commits to a treatment. Which?"
+        "task": "Use the blood-buffer relationship to estimate arterial pH and interpret what the pair of values supports."
       }
     ]
   },
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 4,
-        "task": "The ward wants to start drugs that damp the immune system tonight. What do you do?"
+        "task": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it."
       }
     ]
   },
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 6,
-        "task": "One field campaign. What is its design?"
+        "task": "Allocate the twenty slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact."
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 14,
-        "task": "The city can start one layer this month. Which?"
+        "task": "Allocate three funding slots to a portfolio that acts now, preserves a longer-horizon layer, and avoids depending on one shared mechanism."
       }
     ]
   },
@@ -301,7 +301,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 5,
-        "task": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?"
+        "task": "One site enrolled younger patients and contributes much of the apparent benefit. What should the trial team do before attributing the difference to treatment?"
       },
       {
         "group": "POP",
@@ -311,7 +311,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 16,
-        "task": "Promising, imprecise, and the adverse events are uneven. What does the board decide?"
+        "task": "The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?"
       }
     ]
   },
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 18,
-        "task": "A policy the council can defend for a month. Which?"
+        "task": "Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter."
       }
     ]
   },
@@ -349,7 +349,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 19,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Spend the two independent checks on the critical claims that still lack adequate backing, then disposition the final report."
       },
       {
         "group": "POP",
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 21,
-        "task": "The emergency budget closes this month. What does the city commit it to?"
+        "task": "The emergency budget closes this month. Which durable capability should receive the protected outbreak-surveillance funding?"
       }
     ]
   }

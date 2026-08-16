@@ -1,0 +1,596 @@
+{
+ "theme": "blackout",
+ "book": "books/blackout.yml",
+ "course": "AP Physics 2 circuits and induction, with a first-year electrical-engineering unit",
+ "curriculum": [
+  "Charge, current, voltage and resistance",
+  "Ohm's law and resistive networks",
+  "Kirchhoff's laws and nodal analysis",
+  "Series, parallel and equivalent circuits",
+  "Electrical power and energy over time",
+  "AC waveforms: frequency, period and phase",
+  "RMS against peak and average",
+  "Capacitance, inductance and stored energy",
+  "Reactance, impedance and phasors",
+  "Real, reactive and apparent power",
+  "Power factor and its correction",
+  "Three-phase systems and balance",
+  "Transformers, turns ratio and losses",
+  "Voltage levels and the per-unit system",
+  "Transmission losses and conductor sizing",
+  "Voltage drop, regulation and reactive support",
+  "Faraday's law and electromagnetic induction",
+  "Synchronous machines and synchronisation",
+  "Frequency as the balance of supply and demand",
+  "Inertia, governor response and droop control",
+  "Load curves and demand forecasting",
+  "Economic dispatch and merit order",
+  "Protection: relays, breakers and coordination",
+  "Fault current and short-circuit analysis",
+  "Earthing, step-and-touch potential and safety",
+  "Islanding, black start and restoration order",
+  "Contingency analysis and the N-1 criterion",
+  "Cascading failure and the sequence of events",
+  "Storage, round-trip efficiency and ramp rate",
+  "Renewables: variability, curtailment and inverters",
+  "Metering, instrument transformers and measurement error",
+  "Load shedding as a decision under uncertainty"
+ ],
+ "equations": [
+  {
+   "e": "V = IR",
+   "about": "Ohm's law, on a conductor and on a whole network",
+   "symbols": [
+    [
+     "V",
+     "voltage across it, in volts"
+    ],
+    [
+     "I",
+     "current through it, in amperes"
+    ],
+    [
+     "R",
+     "resistance, in ohms"
+    ]
+   ]
+  },
+  {
+   "e": "P = IV, and P = I²R",
+   "about": "power delivered, and the loss that never arrives",
+   "symbols": [
+    [
+     "P",
+     "power, in watts"
+    ],
+    [
+     "I",
+     "current, in amperes"
+    ],
+    [
+     "V",
+     "voltage, in volts"
+    ],
+    [
+     "R",
+     "resistance, in ohms"
+    ]
+   ]
+  },
+  {
+   "e": "V_rms = V_peak / √2",
+   "about": "why an AC quantity needs saying which one you mean",
+   "symbols": [
+    [
+     "V_rms",
+     "the root-mean-square value a meter reports"
+    ],
+    [
+     "V_peak",
+     "the highest instantaneous value a scope shows"
+    ]
+   ]
+  },
+  {
+   "e": "S = √(P² + Q²), pf = P/S",
+   "about": "apparent power and power factor",
+   "symbols": [
+    [
+     "S",
+     "apparent power, in volt-amperes"
+    ],
+    [
+     "P",
+     "real power, in watts"
+    ],
+    [
+     "Q",
+     "reactive power, in volt-amperes reactive"
+    ],
+    [
+     "pf",
+     "power factor, between 0 and 1"
+    ]
+   ]
+  },
+  {
+   "e": "N₁/N₂ = V₁/V₂",
+   "about": "the transformer ratio, and why transmission is at high voltage",
+   "symbols": [
+    [
+     "N₁",
+     "turns on the primary winding"
+    ],
+    [
+     "N₂",
+     "turns on the secondary"
+    ],
+    [
+     "V₁",
+     "primary voltage"
+    ],
+    [
+     "V₂",
+     "secondary voltage"
+    ]
+   ]
+  },
+  {
+   "e": "P = √3 · V_L · I_L · cos φ",
+   "about": "three-phase power from line quantities",
+   "symbols": [
+    [
+     "P",
+     "three-phase power, in watts"
+    ],
+    [
+     "V_L",
+     "line-to-line voltage, in volts"
+    ],
+    [
+     "I_L",
+     "line current, in amperes"
+    ],
+    [
+     "cos φ",
+     "power factor"
+    ]
+   ]
+  },
+  {
+   "e": "df/dt = (P_gen − P_load) / 2H",
+   "about": "frequency as the running balance of supply and demand",
+   "symbols": [
+    [
+     "df/dt",
+     "how fast frequency is moving, in hertz per second"
+    ],
+    [
+     "P_gen",
+     "total generation, in megawatts"
+    ],
+    [
+     "P_load",
+     "total demand, in megawatts"
+    ],
+    [
+     "H",
+     "stored kinetic energy of the machines online, in megawatt-seconds"
+    ]
+   ]
+  },
+  {
+   "e": "ΔV ≈ I(R cos φ + X sin φ)",
+   "about": "voltage drop along a line, and why reactive power moves it",
+   "symbols": [
+    [
+     "ΔV",
+     "voltage drop along the line, in volts"
+    ],
+    [
+     "I",
+     "current, in amperes"
+    ],
+    [
+     "R",
+     "line resistance, in ohms"
+    ],
+    [
+     "X",
+     "line reactance, in ohms"
+    ],
+    [
+     "cos φ / sin φ",
+     "the power factor terms"
+    ]
+   ]
+  },
+  {
+   "e": "E = Pt",
+   "about": "energy from power over time — the kilowatt-hour",
+   "symbols": [
+    [
+     "E",
+     "energy, in kilowatt-hours"
+    ],
+    [
+     "P",
+     "power, in kilowatts"
+    ],
+    [
+     "t",
+     "time it was sustained, in hours"
+    ]
+   ]
+  },
+  {
+   "e": "η = E_out / E_in",
+   "about": "round-trip efficiency of storage",
+   "symbols": [
+    [
+     "η",
+     "round-trip efficiency, between 0 and 1"
+    ],
+    [
+     "E_out",
+     "energy you get back out"
+    ],
+    [
+     "E_in",
+     "energy you put in"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "System Operator · Calder Interconnection",
+ "groups": [
+  {
+   "id": "OPS",
+   "name": "System Operations",
+   "desc": "The whole network at once, and the decisions that cannot wait for certainty."
+  },
+  {
+   "id": "GEN",
+   "name": "Generation",
+   "desc": "Machines that turn something into torque, and what they can be asked to do next."
+  },
+  {
+   "id": "TRANS",
+   "name": "Transmission & Protection",
+   "desc": "Getting power a long way, and the relays that decide when to give up on a line."
+  },
+  {
+   "id": "DIST",
+   "name": "Distribution",
+   "desc": "The last few kilometres, where the network stops being a diagram and becomes a street."
+  },
+  {
+   "id": "LOAD",
+   "name": "Load & Forecasting",
+   "desc": "What people are about to do, and how much of it the system has to be ready for."
+  },
+  {
+   "id": "METER",
+   "name": "Metering & Standards",
+   "desc": "Whether the numbers everybody is arguing about are the numbers."
+  }
+ ],
+ "stops": [
+  {
+   "id": "blackout.m01.s1",
+   "day": 1,
+   "group": "OPS",
+   "format": "PROTOCOL",
+   "title": "What a frequency trend is evidence of"
+  },
+  {
+   "id": "blackout.m01.s2",
+   "day": 1,
+   "group": "GEN",
+   "format": "BALLPARK",
+   "title": "How much power actually left the system"
+  },
+  {
+   "id": "blackout.m01.s3",
+   "day": 1,
+   "group": "METER",
+   "format": "TRACE",
+   "title": "The order the records claim things happened in"
+  },
+  {
+   "id": "blackout.m02.s1",
+   "day": 2,
+   "group": "TRANS",
+   "format": "TRIGGER",
+   "title": "What you do before a relay does it for you"
+  },
+  {
+   "id": "blackout.m02.s2",
+   "day": 2,
+   "group": "LOAD",
+   "format": "BALLPARK",
+   "title": "The power that never arrives"
+  },
+  {
+   "id": "blackout.m02.s3",
+   "day": 2,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "The contingency you are actually protecting against"
+  },
+  {
+   "id": "blackout.m03.s1",
+   "day": 3,
+   "group": "DIST",
+   "format": "BALLPARK",
+   "title": "Why the far end sits low"
+  },
+  {
+   "id": "blackout.m03.s2",
+   "day": 3,
+   "group": "TRANS",
+   "format": "PROTOCOL",
+   "title": "What actually limits a conductor"
+  },
+  {
+   "id": "blackout.m03.s3",
+   "day": 3,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "The order somebody will read back to you"
+  },
+  {
+   "id": "blackout.m04.s1",
+   "day": 4,
+   "group": "METER",
+   "format": "BALLPARK",
+   "title": "What three phases actually add up to"
+  },
+  {
+   "id": "blackout.m04.s2",
+   "day": 4,
+   "group": "GEN",
+   "format": "SEQUENCE",
+   "title": "Four things that have to agree before the breaker closes"
+  },
+  {
+   "id": "blackout.m04.s3",
+   "day": 4,
+   "group": "TRANS",
+   "format": "CHOICE",
+   "title": "Two instruments, two quantities"
+  },
+  {
+   "id": "blackout.m05.s1",
+   "day": 5,
+   "group": "LOAD",
+   "format": "BALLPARK",
+   "title": "What comes out against what went in"
+  },
+  {
+   "id": "blackout.m05.s2",
+   "day": 5,
+   "group": "GEN",
+   "format": "CHOICE",
+   "title": "The reason the wires are not at wall voltage"
+  },
+  {
+   "id": "blackout.m05.s3",
+   "day": 5,
+   "group": "OPS",
+   "format": "VALUE",
+   "title": "What is worth knowing before the peak"
+  },
+  {
+   "id": "blackout.m06.s1",
+   "day": 6,
+   "group": "TRANS",
+   "format": "BALLPARK",
+   "title": "How the flow splits between two paths"
+  },
+  {
+   "id": "blackout.m06.s2",
+   "day": 6,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "What a node has to add up to"
+  },
+  {
+   "id": "blackout.m06.s3",
+   "day": 6,
+   "group": "DIST",
+   "format": "PROTOCOL",
+   "title": "What is common and what divides"
+  },
+  {
+   "id": "blackout.m07.s1",
+   "day": 7,
+   "group": "TRANS",
+   "format": "BALLPARK",
+   "title": "What a short circuit is limited by"
+  },
+  {
+   "id": "blackout.m07.s2",
+   "day": 7,
+   "group": "METER",
+   "format": "CONTROL",
+   "title": "A reading taken without a connection"
+  },
+  {
+   "id": "blackout.m07.s3",
+   "day": 7,
+   "group": "DIST",
+   "format": "CHOICE",
+   "title": "The ground is not at one voltage"
+  },
+  {
+   "id": "blackout.m08.s1",
+   "day": 8,
+   "group": "LOAD",
+   "format": "BALLPARK",
+   "title": "The peak, and how far the cold moves it"
+  },
+  {
+   "id": "blackout.m08.s2",
+   "day": 8,
+   "group": "OPS",
+   "format": "CASEBOOK",
+   "title": "Cheapest first, and the exceptions that are not exceptions"
+  },
+  {
+   "id": "blackout.m08.s3",
+   "day": 8,
+   "group": "GEN",
+   "format": "SCIENCETANK",
+   "title": "When the cheapest power cannot get out"
+  },
+  {
+   "id": "blackout.m09.s1",
+   "day": 9,
+   "group": "OPS",
+   "format": "DEGENERACY",
+   "title": "Why the island's frequency is falling slowly"
+  },
+  {
+   "id": "blackout.m09.s2",
+   "day": 9,
+   "group": "METER",
+   "format": "PROTOCOL",
+   "title": "What is stored, and for how long"
+  },
+  {
+   "id": "blackout.m09.s3",
+   "day": 9,
+   "group": "DIST",
+   "format": "CHOICE",
+   "title": "Keeping it, or collapsing it on purpose"
+  },
+  {
+   "id": "blackout.m10.s1",
+   "day": 10,
+   "group": "GEN",
+   "format": "BALLPARK",
+   "title": "What the dark hours actually cost"
+  },
+  {
+   "id": "blackout.m10.s2",
+   "day": 10,
+   "group": "OPS",
+   "format": "CHAIN",
+   "title": "The order physics allows"
+  },
+  {
+   "id": "blackout.m10.s3",
+   "day": 10,
+   "group": "DIST",
+   "format": "CASEBOOK",
+   "title": "Why it cannot go faster"
+  },
+  {
+   "id": "blackout.m11.s1",
+   "day": 11,
+   "group": "METER",
+   "format": "CHOICE",
+   "title": "The sensor that was confident and wrong"
+  },
+  {
+   "id": "blackout.m11.s2",
+   "day": 11,
+   "group": "TRANS",
+   "format": "SWEEP",
+   "title": "What a rating is a statement about"
+  },
+  {
+   "id": "blackout.m11.s3",
+   "day": 11,
+   "group": "OPS",
+   "format": "CASEBOOK",
+   "title": "What survives a bad number"
+  },
+  {
+   "id": "blackout.m12.s1",
+   "day": 12,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "The failure that has not happened"
+  },
+  {
+   "id": "blackout.m12.s2",
+   "day": 12,
+   "group": "LOAD",
+   "format": "PROTOCOL",
+   "title": "The trend with nothing wrong with it"
+  },
+  {
+   "id": "blackout.m12.s3",
+   "day": 12,
+   "group": "GEN",
+   "format": "VALUE",
+   "title": "Which of these is a measurement"
+  },
+  {
+   "id": "blackout.m13.s1",
+   "day": 13,
+   "group": "OPS",
+   "format": "DELEGATE",
+   "title": "Which of the three cannot wait"
+  },
+  {
+   "id": "blackout.m13.s2",
+   "day": 13,
+   "group": "TRANS",
+   "format": "BALLPARK",
+   "title": "Loss when the load turns up anyway"
+  },
+  {
+   "id": "blackout.m13.s3",
+   "day": 13,
+   "group": "LOAD",
+   "format": "SEQUENCE",
+   "title": "An order that survives being carried out"
+  },
+  {
+   "id": "blackout.m14.s1",
+   "day": 14,
+   "group": "METER",
+   "format": "CHOICE",
+   "title": "Hours over limit, added up"
+  },
+  {
+   "id": "blackout.m14.s2",
+   "day": 14,
+   "group": "TRANS",
+   "format": "SCIENCETANK",
+   "title": "What the window is worth"
+  },
+  {
+   "id": "blackout.m14.s3",
+   "day": 14,
+   "group": "OPS",
+   "format": "PROTOCOL",
+   "title": "The eighteen months you just bought"
+  },
+  {
+   "id": "blackout.m15.s1",
+   "day": 15,
+   "group": "METER",
+   "format": "ATTEST",
+   "title": "Measured, inferred, assumed"
+  },
+  {
+   "id": "blackout.m15.s2",
+   "day": 15,
+   "group": "LOAD",
+   "format": "CHOICE",
+   "title": "The number that has to be a range"
+  },
+  {
+   "id": "blackout.m15.s3",
+   "day": 15,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "What outlives the emergency"
+  }
+ ]
+}

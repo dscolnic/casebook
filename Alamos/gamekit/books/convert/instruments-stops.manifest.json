@@ -1,0 +1,187 @@
+{
+ "theme": "instruments",
+ "book": "books/instruments.yml",
+ "course": null,
+ "curriculum": [],
+ "equations": [],
+ "audienceGrade": 12,
+ "subject": "Verification Officer · Meridian Verification Office",
+ "groups": [
+  {
+   "id": "G1",
+   "name": "Field Station",
+   "desc": "What an instrument can measure, and what it cannot."
+  },
+  {
+   "id": "G2",
+   "name": "Sample Room",
+   "desc": "Getting a number that means something."
+  },
+  {
+   "id": "G3",
+   "name": "Records Office",
+   "desc": "What was written down, and what it leaves out."
+  },
+  {
+   "id": "G4",
+   "name": "Response Desk",
+   "desc": "Deciding what to do while the evidence is still incomplete."
+  }
+ ],
+ "stops": [
+  {
+   "id": "instruments.m01.s1",
+   "day": 1,
+   "group": "G1",
+   "format": "TRACE",
+   "title": "Four channels, one denominator"
+  },
+  {
+   "id": "instruments.m01.s2",
+   "day": 1,
+   "group": "G2",
+   "format": "BALANCE",
+   "title": "What the level rise leaves out"
+  },
+  {
+   "id": "instruments.m01.s3",
+   "day": 1,
+   "group": "G3",
+   "format": "ATTEST",
+   "title": "The signature and the thing it stands for"
+  },
+  {
+   "id": "instruments.m02.s1",
+   "day": 2,
+   "group": "G4",
+   "format": "VALUE",
+   "title": "One slot, three good proposals"
+  },
+  {
+   "id": "instruments.m02.s2",
+   "day": 2,
+   "group": "G1",
+   "format": "CONTROL",
+   "title": "A cause, and a coincidence that looks like one"
+  },
+  {
+   "id": "instruments.m02.s3",
+   "day": 2,
+   "group": "G2",
+   "format": "DEGENERACY",
+   "title": "Any size you like, for the right albedo"
+  },
+  {
+   "id": "instruments.m03.s1",
+   "day": 3,
+   "group": "G3",
+   "format": "CHAIN",
+   "title": "The small anchor and the large panel"
+  },
+  {
+   "id": "instruments.m03.s2",
+   "day": 3,
+   "group": "G4",
+   "format": "ALLOCATE",
+   "title": "What twenty bottles cannot ask"
+  },
+  {
+   "id": "instruments.m03.s3",
+   "day": 3,
+   "group": "G1",
+   "format": "TRIANGULATE",
+   "title": "Three circles and an area"
+  },
+  {
+   "id": "instruments.m04.s1",
+   "day": 4,
+   "group": "G2",
+   "format": "CLOUD",
+   "title": "Moving the dot and moving the cloud"
+  },
+  {
+   "id": "instruments.m04.s2",
+   "day": 4,
+   "group": "G3",
+   "format": "VERIFY",
+   "title": "A confirmed impact is not a confirmed deflection"
+  },
+  {
+   "id": "instruments.m04.s3",
+   "day": 4,
+   "group": "G4",
+   "format": "TRIGGER",
+   "title": "Rules, and the lead time they need"
+  },
+  {
+   "id": "instruments.m05.s1",
+   "day": 5,
+   "group": "G1",
+   "format": "PROPAGATE",
+   "title": "The exponent is not the whole story"
+  },
+  {
+   "id": "instruments.m05.s2",
+   "day": 5,
+   "group": "G2",
+   "format": "STRESS",
+   "title": "Best at the nominal, and nowhere else"
+  },
+  {
+   "id": "instruments.m05.s3",
+   "day": 5,
+   "group": "G3",
+   "format": "RESIDUAL",
+   "title": "A pattern is not an outlier"
+  },
+  {
+   "id": "instruments.m06.s1",
+   "day": 6,
+   "group": "G4",
+   "format": "DELEGATE",
+   "title": "The loudest is not the first"
+  },
+  {
+   "id": "instruments.m06.s2",
+   "day": 6,
+   "group": "G1",
+   "format": "FLY",
+   "title": "You stopped driving. You did not stop"
+  },
+  {
+   "id": "instruments.m06.s3",
+   "day": 6,
+   "group": "G2",
+   "format": "INJECT",
+   "title": "More detections, the same amount of notice"
+  },
+  {
+   "id": "instruments.m07.s1",
+   "day": 7,
+   "group": "G3",
+   "format": "ROUTE",
+   "title": "Where you are, and how you know"
+  },
+  {
+   "id": "instruments.m07.s2",
+   "day": 7,
+   "group": "G4",
+   "format": "CHOICE",
+   "title": "What can be signed off"
+  },
+  {
+   "id": "instruments.m07.s3",
+   "day": 7,
+   "group": "G2",
+   "format": "PROTOCOL",
+   "title": "What each claim is standing on"
+  },
+  {
+   "id": "instruments.m07.s4",
+   "day": 7,
+   "group": "G1",
+   "format": "DERIVE",
+   "title": "What the gate is doing to the river"
+  }
+ ]
+}

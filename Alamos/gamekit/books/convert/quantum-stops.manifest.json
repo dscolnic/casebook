@@ -1,0 +1,566 @@
+{
+ "theme": "quantum",
+ "book": "books/quantum.yml",
+ "course": "Modern quantum, taught through the hardware — second-year physics or electrical engineering",
+ "curriculum": [
+  "Energy quantisation, and why a level spacing sets everything else",
+  "Thermal energy against level spacing — why a qubit needs millikelvin",
+  "The two-level approximation, and when it fails",
+  "Superposition as an amplitude, not a mixture",
+  "Measurement collapses the state and returns one outcome",
+  "Probability from amplitude, and why one shot tells you nothing",
+  "Rabi oscillation: driving a transition",
+  "Resonance, detuning, and finding a qubit frequency",
+  "Relaxation time T1 — energy leaving the system",
+  "Dephasing time T2 — the phase going before the energy does",
+  "Where decoherence comes from: two-level defects, photons, flux noise",
+  "Gate fidelity, and how error compounds with depth",
+  "Randomised benchmarking: what it measures and what it does not",
+  "Readout, discriminators, and how a classifier can cheat",
+  "Calibration drift, and the tuning that has to happen daily",
+  "The microwave chain: attenuation, amplification and noise temperature",
+  "Cryogenics: stages, cooling power and heat load",
+  "Materials and fabrication: junctions, oxide and yield",
+  "Entanglement as a correlation stronger than any shared instruction",
+  "The Bell inequality as a number you measure",
+  "Quantum error correction and the threshold idea",
+  "What a quantum advantage claim actually claims",
+  "The standard quantum limit, and beating it with squeezing",
+  "Interferometry as a phase measurement",
+  "Atomic clocks and what frequency accuracy buys",
+  "Magnetometry: NV centres and SQUIDs",
+  "Quantum key distribution, and where its security comes from",
+  "Loss in fibre, and why a repeater is hard",
+  "Reproducibility: a result on one device is not a result",
+  "Provenance of data, and what a shared calibration hides"
+ ],
+ "equations": [
+  {
+   "e": "E = hf,  compare with  kT",
+   "about": "why a superconducting qubit needs millikelvin",
+   "symbols": [
+    [
+     "E",
+     "energy of one quantum, in joules"
+    ],
+    [
+     "h",
+     "Planck's constant, 6.63 × 10⁻³⁴ J s"
+    ],
+    [
+     "f",
+     "transition frequency, in hertz"
+    ],
+    [
+     "k",
+     "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
+    ],
+    [
+     "T",
+     "temperature, in kelvin"
+    ]
+   ]
+  },
+  {
+   "e": "t_π = 1 / (2 f_Rabi)",
+   "about": "drive strength to pulse length",
+   "symbols": [
+    [
+     "t_π",
+     "length of a pulse that flips the qubit, in seconds"
+    ],
+    [
+     "f_Rabi",
+     "Rabi frequency, set by how hard you drive, in hertz"
+    ]
+   ]
+  },
+  {
+   "e": "P(t) = e^(−t/T₁)",
+   "about": "relaxation, as a decay you fit",
+   "symbols": [
+    [
+     "P(t)",
+     "chance the qubit is still excited after time t"
+    ],
+    [
+     "t",
+     "time since the pulse, in microseconds"
+    ],
+    [
+     "T₁",
+     "relaxation time, in microseconds"
+    ]
+   ]
+  },
+  {
+   "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
+   "about": "why dephasing is usually the harder number",
+   "symbols": [
+    [
+     "T₂",
+     "coherence time, in microseconds"
+    ],
+    [
+     "T₁",
+     "relaxation time, in microseconds"
+    ],
+    [
+     "T_φ",
+     "pure dephasing time, from noise that scrambles phase without taking energy"
+    ]
+   ]
+  },
+  {
+   "e": "F_total ≈ F^n",
+   "about": "gate fidelity compounding over circuit depth",
+   "symbols": [
+    [
+     "F_total",
+     "chance the whole circuit is right"
+    ],
+    [
+     "F",
+     "fidelity of one gate, between 0 and 1"
+    ],
+    [
+     "n",
+     "number of gates in the circuit"
+    ]
+   ]
+  },
+  {
+   "e": "Δf = 1 / (2T)",
+   "about": "Ramsey fringes, and measurement time as resolution",
+   "symbols": [
+    [
+     "Δf",
+     "frequency resolution you can reach, in hertz"
+    ],
+    [
+     "T",
+     "free evolution time between the two pulses, in seconds"
+    ]
+   ]
+  },
+  {
+   "e": "δB ∝ 1 / √N",
+   "about": "the standard quantum limit, and what squeezing buys",
+   "symbols": [
+    [
+     "δB",
+     "smallest field change you can resolve"
+    ],
+    [
+     "N",
+     "number of independent measurements or atoms"
+    ]
+   ]
+  },
+  {
+   "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
+   "about": "the Bell test, as a measured number",
+   "symbols": [
+    [
+     "S",
+     "the CHSH quantity, computed from four correlation measurements"
+    ],
+    [
+     "E(a,b)",
+     "correlation between the two detectors at settings a and b"
+    ],
+    [
+     "2",
+     "the largest value any shared instruction agreed in advance can produce"
+    ]
+   ]
+  },
+  {
+   "e": "n_phys ≈ d²  per logical qubit",
+   "about": "what error correction costs",
+   "symbols": [
+    [
+     "n_phys",
+     "physical qubits used for one logical qubit"
+    ],
+    [
+     "d",
+     "code distance, how many errors the code can survive"
+    ],
+    [
+     "p_threshold",
+     "the physical error rate below which adding qubits helps rather than hurts"
+    ]
+   ]
+  },
+  {
+   "e": "R = 1 − 2h(e)",
+   "about": "the key rate left after error correction and privacy amplification",
+   "symbols": [
+    [
+     "R",
+     "secret key bits per sifted bit"
+    ],
+    [
+     "e",
+     "quantum bit error rate, the fraction of test bits that disagree"
+    ],
+    [
+     "h(e)",
+     "the binary entropy of that error rate"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": null,
+ "subject": "Group Lead · Ridgeway Quantum Laboratory",
+ "groups": [
+  {
+   "id": "CRYO",
+   "name": "Cryogenics & Vacuum",
+   "desc": "Why the chip has to be colder than anything else in the building."
+  },
+  {
+   "id": "FAB",
+   "name": "Fabrication & Materials",
+   "desc": "What the chip is made of, and what that decides months later."
+  },
+  {
+   "id": "CTRL",
+   "name": "Control & Readout",
+   "desc": "Pulses in, one bit out, and everything that can go wrong between."
+  },
+  {
+   "id": "VER",
+   "name": "Error & Verification",
+   "desc": "How wrong the machine is, and how you would know."
+  },
+  {
+   "id": "SENSE",
+   "name": "Quantum Sensing",
+   "desc": "The part of this field that already works for somebody else."
+  },
+  {
+   "id": "NET",
+   "name": "Networks & Security",
+   "desc": "Sending a quantum state somewhere, and what survives the trip."
+  }
+ ],
+ "stops": [
+  {
+   "id": "quantum.m01.s1",
+   "day": 1,
+   "group": "CRYO",
+   "format": "PROBE",
+   "title": "Which stage the leak is on"
+  },
+  {
+   "id": "quantum.m01.s2",
+   "day": 1,
+   "group": "CRYO",
+   "format": "BALLPARK",
+   "title": "The energy of one quantum against the energy of the room"
+  },
+  {
+   "id": "quantum.m01.s3",
+   "day": 1,
+   "group": "CTRL",
+   "format": "TRIAGE",
+   "title": "What is worth doing at the wrong temperature"
+  },
+  {
+   "id": "quantum.m02.s1",
+   "day": 2,
+   "group": "CTRL",
+   "format": "SWEEP",
+   "title": "Where the qubit actually is"
+  },
+  {
+   "id": "quantum.m02.s2",
+   "day": 2,
+   "group": "CTRL",
+   "format": "BALLPARK",
+   "title": "How long a flip takes"
+  },
+  {
+   "id": "quantum.m02.s3",
+   "day": 2,
+   "group": "FAB",
+   "format": "SCIENCETANK",
+   "title": "One bad qubit out of twelve"
+  },
+  {
+   "id": "quantum.m03.s1",
+   "day": 3,
+   "group": "VER",
+   "format": "SWEEP",
+   "title": "Energy out, or phase scrambled"
+  },
+  {
+   "id": "quantum.m03.s2",
+   "day": 3,
+   "group": "CRYO",
+   "format": "BALLPARK",
+   "title": "How good T2 could be"
+  },
+  {
+   "id": "quantum.m03.s3",
+   "day": 3,
+   "group": "FAB",
+   "format": "PROTOCOL",
+   "title": "What scrambles a phase without taking energy"
+  },
+  {
+   "id": "quantum.m04.s1",
+   "day": 4,
+   "group": "CTRL",
+   "format": "SEQUENCE",
+   "title": "What happens between the chip and the answer"
+  },
+  {
+   "id": "quantum.m04.s2",
+   "day": 4,
+   "group": "CTRL",
+   "format": "SWEEP",
+   "title": "A line drawn between two clouds"
+  },
+  {
+   "id": "quantum.m04.s3",
+   "day": 4,
+   "group": "VER",
+   "format": "CASEBOOK",
+   "title": "Whose error is it"
+  },
+  {
+   "id": "quantum.m05.s1",
+   "day": 5,
+   "group": "VER",
+   "format": "PROTOCOL",
+   "title": "What you would need back"
+  },
+  {
+   "id": "quantum.m05.s2",
+   "day": 5,
+   "group": "NET",
+   "format": "CHOICE",
+   "title": "Copying a state is not the same as transferring one"
+  },
+  {
+   "id": "quantum.m05.s3",
+   "day": 5,
+   "group": "SENSE",
+   "format": "SCIENCETANK",
+   "title": "What goes out on Friday"
+  },
+  {
+   "id": "quantum.m06.s1",
+   "day": 6,
+   "group": "FAB",
+   "format": "DIAGNOSIS",
+   "title": "Something else that absorbs at that frequency"
+  },
+  {
+   "id": "quantum.m06.s2",
+   "day": 6,
+   "group": "CTRL",
+   "format": "SWEEP",
+   "title": "Energy with somewhere to go"
+  },
+  {
+   "id": "quantum.m06.s3",
+   "day": 6,
+   "group": "VER",
+   "format": "TRIAGE",
+   "title": "Yield against lifetime"
+  },
+  {
+   "id": "quantum.m07.s1",
+   "day": 7,
+   "group": "SENSE",
+   "format": "SWEEP",
+   "title": "What averaging buys"
+  },
+  {
+   "id": "quantum.m07.s2",
+   "day": 7,
+   "group": "SENSE",
+   "format": "CHOICE",
+   "title": "Against what"
+  },
+  {
+   "id": "quantum.m07.s3",
+   "day": 7,
+   "group": "NET",
+   "format": "PROTOCOL",
+   "title": "Numbers that leave the building"
+  },
+  {
+   "id": "quantum.m08.s1",
+   "day": 8,
+   "group": "VER",
+   "format": "SWEEP",
+   "title": "Why a long sequence tells you more"
+  },
+  {
+   "id": "quantum.m08.s2",
+   "day": 8,
+   "group": "CTRL",
+   "format": "BALLPARK",
+   "title": "Where a good number stops being good"
+  },
+  {
+   "id": "quantum.m08.s3",
+   "day": 8,
+   "group": "VER",
+   "format": "CASEBOOK",
+   "title": "The number error correction cares about"
+  },
+  {
+   "id": "quantum.m09.s1",
+   "day": 9,
+   "group": "VER",
+   "format": "TALLY",
+   "title": "Four correlations, one number"
+  },
+  {
+   "id": "quantum.m09.s2",
+   "day": 9,
+   "group": "NET",
+   "format": "CHOICE",
+   "title": "What has been ruled out"
+  },
+  {
+   "id": "quantum.m09.s3",
+   "day": 9,
+   "group": "CTRL",
+   "format": "PROTOCOL",
+   "title": "What a careful reader will ask"
+  },
+  {
+   "id": "quantum.m10.s1",
+   "day": 10,
+   "group": "VER",
+   "format": "CASEBOOK",
+   "title": "What was measured and what was estimated"
+  },
+  {
+   "id": "quantum.m10.s2",
+   "day": 10,
+   "group": "CTRL",
+   "format": "CHOICE",
+   "title": "What twelve qubits can say about sixty-seven"
+  },
+  {
+   "id": "quantum.m10.s3",
+   "day": 10,
+   "group": "NET",
+   "format": "SCIENCETANK",
+   "title": "The response"
+  },
+  {
+   "id": "quantum.m11.s1",
+   "day": 11,
+   "group": "CTRL",
+   "format": "HOLDOUT",
+   "title": "Scoring yourself on your own training set"
+  },
+  {
+   "id": "quantum.m11.s2",
+   "day": 11,
+   "group": "VER",
+   "format": "CASEBOOK",
+   "title": "What the artefact touches"
+  },
+  {
+   "id": "quantum.m11.s3",
+   "day": 11,
+   "group": "FAB",
+   "format": "TRIAGE",
+   "title": "Rerun, and tell whom"
+  },
+  {
+   "id": "quantum.m12.s1",
+   "day": 12,
+   "group": "CTRL",
+   "format": "CHOICE",
+   "title": "Converged, and on what"
+  },
+  {
+   "id": "quantum.m12.s2",
+   "day": 12,
+   "group": "SENSE",
+   "format": "CHOICE",
+   "title": "The month when nothing moved"
+  },
+  {
+   "id": "quantum.m12.s3",
+   "day": 12,
+   "group": "CRYO",
+   "format": "TRIAGE",
+   "title": "Which of these is a measurement"
+  },
+  {
+   "id": "quantum.m13.s1",
+   "day": 13,
+   "group": "NET",
+   "format": "TRIAGE",
+   "title": "Which of the three cannot wait"
+  },
+  {
+   "id": "quantum.m13.s2",
+   "day": 13,
+   "group": "NET",
+   "format": "CHOICE",
+   "title": "What an interrupted exchange leaves behind"
+  },
+  {
+   "id": "quantum.m13.s3",
+   "day": 13,
+   "group": "SENSE",
+   "format": "CHOICE",
+   "title": "Everything measured against it"
+  },
+  {
+   "id": "quantum.m14.s1",
+   "day": 14,
+   "group": "VER",
+   "format": "PROTOCOL",
+   "title": "What a correction is for"
+  },
+  {
+   "id": "quantum.m14.s2",
+   "day": 14,
+   "group": "CTRL",
+   "format": "BALLPARK",
+   "title": "A twelve-qubit projection from three measured qubits"
+  },
+  {
+   "id": "quantum.m14.s3",
+   "day": 14,
+   "group": "NET",
+   "format": "CASEBOOK",
+   "title": "What each version costs"
+  },
+  {
+   "id": "quantum.m15.s1",
+   "day": 15,
+   "group": "VER",
+   "format": "CASEBOOK",
+   "title": "Measured, inferred, projected"
+  },
+  {
+   "id": "quantum.m15.s2",
+   "day": 15,
+   "group": "SENSE",
+   "format": "CHOICE",
+   "title": "The number that goes to somebody else"
+  },
+  {
+   "id": "quantum.m15.s3",
+   "day": 15,
+   "group": "CRYO",
+   "format": "TRIAGE",
+   "title": "What outlives the fortnight"
+  }
+ ]
+}

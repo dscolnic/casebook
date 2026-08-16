@@ -22,7 +22,7 @@ export const INTERIORS = {
         },
         {
           "label": "Generation online",
-          "value": 6,
+          "value": "6, 400 MW",
           "status": "normal"
         },
         {
@@ -47,7 +47,7 @@ export const INTERIORS = {
         },
         {
           "label": "Stored inertia",
-          "value": 4,
+          "value": "4, 200 MW·s",
           "status": "normal"
         },
         {
@@ -77,12 +77,12 @@ export const INTERIORS = {
         },
         {
           "label": "Continuous rating",
-          "value": 1,
+          "value": "1, 060 A",
           "status": "normal"
         },
         {
           "label": "Emergency rating",
-          "value": 1,
+          "value": "1, 240 A for 30 min",
           "status": "high"
         },
         {
@@ -107,7 +107,7 @@ export const INTERIORS = {
         },
         {
           "label": "Households off",
-          "value": 14,
+          "value": "14, 200",
           "status": "high"
         },
         {
@@ -132,7 +132,7 @@ export const INTERIORS = {
       "rows": [
         {
           "label": "Forecast peak",
-          "value": 6,
+          "value": "6, 900 MW",
           "status": "normal"
         },
         {

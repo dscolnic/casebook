@@ -1,0 +1,446 @@
+{
+ "theme": "hospital",
+ "book": "books/hospital.yml",
+ "course": "Anatomy & Physiology — note this game is written for grade 2, not senior high",
+ "curriculum": [
+  "Levels of organisation: cells, tissues, organs, systems",
+  "Homeostasis and feedback",
+  "Skeletal system",
+  "Muscles and movement",
+  "Skin: barrier, healing, temperature",
+  "Nervous system and reflexes",
+  "The senses",
+  "Heart and circulation",
+  "Blood and its components",
+  "Pulse and blood pressure",
+  "Breathing and gas exchange",
+  "Digestion and absorption",
+  "Nutrition and energy",
+  "Fluids, hydration and dehydration",
+  "Kidneys and waste",
+  "Hormones and growth",
+  "Immune defence and inflammation",
+  "Germs, transmission and hand hygiene",
+  "Vital signs, measurement and normal ranges",
+  "Emergency assessment and triage",
+  "Anatomical terms and body regions",
+  "How things move in and out of cells",
+  "Joints and how far they move",
+  "The heartbeat: rhythm and rate",
+  "Breathing effort and how much air",
+  "Swelling, lymph and healing",
+  "Body temperature and fever",
+  "Medicines and dose",
+  "First aid: airway, breathing, circulation",
+  "Imaging: X-rays and pictures of the inside"
+ ],
+ "equations": [
+  {
+   "e": "beats in a minute = beats in 15 seconds × 4",
+   "about": "scaling a short count up to a rate",
+   "symbols": [
+    [
+     "beats in 15 seconds",
+     "how many beats you counted"
+    ],
+    [
+     "× 4",
+     "because there are four fifteen-second blocks in a minute"
+    ]
+   ]
+  },
+  {
+   "e": "breaths in a minute = breaths in 15 seconds × 4",
+   "about": "the same scaling for breathing",
+   "symbols": [
+    [
+     "breaths in 15 seconds",
+     "how many breaths you counted"
+    ],
+    [
+     "× 4",
+     "four fifteen-second blocks make a minute"
+    ]
+   ]
+  },
+  {
+   "e": "how far behind = what is needed − what was taken",
+   "about": "a running deficit",
+   "symbols": [
+    [
+     "what is needed",
+     "the amount the body should have had"
+    ],
+    [
+     "what was taken",
+     "the amount that actually went in"
+    ]
+   ]
+  },
+  {
+   "e": "change each hour = total change ÷ hours taken",
+   "about": "a rate from a change and a time",
+   "symbols": [
+    [
+     "total change",
+     "how much the number moved altogether"
+    ],
+    [
+     "hours taken",
+     "how long it took to move"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 2,
+ "subject": "Junior Doctor · Children’s Hospital",
+ "groups": [
+  {
+   "id": "TRI",
+   "name": "Triage & Emergency",
+   "desc": "Emergency Department — decide who needs help first."
+  },
+  {
+   "id": "RESP",
+   "name": "Breathing & Heart",
+   "desc": "Respiratory & Cardiology — air, lungs, heart and blood."
+  },
+  {
+   "id": "NUTR",
+   "name": "Food & Water",
+   "desc": "Nutrition, digestion, hydration, kidneys."
+  },
+  {
+   "id": "MOVE",
+   "name": "Bones, Muscles & Skin",
+   "desc": "X-Ray, bones, rehab, skin — movement and healing."
+  },
+  {
+   "id": "BRAIN",
+   "name": "Brain & Senses",
+   "desc": "Brain, nerves, eyes, ears — signals and senses."
+  },
+  {
+   "id": "DEF",
+   "name": "Germs & Defenses",
+   "desc": "Infection, immunity, temperature, allergy."
+  }
+ ],
+ "stops": [
+  {
+   "id": "hospital.m01.s1",
+   "day": 1,
+   "group": "TRI",
+   "format": "TRIAGE",
+   "title": "Who Needs You First?"
+  },
+  {
+   "id": "hospital.m01.s2",
+   "day": 1,
+   "group": "TRI",
+   "format": "DIAGNOSIS",
+   "title": "Observation or Measurement?"
+  },
+  {
+   "id": "hospital.m01.s3",
+   "day": 1,
+   "group": "TRI",
+   "format": "SEQUENCE",
+   "title": "Your First Exam Room"
+  },
+  {
+   "id": "hospital.m02.s1",
+   "day": 2,
+   "group": "RESP",
+   "format": "SEQUENCE",
+   "title": "Follow One Breath"
+  },
+  {
+   "id": "hospital.m02.s2",
+   "day": 2,
+   "group": "RESP",
+   "format": "DIAGNOSIS",
+   "title": "The Dusty-Room Clue"
+  },
+  {
+   "id": "hospital.m02.s3",
+   "day": 2,
+   "group": "RESP",
+   "format": "BALLPARK",
+   "title": "Count the Breaths"
+  },
+  {
+   "id": "hospital.m03.s1",
+   "day": 3,
+   "group": "RESP",
+   "format": "SEQUENCE",
+   "title": "The Blood Loop"
+  },
+  {
+   "id": "hospital.m03.s2",
+   "day": 3,
+   "group": "RESP",
+   "format": "BALLPARK",
+   "title": "Pulse Math"
+  },
+  {
+   "id": "hospital.m03.s3",
+   "day": 3,
+   "group": "RESP",
+   "format": "DIAGNOSIS",
+   "title": "Why the Faster Pulse?"
+  },
+  {
+   "id": "hospital.m04.s1",
+   "day": 4,
+   "group": "NUTR",
+   "format": "SEQUENCE",
+   "title": "Follow the Sandwich"
+  },
+  {
+   "id": "hospital.m04.s2",
+   "day": 4,
+   "group": "NUTR",
+   "format": "CHOICE",
+   "title": "Why Food Is Fuel"
+  },
+  {
+   "id": "hospital.m04.s3",
+   "day": 4,
+   "group": "NUTR",
+   "format": "CASEBOOK",
+   "title": "Three Jobs, Three Organs"
+  },
+  {
+   "id": "hospital.m05.s1",
+   "day": 5,
+   "group": "NUTR",
+   "format": "DIAGNOSIS",
+   "title": "The Thirsty Player"
+  },
+  {
+   "id": "hospital.m05.s2",
+   "day": 5,
+   "group": "NUTR",
+   "format": "BALLPARK",
+   "title": "The Drink Tracker"
+  },
+  {
+   "id": "hospital.m05.s3",
+   "day": 5,
+   "group": "NUTR",
+   "format": "SEQUENCE",
+   "title": "What the Kidneys Do"
+  },
+  {
+   "id": "hospital.m06.s1",
+   "day": 6,
+   "group": "MOVE",
+   "format": "DIAGNOSIS",
+   "title": "Why Take an X-Ray?"
+  },
+  {
+   "id": "hospital.m06.s2",
+   "day": 6,
+   "group": "MOVE",
+   "format": "CASEBOOK",
+   "title": "Skeleton Jobs"
+  },
+  {
+   "id": "hospital.m06.s3",
+   "day": 6,
+   "group": "MOVE",
+   "format": "SEQUENCE",
+   "title": "Possible Broken Bone"
+  },
+  {
+   "id": "hospital.m07.s1",
+   "day": 7,
+   "group": "MOVE",
+   "format": "SEQUENCE",
+   "title": "Make the Hand Move"
+  },
+  {
+   "id": "hospital.m07.s2",
+   "day": 7,
+   "group": "MOVE",
+   "format": "DIAGNOSIS",
+   "title": "Tired Muscles"
+  },
+  {
+   "id": "hospital.m07.s3",
+   "day": 7,
+   "group": "MOVE",
+   "format": "BALLPARK",
+   "title": "Therapy Sets"
+  },
+  {
+   "id": "hospital.m08.s1",
+   "day": 8,
+   "group": "BRAIN",
+   "format": "CHOICE",
+   "title": "The Body's Slow Messages"
+  },
+  {
+   "id": "hospital.m08.s2",
+   "day": 8,
+   "group": "BRAIN",
+   "format": "SEQUENCE",
+   "title": "Touch, Think, Move"
+  },
+  {
+   "id": "hospital.m08.s3",
+   "day": 8,
+   "group": "BRAIN",
+   "format": "TRIAGE",
+   "title": "After the Head Bump"
+  },
+  {
+   "id": "hospital.m09.s1",
+   "day": 9,
+   "group": "BRAIN",
+   "format": "DIAGNOSIS",
+   "title": "Which Test Fits the Clue?"
+  },
+  {
+   "id": "hospital.m09.s2",
+   "day": 9,
+   "group": "BRAIN",
+   "format": "CASEBOOK",
+   "title": "Match the Sense"
+  },
+  {
+   "id": "hospital.m09.s3",
+   "day": 9,
+   "group": "BRAIN",
+   "format": "SEQUENCE",
+   "title": "From Light to Picture"
+  },
+  {
+   "id": "hospital.m10.s1",
+   "day": 10,
+   "group": "MOVE",
+   "format": "SEQUENCE",
+   "title": "How a Scrape Heals"
+  },
+  {
+   "id": "hospital.m10.s2",
+   "day": 10,
+   "group": "MOVE",
+   "format": "SEQUENCE",
+   "title": "Clean Team, Not DIY Doctor"
+  },
+  {
+   "id": "hospital.m10.s3",
+   "day": 10,
+   "group": "MOVE",
+   "format": "DIAGNOSIS",
+   "title": "What Job Did the Skin Lose?"
+  },
+  {
+   "id": "hospital.m11.s1",
+   "day": 11,
+   "group": "DEF",
+   "format": "CASEBOOK",
+   "title": "How Might It Spread?"
+  },
+  {
+   "id": "hospital.m11.s2",
+   "day": 11,
+   "group": "DEF",
+   "format": "SEQUENCE",
+   "title": "Handwashing Challenge"
+  },
+  {
+   "id": "hospital.m11.s3",
+   "day": 11,
+   "group": "DEF",
+   "format": "DIAGNOSIS",
+   "title": "Same Symptom, Same Germ?"
+  },
+  {
+   "id": "hospital.m12.s1",
+   "day": 12,
+   "group": "DEF",
+   "format": "SEQUENCE",
+   "title": "The Body Notices a Germ"
+  },
+  {
+   "id": "hospital.m12.s2",
+   "day": 12,
+   "group": "DEF",
+   "format": "CASEBOOK",
+   "title": "Meet the Defense Team"
+  },
+  {
+   "id": "hospital.m12.s3",
+   "day": 12,
+   "group": "DEF",
+   "format": "SEQUENCE",
+   "title": "A Vaccine Visit"
+  },
+  {
+   "id": "hospital.m13.s1",
+   "day": 13,
+   "group": "DEF",
+   "format": "DIAGNOSIS",
+   "title": "Hot or Cold Response?"
+  },
+  {
+   "id": "hospital.m13.s2",
+   "day": 13,
+   "group": "DEF",
+   "format": "BALLPARK",
+   "title": "Temperature Difference"
+  },
+  {
+   "id": "hospital.m13.s3",
+   "day": 13,
+   "group": "DEF",
+   "format": "SEQUENCE",
+   "title": "How Sweat Helps Cool"
+  },
+  {
+   "id": "hospital.m14.s1",
+   "day": 14,
+   "group": "DEF",
+   "format": "TRIAGE",
+   "title": "Which Allergy Patient First?"
+  },
+  {
+   "id": "hospital.m14.s2",
+   "day": 14,
+   "group": "DEF",
+   "format": "CASEBOOK",
+   "title": "Allergy or Germ Clues?"
+  },
+  {
+   "id": "hospital.m14.s3",
+   "day": 14,
+   "group": "DEF",
+   "format": "SEQUENCE",
+   "title": "Emergency Team Handoff"
+  },
+  {
+   "id": "hospital.m15.s1",
+   "day": 15,
+   "group": "TRI",
+   "format": "TRIAGE",
+   "title": "Six Patients, One First Room"
+  },
+  {
+   "id": "hospital.m15.s2",
+   "day": 15,
+   "group": "TRI",
+   "format": "CASEBOOK",
+   "title": "Send Them to the Right Place"
+  },
+  {
+   "id": "hospital.m15.s3",
+   "day": 15,
+   "group": "TRI",
+   "format": "SEQUENCE",
+   "title": "End-of-Day Handoff"
+  }
+ ]
+}

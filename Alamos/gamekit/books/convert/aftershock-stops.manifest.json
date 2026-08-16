@@ -1,0 +1,574 @@
+{
+ "theme": "aftershock",
+ "book": "books/aftershock.yml",
+ "course": "Earth science, statics and materials — a senior-school engineering unit",
+ "curriculum": [
+  "P and S waves, and what the gap between them measures",
+  "Locating an earthquake from three or more stations",
+  "Magnitude as a logarithmic scale",
+  "Moment magnitude, and what it is made of",
+  "Intensity against magnitude — one event, many shakings",
+  "Peak ground acceleration and what a building feels",
+  "Site effect: soft ground amplifies",
+  "Natural period, and resonance between building and ground",
+  "Base shear — the horizontal force a building is designed for",
+  "Load path, and what happens where it stops",
+  "Ductility: bending without breaking",
+  "Stress, strain and the yield point",
+  "Factor of safety, and what it is protecting against",
+  "Unreinforced masonry, and why it fails outward",
+  "Liquefaction: when saturated fill stops behaving as a solid",
+  "Bearing capacity and settlement",
+  "Lateral spreading toward a free face",
+  "Effective stress, and why water pressure matters",
+  "Aftershock decay as a power law",
+  "Probability of a larger event after a mainshock",
+  "Placarding as a decision under uncertainty",
+  "Rapid assessment against detailed evaluation",
+  "Non-structural hazards — what falls before the frame does",
+  "Instruments: what an accelerograph actually records",
+  "Sampling and testing damaged material",
+  "Retrofit: what is worth doing before the next one",
+  "Recurrence intervals and what \"the big one\" means",
+  "Communicating risk to people who have to act on it",
+  "Cordons, lifelines and the cost of keeping people out",
+  "Documentation: the record somebody inherits"
+ ],
+ "equations": [
+  {
+   "e": "d ≈ 8 km/s · (t_S − t_P)",
+   "about": "distance from the S-minus-P interval",
+   "symbols": [
+    [
+     "d",
+     "distance from the station to the source, in kilometres"
+    ],
+    [
+     "t_S − t_P",
+     "the gap between the S and P arrivals, in seconds"
+    ],
+    [
+     "8 km/s",
+     "the usual constant for shallow crust"
+    ]
+   ]
+  },
+  {
+   "e": "M₀ = μ · A · D",
+   "about": "seismic moment, and what makes a big earthquake big",
+   "symbols": [
+    [
+     "M₀",
+     "seismic moment, in newton metres"
+    ],
+    [
+     "μ",
+     "rigidity of the rock, about 30 GPa"
+    ],
+    [
+     "A",
+     "area of fault that slipped, in square metres"
+    ],
+    [
+     "D",
+     "average slip on it, in metres"
+    ]
+   ]
+  },
+  {
+   "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
+   "about": "moment magnitude, and why the scale is logarithmic",
+   "symbols": [
+    [
+     "M_w",
+     "moment magnitude, no units"
+    ],
+    [
+     "M₀",
+     "seismic moment, in newton metres"
+    ],
+    [
+     "⅔ and 6.06",
+     "constants that make the scale line up with the older ones"
+    ]
+   ]
+  },
+  {
+   "e": "T ≈ 0.1 N",
+   "about": "a building's natural period from its storeys",
+   "symbols": [
+    [
+     "T",
+     "natural period, in seconds"
+    ],
+    [
+     "N",
+     "number of storeys"
+    ]
+   ]
+  },
+  {
+   "e": "V = C_s · W",
+   "about": "base shear — the sideways force it is designed for",
+   "symbols": [
+    [
+     "V",
+     "base shear, in kilonewtons"
+    ],
+    [
+     "C_s",
+     "seismic coefficient, a fraction of weight"
+    ],
+    [
+     "W",
+     "the weight of the building above the base, in kilonewtons"
+    ]
+   ]
+  },
+  {
+   "e": "σ = F / A, ε = ΔL / L",
+   "about": "stress and strain, and the yield point between them",
+   "symbols": [
+    [
+     "σ",
+     "stress, in megapascals"
+    ],
+    [
+     "F",
+     "force carried, in newtons"
+    ],
+    [
+     "A",
+     "cross-sectional area, in square metres"
+    ],
+    [
+     "ε",
+     "strain, a ratio with no units"
+    ],
+    [
+     "ΔL / L",
+     "how much it stretched over how long it was"
+    ]
+   ]
+  },
+  {
+   "e": "FoS = capacity / demand",
+   "about": "factor of safety as a ratio, not a feeling",
+   "symbols": [
+    [
+     "FoS",
+     "factor of safety, no units"
+    ],
+    [
+     "capacity",
+     "what the element can carry"
+    ],
+    [
+     "demand",
+     "what the earthquake asked of it, in the same units"
+    ]
+   ]
+  },
+  {
+   "e": "σ' = σ − u",
+   "about": "effective stress, and how liquefaction happens",
+   "symbols": [
+    [
+     "σ'",
+     "effective stress holding the grains together, in kilopascals"
+    ],
+    [
+     "σ",
+     "total stress from the weight above, in kilopascals"
+    ],
+    [
+     "u",
+     "pore water pressure between the grains, in kilopascals"
+    ]
+   ]
+  },
+  {
+   "e": "n(t) = K / (c + t)^p",
+   "about": "aftershock rate, falling as a power law",
+   "symbols": [
+    [
+     "n(t)",
+     "aftershocks per day at time t"
+    ],
+    [
+     "t",
+     "days since the mainshock"
+    ],
+    [
+     "K, c, p",
+     "constants fitted to this sequence, with p usually near 1"
+    ]
+   ]
+  },
+  {
+   "e": "A_soft / A_rock",
+   "about": "site amplification — the same wave on two grounds",
+   "symbols": [
+    [
+     "A_soft",
+     "shaking measured on the soft site"
+    ],
+    [
+     "A_rock",
+     "shaking measured on rock nearby, in the same units"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Building Safety Coordinator · Kestrel Bay",
+ "groups": [
+  {
+   "id": "SEIS",
+   "name": "Seismic Network",
+   "desc": "What the ground actually did, and which instrument is entitled to say so."
+  },
+  {
+   "id": "STRUCT",
+   "name": "Structural Assessment",
+   "desc": "Whether a building is safe to enter, and what that placard is worth."
+  },
+  {
+   "id": "GEO",
+   "name": "Geotechnical",
+   "desc": "The ground under the town, and why it behaved in two different ways."
+  },
+  {
+   "id": "MAT",
+   "name": "Materials & Testing",
+   "desc": "What the concrete, the brick and the steel can still carry."
+  },
+  {
+   "id": "HAZ",
+   "name": "Hazard & Forecasting",
+   "desc": "What might still happen, expressed as a number somebody can act on."
+  },
+  {
+   "id": "SAFE",
+   "name": "Public Safety",
+   "desc": "Cordons, notices and the cost of keeping people out of their own houses."
+  }
+ ],
+ "stops": [
+  {
+   "id": "aftershock.m01.s1",
+   "day": 1,
+   "group": "SEIS",
+   "format": "CHOICE",
+   "title": "The same event, recorded twice"
+  },
+  {
+   "id": "aftershock.m01.s2",
+   "day": 1,
+   "group": "GEO",
+   "format": "PROTOCOL",
+   "title": "Ground that people put there"
+  },
+  {
+   "id": "aftershock.m01.s3",
+   "day": 1,
+   "group": "STRUCT",
+   "format": "ALLOCATE",
+   "title": "Where the first day of assessment goes"
+  },
+  {
+   "id": "aftershock.m02.s1",
+   "day": 2,
+   "group": "SEIS",
+   "format": "BALLPARK",
+   "title": "How far away it started"
+  },
+  {
+   "id": "aftershock.m02.s2",
+   "day": 2,
+   "group": "HAZ",
+   "format": "CHOICE",
+   "title": "Why the number moved"
+  },
+  {
+   "id": "aftershock.m02.s3",
+   "day": 2,
+   "group": "SAFE",
+   "format": "SEQUENCE",
+   "title": "A notice somebody acts on"
+  },
+  {
+   "id": "aftershock.m03.s1",
+   "day": 3,
+   "group": "STRUCT",
+   "format": "CASEBOOK",
+   "title": "Six minutes outside a building"
+  },
+  {
+   "id": "aftershock.m03.s2",
+   "day": 3,
+   "group": "SAFE",
+   "format": "CHOICE",
+   "title": "Green does not mean safe"
+  },
+  {
+   "id": "aftershock.m03.s3",
+   "day": 3,
+   "group": "HAZ",
+   "format": "TRIAGE",
+   "title": "The ones worth a second visit"
+  },
+  {
+   "id": "aftershock.m04.s1",
+   "day": 4,
+   "group": "GEO",
+   "format": "CHOICE",
+   "title": "The raft is fine and the building is not"
+  },
+  {
+   "id": "aftershock.m04.s2",
+   "day": 4,
+   "group": "STRUCT",
+   "format": "CHOICE",
+   "title": "What eight degrees does"
+  },
+  {
+   "id": "aftershock.m04.s3",
+   "day": 4,
+   "group": "SAFE",
+   "format": "VALUE",
+   "title": "What knocking it down would fix"
+  },
+  {
+   "id": "aftershock.m05.s1",
+   "day": 5,
+   "group": "STRUCT",
+   "format": "CHAIN",
+   "title": "A hall with nothing in the middle"
+  },
+  {
+   "id": "aftershock.m05.s2",
+   "day": 5,
+   "group": "MAT",
+   "format": "BALLPARK",
+   "title": "What the tested anchors actually carried"
+  },
+  {
+   "id": "aftershock.m05.s3",
+   "day": 5,
+   "group": "SAFE",
+   "format": "CHOICE",
+   "title": "Four hundred children on Monday"
+  },
+  {
+   "id": "aftershock.m06.s1",
+   "day": 6,
+   "group": "STRUCT",
+   "format": "ATTEST",
+   "title": "The part nobody has seen"
+  },
+  {
+   "id": "aftershock.m06.s2",
+   "day": 6,
+   "group": "HAZ",
+   "format": "CHOICE",
+   "title": "What four more days buys"
+  },
+  {
+   "id": "aftershock.m06.s3",
+   "day": 6,
+   "group": "SEIS",
+   "format": "CHOICE",
+   "title": "The instrument in the basement"
+  },
+  {
+   "id": "aftershock.m07.s1",
+   "day": 7,
+   "group": "HAZ",
+   "format": "BALLPARK",
+   "title": "The rate, falling"
+  },
+  {
+   "id": "aftershock.m07.s2",
+   "day": 7,
+   "group": "SEIS",
+   "format": "CHOICE",
+   "title": "A rate is not a schedule"
+  },
+  {
+   "id": "aftershock.m07.s3",
+   "day": 7,
+   "group": "STRUCT",
+   "format": "CHOICE",
+   "title": "Damaged, and waiting to be asked again"
+  },
+  {
+   "id": "aftershock.m08.s1",
+   "day": 8,
+   "group": "MAT",
+   "format": "CHOICE",
+   "title": "A number, with a method attached"
+  },
+  {
+   "id": "aftershock.m08.s2",
+   "day": 8,
+   "group": "STRUCT",
+   "format": "CHOICE",
+   "title": "Which way the cracks run"
+  },
+  {
+   "id": "aftershock.m08.s3",
+   "day": 8,
+   "group": "SAFE",
+   "format": "SEQUENCE",
+   "title": "Part of a building, for part of a purpose"
+  },
+  {
+   "id": "aftershock.m09.s1",
+   "day": 9,
+   "group": "SAFE",
+   "format": "ATTEST",
+   "title": "Three reasons wearing one line"
+  },
+  {
+   "id": "aftershock.m09.s2",
+   "day": 9,
+   "group": "GEO",
+   "format": "CHOICE",
+   "title": "Soft ground, three days on"
+  },
+  {
+   "id": "aftershock.m09.s3",
+   "day": 9,
+   "group": "HAZ",
+   "format": "CHOICE",
+   "title": "A condition, not a date"
+  },
+  {
+   "id": "aftershock.m10.s1",
+   "day": 10,
+   "group": "STRUCT",
+   "format": "CHOICE",
+   "title": "A real crack, and an unknown building"
+  },
+  {
+   "id": "aftershock.m10.s2",
+   "day": 10,
+   "group": "MAT",
+   "format": "CHOICE",
+   "title": "Down there with a torch"
+  },
+  {
+   "id": "aftershock.m10.s3",
+   "day": 10,
+   "group": "SAFE",
+   "format": "SEQUENCE",
+   "title": "The meeting"
+  },
+  {
+   "id": "aftershock.m11.s1",
+   "day": 11,
+   "group": "STRUCT",
+   "format": "CHOICE",
+   "title": "Walls that fall outward"
+  },
+  {
+   "id": "aftershock.m11.s2",
+   "day": 11,
+   "group": "MAT",
+   "format": "VALUE",
+   "title": "What you can learn without breaking it"
+  },
+  {
+   "id": "aftershock.m11.s3",
+   "day": 11,
+   "group": "SEIS",
+   "format": "SCIENCETANK",
+   "title": "Before the next one"
+  },
+  {
+   "id": "aftershock.m12.s1",
+   "day": 12,
+   "group": "SEIS",
+   "format": "TRACE",
+   "title": "Measuring against the wrong zero"
+  },
+  {
+   "id": "aftershock.m12.s2",
+   "day": 12,
+   "group": "GEO",
+   "format": "CASEBOOK",
+   "title": "What still stands"
+  },
+  {
+   "id": "aftershock.m12.s3",
+   "day": 12,
+   "group": "HAZ",
+   "format": "CHOICE",
+   "title": "Five times, not three"
+  },
+  {
+   "id": "aftershock.m13.s1",
+   "day": 13,
+   "group": "SAFE",
+   "format": "DELEGATE",
+   "title": "Which of the three cannot wait"
+  },
+  {
+   "id": "aftershock.m13.s2",
+   "day": 13,
+   "group": "GEO",
+   "format": "CHOICE",
+   "title": "Wetting ground that has already failed"
+  },
+  {
+   "id": "aftershock.m13.s3",
+   "day": 13,
+   "group": "STRUCT",
+   "format": "CHOICE",
+   "title": "A smaller shake against a weaker building"
+  },
+  {
+   "id": "aftershock.m14.s1",
+   "day": 14,
+   "group": "GEO",
+   "format": "CHOICE",
+   "title": "Fixing the ground instead of the building"
+  },
+  {
+   "id": "aftershock.m14.s2",
+   "day": 14,
+   "group": "MAT",
+   "format": "BALLPARK",
+   "title": "A measurable acceptance target"
+  },
+  {
+   "id": "aftershock.m14.s3",
+   "day": 14,
+   "group": "SAFE",
+   "format": "PROTOCOL",
+   "title": "What the next five years hold"
+  },
+  {
+   "id": "aftershock.m15.s1",
+   "day": 15,
+   "group": "SEIS",
+   "format": "CASEBOOK",
+   "title": "Measured, inferred, assumed"
+  },
+  {
+   "id": "aftershock.m15.s2",
+   "day": 15,
+   "group": "HAZ",
+   "format": "CHOICE",
+   "title": "The number that has to be a range"
+  },
+  {
+   "id": "aftershock.m15.s3",
+   "day": 15,
+   "group": "STRUCT",
+   "format": "TRIAGE",
+   "title": "What outlives the emergency"
+  }
+ ]
+}

@@ -1,0 +1,590 @@
+{
+ "theme": "contamcity",
+ "book": "books/contamcity.yml",
+ "course": "AP Chemistry, with the analytical half of a first-year college course",
+ "curriculum": [
+  "Atomic structure, ions and electron configuration",
+  "Periodic trends and what an element can do",
+  "Chemical formulas, naming and composition",
+  "Molecular geometry, polarity and intermolecular forces",
+  "The mole, molar mass and stoichiometry",
+  "Limiting reactant and percent yield",
+  "Gas laws and the ideal gas equation",
+  "Kinetic molecular theory, diffusion and volatility",
+  "Solutions, molarity and dilution",
+  "Solubility, precipitation and complexation",
+  "Acids, bases and pH",
+  "Buffers and titration",
+  "Equilibrium and Le Chatelier",
+  "Reaction kinetics, rate laws and activation energy",
+  "Catalysis",
+  "Thermochemistry: enthalpy, calorimetry, energy balance",
+  "Entropy, free energy and spontaneity",
+  "Redox and electrochemistry",
+  "Spectroscopy, Beer–Lambert and calibration curves",
+  "Measurement: significant figures, blanks, detection limits, uncertainty",
+  "Separation science: chromatography and extraction",
+  "Phase changes, vapour pressure and phase diagrams",
+  "Colligative properties",
+  "Reaction mechanisms and the rate-determining step",
+  "Solubility product and the common-ion effect",
+  "Electrolysis and quantitative electrochemistry",
+  "Mass spectrometry and molecular mass",
+  "Sampling: representative samples and sample handling",
+  "Quality control: standards, spikes and recovery",
+  "Concentration units and conversions: ppm, mg/L, molarity"
+ ],
+ "equations": [
+  {
+   "e": "n = m / M",
+   "about": "moles from a mass and a molar mass",
+   "symbols": [
+    [
+     "n",
+     "number of moles, in mol"
+    ],
+    [
+     "m",
+     "mass of the sample, in grams"
+    ],
+    [
+     "M",
+     "molar mass of the substance, in grams per mole"
+    ]
+   ]
+  },
+  {
+   "e": "PV = nRT",
+   "about": "the ideal gas law",
+   "symbols": [
+    [
+     "P",
+     "pressure, in pascals"
+    ],
+    [
+     "V",
+     "volume, in cubic metres"
+    ],
+    [
+     "n",
+     "moles of gas"
+    ],
+    [
+     "R",
+     "the gas constant, 8.314 J per mole per kelvin"
+    ],
+    [
+     "T",
+     "absolute temperature, in kelvin"
+    ]
+   ]
+  },
+  {
+   "e": "c = n / V",
+   "about": "molarity as moles per unit volume",
+   "symbols": [
+    [
+     "c",
+     "concentration, in moles per litre"
+    ],
+    [
+     "n",
+     "moles of solute"
+    ],
+    [
+     "V",
+     "volume of solution, in litres"
+    ]
+   ]
+  },
+  {
+   "e": "C₁V₁ = C₂V₂",
+   "about": "dilution, and carrying a dilution factor back",
+   "symbols": [
+    [
+     "C₁",
+     "concentration before dilution"
+    ],
+    [
+     "V₁",
+     "volume taken of the stronger solution"
+    ],
+    [
+     "C₂",
+     "concentration after dilution"
+    ],
+    [
+     "V₂",
+     "final volume, in the same units as V₁"
+    ]
+   ]
+  },
+  {
+   "e": "q = mcΔT",
+   "about": "calorimetry — heat from a temperature change",
+   "symbols": [
+    [
+     "q",
+     "heat gained or lost, in joules"
+    ],
+    [
+     "m",
+     "mass being heated, in grams"
+    ],
+    [
+     "c",
+     "specific heat capacity, in joules per gram per kelvin"
+    ],
+    [
+     "ΔT",
+     "temperature change, in kelvin"
+    ]
+   ]
+  },
+  {
+   "e": "pH = −log[H⁺]",
+   "about": "acidity on a logarithmic scale",
+   "symbols": [
+    [
+     "pH",
+     "the acidity scale, no units"
+    ],
+    [
+     "[H⁺]",
+     "hydrogen ion concentration, in moles per litre"
+    ]
+   ]
+  },
+  {
+   "e": "A = εlc",
+   "about": "Beer–Lambert, and the calibration curve it justifies",
+   "symbols": [
+    [
+     "A",
+     "absorbance, no units"
+    ],
+    [
+     "ε",
+     "molar absorptivity, how strongly the compound absorbs"
+    ],
+    [
+     "l",
+     "path length through the sample, in centimetres"
+    ],
+    [
+     "c",
+     "concentration, in moles per litre"
+    ]
+   ]
+  },
+  {
+   "e": "Kₛₚ = [Aᵃ][Bᵇ]",
+   "about": "the solubility product and the common-ion effect",
+   "symbols": [
+    [
+     "Kₛₚ",
+     "solubility product, a constant for that salt at that temperature"
+    ],
+    [
+     "[Aᵃ]",
+     "concentration of one ion raised to its coefficient"
+    ],
+    [
+     "[Bᵇ]",
+     "concentration of the other ion raised to its coefficient"
+    ]
+   ]
+  },
+  {
+   "e": "percent yield = actual ÷ theoretical × 100",
+   "about": "yield against a stoichiometric prediction",
+   "symbols": [
+    [
+     "actual",
+     "mass or moles you really recovered"
+    ],
+    [
+     "theoretical",
+     "what the stoichiometry says you should have got"
+    ],
+    [
+     "100",
+     "the factor that turns the fraction into a percentage"
+    ]
+   ]
+  },
+  {
+   "e": "rate = k[A]ⁿ",
+   "about": "a rate law, and the order it asserts",
+   "symbols": [
+    [
+     "rate",
+     "how fast the reaction goes, in moles per litre per second"
+    ],
+    [
+     "k",
+     "the rate constant for that reaction at that temperature"
+    ],
+    [
+     "[A]",
+     "concentration of the reactant, in moles per litre"
+    ],
+    [
+     "n",
+     "the order, how strongly rate answers to concentration"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Chief Scientific Officer · Riverton Contamination Response",
+ "groups": [
+  {
+   "id": "IDENT",
+   "name": "Molecular Identification",
+   "desc": "Composition, charge, separation and spectra — what the material in the containers actually is."
+  },
+  {
+   "id": "GASES",
+   "name": "Atmosphere & Gases",
+   "desc": "Gas laws, plume behaviour, photochemistry — how the release moves and changes in air."
+  },
+  {
+   "id": "WATER",
+   "name": "Solutions & Water Chemistry",
+   "desc": "Polarity, partitioning, pH and equilibrium — where the contaminant goes once it is wet."
+  },
+  {
+   "id": "QUANT",
+   "name": "Quantitative Analysis",
+   "desc": "Dilution, calibration, detection limits and uncertainty — turning a signal into a defensible number."
+  },
+  {
+   "id": "ENERGY",
+   "name": "Reactions & Energy",
+   "desc": "Stoichiometry, calorimetry and kinetics — how much can react, how much heat, and how fast."
+  },
+  {
+   "id": "TREAT",
+   "name": "Treatment & Infrastructure",
+   "desc": "Corrosion, treatment trains, byproducts and the long tail — fixing it without making it worse."
+  }
+ ],
+ "stops": [
+  {
+   "id": "contamcity.m01.s1",
+   "day": 1,
+   "group": "IDENT",
+   "format": "PROTOCOL",
+   "title": "Read the formula, not the rumor"
+  },
+  {
+   "id": "contamcity.m01.s2",
+   "day": 1,
+   "group": "IDENT",
+   "format": "SEQUENCE",
+   "title": "From damaged container to provisional identity"
+  },
+  {
+   "id": "contamcity.m01.s3",
+   "day": 1,
+   "group": "IDENT",
+   "format": "VALUE",
+   "title": "Spend the first of the lab budget"
+  },
+  {
+   "id": "contamcity.m02.s1",
+   "day": 2,
+   "group": "GASES",
+   "format": "BALLPARK",
+   "title": "How much volume can the gas occupy?"
+  },
+  {
+   "id": "contamcity.m02.s2",
+   "day": 2,
+   "group": "GASES",
+   "format": "PROTOCOL",
+   "title": "Interpret plume behavior"
+  },
+  {
+   "id": "contamcity.m02.s3",
+   "day": 2,
+   "group": "GASES",
+   "format": "CHOICE",
+   "title": "Why the drum is worse in the afternoon"
+  },
+  {
+   "id": "contamcity.m03.s1",
+   "day": 3,
+   "group": "WATER",
+   "format": "PROTOCOL",
+   "title": "Where will the chemical go?"
+  },
+  {
+   "id": "contamcity.m03.s2",
+   "day": 3,
+   "group": "WATER",
+   "format": "CHOICE",
+   "title": "Use the common-ion effect to clear the limit"
+  },
+  {
+   "id": "contamcity.m03.s3",
+   "day": 3,
+   "group": "WATER",
+   "format": "ALLOCATE",
+   "title": "Spend the river survey budget"
+  },
+  {
+   "id": "contamcity.m04.s1",
+   "day": 4,
+   "group": "IDENT",
+   "format": "CHOICE",
+   "title": "What the position in the table tells you"
+  },
+  {
+   "id": "contamcity.m04.s2",
+   "day": 4,
+   "group": "IDENT",
+   "format": "TRACE",
+   "title": "Read analytical disagreement"
+  },
+  {
+   "id": "contamcity.m04.s3",
+   "day": 4,
+   "group": "IDENT",
+   "format": "CHOICE",
+   "title": "Resolve the ambiguous peak"
+  },
+  {
+   "id": "contamcity.m05.s1",
+   "day": 5,
+   "group": "QUANT",
+   "format": "BALLPARK",
+   "title": "Undo the dilution"
+  },
+  {
+   "id": "contamcity.m05.s2",
+   "day": 5,
+   "group": "QUANT",
+   "format": "VERIFY",
+   "title": "Protect the calibration"
+  },
+  {
+   "id": "contamcity.m05.s3",
+   "day": 5,
+   "group": "QUANT",
+   "format": "CHOICE",
+   "title": "Map concentration with limited samples"
+  },
+  {
+   "id": "contamcity.m06.s1",
+   "day": 6,
+   "group": "ENERGY",
+   "format": "SEQUENCE",
+   "title": "From identity to reaction estimate"
+  },
+  {
+   "id": "contamcity.m06.s2",
+   "day": 6,
+   "group": "ENERGY",
+   "format": "BALLPARK",
+   "title": "Which reactant limits?"
+  },
+  {
+   "id": "contamcity.m06.s3",
+   "day": 6,
+   "group": "ENERGY",
+   "format": "BALLPARK",
+   "title": "Heat release is not the spontaneity test"
+  },
+  {
+   "id": "contamcity.m07.s1",
+   "day": 7,
+   "group": "ENERGY",
+   "format": "BALLPARK",
+   "title": "How much energy raises the temperature?"
+  },
+  {
+   "id": "contamcity.m07.s2",
+   "day": 7,
+   "group": "ENERGY",
+   "format": "DIAGNOSIS",
+   "title": "Stored heat or continuing reaction?"
+  },
+  {
+   "id": "contamcity.m07.s3",
+   "day": 7,
+   "group": "ENERGY",
+   "format": "CHOICE",
+   "title": "Control the self-heating risk"
+  },
+  {
+   "id": "contamcity.m08.s1",
+   "day": 8,
+   "group": "ENERGY",
+   "format": "PROTOCOL",
+   "title": "What changes the rate?"
+  },
+  {
+   "id": "contamcity.m08.s2",
+   "day": 8,
+   "group": "ENERGY",
+   "format": "SEQUENCE",
+   "title": "Build a runaway feedback loop"
+  },
+  {
+   "id": "contamcity.m08.s3",
+   "day": 8,
+   "group": "ENERGY",
+   "format": "STRESS",
+   "title": "Define the safe operating envelope"
+  },
+  {
+   "id": "contamcity.m09.s1",
+   "day": 9,
+   "group": "WATER",
+   "format": "BALLPARK",
+   "title": "How many moles of acid are present?"
+  },
+  {
+   "id": "contamcity.m09.s2",
+   "day": 9,
+   "group": "WATER",
+   "format": "DIAGNOSIS",
+   "title": "Read the titration curve"
+  },
+  {
+   "id": "contamcity.m09.s3",
+   "day": 9,
+   "group": "WATER",
+   "format": "TRIGGER",
+   "title": "Control pH without overshoot"
+  },
+  {
+   "id": "contamcity.m10.s1",
+   "day": 10,
+   "group": "WATER",
+   "format": "SEQUENCE",
+   "title": "From condition change to new equilibrium"
+  },
+  {
+   "id": "contamcity.m10.s2",
+   "day": 10,
+   "group": "WATER",
+   "format": "PROTOCOL",
+   "title": "Interpret the shift"
+  },
+  {
+   "id": "contamcity.m10.s3",
+   "day": 10,
+   "group": "WATER",
+   "format": "BALLPARK",
+   "title": "Predict whether the salty pond freezes"
+  },
+  {
+   "id": "contamcity.m11.s1",
+   "day": 11,
+   "group": "TREAT",
+   "format": "PROTOCOL",
+   "title": "Find the anode and cathode"
+  },
+  {
+   "id": "contamcity.m11.s2",
+   "day": 11,
+   "group": "TREAT",
+   "format": "BALLPARK",
+   "title": "How fast can material disappear?"
+  },
+  {
+   "id": "contamcity.m11.s3",
+   "day": 11,
+   "group": "TREAT",
+   "format": "CHOICE",
+   "title": "Protect the pipeline"
+  },
+  {
+   "id": "contamcity.m12.s1",
+   "day": 12,
+   "group": "TREAT",
+   "format": "BALANCE",
+   "title": "What did the treatment actually do?"
+  },
+  {
+   "id": "contamcity.m12.s2",
+   "day": 12,
+   "group": "TREAT",
+   "format": "SEQUENCE",
+   "title": "Select a treatment train"
+  },
+  {
+   "id": "contamcity.m12.s3",
+   "day": 12,
+   "group": "TREAT",
+   "format": "CHOICE",
+   "title": "Choose the safest pilot program"
+  },
+  {
+   "id": "contamcity.m13.s1",
+   "day": 13,
+   "group": "GASES",
+   "format": "SEQUENCE",
+   "title": "Build a secondary-pollutant pathway"
+  },
+  {
+   "id": "contamcity.m13.s2",
+   "day": 13,
+   "group": "GASES",
+   "format": "DIAGNOSIS",
+   "title": "Read the day-night pattern"
+  },
+  {
+   "id": "contamcity.m13.s3",
+   "day": 13,
+   "group": "GASES",
+   "format": "VALUE",
+   "title": "Monitor the transformed plume"
+  },
+  {
+   "id": "contamcity.m14.s1",
+   "day": 14,
+   "group": "QUANT",
+   "format": "CHOICE",
+   "title": "Reading a mass spectrum"
+  },
+  {
+   "id": "contamcity.m14.s2",
+   "day": 14,
+   "group": "QUANT",
+   "format": "PROTOCOL",
+   "title": "Close the verification gaps"
+  },
+  {
+   "id": "contamcity.m14.s3",
+   "day": 14,
+   "group": "QUANT",
+   "format": "CLOUD",
+   "title": "Approve, condition, or hold"
+  },
+  {
+   "id": "contamcity.m15.s1",
+   "day": 15,
+   "group": "TREAT",
+   "format": "PROTOCOL",
+   "title": "Disposition the final chemical claims"
+  },
+  {
+   "id": "contamcity.m15.s2",
+   "day": 15,
+   "group": "TREAT",
+   "format": "BALLPARK",
+   "title": "Audit the electrochemical removal from the charge passed"
+  },
+  {
+   "id": "contamcity.m15.s3",
+   "day": 15,
+   "group": "TREAT",
+   "format": "CHOICE",
+   "title": "Fund the chemical legacy"
+  }
+ ]
+}

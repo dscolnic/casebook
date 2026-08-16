@@ -1,0 +1,582 @@
+{
+ "theme": "icecore",
+ "book": "books/icecore.yml",
+ "course": "Earth and environmental science, with the measurement half of an introductory palaeoclimate course",
+ "curriculum": [
+  "Why ice keeps a record at all: burial without melting",
+  "Accumulation rate, and what a site with little snow buys and costs",
+  "Firn: snow densifying into ice, and the close-off depth",
+  "Gas age against ice age, and why the difference matters",
+  "Annual layer counting, and where counting fails",
+  "Thinning with depth: flow, and where a record runs out",
+  "Depth–age scales, and putting two cores on one clock",
+  "Stable isotopes as a thermometer: δ¹⁸O and deuterium",
+  "Calibrating the isotope thermometer against instrumental temperature",
+  "Diffusion in firn, and the short events it erases",
+  "Resolution against record length — what choosing a site decides",
+  "What the trapped gas is, and what it is not",
+  "Carbon dioxide and methane records, and what a ppm is",
+  "Radiative forcing: turning a concentration into a temperature push",
+  "Volcanic sulphate horizons as dated tie points",
+  "Dust and tephra: aridity, wind and where the dust came from",
+  "Sea salt and the chemistry that reaches the ice",
+  "Cosmogenic ¹⁰Be, solar activity and geomagnetic markers",
+  "Radiometric dating and the decay law",
+  "What a proxy is: the chain between the thing and the number",
+  "Contamination and blanks in a cold laboratory",
+  "Drilling: fluid, brittle ice and what damage costs the record",
+  "Core logging, orientation and chain of custody",
+  "Replicate cores, and what agreement between them establishes",
+  "Random against systematic uncertainty",
+  "Separating a trend from year-to-year noise",
+  "Correlation between two records is not attribution",
+  "Splicing a proxy record onto the instrumental one",
+  "Model against data, and what a mismatch can mean",
+  "Reporting an uncertain record: what it licenses and what it does not"
+ ],
+ "equations": [
+  {
+   "e": "δ¹⁸O = (R_sample / R_standard − 1) × 1000 ‰",
+   "about": "an isotope ratio, written as a deviation from a standard",
+   "symbols": [
+    [
+     "δ¹⁸O",
+     "the isotope value, in parts per thousand (‰)"
+    ],
+    [
+     "R_sample",
+     "the ratio of ¹⁸O to ¹⁶O in the melted ice"
+    ],
+    [
+     "R_standard",
+     "the same ratio in mean ocean water, the agreed reference"
+    ]
+   ]
+  },
+  {
+   "e": "ΔT = Δδ¹⁸O / α,  α ≈ 0.67 ‰ per °C",
+   "about": "the isotope thermometer, and the slope it rests on",
+   "symbols": [
+    [
+     "ΔT",
+     "the temperature change being inferred, in °C"
+    ],
+    [
+     "Δδ¹⁸O",
+     "the change in the isotope value, in ‰"
+    ],
+    [
+     "α",
+     "the calibration slope for that site, measured against instrumental temperature"
+    ]
+   ]
+  },
+  {
+   "e": "b = λ × ρ_snow / ρ_ice",
+   "about": "accumulation, converted to ice equivalent",
+   "symbols": [
+    [
+     "b",
+     "accumulation in metres of ice equivalent per year"
+    ],
+    [
+     "λ",
+     "the measured thickness of one annual layer"
+    ],
+    [
+     "ρ_snow",
+     "the density of the snow as it fell"
+    ],
+    [
+     "ρ_ice",
+     "the density of solid ice, about 917 kg per cubic metre"
+    ]
+   ]
+  },
+  {
+   "e": "λ(z) = λ₀ (H − z) / H",
+   "about": "layer thinning with depth, as ice flows outwards",
+   "symbols": [
+    [
+     "λ(z)",
+     "the thickness an annual layer has at depth z"
+    ],
+    [
+     "λ₀",
+     "the thickness it had when it fell"
+    ],
+    [
+     "z",
+     "depth below the surface"
+    ],
+    [
+     "H",
+     "the total thickness of the ice sheet"
+    ]
+   ]
+  },
+  {
+   "e": "Δage ≈ z_close × ρ̄ / b",
+   "about": "why the gas in a bubble is younger than the ice around it",
+   "symbols": [
+    [
+     "Δage",
+     "gas age minus ice age, in years"
+    ],
+    [
+     "z_close",
+     "the close-off depth, where the pores seal — 60 to 100 m"
+    ],
+    [
+     "ρ̄",
+     "the mean density of the firn above that depth, relative to ice"
+    ],
+    [
+     "b",
+     "accumulation in ice equivalent per year"
+    ]
+   ]
+  },
+  {
+   "e": "age(z) = Σ Δz / λ(z)",
+   "about": "building a depth–age scale by adding up layers",
+   "symbols": [
+    [
+     "age(z)",
+     "the age of the ice at depth z, in years before present"
+    ],
+    [
+     "Δz",
+     "a depth interval"
+    ],
+    [
+     "λ(z)",
+     "the annual layer thickness through that interval"
+    ]
+   ]
+  },
+  {
+   "e": "N(t) = N₀ e^(−t/τ)",
+   "about": "radiometric dating, where nothing can be counted",
+   "symbols": [
+    [
+     "N(t)",
+     "how much of the isotope is left after time t"
+    ],
+    [
+     "N₀",
+     "how much there was to begin with"
+    ],
+    [
+     "τ",
+     "the mean lifetime, fixed by the isotope and nothing else"
+    ]
+   ]
+  },
+  {
+   "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
+   "about": "turning a gas concentration into an energy imbalance",
+   "symbols": [
+    [
+     "ΔF",
+     "radiative forcing, in watts per square metre"
+    ],
+    [
+     "C",
+     "the carbon dioxide concentration now, in ppm"
+    ],
+    [
+     "C₀",
+     "the concentration it is being compared with"
+    ],
+    [
+     "5.35",
+     "the empirical coefficient for carbon dioxide"
+    ]
+   ]
+  },
+  {
+   "e": "a feature survives only if its thickness > 2σ",
+   "about": "diffusion sets the finest thing a core can still show",
+   "symbols": [
+    [
+     "σ",
+     "the diffusion length: how far a molecule wanders in the firn before the pores seal"
+    ],
+    [
+     "thickness",
+     "the thinned thickness of the feature at that depth"
+    ]
+   ]
+  },
+  {
+   "e": "SE = s / √n",
+   "about": "how much of an apparent trend is just noise",
+   "symbols": [
+    [
+     "SE",
+     "the standard error of the mean"
+    ],
+    [
+     "s",
+     "the year-to-year scatter in the record"
+    ],
+    [
+     "n",
+     "how many years are being averaged"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Season Science Lead · Vestri Dome",
+ "groups": [
+  {
+   "id": "DRILL",
+   "name": "Drilling & Recovery",
+   "desc": "Getting ice out of a hole three kilometres deep without changing what it says."
+  },
+  {
+   "id": "CORE",
+   "name": "Chronology & the Core Line",
+   "desc": "What is a year, how it is counted, and what the counting is worth at depth."
+  },
+  {
+   "id": "COLD",
+   "name": "Cold Laboratory",
+   "desc": "Melting a sample without adding to it, and turning a ratio into a temperature."
+  },
+  {
+   "id": "GAS",
+   "name": "Trapped Gas",
+   "desc": "Air that stopped moving centuries after the snow around it fell."
+  },
+  {
+   "id": "FIELD",
+   "name": "Surface & Accumulation",
+   "desc": "What the surface is doing now, which is the only part anybody can check."
+  },
+  {
+   "id": "DATA",
+   "name": "Records & Reporting",
+   "desc": "What the season can say out loud, and with how much of a margin."
+  }
+ ],
+ "stops": [
+  {
+   "id": "icecore.m01.s1",
+   "day": 1,
+   "group": "FIELD",
+   "format": "BALLPARK",
+   "title": "How thick a year is here"
+  },
+  {
+   "id": "icecore.m01.s2",
+   "day": 1,
+   "group": "DRILL",
+   "format": "CHOICE",
+   "title": "Why the hole is on the dome"
+  },
+  {
+   "id": "icecore.m01.s3",
+   "day": 1,
+   "group": "CORE",
+   "format": "PROTOCOL",
+   "title": "What makes one year different from the next"
+  },
+  {
+   "id": "icecore.m02.s1",
+   "day": 2,
+   "group": "DRILL",
+   "format": "SEQUENCE",
+   "title": "The run through the brittle zone"
+  },
+  {
+   "id": "icecore.m02.s2",
+   "day": 2,
+   "group": "CORE",
+   "format": "CHOICE",
+   "title": "The metre with no label"
+  },
+  {
+   "id": "icecore.m02.s3",
+   "day": 2,
+   "group": "COLD",
+   "format": "DIAGNOSIS",
+   "title": "The sample that was clean until it was handled"
+  },
+  {
+   "id": "icecore.m03.s1",
+   "day": 3,
+   "group": "CORE",
+   "format": "SWEEP",
+   "title": "The depth the counting runs out"
+  },
+  {
+   "id": "icecore.m03.s2",
+   "day": 3,
+   "group": "COLD",
+   "format": "CHOICE",
+   "title": "Which year marker survives the depth"
+  },
+  {
+   "id": "icecore.m03.s3",
+   "day": 3,
+   "group": "FIELD",
+   "format": "BALLPARK",
+   "title": "How old the bottom of the firn is"
+  },
+  {
+   "id": "icecore.m04.s1",
+   "day": 4,
+   "group": "DATA",
+   "format": "VALUE",
+   "title": "What is worth measuring before Thursday"
+  },
+  {
+   "id": "icecore.m04.s2",
+   "day": 4,
+   "group": "COLD",
+   "format": "CHOICE",
+   "title": "The same water, twice"
+  },
+  {
+   "id": "icecore.m04.s3",
+   "day": 4,
+   "group": "GAS",
+   "format": "PROTOCOL",
+   "title": "Which differences a shared instrument removes"
+  },
+  {
+   "id": "icecore.m05.s1",
+   "day": 5,
+   "group": "COLD",
+   "format": "BALLPARK",
+   "title": "What the ratio says in degrees"
+  },
+  {
+   "id": "icecore.m05.s2",
+   "day": 5,
+   "group": "FIELD",
+   "format": "CLOUD",
+   "title": "How firmly the cooling can be stated"
+  },
+  {
+   "id": "icecore.m05.s3",
+   "day": 5,
+   "group": "DATA",
+   "format": "CHOICE",
+   "title": "The temperature of what, and where"
+  },
+  {
+   "id": "icecore.m06.s1",
+   "day": 6,
+   "group": "GAS",
+   "format": "BALLPARK",
+   "title": "How much younger the air is"
+  },
+  {
+   "id": "icecore.m06.s2",
+   "day": 6,
+   "group": "DRILL",
+   "format": "CHAIN",
+   "title": "From snowfall to sealed bubble"
+  },
+  {
+   "id": "icecore.m06.s3",
+   "day": 6,
+   "group": "CORE",
+   "format": "CHOICE",
+   "title": "Why the gas record has no sharp edges"
+  },
+  {
+   "id": "icecore.m07.s1",
+   "day": 7,
+   "group": "COLD",
+   "format": "BALLPARK",
+   "title": "The number that is a difference"
+  },
+  {
+   "id": "icecore.m07.s2",
+   "day": 7,
+   "group": "CORE",
+   "format": "CHOICE",
+   "title": "Four times the dust"
+  },
+  {
+   "id": "icecore.m07.s3",
+   "day": 7,
+   "group": "DATA",
+   "format": "SCIENCETANK",
+   "title": "What the chemistry budget should buy"
+  },
+  {
+   "id": "icecore.m08.s1",
+   "day": 8,
+   "group": "CORE",
+   "format": "DIAGNOSIS",
+   "title": "The spike at 1,642 metres"
+  },
+  {
+   "id": "icecore.m08.s2",
+   "day": 8,
+   "group": "GAS",
+   "format": "CHOICE",
+   "title": "What a dated ash layer fixes"
+  },
+  {
+   "id": "icecore.m08.s3",
+   "day": 8,
+   "group": "FIELD",
+   "format": "TRIAGE",
+   "title": "One clear day, three jobs"
+  },
+  {
+   "id": "icecore.m09.s1",
+   "day": 9,
+   "group": "DRILL",
+   "format": "BALLPARK",
+   "title": "A year at two thousand four hundred metres"
+  },
+  {
+   "id": "icecore.m09.s2",
+   "day": 9,
+   "group": "DATA",
+   "format": "PROPAGATE",
+   "title": "Which width the answer is made of"
+  },
+  {
+   "id": "icecore.m09.s3",
+   "day": 9,
+   "group": "CORE",
+   "format": "CHOICE",
+   "title": "The last hundred metres"
+  },
+  {
+   "id": "icecore.m10.s1",
+   "day": 10,
+   "group": "DATA",
+   "format": "TRACE",
+   "title": "What both records rest on"
+  },
+  {
+   "id": "icecore.m10.s2",
+   "day": 10,
+   "group": "GAS",
+   "format": "BALLPARK",
+   "title": "What the carbon dioxide change was worth"
+  },
+  {
+   "id": "icecore.m10.s3",
+   "day": 10,
+   "group": "COLD",
+   "format": "CHOICE",
+   "title": "Half a per mil, in degrees"
+  },
+  {
+   "id": "icecore.m11.s1",
+   "day": 11,
+   "group": "GAS",
+   "format": "VERIFY",
+   "title": "What the correction leaves behind"
+  },
+  {
+   "id": "icecore.m11.s2",
+   "day": 11,
+   "group": "CORE",
+   "format": "BALLPARK",
+   "title": "The clock that does not need layers"
+  },
+  {
+   "id": "icecore.m11.s3",
+   "day": 11,
+   "group": "DATA",
+   "format": "CHOICE",
+   "title": "What is left to disagree about"
+  },
+  {
+   "id": "icecore.m12.s1",
+   "day": 12,
+   "group": "DRILL",
+   "format": "ALLOCATE",
+   "title": "Nine days, four jobs"
+  },
+  {
+   "id": "icecore.m12.s2",
+   "day": 12,
+   "group": "FIELD",
+   "format": "CHOICE",
+   "title": "The stake that gained a centimetre"
+  },
+  {
+   "id": "icecore.m12.s3",
+   "day": 12,
+   "group": "COLD",
+   "format": "SEQUENCE",
+   "title": "The order a run is made in"
+  },
+  {
+   "id": "icecore.m13.s1",
+   "day": 13,
+   "group": "COLD",
+   "format": "ATTEST",
+   "title": "Six signatures and two hours"
+  },
+  {
+   "id": "icecore.m13.s2",
+   "day": 13,
+   "group": "DRILL",
+   "format": "TRIAGE",
+   "title": "What comes back first"
+  },
+  {
+   "id": "icecore.m13.s3",
+   "day": 13,
+   "group": "DATA",
+   "format": "BALLPARK",
+   "title": "How much of it is noise"
+  },
+  {
+   "id": "icecore.m14.s1",
+   "day": 14,
+   "group": "DATA",
+   "format": "STRESS",
+   "title": "Four sentences and a range"
+  },
+  {
+   "id": "icecore.m14.s2",
+   "day": 14,
+   "group": "GAS",
+   "format": "CHOICE",
+   "title": "What the bubbles license"
+  },
+  {
+   "id": "icecore.m14.s3",
+   "day": 14,
+   "group": "CORE",
+   "format": "SEQUENCE",
+   "title": "Before anything is sent"
+  },
+  {
+   "id": "icecore.m15.s1",
+   "day": 15,
+   "group": "DATA",
+   "format": "CHOICE",
+   "title": "The sentence the record will carry"
+  },
+  {
+   "id": "icecore.m15.s2",
+   "day": 15,
+   "group": "FIELD",
+   "format": "PROTOCOL",
+   "title": "What rests on what"
+  },
+  {
+   "id": "icecore.m15.s3",
+   "day": 15,
+   "group": "COLD",
+   "format": "BALLPARK",
+   "title": "The shortest thing this ice can show"
+  }
+ ]
+}

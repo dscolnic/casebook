@@ -1,0 +1,540 @@
+{
+ "theme": "outbreak_riverton",
+ "book": "books/outbreak-riverton.yml",
+ "course": "AP Biology, with a public-health unit",
+ "curriculum": [
+  "Cell structure and function",
+  "Membranes and transport",
+  "Enzymes and metabolism",
+  "Energy: respiration and ATP",
+  "DNA structure and replication",
+  "Transcription, translation and gene expression",
+  "Molecular diagnostics: PCR and amplification",
+  "Mutation and genetic variation",
+  "Natural selection and evolution",
+  "Populations, transmission chains and exponential growth",
+  "Homeostasis and feedback",
+  "Circulatory and respiratory physiology",
+  "Innate and adaptive immunity",
+  "Vaccination and treatment",
+  "Pathogens: viruses and bacteria",
+  "Epidemiology: case definitions, curves, R and reservoirs",
+  "Test performance: sensitivity, specificity, predictive value",
+  "Experimental design: controls, sampling and bias",
+  "Ecology, vectors and zoonoses",
+  "Rates, ratios and reading data",
+  "Cell division and growth",
+  "Inheritance and Mendelian genetics",
+  "Gene regulation and expression control",
+  "Protein structure and function",
+  "pH and buffering in biological systems",
+  "Signalling: nervous and endocrine control",
+  "Antimicrobial resistance",
+  "Biosafety, aseptic technique and contamination",
+  "Statistics: confidence, significance and sample size",
+  "Epidemic modelling and projection"
+ ],
+ "equations": [
+  {
+   "e": "Rₑ = R₀ × S",
+   "about": "effective reproduction number against a susceptible fraction",
+   "symbols": [
+    [
+     "Rₑ",
+     "effective reproduction number, cases caused per case now"
+    ],
+    [
+     "R₀",
+     "basic reproduction number, in a wholly susceptible population"
+    ],
+    [
+     "S",
+     "the fraction still susceptible"
+    ]
+   ]
+  },
+  {
+   "e": "N(t) = N₀ · 2^(t/T_d)",
+   "about": "exponential growth from a doubling time",
+   "symbols": [
+    [
+     "N(t)",
+     "how many cases at time t"
+    ],
+    [
+     "N₀",
+     "cases at the start"
+    ],
+    [
+     "t",
+     "elapsed time"
+    ],
+    [
+     "T_d",
+     "doubling time, in the same units as t"
+    ]
+   ]
+  },
+  {
+   "e": "sensitivity = TP / (TP+FN)",
+   "about": "and specificity = TN / (TN+FP) — what a test misses",
+   "symbols": [
+    [
+     "TP",
+     "true positives, sick and testing positive"
+    ],
+    [
+     "FN",
+     "false negatives, sick and testing negative"
+    ],
+    [
+     "TN",
+     "true negatives"
+    ],
+    [
+     "FP",
+     "false positives"
+    ]
+   ]
+  },
+  {
+   "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
+   "about": "why a good test fails at low prevalence",
+   "symbols": [
+    [
+     "PPV",
+     "positive predictive value, the chance a positive is real"
+    ],
+    [
+     "prev",
+     "prevalence, how common the disease is"
+    ],
+    [
+     "sens",
+     "sensitivity"
+    ],
+    [
+     "spec",
+     "specificity"
+    ]
+   ]
+  },
+  {
+   "e": "risk = events / people at risk",
+   "about": "and NNT = 1 / (control risk − treated risk)",
+   "symbols": [
+    [
+     "events",
+     "how many people had the outcome"
+    ],
+    [
+     "people at risk",
+     "how many could have"
+    ],
+    [
+     "NNT",
+     "number needed to treat"
+    ],
+    [
+     "control risk",
+     "risk without the treatment"
+    ],
+    [
+     "treated risk",
+     "risk with it"
+    ]
+   ]
+  },
+  {
+   "e": "CFR = deaths / cases",
+   "about": "case fatality, and what its denominator hides",
+   "symbols": [
+    [
+     "CFR",
+     "case fatality ratio"
+    ],
+    [
+     "deaths",
+     "deaths among known cases"
+    ],
+    [
+     "cases",
+     "cases that were actually diagnosed"
+    ]
+   ]
+  },
+  {
+   "e": "pH = pKa + log([A⁻]/[HA])",
+   "about": "Henderson–Hasselbalch — buffering in a body",
+   "symbols": [
+    [
+     "pH",
+     "acidity of the blood"
+    ],
+    [
+     "pKa",
+     "the acid constant for that buffer pair, 6.1 for bicarbonate"
+    ],
+    [
+     "[A⁻]",
+     "concentration of the base form, bicarbonate"
+    ],
+    [
+     "[HA]",
+     "concentration of the acid form, dissolved carbon dioxide"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Scientific Response Director · Riverton",
+ "groups": [
+  {
+   "id": "CLIN",
+   "name": "Clinical Physiology",
+   "desc": "Patient physiology, organ systems, and bedside evidence."
+  },
+  {
+   "id": "CELL",
+   "name": "Cell & Membrane Biology",
+   "desc": "Cells, membranes, receptors, transport, and host interactions."
+  },
+  {
+   "id": "MOL",
+   "name": "Molecular Diagnostics",
+   "desc": "DNA, RNA, gene expression, sequencing, and diagnostic controls."
+  },
+  {
+   "id": "IMM",
+   "name": "Immunology & Treatment",
+   "desc": "Immune mechanisms, treatment response, and intervention evidence."
+  },
+  {
+   "id": "POP",
+   "name": "Epidemiology & Evolution",
+   "desc": "Population patterns, surveillance, trials, and evolutionary change."
+  },
+  {
+   "id": "FIELD",
+   "name": "Ecology & One Health",
+   "desc": "Environmental surveillance, animal reservoirs, and ecosystem connections."
+  }
+ ],
+ "stops": [
+  {
+   "id": "outbreak_riverton.m01.s1",
+   "day": 1,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "Signal or noise?"
+  },
+  {
+   "id": "outbreak_riverton.m01.s2",
+   "day": 1,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "Build the provisional case definition"
+  },
+  {
+   "id": "outbreak_riverton.m01.s3",
+   "day": 1,
+   "group": "POP",
+   "format": "VALUE",
+   "title": "Spend the first response reserve"
+  },
+  {
+   "id": "outbreak_riverton.m02.s1",
+   "day": 2,
+   "group": "CLIN",
+   "format": "DIAGNOSIS",
+   "title": "What kind of agent fits the whole panel?"
+  },
+  {
+   "id": "outbreak_riverton.m02.s2",
+   "day": 2,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "From specimen to broad classification"
+  },
+  {
+   "id": "outbreak_riverton.m02.s3",
+   "day": 2,
+   "group": "MOL",
+   "format": "CHOICE",
+   "title": "When heat changes an enzyme assay"
+  },
+  {
+   "id": "outbreak_riverton.m03.s1",
+   "day": 3,
+   "group": "CELL",
+   "format": "SEQUENCE",
+   "title": "Crossing the cellular boundary"
+  },
+  {
+   "id": "outbreak_riverton.m03.s2",
+   "day": 3,
+   "group": "CELL",
+   "format": "PROTOCOL",
+   "title": "Choose the membrane mechanism"
+  },
+  {
+   "id": "outbreak_riverton.m03.s3",
+   "day": 3,
+   "group": "CELL",
+   "format": "CONTROL",
+   "title": "Separate binding from entry"
+  },
+  {
+   "id": "outbreak_riverton.m04.s1",
+   "day": 4,
+   "group": "MOL",
+   "format": "SEQUENCE",
+   "title": "From genetic information to protein"
+  },
+  {
+   "id": "outbreak_riverton.m04.s2",
+   "day": 4,
+   "group": "MOL",
+   "format": "PROTOCOL",
+   "title": "Locate the molecular change"
+  },
+  {
+   "id": "outbreak_riverton.m04.s3",
+   "day": 4,
+   "group": "MOL",
+   "format": "CHOICE",
+   "title": "Find the controlling stage"
+  },
+  {
+   "id": "outbreak_riverton.m05.s1",
+   "day": 5,
+   "group": "MOL",
+   "format": "SEQUENCE",
+   "title": "Build a trustworthy amplification run"
+  },
+  {
+   "id": "outbreak_riverton.m05.s2",
+   "day": 5,
+   "group": "MOL",
+   "format": "TRACE",
+   "title": "Why did the assay turn positive?"
+  },
+  {
+   "id": "outbreak_riverton.m05.s3",
+   "day": 5,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "What does a positive mean?"
+  },
+  {
+   "id": "outbreak_riverton.m06.s1",
+   "day": 6,
+   "group": "CLIN",
+   "format": "CHAIN",
+   "title": "Locate the oxygen-delivery failure"
+  },
+  {
+   "id": "outbreak_riverton.m06.s2",
+   "day": 6,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Estimate oxygen delivery"
+  },
+  {
+   "id": "outbreak_riverton.m06.s3",
+   "day": 6,
+   "group": "CLIN",
+   "format": "BALLPARK",
+   "title": "Read the downstream acid–base signal"
+  },
+  {
+   "id": "outbreak_riverton.m07.s1",
+   "day": 7,
+   "group": "IMM",
+   "format": "SEQUENCE",
+   "title": "Build the immune response timeline"
+  },
+  {
+   "id": "outbreak_riverton.m07.s2",
+   "day": 7,
+   "group": "CLIN",
+   "format": "DIAGNOSIS",
+   "title": "Protective response or runaway inflammation?"
+  },
+  {
+   "id": "outbreak_riverton.m07.s3",
+   "day": 7,
+   "group": "CLIN",
+   "format": "VALUE",
+   "title": "Treat the mechanism, not the marker"
+  },
+  {
+   "id": "outbreak_riverton.m08.s1",
+   "day": 8,
+   "group": "IMM",
+   "format": "PROTOCOL",
+   "title": "Match the surveillance signal"
+  },
+  {
+   "id": "outbreak_riverton.m08.s2",
+   "day": 8,
+   "group": "CELL",
+   "format": "BALLPARK",
+   "title": "How many by morning"
+  },
+  {
+   "id": "outbreak_riverton.m08.s3",
+   "day": 8,
+   "group": "CELL",
+   "format": "CHOICE",
+   "title": "The same genome, different cells"
+  },
+  {
+   "id": "outbreak_riverton.m09.s1",
+   "day": 9,
+   "group": "FIELD",
+   "format": "PROTOCOL",
+   "title": "Reservoir, vector, or incidental host?"
+  },
+  {
+   "id": "outbreak_riverton.m09.s2",
+   "day": 9,
+   "group": "FIELD",
+   "format": "SEQUENCE",
+   "title": "Test the reservoir hypothesis"
+  },
+  {
+   "id": "outbreak_riverton.m09.s3",
+   "day": 9,
+   "group": "POP",
+   "format": "ALLOCATE",
+   "title": "Choose the One Health campaign"
+  },
+  {
+   "id": "outbreak_riverton.m10.s1",
+   "day": 10,
+   "group": "MOL",
+   "format": "SEQUENCE",
+   "title": "From variation to evolutionary change"
+  },
+  {
+   "id": "outbreak_riverton.m10.s2",
+   "day": 10,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "Selection or sampling artifact?"
+  },
+  {
+   "id": "outbreak_riverton.m10.s3",
+   "day": 10,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Track a rising variant"
+  },
+  {
+   "id": "outbreak_riverton.m11.s1",
+   "day": 11,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "Why did the therapy fail?"
+  },
+  {
+   "id": "outbreak_riverton.m11.s2",
+   "day": 11,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "How resistance spreads"
+  },
+  {
+   "id": "outbreak_riverton.m11.s3",
+   "day": 11,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "Recover treatment effectiveness"
+  },
+  {
+   "id": "outbreak_riverton.m12.s1",
+   "day": 12,
+   "group": "POP",
+   "format": "PROTOCOL",
+   "title": "Choose the intervention layer"
+  },
+  {
+   "id": "outbreak_riverton.m12.s2",
+   "day": 12,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "From candidate to justified trial"
+  },
+  {
+   "id": "outbreak_riverton.m12.s3",
+   "day": 12,
+   "group": "POP",
+   "format": "ALLOCATE",
+   "title": "Build a layered intervention portfolio"
+  },
+  {
+   "id": "outbreak_riverton.m13.s1",
+   "day": 13,
+   "group": "CLIN",
+   "format": "CHOICE",
+   "title": "Did the comparison stay fair?"
+  },
+  {
+   "id": "outbreak_riverton.m13.s2",
+   "day": 13,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Read effect size and uncertainty"
+  },
+  {
+   "id": "outbreak_riverton.m13.s3",
+   "day": 13,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "Continue, expand, or pause?"
+  },
+  {
+   "id": "outbreak_riverton.m14.s1",
+   "day": 14,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "Build a decision model"
+  },
+  {
+   "id": "outbreak_riverton.m14.s2",
+   "day": 14,
+   "group": "CLIN",
+   "format": "BALLPARK",
+   "title": "Hospital capacity threshold"
+  },
+  {
+   "id": "outbreak_riverton.m14.s3",
+   "day": 14,
+   "group": "POP",
+   "format": "TRIGGER",
+   "title": "Choose an adaptive policy"
+  },
+  {
+   "id": "outbreak_riverton.m15.s1",
+   "day": 15,
+   "group": "POP",
+   "format": "ATTEST",
+   "title": "Disposition the final claims"
+  },
+  {
+   "id": "outbreak_riverton.m15.s2",
+   "day": 15,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "Build the public explanation"
+  },
+  {
+   "id": "outbreak_riverton.m15.s3",
+   "day": 15,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "Fund the post-crisis legacy"
+  }
+ ]
+}

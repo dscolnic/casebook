@@ -388,76 +388,69 @@ missions:
         task: Find where the heat is arriving
         title: Which stage the leak is on
         place: Cryogenics & Vacuum
-        scene: >
-          The cryostat is open in service mode, six stages down the chain, each one colder than the one
-          above it. Okafor has last cooldown's numbers on a clipboard and a thermometer at every stage,
-          and she is not going to say which one she suspects.
+        scene: Delft's slot is now on the calendar, but Ridgeway's fridge has stalled above its normal base temperature. The cryostat is open in service mode, six stages down the chain. Okafor has last cooldown's numbers and a thermometer at every stage.
         assumes:
           - a refrigerator removes heat in stages, each colder than the last
           - a conductive path carries heat to wherever it is anchored, and past wherever it is not
         takeaway: A refrigerator's stage-by-stage temperature pattern can localise a heat load instead of merely announcing that one exists.
         format: PROBE
-        question: >-
-          The bottom of the fridge is warm and the top may not be. Take the readings you think you need —
-          at which stage is the heat arriving?
+        question: The bottom of the fridge is warm and the top may not be. Take the readings you think you need — at which stage is the heat arriving?
+        answerText: The still. It is the first stage that has moved — a quarter of a kelvin above last cooldown, with its heater working 40 per cent harder — and everything below it is warm because the load is above them, not because their own cooling has failed.
+        why: |-
+          Two stages held exactly what they held last time, which is what rules almost everything out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm the top of the chain first, and the top of the chain has not moved. From the still downwards every stage is high and working harder, and heat only behaves that way when it is being delivered from above. So the deepest stage is the worst affected and is not where the problem is — the load enters at the first stage that departs, and the stages below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not below, which is exactly what a line added since the last cooldown and heat-sunk at only the easy stages does. Okafor's cable is now worth looking at, not because cables are always guilty but because this pattern is what an unanchored one predicts.
         probe:
           chainLabel: Stage
-          hint: >-
-            Each station reports what it is holding now, what it held on the last cooldown, and what its
-            cooling is having to do. Read as few or as many as you like.
-          # The pattern, and nothing that names its cause. The first two stages sit
-          # exactly where they were last time; from the still down, every stage is
-          # warm and working harder. The load therefore arrives between the 4 K
-          # stage and the still — which is the still's reading, the first one that
-          # departs.
+          hint: Each station reports what it is holding now, what it held on the last cooldown, and what its cooling is having to do. Read as few or as many as you like.
           stations:
-            - { id: PT1, label: 50 K stage, reading: 47 K, expected: 47 K, load: as expected }
-            - { id: PT2, label: 4 K stage, reading: 3.9 K, expected: 3.9 K, load: as expected }
-            - { id: STILL, label: Still, reading: 0.94 K, expected: 0.70 K, load: heater 40 per cent above normal }
-            - { id: CFHX, label: Heat exchanger, reading: 190 mK, expected: 120 mK, load: no separate control }
-            - { id: PLATE, label: Cold plate, reading: 95 mK, expected: 55 mK, load: no separate control }
-            - { id: MXC, label: Mixing chamber, reading: 42 mK, expected: 11 mK, load: full circulation }
+            - id: PT1
+              label: 50 K stage
+              reading: 47 K
+              expected: 47 K
+              load: as expected
+            - id: PT2
+              label: 4 K stage
+              reading: 3.9 K
+              expected: 3.9 K
+              load: as expected
+            - id: STILL
+              label: Still
+              reading: 0.94 K
+              expected: 0.70 K
+              load: heater 40 per cent above normal
+            - id: CFHX
+              label: Heat exchanger
+              reading: 190 mK
+              expected: 120 mK
+              load: no separate control
+            - id: PLATE
+              label: Cold plate
+              reading: 95 mK
+              expected: 55 mK
+              load: no separate control
+            - id: MXC
+              label: Mixing chamber
+              reading: 42 mK
+              expected: 11 mK
+              load: full circulation
           target: STILL
           minReadings: 3
           commit: Name the stage
-        answerText: >-
-          The still. It is the first stage that has moved — a quarter of a kelvin above last
-          cooldown, with its heater working 40 per cent harder — and everything below it is warm
-          because the load is above them, not because their own cooling has failed.
-        why: >
-          Two stages held exactly what they held last time, which is what rules almost everything
-          out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm
-          the top of the chain first, and the top of the chain has not moved. From the still
-          downwards every stage is high and working harder, and heat only behaves that way when it
-          is being delivered from above. So the deepest stage is the worst affected and is not
-          where the problem is — the load enters at the first stage that departs, and the stages
-          below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not
-          below, which is exactly what a line added since the last cooldown and heat-sunk at only
-          the easy stages does. Okafor's cable is now worth looking at, not because cables are
-          always guilty but because this pattern is what an unanchored one predicts.
       - group: CRYO
         task: Say why 42 millikelvin is not close enough
         title: The energy of one quantum against the energy of the room
         place: Cryogenics & Vacuum
-        scene: >
-          The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one
-          quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.
+        scene: The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes two energy scales beside it — one quantum at that frequency and the thermal energy at 42 millikelvin — and waits.
         assumes:
           - a system in contact with something warm can absorb energy from it
         takeaway: Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.
         format: BALLPARK
         question: Using the two energy scales, estimate the equilibrium excited-state fraction at 42 mK.
-        why: >
-          "A qubit sitting in a warm environment does not stay in its ground state: it is being
-          offered energy all the time, and it takes some. The fraction that ends up excited
-          follows the ratio of the thermal energy to the energy of one quantum, exponentially,
-          which is why a factor of four in temperature is not a factor of four in behaviour. At
-          11 millikelvin almost nothing is excited. At 42 the population is large enough that a
-          measurement of \"the ground state\" is partly a measurement of the fridge."
+        answerText: About 0.34 per cent.
+        why: |-
+          "A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \"the ground state\" is partly a measurement of the fridge."
         estimate:
-          prompt: >
-            For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT,
-            use p_excited ≈ e^(−hf/kT).
+          prompt: |-
+            For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT, use p_excited ≈ e^(−hf/kT).
           question: Choose the quantum energy and the thermal energy.
           labels:
             - 3.3e-24  (hf at 5 GHz, in joules)
@@ -465,59 +458,44 @@ missions:
             - 1.5e-25  (kT at 11 mK, in joules)
             - 5.0  (the qubit frequency in GHz)
             - 42  (the fridge temperature in mK)
-          values: [3.3e-24, 5.8e-25, 1.5e-25, 5.0, 42]
+          values: [3.3e-24, 5.8e-25, 1.5e-25, 5, 42]
           slots: 2
-          template: 'e^(−{0} ÷ {1})'
+          template: e^(−{0} ÷ {1})
           formula: Math.exp(-a/b)
           correct: [0, 1]
           target: 0.0034
           tolerance: 0.002
-          units: 'of the qubits'
+          units: of the qubits
           solution: e^(−3.3e-24 / 5.8e-25) = e^(−5.7) ≈ 0.003.
-          explanation: >
-            About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰,
-            so the warmer fridge increases the equilibrium excited population by roughly seven
-            orders of magnitude even though the absolute population is still below one per cent.
+          explanation: |-
+            About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly seven orders of magnitude even though the absolute population is still below one per cent.
           givens:
             - One quantum at 5 GHz is 3.3 × 10⁻²⁴ J
             - The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J
-          relationship: >
-            For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T
-            increases hf/kT and suppresses the population exponentially.
-        answerText: About 0.34 per cent.
+          relationship: |-
+            For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.
       - group: CTRL
         task: Decide what to measure while the fridge is warm
         title: What is worth doing at the wrong temperature
         place: Control & Readout
-        scene: >
-          Fixing the heat leak means a warm-up and another cooldown: four days. Mensah has the machine for
-          those four days at 42 millikelvin and wants to know what is worth running.
+        scene: "Fixing the heat leak means a warm-up and another cooldown: four days. With Delft's slot approaching, Mensah does not want four empty days and asks what work remains interpretable while the device is off its normal temperature."
         assumes:
           - some measurements depend on temperature and some do not
         takeaway: An off-nominal machine can still produce useful diagnostics, but those data must not be mistaken for nominal performance.
         format: TRIAGE
-        question: What is the best use of the four warm days if the review needs nominal device performance?
+        question: What is the best use of the off-nominal period if Ridgeway needs trustworthy baseline numbers before the Delft run?
+        why: |-
+          The machine is not useless at 42 millikelvin, but the question attached to each measurement changes. Thermal population can be measured precisely, and temperature-dependent T1, readout and resonator occupancy can diagnose what the heat is doing. Those are useful *warm-state diagnostics*, not the nominal figures the review needs. The best use of the downtime is therefore work whose interpretation survives the off-nominal temperature — wiring continuity, attenuation, gain and timing — plus explicitly labelled temperature diagnostics. Review-quality coherence, readout and benchmarking should be repeated after the fridge returns to its normal operating point.
         choices:
           - Warm checks — wiring and electronics, which the chip cannot affect.
           - Use the 42 mK coherence values as the review numbers, because T1 and T2 are still measurable.
           - Run only readout calibration, because the excited population is below one per cent.
           - Run the full benchmark suite and correct every result later with the calculated thermal population.
         answer: Warm checks — wiring and electronics, which the chip cannot affect.
-        why: >
-          The machine is not useless at 42 millikelvin, but the question attached to each
-          measurement changes. Thermal population can be measured precisely, and
-          temperature-dependent T1, readout and resonator occupancy can diagnose what the heat
-          is doing. Those are useful *warm-state diagnostics*, not the nominal figures the
-          review needs. The best use of the downtime is therefore work whose interpretation
-          survives the off-nominal temperature — wiring continuity, attenuation, gain and timing
-          — plus explicitly labelled temperature diagnostics. Review-quality coherence, readout
-          and benchmarking should be repeated after the fridge returns to its normal operating
-          point.
         rebuttals:
           - A coherence time at 42 mK is a real measurement of the warm configuration, not a nominal-performance number for an 11 mK device.
           - A sub-one-per-cent thermal population is already comparable with the error budget of a high-fidelity readout, and temperature can affect more than equilibrium population.
           - A single thermal-population correction cannot generally undo temperature-dependent changes in relaxation, resonator occupation and control performance.
-
   - title: Finding a qubit that will not answer
     objective: Locate a transition and turn a drive into a pulse that flips it.
     briefing: The chip is cold again and one qubit is not where the design says it should be.
@@ -534,46 +512,47 @@ missions:
         task: Read a frequency sweep
         title: Where the qubit actually is
         place: Control & Readout
-        scene: >
-          Mensah has the drive on the twelfth qubit and a readout that reports how much of the population
-          ends up excited. The design put this qubit at 5.02 gigahertz, and the readout there has been flat
-          all morning.
+        scene: The fridge is back at base temperature. Mensah has the drive on the twelfth qubit and a readout that reports how much population ends up excited. The design put this qubit at 5.02 gigahertz, but the readout there has been flat all morning.
         assumes:
           - a system absorbs energy strongly only near its own transition frequency
         takeaway: A designed transition frequency is a target; spectroscopy tells you where the fabricated device actually responds.
         format: SWEEP
         question: Nothing responds at the design frequency. Which frequency does this qubit absorb the drive at?
+        answerText: 4.61 GHz, where nearly the whole population is driven into the excited state. The much weaker feature near 4.55 GHz is real and is not the qubit.
+        why: |-
+          A qubit absorbs a drive only close to its own transition, so the frequency where the population goes up is the transition. It is nowhere near 5.02 GHz because that number was a prediction: the frequency depends on a junction barrier about a nanometre thick, and no process controls a nanometre exactly. Two responses appear, and size is what separates them — a transition driven on resonance takes almost the whole population, while the small feature takes a sixth of it and is something else on the chip. Which of the two is the qubit can be settled by driving harder and watching only one of them saturate.
         sweep:
-          axis: { label: Drive frequency, unit: GHz, min: 4.20, max: 6.40, step: 0.01 }
-          readout: { label: Excited population, unit: '' }
+          axis:
+            label: Drive frequency
+            unit: GHz
+            min: 4.2
+            max: 6.4
+            step: 0.01
+          readout:
+            label: Excited population
+            unit: ""
           baseline: 0.02
-          # Authored rather than computed, because the printed book has to show
-          # the same curve and cannot run the game.
           response:
-            - { at: 4.20, value: 0.02 }
-            - { at: 4.50, value: 0.02 }
-            - { at: 4.55, value: 0.16 }
-            - { at: 4.58, value: 0.04 }
-            - { at: 4.61, value: 0.94 }
-            - { at: 4.64, value: 0.05 }
-            - { at: 5.02, value: 0.02 }
-            - { at: 6.40, value: 0.02 }
+            - at: 4.2
+              value: 0.02
+            - at: 4.5
+              value: 0.02
+            - at: 4.55
+              value: 0.16
+            - at: 4.58
+              value: 0.04
+            - at: 4.61
+              value: 0.94
+            - at: 4.64
+              value: 0.05
+            - at: 5.02
+              value: 0.02
+            - at: 6.4
+              value: 0.02
           target: 4.61
           tolerance: 0.02
-          start: 4.20
+          start: 4.2
           commit: Mark the transition
-        answerText: >-
-          4.61 GHz, where nearly the whole population is driven into the excited state. The much
-          weaker feature near 4.55 GHz is real and is not the qubit.
-        why: >
-          A qubit absorbs a drive only close to its own transition, so the frequency where the
-          population goes up is the transition. It is nowhere near 5.02 GHz because that number
-          was a prediction: the frequency depends on a junction barrier about a nanometre thick,
-          and no process controls a nanometre exactly. Two responses appear, and size is what
-          separates them — a transition driven on resonance takes almost the whole population,
-          while the small feature takes a sixth of it and is something else on the chip. Which
-          of the two is the qubit can be settled by driving harder and watching only one of them
-          saturate.
       - group: CTRL
         task: Turn the drive into a pulse
         title: How long a flip takes
@@ -626,33 +605,29 @@ missions:
         task: Decide whether to keep this chip
         title: One bad qubit out of twelve
         place: Fabrication & Materials
-        scene: >
-          Lindqvist has the coupon from the same run. The junction resistances on it spread twice as wide as
-          usual, which puts several qubits in the frequency range where defects are common.
+        scene: "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual."
         assumes:
           - a fabrication run produces chips with a spread of properties
         takeaway: A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.
         format: SCIENCETANK
-        why: >
-          The useful question is not whether this chip is perfect; it is whether changing chips
-          is likely to improve the ten-day campaign. The present chip has eleven qubits close to
-          target and a twelfth that can be driven and characterised. A swap costs four days, and
-          the spare comes from the same suspicious fabrication run, so replacement does not
-          remove the underlying uncertainty. The strongest plan is to keep this chip, map the
-          nearby resonance, operate the qubit away from it if possible, and give Lindqvist the
-          data needed to decide whether the feature tracks the process.
+        why: The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has eleven qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.
         proposals:
-          - { label: A, text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report twelve qubits with one of them worse. }
-          - { label: B, text: Swap in the spare chip now, even though it came from the same fabrication run, at four days of warm-up and cooldown. }
-          - { label: C, text: Keep the chip but permanently omit the twelfth qubit from every circuit }
-          - { label: D, text: Stop device work until the fabrication process has been fully explained }
-        recommended: { A: 50, C: 25 }
-        evidence: |
+          - label: A
+            text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report twelve qubits with one of them worse.
+          - label: B
+            text: Swap in the spare chip now, even though it came from the same fabrication run, at four days of warm-up and cooldown.
+          - label: C
+            text: Keep the chip but permanently omit the twelfth qubit from every circuit
+          - label: D
+            text: Stop device work until the fabrication process has been fully explained
+        recommended:
+          A: 50
+          C: 25
+        evidence: |-
           The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four
           days out of the ten before the review. The spare comes from the same suspicious run. Junction
           resistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been
           characterised on any chip in this lab.
-
   - title: Two clocks, and the one that runs out first
     objective: Separate energy leaving the qubit from phase being scrambled.
     briefing: T1 is respectable and T2 is a third of what it should be, on every qubit at once.
@@ -671,56 +646,57 @@ missions:
         task: Say what the two numbers mean together
         title: Energy out, or phase scrambled
         place: Error & Verification
-        scene: >
-          Holm has two measurements running on the same qubit at every delay. One reports how much
-          excitation is still there. The other reports how much phase coherence is still there. Neither
-          number has been read off yet.
+        scene: "The qubit can now be found and flipped, but Holm still does not know how long its state remains useful. He has two measurements running at every delay: one for excitation left behind, the other for phase coherence. Neither curve has been read yet."
         assumes:
           - a quantum state has both an energy and a phase, which can be lost separately
           - a decay time is conventionally read where a quantity has fallen to about a third of its start
         takeaway: Comparing T1 with T2 tells you whether energy loss alone can explain the observed loss of coherence.
         format: SWEEP
         question: Both curves fall, and not together. At what delay has the phase coherence dropped to a third of where it started?
+        answerText: About 32 microseconds. The population is still at 0.70 there, and does not reach a third until about 90 — so T2 is 32 microseconds against a T1 of 90.
+        why: |-
+          Read at the same place on both curves, the two times come out a factor of three apart, and that gap is the diagnosis. Energy is leaving slowly; something is scrambling phase three times faster without taking any energy at all, which is what slow noise shifting the qubit's frequency between repetitions does. The two have different cures — energy loss is materials and fridge, dephasing is usually wiring — so the ratio decides who spends the week. It is also a bound worth carrying: coherence can never exceed twice the relaxation time, so this device could have reached 180 and is managing a fifth of that.
         sweep:
           mode: boundary
-          axis: { label: Delay before readout, unit: µs, min: 1, max: 200, step: 1 }
-          # Two things decaying at different rates, on one axis. The point is
-          # visible before it is explained: the phase goes first.
+          axis:
+            label: Delay before readout
+            unit: µs
+            min: 1
+            max: 200
+            step: 1
           series:
             - label: Excited population left
               response:
-                - { at: 1, value: 0.99 }
-                - { at: 32, value: 0.70 }
-                - { at: 62, value: 0.50 }
-                - { at: 90, value: 0.37 }
-                - { at: 140, value: 0.21 }
-                - { at: 200, value: 0.11 }
+                - at: 1
+                  value: 0.99
+                - at: 32
+                  value: 0.7
+                - at: 62
+                  value: 0.5
+                - at: 90
+                  value: 0.37
+                - at: 140
+                  value: 0.21
+                - at: 200
+                  value: 0.11
             - label: Ramsey contrast left
               response:
-                - { at: 1, value: 0.97 }
-                - { at: 22, value: 0.50 }
-                - { at: 32, value: 0.37 }
-                - { at: 62, value: 0.14 }
-                - { at: 90, value: 0.06 }
-                - { at: 200, value: 0.01 }
-          # No `floor` here on purpose: these two curves are compared, not added.
-          # A sum of a population and a contrast is a number about nothing.
+                - at: 1
+                  value: 0.97
+                - at: 22
+                  value: 0.5
+                - at: 32
+                  value: 0.37
+                - at: 62
+                  value: 0.14
+                - at: 90
+                  value: 0.06
+                - at: 200
+                  value: 0.01
           target: 32
           tolerance: 8
           start: 1
           commit: Mark T2
-        answerText: >-
-          About 32 microseconds. The population is still at 0.70 there, and does not reach a third
-          until about 90 — so T2 is 32 microseconds against a T1 of 90.
-        why: >
-          Read at the same place on both curves, the two times come out a factor of three apart,
-          and that gap is the diagnosis. Energy is leaving slowly; something is scrambling phase
-          three times faster without taking any energy at all, which is what slow noise shifting
-          the qubit's frequency between repetitions does. The two have different cures — energy
-          loss is materials and fridge, dephasing is usually wiring — so the ratio decides who
-          spends the week. It is also a bound worth carrying: coherence can never exceed twice
-          the relaxation time, so this device could have reached 180 and is managing a fifth of
-          that.
       - group: CRYO
         task: Work out the ceiling this T1 sets
         title: How good T2 could be
@@ -827,22 +803,13 @@ missions:
         task: Follow the signal out
         title: What happens between the chip and the answer
         place: Control & Readout
-        scene: >
-          Nakamura walks the chain: resonator, then a metre of cable, an isolator, a parametric amplifier at
-          the mixing chamber, a semiconductor amplifier at 4 kelvin, more cable, a digitiser at room
-          temperature.
+        scene: "The device is cold, the qubit is located, and its coherence is measured. Before Ridgeway sends the experiment to Delft, Nakamura walks the final readout path: resonator, cable, isolator, parametric amplifier, 4-kelvin amplifier, more cable, then the room-temperature digitiser."
         assumes:
           - an amplifier increases a signal and adds noise of its own
         takeaway: In a cascaded readout chain, noise added early — and loss before the first high-gain amplifier — is especially costly.
         format: SEQUENCE
-        why: >
-          "A useful rule comes from the noise budget for cascaded amplifiers: once the signal
-          has been given large low-noise gain, the noise of later stages is divided by that gain
-          when referred back to the input. That makes the first high-gain amplifier extremely
-          important. Loss before it is just as serious because it throws away signal before the
-          gain arrives. The cold parametric amplifier is therefore placed close to the device
-          and behind only the components needed to protect and route the signal; the warmer
-          semiconductor amplifier then supplies robust additional gain."
+        why: |-
+          "A useful rule comes from the noise budget for cascaded amplifiers: once the signal has been given large low-noise gain, the noise of later stages is divided by that gain when referred back to the input. That makes the first high-gain amplifier extremely important. Loss before it is just as serious because it throws away signal before the gain arrives. The cold parametric amplifier is therefore placed close to the device and behind only the components needed to protect and route the signal; the warmer semiconductor amplifier then supplies robust additional gain."
         cards:
           - The resonator, which shifts frequency depending on the qubit's state.
           - The parametric amplifier near the base stage, which provides the first high-gain, low-noise amplification.
@@ -908,23 +875,13 @@ missions:
         task: Take the readout out of the qubit number
         title: Whose error is it
         place: Error & Verification
-        scene: >
-          A diagnostic circuit reports 8 per cent wrong outcomes. Separate calibration
-          experiments estimate about 4 per cent readout error and less than 1 per cent
-          preparation error. Holm asks what can honestly be inferred about the remaining circuit
-          contribution.
+        scene: The first end-to-end diagnostic is in. It reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.
         assumes:
           - errors from independent sources combine
         takeaway: An observed error rate is only a diagnosis after you state the model used to separate preparation, gates and measurement.
         format: CASEBOOK
-        why: >
-          "For small, approximately independent error probabilities, adding the contributions is
-          a useful first-order budget, but it is not an exact law. The 8 per cent observed error
-          therefore suggests that several per cent remain for gate and circuit effects after
-          accounting for readout and preparation. A more careful analysis would model how the
-          errors compose rather than simply subtracting percentages. The educational point is
-          the separation: the number a user sees is not automatically the number a pulse
-          engineer should optimise."
+        why: |-
+          "For small, approximately independent error probabilities, adding the contributions is a useful first-order budget, but it is not an exact law. The 8 per cent observed error therefore suggests that several per cent remain for gate and circuit effects after accounting for readout and preparation. A more careful analysis would model how the errors compose rather than simply subtracting percentages. The educational point is the separation: the number a user sees is not automatically the number a pulse engineer should optimise."
         rebuttals:
           - Readout error is measurable on its own by preparing a known state and reading it straight back.
           - State preparation error is measured the same way and is small on this device.
@@ -944,7 +901,6 @@ missions:
           - Inferred once the other terms are modelled, rather than by subtracting percentages.
           - "Observed total: what the user sees, but not by itself a diagnosis of which component to fix."
         mapping: [0, 1, 2, 3]
-
   - title: The offer with a date on it
     objective: Decide what to share, and when, while somebody else is deciding the same thing.
     briefing: A group in Delft will run your circuit on their device this month, if they get the gate sequence and protocol by Friday.
@@ -964,107 +920,76 @@ missions:
         task: Decide what makes a replication worth the name
         title: What you would need back
         place: Error & Verification
-        scene: >
-          Holm writes down what Delft would have to receive and return for the run to count as a
-          check rather than a courtesy. Because Delft's hardware is different, Ridgeway can
-          share the logical circuit and protocol but not expect Delft to reuse Ridgeway's
-          device-specific microwave calibrations.
+        scene: "An email from Delft is open on Holm's screen: their independent-device slot begins in ten days, and the next opening is a quarter away. Holm starts a list of exactly what Ridgeway would have to send, and what would have to come back."
         assumes:
           - a second measurement is only a check if it could disagree
         takeaway: A useful replication shares enough method to repeat the experiment while keeping independent the choices that are actually being tested.
         format: PROTOCOL
-        why: >
-          "An independent run should reproduce the scientific procedure without needlessly
-          reproducing Ridgeway's hidden assumptions. Delft needs the circuit and enough
-          implementation detail to run the same intended experiment. Ridgeway should ask for raw
-          shots so both groups can examine the result, but it should preserve an analysis path
-          that does not import Ridgeway's fitted discriminator or device-specific calibration.
-          The expected numerical result should also be withheld until Delft has frozen its
-          analysis. Independence is not all-or-nothing: shared instructions define the
-          experiment, while independent calibration and analysis make disagreement informative."
+        why: An independent run should reproduce the scientific procedure without needlessly reproducing Ridgeway's hidden assumptions. Delft needs the circuit and enough implementation detail to run the same intended experiment. Ridgeway should ask for the raw single-shot results so both groups can examine them, but Delft should build its own readout rule and device calibration. The expected numerical result should also be withheld until Delft has frozen its analysis. Shared instructions define the experiment; independent calibration and analysis make disagreement informative.
         rebuttals:
           - The logical circuit and protocol have to go, but Delft must translate them into controls appropriate to its own hardware; copying Ridgeway's analog pulse calibration would defeat part of the independence.
-          - Raw shots have to come back, because the analysis is part of what is being checked.
-          - Importing Ridgeway's fitted calibration into the primary Delft analysis would preserve a common failure mode; a shared-pipeline comparison can be done later as a diagnostic.
+          - The returned observations let both groups examine the result while still allowing the analysis choices to differ.
+          - Importing Ridgeway's fitted rule into Delft's primary analysis would preserve a common failure mode; a shared-pipeline comparison can be done later as a diagnostic.
           - Withholding the expected number prevents an avoidable source of confirmation bias while Delft makes its analysis choices.
         columns:
           - The item
           - Whether it crosses
         scenarios:
           - The logical circuit, preparation/measurement definitions and protocol.
-          - The raw single-shot data from their run.
-          - Ridgeway's discriminator and calibration files.
+          - The raw single-shot results from their run.
+          - Ridgeway's fitted readout rule and device-calibration files.
           - The result Ridgeway expects to see.
         choices:
           - "Goes: the circuit and the information needed to implement the intended operations on Delft's hardware."
-          - "Comes back: the raw shots and enough metadata to analyse them independently."
-          - Stays here, or the two runs share the step that manufactures agreement.
+          - Lets both labs inspect the same evidence without forcing the same analysis.
+          - Keep it local so the second analysis retains a genuinely different failure mode.
           - Withheld until Delft has frozen its own figure, since knowing it changes every fork.
         mapping: [0, 1, 2, 3]
       - group: NET
         task: Distinguish no-cloning from communication
         title: Copying a state is not the same as transferring one
         place: Networks & Security
-        scene: >
-          "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at
-          all: it needs the recipe for preparing its own. An arbitrary unknown state cannot be
-          turned into a classical file that produces two perfect copies, although quantum
-          information can in principle be physically transferred or teleported."
+        scene: Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.
         assumes:
           - classical descriptions can be copied freely, while an arbitrary unknown quantum state cannot be perfectly cloned
         takeaway: The no-cloning theorem forbids making a perfect duplicate of an arbitrary unknown quantum state; it does not forbid transferring quantum information.
         format: CHOICE
-        question: Why can Ridgeway email the circuit description but not email a complete classical description that lets Delft reconstruct an arbitrary unknown prepared state exactly?
+        question: Why can Ridgeway email the preparation instructions but not email a complete classical description that lets Delft reconstruct an arbitrary unknown prepared state exactly?
+        why: "A classical preparation recipe is ordinary information and can be copied without limit. An arbitrary unknown quantum state is different: there is no universal physical operation that takes one copy and produces two perfect copies of it. That is the no-cloning theorem. It does not say quantum information can never travel; a physical quantum system can be transferred. The restriction is that the original cannot remain behind as a second perfect copy. For this replication Delft needs the preparation instructions, not Ridgeway's particular instance of the state."
         choices:
-          - Because any transmitted qubit must decohere, even in a perfect quantum channel.
-          - An unknown state cannot be copied, so only instructions can go.
-          - Because state transfer is impossible unless Ridgeway and Delft are connected by the same physical qubit.
-          - Because measuring enough copies to reconstruct the state would violate energy conservation.
-        answer: An unknown state cannot be copied, so only instructions can go.
-        why: >
-          "A classical circuit description is ordinary information and can be copied without
-          limit. An arbitrary unknown quantum state is different: there is no universal physical
-          operation that takes one copy and produces two perfect copies of it. That is the
-          no-cloning theorem. It does *not* mean quantum information can never travel. A
-          physical quantum system can be sent, or an unknown state can be transferred by quantum
-          teleportation when entanglement and classical communication are available; in either
-          case the original is not left behind as a second perfect copy. For this replication
-          Delft needs the preparation instructions, not Ridgeway's particular instance of the
-          state."
+          - Because an unknown quantum state cannot be perfectly duplicated from one copy.
+          - Because the state contains too much information for any classical file, even if many identical copies were available.
+          - Because a quantum state can never be transferred from one physical system to another.
+          - Because copying the preparation instructions would create a second copy of Ridgeway's original state.
+        answer: Because the state contains too much information for any classical file, even if many identical copies were available.
         rebuttals:
-          - Decoherence limits real channels, but it is not the principle behind no-cloning.
-          - Quantum information can be transferred physically or by teleportation; the restriction is on leaving behind a second perfect copy.
-          - State tomography uses many independently prepared copies and does not violate energy conservation or no-cloning.
+          - The obstacle is not file size. The no-cloning rule applies to an arbitrary unknown state when only the state itself is available.
+          - Quantum information can be physically transferred; the restriction is on producing a second perfect copy while leaving the first intact.
+          - The preparation recipe is classical information and can be copied freely. Delft can use it to prepare a new state of its own.
       - group: SENSE
         task: Decide what goes out on Friday
-        title: What Raghavan sends
+        title: What goes out on Friday
         place: Quantum Sensing
-        scene: >
-          Elena Barros, who ships numbers to a hospital every month, has the least romantic view of this in
-          the building: work goes out when somebody else needs it, and it goes out with its uncertainties.
+        scene: "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does."
         assumes:
           - a result can be shared at different levels of completeness
         takeaway: Sharing a reproducible method before the final claim is settled can create evidence without committing to the final answer.
         format: SCIENCETANK
-        why: >
-          The Delft window is short and the point of using a different device is to create an
-          independent test. Sending the circuit, implementation notes and stated uncertainties
-          does not require Ridgeway to send its expected result or claim that its own number is
-          final. Waiting until every local number is polished forfeits the independent run.
-          Sending the expected value with the method would weaken the check, while publishing
-          before the cross-check turns an opportunity for pre-publication diagnosis into a
-          post-publication dispute.
+        why: |-
+          The Delft window is short and the point of using a different device is to create an independent test. Sending the circuit, implementation notes and stated uncertainties does not require Ridgeway to send its expected result or claim that its own number is final. Waiting until every local number is polished forfeits the independent run. Sending the expected value with the method would weaken the check, while publishing before the cross-check turns an opportunity for pre-publication diagnosis into a post-publication dispute.
         proposals:
-          - { label: A, text: Send the logical circuit, protocol and uncertainties, while withholding Ridgeway's numerical result until Delft freezes its analysis, with every uncertainty stated, and ask for raw shots back. }
-          - { label: B, text: Wait until every local calibration and fidelity number is final before sending anything, and ask Delft for a window next quarter. }
-          - { label: C, text: Send the method and Ridgeway's expected result so Delft can verify that it reproduces the same number }
-          - { label: D, text: Publish Ridgeway's local result first, then invite Delft to check it, then invite replication afterwards. }
-        recommended: { A: 60, B: 15 }
-        evidence: |
-          Delft's window is ten days and the next is a quarter away. Their device is a different design,
-          which is what makes it an independent check. Ridgeway's own result has been measured on one device
-          by one group. The review is in five days. Delft has asked for sequences only, not for results.
-
+          - label: A
+            text: Send the logical circuit, protocol and uncertainties, while withholding Ridgeway's numerical result until Delft freezes its analysis, with every uncertainty stated, and ask for raw shots back.
+          - label: B
+            text: Wait until every local calibration and performance number is final before sending anything, and ask Delft for a window next quarter.
+          - label: C
+            text: Send the method and Ridgeway's expected result so Delft can verify that it reproduces the same number
+          - label: D
+            text: Publish Ridgeway's local result first, then invite Delft to check it, then invite replication afterwards.
+        recommended:
+          A: 60
+          B: 15
+        evidence: Delft's independent-device slot begins in ten days and the next is a quarter away. Their device is a different design, which is what makes it an independent check. Ridgeway's own result has been measured on one device by one group. The external review follows soon after the Delft run. Delft has asked for sequences only, not for results.
   - title: A defect with a date on it
     objective: Trace a fault in a device back to the process that made it.
     briefing: The weak response near 4.55 GHz turns up on three chips, all from the same six weeks.
@@ -1079,39 +1004,48 @@ missions:
     takeaway: A defect in a material shows up months later in somebody else's measurement, which is why the record of what was made when is worth keeping.
     stops:
       - group: FAB
-        task: Say what the feature is
+        task: Which explanation fits all of it?
         title: Something else that absorbs at that frequency
         place: Fabrication & Materials
-        scene: >
-          The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally
-          cycled. It appears on three chips from one processing window and on none of the others.
+        scene: By breakfast Lindqvist has three chips from one processing window lined up on the bench. The same narrow feature appears on all three and shifts after thermal cycling. Chips from every other window are clean. The fabrication log is open beside them.
         assumes:
           - a material can contain flaws that behave as small two-state systems
         takeaway: A narrow, repeatable spectral feature can be used as a fingerprint, but identifying its microscopic cause requires ruling out competing modes and artefacts.
         format: DIAGNOSIS
+        why: |-
+          The evidence strongly favours a device-local material resonance. The feature appears only on chips from one process window, survives changes in shared room-temperature electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit or a generator artefact should have different cross-chip behaviour, while thermal photons usually change linewidths and backgrounds rather than producing the same isolated chip-specific line. A two-level material defect is therefore the leading hypothesis. Calling it specifically a defect in the junction oxide would require more localisation evidence than this spectrum alone provides.
         headline: A narrow absorption sits 60 MHz below one qubit, on three chips from one six-week window.
-        task: Which explanation fits all of it?
         readings:
-          - { zone: Feature, label: Linewidth, value: very narrow, status: alarm }
-          - { zone: Feature, label: Frequency, value: fixed, moves on thermal cycling, status: alarm }
-          - { zone: Chips, label: Where it appears, value: 3 of 14, all one window, status: alarm }
-          - { zone: Qubit, label: T1 when tuned near it, value: falls by 60 per cent, status: alarm }
-          - { zone: Fridge, label: Temperature, value: 11 mK, status: normal }
+          - zone: Feature
+            label: Linewidth
+            value: very narrow
+            status: alarm
+          - zone: Feature
+            label: Frequency
+            value: fixed, moves on thermal cycling
+            status: alarm
+          - zone: Chips
+            label: Where it appears
+            value: 3 of 14, all one window
+            status: alarm
+          - zone: Qubit
+            label: T1 when tuned near it
+            value: falls by 60 per cent
+            status: alarm
+          - zone: Fridge
+            label: Temperature
+            value: 11 mK
+            status: normal
         choices:
-          - { label: A two-level defect in the junction oxide, mechanism: A microscopic two-state defect can absorb resonantly and can shift as its local environment rearranges. }
-          - { label: A second qubit coupling in from the next cell, mechanism: Neighbouring qubits can couple and exchange excitation. }
-          - { label: Thermal photons in the readout resonator, mechanism: Stray photons shift and broaden the response. }
-          - { label: A spurious tone or mixing product in the shared measurement electronics, mechanism: A spurious tone in the generator would appear at a fixed frequency. }
+          - label: A two-level defect in the junction oxide
+            mechanism: A microscopic two-state defect can absorb resonantly and can shift as its local environment rearranges.
+          - label: A second qubit coupling in from the next cell
+            mechanism: Neighbouring qubits can couple and exchange excitation.
+          - label: Thermal photons in the readout resonator
+            mechanism: Stray photons shift and broaden the response.
+          - label: A spurious tone or mixing product in the shared measurement electronics
+            mechanism: A spurious tone in the generator would appear at a fixed frequency.
         answer: A two-level defect in the junction oxide
-        why: >
-          The evidence strongly favours a device-local material resonance. The feature appears
-          only on chips from one process window, survives changes in shared room-temperature
-          electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit
-          or a generator artefact should have different cross-chip behaviour, while thermal
-          photons usually change linewidths and backgrounds rather than producing the same
-          isolated chip-specific line. A two-level material defect is therefore the leading
-          hypothesis. Calling it specifically a defect in the junction oxide would require more
-          localisation evidence than this spectrum alone provides.
         rebuttals:
           - A neighbouring qubit sits at a design frequency and would show on every chip, not three.
           - Thermal photons broaden the response instead of producing a narrow line, and the fridge is at 11 mK.
@@ -1478,26 +1412,30 @@ missions:
         task: Compute the quantity
         title: Four correlations, one number
         place: Error & Verification
-        scene: >
-          Two qubits are entangled and the analyser has four setting pairs loaded. Each shot returns one
-          outcome from each qubit, and the pair either agrees or it does not. Nothing has been run yet.
+        scene: Holm has left one blank line in the review deck for the Bell result. Two entangled qubits are ready, four analyser settings are loaded, and the room is waiting on a number that does not exist yet. Every shot returns two outcomes.
         assumes:
           - a correlation between two detectors can be measured as a number between minus one and one
           - a proportion measured from a finite number of trials scatters around its true value
         takeaway: The CHSH statistic combines four measured correlations; the classical bound and quantum prediction are comparisons made after the data are combined.
         format: TALLY
-        question: >-
-          Acquire the four correlations yourself and combine them. How large is the statistic, and how many
-          shots did it take before it stopped moving?
+        question: Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?
+        answerText: About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.
+        why: |-
+          A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those four values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why a hundred shots per setting can put the combination either side of two and four hundred usually does not. The bound of two belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.
         tally:
-          # The probabilities the entangled state actually produces at these four
-          # setting pairs. The counts are drawn from them, so the statistic
-          # scatters like a measured statistic and settles where the physics says.
           settings:
-            - { label: a with b, pSame: 0.855, sign: 1 }
-            - { label: a with b′, pSame: 0.155, sign: -1 }
-            - { label: a′ with b, pSame: 0.850, sign: 1 }
-            - { label: a′ with b′, pSame: 0.840, sign: 1 }
+            - label: a with b
+              pSame: 0.855
+              sign: 1
+            - label: a with b′
+              pSame: 0.155
+              sign: -1
+            - label: a′ with b
+              pSame: 0.85
+              sign: 1
+            - label: a′ with b′
+              pSame: 0.84
+              sign: 1
           batch: 100
           minShots: 400
           formula: S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)
@@ -1508,22 +1446,7 @@ missions:
           target: 2.78
           tolerance: 0.14
           commit: Report S
-          readyNote: >-
-            Every pair has four hundred shots. Keep going if the number is still wandering — nobody
-            can tell you when it has settled except the number itself.
-        why: >
-          A correlation here is not the fraction of trials that agree; it is that fraction minus
-          the fraction that disagree, which is why it runs from −1 to +1 and why a pair that
-          almost always disagrees contributes a large negative number. Every one of those four
-          values is a proportion from a finite number of shots, so each carries its own scatter,
-          and the scatter shrinks as the square root of the count — which is why a hundred shots
-          per setting can put the combination either side of two and four hundred usually does
-          not. The bound of two belongs to local models satisfying the Bell assumptions; quantum
-          mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the
-          number has stopped moving is the measurement.
-        answerText: >-
-          About 2.78, once every setting pair has several hundred shots behind it. Above the
-          local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.
+          readyNote: Every pair has four hundred shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself.
       - group: NET
         task: Say what the number excludes
         title: What has been ruled out
@@ -1701,8 +1624,8 @@ missions:
           to endorse or dismiss this paper's headline. A public method is more durable than a
           public posture."
         proposals:
-          - { label: A, text: Publish a small-scale validation of the estimator against exact classical results and controlled noise, where the exact answer is known, and say nothing about the rival result. }
-          - { label: B, text: Wait for Delft before saying anything, even though Delft is testing a different question }
+          - { label: A, text: 'Publish a small-scale validation of the estimator against exact classical results and controlled noise, where the exact answer is known, and say nothing about the rival result.' }
+          - { label: B, text: 'Wait for Delft before saying anything, even though Delft is testing a different question' }
           - { label: C, text: Publish a rebuttal asserting that an undiscovered classical algorithm must make the runtime much shorter }
           - { label: D, text: Endorse the nine-thousand-year figure as the definitive classical cost because it is the published state of the art }
         recommended: { A: 55, B: 20 }
@@ -1730,79 +1653,89 @@ missions:
         task: Say what the retraining did
         title: Scoring yourself on your own training set
         place: Control & Readout
-        scene: >
-          Castellan has Ridgeway's own session on screen and both trays of shots beside it. Delft's device
-          beats this one on coherence, on gate error and on readout separation, and reports a circuit
-          fidelity a third lower. The one difference in the two pipelines is which shots the number is
-          measured on.
+        scene: "Delft's message is on the main screen: their hardware has better coherence, lower gate error and cleaner readout, yet their circuit fidelity is a third lower. Castellan puts Ridgeway's two trays of shots beside it. Something in the comparison does not add up."
         assumes:
           - a rule fitted to data describes that data better than it describes new data
           - a labelled calibration set is a sample, and a sample has features of its own
         takeaway: A rule chosen on a sample is scored generously by that sample, so the only honest number comes from data the rule has never seen.
         format: HOLDOUT
-        question: >-
-          Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself,
-          freeze it, and give it shots it has never seen — what does it score then?
+        question: Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?
+        answerText: About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the two per cent it appeared to gain was a feature of that one sample.
+        why: |-
+          A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the two clouds, which the next batch of shots also has, and the spike is a property of four thousand particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.
         holdout:
-          axis: { label: Discriminator threshold, unit: mV, min: -40, max: 40, step: 1 }
-          unit: '%'
+          axis:
+            label: Discriminator threshold
+            unit: mV
+            min: -40
+            max: 40
+            step: 1
+          unit: "%"
           fitLabel: Calibration shots
           testLabel: Shots it has never seen
-          # The trap is authored, not incidental. There is a broad, honest plateau
-          # in the middle and a narrow spike at +14 mV that scores better than
-          # anything else on the calibration set — the noise of that particular
-          # sample, four thousand shots deep. It is the best line on screen while
-          # the player is choosing, and nothing marks it as anything.
           fit:
-            - { at: -40, value: 88.0 }
-            - { at: -20, value: 92.4 }
-            - { at: -10, value: 94.6 }
-            - { at: -6, value: 95.1 }
-            - { at: -3, value: 95.2 }
-            - { at: 0, value: 95.2 }
-            - { at: 2, value: 95.0 }
-            - { at: 8, value: 94.4 }
-            - { at: 12, value: 95.2 }
-            - { at: 14, value: 96.4 }
-            - { at: 16, value: 95.0 }
-            - { at: 20, value: 93.6 }
-            - { at: 30, value: 91.0 }
-            - { at: 40, value: 88.2 }
-          # The same instrument, a different draw of shots. The plateau is still
-          # there, because it is a property of the clouds. The spike is not.
+            - at: -40
+              value: 88
+            - at: -20
+              value: 92.4
+            - at: -10
+              value: 94.6
+            - at: -6
+              value: 95.1
+            - at: -3
+              value: 95.2
+            - at: 0
+              value: 95.2
+            - at: 2
+              value: 95
+            - at: 8
+              value: 94.4
+            - at: 12
+              value: 95.2
+            - at: 14
+              value: 96.4
+            - at: 16
+              value: 95
+            - at: 20
+              value: 93.6
+            - at: 30
+              value: 91
+            - at: 40
+              value: 88.2
           test:
-            - { at: -40, value: 87.6 }
-            - { at: -20, value: 92.0 }
-            - { at: -10, value: 94.2 }
-            - { at: -6, value: 94.8 }
-            - { at: -3, value: 95.0 }
-            - { at: 0, value: 94.9 }
-            - { at: 2, value: 94.6 }
-            - { at: 8, value: 93.8 }
-            - { at: 12, value: 93.2 }
-            - { at: 14, value: 92.6 }
-            - { at: 16, value: 92.2 }
-            - { at: 20, value: 91.4 }
-            - { at: 30, value: 89.2 }
-            - { at: 40, value: 86.8 }
+            - at: -40
+              value: 87.6
+            - at: -20
+              value: 92
+            - at: -10
+              value: 94.2
+            - at: -6
+              value: 94.8
+            - at: -3
+              value: 95
+            - at: 0
+              value: 94.9
+            - at: 2
+              value: 94.6
+            - at: 8
+              value: 93.8
+            - at: 12
+              value: 93.2
+            - at: 14
+              value: 92.6
+            - at: 16
+              value: 92.2
+            - at: 20
+              value: 91.4
+            - at: 30
+              value: 89.2
+            - at: 40
+              value: 86.8
           pass: 94.5
           start: -40
           freeze: Freeze the line
           commit: Report the held-out number
           afterFreeze: Frozen. That is what your line scores on shots it has never been shown.
-        answerText: >-
-          About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the
-          best-scoring line on the calibration shots — reports about 92.6, and the two per cent it
-          appeared to gain was a feature of that one sample.
-        why: >
-          A threshold chosen on a sample is chosen partly on that sample's noise, and noise does
-          not repeat. That is why the middle of the range holds up and the spike does not: the
-          plateau is a property of the two clouds, which the next batch of shots also has, and
-          the spike is a property of four thousand particular records, which it does not. So a
-          score measured where the line was chosen is not a measurement of the classifier at all
-          — it is a measurement of the classifier plus the sample, and it is biased upwards
-          every time, quietly and in the same direction. The cure is procedural rather than
-          clever: keep shots back, freeze the rule, and report what it does on those.
       - group: VER
         task: Sort the fortnight's numbers
         title: What the artefact touches
@@ -1993,27 +1926,20 @@ missions:
         task: Decide what the group does first
         title: Which of the three cannot wait
         place: Networks & Security
-        scene: >
-          Raghavan puts the three on the board. Two of them have already done whatever they are going to do.
+        scene: Within twenty minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.
         assumes:
           - a problem still developing is different from one that has finished
         takeaway: Urgency is a product of ongoing damage, downstream reach and time-to-containment, not simply deadline pressure.
         format: TRIAGE
         question: What gets the group's attention first?
+        why: |-
+          "The fibre cut has stopped the QKD link and cannot be repaired by the laboratory this afternoon; the unfinished block is not yet secret key and can be quarantined. The review pack has a hard deadline but a known workflow and reruns already in progress. The clock discrepancy is different: if the reference has drifted, every new frequency measurement made against it inherits the same scale error, so the affected set grows until the reference is checked or isolated. A repeat comparison can bound that risk quickly, which puts the clock first."
         choices:
           - The clock — everything since the last comparison is unbounded.
           - The cut fibre — because loss of the quantum channel automatically compromises all key material generated earlier in the session.
           - The review pack — because a fixed external deadline always outranks an instrument problem with uncertain scope.
           - The rerun queue — because any unattended computation is more urgent than a reference comparison.
         answer: The clock — everything since the last comparison is unbounded.
-        why: >
-          "The fibre cut has stopped the QKD link and cannot be repaired by the laboratory this
-          afternoon; the unfinished block is not yet secret key and can be quarantined. The
-          review pack has a hard deadline but a known workflow and reruns already in progress.
-          The clock discrepancy is different: if the reference has drifted, every new frequency
-          measurement made against it inherits the same scale error, so the affected set grows
-          until the reference is checked or isolated. A repeat comparison can bound that risk
-          quickly, which puts the clock first."
         rebuttals:
           - The unfinished QKD data are not automatically compromised by the cut; they simply cannot be called secret key until the protocol's authenticated post-processing establishes security.
           - A deadline matters, but the clock can contaminate additional measurements every hour and can be checked quickly.
@@ -2098,21 +2024,13 @@ missions:
         task: Say what the correction has to contain
         title: What a correction is for
         place: Error & Verification
-        scene: >
-          Petrova drafts. The question is whether the correction names the cause or only the number, and
-          whether it goes out before the rerun finishes.
+        scene: The correction window closes today. Petrova has the draft open while the held-out rerun is still running in the next room. If Ridgeway waits for the final number, the window closes; if it files now, the correction must state exactly what is known.
         assumes:
           - a correction is read by people deciding whether to trust the next result
         takeaway: A useful correction tells readers what changed, why it changed, and which conclusions the mechanism can and cannot affect.
         format: PROTOCOL
-        why: >
-          Changing only the headline number leaves other groups unable to recognise the same
-          failure mode in their own analysis. Naming the mechanism — fitting and evaluating the
-          discriminator on the same data — makes the correction actionable. Defining the scope
-          matters just as much because readers need to know which Ridgeway results passed
-          through that step and which did not. The rerun can be labelled preliminary or in
-          progress; completeness is valuable, but waiting past a hard correction deadline would
-          preserve a number the group already knows is biased.
+        why: |-
+          Changing only the headline number leaves other groups unable to recognise the same failure mode in their own analysis. Naming the mechanism — fitting and evaluating the discriminator on the same data — makes the correction actionable. Defining the scope matters just as much because readers need to know which Ridgeway results passed through that step and which did not. The rerun can be labelled preliminary or in progress; completeness is valuable, but waiting past a hard correction deadline would preserve a number the group already knows is biased.
         rebuttals:
           - The number has to be corrected, but a changed number alone does not tell readers what failure mode to look for.
           - Naming the mechanism makes the correction actionable because another group can test whether its own analysis has the same dependency.
@@ -2187,21 +2105,13 @@ missions:
         task: Decide what the group commits to
         title: What each version costs
         place: Networks & Security
-        scene: >
-          Raghavan wants the consequences of both versions written down before anybody signs, so that the
-          group is choosing rather than drifting.
+        scene: Raghavan closes the conference-room door and puts two versions on the screen. One changes the headline before the correction window closes; the other leaves it standing. Before anybody signs, he wants the cost of each choice written underneath it.
         assumes:
           - a decision not to act is also a decision with consequences
         takeaway: When both action and inaction have costs, compare their reversible and irreversible consequences rather than treating silence as the zero-cost option.
         format: CASEBOOK
-        why: >
-          Correcting now costs a smaller headline, an awkward explanation and the possibility
-          that the final rerun moves the number again. Not correcting preserves a value the
-          group already has evidence is biased and lets the correction deadline expire; Delft
-          also has independent data that could surface the issue later. The asymmetry is not
-          simply embarrassment versus no embarrassment. One path preserves the ability to update
-          the scientific record while stating what is still provisional; the other deliberately
-          gives up that option.
+        why: |-
+          Correcting now costs a smaller headline, an awkward explanation and the possibility that the final rerun moves the number again. Not correcting preserves a value the group already has evidence is biased and lets the correction deadline expire; Delft also has independent data that could surface the issue later. The asymmetry is not simply embarrassment versus no embarrassment. One path preserves the ability to update the scientific record while stating what is still provisional; the other deliberately gives up that option.
         rebuttals:
           - A prompt correction can state what is provisional; the cost is visible uncertainty now rather than loss of the ability to correct later.
           - Silence is not cost-free once the deadline closes, because the group would later have to explain both the biased number and the decision to leave it.
@@ -2221,7 +2131,6 @@ missions:
           - Repairs the numerical record but withholds the reusable failure mechanism that would let other groups audit themselves.
           - Treats a localised analysis fault as if it invalidated the entire abstract, sacrificing results that the dependency audit says are unaffected.
         mapping: [0, 1, 2, 3]
-
   - title: What we know, and how well
     objective: State the fortnight's results at the confidence each has earned.
     briefing: The review is this afternoon, and every number on the slides needs its evidence beside it.
@@ -2355,7 +2264,7 @@ interiors:
       rows:
         - { label: Junction resistance, value: 11.4 kΩ, status: normal }
         - { label: Spread across wafer, value: 18 per cent, status: alarm }
-        - { label: Process window, value: spring, oxidation changed, status: high }
+        - { label: Process window, value: 'spring, oxidation changed', status: high }
   CTRL:
     caption: Pulses in, one bit out, and everything that can go wrong between.
     standLine: Twelve qubits, tuned this morning, and a chain of amplifiers to hear them through.
@@ -2366,7 +2275,7 @@ interiors:
         - { label: Qubit 12 frequency, value: 4.61 GHz, status: high }
         - { label: Flip pulse, value: 42 ns, status: normal }
         - { label: Readout fidelity, value: 0.941 held out, status: normal }
-        - { label: Defect, value: 4.55 GHz, avoid, status: alarm }
+        - { label: Defect, value: '4.55 GHz, avoid', status: alarm }
   VER:
     caption: How wrong the machine is, and how you would know.
     standLine: Two error numbers, both honest, answering different questions.
@@ -2377,7 +2286,7 @@ interiors:
         - { label: Benchmarked gate error, value: 1.2 per cent, status: alarm }
         - { label: Best single gate, value: 0.4 per cent, status: normal }
         - { label: Code threshold, value: about 1 per cent, status: high }
-        - { label: Bell value, value: 2.78, rerunning, status: high }
+        - { label: Bell value, value: '2.78, rerunning', status: high }
   SENSE:
     caption: The part of this field that already works for somebody else.
     standLine: A magnetometer, a hospital across the city, and a calibration due at two.

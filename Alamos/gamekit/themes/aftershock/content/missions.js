@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 0,
-        "task": "Send the assessors somewhere first"
+        "task": "Allocate the six assessor-days across the four inspection packages, then check which operational questions the plan can answer."
       }
     ]
   },
@@ -42,7 +42,7 @@ export const MISSIONS = [
       {
         "group": "HAZ",
         "lesson": 0,
-        "task": "Explain 6.6 against 6.8"
+        "task": "Explain what changed between the 6.6 and 6.8 solutions"
       },
       {
         "group": "SAFE",
@@ -95,7 +95,7 @@ export const MISSIONS = [
       {
         "group": "SAFE",
         "lesson": 2,
-        "task": "Answer the demolition question"
+        "task": "Spend the five-day investigation budget on evidence that can change the town-wide decision about the ground beneath Marina Court and its neighbours."
       }
     ]
   },
@@ -109,12 +109,12 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 3,
-        "task": "Find where the load path stops"
+        "task": "Assemble the horizontal load path from panel inertia to the ground, then identify the required transfer whose failure opens that path."
       },
       {
         "group": "MAT",
         "lesson": 0,
-        "task": "Test what the connection can carry"
+        "task": "Compare the measured anchor capacity with the estimated earthquake demand"
       },
       {
         "group": "SAFE",
@@ -133,7 +133,7 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 4,
-        "task": "Say what is actually unresolved"
+        "task": "Inspect what backs each recorded claim, then spend the single direct-verification visit before the placard review."
       },
       {
         "group": "HAZ",
@@ -205,7 +205,7 @@ export const MISSIONS = [
       {
         "group": "SAFE",
         "lesson": 5,
-        "task": "Say what each part of the cordon is for"
+        "task": "Review the backing for each cordon segment, then spend one field verification before tonight's boundary map is reissued."
       },
       {
         "group": "GEO",
@@ -234,7 +234,7 @@ export const MISSIONS = [
       {
         "group": "MAT",
         "lesson": 2,
-        "task": "Work out what the crack is"
+        "task": "Choose the leading hypothesis and the check that would distinguish it"
       },
       {
         "group": "SAFE",
@@ -258,7 +258,7 @@ export const MISSIONS = [
       {
         "group": "MAT",
         "lesson": 3,
-        "task": "Choose what to test on an old wall"
+        "task": "Spend the listed-façade disturbance allowance on the test that can actually support the proposed anchor design."
       },
       {
         "group": "SEIS",
@@ -277,7 +277,7 @@ export const MISSIONS = [
       {
         "group": "SEIS",
         "lesson": 5,
-        "task": "Say what a mis-sited reference does"
+        "task": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised."
       },
       {
         "group": "GEO",
@@ -301,7 +301,7 @@ export const MISSIONS = [
       {
         "group": "SAFE",
         "lesson": 7,
-        "task": "Decide what the office does first"
+        "task": "Keep one incident under your own engineering attention and delegate the others with an owner, a first action and a return condition."
       },
       {
         "group": "GEO",
@@ -330,7 +330,7 @@ export const MISSIONS = [
       {
         "group": "MAT",
         "lesson": 4,
-        "task": "Put a number on what a stone column does"
+        "task": "Quantify the change in cone resistance without turning it into a false safety factor"
       },
       {
         "group": "SAFE",
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 10,
-        "task": "Decide which of the fortnight's practices survives"
+        "task": "Choose the permanent practice that closes the repeated blind spot"
       }
     ]
   }

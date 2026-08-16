@@ -414,6 +414,217 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         }
       }
     }
+    // ---- the twelve from FORMATS.md.
+    //
+    // The importer checks all of this at import time. It is re-asserted here
+    // because content can be hand-edited afterwards and because three of the
+    // games predate the book format — and because the failure mode of every one
+    // of these is silent: a board on which every move passes renders perfectly,
+    // grades perfectly, and teaches the opposite of what it was written for.
+    const INST = { TRIGGER: 'trigger', VALUE: 'value', CLOUD: 'cloud', ALLOCATE: 'allocate',
+      TRACE: 'trace', ATTEST: 'attest', CONTROL: 'control', TRIANGULATE: 'triangulate',
+      DEGENERACY: 'degeneracy', CHAIN: 'chain', BALANCE: 'balance', VERIFY: 'verify',
+      PROPAGATE: 'propagate', STRESS: 'stress', DELEGATE: 'delegate', FLY: 'fly',
+      RESIDUAL: 'residual', INJECT: 'inject', ROUTE: 'route' };
+    if(INST[kind]){
+      const b = l.game?.[INST[kind]];
+      if(!b) fail(`${at}: ${kind} with no \`${INST[kind]}\` block — it renders un-answerable`);
+      else if(!String(l.game?.answer ?? '').trim()){
+        fail(`${at}: ${kind} with no answer text — the verdict cannot say what was right`);
+      } else {
+        const num = (v) => Number.isFinite(+v);
+        if(kind === 'TRIGGER'){
+          const top = Math.max(...(b.stream ?? []).map(x => +x.value));
+          if(!((b.conditions ?? []).length >= 2)) fail(`${at}: a trigger needs at least two stages`);
+          if(!(+b.scale?.max > top)) fail(`${at}: every trigger threshold fires — the scale has to`
+            + ` reach above the stream's highest value (${top})`);
+          for(const c of b.conditions ?? []){
+            if(!(b.stream ?? []).some(x => +x.hoursLeft >= +c.leadHours)){
+              fail(`${at}: trigger stage "${c.label}" needs ${c.leadHours} h of lead and no update`
+                + ' arrives with that much left');
+            }
+          }
+        }
+        if(kind === 'VALUE'){
+          const total = (b.options ?? []).reduce((n, o) => n + +o.cost, 0);
+          if(!(total > +b.budget?.amount)) fail(`${at}: the whole value board is affordable`);
+          if(!(b.options ?? []).some(o => o.decisive)) fail(`${at}: no value option is decisive`);
+          if(new Set((b.options ?? []).map(o => o.axis)).size < 2){
+            fail(`${at}: every value option asks about the same axis`);
+          }
+        }
+        if(kind === 'CLOUD'){
+          if(!(b.actions ?? []).some(a => a.effect === 'narrow')){
+            fail(`${at}: a cloud with no narrowing action cannot be answered`);
+          }
+          if(!(+b.pass > 0 && +b.pass < 1)) fail(`${at}: a cloud pass is a fraction between 0 and 1`);
+        }
+        if(kind === 'ALLOCATE'){
+          const total = (b.items ?? []).reduce((n, i) => n + +i.cost, 0);
+          if(!(total > +b.pool?.amount)) fail(`${at}: the whole allocation board is affordable —`
+            + ' nothing is being traded away');
+          if(!(b.answers ?? []).some(q => q.required)) fail(`${at}: no allocation answer is required`);
+          if(!(b.answers ?? []).some(q => !q.required)) fail(`${at}: every allocation answer is`
+            + ' required — there is nothing the plan may forgo');
+          const prot = new Set((b.items ?? []).filter(i => i.protected).map(i => String(i.id)));
+          for(const q of (b.answers ?? []).filter(x => x.required)){
+            if((q.requires ?? []).every(r => prot.has(String(r)))){
+              fail(`${at}: the required answer "${q.question}" is covered by the protected items`
+                + ' alone — every plan passes');
+            }
+          }
+        }
+        if(kind === 'TRACE'){
+          const sharing = (b.channels ?? []).filter(c =>
+            (c.depends ?? []).map(String).includes(String(b.target)));
+          if(sharing.length < 2) fail(`${at}: fewer than two trace channels share the target —`
+            + ' there is no common mode');
+          if(!((b.independent ?? []).length >= 1)) fail(`${at}: a trace with no independent channel`
+            + ' cannot be answered');
+        }
+        if(kind === 'ATTEST'){
+          const wanted = (b.claims ?? []).filter(c => c.critical && !c.backed);
+          if((b.claims ?? []).length < 4) fail(`${at}: an attest board needs at least four claims`);
+          if(!wanted.length) fail(`${at}: every critical claim is backed — closing blind passes`);
+          if(wanted.length > +b.checks) fail(`${at}: ${wanted.length} claims must be held and only`
+            + ` ${b.checks} verifications are allowed`);
+          if(!(+b.checks < (b.claims ?? []).length)) fail(`${at}: the attest budget covers the whole`
+            + ' list — there is no decision about where to look');
+        }
+        if(kind === 'CONTROL'){
+          if(!(Math.abs(+b.response) > (+b.noise || 0) * 3)){
+            fail(`${at}: the control response is not clear of its own noise`);
+          }
+          if(!(b.variables ?? []).some(v => String(v.id) === String(b.truth))){
+            fail(`${at}: the control truth is not one of its variables`);
+          }
+        }
+        if(kind === 'TRIANGULATE'){
+          for(const x of b.stations ?? []){
+            const real = Math.hypot(+x.x - +b.truth.x, +x.y - +b.truth.y);
+            if(Math.abs(real - +x.distance) > +b.tolerance){
+              fail(`${at}: station "${x.label}" ring misses the answer by`
+                + ` ${Math.abs(real - +x.distance).toFixed(2)}`);
+            }
+          }
+          if(b.systematic && !(Math.abs(+b.systematic.delta) > +b.tolerance)){
+            fail(`${at}: the systematic is smaller than the tolerance — correcting it changes nothing`);
+          }
+        }
+        if(kind === 'DEGENERACY'){
+          const far = (b.locus ?? []).filter(p => Math.abs(+p.a - +b.truth.a) > +b.tolerance.a
+            || Math.abs(+p.b - +b.truth.b) > +b.tolerance.b);
+          if(far.length < 3) fail(`${at}: the first locus barely leaves the answer tolerance — the`
+            + ' measurement is not degenerate');
+          if(!((b.second?.locus ?? []).length >= 3)) fail(`${at}: a degeneracy needs a second locus`);
+        }
+        if(kind === 'CHAIN'){
+          if(String(b.governing) === String(b.distractor)){
+            fail(`${at}: the chain's distractor is its governing link`);
+          }
+          if(String(b.governing) === String((b.order ?? [])[0])){
+            fail(`${at}: the chain is governed by its own first link`);
+          }
+          if(!(b.order ?? []).map(String).includes(String(b.governing))){
+            fail(`${at}: the chain's governing link is not in its path`);
+          }
+        }
+        if(kind === 'BALANCE'){
+          // A stream marked `countable: false` is a different quantity — a
+          // purity among mass flows — and is deliberately outside the ledger.
+          const flow = (b.streams ?? []).filter(x => x.countable !== false);
+          const all = flow.reduce((n, x) => n + +x.value, 0);
+          const obvious = flow.filter(x => !x.hidden).reduce((n, x) => n + +x.value, 0);
+          if(Math.abs(all - +b.total.amount) > +b.tolerance){
+            fail(`${at}: the balance does not close even when everything is counted`);
+          }
+          if(!(Math.abs(obvious - +b.total.amount) > +b.tolerance)){
+            fail(`${at}: leaving the hidden term out of the balance still passes`);
+          }
+        }
+        if(kind === 'VERIFY'){
+          const p = b.prediction ?? {};
+          if(!num(b.truth) || +b.truth < +p.min || +b.truth > +p.max){
+            fail(`${at}: the verify truth is outside the range the player can predict`);
+          } else if(!(+p.min / +b.truth < +b.passRatio[0] || +p.max / +b.truth > +b.passRatio[1])){
+            fail(`${at}: every prediction in the verify range passes`);
+          }
+        }
+        if(kind === 'PROPAGATE'){
+          const share = (x) => Math.abs(+x.exponent) * +x.sigmaFrac;
+          const worst = (b.inputs ?? []).reduce((a, x) => (share(x) > share(a) ? x : a),
+            (b.inputs ?? [])[0]);
+          if(String(worst?.id) !== String(b.dominant)){
+            fail(`${at}: the propagate dominant term is not the widest contribution`);
+          }
+          const bigExp = (b.inputs ?? []).reduce((a, x) =>
+            (Math.abs(+x.exponent) > Math.abs(+a.exponent) ? x : a), (b.inputs ?? [])[0]);
+          if(String(bigExp?.id) === String(b.dominant)){
+            fail(`${at}: ranking by exponent alone answers the propagate — no lesson in it`);
+          }
+        }
+        if(kind === 'STRESS'){
+          const a = b.assumption ?? {};
+          const survivors = (b.candidates ?? []).map(c => String(c.id))
+            .filter(id => +((b.feasible ?? {})[id] ?? -Infinity) <= +a.min);
+          if(!(survivors.length === 1 && survivors[0] === String(b.robust))){
+            fail(`${at}: ${survivors.length} candidate(s) survive the whole stress range —`
+              + ' exactly one must, and it must be the robust one');
+          }
+          const at2 = (id) => +(((b.scores ?? {})[id] ?? {})[b.optimiseOn] ?? NaN);
+          const ids = (b.candidates ?? []).map(c => String(c.id));
+          const best = ids.reduce((x, y) => (at2(y) < at2(x) ? y : x), ids[0]);
+          if(best === String(b.robust)){
+            fail(`${at}: the robust candidate also wins on ${b.optimiseOn} at the nominal`);
+          }
+        }
+        if(kind === 'DELEGATE'){
+          const urgent = (b.problems ?? []).filter(p => p.trend === 'rising' && p.irreversible);
+          if(urgent.length !== 1) fail(`${at}: ${urgent.length} problems are rising toward`
+            + ' something irreversible — exactly one is what makes an order');
+          const mine = (b.problems ?? []).filter(p => p.delegable === false);
+          if(mine.length !== 1) fail(`${at}: ${mine.length} problems need the player's own`
+            + ' judgement — exactly one is what command keeps');
+          else if(String(mine[0].id) !== String(b.first)){
+            fail(`${at}: what command keeps is not the problem marked \`delegable: false\``);
+          }
+          if(!(b.problems ?? []).some(p => p.trend !== 'rising' && p.loud)){
+            fail(`${at}: no delegate problem is loud and stable — the alarm and the priority`
+              + ' are then the same thing');
+          }
+        }
+        if(kind === 'FLY'){
+          const end = +b.target + (+b.accel * +b.pulse.min * +b.pulse.min) / 2;
+          if(!(end - +b.target > +b.tolerance)){
+            fail(`${at}: braking at the fly target itself lands inside the tolerance, so waiting`
+              + ' until it arrives is a correct answer');
+          }
+        }
+        if(kind === 'RESIDUAL'){
+          const best = (b.fits ?? []).reduce((a, f) => (+f.rms < +a.rms ? f : a), (b.fits ?? [])[0]);
+          if(String(best?.id) === String(b.accept)){
+            fail(`${at}: the lowest-RMS fit is the one to accept — nobody has to look at the field`);
+          }
+        }
+        if(kind === 'INJECT'){
+          const byCount = (b.configs ?? []).reduce((a, c) =>
+            (+c.detections > +a.detections ? c : a), (b.configs ?? [])[0]);
+          if(String(byCount?.id) === String(b.best)){
+            fail(`${at}: the inject configuration with the most detections is also the best on`
+              + ` ${b.metric?.label} — counting detections answers it`);
+          }
+        }
+        if(kind === 'ROUTE'){
+          const marks = (b.stops ?? []).map(x => String(x.landmark).toLowerCase().trim());
+          if(new Set(marks).size !== marks.length){
+            fail(`${at}: two route compartments share a landmark`);
+          }
+          if(!((b.order ?? []).indexOf(String(b.resumeAt)) > +b.interruptAfter)){
+            fail(`${at}: the route resumes where the player had already been`);
+          }
+        }
+      }
+    }
     if(kind === 'BALLPARK'){
       const spec = content.BALLPARK_CALCS?.[`${group}-${l.day}`];
       if(!spec){

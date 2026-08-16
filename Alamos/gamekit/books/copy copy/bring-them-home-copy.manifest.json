@@ -1,0 +1,4486 @@
+{
+ "theme": "bring_them_home",
+ "book": "books/bring-them-home.yml",
+ "rows": [
+  {
+   "id": "theme.subtitle",
+   "original": "Flight Director · Lunar Return Mission",
+   "readOnly": false
+  },
+  {
+   "id": "group.NAV.desc",
+   "original": "Kinematics, forces, gravity, trajectories, and navigation evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "group.ELEC.desc",
+   "original": "Voltage, current, resistance, batteries, generation, and electrical faults.",
+   "readOnly": false
+  },
+  {
+   "id": "group.THERM.desc",
+   "original": "Heat transfer, gas behavior, pressure, flow, and life-support transport.",
+   "readOnly": false
+  },
+  {
+   "id": "group.COMMS.desc",
+   "original": "Radio waves, link budgets, pointing, optics, and signal timing.",
+   "readOnly": false
+  },
+  {
+   "id": "group.STRUCT.desc",
+   "original": "Torque, angular motion, oscillations, resonance, and structural response.",
+   "readOnly": false
+  },
+  {
+   "id": "group.INTEG.desc",
+   "original": "Uncertainty, competing constraints, robust decisions, and final readiness.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.role",
+   "original": "Guidance Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.bio",
+   "original": "Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.q",
+   "original": "How does Reyes tell a real trajectory change from a measurement artefact?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.a",
+   "original": "By seeing whether independent sources moved, or only one",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.0",
+   "original": "By re-running the same navigation solution with much tighter tolerances",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.1",
+   "original": "By waiting for the next scheduled navigation update",
+   "readOnly": false
+  },
+  {
+   "id": "roster.reyes.quiz.0.wrong.2",
+   "original": "By comparing the result against the pre-launch plan",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.role",
+   "original": "Power Systems Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.bio",
+   "original": "Reads voltage, current, power, and heat as one energy system rather than isolated meters.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.quiz.0.q",
+   "original": "Why does Shah read voltage, current and heat as one system?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.quiz.0.a",
+   "original": "They are three views of one energy budget",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.quiz.0.wrong.0",
+   "original": "Three separate instruments together are more accurate than any one of them",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.quiz.0.wrong.1",
+   "original": "Heat is the only quantity that can be measured directly in flight",
+   "readOnly": false
+  },
+  {
+   "id": "roster.shah.quiz.0.wrong.2",
+   "original": "The three meters share a single power supply",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.role",
+   "original": "Thermal and Life Support Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.bio",
+   "original": "Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.quiz.0.q",
+   "original": "What does Brooks mean by asking whether hardware is transporting what it should?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.quiz.0.a",
+   "original": "Power to a fan is not proof that air is moving",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.quiz.0.wrong.0",
+   "original": "Hardware telemetry becomes unreliable during a power-down and cannot be trusted",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.quiz.0.wrong.1",
+   "original": "Transport rates can only be measured on the ground",
+   "readOnly": false
+  },
+  {
+   "id": "roster.brooks.quiz.0.wrong.2",
+   "original": "The crew cannot hear whether a fan is running",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.role",
+   "original": "Communications Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.bio",
+   "original": "Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.quiz.0.q",
+   "original": "Why does Ito treat received power as only part of a link diagnosis?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.quiz.0.a",
+   "original": "Pointing, range and a transmitter fault all look the same in it",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.quiz.0.wrong.0",
+   "original": "Received power is sampled too slowly to be useful during a fast fade",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.quiz.0.wrong.1",
+   "original": "Power readings are quantised too coarsely at long range",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ito.quiz.0.wrong.2",
+   "original": "Only frequency measurements are calibrated",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.role",
+   "original": "Dynamics and Structures Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.bio",
+   "original": "Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.q",
+   "original": "Why does Mensah care about the frequency something is shaken at, not just how hard?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.a",
+   "original": "A structure answers strongly only near its own natural frequency",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.wrong.0",
+   "original": "Forcing at high frequency always does more damage than forcing at low frequency",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.wrong.1",
+   "original": "Frequency determines how far the vibration travels through the hull",
+   "readOnly": false
+  },
+  {
+   "id": "roster.mensah.quiz.0.wrong.2",
+   "original": "Accelerometers only respond above a threshold frequency",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.role",
+   "original": "Mission Integration Lead",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.bio",
+   "original": "Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.quiz.0.q",
+   "original": "What is Carter guarding against by demanding independent evidence?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.quiz.0.a",
+   "original": "Two instruments sharing a step can be wrong together",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.quiz.0.wrong.0",
+   "original": "Crew reports become unreliable when the people making them are under stress",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.quiz.0.wrong.1",
+   "original": "A single instrument cannot be calibrated in flight",
+   "readOnly": false
+  },
+  {
+   "id": "roster.carter.quiz.0.wrong.2",
+   "original": "Independent teams work faster than one large team",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitaker.role",
+   "original": "Trajectory Officer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitaker.bio",
+   "original": "Fits trajectories to whatever tracking exists, which on a bad shift is three\nnumbers taken hours apart. A fit that matches the data he has is easy; a fit\nthat predicts the next observation is the only kind he will sign.\n\nHe treats residuals as the real output. A pattern in what the model got\nwrong points at an unmodelled force or a clock error, and both of those have\nhidden themselves inside a good-looking fit before.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.whitaker.quiz.0.q",
+   "original": "Why does Whitaker judge a trajectory fit by its residuals rather than by how closely it matches the tracking?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitaker.quiz.0.a",
+   "original": "Structure in the errors shows a force or a clock the fit is hiding",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitaker.quiz.0.wrong.0",
+   "original": "Residuals are the only quantity the tracking stations report back to the room",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitaker.quiz.0.wrong.1",
+   "original": "A fit with small residuals always has small uncertainty",
+   "readOnly": false
+  },
+  {
+   "id": "roster.whitaker.quiz.0.wrong.2",
+   "original": "Residuals convert range measurements into velocity",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferreira.role",
+   "original": "Electrical Load Officer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferreira.bio",
+   "original": "Keeps the power budget, which during this flight means keeping a list of\neverything aboard that consumes energy and what happens the hour after it is\nswitched off.\n\nHer rule is that no load is switched off in isolation. A heater turned off to\nsave amp-hours becomes a thermal problem that costs more amp-hours to\nreverse, and the ledger has to be kept across systems rather than within one.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.ferreira.quiz.0.q",
+   "original": "Why does Ferreira refuse to evaluate a load in isolation?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferreira.quiz.0.a",
+   "original": "Switching one off moves the cost somewhere else",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferreira.quiz.0.wrong.0",
+   "original": "Every load aboard draws the same current",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferreira.quiz.0.wrong.1",
+   "original": "Loads can only be measured while the fuel cells are running",
+   "readOnly": false
+  },
+  {
+   "id": "roster.ferreira.quiz.0.wrong.2",
+   "original": "A load's cost is fixed by its rating rather than by its use",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.role",
+   "original": "Life Support Engineer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.bio",
+   "original": "Works the three things a sealed cabin runs out of — heat, breathable gas and\nwater — and the ways they interfere with each other. Cooling the cabin\ncondenses water onto the coldest surfaces, and the coldest surfaces are\nusually the electronics.\n\nShe measures in more than one place on principle. A single cabin sensor\nreports the air beside itself, and a compartment with poor circulation can be\nperfectly comfortable at the sensor and dangerous two metres away.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.novak.quiz.0.q",
+   "original": "Why does Novak insist on carbon dioxide readings from several cabin locations?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.a",
+   "original": "With poor circulation the gas is not uniform, so a sensor reads its own corner",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.wrong.0",
+   "original": "Sensors drift too quickly to be trusted individually",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.wrong.1",
+   "original": "The crew cannot reach the primary sensor while the module is powered down for the test",
+   "readOnly": false
+  },
+  {
+   "id": "roster.novak.quiz.0.wrong.2",
+   "original": "Multiple readings are averaged to remove instrument noise",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haldane.role",
+   "original": "Link Analyst",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haldane.bio",
+   "original": "Accounts for every decibel between the spacecraft transmitter and the ground\nreceiver. A fade is never mysterious to him; it is one term in a budget that\nchanged, and the work is finding which.\n\nRange, antenna pointing, receiver bandwidth and transmitter health all reduce\nthe same received power, and they are told apart by what else changed at the\nsame moment rather than by the signal level itself.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.haldane.quiz.0.q",
+   "original": "How does Haldane separate a pointing problem from a transmitter failure?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haldane.quiz.0.a",
+   "original": "By what changed alongside it — attitude, range and schedule leave traces",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haldane.quiz.0.wrong.0",
+   "original": "A transmitter failure always removes the carrier completely",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haldane.quiz.0.wrong.1",
+   "original": "Pointing errors change the frequency and failures do not",
+   "readOnly": false
+  },
+  {
+   "id": "roster.haldane.quiz.0.wrong.2",
+   "original": "The received power alone identifies the cause without any other measurement",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okoye.role",
+   "original": "Structural Dynamics Engineer",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okoye.bio",
+   "original": "Studies how a spacecraft responds to being pushed at particular rates. A\nstructure has frequencies at which a small repeated force produces a large\nmotion, and hardware that is perfectly strong at rest can fail there.\n\nHe never accepts a single accelerometer as a description of a mode. One\nsensor sits at one point, and a point that happens to sit at a node reads\nalmost nothing while the panel beside it moves.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.okoye.quiz.0.q",
+   "original": "Why will Okoye not characterise a vibration mode from one accelerometer?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okoye.quiz.0.a",
+   "original": "At a still point of that mode there is nothing to feel",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okoye.quiz.0.wrong.0",
+   "original": "Accelerometers cannot measure below one hertz",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okoye.quiz.0.wrong.1",
+   "original": "A single sensor cannot record frequency, only amplitude",
+   "readOnly": false
+  },
+  {
+   "id": "roster.okoye.quiz.0.wrong.2",
+   "original": "One sensor is enough only if the pump speed is constant",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.role",
+   "original": "Flight Dynamics Integrator",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.bio",
+   "original": "Sits between the back rooms and the loop, and her job is the one nobody else\nhas: deciding which of six correct answers the flight director hears first.\n\nShe keeps the anomaly log, because in a fast failure the expensive mistake is\nnot a wrong number but two rooms acting on different versions of the same\nnumber an hour apart.",
+   "readOnly": true
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.q",
+   "original": "What does Lindqvist treat as the main risk during a fast-moving failure?",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.a",
+   "original": "Two teams working from figures that disagree",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.0",
+   "original": "A back room refusing to give an estimate at all",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.1",
+   "original": "The crew asking questions over the loop",
+   "readOnly": false
+  },
+  {
+   "id": "roster.lindqvist.quiz.0.wrong.2",
+   "original": "Telemetry arriving faster than it can be plotted",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Calibration.def",
+   "original": "The correction between what an instrument reads and what is true, established against something known. A shared calibration is why two instruments can be wrong together.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Common-mode error.def",
+   "original": "A shared error that makes several measurements agree for the same wrong reason.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Doppler shift.def",
+   "original": "A frequency change caused by relative motion between source and observer.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Parallax.def",
+   "original": "The apparent shift of a nearby object against a distant background when the viewpoint moves. With a known baseline it gives a distance.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Power.def",
+   "original": "The rate at which energy is transferred or used.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Resonance.def",
+   "original": "Large oscillation produced when forcing is near a system natural frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Scrubber.def",
+   "original": "The unit that removes carbon dioxide from the cabin air. It cleans only the air that reaches it.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.State vector.def",
+   "original": "A compact description of position and velocity at one time.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Torque.def",
+   "original": "The rotational effect of a force applied with a lever arm.",
+   "readOnly": false
+  },
+  {
+   "id": "glossary.Transponder.def",
+   "original": "The box aboard the spacecraft that answers a radio pulse from the ground, which is what makes timing the round trip a distance measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.title",
+   "original": "The Failure",
+   "readOnly": false
+  },
+  {
+   "id": "m01.objective",
+   "original": "Create a trusted state vector and a prioritized anomaly list before commanding the crew.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.briefing",
+   "original": "A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.stake",
+   "original": "The bang was four minutes ago. Commander Hale reported it before any instrument did, which is the first thing that should worry you. Now three consoles hold numbers that contradict each other: one bus reads zero, the guidance computer has restarted with nothing loaded, and several cabin-pressure channels dropped together inside the same second. The integration lead, Evelyn Carter, is already saying that channels dropping together are one fault and not three. This shift you decide what is happening to the vehicle, get one agreed picture of it, and set how this room will work for the next five days. Hale, Ruiz and Sato can hear every word of this.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.takeaway",
+   "original": "Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.title",
+   "original": "What failed: the spacecraft or the sensors?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.task",
+   "original": "Which explanation fits the digital alarms, independent physical checks, and shared electronics?",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.place",
+   "original": "Mission Control",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.scene",
+   "original": "Nine minutes after the bang, several digital cabin-pressure channels drop together inside the same second. Before the crew spends oxygen and time hunting a leak, the panel has to be read as one system.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.takeaway",
+   "original": "Three readouts are not three independent measurements when they share the same electronics.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.assumes.0",
+   "original": "a gauge can fail without the thing it measures changing",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.headline",
+   "original": "Mission Control receives a sudden cabin-pressure warning on several digital channels.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.why",
+   "original": "Three readouts are not three independent measurements when they share a reference circuit. A shift in that one voltage moves all of them at once, in the same direction, in the same second — which is what the panel shows and what a real leak does not do. The evidence that owes nothing to those electronics agrees: the mechanical gauge is plumbed straight to the cabin and is steady, and the acoustic monitor hears nothing. The reference voltage itself has shifted low, which names the fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.0",
+   "original": "Real cabin leak",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.0.mechanism",
+   "original": "Cabin gas is escaping, so independent pressure evidence should also move.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.1",
+   "original": "Common reference failure",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s1.choices.1.mechanism",
+   "original": "A shared electrical reference biases several digital sensors in the same direction.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2",
+   "original": "One bad pressure sensor",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.2.mechanism",
+   "original": "A single sensor has failed while the others remain independent and correct.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3",
+   "original": "Communications corruption",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.choices.3.mechanism",
+   "original": "The radio link is scrambling otherwise valid spacecraft data.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.0",
+   "original": "Escaping gas would move the mechanical gauge too, because that gauge needs no electronics at all. It is steady.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.1",
+   "original": "One failed sensor moves one channel. Three channels dropping in the same second is a shared cause, not a coincidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s1.rebuttals.2",
+   "original": "Corrupted telemetry would show as bad packets, and the radio link is clean. The numbers are arriving intact and saying something wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.title",
+   "original": "Build the first state estimate",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s2.place",
+   "original": "Telemetry Analysis Room",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.scene",
+   "original": "Three consoles hold contradictory numbers. One bus reads zero, the guidance platform has restarted with no record of what it saw, and nothing has been written down in an order anyone can reconstruct.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.takeaway",
+   "original": "A good emergency command works across uncertainty rather than assuming it away.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.assumes.0",
+   "original": "a number without its units and its time is not a measurement",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.why",
+   "original": "A state estimate is only worth having if it survives being wrong, and the order is what makes that possible. Telemetry across the failure is overwritten within minutes, so it is frozen before anything is computed from it. Units, timestamps and calibration come next, because a fit across mixed clocks produces a confident answer that is wrong. Estimates then carry uncertainties rather than single values. And the commands that follow are the ones whose benefit holds across every state the data still allows.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.0",
+   "original": "Preserve the telemetry first. It is the only step with a deadline set by something other than the crew — the buffers overwrite whether or not anybody is ready.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.1",
+   "original": "Check units, timestamps and shared dependencies second. This is where a common-mode failure becomes visible instead of being fitted.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.2",
+   "original": "Build the estimates third, with uncertainties attached. A state without an uncertainty cannot be argued with or tested.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.rebuttals.3",
+   "original": "Command last, and only where the benefit survives the whole range of states still consistent with the data.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.0",
+   "original": "Freeze and preserve the pre- and post-failure telemetry.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.1",
+   "original": "Verify units, timestamps, calibration states, and shared dependencies.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.2",
+   "original": "Construct position, velocity, attitude, power, pressure, and temperature estimates with uncertainties.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s2.cards.3",
+   "original": "Issue only commands whose benefits remain robust across the plausible states.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.title",
+   "original": "Spend the first ten minutes",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.task",
+   "original": "Ten minutes to the next tracking pass. What does the flight director do first?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.place",
+   "original": "Spacecraft Systems Console",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.scene",
+   "original": "Four controllers, a crew flying a vehicle that is venting something, and ten minutes to the next tracking pass. Every subsystem wants the loop, and each believes its own problem is the one that kills the crew.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.takeaway",
+   "original": "Attention is a scarce physical resource during a fast-moving systems failure.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.assumes.0",
+   "original": "two rooms acting on different versions of one number is worse than either acting alone",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.question",
+   "original": "Ten minutes to the next tracking pass. What does the flight director do first?",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.why",
+   "original": "Attention is a physical resource in an emergency, the same way propellant is, and the first decision is what spends it. Four controllers are already working one failure from four sets of numbers. Until there is a single record and a single command authority, every analysis that follows can be done twice and contradicted once — and the crew executes whichever version reaches them first. Organising the room is not a delay before the work. It is what makes the work count once.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.0",
+   "original": "Open one anomaly log and one command authority.",
+   "readOnly": true
+  },
+  {
+   "id": "m01.s3.choices.1",
+   "original": "Reconstruct the electrical and pressure timeline.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.2",
+   "original": "Verify the trajectory and attitude independently.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.choices.3",
+   "original": "Ask every subsystem for a complete report at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.0",
+   "original": "The electrical and pressure timeline is the first real analysis, and it is exactly what the log exists to hold. Start it second and it survives the shift change.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.1",
+   "original": "Independent trajectory verification decides whether the vehicle can come home. It is needed before the burn, not before the room is organised.",
+   "readOnly": false
+  },
+  {
+   "id": "m01.s3.rebuttals.2",
+   "original": "Six complete subsystem reports arrive after the tracking pass and consume the ten minutes that were supposed to prepare for it.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.title",
+   "original": "Find the Spacecraft",
+   "readOnly": false
+  },
+  {
+   "id": "m02.objective",
+   "original": "Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.briefing",
+   "original": "Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.stake",
+   "original": "Nine hours after the bang, and the station carrying the whole solution sets in forty minutes. The guidance lead, Camila Reyes, will not sign the trajectory until she has one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going, and buy the next observation. Fitting the measurements together is the job, and only one station is still up. Her trajectory officer, Dale Whitaker, wants a number now so the room can start planning the correction. Reyes wants the right number. They are both right, and there are forty minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.takeaway",
+   "original": "Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.title",
+   "original": "Which measurement constrains what?",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.task",
+   "original": "Match each quantity the state estimate needs to the measurement that provides it.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.place",
+   "original": "Deep-Space Tracking Station",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scene",
+   "original": "The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt from whatever measurements can still be taken. The room has to say what each type buys before it schedules any of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.takeaway",
+   "original": "Navigation is a reconstruction from partial projections.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s1.assumes.0",
+   "original": "describing where something is and how it is moving takes six numbers",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.why",
+   "original": "Navigation is a reconstruction from partial projections. Each measurement type fixes a different part of the state. The six numbers come from combining them, not from any one of them. Two are worth putting numbers to. A Doppler shift is proportional to speed divided by the speed of light. A spacecraft closing at one kilometre a second shifts a 2-gigahertz carrier by about seven kilohertz. That is small, and it is measurable to a fraction of a hertz, which is what makes Doppler the instrument of choice for a rate. Differencing is the other route to a rate. Every differencing step multiplies the measurement noise, so an acceleration recovered from two rounds of subtraction is the least certain number in the set.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.0",
+   "original": "Photograph the spacecraft against catalogued stars. The angle between it and stars whose places are already fixed gives the line it lies along, to the precision of the catalogue and the optics.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.1",
+   "original": "Compare the frequency that comes back with the frequency that was sent. Motion along the line of sight stretches or compresses the returning wave, and the fractional change in frequency equals the speed as a fraction of the speed of light.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.2",
+   "original": "Time a pulse out to the spacecraft and back through its transponder. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the distance.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.choices.3",
+   "original": "Repeat the same position measurement at recorded times. Subtracting positions gives velocity, and subtracting those velocities gives acceleration.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.0",
+   "original": "Direction is an angle, and the star camera is the only instrument here that measures one.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.1",
+   "original": "A velocity along the line of sight is carried by the returned wave itself, in its frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.2",
+   "original": "A distance is a time multiplied by a speed, which is what the round trip provides.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.rebuttals.3",
+   "original": "Rates come from repetition — two positions give a velocity, and two velocities give an acceleration.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.0",
+   "original": "Direction on the sky.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.1",
+   "original": "Line-of-sight velocity.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.2",
+   "original": "Range along the line of sight.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s1.scenarios.3",
+   "original": "How fast it is going, and whether that is steady.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.title",
+   "original": "Reconstruct the state vector",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s2.place",
+   "original": "Guidance Room",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.scene",
+   "original": "The computer restarted and lost its alignment. What is left is a range from one station, two bearing angles taken ninety minutes apart, and a Doppler trace recorded in a different time standard from either.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.takeaway",
+   "original": "A useful state estimate predicts future observations and exposes its own failures.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.assumes.0",
+   "original": "measurements only combine when they share a frame and a clock",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.why",
+   "original": "A state estimate is only useful if it predicts the next observation, and everything in this order exists to make that test possible. A joint fit across two time standards produces an orbit nobody can see is wrong, so the transformation comes first. The fit then has to reproduce range, angle and Doppler together rather than each in turn. What the fit got wrong is where the information is: structure in the residuals means an unmodelled force. And state and uncertainty are propagated together, because the decision is made at a later time than the data.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.0",
+   "original": "One coordinate system and one time standard first. Two clocks in a single fit is the error that never shows up in the residuals afterwards.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.1",
+   "original": "Fit range, angle and Doppler together second. Fitting them separately gives three answers and no way to choose.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.2",
+   "original": "Read the residuals third, for structure rather than size. Scatter is noise; a pattern is a force nobody modelled.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.rebuttals.3",
+   "original": "Propagate state and uncertainty to the decision time last. The burn happens later than the data, and the uncertainty grows on the way.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.0",
+   "original": "Transform all observations into one coordinate and time system.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.1",
+   "original": "Fit a trajectory that predicts range, angle, and Doppler together.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.2",
+   "original": "Examine residuals for bias or unmodeled acceleration.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s2.cards.3",
+   "original": "Propagate the state and its uncertainty forward to the hour the burn is committed.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.title",
+   "original": "What holds it in the curve",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.task",
+   "original": "Why does the spacecraft need any speed at all to stay in that orbit?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.place",
+   "original": "Guidance Computer Room",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.scene",
+   "original": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and the room owes them an answer.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.takeaway",
+   "original": "A curved path needs a force toward the centre, and orbital motion is that force being exactly enough.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.assumes.0",
+   "original": "an object moving in a circle is accelerating even at constant speed",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.question",
+   "original": "Why does the spacecraft need any speed at all to stay in that orbit?",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.why",
+   "original": "Circular motion is acceleration toward the centre, and here the whole of that acceleration is gravity: the spacecraft is falling the entire time, and its transverse speed turns the fall into a curve that keeps missing the surface. Get the speed wrong and the curve closes on the Moon or opens away from it. There is no outward force to balance — in the spacecraft's frame the crew feel weightless precisely because nothing is opposing gravity.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.0",
+   "original": "It is falling, and its sideways speed makes the fall a curve that misses.",
+   "readOnly": true
+  },
+  {
+   "id": "m02.s3.choices.1",
+   "original": "Gravity is balanced by an outward centrifugal force, so nothing accelerates.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.2",
+   "original": "At that altitude the Moon's gravity is too weak to matter.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.choices.3",
+   "original": "The spacecraft's own thrust holds it up against gravity.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.0",
+   "original": "Centrifugal force is an artefact of the rotating frame; in the inertial frame there is one force and it points inward.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.1",
+   "original": "Lunar gravity at that altitude is about a fifth of what it is at the surface, which is not negligible at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m02.s3.rebuttals.2",
+   "original": "The engine is off, and it stays off for most of the return.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.title",
+   "original": "The Wrong Trajectory",
+   "readOnly": false
+  },
+  {
+   "id": "m03.objective",
+   "original": "Choose a correction that restores a safe return while preserving fuel and engine options.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.briefing",
+   "original": "The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse to determine whether a small correction now can prevent a large correction later.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.stake",
+   "original": "Eighteen hours in, the drift is confirmed, and this is where Whitaker and Carter stop agreeing for the rest of the mission. The path misses the entry corridor by four hundred kilometres. Whitaker wants a modest burn this shift, arguing that a correction gets cheaper the earlier it is made. Carter wants to wait for the next tracking pass, because correcting a number you have not measured properly is how a small error becomes a committed one. This shift you settle it. That is Whitaker's whole case, and this shift it is the better one. There is no more propellant coming.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.takeaway",
+   "original": "Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.title",
+   "original": "From force to trajectory change",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.place",
+   "original": "Orbital Analysis Room",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.scene",
+   "original": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The crew wants to know why a few seconds of thrust now beats minutes of thrust tomorrow.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.takeaway",
+   "original": "Trajectory control acts on velocity now to change position much later.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.assumes.0",
+   "original": "a force acting on a mass produces an acceleration",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.why",
+   "original": "The chain is Newtonian and worth stating in order, because it is the reason an early correction is cheap. An engine produces a force for a measured time. That force gives the vehicle an acceleration set by its mass, so the same engine moves a heavy spacecraft less. The acceleration changes velocity by an amount proportional to the impulse. And the new velocity changes where the vehicle is hours later — trajectory control acts on velocity now to move position much later, which is why time is the term doing the work.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.0",
+   "original": "Force for a measured time is where the chain starts. Everything after it is a consequence of that one product.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.1",
+   "original": "Force divided by mass is acceleration. The same engine on a heavier vehicle produces less of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.2",
+   "original": "Acceleration integrated over the burn is the velocity change, and it is proportional to the impulse rather than to the thrust alone.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.rebuttals.3",
+   "original": "The new velocity changes position hours later. That delay is not a weakness of the method — it is what makes a small early burn worth a large late one.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.0",
+   "original": "An engine produces a force for a measured time.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s1.cards.1",
+   "original": "The force gives the spacecraft an acceleration.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.2",
+   "original": "Acceleration changes velocity by an impulse-dependent amount.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s1.cards.3",
+   "original": "The new velocity changes the later orbit and encounter geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.title",
+   "original": "Small burn, large consequence",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.place",
+   "original": "Guidance Console",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.scene",
+   "original": "A 30,000 kg spacecraft takes 6,000 N of thrust for 20 seconds. The flight dynamics officer wants the change in speed on the loop before the burn is approved.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.takeaway",
+   "original": "Orbital corrections often rely on small velocity changes applied early.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.assumes.0",
+   "original": "force applied over a time is an impulse",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.question",
+   "original": "Estimate the change in speed.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.why",
+   "original": "Force multiplied by time is impulse, and impulse divided by mass is the change in speed. The number that comes out looks absurd next to an orbital speed measured in kilometres per second, and that is the lesson rather than a problem with the arithmetic. A few metres per second applied days from arrival moves the arrival point by hundreds of kilometres, because the vehicle carries the difference for every one of those hours. The same correction made near the atmosphere costs many times as much.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.prompt",
+   "original": "A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.question",
+   "original": "Estimate the change in speed.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s2.estimate.explanation",
+   "original": "Force times time is impulse; impulse divided by mass is the velocity change. Surface gravity has no bearing on a vehicle in free flight, and specific impulse would tell you what the burn costs in propellant rather than what it achieves.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s2.estimate.relationship",
+   "original": "Impulse = force × time. Velocity change = impulse ÷ mass.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.title",
+   "original": "What the pressure difference is for",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.task",
+   "original": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.place",
+   "original": "Life Support Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.scene",
+   "original": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.takeaway",
+   "original": "Something moves through a system for one reason and is held back for another.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.assumes.0",
+   "original": "gas flows from higher pressure to lower pressure",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.question",
+   "original": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.why",
+   "original": "Gas moves because there is a pressure difference across the path, and how much moves depends on that difference and on how restricted the path is. Twenty-five psi of difference is still there, so a halved flow points at the path — a partly closed valve, ice at an orifice, a filter loading up — or at a reading that is not measuring what the crew think it is. Tank pressure on its own cannot promise a flow rate: the same 40 psi delivers nothing through a blocked line.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.0",
+   "original": "Flowing on the difference, so the fall means the difference or the path changed.",
+   "readOnly": true
+  },
+  {
+   "id": "m03.s3.choices.1",
+   "original": "Stopped, because the regulator setting is below the tank pressure.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.2",
+   "original": "Set by the tank pressure alone, so 40 psi guarantees the planned flow rate through the loop.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.choices.3",
+   "original": "Reversed, since the cabin is warmer than the tank.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.0",
+   "original": "A regulator set below tank pressure is the condition for flow, not an obstacle to it.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.1",
+   "original": "Tank pressure sets one end of the difference; the restriction in between sets the rate.",
+   "readOnly": false
+  },
+  {
+   "id": "m03.s3.rebuttals.2",
+   "original": "Temperature changes gas density and pressure a little; it does not reverse a 25 psi gradient.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.title",
+   "original": "Turn Without Wasting Fuel",
+   "readOnly": false
+  },
+  {
+   "id": "m04.objective",
+   "original": "Develop a controlled reorientation procedure that stops the rotation at the required attitude.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.briefing",
+   "original": "The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.stake",
+   "original": "Twenty-six hours in. The guidance platform is off to save power, one thruster quad is dead, and Hale has to turn the spacecraft ninety degrees by hand while Sato reads angles aloud. Kwame Mensah, who owns the structural dynamics, has done the sums and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and work out what a thruster actually does. Every degree of turn is paid for twice, once to start it and once to stop it. Let it tumble and the antenna, the array and the burn attitude go together.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.takeaway",
+   "original": "Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.title",
+   "original": "Read rotational motion",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s1.place",
+   "original": "Attitude Dynamics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scene",
+   "original": "The main guidance platform is unavailable and the crew is about to fly the vehicle by hand. Before anybody touches a thruster the room states the rotational mechanics plainly, because each one has a consequence the crew will feel.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.takeaway",
+   "original": "Attitude control is Newtonian mechanics around a center of mass.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.assumes.0",
+   "original": "a torque is what makes something start or stop turning",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.why",
+   "original": "Attitude control is Newtonian mechanics about a centre of mass, and four rules cover what the crew can do. Torque is force times lever arm, so the same thruster mounted farther out turns the vehicle harder. Angular acceleration is torque divided by moment of inertia, so a vehicle that is harder to turn responds less to the same push. Equal and opposite torques for equal times leave the angular momentum where it started. And with no external torque, moving mass inside the vehicle changes its shape and its spin rate but never its total angular momentum.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.0",
+   "original": "Larger torque.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.1",
+   "original": "Smaller angular acceleration.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.2",
+   "original": "Approximately cancel the net angular impulse.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.choices.3",
+   "original": "Total angular momentum remains conserved, though rotation distribution can change.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.0",
+   "original": "The same force farther from the centre of mass is a longer lever arm and therefore a larger torque. This is the term the crew can actually choose.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.1",
+   "original": "The same torque on a larger moment of inertia gives less angular acceleration. Harder to start, and equally hard to stop.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.2",
+   "original": "Equal and opposite torques for equal times cancel the net angular impulse, which is what a start pulse and a stop pulse are for.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.rebuttals.3",
+   "original": "Moving internal mass with no external torque redistributes the rotation and conserves the total. Nothing inside the vehicle can change it.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.0",
+   "original": "Apply the same force farther from the center of mass.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.1",
+   "original": "Increase moment of inertia with the same torque.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.2",
+   "original": "Apply equal and opposite torques for equal times.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s1.scenarios.3",
+   "original": "Move internal masses while no external torque acts.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.title",
+   "original": "Execute a manual attitude maneuver",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s2.place",
+   "original": "Crew Procedures Room",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.scene",
+   "original": "The guidance platform is off and the crew must turn the spacecraft ninety degrees using two thruster pairs and a window. No rate display, no attitude hold, and every pulse spends propellant the entry burn is counting on.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.takeaway",
+   "original": "Rotational maneuvers require planning the braking phase before the target is reached.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.assumes.0",
+   "original": "nothing in space slows a rotation down on its own",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.why",
+   "original": "Nothing damps the rotation. A torque that starts the turn keeps it turning until an equal and opposite one stops it. So starting and stopping are two decisions, and the second one has to be planned before it is needed. The crew reads attitude and rate from whatever cues still work, applies a bounded torque, coasts while watching the target come round, and brakes early enough to arrive at rest. Wait until the target arrives and you overshoot. Overshoot is paid for twice.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.0",
+   "original": "Attitude and rate first, from cues that do not depend on the platform that is off. You cannot aim a turn you cannot measure.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.1",
+   "original": "A bounded torque to begin. Bounded, because the pulse that starts the turn sets the rate that has to be cancelled later.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.2",
+   "original": "Coast and monitor third. This is the free part of the manoeuvre and the part where the braking point is judged.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.rebuttals.3",
+   "original": "Counter-torque last, and applied early. Braking when the target arrives is braking too late, and the overshoot costs two more pulses.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.0",
+   "original": "Identify current attitude and angular rate from independent cues.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.1",
+   "original": "Apply a bounded torque to begin rotation.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.2",
+   "original": "Coast while monitoring angular rate and target geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s2.cards.3",
+   "original": "Apply counter-torque early enough to stop at the target.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.title",
+   "original": "Torque from a thruster",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.place",
+   "original": "Guidance Console",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.scene",
+   "original": "A 200 N thruster fires at right angles, three metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.takeaway",
+   "original": "Force location matters as much as force magnitude in rotational control.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.assumes.0",
+   "original": "a longer lever arm gives the same force more turning effect",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.question",
+   "original": "Estimate the torque about the centre of mass.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.why",
+   "original": "Torque is force times lever arm times the sine of the angle between them, and at right angles that sine is one, which is why this case is the simple one. The same thruster mounted closer in would produce proportionally less turn for the same propellant. Location matters as much as magnitude, and on a vehicle this size the lever arm is the term the crew can actually choose — which pair fires, not how hard.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.estimate.prompt",
+   "original": "A 200 N thruster fires at right angles, three metres from the centre of mass.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.estimate.question",
+   "original": "Estimate the torque about the centre of mass.",
+   "readOnly": true
+  },
+  {
+   "id": "m04.s3.estimate.explanation",
+   "original": "Torque is force times lever arm times the sine of the angle between them, and at right angles that last factor is one — which is why it does not appear. The lever arm has to be measured to the centre of mass, not to whatever structure is nearest.",
+   "readOnly": false
+  },
+  {
+   "id": "m04.s3.estimate.relationship",
+   "original": "Torque = force × lever arm, when the force is at right angles to the arm.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.title",
+   "original": "The Power Budget",
+   "readOnly": false
+  },
+  {
+   "id": "m05.objective",
+   "original": "Build a load-shedding plan that preserves essential functions through the next critical maneuver.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.briefing",
+   "original": "Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.stake",
+   "original": "Thirty-four hours in, and the argument changes shape. Priya Shah, who runs the power systems, has the reserve down to hours and wants everything non-essential off by the end of the shift. Aaron Brooks, on thermal and life support, says the two things on his list are the scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The bus is sagging at 24 volts instead of 28 while the current sits near where it should be, which is Shah's other problem. This shift you work out how long the batteries last, decide why the voltage is low, and choose what goes off.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.takeaway",
+   "original": "Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.title",
+   "original": "How long can the battery last?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.place",
+   "original": "Electrical Systems Room",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.scene",
+   "original": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. The flight surgeon wants an endurance number before the next powerdown decision.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.takeaway",
+   "original": "Power is the rate of energy use; endurance depends on both energy inventory and load.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.assumes.0",
+   "original": "energy is a stock, and power is the rate it is drawn at",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.question",
+   "original": "Estimate the ideal endurance.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.why",
+   "original": "Energy and power are different things, and the division between them is the whole calculation. An inventory in kilowatt-hours divided by a draw in kilowatts leaves hours. It is an ideal figure. It assumes the load stays flat and that every last watt-hour is available, and neither is true — a cold battery gives less than its rating. It is still the number every other decision this shift gets argued against, so it is worth having early and worth calling approximate.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.estimate.prompt",
+   "original": "The fuel cells are gone. The entry batteries hold about 18 kilowatt-hours of usable energy and the essential loads draw about 3 kilowatts.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.estimate.question",
+   "original": "Estimate the ideal endurance.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s1.estimate.explanation",
+   "original": "Energy is an inventory and power is the rate it is spent at; the hours come from dividing one by the other. Bus voltage describes how the energy is delivered and says nothing about how much there is.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s1.estimate.relationship",
+   "original": "Endurance = energy stored ÷ power drawn.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.title",
+   "original": "Why is bus voltage collapsing?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.task",
+   "original": "Which fault fits the voltage, current, generation, and thermal evidence?",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.place",
+   "original": "Spacecraft Load Panel",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.scene",
+   "original": "The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Engineers want to start pulling equipment off the bus.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.takeaway",
+   "original": "Electrical faults are easier to localize when voltage, current, and heat are treated as parts of one energy picture.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.assumes.0",
+   "original": "current through a resistance drops voltage and makes heat",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.headline",
+   "original": "The spacecraft power bus sags under a normal load.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.why",
+   "original": "Voltage, current and heat are three views of one energy picture, and reading them together locates the fault instead of guessing at it. A resistance in the path drops voltage in proportion to the current through it, and dissipates the lost power as heat exactly where the resistance is — which is what the hot junction is. Generation is healthy, because array current is normal. Nothing new is being drawn, because the total load is near plan. What is left is the path between them.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.0",
+   "original": "High-resistance connection",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s2.choices.0.mechanism",
+   "original": "A resistive junction drops voltage and converts electrical power to heat.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.1",
+   "original": "Large hidden load",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.1.mechanism",
+   "original": "An unexpected device draws much more current and pulls down the bus.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.2",
+   "original": "Solar-array failure",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.2.mechanism",
+   "original": "Generation falls sharply, forcing the battery to replace missing array current.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.3",
+   "original": "Bad voltmeter only",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.choices.3.mechanism",
+   "original": "The bus is healthy and the low voltage exists only in one measurement channel.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.0",
+   "original": "A hidden load would show as total load current above plan, and the total is where it was expected to be.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.1",
+   "original": "A failed array would show as low array current. Generation is normal; the problem is downstream of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s2.rebuttals.2",
+   "original": "A bad voltmeter explains the reading and not the hot junction or the extra battery current. Two independent instruments agree that something real is happening.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.title",
+   "original": "Shed load without losing the mission",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.task",
+   "original": "Which load comes off the bus first?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.place",
+   "original": "Mission Planning Desk",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.scene",
+   "original": "Forty-one amp-hours left and a draw of 4.2 amps against a return that needs 62 hours. Guidance wants 1.8 amps, communications 0.9, thermal control 1.1, life support 0.4, and something has to come off the bus in the next few minutes.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.takeaway",
+   "original": "A power plan matches load timing and consequence to a finite energy inventory.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.assumes.0",
+   "original": "a load that is cheap to switch off is not always cheap to have switched off",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.question",
+   "original": "Which load comes off the bus first?",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.why",
+   "original": "A power plan is an allocation across time as well as across systems, and the loads that look cheapest to shed are often the ones whose consequences arrive later. Communications is the only load here that degrades gracefully: a lower rate and a narrower channel still get the numbers down. Guidance draws power at known times and none outside them, so it is scheduled rather than shed. Thermal control costs far more to restore than it saves. Life support is not a load at all — it is the reason the rest is powered.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.0",
+   "original": "Continuous high-bandwidth communications.",
+   "readOnly": true
+  },
+  {
+   "id": "m05.s3.choices.1",
+   "original": "Life support and cabin circulation.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.2",
+   "original": "Guidance and the timed navigation windows.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.choices.3",
+   "original": "Thermal survival loads and battery conditioning.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.0",
+   "original": "Life support is not a load that can be traded. It is the reason the rest of the vehicle is powered.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.1",
+   "original": "Guidance draws power at known times and none outside them, so it is scheduled rather than shed — and the window it needs is the burn that gets the crew home.",
+   "readOnly": false
+  },
+  {
+   "id": "m05.s3.rebuttals.2",
+   "original": "Thermal loads look cheap to drop and are the most expensive: reheating a cold cabin costs far more energy than holding a warm one, and cold batteries deliver less than the plan assumes.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.title",
+   "original": "A Dangerous Battery Configuration",
+   "readOnly": false
+  },
+  {
+   "id": "m06.objective",
+   "original": "Approve only a configuration whose voltage, current sharing, and failure behavior are understood.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.briefing",
+   "original": "Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The player must reason through series, parallel, internal resistance, and fault isolation.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.stake",
+   "original": "Forty-two hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus that would buy eleven hours, and Shah wants it connected before the next pass. Nobody knows its state of charge, and the connectors were never meant for this. Ferreira has already reported one connector on that bus running warm and cannot say why. This shift you decide whether that configuration is safe and what has to be measured first. Shah is counting the hours and Brooks is counting the people. Sealed cabin. Three of them. Eleven hours is not worth a fire.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.takeaway",
+   "original": "Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.title",
+   "original": "Series or parallel?",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s1.place",
+   "original": "Battery Test Bench",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scene",
+   "original": "Engineers want to reconnect battery modules to buy hours of endurance. The room agrees what each wiring choice does before anything is bolted up, because adding a module can also take capability away.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.takeaway",
+   "original": "Redundancy is useful only when connection and protection behavior are explicit.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.assumes.0",
+   "original": "a battery has both a voltage and a current it can supply",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.why",
+   "original": "Topology decides voltage, current sharing and how a fault spreads. Equal cells in series add their voltages and carry the same current, so the string is only as good as its worst cell. The same cells in parallel hold the voltage and share the current, which is where extra capacity comes from. A parallel branch that gains resistance stops carrying its share and the others pick it up, unequally. A single open cell in a series string breaks the whole path. Redundancy is only redundancy when the connection and the protection are both explicit.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.0",
+   "original": "Total voltage increases.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.1",
+   "original": "Current capacity can increase while voltage stays similar.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.2",
+   "original": "That branch carries less current and sharing becomes unequal.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.choices.3",
+   "original": "The entire series path is interrupted.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.0",
+   "original": "Cells in series add their voltages. The current is the same everywhere in the string, so nothing is gained in capacity.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.1",
+   "original": "Cells in parallel hold the voltage and add current capacity. This is how you get more amp-hours without changing the bus.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.2",
+   "original": "A resistive parallel branch carries less than its share, and the remaining branches carry more than theirs. Unequal sharing is how one branch overheats.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.rebuttals.3",
+   "original": "One open cell in series interrupts the entire path. In parallel the same failure loses one branch; in series it loses everything.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.0",
+   "original": "Add equal cells in series.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.1",
+   "original": "Add equal cells in parallel.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.2",
+   "original": "One parallel branch gains resistance.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s1.scenarios.3",
+   "original": "One series cell opens.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.title",
+   "original": "Heating at a bad connection",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.place",
+   "original": "Electrical Integration Room",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.scene",
+   "original": "A connector in the improvised path develops 0.05 ohms while carrying 20 amps. Somebody has to say whether that matters before it is bolted up inside a sealed cabin.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.takeaway",
+   "original": "Small resistances matter when current is large because heating scales with current squared.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.assumes.0",
+   "original": "a resistance carrying current turns electrical power into heat",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.question",
+   "original": "Estimate the heating power at the connection.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.why",
+   "original": "Resistive heating is current squared times resistance, so the current term dominates. The same connector at half the current would give off a quarter of the power. The resistance sounds like nothing written down. The wattage it makes at this current is what decides whether the junction runs warm or starts a fire. Twenty watts is nothing spread over a radiator. It is a great deal in one connector, in a sealed cabin, with no air moving over it.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.estimate.prompt",
+   "original": "A connector in the improvised path develops 0.05 ohms while carrying 20 amps.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.estimate.question",
+   "original": "Estimate the heating power at the connection.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s2.estimate.explanation",
+   "original": "The bus voltage is the wrong term: the power lost in a series joint depends on the current through it and the voltage across it, not the voltage of the system it sits in. Current enters squared, so the same joint at 10 A would dissipate a quarter as much.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s2.estimate.relationship",
+   "original": "Power dissipated = current² × resistance.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.title",
+   "original": "Qualify the emergency battery plan",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.task",
+   "original": "Engineers want to bolt the module in now. What has to happen first?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.place",
+   "original": "Crew Procedure Simulator",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.scene",
+   "original": "The module reads 31 volts against a nominal 37, its state of charge is unknown, and the connector is rated for 8 amps against the 14 this would draw. The crew is inside a sealed cabin with the hardware.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.takeaway",
+   "original": "Emergency electrical improvisation should still be bounded by measurements and protection.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.assumes.0",
+   "original": "two batteries wired together will equalise whether or not anybody planned it",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.question",
+   "original": "Engineers want to bolt the module in now. What has to happen first?",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.why",
+   "original": "Wire a flat module in parallel with a charged one and the two will equalise through whatever resistance lies between them. The current that flows is set by the difference in voltage. That difference is the one quantity nobody has measured, and it decides whether the connector runs warm or starts a fire. Improvising in an emergency is fine. What makes it survivable is measuring the quantity that decides the outcome first, and fusing it so the protection acts before anybody smells anything.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.0",
+   "original": "Verify the module's voltage and state of charge.",
+   "readOnly": true
+  },
+  {
+   "id": "m06.s3.choices.1",
+   "original": "Measure current sharing and connector temperature under load.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.2",
+   "original": "Add independent fusing and an isolation procedure.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.choices.3",
+   "original": "Connect it and watch for smoke, with the crew standing by.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.0",
+   "original": "Current sharing and connector temperature are measured under load — which is after the connection this decision is about.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.1",
+   "original": "Independent fusing is required and is protection against being wrong. It is not a substitute for knowing, and a fuse chosen for the wrong current is not protection at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m06.s3.rebuttals.2",
+   "original": "Connecting first inside a sealed cabin makes the crew the instrument, and smoke is a reading that arrives too late to act on.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.title",
+   "original": "The Cabin Is Cooling",
+   "readOnly": false
+  },
+  {
+   "id": "m07.objective",
+   "original": "Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.briefing",
+   "original": "With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction, convection, radiation, metabolic heat, and battery performance.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.stake",
+   "original": "Two days after the bang, Brooks wins one, and it costs Shah her margin. The cabin is at four degrees and falling, condensation is running down the walls, and Ruiz has stopped being able to write legibly. Today you work out how fast the vehicle is losing heat, decide which way it is leaving, and choose what to insulate. There is power to fight it one way and not three. Average temperature is also the wrong number: batteries fail at their own local temperature, and the coldest spot in that cabin is the wall behind the pack the entry sequence depends on. Brooks is arguing for the crew, Shah for the batteries, and they want the same watts.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.takeaway",
+   "original": "Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.title",
+   "original": "How much does the cabin cool?",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.place",
+   "original": "Thermal Control Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.scene",
+   "original": "With the systems powered down the cabin is losing about a kilowatt more than it generates. The flight surgeon wants to know how long the crew has before the temperature becomes a medical problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.takeaway",
+   "original": "Thermal inertia can make temperature change slowly even when power is lost.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.assumes.0",
+   "original": "it takes energy to warm a mass, and the same energy leaves when it cools",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.question",
+   "original": "Estimate the temperature drop over three hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.why",
+   "original": "A lumped estimate treats the cabin and everything in it as one thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.prompt",
+   "original": "With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.question",
+   "original": "Estimate the temperature drop over three hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s1.estimate.explanation",
+   "original": "A watt is a joule per second, so the time has to be in seconds or the answer is out by 3,600. That is the arithmetic slip this problem exists to catch.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s1.estimate.relationship",
+   "original": "Temperature drop = energy lost ÷ heat capacity. Energy lost = power × time.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.title",
+   "original": "Choose the heat-transfer mechanism",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s2.place",
+   "original": "Cabin Environment Console",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scene",
+   "original": "The cabin is cooling and the crew wants to do something about it. What can be done depends on how the heat is actually leaving, so the room names the pathway first.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.takeaway",
+   "original": "Identifying the pathway reveals which intervention can reduce loss.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.assumes.0",
+   "original": "heat moves by contact, by moving fluid, or by radiation",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.why",
+   "original": "Each pathway has a different countermeasure — insulation, circulation, surface treatment, thermal isolation — so naming the dominant one is what makes an intervention more than a guess. Crew in direct contact is conduction between bodies. Air moving warmth around the cabin is convection. A cold wall receiving infrared from warmer objects is radiation, and it needs no medium at all. A metal strut carrying heat out to external structure is conduction along a solid path, and it is the one that runs whether or not anyone is awake.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.0",
+   "original": "Conduction between bodies.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.1",
+   "original": "Convection or forced air transport.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.2",
+   "original": "Radiation.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.choices.3",
+   "original": "Conduction through a solid path.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.0",
+   "original": "Bodies in direct contact exchange heat by conduction. It is short-range and it needs touching.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.1",
+   "original": "Air carrying warmth around the cabin is convection: the heat rides on moving fluid rather than passing through it.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.2",
+   "original": "A cold wall absorbing infrared from warmer objects is radiation. It works across a vacuum and needs nothing in between.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.rebuttals.3",
+   "original": "A metal strut to external structure is conduction along a solid path, straight to a sink. It is the leak that never stops.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scenarios.0",
+   "original": "Crew huddle and share direct contact.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scenarios.1",
+   "original": "Air circulation moves heat around the cabin.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scenarios.2",
+   "original": "A cold wall receives infrared energy from warmer objects.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s2.scenarios.3",
+   "original": "A metal strut conducts heat to an external structure.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.title",
+   "original": "Keep the cabin survivable",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.task",
+   "original": "Four degrees and falling, on a fixed energy budget. What do you spend it on?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.place",
+   "original": "Materials and Insulation Shop",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.scene",
+   "original": "The cabin is at four degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the energy that is left.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.takeaway",
+   "original": "Thermal survival is an allocation problem across space, time, and consequence.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.assumes.0",
+   "original": "slowing a loss and replacing it are different things",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.question",
+   "original": "Four degrees and falling, on a fixed energy budget. What do you spend it on?",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.why",
+   "original": "Insulation slows the heat leaving. It does not replace the heat that left. That makes it the only option here whose benefit does not stop when the energy does. Putting it on the crew zone and the critical batteries spends a fixed budget where being cold costs most — and cold batteries deliver less than the plan assumes, so the energy problem starts feeding itself. Thermal survival is an allocation across space, time and consequence, not one setting.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.0",
+   "original": "Insulate the crew zone and the critical batteries.",
+   "readOnly": true
+  },
+  {
+   "id": "m07.s3.choices.1",
+   "original": "Schedule short circulation periods to limit gradients.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.2",
+   "original": "Heat the whole spacecraft continuously at a low level.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.choices.3",
+   "original": "Monitor temperature at several representative locations.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.0",
+   "original": "Short circulation periods limit the gradients that drive condensation and cost power every time they run. Worth doing; not what keeps anybody alive.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.1",
+   "original": "Heating the whole vehicle spends the budget on volume nobody is in, and the loss scales with the surface it is heating.",
+   "readOnly": false
+  },
+  {
+   "id": "m07.s3.rebuttals.2",
+   "original": "Monitoring is how you find out whether any of this worked. It warms nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.title",
+   "original": "The Air Problem",
+   "readOnly": false
+  },
+  {
+   "id": "m08.objective",
+   "original": "Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.briefing",
+   "original": "Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.stake",
+   "original": "Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. The life support engineer, Petra Novak, has been on the loop with the crew for an hour, and the canisters that fit are aboard the module they cannot use. The scrubber fan still draws its rated current, which Brooks refuses to accept as good news. Today you find out why the air is not being cleaned, work out how fast three people fill a cabin, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first symptom, and he cannot notice it himself.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.takeaway",
+   "original": "Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.title",
+   "original": "Diagnose the air system",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.task",
+   "original": "Which explanation fits the gas, pressure, flow, and electrical readings together?",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.place",
+   "original": "Life-Support Laboratory",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.scene",
+   "original": "Cabin carbon dioxide is rising even though the scrubber fan still draws its normal current. The crew can hear the fan running, and the number on the wall keeps climbing.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.takeaway",
+   "original": "Powering a machine is not the same as achieving its function; measure the transported quantity as well as the motor.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.assumes.0",
+   "original": "a machine can be powered and still not be doing its job",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.headline",
+   "original": "Cabin carbon dioxide rises even though the scrubber fan still draws power.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.why",
+   "original": "Powering a machine is not the same as achieving its function, and this panel measures both the machine and the quantity it is supposed to move. A fan spinning against a blocked path draws its current and moves almost no air, so normal current proves the motor is turning and nothing else. Airflow is low and the pressure drop across the filter is high, which is a restriction. Total cabin pressure is stable, so nothing is leaking. The carbon dioxide is being produced and never reaching the scrubber.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.0",
+   "original": "Blocked scrubber flow path",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s1.choices.0.mechanism",
+   "original": "High resistance restricts circulation through otherwise powered equipment.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.1",
+   "original": "Fan power failure",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.1.mechanism",
+   "original": "The motor is unpowered and therefore cannot move air.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.2",
+   "original": "Cabin leak",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.2.mechanism",
+   "original": "Gas escapes the spacecraft and total pressure should fall.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3",
+   "original": "CO2 sensor bias",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.choices.3.mechanism",
+   "original": "The gas is normal and only one concentration measurement is wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.0",
+   "original": "An unpowered fan would draw no current. This one draws its normal current — the motor is fine and the air still is not moving.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.1",
+   "original": "A leak would drop total cabin pressure, and the pressure is stable. Gas is not leaving the spacecraft.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s1.rebuttals.2",
+   "original": "A biased sensor explains the reading and not the low airflow or the high pressure drop across the filter. Three instruments are telling one story.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.title",
+   "original": "CO2 production scale",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.place",
+   "original": "Cabin Air Console",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.scene",
+   "original": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.takeaway",
+   "original": "Source rate sets the minimum removal requirement.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.assumes.0",
+   "original": "a rate multiplied by a time is a total",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.question",
+   "original": "Estimate the carbon dioxide produced in six hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.why",
+   "original": "Source rate sets the minimum removal requirement, and that is the whole point of doing this before building anything. A fix that removes carbon dioxide more slowly than three people produce it does not solve the problem — it only changes how fast the concentration climbs. The estimate is crude, and crude is enough: it decides whether the tape-and-hose solution is worth the hours it will take to build, and what size it has to be when it is finished.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.prompt",
+   "original": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.question",
+   "original": "Estimate the carbon dioxide produced in six hours.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s2.estimate.explanation",
+   "original": "A rate per person per hour needs a head count and an interval, and both have to match the question asked. A daily mass figure describes the same crew and cannot be multiplied into this one without a density and a different arithmetic.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s2.estimate.relationship",
+   "original": "Total = rate per person × number of people × time.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.title",
+   "original": "Restore breathable air",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.task",
+   "original": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.place",
+   "original": "Crew Hardware Workshop",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.scene",
+   "original": "Carbon dioxide is at 13 millimetres of mercury and rising a millimetre every two hours, against a limit of 15. The spare canisters are square and the sockets are round. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.takeaway",
+   "original": "A life-support fix must manage both chemical uptake and fluid flow.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.assumes.0",
+   "original": "air, like water, takes the easiest path it is offered",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.question",
+   "original": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.why",
+   "original": "Two things have to be true at once: enough scrubber surface to take the carbon dioxide chemically, and a sealed path that forces cabin air through it rather than around it. Bypass is the failure mode that looks like success. The fan runs, the crew hears it, and the concentration keeps climbing — because sorbent only removes carbon dioxide from air that actually crosses it. A large sorbent bed with a gap around it removes less than a small one with no gap.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.0",
+   "original": "A sealed flow path that forces cabin air through the scrubber.",
+   "readOnly": true
+  },
+  {
+   "id": "m08.s3.choices.1",
+   "original": "As much exposed scrubber surface as the canister allows.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.2",
+   "original": "A carbon dioxide reading taken at several cabin locations.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.choices.3",
+   "original": "Enough fan speed that the crew can hear it running.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.0",
+   "original": "Exposed area helps only for the fraction of the air that reaches it. A large sorbent bed with a gap around it removes less than a small one with none.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.1",
+   "original": "Measuring in several places is how the crew finds out whether the fix worked, which is necessary and is not the fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m08.s3.rebuttals.2",
+   "original": "An audible fan proves a motor is turning. It says nothing about how much air is moving, or where.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.title",
+   "original": "Communication Fades",
+   "readOnly": false
+  },
+  {
+   "id": "m09.objective",
+   "original": "Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.briefing",
+   "original": "The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.stake",
+   "original": "Sixty-six hours in, the link went weak at the moment the vehicle turned — down twelve decibels, and Hale is answering calls he can barely hear. The communications lead, Naomi Ito, has the link budget open and her network officer is arguing for a different term in it. Ito wants the pointing checked first and he wants the receiver. This shift you find the cause and get the link back. Losing this costs two things at once, because the signal is also a navigation measurement — the room goes deaf and half blind in the same minute, with a burn still to fly.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.takeaway",
+   "original": "Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.title",
+   "original": "Why did the signal fade?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.task",
+   "original": "Which explanation fits the link budget and the independent stations?",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.place",
+   "original": "Deep-Space Antenna",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.scene",
+   "original": "Voice and telemetry both go weak at once. Received power is down about 12 decibels, and the crew is answering calls they can barely hear.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.takeaway",
+   "original": "A link-budget diagnosis should compare the size of every proposed effect with the size of the observed loss.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.assumes.0",
+   "original": "a directional antenna is much weaker off to the side",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.headline",
+   "original": "Voice and telemetry suddenly become weak.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.why",
+   "original": "A link budget is a sum of gains and losses, so diagnosis means comparing the size of each proposed cause against the size of the loss actually seen. Twelve decibels is a factor of about sixteen in power, and the range change accounts for roughly one of them — far too small. The transmitter reports normal output. A second station on another continent sees the same fade, which rules out anything local to one dish. The antenna is six degrees off-point, and on a narrow beam that is enough.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.0",
+   "original": "Antenna mispointing",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s1.choices.0.mechanism",
+   "original": "The directional beam is no longer centered on Earth, reducing received power at multiple stations.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.1",
+   "original": "Transmitter power loss",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.1.mechanism",
+   "original": "The spacecraft radio is emitting far less power than commanded.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.2",
+   "original": "Increased distance",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.2.mechanism",
+   "original": "Free-space spreading from the new range accounts for nearly all of the loss.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.3",
+   "original": "One bad ground receiver",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.choices.3.mechanism",
+   "original": "A local receiver fault weakens the signal at only one station.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.0",
+   "original": "A transmitter fault would show as reduced output, and the spacecraft reports normal power. The loss is happening between the antenna and the ground.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.1",
+   "original": "The range change accounts for about one decibel of the twelve. It is real and it is nowhere near large enough.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s1.rebuttals.2",
+   "original": "A faulty ground receiver would affect one station. Two stations on different continents see the same fade.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.title",
+   "original": "Wavelength of the radio link",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.place",
+   "original": "Communications Analysis Room",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.scene",
+   "original": "The link is fading and the antenna team needs to know how far the vehicle can be off-pointed before the signal is lost. The carrier is at 2.0 gigahertz.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.takeaway",
+   "original": "Frequency and wavelength are reciprocal descriptions of the same propagating wave.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.assumes.0",
+   "original": "frequency and wavelength are two descriptions of one wave",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.question",
+   "original": "Estimate the wavelength.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.why",
+   "original": "Wavelength is the speed of light divided by frequency, which makes this a single division — and it is the first term in everything that follows. Beam width goes roughly as wavelength divided by aperture, so a longer wave from the same dish gives a wider, more forgiving beam, and a shorter one gives a narrow beam that demands accurate pointing. Every tolerance the team quotes for the rest of the shift starts from this number.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.estimate.prompt",
+   "original": "The carrier is at 2.0 gigahertz, and beam width scales with wavelength over aperture.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.estimate.question",
+   "original": "Estimate the wavelength.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s2.estimate.explanation",
+   "original": "A factor of a thousand in the frequency is a factor of a thousand in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s2.estimate.relationship",
+   "original": "Wavelength = speed of light ÷ frequency.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.title",
+   "original": "Recover the weak link",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m09.s3.place",
+   "original": "Spacecraft Attitude Console",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.scene",
+   "original": "The carrier is down twelve decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.takeaway",
+   "original": "Communication recovery joins wave physics, control, and estimation.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.assumes.0",
+   "original": "a slower signal needs less power to be read",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.why",
+   "original": "Recovery combines three disciplines in a fixed order, cheapest and largest first. Pointing is the biggest term in the link budget and costs nothing but attitude, so geometry is checked before anything else. Reducing the data rate and narrowing the receiver bandwidth buys signal-to-noise without touching the spacecraft. Coordinating the large ground antennas with predicted Doppler puts the receiver where the signal actually is. And the range and Doppler recovered along the way feed straight back into navigation.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.0",
+   "original": "Attitude and antenna geometry first. Pointing is the largest term in the budget and the cheapest one to fix.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.1",
+   "original": "Lower rate and narrower bandwidth second: less noise in the channel, and a slower signal needs less power to read.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.2",
+   "original": "Large ground antennas with predicted Doppler third. The signal has drifted in frequency, so the receiver has to be told where to listen.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.rebuttals.3",
+   "original": "Feed the recovered range and Doppler into navigation last. Getting the link back also produces the measurements the burn needs.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.cards.0",
+   "original": "Verify spacecraft attitude and antenna geometry.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.cards.1",
+   "original": "Reduce data rate and narrow the receiver bandwidth.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.cards.2",
+   "original": "Coordinate high-gain ground antennas and predicted Doppler tracking.",
+   "readOnly": false
+  },
+  {
+   "id": "m09.s3.cards.3",
+   "original": "Use recovered range and Doppler data to refine navigation.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.title",
+   "original": "A Blind Maneuver",
+   "readOnly": false
+  },
+  {
+   "id": "m10.objective",
+   "original": "Design a manual alignment procedure whose dominant angular errors are bounded.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.briefing",
+   "original": "The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player must connect optics, angular measurement, and reference frames.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.stake",
+   "original": "Seventy-four hours in, and this is the quiet shift. There is no guidance platform and no star tracker, so Ruiz will aim the burn by eye through a window reticle while Sato holds a stopwatch. Reyes has spent the shift separating what actually moves the spacecraft's aim from what only appears to. This shift you decide how many sightings make an alignment trustworthy. A tenth of a degree is invisible in that window and hundreds of kilometres at the far end. Some of what Ruiz sees is real motion. Some is the window, the lighting, or his own eye at four degrees. Each sighting costs him twenty minutes of cold.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.takeaway",
+   "original": "Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.title",
+   "original": "What shifts the apparent direction?",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s1.place",
+   "original": "Optics Test Room",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scene",
+   "original": "The crew will aim the burn by eye, through a window reticle. Before that is trusted the room separates what the instrument does from what the spacecraft does.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.takeaway",
+   "original": "Manual navigation requires separating instrument geometry from spacecraft motion.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.assumes.0",
+   "original": "what you see through an eyepiece depends on where your eye is",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.why",
+   "original": "Manual navigation is only trustworthy when instrument geometry and spacecraft motion are told apart, because both move the line of sight and only one of them means anything. An eye shifting relative to a nearby reticle is parallax inside the instrument, and it is entirely an artefact of the observer. A focal change alters sharpness and not direction. A nearby object shifting against distant stars is real geometric parallax, carrying real distance information. And the star field staying fixed while the view turns is the vehicle rotating.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.0",
+   "original": "Parallax between eye and reticle.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.1",
+   "original": "Focus change.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.2",
+   "original": "Geometric parallax.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.choices.3",
+   "original": "Change of body-frame orientation relative to the inertial frame.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.0",
+   "original": "Eye moving against a nearby reticle is instrument parallax. Nothing outside the window has changed.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.1",
+   "original": "A focus change alters how sharp the image is and leaves the direction where it was.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.2",
+   "original": "A near object shifting against distant stars as the viewpoint moves is geometric parallax, and the size of the shift carries the distance.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.rebuttals.3",
+   "original": "The star field is fixed in inertial space. If it appears to move, the vehicle turned.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.0",
+   "original": "The eye moves relative to a nearby reticle.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.1",
+   "original": "A lens focal setting changes image sharpness.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.2",
+   "original": "A nearby object shifts against distant stars as viewpoint changes.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s1.scenarios.3",
+   "original": "The spacecraft rotates while the star field remains fixed inertially.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.title",
+   "original": "Reading the trace instead of the number",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.task",
+   "original": "Match each feature of the plotted trace to what it tells you about the motion.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.place",
+   "original": "Flight Director console",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scene",
+   "original": "The plot board has ninety minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.takeaway",
+   "original": "A graph carries rate and change of rate, neither of which is visible in the latest reading.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.assumes.0",
+   "original": "the slope of a distance-time graph is a speed",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.question",
+   "original": "Match each feature of the plotted trace to what it tells you about the motion.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s2.why",
+   "original": "A distance-time trace gives the speed in its slope and the acceleration in how that slope changes, and neither is recoverable from the newest number read out loud. The two failure shapes matter as much: scatter around a smooth line is noise, and a step that leaves the slope unchanged is an offset — a recalibrated instrument, a units change, a bookkeeping correction — rather than anything the spacecraft did. Reading the shape first is what stops the room chasing a manoeuvre that never happened.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.0",
+   "original": "The rate the quantity is changing at.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.1",
+   "original": "An acceleration, so something acted.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.2",
+   "original": "Measurement noise rather than motion.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.choices.3",
+   "original": "An instrument or bookkeeping offset, not a manoeuvre.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.0",
+   "original": "The slope is the rate; the value is only where the quantity has got to.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.1",
+   "original": "A slope change is the acceleration, which is the only feature that means a force acted.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.rebuttals.2",
+   "original": "Scatter is the instrument. Averaging it improves the estimate; explaining it as motion invents one.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scenarios.0",
+   "original": "The slope of the line",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scenarios.1",
+   "original": "A change in the slope",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scenarios.2",
+   "original": "Scatter about a smooth line",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s2.scenarios.3",
+   "original": "A step with no slope change after it",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.title",
+   "original": "How far it drifts while nobody is steering",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.place",
+   "original": "Guidance Computer Room",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.scene",
+   "original": "Between the two burns the spacecraft is unpowered, and a small residual acceleration acts on it for 90 seconds. Nobody has turned that into a distance yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.takeaway",
+   "original": "Under a constant acceleration, displacement grows with the square of the time.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.assumes.0",
+   "original": "an object under constant acceleration covers half the acceleration times the time squared",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.question",
+   "original": "Estimate the drift over the 90 seconds.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.why",
+   "original": "Half of 0.004 metres a second squared, times 90 squared, is about 16 metres. The reason this matters more than it looks is the square: double the coast and the drift quadruples, so the same residual over six minutes is not 32 metres but 260. It is the same relationship as free fall — a projectile with no thrust is under one acceleration and nothing else, and its path is set by that and its initial velocity alone.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.estimate.prompt",
+   "original": "A residual acceleration of 0.004 m/s² acts for 90 s with the engine off.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.estimate.question",
+   "original": "Estimate the drift over the 90 seconds.",
+   "readOnly": true
+  },
+  {
+   "id": "m10.s3.estimate.explanation",
+   "original": "The time is squared. Use it once and the answer is 0.36 m, which would look like nothing worth correcting.",
+   "readOnly": false
+  },
+  {
+   "id": "m10.s3.estimate.relationship",
+   "original": "Displacement = ½ × acceleration × time², for a constant acceleration from rest.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.title",
+   "original": "Crossing the Atmosphere",
+   "readOnly": false
+  },
+  {
+   "id": "m11.objective",
+   "original": "Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.briefing",
+   "original": "The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping back into space. The player must integrate drag, energy conversion, and atmospheric density.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.stake",
+   "original": "Eighty-two hours in, and nothing goes wrong this shift, which is its own kind of unnerving. The capsule will arrive at about eleven kilometres a second into a corridor roughly a degree wide, and Erika Lindqvist, integrating the flight dynamics, wants the whole room to understand what that means before anybody is asked to vote on it. This shift you follow where the energy goes, put a number on it, and decide how to protect the corridor. Too shallow and the capsule skips back out with no consumables to come round again. Too steep and the shield takes everything in seconds. The same physics keeps them alive and would kill them.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.takeaway",
+   "original": "Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.title",
+   "original": "Where orbital energy goes",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.task",
+   "original": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s1.place",
+   "original": "Entry Dynamics Room",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.scene",
+   "original": "The capsule arrives at the atmosphere with the kinetic energy of a hundred-tonne truck at orbital speed. It has to reach the ocean carrying almost none of it.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.takeaway",
+   "original": "Reentry is an energy-dissipation problem constrained by human and material limits.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.assumes.0",
+   "original": "energy is not destroyed, it is moved somewhere else",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.why",
+   "original": "Reentry is an energy problem before it is a heat problem, and the chain says where the energy goes. The vehicle arrives with large kinetic and gravitational energy. Drag does negative work on it, taking that energy out. The energy does not vanish: it becomes heat in the shocked gas ahead of the shield and in the wake behind it, which is why most of it never enters the vehicle at all. Velocity and altitude then fall, at a rate the shield and the trajectory shape between them control.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.0",
+   "original": "The vehicle arrives with the energy. Everything that follows is that energy leaving.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.1",
+   "original": "Drag does negative work — it is the mechanism that removes the energy, and it acts along the whole path.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.2",
+   "original": "The energy becomes heat in the shocked gas and the wake. A blunt shield is shaped to put it there rather than into the vehicle.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.rebuttals.3",
+   "original": "Falling velocity and altitude are the result. How fast they fall is what the shield and the trajectory shape are for.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.0",
+   "original": "The spacecraft enters with large kinetic and gravitational energy.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.1",
+   "original": "Atmospheric drag performs negative work on the spacecraft.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.2",
+   "original": "Energy becomes heat in shocked gas, the vehicle, and the wake.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s1.cards.3",
+   "original": "Velocity and altitude fall while thermal protection and trajectory shape control the rates.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.title",
+   "original": "Kinetic-energy scale",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.place",
+   "original": "Thermal Protection Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.scene",
+   "original": "A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second. The thermal protection team needs the kinetic energy before it can argue about heat load.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.takeaway",
+   "original": "Speed dominates kinetic energy because it enters squared.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.assumes.0",
+   "original": "kinetic energy depends on mass and on speed",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.question",
+   "original": "Estimate the kinetic energy to be dissipated.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.why",
+   "original": "Kinetic energy is half the mass times the speed squared, and the squared term is the whole story here. An entry speed about forty per cent higher than a return from low orbit carries roughly twice the energy, through the same heat shield. That is why lunar return is a categorically harder problem rather than a slightly harder one: the mass barely changed and the speed did, and speed is the term that enters twice.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.estimate.prompt",
+   "original": "A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.estimate.question",
+   "original": "Estimate the kinetic energy to be dissipated.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s2.estimate.explanation",
+   "original": "The one-half is written into the template rather than offered as a tile, because it is part of the relationship and not a measured quantity. The low-orbit speed is there to be compared: 40 per cent slower is half the energy, through the same heat shield.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s2.estimate.relationship",
+   "original": "Kinetic energy = ½ × mass × speed².",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.title",
+   "original": "Protect the entry corridor",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.task",
+   "original": "The corridor is about a degree wide. What does the room do with the time left?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.place",
+   "original": "Crew G-Load Console",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.scene",
+   "original": "The corridor runs from 5.3 to 7.7 degrees, and the current solution sits at 6.2 with an uncertainty of half a degree. Below 5.3 the capsule skips back out with no propellant to correct with; above 7.7 the heating and deceleration exceed what the crew and the structure survive left to return.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.takeaway",
+   "original": "Entry safety comes from margins across plausible conditions, not perfection at one nominal point.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.assumes.0",
+   "original": "a plan can be optimal and still miss",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.question",
+   "original": "The corridor is about a degree wide. What does the room do with the time left?",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.why",
+   "original": "The corridor is a constraint on where the vehicle actually is. So what decides the outcome is the uncertainty, not where the nominal trajectory lands: the whole distribution has to fit inside a gap about a degree wide. Shrinking that uncertainty is the only thing here that makes the same corridor easier to hit. Optimising the nominal makes the best case better and does nothing for the cases that miss, and those are the ones that kill the crew.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.0",
+   "original": "Refine the position and velocity uncertainty before entry.",
+   "readOnly": true
+  },
+  {
+   "id": "m11.s3.choices.1",
+   "original": "Model steep and shallow atmospheric scenarios.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.2",
+   "original": "Verify the heat-shield and centre-of-mass configuration.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.choices.3",
+   "original": "Optimise the nominal entry trajectory as far as it will go.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.0",
+   "original": "Steep and shallow atmospheres bound a variation nobody can reduce. Worth knowing; it changes what you can survive, not where you are.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.1",
+   "original": "Verifying the shield and the centre of mass is required before commitment and moves the trajectory not at all.",
+   "readOnly": false
+  },
+  {
+   "id": "m11.s3.rebuttals.2",
+   "original": "Optimising the nominal makes the best case better. The corridor is missed by the cases that are not nominal.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.title",
+   "original": "The Structure Is Vibrating",
+   "readOnly": false
+  },
+  {
+   "id": "m12.objective",
+   "original": "Move the system away from resonance and verify that the mitigation works across operating conditions.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.briefing",
+   "original": "A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.stake",
+   "original": "Ninety hours in, and a structural dynamics engineer, Chidi Okoye, caught this one — worth saying, because nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it, work out the structure's own natural rhythm, and stop it. The shaking dies away as soon as the pump moves off that speed, which is the part Okoye thinks matters. This is a shift where something is simply fixed.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.takeaway",
+   "original": "Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.title",
+   "original": "What is driving the vibration?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.task",
+   "original": "Which explanation fits the frequency, speed dependence, and independent accelerometers?",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.place",
+   "original": "Structural Dynamics Lab",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.scene",
+   "original": "A structural vibration becomes severe only in a narrow band of reaction-wheel speed. It peaks sharply near 3,200 rpm and falls away above and below.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.takeaway",
+   "original": "How hard something shakes matters less than what is shaking it and how fast.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.assumes.0",
+   "original": "every structure has speeds at which it prefers to shake",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.headline",
+   "original": "A structural vibration becomes severe only during a narrow band of reaction-wheel speed.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.why",
+   "original": "Resonance is diagnosed by the relationship between the forcing frequency, the natural frequency and the response — not by how large the amplitude is. A structure perfectly strong at rest can fail when it is driven at a frequency it happens to like. Here the vibration frequency matches a known structural mode, the amplitude peaks in a narrow band of wheel speed, and moving the wheel away reduces it immediately and reversibly. A second accelerometer somewhere else sees the same mode, so it is the structure and not the sensor.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.0",
+   "original": "Resonance driven by wheel forcing",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s1.choices.0.mechanism",
+   "original": "A periodic forcing frequency approaches a structural natural frequency and amplifies motion.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.1",
+   "original": "Loose accelerometer",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.1.mechanism",
+   "original": "One sensor mechanically rattles while the spacecraft structure remains quiet.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.2",
+   "original": "One-time impact",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.2.mechanism",
+   "original": "A collision gives the structure an impulsive kick independent of wheel speed.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.3",
+   "original": "Broad structural breakup",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.choices.3.mechanism",
+   "original": "Damage creates large vibration across a wide range of frequencies and operating states.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.0",
+   "original": "A loose sensor rattles on its own mount. A second accelerometer in a different location sees the same mode.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.1",
+   "original": "An impact is a single kick and would not care what speed the wheel is running at. The impact monitor recorded nothing.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s1.rebuttals.2",
+   "original": "Structural breakup gives large vibration across many frequencies and operating states. This is narrow-band, repeatable and reversible.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.title",
+   "original": "Spring-mass period",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.place",
+   "original": "Spacecraft Vibration Console",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.scene",
+   "original": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring. The analyst wants its natural period before the pump speeds are set.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.takeaway",
+   "original": "Natural frequency emerges from inertia and stiffness.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.assumes.0",
+   "original": "a stiffer spring vibrates faster and a heavier mass vibrates slower",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.question",
+   "original": "Estimate the natural period.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.why",
+   "original": "Natural frequency comes out of inertia and stiffness alone — heavier is slower, stiffer is faster — and the period is one over that frequency. The point of the calculation is what it lets you avoid. Knowing where a structure's natural frequency sits tells you which operating speeds will drive it, and lets the pump be scheduled around it. The hardware will otherwise deliver the same information much more expensively, and usually while somebody is depending on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.estimate.prompt",
+   "original": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.estimate.question",
+   "original": "Estimate the natural period.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s2.estimate.explanation",
+   "original": "Only inertia and stiffness set the natural frequency — heavier is slower, stiffer is faster. The wheel speed is what might drive this mode, which is the next question and not this one.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s2.estimate.relationship",
+   "original": "Period = 2π × the square root of (mass ÷ stiffness).",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.title",
+   "original": "Stop the resonance",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.task",
+   "original": "The panel oscillates whenever the pump runs near one speed. What do you do?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.place",
+   "original": "Operations Planning Room",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.scene",
+   "original": "A panel oscillates whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed and the panel is structural.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.takeaway",
+   "original": "A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.assumes.0",
+   "original": "a resonance needs both a structure and something driving it",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.question",
+   "original": "The panel oscillates whenever the pump runs near one speed. What do you do?",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.why",
+   "original": "Resonance is a coincidence between a forcing frequency and a natural one, so only two things can be changed: the structure or the forcing. On a vehicle in flight the forcing is the one that can be changed now, reversibly, with nobody's hands on the panel. Damping is the better permanent fix and needs hardware and access. Passing through the band faster assumes the structure survives the passage, which is exactly the assumption three growing cycles have called into question.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.0",
+   "original": "Shift the pump's operating speed away from the measured resonance.",
+   "readOnly": true
+  },
+  {
+   "id": "m12.s3.choices.1",
+   "original": "Add or restore damping at the panel.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.2",
+   "original": "Measure the response at several more locations first.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.choices.3",
+   "original": "Drive the pump harder to pass through the band faster.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.0",
+   "original": "Damping bleeds energy out of the mode and is the right permanent fix. It needs hardware, access and a crew member with their hands on the structure.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.1",
+   "original": "Measuring in more places is how you confirm the fix worked or merely moved the problem. It is the check, not the change.",
+   "readOnly": false
+  },
+  {
+   "id": "m12.s3.rebuttals.2",
+   "original": "Passing through faster assumes the structure survives the passage, which is the assumption the growing amplitude across three cycles is calling into question.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.title",
+   "original": "Choose the Return Path",
+   "readOnly": false
+  },
+  {
+   "id": "m13.objective",
+   "original": "Select a return plan with explicit margins and contingencies for the dominant uncertainties.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.briefing",
+   "original": "Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player must make a multi-constraint physical decision rather than optimize one variable.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.stake",
+   "original": "Ninety-eight hours in. The correction Whitaker flew on the third shift has come back with a cost: tracking now says the path he chose is the expensive one, and Carter has not said anything about it, which is somehow worse. Four routes are on the board — fastest, least propellant, coolest entry, best tracking coverage — and once the burn flies most of them close. This shift you find what actually limits this vehicle and pick the path that survives being wrong. What you want is the path with something left when the next thing breaks.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.takeaway",
+   "original": "Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.title",
+   "original": "Name the binding constraint",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s1.place",
+   "original": "Mission Design Center",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scene",
+   "original": "Four return paths are on the board and each stresses a different subsystem. The room cannot simply take the fastest one.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.takeaway",
+   "original": "The best physical solution is not necessarily the shortest or lowest-fuel solution.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.assumes.0",
+   "original": "a spacecraft carries a fixed amount of everything it needs",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.why",
+   "original": "A trajectory is a system choice, and its effects land on subsystems that have nothing to do with each other. A longer return burns consumables — oxygen, lithium hydroxide, water, power — at a rate nobody can lower much. A larger correction burn spends propellant and adds the uncertainty of executing it. A steeper entry raises peak heating and deceleration on the shield and on the crew. A long blackout removes the ground at the moment it would be most useful. The best path is the one whose binding constraint the vehicle can actually meet.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.0",
+   "original": "Consumables and thermal survival.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.1",
+   "original": "Fuel and propulsion reliability.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.2",
+   "original": "Heating and deceleration.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.choices.3",
+   "original": "Crew autonomy and navigation confidence.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.0",
+   "original": "More days is more oxygen, more water, more scrubber capacity and more power. Consumables are the clock on a long return.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.1",
+   "original": "A larger burn is propellant, and it is also execution error: a bigger correction can be wrong by more.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.2",
+   "original": "A steeper entry raises peak heating and deceleration together. Both are limits on the shield and on the crew.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.rebuttals.3",
+   "original": "A long blackout is time with no ground support, and it lands on crew autonomy and navigation confidence rather than on any hardware.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.0",
+   "original": "Longer return time.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.1",
+   "original": "Larger correction burn.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.2",
+   "original": "Steeper atmospheric entry.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s1.scenarios.3",
+   "original": "Long communications blackout.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.title",
+   "original": "Select the robust trajectory",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.task",
+   "original": "Consumables are known only to within about a day. Which return do you fly?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.place",
+   "original": "Life-Support Desk",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.scene",
+   "original": "Four return paths: 58 hours, 71 hours, 66 hours and 63 hours, each best at something — speed, propellant, entry heating, tracking coverage. The consumables that decide between them are known only to within about a day, and the water margin is the tightest of them.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.takeaway",
+   "original": "Robust optimization values margin and adaptability, not only nominal efficiency.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.assumes.0",
+   "original": "choosing between two numbers that differ by less than their error is choosing at random",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.question",
+   "original": "Consumables are known only to within about a day. Which return do you fly?",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.why",
+   "original": "The uncertainty in the consumables is larger than the gap between the two fastest options. Choosing between them on nominal numbers is choosing on noise. Robust choice values margin and the ability to change your mind later, not efficiency against today's best guess. A path that is optimal against that guess, and infeasible if it is off by a day, is not the safest thing on the board. It is the one that fails first when the estimate moves — and it will move.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.0",
+   "original": "The moderate return, with balanced fuel, thermal and consumable margins.",
+   "readOnly": true
+  },
+  {
+   "id": "m13.s2.choices.1",
+   "original": "The fast return, accepting narrow entry and propulsion margins.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.2",
+   "original": "The slow return, preserving fuel at the cost of life-support margin.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.choices.3",
+   "original": "Defer the choice and hold the propellant for a later correction.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.0",
+   "original": "The fast return is optimal against an estimate carrying a day of uncertainty, and its margins are narrowest exactly where that uncertainty lands.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.1",
+   "original": "The slow return preserves propellant and spends a life-support capacity nobody has bounded. It is optimal against the wrong constraint.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s2.rebuttals.2",
+   "original": "Deferring is a rule about when to burn, not a trajectory. The vehicle is on one whether or not the choice is made.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.title",
+   "original": "Commit to the path",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.task",
+   "original": "Order the commitment so the abort trigger still has something to act on.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.place",
+   "original": "Thermal and Entry Review",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.scene",
+   "original": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. Nobody has yet written down what would show the choice was wrong.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.takeaway",
+   "original": "An abort trigger has to be defined while there is still propellant to act on it.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.assumes.0",
+   "original": "a decision can only be undone while the means to undo it still exist",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.why",
+   "original": "A plan is a hypothesis about future physical states, and it needs a way to be found wrong in time. The margins are quantified first, because they are what the decision is made of. The candidates are compared under off-nominal conditions rather than nominal ones, because the nominal case is the one that was never in doubt. The abort trigger is named before the burn — defined afterwards it is a trigger with nothing left to act on. Then the margins keep being updated against what the tracking returns.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.0",
+   "original": "Quantify the margins first: propellant, consumables, thermal, corridor width. Everything after this is arithmetic on those numbers.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.1",
+   "original": "Compare under off-nominal conditions second. Comparing nominals ranks the candidates by the case that was never the problem.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.2",
+   "original": "Name the abort observation and its time third — before the burn. Afterwards most alternatives have closed and the trigger has nothing to act on.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.rebuttals.3",
+   "original": "Burn last, and keep updating the margins. Commitment is not the end of the estimate.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.0",
+   "original": "Quantify the margins: propellant, consumables, thermal, and the corridor width.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.1",
+   "original": "Compare the candidates under the off-nominal cases, not the nominal one.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.2",
+   "original": "Name the observation that would show the choice was wrong, and the time it arrives.",
+   "readOnly": false
+  },
+  {
+   "id": "m13.s3.cards.3",
+   "original": "Burn, and keep updating the margins against what the tracking returns.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.title",
+   "original": "The Last Correction",
+   "readOnly": false
+  },
+  {
+   "id": "m14.objective",
+   "original": "Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.briefing",
+   "original": "Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.stake",
+   "original": "A hundred and six hours in, and it is Carter's turn — she has been waiting four days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.takeaway",
+   "original": "Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.title",
+   "original": "Real trajectory error or common clock drift?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.task",
+   "original": "Which explanation fits the ranging, angle, clock, and independent-time checks?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.place",
+   "original": "Global Tracking Network",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.scene",
+   "original": "Several ground measurements suddenly place the spacecraft ahead of its predicted path. They agree with each other, and the room is being asked to command a correction burn.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.takeaway",
+   "original": "When several measurements agree, ask whether they agree independently or merely inherit the same clock, calibration, or model.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.assumes.0",
+   "original": "several instruments can be wrong together if they share a part",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.headline",
+   "original": "Several ground measurements suddenly place the spacecraft ahead of its predicted path.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.why",
+   "original": "When several measurements agree, the question is whether they agree independently or merely inherit the same clock, calibration and software. Correlated errors look exactly like a real signal until something outside the chain is consulted. Range and Doppler both use the ground time reference and both shifted. Star-angle navigation uses no ground clock and matches the prediction. The timing reference is found to be offset, and reprocessing the same raw observations with corrected timestamps makes most of the residual disappear — with no manoeuvre.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.0",
+   "original": "Real trajectory error",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.0.mechanism",
+   "original": "The spacecraft has physically moved away from the predicted path.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.1",
+   "original": "Common timing-reference error",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s1.choices.1.mechanism",
+   "original": "Shared timestamps bias several derived range and velocity measurements together.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.2",
+   "original": "Independent sensor failures",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.2.mechanism",
+   "original": "Multiple unrelated instruments happen to drift in the same direction at once.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.3",
+   "original": "Star tracker failure",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.choices.3.mechanism",
+   "original": "The angular navigation system alone is producing the bad state estimate.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.0",
+   "original": "A real trajectory change needs a force, and onboard dynamics show no unmodelled acceleration. Nothing pushed the spacecraft.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.1",
+   "original": "Independent failures do not drift in the same direction at the same moment. These channels share a clock, which is why they moved together.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s1.rebuttals.2",
+   "original": "A star tracker fault would put the angular solution in the wrong place. The angles are the measurements that agree with the prediction.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.title",
+   "original": "Combine independent uncertainties",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.task",
+   "original": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.place",
+   "original": "Navigation Covariance Room",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.scene",
+   "original": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions. The navigation team needs a single number for the entry brief.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.takeaway",
+   "original": "Independent orthogonal uncertainties combine in quadrature.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.assumes.0",
+   "original": "two errors along different directions do not simply add",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.question",
+   "original": "Estimate the combined two-dimensional uncertainty.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.why",
+   "original": "Independent uncertainties along perpendicular axes combine in quadrature — each is squared, the squares are added, and the root is taken — so the answer is smaller than the sum and larger than either term on its own. Getting it wrong matters in both directions here. Overstated uncertainty argues for a correction burn that is not needed and spends propellant that cannot be replaced. Understated uncertainty hides a corridor violation, and the corridor is about a degree wide.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.prompt",
+   "original": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.estimate.question",
+   "original": "Estimate the combined two-dimensional uncertainty.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s2.estimate.explanation",
+   "original": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by forty per cent here.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s2.estimate.relationship",
+   "original": "Independent errors along perpendicular axes add in quadrature: the root of the sum of the squares.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.title",
+   "original": "Burn or observe?",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.task",
+   "original": "Two stations disagree by more than either one's stated error. Do you burn?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.place",
+   "original": "Flight Director Console",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.scene",
+   "original": "Two tracking stations disagree by slightly more than either one's stated error. Both use the same station clock model, and a correction burn is on the table.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.takeaway",
+   "original": "Corrections should reduce total uncertainty and risk, not merely move the nominal trajectory.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.assumes.0",
+   "original": "agreement between two measurements means nothing if they can fail the same way",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.question",
+   "original": "Two stations disagree by more than either one's stated error. Do you burn?",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.why",
+   "original": "Both stations share a clock model, so their agreement was never independent and their disagreement does not say which one is wrong. Only a measurement that cannot fail the same way can settle it. There is a second reason to wait: a correction burn carries its own execution uncertainty, roughly the size of the disagreement being argued about, so burning now would move the vehicle by about as much as the number might be wrong. A correction is worth making when it reduces risk, not when it moves the nominal.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.0",
+   "original": "No — obtain one more independent, high-leverage observation.",
+   "readOnly": true
+  },
+  {
+   "id": "m14.s3.choices.1",
+   "original": "Yes — execute the correction the current solution calls for.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.2",
+   "original": "No — preserve propulsion and accept the corridor as it stands.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.choices.3",
+   "original": "No — update the entry predictions across every linked uncertainty first.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.0",
+   "original": "A burn whose expected shift is smaller than its own execution uncertainty moves the nominal without reducing the risk, and spends propellant doing it.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.1",
+   "original": "Preserving propulsion is the consequence of not burning rather than a decision in its own right, and it leaves the disagreement exactly where it was.",
+   "readOnly": false
+  },
+  {
+   "id": "m14.s3.rebuttals.2",
+   "original": "Updating the predictions across every linked uncertainty says how bad the disagreement is. It adds no new information about which station is right.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.title",
+   "original": "Reentry",
+   "readOnly": true
+  },
+  {
+   "id": "m15.objective",
+   "original": "Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.briefing",
+   "original": "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.stake",
+   "original": "A hundred and eighteen hours in. The sequence starts in eleven minutes, four of them with no communications, and nothing in it can be undone. This shift you take the claims one at a time and decide whether this vehicle is ready. They are not equally strong: a heat shield cold for four days, a battery charged through a path Ferreira invented on the sixth shift, an alignment Ruiz flew by hand against stars, a corridor entered on Carter's independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word of this for five days, and today they say very little.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.takeaway",
+   "original": "Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.title",
+   "original": "Disposition final readiness",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.task",
+   "original": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s1.place",
+   "original": "Integrated Flight Room",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scene",
+   "original": "The final go or no-go. Four claims of very different quality are in front of the room, and in eleven minutes the vehicle enters, the radio goes quiet, and nothing can be revisited.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.takeaway",
+   "original": "Final authority should follow traceable evidence and pre-agreed criteria.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.assumes.0",
+   "original": "a decision made under pressure follows whatever rule was agreed before the pressure",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.why",
+   "original": "Readiness is granular. Some claims can be approved and others need action first, and giving them all one answer is how a room that wants to say yes ends up saying yes to everything. A state inside the corridor is approved, with tracking continued. An uncertain shield configuration is held while holding is still possible. An expected blackout with verified onboard guidance is accepted, with the procedure written down. A known station bias is corrected under the rule agreed beforehand.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.0",
+   "original": "Approve the entry claim with continued tracking.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.1",
+   "original": "Hold or resolve configuration before commitment if physically possible.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.2",
+   "original": "Accept with a documented blackout procedure.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.choices.3",
+   "original": "Exclude or correct the biased data under the validated rule.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.0",
+   "original": "A state inside the corridor across the modelled uncertainty is the one claim that can simply be approved — with tracking continued, because the margin is not infinite.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.1",
+   "original": "An undocumented configuration change to the heat shield is held and resolved while there is still time to hold. It is the only item here that cannot be accepted with a caveat.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.2",
+   "original": "An expected blackout with verified onboard guidance is accepted, with the procedure written down. It is a known condition, not a surprise.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.rebuttals.3",
+   "original": "A known station bias is corrected or excluded under the rule that was validated in advance — not argued about now, when everyone wants to go.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.0",
+   "original": "Entry state lies inside the robust corridor across modeled uncertainty.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.1",
+   "original": "Thermal-shield configuration is uncertain after an undocumented change.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.2",
+   "original": "A minor communications loss is expected but autonomous guidance is verified.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s1.scenarios.3",
+   "original": "One tracking solution disagrees because of a known station bias.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.title",
+   "original": "Execute the final physical chain",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.task",
+   "original": "Order the entry around the four minutes with no communications.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.place",
+   "original": "Crew Capsule",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.scene",
+   "original": "Everything the last five days established comes down to the next eleven minutes, four of them with no communications at all. The order cannot be repeated.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.takeaway",
+   "original": "Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.assumes.0",
+   "original": "you cannot fix from the ground what happens while the radio is quiet",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.why",
+   "original": "The order is forced by the blackout. Attitude, configuration and the approved state estimate are set before the atmospheric interface, because there is no way to change any of them once the radio goes quiet. The roles of the onboard system and the ground are made unambiguous before commitment, for the same reason. Monitoring deceleration and heating against the predicted envelope cannot start earlier, because there is nothing yet to monitor. And the transition to descent preserves the record, because this flight will only happen once.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.0",
+   "original": "Attitude and configuration first, before the interface. Nothing here can be changed through four minutes of silence.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.1",
+   "original": "Commit with the onboard and ground roles already unambiguous. Deciding who is flying is not something to work out during the blackout.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.2",
+   "original": "Monitor deceleration and heating against the envelope third. It cannot begin before entry, because there is nothing to compare against yet.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.rebuttals.3",
+   "original": "Descent and recovery last, preserving the record. It is the only flight that will ever produce this data.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.0",
+   "original": "Set the approved attitude and configuration, because nothing can be changed through the blackout.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.1",
+   "original": "Commit to the interface with the onboard and ground roles already unambiguous.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.2",
+   "original": "Monitor deceleration and heating against the predicted envelope.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s2.cards.3",
+   "original": "Transition to descent, preserving the record of what the envelope actually did.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.title",
+   "original": "Fund the mission legacy",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.task",
+   "original": "The review board convenes on Monday. What does the programme commit to?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.place",
+   "original": "Entry Tracking Network",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.scene",
+   "original": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals for three funded slots: the tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade built from this flight's own data.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.takeaway",
+   "original": "The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.assumes.0",
+   "original": "a fix that removes a cause outlasts a fix that improves the response",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.question",
+   "original": "The review board convenes on Monday. What does the programme commit to?",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.why",
+   "original": "The failure that started this was three pressure readouts sharing one reference circuit, and the near-miss at the end was two tracking stations sharing one clock. The same shape twice, five days apart. Redesigning those common-mode dependencies is the only proposal here that removes a cause rather than improving the response to it. A programme learns from the discrepancies it recorded, and closing them as one-offs keeps every dependency that produced them for the next crew to inherit.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.0",
+   "original": "Redesign the common-mode electrical and sensor dependencies.",
+   "readOnly": true
+  },
+  {
+   "id": "m15.s3.choices.1",
+   "original": "Preserve the complete telemetry, configuration and decision logs.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.2",
+   "original": "Improve simulation and crew rehearsal for degraded modes.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.choices.3",
+   "original": "Record the outcome as a success and close the anomalies.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.0",
+   "original": "Preserving telemetry and decision logs is what makes any reconstruction possible, and it should be finished before Monday rather than funded after it.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.1",
+   "original": "Rehearsal for degraded modes improves how the next crew survives the same fault. Valuable, and it accepts the fault.",
+   "readOnly": false
+  },
+  {
+   "id": "m15.s3.rebuttals.2",
+   "original": "Closing the anomalies as one-offs keeps every dependency that produced them, and the next mission inherits all of it.",
+   "readOnly": false
+  },
+  {
+   "id": "copy.NAV",
+   "original": "<p>Guidance. Where the spacecraft is, how fast, and how much of that is actually known.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.ELEC",
+   "original": "<p>Electrical systems. Every watt aboard is drawn from an inventory that is not being refilled.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.THERM",
+   "original": "<p>Thermal and life support. Heat, gas and water — the three things a cabin runs out of.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.COMMS",
+   "original": "<p>Communications. Everything known about the vehicle arrives through this room.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.STRUCT",
+   "original": "<p>Structures and dynamics. Rotation, vibration and the loads a spacecraft was built to take.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.INTEG",
+   "original": "<p>Mission operations. Six rooms report here and one person decides.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.SIGNIN",
+   "original": "<p>Badge and sign-in. Nobody reaches the operations floor without appearing on this sheet.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.GALLERY",
+   "original": "<p>The viewing gallery. Off-shift controllers wait out a burn here rather than at home.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.QUIET",
+   "original": "<p>The crew family room. Kept staffed, and kept away from the loop.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "copy.LIBRARY",
+   "original": "<p>The trajectory library. Every plot, every burn, every version that was superseded.</p>",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.NAV.caption",
+   "original": "A state estimate that cannot predict the next observation is a number, not a position.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.NAV.standLine",
+   "original": "Range from one station, two bearings ninety minutes apart, and a Doppler trace in a different time standard.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ELEC.caption",
+   "original": "Power is a rate. Endurance is what the inventory divided by that rate buys you.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.ELEC.standLine",
+   "original": "Fuel cells gone, entry batteries carrying loads they were never budgeted for.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.THERM.caption",
+   "original": "The cabin cools whether or not anybody is watching the number.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.THERM.standLine",
+   "original": "Condensation on the panels, four degrees and falling, crew sleeping in suits.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.COMMS.caption",
+   "original": "A link budget is arithmetic. Which term broke it is evidence.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.COMMS.standLine",
+   "original": "Carrier down twelve decibels and drifting, with attitude, range and antenna schedule all changed.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.STRUCT.caption",
+   "original": "A structure fails at the frequency you are driving it at, not the one on the drawing.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.STRUCT.standLine",
+   "original": "A panel oscillating whenever the pump runs near one speed, and one accelerometer watching it.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.INTEG.caption",
+   "original": "Every call here is made on numbers somebody else measured, late.",
+   "readOnly": false
+  },
+  {
+   "id": "interiors.INTEG.standLine",
+   "original": "One anomaly log, six back rooms, and a crew who can hear the loop.",
+   "readOnly": false
+  }
+ ]
+}
