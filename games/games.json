@@ -148,6 +148,27 @@
       "built": true
     },
     {
+      "id": "deepwatch_ms",
+      "title": "Deep Watch",
+      "course": "Sound, floating and sinking · physical science",
+      "field": "Physics",
+      "accent": "#3f8f86",
+      "place": "A submarine — one line of ten compartments, hatches between them, and no sky at all.",
+      "hero": "shots/deepwatch.jpg",
+      "build": "deepwatch_ms",
+      "pair": "deepwatch",
+      "shotsFrom": "deepwatch",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Reasoning Under Pressure Beneath the Surface",
+      "grade": 6,
+      "size": {
+        "days": 10,
+        "stops": 30
+      },
+      "built": true
+    },
+    {
       "id": "projecty",
       "title": "Project Y",
       "course": "AP Physics 2 · nuclear",
@@ -207,6 +228,27 @@
       "size": {
         "days": 15,
         "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "aftershock_ms",
+      "title": "Aftershock",
+      "course": "Earthquakes and building safety · Earth science",
+      "field": "Engineering",
+      "accent": "#b6553f",
+      "place": "Kestrel Bay three days after, where the fault broke the surface and you can walk the scarp.",
+      "hero": "shots/aftershock.jpg",
+      "build": "aftershock_ms",
+      "pair": "aftershock",
+      "shotsFrom": "aftershock",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Building Safety Coordinator · Kestrel Bay",
+      "grade": 6,
+      "size": {
+        "days": 10,
+        "stops": 30
       },
       "built": true
     },
@@ -295,6 +337,27 @@
       "built": true
     },
     {
+      "id": "icecore_ms",
+      "title": "Ice Core",
+      "course": "Layers, records and climate · Earth science",
+      "field": "Earth & Space",
+      "accent": "#6fc7d8",
+      "place": "A deep-drilling camp on a polar plateau, with the flattest, emptiest horizon in the set.",
+      "hero": "shots/icecore.jpg",
+      "build": "icecore_ms",
+      "pair": "icecore",
+      "shotsFrom": "icecore",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Season Science Lead · Vestri Dome",
+      "grade": 6,
+      "size": {
+        "days": 10,
+        "stops": 30
+      },
+      "built": true
+    },
+    {
       "id": "outbreak_riverton",
       "title": "Outbreak: Riverton",
       "course": "AP Biology · public health",
@@ -333,6 +396,27 @@
       "size": {
         "days": 15,
         "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "seedbank_ms",
+      "title": "Wellmere",
+      "course": "Traits, inheritance and breeding · life science",
+      "field": "Biology",
+      "accent": "#7fae8a",
+      "place": "A breeding station on a headland, ringed by isolation distance. Sea on three sides and one causeway in.",
+      "hero": "shots/seedbank.jpg",
+      "build": "seedbank_ms",
+      "pair": "seedbank",
+      "shotsFrom": "seedbank",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Season Lead · Wellmere Seed Bank",
+      "grade": 6,
+      "size": {
+        "days": 10,
+        "stops": 30
       },
       "built": true
     },
