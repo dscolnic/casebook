@@ -15,6 +15,9 @@ game, and add to it when the next rule turns up.
 and the candidate games worked up against them, each with its course, its place
 and the argument it turns on.
 
+**`README.md` is the landing page** — start there for a new game: it names the
+two documents to read first and the order the work goes in.
+
 **`GAMES.md` is the inventory** — all eight games, what each one is, where its
 content and its place live, and what is still unfinished. Read it first if you
 are picking this up cold. **`gamekit/STORY_SPEC.md` is the story contract** —

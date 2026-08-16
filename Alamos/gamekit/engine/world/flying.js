@@ -58,6 +58,11 @@ export function flyable(scene, group, opts = {}){
     cruise: opts.cruise ?? 30,        // metres a second, flat out
     ceiling: opts.ceiling ?? 120,     // above ground level
     light: opts.light ?? null,        // landing light, switched on in flight
+    // The pilot sits inside the machine, so the machine's own shell is between
+    // the eye and everything else: at 70 metres over base camp the view was a
+    // black disc with a ridge visible around the edges of it. These meshes are
+    // hidden while somebody is aboard and put back when they get out.
+    cockpitHide: opts.cockpitHide ?? [],
     box: null,
     colliders: opts.colliders ?? null,
   };
@@ -139,6 +144,7 @@ export function createFlying({
       const i = colliders.indexOf(a.box);
       if(i >= 0) colliders.splice(i, 1);
       if(a.light) a.light.visible = true;
+      for(const m of a.cockpitHide) m.visible = false;
       return true;
     },
 
@@ -157,6 +163,7 @@ export function createFlying({
       a.box = boxFor(a);
       colliders.push(a.box);
       if(a.light) a.light.visible = false;
+      for(const m of a.cockpitHide) m.visible = true;
       const reach = Math.hypot(a.halfW, a.halfL) + 1.6;
       player.teleport({ x: a.group.position.x + reach, z: a.group.position.z });
       onFlight?.(travelled);

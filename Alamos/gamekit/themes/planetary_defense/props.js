@@ -326,7 +326,15 @@ function helicopter(scene, x, z, y, { facing = 0 } = {}){
   acl.position.set(0, 0.62, 0.4);
   g.add(acl);
 
-  return { group: g, rotors: { main: mainRotor, tail: tailRotor }, light: beam };
+  // Everything, not just the shell. The pilot's eye is inside a machine five
+  // metres long: with only the cabin hidden the view was still a black disc
+  // (the landing-light cone, seen from inside its own base) with the rotor and
+  // the skids across the bottom of it. From the seat you see the world; from
+  // outside, on the pad, you see the helicopter.
+  const body = [];
+  g.traverse(o => { if(o.isMesh && o !== beam) body.push(o); });
+  return { group: g, rotors: { main: mainRotor, tail: tailRotor }, light: beam,
+    shell: [...body, beam] };
 }
 
 export function decorate(scene, ctx){
@@ -629,7 +637,12 @@ export function decorate(scene, ctx){
     label: 'survey helicopter',
     rotors: heli.rotors,
     light: heli.light,
-    seat: { x: 0, y: 1.9, z: -1.5 },
+    cockpitHide: heli.shell,
+    // The eye goes in the nose, ahead of the cabin shell. At z = -1.5 the
+    // camera sits inside that sphere and the whole view is the inside of the
+    // fuselage: a black disc filling the screen, which is exactly what the
+    // first flight looked like.
+    seat: { x: 0, y: 1.78, z: -2.85 },
     halfWidth: 1.7, halfLength: 5.4, height: 3.6,
     cruise: 34, ceiling: 140,
     colliders, interactables,

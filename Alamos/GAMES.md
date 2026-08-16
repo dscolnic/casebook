@@ -1,5 +1,8 @@
 # The games, and how to pick any of them up cold
 
+> New game? Start at [`README.md`](README.md), which names the two documents
+> to read first — `gamekit/STORY_SPEC.md` then `gamekit/NEW_GAME.md`.
+
 Twelve playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
