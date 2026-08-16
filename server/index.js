@@ -31,8 +31,20 @@ async function main() {
   // of progress plus a hundred-line log — and the default 100 kB body limit
   // rejects one with a 413 the game has no way to report.
   app.use(express.json({ limit: "2mb" }));
+
+  // Every redirect this file issues says no-store, and it is not belt and
+  // braces. express.static sets no-store on the files it serves, but a redirect
+  // never reaches it — so while `/` pointed at `/reckon.html`, it answered 302
+  // with no cache headers at all, and a browser is entitled to keep that. The
+  // symptom is the worst kind: the server is right, the deploy is right, and one
+  // machine keeps arriving at a page that is no longer linked from anywhere.
+  const goTo = (res, where) => {
+    res.set("Cache-Control", "no-store, no-cache, must-revalidate");
+    return res.redirect(302, where);
+  };
+
   // The front door is the game shelf.
-  app.get("/", (_req, res) => res.redirect("/games/"));
+  app.get("/", (_req, res) => goTo(res, "/games/"));
 
   // Retired, before anything else can answer for them. A page goes to the shelf
   // rather than a 404 — anyone arriving has a bookmark, and a dead end teaches
@@ -43,8 +55,9 @@ async function main() {
     // developed on — `/Casebook.html` misses the set and then static serves the
     // file anyway. Linux would 404 it, so the bypass only exists where it is
     // least likely to be noticed.
-    if (RETIRED.has(req.path.toLowerCase())) return res.redirect("/games/");
+    if (RETIRED.has(req.path.toLowerCase())) return goTo(res, "/games/");
     if (req.path === "/api/shelf" || req.path.startsWith("/api/case/")) {
+      res.set("Cache-Control", "no-store, no-cache, must-revalidate");
       return res.status(410).json({ message: "The casebook games are no longer served here." });
     }
     next();
@@ -170,7 +183,7 @@ async function main() {
     if (req.path.startsWith("/api/")) return next();
     if (req.path === "/sign-in.html" || req.path === "/sign-out.html") return next();
     if (getUserId(req)) return next();
-    return res.redirect("/sign-in.html");
+    return goTo(res, "/sign-in.html");
   });
 
   // Static site: games/, icons, manifest, service worker, and whatever else is
