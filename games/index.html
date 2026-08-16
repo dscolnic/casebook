@@ -146,18 +146,25 @@ let field = 'All';
 // Youngest first, so the row reads as a scale rather than as three unrelated
 // buttons. A level with no games in it never gets drawn, so Elementary is one
 // card today and will simply widen as editions land.
+// `hold: true` keeps a level off the shelf entirely — no chip, and its games do
+// not appear anywhere. Elementary is held because it is one game (Hospital
+// Heroes), and a whole reading level offered for a single card promises a shelf
+// that is not there yet. Delete the flag when there are enough to be worth
+// choosing; nothing else here needs to change.
 const LEVELS = [
-  { id: 'elementary', label: 'Elementary',           has: (g) => g.level === 'elementary' },
+  { id: 'elementary', label: 'Elementary',           has: (g) => g.level === 'elementary', hold: true },
   { id: 'middle',     label: 'Middle School',        has: (g) => g.level === 'middle' },
   { id: 'high',       label: 'High school + above',  has: (g) => g.level === 'high' },
 ];
+const SHOWN = LEVELS.filter(l => !l.hold);
 const LEVEL_KEY = 'casebook_shelf_level';
-// Senior high is the default because fourteen of the sixteen games are written
-// for it. An unrecognised stored value falls back rather than emptying the page.
+// Senior high is the default because most of the set is written for it. A stored
+// value that is unknown — or names a level since put on hold — falls back rather
+// than emptying the page.
 const saved = localStorage.getItem(LEVEL_KEY);
-let level = LEVELS.some(l => l.id === saved) ? saved : 'high';
+let level = SHOWN.some(l => l.id === saved) ? saved : 'high';
 
-const inLevel = (g) => (LEVELS.find(l => l.id === level) ?? LEVELS[0]).has(g);
+const inLevel = (g) => (SHOWN.find(l => l.id === level) ?? SHOWN[0]).has(g);
 
 async function json(url){
   try{
@@ -264,7 +271,7 @@ function renderFilters(){
   // which was true until the first edition shipped — there is nothing to choose
   // between and the row hides itself rather than offering a control that
   // empties the page.
-  const live = LEVELS.filter(l => games.some(l.has));
+  const live = SHOWN.filter(l => games.some(l.has));
   const box = document.getElementById('levels');
   box.hidden = live.length < 2;
   box.innerHTML = live.map(l =>
@@ -284,7 +291,10 @@ function renderFilters(){
   // The account and the catalogue are independent — the shelf must draw even if
   // the API never answers, so neither await blocks the other.
   const [cat] = await Promise.all([json('./games.json'), loadAccount(), loadSaves()]);
-  games = cat?.games ?? [];
+  // A held level is dropped here rather than at each place that reads `games`,
+  // so the chips, the counts and the campaigns-in-progress note cannot disagree
+  // about which games exist.
+  games = (cat?.games ?? []).filter(g => SHOWN.some(l => l.has(g)));
   if(!games.length){
     document.getElementById('note').textContent =
       'No games.json here yet — run `npm run sync-casebook` in the Alamos repo.';
