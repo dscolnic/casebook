@@ -70,6 +70,18 @@ export default {
   fitOutRoom,
   fitOutSpine,
 
+  // The title card: ONE paragraph of situation. What the player is, where
+  // they are, and what it costs if the work is not done — no mechanics, no
+  // controls, no scope line. This game had none at all and opened on a blank.
+  opening: [
+    'You are a new doctor at the children\'s hospital. Today is your first day '
+    + 'on the ward. Children come in hurt, or sick, or scared. Some of them are '
+    + 'too little to say what is wrong. Nurse Alex Lee will show you round this '
+    + 'morning. Then she will start asking you what you saw. Your job is to look '
+    + 'closely, ask good questions, and work out who needs help first. Three '
+    + 'children are waiting by the door right now.',
+  ],
+
   look: {
     fov: 66,
     near: 0.08,

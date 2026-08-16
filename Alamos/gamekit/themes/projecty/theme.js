@@ -76,6 +76,23 @@ export default {
   // had to be written twice.
   people: { OUTFITS, roleToOutfit, spawn: HISTORIC_CHARACTERS.length, extras: 22 },
 
+  // The title card: ONE paragraph of situation. What the player is, where
+  // they are, and what it costs if the work is not done — no mechanics, no
+  // controls, no scope line. This game had none at all and opened on a blank.
+  opening: [
+    'It is April 1943, and the site is three weeks old: a boys\' school on a '
+    + 'mesa in New Mexico, with a laboratory going up around it. There is a '
+    + 'fence, and most of the people arriving cannot tell their families where '
+    + 'they are. You are a scientist newly assigned to Project Y. It has one '
+    + 'problem to solve and a schedule set by a war. Five divisions are working '
+    + 'on it at once — theory, experiment, chemistry and metallurgy, ordnance, '
+    + 'explosives — and not one of them can finish without the other four. Nobody '
+    + 'yet knows whether the thing being described on three different blackboards '
+    + 'will work at all. Oppenheimer has put a meeting in the calendar every week '
+    + 'where anyone may be asked anything, so that being wrong costs days instead '
+    + 'of months.',
+  ],
+
   look: {
     // The Hill worked a long day, and this window is its daylight rather than
     // its hours: the sun angle is the only thing it drives.

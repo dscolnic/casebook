@@ -76,12 +76,16 @@ export default {
   // One paragraph of situation. No mechanics, no controls, and never a list of
   // what the player does not do.
   opening: [
-    'The Calder interconnection supplies four million people from about six thousand megawatts '
-    + 'of generation, and its frequency has to stay within half a hertz of fifty or plant starts '
-    + 'tripping off. You are the system operator on nights. Most of that generation belongs to '
-    + 'companies you can instruct under contract but cannot order about, and demand rises and '
-    + 'falls with whatever four million people are doing. Your job is to keep the two matched, '
-    + 'second by second. A fault takes seconds; getting supply back can take days.',
+    'Four million people are supplied from the Calder network, and the whole of '
+    + 'it runs on one number. Mains frequency has to stay within half a hertz of '
+    + 'fifty. Drift further and generators start tripping off, which takes the '
+    + 'rest of the system with them. You are the system operator on nights. The '
+    + 'power stations belong to companies you can instruct under contract and '
+    + 'cannot order about. Demand rises and falls with whatever four million '
+    + 'people happen to be doing. Holding the two together, second by second, is '
+    + 'the job. A fault takes seconds. Getting a system back after one has gone '
+    + 'down takes days, and the hospitals on this network hold about eight hours '
+    + 'of their own generation.',
   ],
 
   ending: [

@@ -593,6 +593,35 @@ Corollaries:
   clock, prices), no scope disclaimer, no controls note — all of it was removed
   from every game. And never tell the player what they *do not* do: "you do not
   touch the vehicle", "you do not prescribe" both read as apologies for the game.
+- **And it was the one piece of prose nothing was counting.** The reading-level
+  gate covered scenes and verdicts; `checkVoice` read the opening only for the
+  slogan it ends on. So the first paragraph a player ever sees — the only one
+  read before the game has taught them a word — had no gate, and ten of fifteen
+  cards failed the moment one existed. Red Sand opened on "the transfer window
+  opens on sol 486" and "the ascent vehicle standing on the pad", three undefined
+  terms in a 45-word sentence; Ice Core opened at Flesch–Kincaid 17.5 with a
+  55-word sentence. `validateContent` now checks the card's reading level against
+  `audience.grade`, fails a sentence over 40 words, and lists hard words the
+  glossary never defines. **The sentence length is the one that bites** — the bad
+  cards were not hard vocabulary, they were pile-ups, and a 40-word sentence with
+  two semicolons is unreadable however plain its words. What no cheap rule
+  catches is a domain term built from ordinary words, which is exactly what
+  "transfer window" is: for that, read the card.
+- **Inside that paragraph there are four beats, in this order.** Every card in
+  the set was swept against them: what has happened or is about to, and to whom;
+  the player's job stated as authority — "You are the …, which means …"; the
+  clock or the argument, with somebody from the roster in it; and last, what it
+  costs, in people. **The failure they were swept for is the inventory opening**:
+  Red Sand began "nine modules buried to the eaves, eighteen hundred square
+  metres of solar panel, an ascent vehicle four hundred metres past the last of
+  them" — every fact true, no situation, nobody in it, and a specification for a
+  closing line. The same paragraph now opens on the transfer window that does not
+  move and ends on six people going home on what two named engineers can agree to
+  make. A card ending on a number is usually a card that has not said what the
+  number does to anybody. **And two games shipped with no opening at all** —
+  Project Y and Hospital Heroes rendered an empty title card for as long as they
+  have existed, because `opening` is optional in the manifest and nothing checks
+  for it.
 - **The verdict says `Correct` / `Incorrect` first.** "Evidence accepted" is the
   response's language, one inference away from what the player asked.
 - **The plan card note is "Take them in whatever order."** Nothing else.

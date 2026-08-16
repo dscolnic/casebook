@@ -71,12 +71,15 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Vestri Dome is a drilling camp on the high plateau: six modules on legs, a trench with a '
-    + 'tower over it, and two thousand four hundred metres of ice already out of the ground. You '
-    + 'are the season science lead, which means the record this station sends home is the one you '
-    + 'signed. Another group has published a record from four hundred kilometres away that '
-    + 'disagrees with yours, an assessment quoting both closes in March, and the aircraft that '
-    + 'takes everybody off the ice comes in fifteen days.',
+    'Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, '
+    + 'a trench with a tower over it, and two and a half kilometres of ice '
+    + 'already pulled out of the ground. None of it can be let above minus '
+    + 'twenty. You are the season science lead, which means the climate record '
+    + 'this station sends home is the one you signed. A camp four hundred '
+    + 'kilometres away has published a record that disagrees with yours. The '
+    + 'aircraft that takes everybody off the ice arrives in fifteen days. '
+    + 'Whatever has not been measured by then is not measured until the next crew '
+    + 'flies in, two years from now.',
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

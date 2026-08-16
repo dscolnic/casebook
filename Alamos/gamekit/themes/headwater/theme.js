@@ -74,14 +74,17 @@ export default {
   // it looks, and the exposure kept under 1.
   exposure: 0.94,
 
-  // The title card. Two or three paragraphs: what the player is, what is at
-  // stake, and how a day works. Nothing here is generated.
+  // The title card. One paragraph of situation — no mechanics, no scope note.
+  // Nothing here is generated.
   opening: [
-    'Say what the player is, where they are, and what happens if the work is not done. '
-    + 'This paragraph is the only place the game explains itself.',
-    'Each mission is one working day. The calls are shown before it starts and taken in any order; '
-    + 'the clock runs while you walk and at a quarter rate while a panel is open. A wrong call costs '
-    + '$5 to answer again or $10 to leave open, and running out of either means standing the day again.',
+    'Ashfell Dam holds ninety-two million cubic metres of water in a gorge, '
+    + 'with four villages along the river below it. This morning the reservoir is '
+    + 'at 88 per cent after the driest summer in nine years. The forecast is nine '
+    + 'days of rain starting Thursday, over every hillside that drains into it. '
+    + 'You are the duty engineer, so the amount of water let out each morning is '
+    + 'ordered by you. You order it out of gauge readings taken hours ago and a '
+    + 'survey of the reservoir\'s shape made in 2003. The gates take six hours to '
+    + 'make any difference downstream. The river can rise in two.',
   ],
 
   look: {

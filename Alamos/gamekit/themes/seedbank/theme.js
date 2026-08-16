@@ -71,12 +71,16 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'You are Season Lead at Wellmere, a breeding station on Saltmere Point, where forty-one '
-    + 'thousand seed samples are held at minus eighteen and the ground is laid out in rings by '
-    + 'how far pollen travels. Sowing starts in three weeks. The trial has to be laid out, the '
-    + 'overdue accessions grown out, and a new wheat either released to the merchant or held '
-    + 'back. Two hundred kilometres east there is a rust the programme has one gene against, '
-    + 'and the wind that would bring it comes over the causeway.',
+    'Two hundred kilometres east there is a wheat disease the breeding '
+    + 'programme has exactly one gene against. The wind that would carry it here '
+    + 'comes in over the causeway. You are Season Lead at Wellmere. Forty-one '
+    + 'thousand seed samples are held here at minus eighteen, and the ground '
+    + 'outside is laid out in rings, spaced by how far pollen can travel. Sowing '
+    + 'starts in three weeks, and what goes into the ground is settled this '
+    + 'fortnight. The trial has to be laid out. The oldest samples have to be '
+    + 'grown out again, before fewer of them will come up. And a new wheat has to '
+    + 'be either released to the merchant or held back. Anything not sown in '
+    + 'three weeks waits a full year.',
   ],
 
   look: {

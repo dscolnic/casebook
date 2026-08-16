@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { themeDir as resolveTheme } from './registry.mjs';
+import { ordinary, norm, TECHY } from '../../tools/common-words.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const themeName = process.argv[2];
@@ -713,6 +714,100 @@ function fleschKincaid(text){
       }
     }
     if(over.length) note(`${over.length} passage(s) above the declared grade ${target}: ${over.slice(0, 4).join(', ')}${over.length > 4 ? ', …' : ''}`);
+  }
+}
+
+
+// ---- the opening card
+//
+// THE ONE PIECE OF PROSE NOTHING WAS COUNTING. The reading-level gate above
+// covers scenes and verdicts; `checkVoice` reads the opening but only for the
+// slogan it ends on. So the first paragraph a player ever sees — the only one
+// they read before the game has taught them a single word — had no gate at all,
+// and it shows: Red Sand opened on "the transfer window opens on sol 486" and
+// "the ascent vehicle standing on the pad", with all three terms undefined and a
+// 42-word sentence carrying them; Ice Core opened at Flesch–Kincaid 17.5 with a
+// 66-word sentence.
+//
+// Three things are checked, and the middle one is the one that actually bites.
+//
+//   · **Reading level**, on the same rule as a scene.
+//   · **Sentence length.** A card is read cold, standing still, before anything
+//     is at stake. Every one of the worst cards failed here first: a 40-word
+//     sentence with two semicolons is not hard vocabulary, it is a pile-up, and
+//     it is the thing that makes a good situation unreadable.
+//   · **Hard words that the glossary does not define.** A term the glossary
+//     carries will at least be explained on day one. A term nowhere in the game
+//     is a word the player is expected to already own — which is exactly the
+//     assumption an opening card is not entitled to make. Hardness is
+//     `jargonSweep`'s own test, not a new one, so the two cannot drift.
+//
+// What this deliberately does NOT catch, because no cheap rule does: a domain
+// term built out of ordinary words. "Transfer window" and "ascent vehicle" are
+// two everyday words each and neither is a candidate under any word-level test,
+// yet they were the first two things Red Sand's card asked a player to already
+// know. That class is caught by reading the card, and the sentence-length gate
+// is what makes somebody read it.
+{
+  const opening = (T.opening ?? []).join(' ').trim();
+  if(opening){
+    const target = Number(T.audience?.grade);
+    const fk = fleschKincaid(opening);
+    if(Number.isFinite(target) && fk != null){
+      if(fk > target + 2) fail(`the opening card reads at grade ${fk.toFixed(1)}, and the theme is written for grade ${target}`);
+      else if(fk > target) note(`the opening card reads at grade ${fk.toFixed(1)}, above the declared ${target}`);
+    }
+    // Sentence length. Split on terminators; an em-dash or a semicolon does not
+    // end a sentence and is exactly how these got long in the first place.
+    const sentences = opening.split(/(?<=[.!?])\s+/).filter(s => s.trim());
+    const longest = sentences.reduce((a, b) =>
+      b.split(/\s+/).length > a.split(/\s+/).length ? b : a, '');
+    const longestWords = longest.split(/\s+/).filter(Boolean).length;
+    if(longestWords > 40){
+      fail(`the opening card has a ${longestWords}-word sentence — "${longest.slice(0, 60)}…"`);
+    }else if(longestWords > 32){
+      note(`the opening card's longest sentence is ${longestWords} words`);
+    }
+    const mean = opening.split(/\s+/).filter(Boolean).length / Math.max(1, sentences.length);
+    if(mean > 28) note(`the opening card averages ${mean.toFixed(0)} words a sentence`);
+
+    // Hard words with nowhere to look them up. Names are skipped: a card is
+    // entitled to introduce a person or a place, and does.
+    const defined = new Set();
+    for(const j of content.JARGON ?? []){
+      for(const w of [j.term, j.name, ...(j.aliases ?? [])]){
+        if(w) String(w).split(/\s+/).forEach(part => defined.add(norm(part)));
+      }
+    }
+    for(const p of ROSTER) String(p?.name ?? '').split(/\s+/).forEach(w => defined.add(norm(w)));
+    for(const b of T.site?.buildings ?? []) String(b?.name ?? '').split(/\s+/).forEach(w => defined.add(norm(w)));
+    // jargonSweep's rule, imported in spirit rather than copied loosely: five
+    // letters or more, not an ordinary word, and then either long or technical.
+    const hard = (raw) => {
+      const w = norm(raw);
+      if(w.length < 5 || ordinary(w)) return false;
+      if(/^[A-Z]{2,5}$/.test(raw)) return true;
+      if(/\d/.test(w)) return true;
+      return w.length >= 10 || TECHY.test(w);
+    };
+    const seen = new Set(), unglossed = [];
+    for(const raw of opening.split(/[^A-Za-z’'-]+/)){
+      if(!raw) continue;
+      if(/^[A-Z]/.test(raw)) continue;          // a name, or the start of a sentence
+      const w = norm(raw);
+      // A hyphenated number is not a technical term. "twenty-three",
+      // "quarter-million" and "eighty-year-old" are long enough to trip the
+      // length clause and are ordinary English.
+      if(raw.includes('-') && raw.split('-').every(part => part.length < 8)) continue;
+      if(seen.has(w) || defined.has(w) || !hard(raw)) continue;
+      seen.add(w);
+      unglossed.push(raw);
+    }
+    if(unglossed.length >= 4){
+      fail(`the opening card uses ${unglossed.length} term(s) the game never defines: ${unglossed.join(', ')}`);
+    }else if(unglossed.length){
+      note(`the opening card uses ${unglossed.length} undefined term(s): ${unglossed.join(', ')}`);
+    }
   }
 }
 

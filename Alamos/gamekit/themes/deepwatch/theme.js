@@ -51,12 +51,15 @@ export default {
   interiorStyle: 'steel',
 
   opening: [
-    'You have the watch on a submarine at ninety metres, and the boat has been submerged long '
-    + 'enough that nobody aboard has seen daylight. You cannot look outside: what you know about the '
-    + 'water around you comes from sonar, and what you know about the boat comes from gauges other '
-    + 'people read out to you. Problems carry on while you think about them. A contact you have not '
-    + 'identified keeps closing, water already aboard keeps rising, and an uncorrected plot drifts '
-    + 'further from the boat\'s real position every minute.',
+    'You have the watch on a submarine at ninety metres. Everybody aboard is '
+    + 'asleep, on watch, or working in a compartment they cannot see out of. '
+    + 'Neither can you. What you know about the water comes from sonar. What you '
+    + 'know about the boat comes from gauges other people read out to you over a '
+    + 'telephone. A contact nobody has identified is closing, and water already '
+    + 'inside the hull is rising. The pencilled track on the chart drifts further '
+    + 'from where the boat really is with every minute nobody corrects it. '
+    + 'Surfacing is where every one of these problems stops being fatal. Somebody '
+    + 'has to be willing to call it.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

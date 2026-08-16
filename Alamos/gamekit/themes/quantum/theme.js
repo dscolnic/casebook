@@ -62,12 +62,16 @@ export default {
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
   opening: [
-    'Ridgeway runs a twelve-qubit superconducting processor at eleven thousandths of a degree above '
-    + 'absolute zero, and you lead the group. A laboratory in Delft has published a result your funder '
-    + 'has asked about, your own best number has been measured on one machine by one group, and the '
-    + 'review is in a fortnight. The magnetometer down the corridor already sends numbers to a hospital '
-    + 'every month, which is a reminder that some of this field works today and the rest of it is being '
-    + 'argued about.',
+    'Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a '
+    + 'degree above absolute zero by a refrigerator the size of a wardrobe. '
+    + 'Everyone calls it the fridge. You lead the group. A laboratory in Delft '
+    + 'has published a result your funder has already asked about. Your own best '
+    + 'number was measured on one machine, by one group, in one week. The review '
+    + 'board sits in a fortnight. This morning the fridge came down to forty-two '
+    + 'thousandths of a degree instead of eleven. It sounds like a small miss. It '
+    + 'is the difference between a quantum processor and a warm chip. Priya '
+    + 'Raghavan needs to know which you have, and she needs it before the board '
+    + 'does.',
   ],
 
   ending: [
