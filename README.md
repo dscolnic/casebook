@@ -1,5 +1,19 @@
 # Casebook
 
+Two families of educational games behind one account.
+
+**The app's front door is First Person Learning** — fifteen mission-based games
+where you walk a place, answer a question you cannot answer without the science,
+and hand off. `/` goes to `/games/`; see [`games/README.md`](games/README.md) for
+how they get here (they are built in the Alamos repo and synced, not authored
+here) and how a campaign is kept against the account.
+
+Everything below is **Casebook**, the deduction games, which still work at
+`/casebook.html` and `/reckon.html` and share the same sign-in, `users` table and
+streak.
+
+---
+
 Clue-style **educational deduction games** that share one engine. In each case you solve three
 columns — **WHO** is behind it, **WHERE** it culminates, **WHAT** is really happening — by traveling
 a small board, questioning informants who *hold* clues, and passing quizzes tied to a "figure of the

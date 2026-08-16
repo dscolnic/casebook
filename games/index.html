@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Person Learning</title>
+<!-- The shelf. Fifteen mission-based games, each a course you walk through.
+     The catalogue is games.json, written by the Alamos repo's sync tool
+     (gamekit/tools/sync-casebook.mjs) — adding a game is a sync, not an edit
+     here. The account header and the resume line come from the app's own API
+     and both degrade to nothing when they are not answered, so this page also
+     works opened straight off the filesystem. -->
+<style>
+  :root{
+    --bg:#ffffff; --panel:#ffffff; --ink:#1a1a17; --muted:#565651;
+    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f4f4f1; --hover:#eef0f2;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14140f; --panel:#1c1c16; --ink:#ece9df; --muted:#a6a598;
+      --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; --hover:#22221a; }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
+       line-height:1.55;font-size:17px;padding:0 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 0 12vh}
+  a{color:var(--accent)}
+
+  .masthead{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;
+            flex-wrap:wrap;padding:6vh 0 0}
+  .mast-left{flex:1;min-width:260px}
+  .masthead h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6vw,54px);
+               line-height:1;letter-spacing:.5px;margin:0;text-transform:uppercase}
+  .lede{font-family:var(--serif);font-size:21px;line-height:1.4;margin:18px 0 0;max-width:44ch;
+        color:var(--muted)}
+
+  /* Account. Hidden until /api/auth/user answers — a static host never will. */
+  .account{display:none;align-items:center;gap:12px;font-family:var(--sans);font-size:13px}
+  .account.show{display:flex}
+  .account .who{display:flex;flex-direction:column;line-height:1.25;text-align:right}
+  .account .who b{font-size:14px;font-family:var(--sans)}
+  .account .who span{color:var(--muted);font-size:12px}
+  .avatarpic{width:44px;height:44px;border-radius:50%;overflow:hidden;border:1.5px solid var(--ink);
+             background:var(--chip);flex:none}
+  .avatarpic img{display:block;width:100%;height:100%;object-fit:cover}
+  .avatarpic .initials{display:grid;place-items:center;width:100%;height:100%;
+                       font-family:var(--sans);font-size:15px;font-weight:700;color:var(--ink)}
+  .signout{font-family:var(--sans);font-size:13px;color:var(--muted);text-decoration:none;
+           border:1px solid var(--hair);border-radius:999px;padding:6px 14px;white-space:nowrap}
+  .signout:hover{background:var(--hover);color:var(--ink)}
+
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:38px 0 0}
+  .chip{font-family:var(--sans);font-size:13px;font-weight:650;border:1px solid var(--hair);
+        background:var(--panel);color:var(--muted);border-radius:999px;padding:7px 15px;cursor:pointer}
+  .chip:hover{background:var(--hover);color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .sectionhead{font-family:var(--sans);font-weight:800;font-size:13px;letter-spacing:2px;
+               text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:9px;
+               margin:26px 0 22px}
+
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+  .card{display:flex;flex-direction:column;border:1px solid var(--hair);border-radius:12px;
+        background:var(--panel);overflow:hidden;text-decoration:none;color:inherit;
+        transition:border-color .16s ease, transform .16s ease}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .shot{aspect-ratio:16/9;background:var(--chip);position:relative;border-bottom:1px solid var(--hair)}
+  .shot img{display:block;width:100%;height:100%;object-fit:cover}
+  /* A game with no snapshot gets a flat field in its own colour rather than a
+     broken image — the accent is the only thing the card knows about it. */
+  .shot.blank{background:linear-gradient(160deg,var(--tint),var(--chip))}
+  .field{position:absolute;left:10px;top:10px;font-family:var(--sans);font-size:11px;font-weight:700;
+         letter-spacing:.09em;text-transform:uppercase;background:var(--bg);color:var(--ink);
+         border:1px solid var(--hair);border-radius:999px;padding:4px 10px}
+  .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .body h2{font-family:var(--serif);font-size:24px;margin:0;letter-spacing:-.3px;line-height:1.15}
+  .course{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.06em;
+          text-transform:uppercase;color:var(--accent);margin:7px 0 0}
+  .place{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--muted);margin:10px 0 0}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;
+        margin-top:auto;padding-top:14px}
+  .state{font-family:var(--sans);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .state.resume{color:var(--accent);font-weight:700}
+  .go{font-family:var(--sans);font-size:13.5px;font-weight:650;border:1px solid var(--accent);
+      background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px}
+  .card.unbuilt{opacity:.55;pointer-events:none}
+  .card.unbuilt .go{background:transparent;color:var(--muted);border-color:var(--hair)}
+
+  .note{font-family:var(--sans);font-size:13px;color:var(--muted);margin:34px 0 0;
+        border-top:1px solid var(--hair);padding-top:14px}
+  @media (prefers-reduced-motion: reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="mast-left">
+      <h1>First Person Learning</h1>
+      <p class="lede">Fifteen courses you walk through. Each one is a place, a working
+        day with a clock running, and a question you cannot answer without the science.</p>
+    </div>
+    <div class="account" id="account">
+      <div class="avatarpic" id="accountPic"></div>
+      <div class="who"><b id="accountName"></b><span id="accountMail"></span></div>
+      <a class="signout" href="/sign-out.html">Sign out</a>
+    </div>
+  </header>
+
+  <div class="filters" id="filters"></div>
+  <h2 class="sectionhead" id="count">The games</h2>
+  <div class="grid" id="grid"></div>
+  <p class="note" id="note"></p>
+
+</div>
+
+<script>
+const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
+  .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+// A game the player has a campaign in, keyed by theme id. Empty for a signed-out
+// visitor, and empty when there is no API at all.
+let saves = {};
+let games = [];
+let field = 'All';
+
+async function json(url){
+  try{
+    const r = await fetch(url, { credentials: 'same-origin' });
+    return r.ok ? await r.json() : null;
+  }catch(e){ return null; }
+}
+
+function initialsOf(u, name){
+  const from = [u.firstName, u.lastName].filter(Boolean);
+  if(from.length) return from.map(s => s[0]).join('').toUpperCase();
+  return (name || '?').trim()[0].toUpperCase();
+}
+
+// The account header. Absent is the normal case on a static host, so failure
+// here is silent and the header simply never appears.
+async function loadAccount(){
+  const u = await json('/api/auth/user');
+  if(!u) return;
+  const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email || 'Signed in';
+  document.getElementById('accountName').textContent = name;
+  document.getElementById('accountMail').textContent = u.email || '';
+  // Initials rather than an empty disc: Clerk only has a picture when the
+  // provider gave it one, and a signed-in player with no photo was getting a
+  // blank circle that read as an image that had failed to load.
+  document.getElementById('accountPic').innerHTML = u.profileImageUrl
+    ? `<img src="${esc(u.profileImageUrl)}" alt="">`
+    : `<span class="initials">${esc(initialsOf(u, name))}</span>`;
+  document.getElementById('account').classList.add('show');
+}
+
+async function loadSaves(){
+  const out = await json('/api/saves');
+  for(const s of (out?.saves ?? [])) saves[s.theme] = s;
+}
+
+// What the card says under the title. A campaign in progress is the one piece
+// of state worth putting on a shelf — it is the difference between fifteen
+// things to start and one thing to carry on with.
+function stateLine(g){
+  const s = saves[g.id];
+  if(!g.built) return { text: 'Not built yet', resume: false };
+  if(!s) return { text: g.size ? `${g.size.days} days · ${g.size.stops} stops` : 'New campaign', resume: false };
+  if(s.status === 'won') return { text: 'Campaign complete', resume: false };
+  if(s.status === 'lost') return { text: 'Campaign ended — start again', resume: false };
+  const of = g.size ? ` of ${g.size.days}` : '';
+  return { text: `Day ${s.mission ?? 1}${of}`, resume: true };
+}
+
+function cardHTML(g){
+  const st = stateLine(g);
+  const shot = g.hero
+    ? `<img src="${esc(g.hero)}" alt="" loading="lazy">`
+    : '';
+  return `
+  <a class="card${g.built ? '' : ' unbuilt'}" href="./${esc(g.id)}/index.html">
+    <div class="shot${g.hero ? '' : ' blank'}" style="--tint:${esc(g.accent)}">
+      ${shot}<span class="field">${esc(g.field)}</span>
+    </div>
+    <div class="body">
+      <h2>${esc(g.title)}</h2>
+      <p class="course">${esc(g.course)}</p>
+      <p class="place">${esc(g.place)}</p>
+      <div class="foot">
+        <span class="state${st.resume ? ' resume' : ''}">${esc(st.text)}</span>
+        <span class="go">${st.resume ? 'Resume' : 'Play'}</span>
+      </div>
+    </div>
+  </a>`;
+}
+
+function render(){
+  const shown = games.filter(g => field === 'All' || g.field === field);
+  document.getElementById('grid').innerHTML = shown.map(cardHTML).join('');
+  document.getElementById('count').textContent =
+    field === 'All' ? `All ${shown.length} games` : `${field} — ${shown.length}`;
+  const resumable = games.filter(g => saves[g.id] && saves[g.id].status === 'playing').length;
+  document.getElementById('note').textContent = resumable
+    ? `${resumable} campaign${resumable === 1 ? '' : 's'} in progress. Your progress follows your account, not this browser.`
+    : 'Your progress follows your account, so a campaign started here carries on anywhere you sign in.';
+}
+
+function renderFilters(){
+  const fields = ['All', ...Array.from(new Set(games.map(g => g.field)))];
+  document.getElementById('filters').innerHTML = fields.map(f =>
+    `<button class="chip" type="button" data-field="${esc(f)}" aria-pressed="${f === field}">${esc(f)}</button>`
+  ).join('');
+  document.getElementById('filters').querySelectorAll('.chip').forEach(b => {
+    b.addEventListener('click', () => { field = b.dataset.field; renderFilters(); render(); });
+  });
+}
+
+(async function start(){
+  // The account and the catalogue are independent — the shelf must draw even if
+  // the API never answers, so neither await blocks the other.
+  const [cat] = await Promise.all([json('./games.json'), loadAccount(), loadSaves()]);
+  games = cat?.games ?? [];
+  if(!games.length){
+    document.getElementById('note').textContent =
+      'No games.json here yet — run `npm run sync-casebook` in the Alamos repo.';
+  }
+  renderFilters();
+  render();
+})();
+</script>
+</body>
+</html>

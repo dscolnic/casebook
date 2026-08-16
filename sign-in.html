@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sign in · RECKON</title>
+<title>Sign in · First Person Learning</title>
 
 <!-- ┌───────────────────────────────────────────────────────────────────┐
      │  CLERK SETUP — replace the key below with YOUR Clerk Publishable    │
@@ -36,8 +36,8 @@
 </head>
 <body>
   <div class="brand">
-    <h1>Reckon</h1>
-    <p>Sign in to play and keep your streak, stats, and investigator.</p>
+    <h1>First Person Learning</h1>
+    <p>Sign in to play. Your campaigns follow your account, not the browser you started them in.</p>
   </div>
   <div id="signin"><span class="fallback">Loading sign-in…</span></div>
 
@@ -51,11 +51,11 @@ window.addEventListener("load", async function () {
   try {
     await Clerk.load();
     // Already signed in → go straight to the hub.
-    if (Clerk.user) { location.replace("/reckon.html"); return; }
+    if (Clerk.user) { location.replace("/games/"); return; }
     // Redirect the moment a session is established (version-proof).
-    Clerk.addListener(function (res) { if (res && res.user) location.replace("/reckon.html"); });
+    Clerk.addListener(function (res) { if (res && res.user) location.replace("/games/"); });
     box.innerHTML = "";
-    Clerk.mountSignIn(box, { afterSignInUrl: "/reckon.html", afterSignUpUrl: "/reckon.html" });
+    Clerk.mountSignIn(box, { afterSignInUrl: "/games/", afterSignUpUrl: "/games/" });
   } catch (e) {
     box.innerHTML = '<span class="fallback">Could not start sign-in: ' + (e && e.message ? e.message : e) + '</span>';
   }

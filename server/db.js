@@ -47,6 +47,19 @@ ALTER TABLE game_results ADD COLUMN IF NOT EXISTS solve_seconds INTEGER;
 ALTER TABLE game_results ADD COLUMN IF NOT EXISTS game VARCHAR;
 ALTER TABLE game_results ADD COLUMN IF NOT EXISTS score INTEGER;
 
+-- One in-progress First Person Learning campaign per user per game. The state
+-- blob is the engine's own save object, stored opaquely: the games are the only
+-- thing that reads it, and its shape changes with them. One row per (user,
+-- theme) — the engine keeps a single campaign per game, and a second row would
+-- mean a save the player has no way to choose between.
+CREATE TABLE IF NOT EXISTS game_saves (
+  user_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  theme VARCHAR NOT NULL,
+  state JSONB NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, theme)
+);
+
 CREATE TABLE IF NOT EXISTS user_streaks (
   user_id VARCHAR PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
   current_streak INTEGER NOT NULL DEFAULT 0,

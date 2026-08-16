@@ -1,16 +1,16 @@
 {
-  "name": "Casebook — The Bureau of Inquiry",
-  "short_name": "Casebook",
-  "description": "Clue-style educational deduction games. Reject the sensational answer and the do-nothing answer alike — the truth is in between.",
-  "start_url": "./casebook.html",
-  "scope": "./",
+  "name": "First Person Learning",
+  "short_name": "FPL",
+  "description": "Fifteen courses you walk through. Each one is a place, a working day with a clock running, and a question you cannot answer without the science.",
+  "start_url": "/games/",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "landscape",
   "background_color": "#ffffff",
-  "theme_color": "#163149",
+  "theme_color": "#2f5d86",
   "icons": [
-    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

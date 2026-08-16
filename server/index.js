@@ -1,7 +1,10 @@
 const path = require("path");
 const express = require("express");
 const { setupAuth, requireUser, getUserId, clerkClient } = require("./clerkAuth");
-const { getUser, recordResult, getStats, getAvatar, setAvatar } = require("./storage");
+const {
+  getUser, recordResult, getStats, getAvatar, setAvatar,
+  getGameSave, putGameSave, deleteGameSave, listGameSaves,
+} = require("./storage");
 const casebook = require("./casebook");
 
 const PORT = process.env.PORT || 5000;
@@ -12,8 +15,13 @@ async function main() {
   await casebook.syncCaseBank();
 
   const app = express();
-  app.use(express.json());
-  app.get("/", (_req, res) => res.redirect("/reckon.html"));
+  // A First Person Learning campaign is a fair-sized object — fifteen missions
+  // of progress plus a hundred-line log — and the default 100 kB body limit
+  // rejects one with a 413 the game has no way to report.
+  app.use(express.json({ limit: "2mb" }));
+  // The front door is the game shelf. reckon.html and casebook.html still work
+  // if you type them; nothing links to them.
+  app.get("/", (_req, res) => res.redirect("/games/"));
 
   setupAuth(app);
 
@@ -67,6 +75,58 @@ async function main() {
     try {
       const stats = await getStats(req.userId);
       res.json(stats);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // ---------------------------------------------------------------------
+  // First Person Learning campaigns (games/<theme>/).
+  //
+  // The games call these three from engine/core/cloudSave.js. A signed-out
+  // visitor never reaches them — the gate below redirects the page itself —
+  // but they answer 401 rather than redirecting, because the caller is fetch()
+  // and a 302 to an HTML sign-in page would arrive at a JSON parser.
+  app.get("/api/save", requireUser, async (req, res, next) => {
+    try {
+      const theme = String(req.query.theme || "");
+      if (!theme) return res.status(400).json({ message: "theme is required" });
+      const saved = await getGameSave(req.userId, theme);
+      // No campaign yet is a normal answer, not an error: the game starts fresh.
+      res.json(saved || { state: null, savedAt: 0 });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.post("/api/save", requireUser, async (req, res, next) => {
+    try {
+      const { theme, state } = req.body || {};
+      if (!theme || !state) return res.status(400).json({ message: "theme and state are required" });
+      res.json(await putGameSave(req.userId, String(theme), state));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.delete("/api/save", requireUser, async (req, res, next) => {
+    try {
+      const theme = String(req.query.theme || "");
+      if (!theme) return res.status(400).json({ message: "theme is required" });
+      await deleteGameSave(req.userId, theme);
+      res.status(204).end();
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // Every campaign in progress, for the shelf. Signed out is an empty list
+  // rather than a 401: the hub renders the same either way.
+  app.get("/api/saves", async (req, res, next) => {
+    try {
+      const userId = getUserId(req);
+      if (!userId) return res.json({ saves: [] });
+      res.json({ saves: await listGameSaves(userId) });
     } catch (err) {
       next(err);
     }

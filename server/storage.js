@@ -209,4 +209,63 @@ async function getStats(userId) {
   };
 }
 
-module.exports = { upsertUser, upsertUserProfile, getUser, recordResult, getStats, getAvatar, setAvatar };
+// ---------------------------------------------------------------------------
+// First Person Learning campaigns.
+//
+// The games (Alamos/gamekit) autosave constantly — every clock tick, every
+// stop, every wrong answer — so the client debounces and this only ever sees a
+// write every second or two per player. The state is stored opaquely: the
+// engine owns its shape, and a server that understood it would have to be
+// changed every time a game was.
+
+async function getGameSave(userId, theme) {
+  const { rows } = await pool.query(
+    `SELECT state, updated_at FROM game_saves WHERE user_id = $1 AND theme = $2`,
+    [userId, theme]
+  );
+  if (!rows[0]) return null;
+  return { state: rows[0].state, savedAt: new Date(rows[0].updated_at).getTime() };
+}
+
+async function putGameSave(userId, theme, state) {
+  const { rows } = await pool.query(
+    `INSERT INTO game_saves (user_id, theme, state, updated_at)
+     VALUES ($1, $2, $3, now())
+     ON CONFLICT (user_id, theme) DO UPDATE SET
+       state = EXCLUDED.state,
+       updated_at = now()
+     RETURNING updated_at`,
+    [userId, theme, JSON.stringify(state)]
+  );
+  return { savedAt: new Date(rows[0].updated_at).getTime() };
+}
+
+async function deleteGameSave(userId, theme) {
+  await pool.query(`DELETE FROM game_saves WHERE user_id = $1 AND theme = $2`, [userId, theme]);
+}
+
+// Which games this player has a campaign in, and how far through. Read by the
+// hub so the shelf can say "Day 7 of 15" on a card instead of "Play".
+async function listGameSaves(userId) {
+  const { rows } = await pool.query(
+    `SELECT theme,
+            state->>'week'   AS week,
+            state->>'status' AS status,
+            updated_at
+       FROM game_saves
+      WHERE user_id = $1
+      ORDER BY updated_at DESC`,
+    [userId]
+  );
+  return rows.map((r) => ({
+    theme: r.theme,
+    mission: r.week ? Number(r.week) : null,
+    status: r.status || null,
+    savedAt: new Date(r.updated_at).getTime(),
+  }));
+}
+
+module.exports = {
+  upsertUser, upsertUserProfile, getUser, recordResult, getStats, getAvatar, setAvatar,
+  getGameSave, putGameSave, deleteGameSave, listGameSaves,
+};
