@@ -189,7 +189,7 @@ per person, and `personQuiz.js` prefers those. Project Y still falls through to
 the generated sentence-lift question. Same shape, just unwritten. **M, content.**
 
 ### The world forks
-Still the last structural fork: `project-y-fps/src/world.js` and the hospital's
+Still the last structural fork: the hospital's
 build their places by hand, while both declare a site as data that nothing
 reads. `FOURTH_GAME.md` has the detail. **L.**
 

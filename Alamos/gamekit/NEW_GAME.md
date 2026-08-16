@@ -714,27 +714,60 @@ as a build failure in a game you were not working on:
 
 ```sh
 cd gamekit && THEME=contamcity npx vite build && THEME=deepwatch npx vite build
-cd ../project-y-fps && npx vite build
-cd ../Hospital/hospital-fps && npx vite build
 ```
 
-## Per game — the surviving forks
+## Per game — nothing, any more
 
-| File | Which games | Why |
-| --- | --- | --- |
-| `src/main.js` | project-y, hospital (and `gamekit/src/main.js` for every theme here) | the wiring: which key does what, which panel opens |
-| `index.html` | the same three | each game's own DOM |
-| `world.js`, props, `plan.js`/`site.js` | project-y, hospital | the place, still hand-built in those two |
-| content | all | the game |
+There are no forks left. Every theme runs off `gamekit/src/main.js`, one
+`index.html` and one stylesheet, and every place is built by a world module from
+`site.js` or `plan.js`. What a theme owns is its content, its place *as data*,
+its props and its outfits.
 
-**A feature added to one `main.js` reaches one game.** The passage quiz shipped
-working in one game of three because of exactly this. If a change adds an
-interaction, a panel or a key binding, grep every `main.js` before calling it
-done. One trap lives in those files specifically: the frame loop starts during
-module evaluation, so `const day` and `const driving` must be declared *above*
-it or every frame throws `Cannot access 'day' before initialization`.
+It was three entry points until recently, and the bill is worth reading once:
+the passage quiz shipped working in one game of three; the crowd's stand-aside
+fix was written three times; a TDZ bug put a red banner over Project Y every
+frame because that game had its own copy of a loop the others had already
+fixed. The trap that caused the last one still applies to the shared file — the
+frame loop starts during module evaluation, so `const day` and `const driving`
+must be declared *above* it or every frame throws `Cannot access 'day' before
+initialization`.
 
 ## Adding a question format
+
+**Nineteen of them now live in `engine/core/instruments.js`, not in questionUI.**
+`TRIGGER`, `VALUE`, `CLOUD`, `ALLOCATE`, `TRACE`, `ATTEST`, `CONTROL`,
+`TRIANGULATE`, `DEGENERACY`, `CHAIN`, `BALANCE`, `VERIFY`, `PROPAGATE`,
+`STRESS`, `DELEGATE`, `FLY`, `RESIDUAL`, `INJECT` and `ROUTE` came out of
+`../FORMATS.md`, which is what six games' worth of interaction documents reduce
+to. They register in one object with `{ html, bind, verdict, facts, tag }`, and
+`bind` reaches the game only through a `ctx.commit(ok, answerText, extra)` it is
+handed — which is why the dev harness can draw every one of them without a
+campaign. **A thirteenth of that kind goes in that module, not as another branch
+in questionUI.** `books/interactions/README.md` is their book schema and
+`books/instruments.yml` the worked example, one stop each.
+
+Two tools exist for them and both found real bugs the first time they ran:
+
+```sh
+npm run traps                 # break every importer trap; all 35 must still fire
+npm run drive <theme>         # open every panel in Chrome, answer it right and wrong
+```
+
+`drive` is the one that matters. These formats are interactive, so a panel can
+render, print its question, expose its commit button and never reach the grade
+because one selector is wrong — and no static check can see it. It found a TRACE
+whose resource container shared a class with its resource buttons, so a click
+bubbled to a handler that read `dataset.res` off a div and graded every right
+answer wrong.
+
+**Every one of them carries a trap, and the trap is an importer check.** A cloud
+whose pass mark a re-target reaches, an allocation board affordable whole, a
+chain whose distractor is its governing link, a verify whose every prediction is
+accepted: all of these render perfectly, grade perfectly, and teach the opposite
+of what they were written for. Write the arithmetic that refuses it at the same
+time as the renderer, or the format will ship hollow and look fine.
+
+For anything else:
 
 1. Renderer and binder in `engine/core/questionUI.js`, dispatched through
    `kindOf()` — never a raw string comparison. The books spell them `Sequence`,
@@ -768,6 +801,22 @@ it or every frame throws `Cannot access 'day' before initialization`.
    `activeSweep` meant every panel on a page shared one set of visited points.
    The game shows one at a time so nothing was visibly broken, and the dev page
    that draws six found it immediately.
+10. **A container may not share a class with the controls inside it.** TRACE's
+   resource buttons and the row holding them were both `.traceRes`, so
+   `querySelectorAll('.traceRes')` bound a click handler to the row as well —
+   and a click on a button bubbled up to it, where `+row.dataset.res` is `NaN`.
+   The selection was silently unset a frame after being made, and the panel
+   graded every correct answer wrong while looking entirely normal. Bind on the
+   data attribute, not on a decorative class.
+11. **An unquoted comma inside an inline `{ … }` value truncates it silently.**
+   `yaml-lite` split the map on the comma, found a fragment with no colon and
+   skipped it, so `{ landmark: the second door, hinged inward }` arrived as
+   "the second door". Nothing downstream can tell, because what reaches the game
+   is a perfectly valid shorter string — three shipped books carried 36 of them,
+   choice labels and mechanisms cut off mid-sentence, through every check. The
+   parser refuses a colon-less fragment now, and a braced value with no colons
+   anywhere is treated as a string so an estimate template like `{0} ÷ {1}`
+   still works.
 
 ## Adding a person-facing feature
 

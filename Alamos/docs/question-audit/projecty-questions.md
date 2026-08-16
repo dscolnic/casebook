@@ -2,7 +2,7 @@
 
 **Subject:** Nuclear physics and the Manhattan Project  
 **Audience:** High school / undergraduate  
-**Content source:** `project-y-fps/src`  
+**Content source:** `gamekit/themes/projecty/content` (was `project-y-fps/src`)  
 **Shape:** 15 missions × 3 authored stops = 45 questions. (In play the engine also inserts a callback stop from day 3, drawn from these same lessons.)
 
 ---

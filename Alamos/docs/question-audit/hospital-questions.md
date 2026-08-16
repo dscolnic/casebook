@@ -2,7 +2,7 @@
 
 **Subject:** Introductory health science  
 **Audience:** Grades 3–4  
-**Content source:** `Hospital/hospital-fps/src`  
+**Content source:** `gamekit/themes/hospital/content` (was `Hospital/hospital-fps/src`)  
 **Shape:** 15 missions × 3 authored stops = 45 questions. (In play the engine also inserts a callback stop from day 3, drawn from these same lessons.)
 
 ---

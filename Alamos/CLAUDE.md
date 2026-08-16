@@ -38,8 +38,8 @@ has now been made four times.
 | Bring Them Home | `gamekit/themes/bring_them_home/` | Mission Control — its own world. One room, four tiers stepping down to a wall of plot boards; the teams are rows, not rooms | `THEME=bring_them_home npm run dev` |
 | Planetary Defense | `gamekit/themes/planetary_defense/` | A mountain ridge, played entirely at night: one dark road, domes, a radar dish, red service lamps | `THEME=planetary_defense npm run dev` |
 | Blackout | `gamekit/themes/blackout/` | Calder Switching Station: a flat river plain, a switchyard, lattice towers walking off the map. Senior-high electrical engineering | `THEME=blackout npm run dev` |
-| Project Y | `project-y-fps/` | Los Alamos 1943–45, outdoor | `cd project-y-fps && npx vite` |
-| Hospital Heroes | `Hospital/hospital-fps/` | Children's hospital, interior, ~grades 3–4 | `cd Hospital/hospital-fps && npx vite` |
+| Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
+| Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 
 **A game's silhouette comes from its world module.** Two themes on the same
 world look like each other however the palette differs, which is why three of
@@ -75,12 +75,18 @@ with nobody on the roster. **Themes ship data; they do not ship repair code.**
 
 ## The one thing that will trip you up
 
-**`main.js` is NOT shared.** The wiring every game needs identically now lives
-in `engine/core/app.js` — `createInteriors`, `makeActivate`, `exposeDebug` —
-but the entry points are still three files. Each game has its own entry point, and it is the
-only file the migration deliberately left forked. A feature added to
-`gamekit/src/main.js` reaches exactly one game. This has already caused a bug —
-the passage quiz shipped working in one game and invisible in the other two.
+**`main.js` is shared now, and there are no forks left.** The wiring every game
+needs identically lives in `engine/core/app.js` — `createInteriors`,
+`makeActivate`, `exposeDebug` — and every theme runs off `gamekit/src/main.js`.
+
+It was three entry points for most of this repo's life, and the cost is worth
+remembering: the passage quiz shipped working in one of them and invisible in
+the other two, the crowd's stand-aside fix had to be written three times, and a
+TDZ bug that put a red banner over Project Y every frame existed only because
+that game had its own copy of a loop the others had already fixed. Project Y
+went first (833 lines of `main.js`, its own `index.html` and stylesheet, an
+890-line `npcs.js`), then Hospital Heroes (900, 1,070-line world, 951-line
+`npcs.js`). Both directories are tombstone READMEs now.
 
 Shared (edit once): `gameState, simulation, questionUI, dashboard, save,
 constants, time, utils, terminology, interactions, player, personQuiz, map,
@@ -175,10 +181,30 @@ Two reports that are not part of `check`, because they answer "is this good
 enough" rather than "is this broken":
 
 ```sh
+npm run traps                                 # break every instrument trap; all 35 must fire
+npm run drive <theme>                         # drive every live panel in Chrome, right and wrong
 node engine/dev/pieceDensity.mjs --all        # how furnished every room is, thinnest first
 node engine/dev/syllabusEquations.mjs quantum # which equations a question computes, and when
 npm run shots <theme>                         # a picture of every room, and a contact sheet
 ```
+
+**Quote any inline `{ … }` value containing a comma.** `tools/yaml-lite.mjs` used
+to split a flow map on every top-level comma and silently skip any fragment
+without a colon, so `{ landmark: the second door, hinged inward }` arrived as
+"the second door" and nothing downstream could tell — what reaches the game is a
+perfectly valid shorter string. Quantum, Blackout and Aftershock shipped 36 lines
+like that, choice labels and mechanisms cut off mid-sentence, through every
+check. The parser now refuses a colon-less fragment; a braced value with no
+colons anywhere is still a string, which is what an estimate template like
+`{0} ÷ {1}` needs.
+
+`drive` is the answer to everything a checker cannot judge about an *interactive*
+panel. The instruments can render, print their question, expose a commit
+button and never reach the grade because one selector is wrong, and nothing in
+`check` can see it. On its first run it found a TRACE whose resource container
+shared a class with its resource buttons — a click bubbled to a handler that read
+`dataset.res` off a div, the selection silently became NaN, and every right
+answer graded wrong.
 
 `shots` is the answer to everything a checker cannot judge. Whether a room looks
 lived in, whether a mural is clipped, whether a seal is hidden behind the gallery
@@ -239,10 +265,14 @@ Each mission is now one working day:
 - **The stops are open in any order.** `openStopIndices()` is the truth;
   `nextMissionStopIndex` survives only as "the first still open". Every open
   room's case beacon is lit at once and the map outlines all of them.
-- **A wrong call costs money and only money**: $5 to answer again, $10 to move
-  on without it. If neither is affordable the day restarts — the only hard
-  consequence in the game, and always escapable, because each morning pays a
-  stipend and clears `state.passages` so the town is worth talking to again.
+- **A wrong call is a penalty box.** The stop closes for an hour of the day's
+  own countdown and reopens itself — free — or $10 has it back immediately.
+  There is always a free way forward, so the only dead end is a wrong call with
+  less than an hour left to run and nothing in the reserve; then the day
+  restarts, which is still escapable because each morning pays a stipend and
+  clears `state.passages` so the town is worth talking to again. The box is
+  `state.penalties[visitKey]`, stored as the `dayLeft` the hour expires at —
+  the day only counts down, so it needs no wall clock and survives a save.
 - **Running out of time restarts the day too.** Same card, same rule.
 - **The last call of the day does not end the day.** Whatever is left on the
   clock is the player's: conversations pay $3 each, once per person per day.
@@ -284,6 +314,37 @@ wrote, at load, for every theme — so a re-import cannot lose it.
 - Answer formats: Protocol, Sequence, Ballpark, Science Tank, Diagnosis
   (instrument panel + candidates, draws a figure), TRIAGE, CASEBOOK, and CHOICE
   — one question, four candidates, and the rebuttals for the wrong ones.
+- **Nineteen more are instruments in `engine/core/instruments.js`**, and they
+  came from counting: six FPS-native interaction documents, one per game, specify
+  104 interactions between them, which turn out to be nineteen distinct designs.
+  `gamekit/FORMATS.md` is that catalogue, and all nineteen are built, plus a
+  twentieth — **DERIVE** — which did not come from the documents at all: it was
+  written for a calculus course, grades the line *and* the rule that licenses it,
+  and its trap is that one wrong branch per step must stay algebraically valid or
+  the step is passable by elimination. The twelve
+  carrying four or more instances each — TRIGGER (write the rule before the number moves), VALUE (what
+  would this measurement change), CLOUD (a distribution against a limit, where
+  narrowing is not shifting), ALLOCATE (a finite pool, scalar or rate × time),
+  TRACE (which channels share a reference; agreement is not independence),
+  ATTEST (the record is not the condition), CONTROL (change one thing, reverse
+  it), TRIANGULATE (constraints make a region, a systematic moves it),
+  DEGENERACY (a family of solutions until other physics arrives), CHAIN (name
+  the governing transfer), BALANCE (close the ledger, find the hidden term) and
+  VERIFY (predict, act, measure — failing to measure is its own failure). And
+  seven thinner ones: PROPAGATE (which input width dominates the output's),
+  STRESS (candidates against an assumption's range), DELEGATE (a finite team and
+  what command takes itself), FLY (bounded commands on undamped dynamics, so the
+  brake has to lead), RESIDUAL (structure in what a fit leaves over), INJECT
+  (push a known population through your own pipeline) and ROUTE (a sequence that
+  can be rejoined after an interruption). `books/instruments.yml` authors one
+  stop of each across seven days; the eight shipped games author none of them
+  yet, which is now content work rather than engine work.
+- **Every instrument carries a trap, and the trap is an importer check.** A
+  cloud whose pass mark a re-target reaches, an allocation board affordable
+  whole, a chain whose distractor governs, a verify whose every prediction is
+  accepted — all of them render perfectly, grade perfectly, and teach the
+  opposite of what they were written for. `npm run traps` breaks all 35 and
+  asserts the importer refuses each.
 - **Four of them are instruments the player operates**, not questions they read.
   SWEEP is one control and a response plotted only where the player looks — a
   resonance, a decay, a trade-off. HOLDOUT fits a rule on one set of data, freezes
@@ -304,8 +365,8 @@ wrote, at load, for every theme — so a re-import cannot lose it.
 - **People stand aside.** Walking into somebody displaces them — straight back
   where there is room, sideways where there is not. A four-metre passage with
   two people in it is otherwise a blocked passage the player cannot ask to
-  move. In `crowd.js` and in both forked `npcs.js`.
-- **Every room is walkable whenever you like, in all three games.** What
+  move. In `engine/people/crowd.js`, and in the hospital's forked `npcs.js`.
+- **Every room is walkable whenever you like, in every game.** What
   changes with the mission is whether a case is open there. A room with nothing
   open shows a short card and charges nothing — it is not a locked door.
 - **The outdoor games have interiors now.** A door opens a real room built by
@@ -474,7 +535,7 @@ Corollaries:
 - **Anybody the day still wants has a cone over their head**, several at once,
   drawn with `depthTest: false` so it shows through walls. The only thing in
   these games allowed to draw over everything. In `engine/people/crowd.js` and
-  both forked `npcs.js`.
+  the hospital's forked `npcs.js`.
 - **Any open call is marked** — case beacon in a room, and in Mission Control a
   beacon over the console (there is no room to put one in).
 - **The map is drawn at the size it will be seen at.** `renderMap({ maxW, maxH })`
@@ -500,29 +561,36 @@ you are, never the takeaway.
 
 ## Known unfinished work
 
-- **One world is still hand-built: the hospital's.** Project Y came across —
-  `src/world.js` is a 120-line adapter over `engine/world/outdoorTown.js`, which
-  builds the mesa from `site.js`, and `worldParity` now says "world is generated
-  from the site data" where it used to say "hand-built". The hospital's still
-  builds its place directly; flipping it to `interiorSite` is the last fork. The
-  modules it needs exist: `engine/world/interiorBuilding.js` (one room to walk
-  into) and `engine/world/interiorFloor.js` (a whole floor, satisfying the world
-  contract over `interiorSite.js`'s builder — `site.kind: 'interior'` pointed
-  straight at the builder until a scaffolded theme failed on import).
+- ~~One world is still hand-built: the hospital's.~~ **Both flips are done.**
+  Project Y builds the mesa from `site.js` through `engine/world/outdoorTown.js`,
+  and the hospital builds its ward from `plan.js` through
+  `engine/world/interiorFloor.js` — `worldParity` says "generated from the site
+  data" for both where it used to say "hand-built". The hospital's was the easy
+  one in the end and nobody expected that: `interiorSite.js` had been
+  generalised out of that exact floor, so the flip renamed the plan's keys
+  (`CORRIDOR.halfWidth` to `metrics.corridorHalfWidth`, `ROOMS` to `rooms`) and
+  deleted 1,070 lines of world builder, 766 of fit-out and 236 of interior
+  lighting. What replaced them is `themes/hospital/props.js` on top of
+  `interiorKit`, which is 300 lines and has had every fix the fork missed.
 - **How the Project Y flip was done, because the hospital's will want the same
-  shape.** An *adapter*, not a rewrite: `main.js` is deliberately forked and calls
-  the old names, so `src/world.js` keeps every one of them and maps them onto the
-  engine's contract — one-argument `initWorld`, argument-less
+  shape.** It went in two steps, a year apart, and the order is the lesson. First
+  an *adapter*, not a rewrite: `src/world.js` kept the old names and mapped them
+  onto the engine's contract — one-argument `initWorld`, argument-less
   `updateWorldFromState`, `getBuildingPosition` onto `getStopPosition`,
-  `updateDayNight` onto `updateTimeOfDay`. The flip touched the world and left the
-  game alone. What made it safe was checking the terrain *before* porting it: the
+  `updateDayNight` onto `updateTimeOfDay` — so the flip touched the world and left
+  the game alone. Then the entry point went, and with it the adapter: with
+  `gamekit/src/main.js` calling `outdoorTown` directly there was nothing left for
+  it to adapt. `project-y-fps/` is a tombstone README now, and the game is
+  `themes/projecty/`. Dropped on the way across, deliberately: the weekly funding
+  economy and the special-request vignettes, which existed only in that entry
+  point and which the day model had already replaced everywhere else. What made it safe was checking the terrain *before* porting it: the
   engine's `mesa` profile was compared against the heightfield `env.js` computed by
   hand over 841 points, mean difference 0.06 m, and the only half-metre cases were
   building pads where the old surface noise dipped a bench that should read level.
   Do that comparison first; if it fails, the flip is a terrain port and a much
   bigger job.
 - **Project Y is not fully declarative yet.** The pine forest, the ground scatter
-  and the lamp positions are code in `project-y-fps/props.js` rather than site
+  and the lamp positions are code in `themes/projecty/props.js` rather than site
   data. `src/env.js` is down from 640 lines to 244: the sky, terrain, roads and
   ridges it used to build are deleted, and what is left is `plantTrees`, the seeded
   random and `terrainHeight`, which is a door onto the engine's `groundHeight`.
@@ -539,8 +607,8 @@ you are, never the takeaway.
   people in each carry a real two-paragraph bio and a question; the other six
   carry one sentence restating their job title and no question at all. Bring
   Them Home had the same split and has been written; these two have not.
-- **`Hospital/hospital-fps/src/questions.js` is dead Project Y trivia**
-  (radioactivity questions). Nothing imports it.
+- ~~`Hospital/hospital-fps/src/questions.js` is dead Project Y trivia~~ — gone
+  with the package it lived in.
 - `questionUI.js` question renderers should become pluggable per theme.
 - `engine/core/*` still uses Los Alamos vocabulary in places (`divisions`,
   `budget`, `Director funds`).

@@ -2,14 +2,18 @@
   "_comment": "Every game the checks know about. A bare theme name resolves through this; anything with a slash is still taken as a path. Two of the three predate themes/ and live in their own package directories.",
   "themes": {
     "contamcity": "themes/contamcity",
-    "projecty": "../project-y-fps",
-    "hospital": "../Hospital/hospital-fps",
+    "projecty": "themes/projecty",
+    "hospital": "themes/hospital",
     "deepwatch": "themes/deepwatch",
     "bring_them_home": "themes/bring_them_home",
     "outbreak_riverton": "themes/outbreak_riverton",
     "planetary_defense": "themes/planetary_defense",
     "blackout": "themes/blackout",
     "aftershock": "themes/aftershock",
-    "quantum": "themes/quantum"
+    "quantum": "themes/quantum",
+    "instruments": "themes/instruments",
+    "the_trial": "themes/the_trial",
+    "headwater": "themes/headwater",
+    "icecore": "themes/icecore"
   }
 }

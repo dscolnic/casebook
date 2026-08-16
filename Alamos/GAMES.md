@@ -1,6 +1,6 @@
 # The games, and how to pick any of them up cold
 
-Eight playable games, one engine. Everything below is current as of the last
+Twelve playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`GAME_IDEAS.md` is the games that do not exist yet** — the subject gaps and
@@ -11,8 +11,11 @@ timeline, the four beats of a day card, and how each is checked.
 
 ```sh
 cd gamekit
-npm run check                       # all eight: content, reachability, styles, world parity
-THEME=<name> npm run dev            # the six that live in gamekit/themes
+npm run check                       # all fourteen themes: content, reachability, styles, world parity
+THEME=<name> npm run dev            # the ten games that live in gamekit/themes
+npm run shots <theme>               # a picture of every room, and a contact sheet
+npm run traps                       # break every instrument trap; all 35 must fire
+npm run drive <theme>               # open every live panel in Chrome, answer it right and wrong
 ```
 
 | Game | Theme / dir | Subject and audience | The place, and why it looks unlike the others |
@@ -20,31 +23,57 @@ THEME=<name> npm run dev            # the six that live in gamekit/themes
 | **The Contaminated City** | `gamekit/themes/contamcity` | College chemistry. Chief Scientific Officer of a river city after a freight-yard fire | Riverton: a wide, bright, spread-out river city. Grid streets, boxy buildings, drivable trucks |
 | **Deep Watch** | `gamekit/themes/deepwatch` | Reasoning under pressure; sonar, flooding, air, navigation | A submarine, and its **own world** (`themes/deepwatch/world.js`) — one line of ten compartments, hatches, no sky. Came from a separate engine |
 | **Outbreak: Riverton** | `gamekit/themes/outbreak_riverton` | College biology — clinical, cell, molecular, immunology, epidemiology, One Health | A hospital campus in week three of an emergency: courtyards rather than streets, triage marquees, container labs, floodlight masts, a decon tunnel *on* the main route, a fence with one gate. One long hike north to the field station |
-| **Bring Them Home** | `gamekit/themes/bring_them_home` | College physics — motion, circuits, thermal, waves, rotation, integration | Mission Control, its **own world** (`themes/bring_them_home/world.js`): one room, four tiers stepping down to a wall of plot boards. The teams are *rows*, not rooms. No doors — `stopNoun: 'a console'` |
-| **Planetary Defense** | `gamekit/themes/planetary_defense` | Astronomy — discovery, astrometry, characterisation, radar, impact physics | A mountain ridge played **entirely at night** (`look.dayWindow: [19, 31]`): one dark road, domes with open shutters, a 30 m radar dish, red service lamps. Interiors use the `observatory` style |
+| **Bring Them Home** | `gamekit/themes/bring_them_home` | College physics — motion, circuits, thermal, waves, rotation, integration | Mission Control, its **own world** (`themes/bring_them_home/world.js`): one room, four tiers stepping down to a wall of plot boards. The teams are *rows*, not rooms. No doors — `stopNoun: 'a place'` |
+| **Planetary Defense** | `gamekit/themes/planetary_defense` | Astronomy — discovery, astrometry, characterisation, radar, impact physics | A mountain ridge: one road, domes with open shutters, a 30 m radar dish, red service lamps, sites kilometres apart with an aircraft to reach them. Written as a nocturnal game and currently **overridden to daylight** — `look.dayWindow: [8, 20]`, with the night sky, fog and light rig still tuned for `[19, 31]` and one line away from coming back. Interiors use the `observatory` style |
 | **Blackout** | `gamekit/themes/blackout` | Senior-high / first-year electrical engineering — AC power, transmission, protection, load | Calder Switching Station: a flat graded river plain, a switchyard of gantries and transformers, and two circuits of lattice towers walking off the map. Nothing else in the set has a skyline of steel |
-| **Project Y** | `project-y-fps/` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. `src/world.js` is a 120-line adapter over `outdoorTown` |
-| **Hospital Heroes** | `Hospital/hospital-fps/` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it. `audience: { grade: 4 }`, so its whole interface comes up 1.18× larger |
+| **Aftershock** | `gamekit/themes/aftershock` | Seismology and structural engineering. Building Safety Coordinator, Kestrel Bay, three days after | **Two** places on one map, and the same earthquake treated them differently: Upper Town on a granite bench, mostly standing; the Flats on hydraulic fill, liquefied, with sand fans and a block sitting over at eight degrees. Between them the Kestrel Fault broke the surface, and the player walks a 1.8 m scarp with a road and a fence offset across it. The site effect lesson is drawn on the ground |
+| **Quantum** | `gamekit/themes/quantum` | Modern quantum through the hardware. Group Lead, Ridgeway Quantum Laboratory | An interior spine that is a **temperature gradient**, walked: deliveries and offices at the warm south end, then fabrication, the fridge hanging open with its stages exposed, the microwave rack wall, and a magnetically shielded room at the cold end. Interior and industrial at once — metal and cable rather than architecture |
+| **The Trial** | `gamekit/themes/the_trial` | AP Statistics — experimental design and inference — carried through a running clinical trial. Methodology & Operations Lead, CLARION-3 | One long floor, and the walk down it is distance from the patient: screening and infusion at the south end, then monitoring, the central lab, adjudication, and the data floor with the enrolment wall at the north. The corridor is a gradient in evidence, the way Quantum's is a gradient in temperature |
+| **Ice Core** | `gamekit/themes/icecore` | Earth and environmental science, with the measurement half of a palaeoclimate course. Season Science Lead, Vestri Dome | A deep-drilling camp on a high polar plateau: six modules on legs beside a groomed route, flag lines on both sides of it, a trench dug into the snow with a tower over it, and a stake array two kilometres out. The flattest, emptiest horizon in the set — the skyline ranks are seven metres high at six hundred metres out, and there is nothing else on it |
+| **Project Y** | `gamekit/themes/projecty` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. The last game to lose its own entry point: `project-y-fps/` is a tombstone now |
+| **Hospital Heroes** | `gamekit/themes/hospital` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it, and the floor `engine/world/interiorSite.js` was generalised out of. `audience: { grade: 2 }`, so its whole interface comes up 1.18× larger |
+
+A thirteenth theme, `instruments`, is registered and checked but is not a game:
+four missions authoring one stop of each instrument format, so a panel can be
+opened without playing to the day that holds it.
+
+Every game is 15 missions and 57–62 stops, except the harness. Roster sizes run
+from 12 (the newest seven) to 37 (Hospital Heroes).
 
 ## What they all share
 
 One loop, in `gamekit/engine/`: fifteen missions, each **one working day** with a
 countdown budgeted from the actual route; three authored stops plus a callback
 from day 3; take them in any order; a wrong call costs $5 to retry or $10 to
-leave; run out of either and the day restarts. Question formats: PROTOCOL,
-SEQUENCE, BALLPARK, SCIENCETANK, DIAGNOSIS, TRIAGE, CASEBOOK, CHOICE.
+leave; run out of either and the day restarts.
+
+Question formats, in three sets. The ones the player **reads**: PROTOCOL,
+SEQUENCE, BALLPARK, SCIENCETANK, DIAGNOSIS, TRIAGE, CASEBOOK, CHOICE. The ones
+they **operate**: SWEEP, HOLDOUT, TALLY, PROBE — one control and a trace the
+player builds by looking. And twelve more in `engine/core/instruments.js`, which
+came out of counting what six games' worth of interaction documents actually ask
+for: TRIGGER, VALUE, CLOUD, ALLOCATE, TRACE, ATTEST, CONTROL, TRIANGULATE,
+DEGENERACY, CHAIN, BALANCE, VERIFY. `gamekit/FORMATS.md` is that catalogue.
+
+**The twelve are built and none of the ten games authors one.** Only
+`books/instruments.yml` does, one stop each. The operated four are barely better
+off: Quantum has six SWEEPs and one each of HOLDOUT, TALLY and PROBE, Blackout
+has one SWEEP, and the other eight games have none. That is content work rather
+than engine work, and it is the largest single thing left.
 
 Three worlds satisfy the world contract — `engine/world/outdoorTown.js`,
 `engine/world/interiorFloor.js`, and a theme's own. **A game's silhouette comes
 from its world module**: two themes on the same world look alike whatever the
-palette does, which is why the distinctive three either brought their own world
+palette does, which is why the distinctive ones either brought their own world
 or carry a props layer heavy enough to change the shape of the space.
 
 ## Where a game's content lives
 
-Every game is **one book file** plus the place. Books are in `gamekit/books/`:
+**Every game is one book file** plus the place, and that is now true of all ten:
+`gamekit/books/` holds `contamcity.yml`, `project-y.yml`, `hospital.yml`,
 `deep-watch.yml`, `outbreak-riverton.yml`, `bring-them-home.yml`,
-`planetary-defense.yml`, `blackout.yml`. Re-import after editing:
+`planetary-defense.yml`, `blackout.yml`, `aftershock.yml`, `quantum.yml`, plus
+`instruments.yml` for the harness. Re-import after editing:
 
 ```sh
 node tools/import-book.mjs books/<name>.yml <theme> --verify
@@ -55,10 +84,12 @@ estimate specs, the glossary, what is inside each room, and what each place
 says. It does **not** carry the place (`site.js` / `plan.js`) or the props —
 those are code. `tools/BOOK_TEMPLATE.md` is the format.
 
-The two older games predate this and keep generated `curriculum.js` /
-`missions.js` under `src/`; edit those directly.
+The three games that predate the format were converted with
+`tools/export-book.mjs`; their `src/*.js` content files are one-line doors onto
+the generated `content/`, and `bookParity` inside `npm run check` fails if any
+book stops regenerating what its game ships. All eleven pass.
 
-## Starting a ninth
+## Starting an eleventh
 
 ```sh
 npm run new-theme <name>                 # a town
@@ -81,13 +112,26 @@ anything. Then replace `book.yml`. Full runbook: `gamekit/NEW_GAME.md`.
   `index.html` and stylesheet fork. A feature added to one reaches one game —
   this has caused real bugs; grep all three before calling a change done.
 - **Question renderers are not pluggable** — a hospital TRIAGE screen and a Los
-  Alamos one both live in `questionUI.js`.
-- **Project Y bios have no authored `quiz` arrays**; it falls back to the
-  generated sentence-lift question.
+  Alamos one both live in `questionUI.js`. The twelve newer formats do not have
+  this problem: they register in `engine/core/instruments.js` with
+  `{ html, bind, verdict, facts, tag }` and reach the game only through the
+  `ctx.commit` they are handed.
+- **The twelve instruments are unauthored by every shipped game** — see above.
+  The engine, the importer traps and the two harnesses (`npm run traps`,
+  `npm run drive`) are done; the questions are not written.
 - **Engine vocabulary** still says `divisions`, `budget`, `Director funds`.
-- Only the opening view of each new game has been walked and screenshotted. The
-  far ends — Outbreak's field-station hike, the radar dish up close, Mission
-  Control's glass gallery — are built but unseen.
+- **`STORIES.md` is two games behind** — it carries eight, and Aftershock and
+  Quantum are not in it. A day cannot be checked against an arc that is not
+  written down.
+- **Quantum still ships the scaffold's placeholder site name** —
+  `site: { kind: 'interior', name: 'Replace with the name of this place', plan }`
+  in `themes/quantum/theme.js`. The place is called the Ridgeway Quantum
+  Laboratory everywhere else in the game.
+- Screenshot coverage is no longer a manual walk: `npm run shots <theme>` renders
+  every viewpoint in headless Chrome and writes a contact sheet. What is still
+  true is that the far ends of the newer places — Outbreak's field-station hike,
+  the radar dish up close, Mission Control's glass gallery — have been rendered
+  more often than they have been played.
 
 ## The two rules that cost the most time here
 

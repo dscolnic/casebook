@@ -149,7 +149,7 @@ Moot for the shipped content now that the format is gone, and fixed in `engine/c
 
 Both were errors in the audit, not in the games, and both are corrected in the per-game tables:
 
-- **Project Y M11.3 and M13.3 were reported as ungradable.** They are not. `applyPack` splits a pack's `"A + B"` answer into `correctChoices` at load, and `project-y-fps/theme.js` does supply the packs. The original check ran against raw content without normalisation. Both rows are restored, and both are among the better questions in that game.
+- **Project Y M11.3 and M13.3 were reported as ungradable.** They are not. `applyPack` splits a pack's `"A + B"` answer into `correctChoices` at load, and `themes/projecty/theme.js` does supply the packs. The original check ran against raw content without normalisation. Both rows are restored, and both are among the better questions in that game.
 - **"No estimate target carries a unit" was wrong.** The field is `units`, not `unit`; every one of the 85 specs has always had it and the panel has always rendered it.
 
 ## Known and not fixed

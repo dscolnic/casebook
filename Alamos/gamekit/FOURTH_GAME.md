@@ -69,7 +69,7 @@ passed, and one game quietly did the wrong thing.
 
 ## Still expensive
 
-1. **The world forks.** `project-y-fps/src/world.js` and the hospital's build
+1. **The world forks.** The hospital's builds
    their place directly. Roads, boardwalks, poles, fences, vehicles and the
    central board have no home in the site data yet.
 2. **Two entry points.** Project Y and the hospital keep their own `main.js`,

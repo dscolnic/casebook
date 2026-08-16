@@ -11,7 +11,7 @@ THEME=contamcity npm run dev
 
 `THEME` picks the theme; `vite.config.js` turns it into the `@theme` and
 `@world` aliases the engine imports through. The other two games run from their
-own directories (`../project-y-fps`, `../Hospital/hospital-fps`) and import this
+own directory and imports this
 engine across the package boundary.
 
 ## Layout
@@ -89,7 +89,7 @@ judging how a scene looks.
 
 ## Provenance
 
-Extracted from two working games — `../project-y-fps` (Los Alamos, outdoor) and
-`../Hospital/hospital-fps` (interior). Both now run on this engine's logic; both
+Extracted from two working games — Project Y (Los Alamos, outdoor, now `themes/projecty`) and
+Hospital Heroes (interior, now `themes/hospital`). Both now run on this engine's logic; both
 still own their worlds. Files named `_ref_*.js` are the originals, kept while
 the world generalisation is finished.

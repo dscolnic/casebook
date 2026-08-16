@@ -324,7 +324,7 @@ and none of them would fail a headless check.
   `outdoorTown.js`, down from 1315; `worldParity` says "world is generated from the
   site data". The Los Alamos objects the engine has no opinion about — the Tech Area
   wire, the water tank, the duckboards, the jeeps, the Ponderosa forest — are in
-  `project-y-fps/props.js`, still built by the code that already did them well.
+  `themes/projecty/props.js`, still built by the code that already did them well.
 - **The two things that made it safe, in order.** First, compare the heightfields
   before porting either: the engine's `mesa` profile against `env.js`'s hand-rolled
   one came out at 0.06 m mean difference over 841 points across the town, worst case
