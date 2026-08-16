@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the vault is cold",
-      "scene": "Mbaye has two identical accessions on the bench: one held at minus eighteen and six per cent moisture, one left in a shed for four years. The shed sample germinates at thirty-one per cent.",
-      "takeaway": "The store is not preservation; it is slowing a process that never actually stops.",
+      "scene": "Mbaye has two lots of the same accession on the bench. One spent four years at minus eighteen degrees and six per cent moisture. The other sat in a warm shed and now germinates at thirty-one per cent.",
+      "takeaway": "Cold and low moisture extend orthodox-seed life by slowing the reactions that drive deterioration.",
       "place": "Seed Vault",
-      "story": "Mbaye has two identical accessions on the bench: one held at minus eighteen and six per cent moisture, one left in a shed for four years. The shed sample germinates at thirty-one per cent.",
+      "story": "Mbaye has two lots of the same accession on the bench. One spent four years at minus eighteen degrees and six per cent moisture. The other sat in a warm shed and now germinates at thirty-one per cent.",
       "game": {
         "type": "CHOICE",
         "title": "Why the vault is cold",
@@ -18,23 +18,23 @@ export const CURRICULUM = {
         "play": "Say what the cold and the drying are for",
         "task": "Say what the cold and the drying are for",
         "question": "Why does cold, dry storage keep a seed alive longer?",
-        "answer": "It slows the respiration the seed is living on",
-        "why": "A dry seed is not inert. It is running a very slow metabolism, burning the reserves it was packed with, and when those reserves are spent the embryo dies. Everything the vault does is aimed at that rate: cold slows the chemistry, and drying slows it further because water is what the reactions happen in. Halve the moisture content or drop the temperature by five degrees and you roughly double the life of the sample. Fungi and insects matter, and they are a different problem with a different answer.\n",
+        "answer": "Cold and drying slow the reactions that accumulate damage inside orthodox seeds, so viability declines much more slowly.",
+        "why": "Orthodox seeds tolerate drying, but they are still chemically active enough to age. Low water content slows many damaging reactions inside the cells. Cold slows those reactions further, so the two conditions work together. Viability loss is not simply a fuel tank running empty. Membranes, proteins and other cell components accumulate damage over time. Pests and fungi also matter, but a clean sealed sample still lasts far longer when it is kept cold and dry.",
         "rebuttals": [
-          "A dried seed cannot germinate in the packet in any case; there is not enough water.",
-          "Pests are real and are dealt with by drying and sealing, not by the temperature alone.",
-          "The coat is as hard as it is going to get; what changes in store is what is happening inside it."
+          "Dormancy helps prevent germination at the wrong time, but it does not explain decades of slower ageing in dry storage.",
+          "Drying and sealing suppress pests and fungi, but sterile seed still ages; the internal damage rate also matters.",
+          "The coat does not make the living cells maintenance-free. Storage conditions change the rate of deterioration inside them."
         ],
         "choices": [
-          "It slows the respiration the seed is living on",
-          "It stops the seed from germinating in the packet",
-          "It kills the fungi and insects that would eat the seed",
-          "It hardens the seed coat so that nothing can get in"
+          "They slow the chemical reactions that gradually damage a stored seed",
+          "They keep the embryo dormant by blocking its germination signals",
+          "They preserve the seed mainly by killing fungi already inside the packet",
+          "They harden the seed coat so the living cells no longer need repair"
         ],
-        "correctChoice": "It slows the respiration the seed is living on"
+        "correctChoice": "They slow the chemical reactions that gradually damage a stored seed"
       },
       "assumes": [
-        "a living cell uses stored sugar to keep itself going"
+        "orthodox seeds are seeds that can survive drying and cold storage"
       ]
     },
     {
@@ -52,7 +52,7 @@ export const CURRICULUM = {
         "task": "Decide how many plants a grow-out needs",
         "question": "What does regenerating from thirty plants instead of two hundred cost?",
         "answer": "The rare alleles, which drop out by chance alone",
-        "why": "Every regeneration is a new sample of an old population, and sampling error falls on rare things hardest. An allele at one per cent is carried by about six plants in three hundred; take thirty plants and the chance that none of them carries it is high, and once it is gone no amount of careful storage brings it back. The seed that comes out will germinate perfectly and look exactly right. That is the difficulty: a bottleneck leaves no trace in anything the vault routinely measures.\n",
+        "why": "Every regeneration samples alleles from the population that came before it. Rare variants are easiest to miss because few plants carry them. If an observable type occurs in only a few plants, a small grow-out can contain none of those plants by chance. Once the allele is absent from every contributor, careful storage cannot restore it. The resulting seed may still germinate well and look normal. That is why a genetic bottleneck can damage a collection without leaving an obvious sign in routine viability tests.",
         "rebuttals": [
           "Seed from thirty well-grown plants germinates as well as seed from three hundred.",
           "The passport record describes where the accession came from and is unaffected by how it is grown.",
@@ -72,44 +72,131 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "The line it has to stay above",
-      "scene": "Eleven germination tests on one accession since 1996: 98, 97, 96, 94, 93, 91, 90, 88, 87, 86, 85. Mbaye's rule says regenerate at 85, and the next test is due in three years.",
-      "takeaway": "A rule written at a threshold has to be read against how fast the number is moving toward it.",
+      "title": "Write the viability rule before it falls",
+      "scene": "Mbaye has eleven germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
+      "takeaway": "A biological threshold must fire early enough for the action it triggers to arrive before the measured state crosses the limit.",
       "place": "Seed Vault",
-      "story": "Eleven germination tests on one accession since 1996: 98, 97, 96, 94, 93, 91, 90, 88, 87, 86, 85. Mbaye's rule says regenerate at 85, and the next test is due in three years.",
+      "story": "Mbaye has eleven germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
       "game": {
-        "type": "CHOICE",
-        "title": "The line it has to stay above",
+        "type": "TRIGGER",
+        "title": "Write the viability rule before it falls",
         "setup": "Seed Vault",
-        "play": "Read the germination curve",
-        "task": "Read the germination curve",
-        "question": "What should be done with this accession?",
-        "answer": "Regenerate it this season, before the next test",
-        "why": "The number is not merely at the line; it is arriving at it at about one point a year and has been for a decade. Waiting three years for the next test means regenerating from seed at eighty-two per cent or worse — fewer seedlings, from a sample that has already lost its weakest, which is itself a selection nobody chose. A retest costs seed and tells you what the curve already says. Moving the threshold changes the number without changing the seed, which is the one option here that is purely cosmetic.\n",
-        "rebuttals": [
-          "Three more years at a point a year puts the grow-out at eighty-two or lower.",
-          "A retest spends seed to confirm a value that eleven points already establish.",
-          "The threshold exists because germination falls faster once it starts falling."
-        ],
-        "choices": [
-          "Regenerate it this season, before the next test",
-          "Wait for the next test in three years and decide then",
-          "Retest it now to confirm the eighty-five",
-          "Lower the threshold, since the fall is slow and steady"
-        ],
-        "correctChoice": "Regenerate it this season, before the next test"
+        "play": "Set the field-reservation and grow-out thresholds before replaying the viability record.",
+        "task": "Set the field-reservation and grow-out thresholds before replaying the viability record.",
+        "question": "Where should each action trigger so the regeneration is ready before viability falls below the floor?",
+        "answer": "Reserve the regeneration field by 90% viability and start the grow-out by 86% on this authored stream. Waiting for 85% is too late once lead time is included.",
+        "why": "The viability floor is not the moment to begin planning if the biological response has lead time. A field slot has to be reserved before a grow-out can start. The grow-out itself also begins after the decision is made. Writing both thresholds before the record is replayed prevents hindsight from becoming policy. In this authored stream, reserving at 90 and starting at 86 leaves enough updates for both actions. Waiting until 85 to start acts after the floor is crossed.",
+        "trigger": {
+          "scale": {
+            "label": "",
+            "unit": "% germination",
+            "min": 80,
+            "max": 100,
+            "step": 0.2
+          },
+          "conditions": [
+            {
+              "id": "reserve",
+              "label": "Reserve regeneration field",
+              "leadHours": 3
+            },
+            {
+              "id": "start",
+              "label": "Start regeneration grow-out",
+              "leadHours": 1
+            }
+          ],
+          "stream": [
+            {
+              "at": "update 0",
+              "update": "98 % germination",
+              "value": 98,
+              "hoursLeft": 11
+            },
+            {
+              "at": "update 1",
+              "update": "97 % germination",
+              "value": 97,
+              "hoursLeft": 10
+            },
+            {
+              "at": "update 2",
+              "update": "96 % germination",
+              "value": 96,
+              "hoursLeft": 9
+            },
+            {
+              "at": "update 3",
+              "update": "94 % germination",
+              "value": 94,
+              "hoursLeft": 8
+            },
+            {
+              "at": "update 4",
+              "update": "93 % germination",
+              "value": 93,
+              "hoursLeft": 7
+            },
+            {
+              "at": "update 5",
+              "update": "91 % germination",
+              "value": 91,
+              "hoursLeft": 6
+            },
+            {
+              "at": "update 6",
+              "update": "90 % germination",
+              "value": 90,
+              "hoursLeft": 5
+            },
+            {
+              "at": "update 7",
+              "update": "88 % germination",
+              "value": 88,
+              "hoursLeft": 4
+            },
+            {
+              "at": "update 8",
+              "update": "87 % germination",
+              "value": 87,
+              "hoursLeft": 3
+            },
+            {
+              "at": "update 9",
+              "update": "86 % germination",
+              "value": 86,
+              "hoursLeft": 2
+            },
+            {
+              "at": "update 10",
+              "update": "85 % germination",
+              "value": 85,
+              "hoursLeft": 1
+            },
+            {
+              "at": "update 11",
+              "update": "84 % germination",
+              "value": 84,
+              "hoursLeft": 0
+            }
+          ],
+          "hint": "Set both rules before release. Reserving field space takes three updates to take effect; starting the grow-out takes one.",
+          "release": "Release the board",
+          "commit": "Stand by the board"
+        }
       },
       "assumes": [
-        "viability falls over time in store and is measured by germinating a sample"
+        "germination percentage measures the fraction of seeds that can produce seedlings",
+        "regeneration requires field space before seed can be multiplied"
       ]
     },
     {
       "day": 4,
       "title": "What the store did right",
-      "scene": "Qureshi wants the finding stated precisely before it goes to the board, and precisely means saying what is still true. The temperature log has no excursions in twenty-eight years.",
+      "scene": "Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers twenty-eight years without an excursion, and current germination remains strong in the affected packets.",
       "takeaway": "Storage held what it was handed; the loss happened in the field, on the way back in.",
       "place": "Seed Vault",
-      "story": "Qureshi wants the finding stated precisely before it goes to the board, and precisely means saying what is still true. The temperature log has no excursions in twenty-eight years.",
+      "story": "Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers twenty-eight years without an excursion, and current germination remains strong in the affected packets.",
       "game": {
         "type": "CHOICE",
         "title": "What the store did right",
@@ -117,20 +204,20 @@ export const CURRICULUM = {
         "play": "Say what the vault can still be trusted for",
         "task": "Say what the vault can still be trusted for",
         "question": "What is the honest statement of what went wrong?",
-        "answer": "The storage worked and the regeneration protocol did not",
-        "why": "Precision matters here because the fix follows from it. Nothing about minus eighteen degrees failed: the seed that went in came out alive and unchanged, which is all a store can do. What failed is the step that makes new seed, where a sample stands in for a population and the sample was too small. Saying the vault failed points the money at freezers. Saying the protocol failed points it at bigger grow-out plots and at more of them, which is what would actually have prevented this.\n",
+        "answer": "The storage system preserved viable seed. Repeated small grow-outs changed allele frequencies by sampling too few contributors.",
+        "why": "The fix depends on naming the failed step precisely. The vault kept the stored seed cold and viable. The allele-frequency shifts instead track repeated regeneration, where a small set of parents stood in for a larger population. Calling this a storage failure would direct money toward freezers that already worked. Calling it a regeneration failure directs attention toward population size, contribution balance and records from the grow-out. The same packet can therefore be healthy seed and a poor genetic representation of the original accession.",
         "rebuttals": [
-          "The temperature log covers twenty-eight years without an excursion.",
-          "The records describe what was collected accurately; it is the packets that have moved.",
-          "Size is a workload problem and does not explain why the drifted accessions are the regenerated ones."
+          "The historical records predict the less-regenerated accessions correctly, so their resolution is not the pattern.",
+          "Current controls and archived comparisons do not show an assay shift that follows regeneration count.",
+          "Affected packets still germinate well, and viability loss would track storage history rather than the number of grow-outs."
         ],
         "choices": [
-          "The storage worked and the regeneration protocol did not",
-          "The vault failed to preserve the collection",
-          "The passport records were never reliable",
-          "The collection was too large to be maintained properly at this budget"
+          "Storage preserved the seed, while repeated regeneration changed its allele frequencies",
+          "The old passport records are too coarse for any allele-frequency comparison",
+          "A long-term shift in the genotyping assay created the apparent differences",
+          "Low viability in storage repeatedly selected which genotypes survived"
         ],
-        "correctChoice": "The storage worked and the regeneration protocol did not"
+        "correctChoice": "Storage preserved the seed, while repeated regeneration changed its allele frequencies"
       },
       "assumes": [
         "a store preserves what it is given rather than improving it"
@@ -151,7 +238,7 @@ export const CURRICULUM = {
         "task": "Order what a regeneration standard has to fix, most binding first.",
         "question": "Order what a regeneration standard has to fix, most binding first.",
         "answer": "",
-        "why": "The number comes first because everything else is a refinement of it: an accession grown from thirty plants is compromised however carefully the rest is done. Isolation is next, because a grow-out contaminated by the plot beside it is not that accession any more. Even harvesting protects the effective size the plant count promised — twenty plants contributing nine tenths of the seed is a bottleneck inside a full plot. The record comes last in priority and matters most in twenty years, when somebody asks this question again and needs to know what was actually done.\n",
+        "why": "The minimum contributing population comes first because no later care can restore an allele that was never sampled into the new seed. Isolation then prevents pollen from another accession entering the grow-out. Even harvesting protects the effective size promised by the plant count; a few prolific plants should not supply most of the seed. Finally, the record preserves what actually happened for the next curator. A durable regeneration standard therefore controls population size, gene flow, contribution balance and provenance rather than only producing seed that germinates.",
         "cards": [
           "The minimum number of contributing plants, written as a number.",
           "Isolation, so a grow-out is not pollinated by its neighbours.",
@@ -188,44 +275,92 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "What a quiet week is for",
-      "scene": "Ashworth has 400 packets to re-bag into foil. The viability schedule is three months behind. It is the one week of the year when nobody needs the vault.",
-      "takeaway": "Maintenance is the work that is never urgent until the day it is too late to have done.",
+      "title": "Three jobs, one still damaging seed",
+      "scene": "Ashworth has 400 packets with failed foil seals, a viability-testing schedule three months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.",
+      "takeaway": "Urgency depends on whether damage is still accumulating and reversible; a handoff is complete only with an owner, first action and return condition.",
       "place": "Seed Vault",
-      "story": "Ashworth has 400 packets to re-bag into foil. The viability schedule is three months behind. It is the one week of the year when nobody needs the vault.",
+      "story": "Ashworth has 400 packets with failed foil seals, a viability-testing schedule three months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.",
       "game": {
-        "type": "TRIAGE",
-        "title": "What a quiet week is for",
+        "type": "DELEGATE",
+        "title": "Three jobs, one still damaging seed",
         "setup": "Seed Vault",
-        "play": "Do the backlog while the door is open",
-        "task": "Do the backlog while the door is open",
-        "question": "What should the quiet week be spent on first?",
-        "answer": "Re-bagging the packets whose foil seals have failed",
-        "why": "A failed seal lets moisture in, and moisture is the one thing that turns a fifty-year sample into a five-year one — the damage is happening now, silently, and it is not recoverable. Testing tells you what is already true and can wait three months. Faded numbers are urgent in a different way and are a records problem, recoverable from the shelf position. Rearranging is the work that feels most like progress and changes nothing about whether anything survives.\n",
-        "rebuttals": [
-          "A viability test measures a decline it does not stop, and the backlog costs knowledge rather than seed.",
-          "A faded number is recoverable while the packet is where the record says it is.",
-          "Reorganising is the most visible of these and the only one that preserves nothing."
-        ],
-        "choices": [
-          "Re-bagging the packets whose foil seals have failed",
-          "Clearing the whole viability testing backlog",
-          "Re-labelling packets whose numbers have faded",
-          "Rearranging the shelves to the new numbering"
-        ],
-        "correctChoice": "Re-bagging the packets whose foil seals have failed"
+        "play": "Keep the worsening vault problem and delegate the other two with an owner, first action and return condition.",
+        "task": "Keep the worsening vault problem and delegate the other two with an owner, first action and return condition.",
+        "question": "Which problem stays with you, and what complete handoffs do the other two receive?",
+        "answer": "Keep the failed-seal response. Delegate the viability backlog to seed testing and the faded labels to records, each with a first action and a clear return condition.",
+        "why": "A failed seal is the only problem that is actively changing the seed. Moisture can enter now, and ageing caused by that exposure cannot be undone later. The viability backlog is loud but stable; it delays knowledge rather than causing the decline it measures. Faded labels are also stable while shelf positions still recover identity. The season lead should therefore keep the failed-seal response and delegate the other work completely. Delegation protects attention without turning the quieter jobs into forgotten work.",
+        "delegate": {
+          "team": [
+            {
+              "id": "player",
+              "label": "player"
+            },
+            {
+              "id": "seed_test",
+              "label": "seed_test"
+            },
+            {
+              "id": "records",
+              "label": "records"
+            }
+          ],
+          "firstActions": [
+            {
+              "id": "a1",
+              "label": "Pull the failed-seal packets into a dry handling batch and begin re-bagging"
+            },
+            {
+              "id": "a2",
+              "label": "Start with accessions closest to their regeneration threshold"
+            },
+            {
+              "id": "a3",
+              "label": "Resolve each label against shelf position and catalogue before moving it"
+            }
+          ],
+          "problems": [
+            {
+              "id": "failed_seals",
+              "label": "Packets with failed foil seals",
+              "trend": "rising",
+              "rate": "moisture exposure continues while a failed packet remains unsealed",
+              "consequence": "seed ageing can accelerate before the next viability test",
+              "irreversible": true,
+              "delegable": false
+            },
+            {
+              "id": "viability_backlog",
+              "label": "Three-month viability-testing backlog",
+              "trend": "stable",
+              "rate": "the knowledge delay grows, but the test itself does not change the seed",
+              "consequence": "curators have older information about which lots are approaching regeneration thresholds",
+              "loud": true
+            },
+            {
+              "id": "faded_labels",
+              "label": "Faded packet labels",
+              "trend": "stable",
+              "rate": "identity remains recoverable while packets stay in recorded shelf positions",
+              "consequence": "moving an unresolved packet could turn a recoverable record problem into lost provenance"
+            }
+          ],
+          "first": "failed_seals",
+          "hint": "Keep the problem whose biological damage is still accumulating. A delegated job is accepted only when it has an owner, a first action and a condition that brings it back.",
+          "commit": "Take the watch"
+        }
       },
       "assumes": [
-        "packaging and testing are what keep a stored sample usable"
+        "moisture exposure accelerates deterioration of stored orthodox seed",
+        "a viability test measures condition but does not repair it"
       ]
     },
     {
       "day": 7,
       "title": "The copy that was never in the vault",
-      "scene": "Fenn's landraces went in on Saturday and are up. His family has grown one of them continuously since before Wellmere existed, in a district where rust arrives most years.",
+      "scene": "Fenn’s landraces are established in the station plots. His family has grown one of them continuously since before Wellmere existed, in a district where rust arrives most years. The vault copy of the same old population has been regenerated only in clean nurseries.",
       "takeaway": "A population kept in cultivation keeps being tested by the thing you might one day need it for.",
       "place": "Seed Vault",
-      "story": "Fenn's landraces went in on Saturday and are up. His family has grown one of them continuously since before Wellmere existed, in a district where rust arrives most years.",
+      "story": "Fenn’s landraces are established in the station plots. His family has grown one of them continuously since before Wellmere existed, in a district where rust arrives most years. The vault copy of the same old population has been regenerated only in clean nurseries.",
       "game": {
         "type": "CHOICE",
         "title": "The copy that was never in the vault",
@@ -234,7 +369,7 @@ export const CURRICULUM = {
         "task": "Say where the rest of the collection's insurance is",
         "question": "Why is Fenn's field likely to hold what the vault lost?",
         "answer": "Rust has selected it every year the vault was standing still",
-        "why": "The vault preserves a frequency; a farm keeps changing one, and in a rust district it changes it in the direction you want. Every year that the disease arrives, plants without resistance do worse and contribute less seed, so an allele that was at five per cent when it was collected may be at thirty now. It is the opposite of what happened in the clean nursery, where the same allele was invisible to selection and free to drift away. This is the argument for on-farm conservation in one sentence, and it took a rust to make it.\n",
+        "why": "Fenn’s population has faced rust repeatedly, so plants carrying useful resistance can leave more seed in infected years. That changes allele frequencies through natural and farmer-mediated selection. The clean vault grow-outs did something different: without rust, resistance had no selective advantage and rare variants could disappear by drift. The farm population is not a frozen copy of 1994, but it may retain or enrich alleles the ex situ copy lost. In situ and ex situ conservation therefore preserve different evolutionary histories.",
         "rebuttals": [
           "Freshness affects germination and has nothing to do with which alleles are present.",
           "Quantity is not the issue; the vault has plenty of a population that has lost the gene.",
@@ -255,10 +390,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What the catalogue says and what is there",
-      "scene": "Ninety accessions were genotyped and thirty had drifted. There are 41,000 accessions and about 9,000 of them have been regenerated twice or more.",
-      "takeaway": "One sample of ninety is enough to say the problem is general and not enough to say which accessions have it.",
+      "scene": "Ninety accessions were genotyped. Thirty had drifted, and every one of those had been regenerated at least twice. The other sixty, regenerated once or not at all, still matched. About 9,000 accessions have two or more regenerations.",
+      "takeaway": "A sample can identify a high-risk group without proving the exact fraction affected in the entire collection.",
       "place": "Seed Vault",
-      "story": "Ninety accessions were genotyped and thirty had drifted. There are 41,000 accessions and about 9,000 of them have been regenerated twice or more.",
+      "story": "Ninety accessions were genotyped. Thirty had drifted, and every one of those had been regenerated at least twice. The other sixty, regenerated once or not at all, still matched. About 9,000 accessions have two or more regenerations.",
       "game": {
         "type": "CHOICE",
         "title": "What the catalogue says and what is there",
@@ -266,20 +401,20 @@ export const CURRICULUM = {
         "play": "Say what the season established about the collection",
         "task": "Say what the season established about the collection",
         "question": "What can Wellmere honestly say to its board on Monday?",
-        "answer": "A third of the twice-regenerated material is likely to have drifted",
-        "why": "The sample was ninety accessions and the finding sorted cleanly on regeneration count, so it supports a statement about that group — roughly 9,000 accessions, of which perhaps a third are not what their records say. Saying a third of the collection is lost overstates it by a factor of four and will be quoted back for a decade. Saying only thirty are affected understates it by the same logic. And waiting to genotype 41,000 before saying anything is the option that guarantees nothing changes, which is how this happened.\n",
+        "answer": "Repeated regeneration is the high-risk category. Prioritise those accessions for audit and change the protocol now, while a larger sample estimates how common drift is within that group.",
+        "why": "The sample separates sharply by regeneration history: all thirty repeatedly regenerated accessions drifted, while the sixty less-regenerated accessions matched. That is strong evidence that repeated regeneration marks a high-risk group. It does not justify saying one third of the whole collection has drifted, because the sampled groups had different exposure histories. It also does not prove every one of the 9,000 repeatedly regenerated accessions is affected. The board can act on the risk group now while a larger audit estimates its true prevalence.",
         "rebuttals": [
-          "Two thirds of the collection has never been regenerated twice and is not implicated.",
-          "Thirty is what was measured; the estimate is what those thirty imply about nine thousand.",
-          "Genotyping everything takes years, and the regeneration protocol has to change on Monday."
+          "The one-third figure mixes accessions with very different regeneration histories and cannot be applied to the full collection.",
+          "The sample identifies a strong risk pattern beyond the thirty measured packets, even though it cannot name every affected accession.",
+          "All thirty sampled repeated-regeneration accessions drifted, but a sample of thirty does not establish a literal 100% prevalence across all 9,000."
         ],
         "choices": [
-          "A third of the twice-regenerated material is likely to have drifted",
-          "A third of the collection has been lost",
-          "The collection is intact apart from thirty accessions",
-          "Nothing can be said until every one of the 41,000 accessions is genotyped"
+          "Repeatedly regenerated accessions are a high-risk group and should be prioritised for audit",
+          "About one third of the entire 41,000-accession collection has drifted",
+          "Only the thirty sampled accessions can be treated as affected",
+          "All 9,000 accessions regenerated twice or more should be assumed to have drifted"
         ],
-        "correctChoice": "A third of the twice-regenerated material is likely to have drifted"
+        "correctChoice": "About one third of the entire 41,000-accession collection has drifted"
       },
       "assumes": [
         "a sample of a collection supports an estimate about the collection"
@@ -290,10 +425,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Two parents, and what you are asking of them",
-      "scene": "Volpe has the programme's two parents pinned above the bench: a high-yielding modern variety, and a landrace that came through the 2018 drought and yields badly. Otto Bengtsson wants to know which way round to make the cross.",
+      "scene": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson asks what combination the programme is trying to create.",
       "takeaway": "A cross is a request for a combination, and it takes generations to find out whether it was granted.",
       "place": "Crossing Hall",
-      "story": "Volpe has the programme's two parents pinned above the bench: a high-yielding modern variety, and a landrace that came through the 2018 drought and yields badly. Otto Bengtsson wants to know which way round to make the cross.",
+      "story": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson asks what combination the programme is trying to create.",
       "game": {
         "type": "CHOICE",
         "title": "Two parents, and what you are asking of them",
@@ -302,7 +437,7 @@ export const CURRICULUM = {
         "task": "Say what a cross is for",
         "question": "What is the programme actually asking for by crossing these two?",
         "answer": "Offspring that carry both parents' useful alleles at once",
-        "why": "Meiosis deals each parent's chromosomes into gametes, so the first generation gets one set from each and the second is where the combinations appear. What the breeder wants is one plant in that second generation carrying the yield alleles from one parent and the drought alleles from the other — a combination that has never existed and that neither parent can make on its own. Most of the offspring are worse than both parents. The programme is a way of looking at enough of them.\n",
+        "why": "Meiosis gives each gamete one copy of each chromosome. The F1 therefore receives one set from each parent. The next generation reshuffles those copies into many combinations. The breeder wants offspring carrying useful yield alleles from the modern parent and drought alleles from the landrace. Neither parent has that combination. Many offspring will be worse than either parent because useful and harmful alleles also segregate. Breeding works by making enough recombinant offspring to find the rare combinations worth keeping.",
         "rebuttals": [
           "Traits controlled by many genes average out; the ones the programme wants do not.",
           "A landrace is a population, and crossing changes what comes out rather than improving it in place.",
@@ -334,8 +469,8 @@ export const CURRICULUM = {
         "play": "Read what the second generation shows",
         "task": "Read what the second generation shows",
         "question": "What do 306 resistant and 94 susceptible plants tell you about this resistance?",
-        "answer": "One gene is involved and the resistant allele is dominant",
-        "why": "The parents were a resistant line and a susceptible one, so the first generation carried one allele of each. Meiosis separates them, and pairing gametes at random gives one quarter with two susceptible alleles — the only ones that show it, because a single resistant allele is enough. Three to one out of 400 is 300 and 100; 306 and 94 is well within what chance does to a sample of that size. Two independent genes would leave far fewer susceptible plants, and a fifteen-to-one split is a different number entirely.\n",
+        "answer": "The counts fit a single dominant resistance locus: about 300:100 is expected, while a 15:1 two-gene model would predict about 375:25.",
+        "why": "F1 plants carry one resistance allele and one susceptible allele. Meiosis separates those alleles, so two heterozygous parents give a 3:1 phenotype expectation when resistance is dominant. In 400 offspring that is 300 resistant and 100 susceptible. The observed 306 and 94 are close. Two independently assorting genes where either dominant allele gives resistance predict 15:1, or 375 resistant and 25 susceptible. The counts therefore support one dominant locus much better than the two-locus alternative.",
         "rebuttals": [
           "Two genes acting either-way give about one susceptible in sixteen, not one in four.",
           "The screening bay is inoculated deliberately, so escape is possible and would not give a clean ratio.",
@@ -400,7 +535,7 @@ export const CURRICULUM = {
         "task": "Say what deferring the release costs",
         "question": "Why does a one-season deferral cost more than one season?",
         "answer": "Every line behind it in the pipeline waits too",
-        "why": "A breeding programme is a queue with one set of ground at the end of it. Holding WM-712 for a season does not simply move WM-712; it holds the seed increase that would have followed, and the trial that would have used that ground, and the crosses waiting on that trial. The cost lands on lines that have not been argued about at all. That is the real shape of Volpe's case, and it is why she is not simply being impatient — the delay is paid by everything downstream of it.\n",
+        "why": "A breeding programme is a queue that shares seasons, ground and staff. Holding WM-712 for one year also delays its seed increase, the trial that would have used that ground, and the crosses waiting behind it. The cost therefore lands on lines that were never part of the argument. That is the strongest version of Volpe’s case: delay has opportunity costs throughout the pipeline. It does not prove release is right, but it makes the price of waiting explicit.",
         "rebuttals": [
           "The standard does improve, slowly, and it is not what makes a single season expensive.",
           "A year in a cold store costs a well-dried sample very little germination.",
@@ -421,10 +556,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What came with the gene",
-      "scene": "Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a landrace, and it was short.",
+      "scene": "Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.",
       "takeaway": "A chromosome is inherited in stretches, so a wanted gene arrives with its neighbours.",
       "place": "Crossing Hall",
-      "story": "Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a landrace, and it was short.",
+      "story": "Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.",
       "game": {
         "type": "CHOICE",
         "title": "What came with the gene",
@@ -433,7 +568,7 @@ export const CURRICULUM = {
         "task": "Explain the short plants",
         "question": "Why are the resistant backcross lines shorter?",
         "answer": "They carry the donor's neighbouring genes along with the resistance",
-        "why": "Backcrossing is meant to recover the recurrent parent's genome while keeping one gene from the donor, and it does — except for the stretch of chromosome around that gene, which is inherited as a block. That block carries whatever else the donor had there, and a landrace selected for centuries on poor ground is often short. Breaking it needs recombination inside a very small interval, which means growing enough plants for a rare crossover to appear. That is linkage drag, and it is measured in generations.\n",
+        "why": "Backcrossing recovers most of the recurrent parent’s genome while keeping the target resistance allele. The chromosome around that allele is different. Nearby donor genes tend to travel with the target because recombination is less likely across a short interval. That linked donor segment can carry unwanted traits such as short stature. Breaking the association requires a crossover between the target and the unwanted neighbour. Breeders therefore grow many offspring and screen for the rare recombinant that keeps resistance while losing the linked donor trait.",
         "rebuttals": [
           "A defence response has a real cost and it does not produce a consistent fifteen centimetres.",
           "Backcrossing recovers the recurrent parent and does not reduce vigour by itself.",
@@ -459,14 +594,14 @@ export const CURRICULUM = {
       "place": "Crossing Hall",
       "story": "Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs three months instead of twelve, and there is bench room for one population.",
       "game": {
-        "type": "TRIAGE",
+        "type": "CHOICE",
         "title": "An extra generation in the bay",
         "setup": "Crossing Hall",
         "play": "Decide what the extra generation is for",
         "task": "Decide what the extra generation is for",
         "question": "What should the warm bay be used for this winter?",
-        "answer": "Advancing the backcross that needs a rare crossover",
-        "why": "The bay is worth exactly what it saves in time on work whose only constraint is generations, and breaking linkage drag is precisely that: it needs plants, and plants need generations, and nothing about it needs a field. Yield cannot be judged there at all — no wind, no drought, no competition — so an early yield test produces a number nobody can use. A landrace grown out under glass is a landrace selected by a glasshouse, which is how a collection quietly becomes a different collection. Seed multiplication needs area, which is the one thing a bay has least of.\n",
+        "answer": "Use the warm bay to advance the backcross. It buys another generation and another chance at the rare crossover without pretending the glasshouse can replace a field trial.",
+        "why": "The warm bay is valuable when calendar time is the main constraint. Breaking linkage drag needs more meioses and more opportunities for a rare crossover, so another generation directly advances that goal. Yield cannot be judged credibly under glass because the field environment is missing. Regenerating a landrace there would impose an unintended glasshouse selection. Seed multiplication mainly needs area, which the bay lacks. The scarce indoor generation therefore belongs to the backcross rather than to work that needs field conditions or space.",
         "rebuttals": [
           "A yield figure from a glasshouse is measured under conditions no field ever offers.",
           "Regenerating an accession under glass applies a selection nobody chose and cannot undo.",
@@ -499,7 +634,7 @@ export const CURRICULUM = {
         "task": "Order what has to happen to make a controlled cross.",
         "question": "Order what has to happen to make a controlled cross.",
         "answer": "",
-        "why": "The order is forced by the biology and by one risk. Removing the anthers has to happen before the flower can pollinate itself, which is a matter of a day or two — miss it and the seed you get is not a cross at all and looks exactly like one. Bagging immediately is what keeps the answer to \"who was the father\" from being \"anybody in the glasshouse\". Pollen is collected when the male is ready, which may be a different morning. And the label is part of the cross: an unlabelled head is a plant with no parents, which is the same as no plant.\n",
+        "why": "The order is forced by flower biology. Anthers must be removed before they shed pollen, or the female can self-pollinate before the intended cross begins. The head is bagged immediately so stray pollen cannot enter. Pollen from the chosen male is collected when it is ready, transferred to the receptive female, and the head is re-bagged. The label then records both parents and the date. Without that provenance, seed may grow perfectly while the breeder no longer knows who its father was.",
         "cards": [
           "Open the female floret and remove its anthers before they shed.",
           "Bag the head, so nothing else can reach it.",
@@ -532,7 +667,7 @@ export const CURRICULUM = {
         "task": "Answer the merchant",
         "question": "What should Wellmere tell the merchant?",
         "answer": "Release it, with the resistance stated as a known weakness",
-        "why": "The yield advantage is real and this year's crop is planted by farmers who need it; the seed exists and destroying forty tonnes helps nobody. What makes the difference is what is said with it — a variety sold as resistant will be grown as if it is, over a whole district, which is precisely the monoculture that turns one spore into an epidemic. Sold with the weakness named, it gets grown in mixtures and rotations and watched. Adding the second gene is right and takes four years, which is not a decision available at five o'clock today.\n",
+        "why": "The dry-year yield advantage is real, and forty tonnes of seed already exists. Destroying it does not repair the resistance gene. The risk is that a variety sold as resistant may be planted widely as though one failing gene were enough. Naming the weakness changes management and surveillance. Adding a second gene belongs in the next breeding cycle because existing seed cannot be genetically changed today. The biology defines the trade-off, while release policy still sets what level of risk is acceptable.",
         "rebuttals": [
           "Silence is what produces a district planted to one failing gene.",
           "Forty tonnes of a high-yielding line is worth something even where rust arrives.",
@@ -552,46 +687,83 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "Eight, out of everything",
-      "scene": "Room for eight. Volpe wants yield crosses onto the elite parents, Qureshi wants the landrace material brought in, and both of them know the second gene has to go somewhere.",
-      "takeaway": "A programme is what it puts in the block, and everything else is commentary on it.",
+      "title": "Eight crossing commitments",
+      "scene": "The crossing board has eight programme slots for the next two years. Volpe wants elite yield crosses, Qureshi wants unrelated resistance material brought in, and the current elite line still needs the second resistance gene. Fenn’s marked plants remain uncharacterised.",
+      "takeaway": "A breeding plan is a finite set of genetic questions it chooses to answer, and every crossing commitment delays another.",
       "place": "Crossing Hall",
-      "story": "Room for eight. Volpe wants yield crosses onto the elite parents, Qureshi wants the landrace material brought in, and both of them know the second gene has to go somewhere.",
+      "story": "The crossing board has eight programme slots for the next two years. Volpe wants elite yield crosses, Qureshi wants unrelated resistance material brought in, and the current elite line still needs the second resistance gene. Fenn’s marked plants remain uncharacterised.",
       "game": {
-        "type": "SCIENCETANK",
-        "title": "Eight, out of everything",
+        "type": "ALLOCATE",
+        "title": "Eight crossing commitments",
         "setup": "Crossing Hall",
-        "play": "Spend the eight slots on the decade rather than on the season.",
-        "task": "Spend the eight slots on the decade rather than on the season.",
-        "question": "Spend the eight slots on the decade rather than on the season.",
-        "answer": "",
-        "why": "The backcross is the only thing here that produces a defended version of the line farmers will actually be growing when the rust arrives, and four generations at two a year is inside the window. Bringing the accession onto two unrelated parents is the hedge: it puts the second gene into backgrounds that do not share the failing one, which is what stops the programme having a single point of failure again. Yield crosses among elite parents are reliable and are what the programme already does — this is not the season to spend half the block narrowing the base further. Fenn's plants are the most interesting material on the station and are not characterised; they belong in next year's block.\n",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Backcross the second resistance gene into the elite line."
+        "play": "Spend eight programme slots across four crossing packages and preserve both resistance goals.",
+        "task": "Spend eight programme slots across four crossing packages and preserve both resistance goals.",
+        "question": "Which crossing packages keep the programme defended without spending the block on work that can wait?",
+        "answer": "Fund the second-gene backcross programme and the two unrelated-background crosses first. Together they use six of the eight authored programme slots and answer both urgent resistance questions.",
+        "why": "The programme has two urgent genetic questions. One is to place the second resistance gene into the elite background farmers already use. The other is to put that gene into unrelated backgrounds so the programme does not rebuild the same single point of failure. Elite-to-elite yield crosses are useful but narrow the same base and consume a large package. Fenn’s plants are promising but still uncharacterised. A finite crossing board therefore protects the two resistance questions first and deliberately leaves lower-priority packages for later.",
+        "allocate": {
+          "pool": {
+            "amount": 8,
+            "unit": "programme slots",
+            "mode": "scalar"
           },
-          {
-            "label": "B",
-            "text": "Cross the unregenerated accession onto two unrelated elite parents."
-          },
-          {
-            "label": "C",
-            "text": "Yield crosses among the existing elite parents."
-          },
-          {
-            "label": "D",
-            "text": "Cross Fenn's marked plants onto anything, uncharacterised."
-          }
-        ],
-        "recommended": {
-          "A": 45,
-          "B": 35
-        },
-        "research": "The programme's elite parents are closely related and carry the failing resistance gene\nbetween them. The unregenerated accession carries a second gene and has never been in a\ncross. Fenn's marked plants are unproven and will not be characterised for two seasons.\nBackcrossing the second gene into the current elite line takes four generations and the\nwarm bay can run two a year. A yield cross onto elite parents is reliable and adds a\nfraction of a tonne. The rust race is expected to be regional within three years.\n"
+          "items": [
+            {
+              "id": "backcross_second",
+              "label": "Four-generation second-gene backcross programme",
+              "cost": 4
+            },
+            {
+              "id": "unrelated_two",
+              "label": "Cross the unregenerated accession onto two unrelated elite backgrounds",
+              "cost": 2
+            },
+            {
+              "id": "elite_yield",
+              "label": "Elite-to-elite yield-cross package",
+              "cost": 4
+            },
+            {
+              "id": "fenn_explore",
+              "label": "Exploratory package using uncharacterised Fenn plants",
+              "cost": 3
+            }
+          ],
+          "answers": [
+            {
+              "question": "Can the current elite background receive the second resistance gene?",
+              "requires": [
+                "backcross_second"
+              ],
+              "required": true
+            },
+            {
+              "question": "Can the resistance programme move into unrelated genetic backgrounds?",
+              "requires": [
+                "unrelated_two"
+              ],
+              "required": true
+            },
+            {
+              "question": "Can the programme add another conventional elite yield cross now?",
+              "requires": [
+                "elite_yield"
+              ]
+            },
+            {
+              "question": "Can the programme explore Fenn’s uncharacterised source immediately?",
+              "requires": [
+                "fenn_explore"
+              ]
+            }
+          ],
+          "hint": "The live panel shows which breeding questions each package answers. Protect the required resistance questions before spending remaining capacity on useful but deferrable work.",
+          "commit": "Commit the plan"
+        }
       },
       "assumes": [
-        "each cross in the block commits several years of downstream work"
+        "crosses consume greenhouse, generation and follow-up capacity for several seasons",
+        "closely related elite parents share more of the same genetic vulnerabilities"
       ]
     }
   ],
@@ -599,10 +771,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Frequencies, not plants",
-      "scene": "Ivanescu has 100 plants from the 1994 accession scored at one locus: 36 with two copies of the tall allele, 48 with one, 16 with none. He asks for the frequency rather than the count.",
+      "scene": "Ivanescu has 100 plants from the 1994 accession scored at one locus. Thirty-six are AA, forty-eight are Aa and sixteen are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
       "takeaway": "A frequency describes the population; a genotype describes one plant, and they answer different questions.",
       "place": "Genetic Resources Office",
-      "story": "Ivanescu has 100 plants from the 1994 accession scored at one locus: 36 with two copies of the tall allele, 48 with one, 16 with none. He asks for the frequency rather than the count.",
+      "story": "Ivanescu has 100 plants from the 1994 accession scored at one locus. Thirty-six are AA, forty-eight are Aa and sixteen are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
       "game": {
         "type": "BALLPARK",
         "title": "Frequencies, not plants",
@@ -611,43 +783,63 @@ export const CURRICULUM = {
         "task": "Work out what the sample says about the population",
         "question": "Estimate the frequency of the tall allele in this accession.",
         "answer": "0.6 for the tall allele, and 0.4 for the short one.",
-        "why": "A population's variation lives in its allele frequencies, not in any plant. Each plant carries two copies, so 100 plants hold 200 alleles: the 36 homozygotes contribute 72, the 48 heterozygotes contribute 48, and the rest contribute none. That is 120 out of 200, or 0.6. The number matters because everything that can happen to this accession — drift, selection, a bottleneck in a grow-out — happens to that frequency, and a curator who only knows which plants were tall cannot see any of it.\n",
+        "why": "One hundred diploid plants carry 200 allele copies. The 36 AA plants contribute 72 A copies, and the 48 heterozygotes contribute 48 more. That gives p = 120/200 = 0.60 and q = 0.40. Hardy–Weinberg predicts p² = 0.36, 2pq = 0.48 and q² = 0.16. Those values exactly match the observed genotype fractions here. This gives a clean null model before drift, selection, migration, non-random mating or a bottleneck changes the population.",
         "givens": [
-          "36 plants with two copies, 48 with one, 16 with none",
-          "Each plant carries two alleles"
+          "36 AA, 48 Aa and 16 aa plants",
+          "100 diploid plants means 200 allele copies"
         ],
-        "relationship": "p = (2 × homozygotes + heterozygotes) ÷ 2N, with N the number of plants — the count of one allele over the count of all alleles at that locus.\n",
+        "relationship": "p = (2AA + Aa) ÷ 2N. Then q = 1 − p, and Hardy–Weinberg predicts p², 2pq and q².",
         "calcKey": "POP-1"
       },
       "assumes": [
-        "a plant carries two copies of a gene and a population contains many plants"
+        "a diploid plant carries two copies of the locus",
+        "Hardy–Weinberg is a null model that predicts genotype frequencies from allele frequencies"
+      ],
+      "equations": [
+        {
+          "e": "p + q = 1,  p² + 2pq + q² = 1",
+          "c": "Hardy–Weinberg, as the null a collection is measured against",
+          "v": [
+            [
+              "p, q",
+              "the frequencies of the two alleles"
+            ],
+            [
+              "p², 2pq, q²",
+              "the expected frequencies of the three genotypes"
+            ]
+          ],
+          "s": "With no selection, drift, migration or mutation the genotype frequencies follow from the allele frequencies alone, so it is the expectation a real sample gets compared with rather than a description of anything.",
+          "computed": true
+        }
       ]
     },
     {
       "day": 2,
       "title": "Not the number of plants",
-      "scene": "Last year's grow-out of the 1994 accession used 120 plants, but only 18 of them set enough seed to contribute, and those 18 contributed very unevenly. Ivanescu wants the number that matters.",
-      "takeaway": "A population behaves as large as the parents that actually contributed, not as large as the ones that grew.",
+      "scene": "Last year’s regeneration of a dioecious conservation accession used 120 plants. Eighteen pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.",
+      "takeaway": "A regeneration can contain many plants yet behave genetically like a much smaller population when parental contributions are unbalanced.",
       "place": "Genetic Resources Office",
-      "story": "Last year's grow-out of the 1994 accession used 120 plants, but only 18 of them set enough seed to contribute, and those 18 contributed very unevenly. Ivanescu wants the number that matters.",
+      "story": "Last year’s regeneration of a dioecious conservation accession used 120 plants. Eighteen pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.",
       "game": {
         "type": "BALLPARK",
         "title": "Not the number of plants",
         "setup": "Genetic Resources Office",
-        "play": "Work out the effective size of the grow-out",
-        "task": "Work out the effective size of the grow-out",
-        "question": "Estimate the effective size of that grow-out.",
-        "answer": "About 61 effective plants, from a plot of 120.",
-        "why": "Drift is set by how many parents contributed, and how evenly. It is not set by how many plants stood in the plot. Eighteen of them fertilised the rest, so the alleles handed on were drawn from eighteen. Anything uncommon had eighteen chances to get through instead of a hundred and twenty. That is why a grow-out can look faultless — full plot, good seed, clean records — and still cost the collection something. No test afterwards will show it.\n",
+        "play": "Estimate the effective size of this unequal-parent regeneration",
+        "task": "Estimate the effective size of this unequal-parent regeneration",
+        "question": "What effective population size did 18 pollen donors and 102 seed parents produce?",
+        "answer": "About 61 effective breeding individuals, even though 120 plants stood in the plot.",
+        "why": "Effective population size asks how many equally contributing breeders would produce similar genetic drift. For separate pollen and seed parents, Ne ≈ 4NmNf/(Nm+Nf). Here 18 pollen donors and 102 seed parents give about 61, far below the 120 plants standing in the plot. The imbalance means transmitted alleles had fewer independent routes through the pollen side. Rare variants therefore faced a stronger sampling bottleneck than the headcount suggests. This sex-ratio formula applies to this separate-sex accession, not ordinary selfing wheat.",
         "givens": [
-          "18 plants contributed pollen, 102 contributed ovules",
-          "Effective size = 4 Nm Nf ÷ (Nm + Nf)"
+          "18 pollen donors",
+          "102 seed parents"
         ],
-        "relationship": "Ne = 4 Nm Nf ÷ (Nm + Nf), with Nm and Nf the numbers actually contributing each way — the count of plants only matches it when every plant contributes equally.\n",
+        "relationship": "Ne = 4NmNf ÷ (Nm + Nf), where Nm and Nf are the contributing pollen and seed parents.",
         "calcKey": "POP-2"
       },
       "assumes": [
-        "the next generation's alleles are drawn from the parents that actually contribute"
+        "dioecious means pollen and seed are produced by separate plants",
+        "unequal parental contributions reduce effective population size"
       ],
       "equations": [
         {
@@ -682,7 +874,7 @@ export const CURRICULUM = {
         "task": "Say where to look for a second gene",
         "question": "Which material is most likely to carry a different resistance gene?",
         "answer": "Landraces from districts where the rust is endemic",
-        "why": "Selection leaves its work in a population. A landrace grown for generations where rust arrives every year has been filtered by it every year, and whatever survived carries whatever was working — often several genes of partial effect rather than one big one, which is exactly the kind that does not break in a season. Recent breeding parents are related to each other and to WM-712, so they mostly carry the same gene. Dry districts select for drought and have no reason to hold rust resistance at all.\n",
+        "why": "Selection leaves a signature in the populations that experienced it. A landrace grown where rust arrives often has repeatedly faced that pathogen. Plants with useful resistance can then contribute more seed, raising the frequencies of protective alleles. Modern breeding parents are more likely to share ancestry with WM-712 and may carry the same resistance source. Landraces from endemic regions therefore offer a better search space for different resistance. They are not guaranteed to contain it, so the next step is still screening rather than assumption.",
         "rebuttals": [
           "Recent parents share ancestry with the line that is failing, so they mostly share its gene.",
           "Rust needs moisture; dry districts select for something else entirely.",
@@ -702,84 +894,108 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Same number, different population",
-      "scene": "Thirty of ninety accessions have allele frequencies well outside what the 1990s records describe. All thirty were regenerated at least twice. The sixty that match were regenerated once or not at all.",
-      "takeaway": "What separates the two groups is not how they were stored but how often they were grown out.",
+      "title": "Which evidence shares the grow-out",
+      "scene": "Thirty of ninety accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean.",
+      "takeaway": "Several results can agree because they share one history; independent evidence should be kept when the shared dependency is corrected.",
       "place": "Genetic Resources Office",
-      "story": "Thirty of ninety accessions have allele frequencies well outside what the 1990s records describe. All thirty were regenerated at least twice. The sixty that match were regenerated once or not at all.",
+      "story": "Thirty of ninety accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean.",
       "game": {
-        "type": "DIAGNOSIS",
-        "title": "Same number, different population",
+        "type": "TRACE",
+        "title": "Which evidence shares the grow-out",
         "setup": "Genetic Resources Office",
-        "play": "Which explanation fits the whole panel?",
-        "task": "Which explanation fits the whole panel?",
-        "question": "Which explanation fits the whole panel?",
-        "answer": "Repeated grow-outs from too few parents have drifted the frequencies",
-        "why": "The panel sorts perfectly on one thing: how many times an accession has been grown out. Storage is exonerated by its own log, and labelling by two checks — and neither would produce a pattern that follows regeneration count. What is left is the arithmetic everybody already knew: each grow-out is a sample, eighteen to sixty contributing parents is a small one, and doing it twice compounds. Nothing was done carelessly. The seed in those packets is alive, healthy and no longer the population the record describes.\n",
-        "headline": "A third of the panel no longer matches its own passport data.",
-        "readings": [
-          {
-            "zone": "Mismatched",
-            "label": "Times regenerated",
-            "value": "two or more",
-            "status": "alarm"
-          },
-          {
-            "zone": "Matching",
-            "label": "Times regenerated",
-            "value": "none or one",
-            "status": "normal"
-          },
-          {
-            "zone": "Labels",
-            "label": "Packet numbers against records",
-            "value": "checked twice, no errors",
-            "status": "normal"
-          },
-          {
-            "zone": "Vault",
-            "label": "Temperature log since 1996",
-            "value": "no excursions",
-            "status": "normal"
-          },
-          {
-            "zone": "Grow-out records",
-            "label": "Plants contributing",
-            "value": "18 to 60 per grow-out",
-            "status": "alarm"
-          }
-        ],
-        "choices": [
-          {
-            "label": "Repeated grow-outs from too few parents have drifted the frequencies",
-            "mechanism": "Each regeneration samples the population, and small samples lose what is uncommon."
-          },
-          {
-            "label": "The packets have been mislabelled at some point",
-            "mechanism": "Mislabelling would scramble the records without tracking how often each was grown."
-          },
-          {
-            "label": "The vault has been too warm and the seed has degraded",
-            "mechanism": "Heat damage kills seed and does not change which alleles the survivors carry."
-          },
-          {
-            "label": "The 1990s records were wrong when they were made",
-            "mechanism": "Records made wrong at the start would not sort by regeneration count either."
-          }
-        ],
-        "correctChoice": "Repeated grow-outs from too few parents have drifted the frequencies"
+        "play": "Open the dependencies behind the genetic and viability results, keep the independent evidence, and name the shared source behind the shifts.",
+        "task": "Open the dependencies behind the genetic and viability results, keep the independent evidence, and name the shared source behind the shifts.",
+        "question": "Which results inherit the repeated small-grow-out history, and which evidence remains independent of it?",
+        "answer": "The genetic channels share repeated small grow-outs. Keep the viability channel. It shows storage succeeded even while regeneration changed allele frequencies.",
+        "why": "Three genetic comparisons depend on the same regeneration history, so their agreement is not three independent causes. The viability panel does not share that path. It rests on germination tests and the vault record, and it says the seed remained alive. Opening the dependencies therefore separates two claims: storage preserved viability, while repeated small grow-outs altered allele frequencies. Discarding the viability evidence would throw away an independent result. Ignoring the shared grow-out path would count one causal exposure several times.",
+        "trace": {
+          "channels": [
+            {
+              "id": "frequency",
+              "label": "Allele-frequency comparison",
+              "reading": "18 of 30 loci have moved more than five percentage points from the 1994 record",
+              "depends": [
+                "passport",
+                "current_genotype",
+                "regen_history"
+              ]
+            },
+            {
+              "id": "rare",
+              "label": "Rare-variant comparison",
+              "reading": "Nine alleles recorded in 1994 at under five per cent are absent from the current sample",
+              "depends": [
+                "passport",
+                "current_genotype",
+                "regen_history"
+              ]
+            },
+            {
+              "id": "archive",
+              "label": "Archived-subsample comparison",
+              "reading": "The archived subsample matches the current panel, not the 1994 record",
+              "depends": [
+                "archive_subsample",
+                "current_genotype",
+                "regen_history"
+              ]
+            },
+            {
+              "id": "viability",
+              "label": "Germination panel",
+              "reading": "Germination 91 per cent, and the store has held minus 18 for twenty-eight years",
+              "depends": [
+                "germination",
+                "vault_log"
+              ]
+            }
+          ],
+          "resources": [
+            {
+              "id": "regen_history",
+              "label": "Recorded grow-out history"
+            },
+            {
+              "id": "passport",
+              "label": "1990s genotype and allele-frequency record"
+            },
+            {
+              "id": "current_genotype",
+              "label": "Current genotype panel"
+            },
+            {
+              "id": "archive_subsample",
+              "label": "Archived comparison subsample"
+            },
+            {
+              "id": "germination",
+              "label": "Current germination assay"
+            },
+            {
+              "id": "vault_log",
+              "label": "Twenty-eight-year temperature and storage log"
+            }
+          ],
+          "independent": [
+            "viability"
+          ],
+          "target": "regen_history",
+          "hint": "Open each result and inspect what it rests on. Name the source shared by the genetic shifts, but do not discard a channel whose evidence path never uses it.",
+          "commit": "Correct it"
+        }
       },
       "assumes": [
-        "allele frequencies change when a population is sampled"
+        "a result can depend on earlier handling as well as on the current assay",
+        "independent evidence does not share the same critical source"
       ]
     },
     {
       "day": 5,
       "title": "The other copy",
-      "scene": "Fenn's four landraces are the living versions of accessions collected in 1994. His fields have grown them every year since; the vault has grown them twice.",
+      "scene": "Fenn’s four landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.",
       "takeaway": "Material that never stopped growing has never been through a sampling step.",
       "place": "Genetic Resources Office",
-      "story": "Fenn's four landraces are the living versions of accessions collected in 1994. His fields have grown them every year since; the vault has grown them twice.",
+      "story": "Fenn’s four landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.",
       "game": {
         "type": "CHOICE",
         "title": "The other copy",
@@ -788,7 +1004,7 @@ export const CURRICULUM = {
         "task": "Say what on-farm material offers",
         "question": "What does Fenn's seed have that the vault's does not?",
         "answer": "It has not passed through a small sample twice",
-        "why": "Every year on a farm is a generation too, and a field of a landrace is a much larger population than a grow-out plot — thousands of plants contributing rather than dozens. It has been selected, by his soil and his weather and his own choice of what to keep seed from, so it is not identical to 1994 either. What it has not had is a bottleneck: the uncommon alleles that drift removed from the vault's copies are likelier to still be there. On-farm and in-vault conservation are not competitors; each fails in a way the other does not.\n",
+        "why": "Fenn’s seed is not unchanged since 1994. His soil, weather, disease and seed saving have selected it every year. What it has avoided is the vault’s small-sample bottleneck: a field contains thousands of contributing plants instead of dozens. Rare alleles lost by drift in the stored copy may therefore persist on the farm. The two conservation strategies preserve different things. Ex situ storage slows evolutionary change; in situ cultivation keeps a large population evolving under its local environment.",
         "rebuttals": [
           "Fresh seed germinates better and that is not what the screen needs from it.",
           "His selection is for his farm, and it is a change rather than an improvement.",
@@ -804,6 +1020,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a population in cultivation continues to be selected by where it is grown"
+      ],
+      "equations": [
+        {
+          "e": "Nₑ ≈ 4NmNf / (Nm + Nf)",
+          "c": "effective population size, and why a grow-out of thirty is not thirty",
+          "v": [
+            [
+              "Nₑ",
+              "the effective size — how large the population behaves as, genetically"
+            ],
+            [
+              "Nm, Nf",
+              "the numbers actually contributing as each parent"
+            ]
+          ],
+          "s": "Genetic loss is set by how many individuals contribute rather than how many stand in the plot, so an unequal or a small contribution makes a population drift like one much smaller than it looks."
+        }
       ]
     },
     {
@@ -820,8 +1053,8 @@ export const CURRICULUM = {
         "play": "What happened to the resistance in this accession?",
         "task": "What happened to the resistance in this accession?",
         "question": "What happened to the resistance in this accession?",
-        "answer": "Drift removed it across three small grow-outs",
-        "why": "One plant in twenty is an allele at about five per cent. That is the frequency drift removes best. Take thirty plants and there is a real chance not one of them carries it. Do that three times and the chance is high. Nothing selected against it either. The nurseries had no rust, which is what a clean nursery is for, and the controls rule out the marker. So this is Thursday's finding with a number on it and a gene attached. It is what makes Qureshi right in the way nobody wanted.\n",
+        "answer": "The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly five per cent.",
+        "why": "The 1994 field note says about five per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If five per cent of plants show it, a random sample of thirty has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.",
         "headline": "The 1994 notes describe resistant plants in this accession. The 2026 sample has none.",
         "readings": [
           {
@@ -900,10 +1133,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "An outbreak in the right place",
-      "scene": "Fenn's landraces have rust in them. He wants to know whether to spray. Ivanescu points out what an unsprayed infected field of landrace actually is.",
+      "scene": "Fenn’s landraces are carrying rust in the station plots, and he asks whether the whole block should be sprayed. Ivanescu has flagging tape, paper bags and plot tags ready, because some individual plants still look clean among heavily infected neighbours.",
       "takeaway": "A field with the disease in it is the only place the useful plants identify themselves.",
       "place": "Genetic Resources Office",
-      "story": "Fenn's landraces have rust in them. He wants to know whether to spray. Ivanescu points out what an unsprayed infected field of landrace actually is.",
+      "story": "Fenn’s landraces are carrying rust in the station plots, and he asks whether the whole block should be sprayed. Ivanescu has flagging tape, paper bags and plot tags ready, because some individual plants still look clean among heavily infected neighbours.",
       "game": {
         "type": "CHOICE",
         "title": "An outbreak in the right place",
@@ -912,7 +1145,7 @@ export const CURRICULUM = {
         "task": "Decide what to do about Fenn's field",
         "question": "What should Wellmere ask Fenn to do?",
         "answer": "Leave part of it unsprayed and mark the plants that stay clean",
-        "why": "An infected unsprayed field is a screening nursery that nobody had to build, running on the exact race that is arriving. The plants that stay clean in it are carrying something, and they can be marked, bagged and harvested individually — that is a resistance source identified in one season rather than four. Spraying protects the crop and destroys the information. It is also Fenn's field and his income, which is why the ask is part of it and why the rest gets sprayed and paid for.\n",
+        "why": "An infected unsprayed patch can function as a field screen against the pathogen race that is actually present. Plants that remain relatively clean are candidates for useful resistance. They can be marked, bagged and harvested separately for later confirmation. Spraying the entire field would protect yield but erase that contrast. The field also belongs to Fenn, so the experiment requires his agreement and compensation for the unsprayed area. Conservation and breeding here work because the disease creates selection that the clean nursery does not.",
         "rebuttals": [
           "Spraying saves the crop and removes the one thing this field can tell anybody.",
           "Early harvest loses both the grain and the chance to see which plants held out.",
@@ -933,10 +1166,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "How narrow the base has become",
-      "scene": "Ivanescu has the pedigree of the six elite parents on the wall. Four of them share a grandparent, and all six carry the same resistance gene.",
+      "scene": "Ivanescu has the pedigree of six elite parents across the wall. Four share a recent grandparent, and all six carry the same resistance gene. The new rust race is already defeating that gene in commercial wheat east of Wellmere.",
       "takeaway": "A programme that keeps crossing its best with its best is narrowing what it can still draw on.",
       "place": "Genetic Resources Office",
-      "story": "Ivanescu has the pedigree of the six elite parents on the wall. Four of them share a grandparent, and all six carry the same resistance gene.",
+      "story": "Ivanescu has the pedigree of six elite parents across the wall. Four share a recent grandparent, and all six carry the same resistance gene. The new rust race is already defeating that gene in commercial wheat east of Wellmere.",
       "game": {
         "type": "CHOICE",
         "title": "How narrow the base has become",
@@ -944,44 +1177,23 @@ export const CURRICULUM = {
         "play": "Say what the block does to the programme's base",
         "task": "Say what the block does to the programme's base",
         "question": "What is the risk in the current elite parents?",
-        "answer": "They share so much ancestry that one weakness is everybody's",
-        "why": "Every round of selection keeps the best and crosses them together, and the best are increasingly each other's relatives. What that costs is not vigour — wheat tolerates inbreeding — but independence: when six parents share a grandparent, they share the grandparent's vulnerabilities, and a pathogen that solves one solves the set. That is exactly what is happening two hundred kilometres east. The remedy is deliberate and slow, and it is what a collection is for: bring something unrelated in, accept that its offspring are worse for several generations, and get the base back.\n",
+        "answer": "The base is genetically narrow, so the programme has fewer independent alternatives. The immediate shared vulnerability is that all six parents carry the same resistance gene now failing.",
+        "why": "Related parents share more of the same alleles. Repeated elite-by-elite crossing therefore narrows the breeding base and reduces the independent variants available for future selection. A shared grandparent does not make every weakness identical. The immediate vulnerability is more specific: all six parents carry the same resistance gene now being defeated. Together, pedigree narrowing and a common resistance mechanism leave fewer alternatives when conditions change. Bringing unrelated material into the programme rebuilds options, although several generations may be needed to recover elite performance.",
         "rebuttals": [
-          "Wheat is naturally self-pollinating and tolerates inbreeding well.",
-          "Response to selection is slowing for the same reason and is a symptom rather than the risk.",
-          "Storage behaviour has nothing to do with the pedigree of the parents."
+          "Self-pollinating wheat tolerates inbreeding well; the main problem is a narrow set of alternatives, not sudden inbreeding collapse.",
+          "A narrow base can slow response, but selection does not become literally impossible.",
+          "Cold-storage longevity depends on seed condition and storage environment, not on whether elite parents share a grandparent."
         ],
         "choices": [
-          "They share so much ancestry that one weakness is everybody's",
-          "They will produce weak offspring through inbreeding depression",
-          "They no longer respond to selection for yield",
-          "Their seed will lose viability faster in store"
+          "A narrow pool of alternatives, plus one resistance gene shared by all six",
+          "Severe inbreeding depression because four parents share a recent grandparent",
+          "No remaining capacity to improve yield through further selection among descendants",
+          "Faster loss of seed viability because related parents share similar storage traits"
         ],
-        "correctChoice": "They share so much ancestry that one weakness is everybody's"
+        "correctChoice": "Severe inbreeding depression because four parents share a recent grandparent"
       },
       "assumes": [
         "related parents share more alleles than unrelated ones"
-      ],
-      "equations": [
-        {
-          "e": "R = h²·S",
-          "c": "the breeder’s equation — response as heritability times the selection differential",
-          "v": [
-            [
-              "R",
-              "the gain that actually appears in the next generation"
-            ],
-            [
-              "h²",
-              "heritability, the fraction of the variation that is inherited"
-            ],
-            [
-              "S",
-              "how far the selected parents were above the population mean"
-            ]
-          ],
-          "s": "Only the heritable part of a superiority travels in the seed, which is why a plot chosen for being twenty per cent ahead of the field does not produce a line twenty per cent ahead of anything."
-        }
       ]
     }
   ],
@@ -989,10 +1201,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the same line is sown four times",
-      "scene": "Meera Quiroga has the plot map on the wall: 240 plots, each line appearing four times, in four blocks, and nothing in the order anybody would have chosen. The north end of the field is visibly wetter.",
+      "scene": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing four times across four blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "takeaway": "A field is not uniform, so a single plot measures the plot as much as the line in it.",
       "place": "Field Laboratory",
-      "story": "Meera Quiroga has the plot map on the wall: 240 plots, each line appearing four times, in four blocks, and nothing in the order anybody would have chosen. The north end of the field is visibly wetter.",
+      "story": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing four times across four blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "game": {
         "type": "CHOICE",
         "title": "Why the same line is sown four times",
@@ -1000,20 +1212,20 @@ export const CURRICULUM = {
         "play": "Read the trial ground",
         "task": "Read the trial ground",
         "question": "What does sowing each line in four randomised plots buy?",
-        "answer": "A way to tell a good line from a good piece of ground",
-        "why": "Every field has a wet end, a compacted corner and a strip where the muck heap used to be, and none of it is written down. Sow a line once and its yield is the line plus wherever it happened to land, with no way to separate them. Sow it four times in four blocks, in an order nobody chose, and the differences between plots of the same line measure the field itself — which is exactly what has to be subtracted before two lines can be compared.\n",
+        "answer": "A comparison that separates line performance from differences among pieces of ground",
+        "why": "A field varies in drainage, soil depth, compaction and shelter. Sow a line once and its yield contains both genotype and the conditions of that plot. Replicating the line in several blocks spreads it across different ground. Randomising positions prevents the researcher’s habits from deciding which line receives favourable places. Differences among replicate plots estimate environmental variation. That variation becomes part of the uncertainty when lines are compared. Replication therefore improves the genetic comparison rather than the measurement of one plot.",
         "rebuttals": [
-          "Seed increase happens in the screenhouse; a yield trial is harvested for weight, not for stock.",
-          "Weather hits a whole site at once, so replication within it protects against nothing.",
-          "Each plot is measured the same way however many there are; what improves is the comparison."
+          "A yield trial is harvested for comparison; these replicates are not four separate seed-increase populations.",
+          "Weather acts across the site, so four nearby plots do not provide four independent seasons.",
+          "Each plot is measured the same way. Replication improves the comparison by estimating environmental variation."
         ],
         "choices": [
-          "A way to tell a good line from a good piece of ground",
-          "Four times as much seed for next season",
-          "Protection against losing the trial to bad weather",
-          "A more accurate measurement of each individual plot"
+          "A comparison that separates line performance from differences among pieces of ground",
+          "Four independent seed increases that protect next season's planting stock",
+          "Protection against one local weather event wiping out the whole trial",
+          "A more precise yield measurement from each individual plot in the block"
         ],
-        "correctChoice": "A way to tell a good line from a good piece of ground"
+        "correctChoice": "A comparison that separates line performance from differences among pieces of ground"
       },
       "assumes": [
         "the same crop grows differently in different parts of a field"
@@ -1021,35 +1233,52 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Blocks, and what they take out",
-      "scene": "Quiroga's four blocks run across the slope rather than down it. A trainee has laid out the new trial in four neat strips, one line per strip, which is tidier and took half the time.",
-      "takeaway": "When a line and a piece of ground vary together, no amount of measuring afterwards can separate them.",
+      "title": "Move the line, not the story",
+      "scene": "Quiroga has three microplot positions across the slope and enough seed from two numbered lines for a quick repeat. The trainee’s strip layout put each line in only one place. Yield scatter from repeated microplots is already known.",
+      "takeaway": "When genotype and field position always change together, their effects are confounded; a control test separates them by changing one at a time.",
       "place": "Field Laboratory",
-      "story": "Quiroga's four blocks run across the slope rather than down it. A trainee has laid out the new trial in four neat strips, one line per strip, which is tidier and took half the time.",
+      "story": "Quiroga has three microplot positions across the slope and enough seed from two numbered lines for a quick repeat. The trainee’s strip layout put each line in only one place. Yield scatter from repeated microplots is already known.",
       "game": {
-        "type": "CHOICE",
-        "title": "Blocks, and what they take out",
+        "type": "CONTROL",
+        "title": "Move the line, not the story",
         "setup": "Field Laboratory",
-        "play": "Say what the plot layout is protecting against",
-        "task": "Say what the plot layout is protecting against",
-        "question": "What is wrong with sowing each line in its own strip?",
-        "answer": "Each line's yield is tied to one strip's conditions",
-        "why": "If every plot of a line sits in one strip, then the line and that strip's soil, drainage and shelter are the same thing in the data, and nothing done afterwards can pull them apart — the technical word is confounded, and the practical word is wasted. Blocks work because each one contains every line, so the comparison happens between plots that are near each other and alike. The randomisation inside a block is what stops a habit of the person sowing becoming a pattern in the results.\n",
-        "rebuttals": [
-          "Strips are easier to harvest, which is exactly why the mistake gets made.",
-          "A strip layout uses the same ground; the difference is where each line ends up in it.",
-          "Competition between neighbouring plots is managed by guard rows in either layout."
-        ],
-        "choices": [
-          "Each line's yield is tied to one strip's conditions",
-          "Strips are harder to harvest with the plot combine",
-          "The trial takes up more ground than blocks would",
-          "Neighbouring plots of one line compete with each other"
-        ],
-        "correctChoice": "Each line's yield is tied to one strip's conditions"
+        "play": "Hold the wheat line fixed, change one field variable at a time, then reverse the change.",
+        "task": "Hold the wheat line fixed, change one field variable at a time, then reverse the change.",
+        "question": "Which variable moves yield by more than the repeat scatter and then returns when you restore it?",
+        "answer": "Field position is the large effect in this test. Moving the same line from north to south changes yield by 1.0 t/ha, and restoring the north plot restores the original yield.",
+        "why": "A strip design changes genotype and ground together, so either can explain the yield difference. The control run holds the line and sowing density fixed while moving only the plot position. That change shifts yield far beyond the repeat scatter. Restoring the original position restores the reading. Changing the line on the same ground produces only a small shift in this authored test. The result shows why blocks and randomisation are needed before genotype can be credited for a field difference.",
+        "control": {
+          "observable": {
+            "label": "Reading",
+            "unit": "t/ha"
+          },
+          "variables": [
+            {
+              "id": "line",
+              "label": "Wheat line"
+            },
+            {
+              "id": "strip",
+              "label": "Field position"
+            },
+            {
+              "id": "density",
+              "label": "Sowing density"
+            }
+          ],
+          "held": [],
+          "truth": "strip",
+          "baseline": 7,
+          "response": 0.5999999999999996,
+          "noise": 0.15,
+          "hint": "Start from the baseline. Change one setup variable, run the microplot, and restore the original setting before naming a cause.",
+          "run": "Run the measurement",
+          "commit": "Name it"
+        }
       },
       "assumes": [
-        "conditions vary systematically across a field"
+        "field position can change crop yield",
+        "a causal comparison changes one candidate cause while holding the others fixed"
       ]
     },
     {
@@ -1066,20 +1295,20 @@ export const CURRICULUM = {
         "play": "Say what four seasons of trials support",
         "task": "Say what four seasons of trials support",
         "question": "What does this trial support saying about WM-712?",
-        "answer": "It yields better in dry seasons at this site",
-        "why": "The eleven per cent is real and it belongs to two dry years on one piece of ground. Stated without those conditions it becomes a claim about all seasons and all farms, which the data cannot support and which the wet-year figure of two per cent directly contradicts. The honest sentence is longer and more useful: it tells a farmer in a dry district to try it and a farmer on heavy wet land not to bother. Every word cut from that sentence for a leaflet is a word that makes it wrong somewhere.\n",
+        "answer": "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the two dry years than in the wet years.",
+        "why": "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only two per cent. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal.",
         "rebuttals": [
-          "Eleven per cent is the dry-year figure, and the wet-year figure is two.",
-          "One site cannot support a claim about climates; it supports a claim about this ground.",
-          "Most seasons here are wet, and in those the advantage is small."
+          "The wet-year advantage is only two per cent, so eleven per cent is not a season-independent effect.",
+          "One site can motivate a drought-adaptation hypothesis, but it cannot establish performance across regions.",
+          "The trial separates dry from wet years here; it does not define a rainfall threshold that guarantees the same response."
         ],
         "choices": [
-          "It yields better in dry seasons at this site",
-          "It yields eleven per cent more than the standard",
-          "It is better suited to dry climates generally",
-          "It will outyield the standard in most seasons"
+          "At this site, its advantage is much larger in dry seasons than in wet ones",
+          "Across these four seasons, it has a consistent eleven-per-cent advantage at this site",
+          "Its dry-year result shows that it is broadly adapted to drought across regions",
+          "It should outyield the standard whenever seasonal rainfall falls below average"
         ],
-        "correctChoice": "It yields better in dry seasons at this site"
+        "correctChoice": "At this site, its advantage is much larger in dry seasons than in wet ones"
       },
       "assumes": [
         "a trial measures lines under the conditions the trial happened in"
@@ -1088,10 +1317,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "A difference that was the field",
-      "scene": "Last season two lines differed by nine centimetres in height, significantly. This season, on different plots, they do not differ at all. Nothing about the lines has changed.",
+      "scene": "Last season two pure lines differed by nine centimetres in height, with a statistically clear separation. This season the same lines were randomised onto different plots and no longer differ. The seed stocks themselves have not changed.",
       "takeaway": "A result that does not survive being grown again somewhere else was probably about the somewhere.",
       "place": "Field Laboratory",
-      "story": "Last season two lines differed by nine centimetres in height, significantly. This season, on different plots, they do not differ at all. Nothing about the lines has changed.",
+      "story": "Last season two pure lines differed by nine centimetres in height, with a statistically clear separation. This season the same lines were randomised onto different plots and no longer differ. The seed stocks themselves have not changed.",
       "game": {
         "type": "CHOICE",
         "title": "A difference that was the field",
@@ -1100,7 +1329,7 @@ export const CURRICULUM = {
         "task": "Say why last year's height difference has gone",
         "question": "What is the most likely explanation?",
         "answer": "Last year's difference was partly the plots those lines landed in",
-        "why": "Two lines compared in one season on one set of plots differ by their genetics plus everything about where they sat, and a single year cannot separate those. Randomisation reduces the chance that a line is systematically favoured; it does not eliminate it in one trial. The honest reading is that last year's nine centimetres included some real difference and some ground, and the second season — different plots, same lines — is the test that tells you how much of each. This is the ordinary way a result evaporates, and it is not anybody's fault.\n",
+        "why": "A one-season comparison contains genetics plus whatever was unusual about the plots each line received. Randomisation makes systematic favouring less likely, but one realised layout can still be lucky. A second season on different plots asks whether the difference follows the seed. Here the nine-centimetre gap disappears. That makes last year’s estimate look partly environmental rather than a stable genetic effect. Replication across plots and seasons is how a breeding programme separates a line from a flattering piece of ground.",
         "rebuttals": [
           "Pure lines do not change appreciably between two seasons.",
           "Careless measurement adds scatter rather than removing a difference of nine centimetres.",
@@ -1121,10 +1350,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What one round returns",
-      "scene": "The trial mean is 7.4 tonnes a hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga's estimate of heritability for yield on this ground is 0.3.",
+      "scene": "The trial mean is 7.4 tonnes per hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.",
       "takeaway": "Only the heritable share of an advantage is passed on, and for yield that share is small.",
       "place": "Field Laboratory",
-      "story": "The trial mean is 7.4 tonnes a hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga's estimate of heritability for yield on this ground is 0.3.",
+      "story": "The trial mean is 7.4 tonnes per hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.",
       "game": {
         "type": "BALLPARK",
         "title": "What one round returns",
@@ -1133,12 +1362,12 @@ export const CURRICULUM = {
         "task": "Predict the gain",
         "question": "Estimate the yield of the next generation from this selection.",
         "answer": "About 7.9 t/ha, a gain of roughly half a tonne rather than 1.7.",
-        "why": "The plants you keep are better than average for two reasons, and only one of them is inherited. Heritability is the share that is: multiply the selection differential by it and you have the response, which is what actually shows up next season. Here that is 1.7 times 0.3, about half a tonne, against the 1.7 the selected plots appeared to offer. The rest was ground and weather, and it does not travel in the seed. Yield has low heritability in most crops, which is precisely why breeding it takes decades and why single-season enthusiasm is so often disappointed.\n",
+        "why": "The selected plots are above average for genetic and environmental reasons. The breeder’s equation keeps only the heritable share of that advantage. Here the selection differential is 9.1 − 7.4 = 1.7 tonnes per hectare. Multiplying by h² = 0.3 gives a response of 0.51. Adding that response to the original mean predicts about 7.9 tonnes per hectare next generation. The selected-plot mean of 9.1 is therefore not an inherited forecast; much of its advantage stays with the plots.",
         "givens": [
           "Trial mean 7.4 t/ha and selected mean 9.1 t/ha",
-          "Heritability of yield on this ground about 0.3"
+          "Heritability h² = 0.3"
         ],
-        "relationship": "R = h² S — the response equals the heritability times the selection differential, so only the inherited share of an advantage is carried into the next generation.\n",
+        "relationship": "R = h²S, where S = selected mean − population mean. Add R to the original mean.",
         "calcKey": "TRIAL-5"
       },
       "assumes": [
@@ -1182,7 +1411,7 @@ export const CURRICULUM = {
         "task": "Spend the ground you can free without spending the trial's ability to answer.",
         "question": "Spend the ground you can free without spending the trial's ability to answer.",
         "answer": "",
-        "why": "The headlands and the spare block are ground nobody is measuring anything on, and a screening nursery does not need the precision a yield trial does — it needs plants and an inoculum, and it can tolerate an uneven field because what it scores is whether a plant dies. That is why it is the first place to look. Shortening the plots is the honest second: it costs precision evenly across every line rather than removing a whole replicate, which costs the comparisons that were already marginal. Guard rows are the cheapest-looking option and the worst, because without them a vigorous plot steals from its neighbour and every comparison in the trial gets quietly worse.\n",
+        "why": "The first place to find ground is outside the measured yield trial. Headlands and spare block can hold a screening nursery that mainly needs many plants and reliable inoculation. If more ground is still needed, shortening every plot spreads a modest precision cost across the trial. Dropping a replicate removes an entire independent comparison. That weakens small yield differences. Removing guard rows is worse because vigorous plots can borrow light and water from neighbours, quietly biasing every comparison. Different cuts therefore sacrifice different kinds of evidence.",
         "proposals": [
           {
             "label": "A",
@@ -1205,7 +1434,7 @@ export const CURRICULUM = {
           "B": 55,
           "A": 30
         },
-        "research": "The yield trial has 240 plots: 60 lines, four replicates. Guard rows take about 8 per cent\nof the area and stop plots from borrowing light and water from their neighbours. Shortening\nplots by a fifth would free 20 per cent but raises the error variance because a short plot\nsamples less ground. Dropping the fourth replicate frees a quarter and removes most of the\ntrial's ability to separate lines that differ by less than half a tonne. The screening\nmaterial needs the equivalent of 30 plots.\n"
+        "research": "The yield trial has 240 plots: 60 lines, four replicates. Guard rows take about 8 per cent\nof the area and stop plots from borrowing light and water from their neighbours. Shortening\nplots by a fifth would free 20 per cent but raises the error variance because a short plot\nsamples less ground. Dropping the fourth replicate frees a quarter and removes most of the\ntrial's ability to separate lines that differ by less than half a tonne. The screening\nmaterial needs the equivalent of 30 plots."
       },
       "assumes": [
         "a trial's precision depends on its replication and its plot size"
@@ -1214,19 +1443,19 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What cannot be done later",
-      "scene": "The nursery can be scored today or not at all. The merchant's deadline is five o'clock. Fenn's field will still be infected tomorrow, and so will he.",
+      "scene": "The nursery can be scored this afternoon or not at all because neighbouring fungicide drift reaches it tomorrow. The merchant wants an answer by five. Fenn’s infected field will still be there tomorrow, and the seed-increase arithmetic can be done later.",
       "takeaway": "What goes first is what stops being possible, not what is loudest.",
       "place": "Field Laboratory",
-      "story": "The nursery can be scored today or not at all. The merchant's deadline is five o'clock. Fenn's field will still be infected tomorrow, and so will he.",
+      "story": "The nursery can be scored this afternoon or not at all because neighbouring fungicide drift reaches it tomorrow. The merchant wants an answer by five. Fenn’s infected field will still be there tomorrow, and the seed-increase arithmetic can be done later.",
       "game": {
-        "type": "TRIAGE",
+        "type": "CHOICE",
         "title": "What cannot be done later",
         "setup": "Field Laboratory",
         "play": "Decide what gets done first",
         "task": "Decide what gets done first",
         "question": "Which of the three has to happen first?",
-        "answer": "Scoring the nursery, before the drift reaches it",
-        "why": "The nursery is the only one of these with a closing window that nobody controls. Fungicide drift will make the scores meaningless by tomorrow and the infection cannot be repeated this season — a year of screening either becomes data this afternoon or becomes nothing. The merchant's five o'clock is a deadline somebody set and can be renegotiated with a phone call. Fenn's field is not going anywhere, and what it holds is more interesting after the nursery has said which genes are failing.\n",
+        "answer": "Score the nursery first. Its biological measurement window closes today; the merchant deadline can be renegotiated, Fenn's field persists, and the arithmetic is not time-sensitive.",
+        "why": "The nursery has the only biological window that closes today. Fungicide drift will make tomorrow’s scores uninterpretable, and this season’s infection cannot be replayed. The merchant’s five-o’clock deadline was set by people and can be renegotiated. Fenn’s field will remain infected tomorrow. The seed calculations are also recoverable later. Prioritising the nursery is therefore not about which request sounds most important. It is about preserving information that will cease to exist if nobody measures it now.",
         "rebuttals": [
           "A deadline set by a person can be moved by a person; drift cannot.",
           "His field will be infected tomorrow too, and it is more informative once the nursery is scored.",
@@ -1247,10 +1476,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One site, one year, again",
-      "scene": "The trial is scored, the selected lines are chosen, and the summary sheet is being written for a board that will read the headline number and nothing else.",
+      "scene": "The trial is scored and the selected lines are chosen. The summary sheet now goes to a board that will remember one headline number. This was a dry season at one site, and the selected plots looked much better than the full replicated mean.",
       "takeaway": "The sentence that survives being quoted out of context is the one worth writing.",
       "place": "Field Laboratory",
-      "story": "The trial is scored, the selected lines are chosen, and the summary sheet is being written for a board that will read the headline number and nothing else.",
+      "story": "The trial is scored and the selected lines are chosen. The summary sheet now goes to a board that will remember one headline number. This was a dry season at one site, and the selected plots looked much better than the full replicated mean.",
       "game": {
         "type": "CHOICE",
         "title": "One site, one year, again",
@@ -1258,120 +1487,121 @@ export const CURRICULUM = {
         "play": "Say what the season's trial data supports",
         "task": "Say what the season's trial data supports",
         "question": "How should this season's trial result be summarised?",
-        "answer": "The gain, with the season and the site attached to it",
-        "why": "A number written on its own gets quoted on its own, and the conditions are what make it true — a dry season on one piece of ground is where this gain lives. Putting them in the same sentence is not hedging; it is the claim. The selected-plot figure is the one that overstates by three times, because it counts the ground as if it were the line. Caveats in a footnote are read by nobody who quotes the headline. And withholding a real result for a year has its own cost, which is that decisions get made without it.\n",
+        "answer": "Report the replicated gain with the dry season and site attached to it. Those conditions are part of what the number means.",
+        "why": "A yield number becomes misleading when the conditions that produced it are stripped away. This season’s gain belongs to one site and a dry year. The selected-plot mean is even less defensible as a headline because those plots were chosen partly for favourable ground and weather. Putting site and season in the same sentence as the gain is not cosmetic caution; it defines the claim being made. A later season can test generality, but it does not make the current conditional result useless.",
         "rebuttals": [
-          "The selected-plot number counts the ground as though it travelled in the seed.",
-          "A footnote is where a qualification goes to be ignored.",
-          "The result is real and useful now; a second season refines it rather than validating it."
+          "Selected plots were chosen after seeing outcomes, so their mean contains selection on favourable plot effects as well as genetics.",
+          "A detached headline is likely to travel without its footnote, changing a conditional result into a general one.",
+          "A second season tests how portable the result is; it is not required for the first season's conditional result to be real."
         ],
         "choices": [
-          "The gain, with the season and the site attached to it",
-          "The gain from the selected plots, as a single headline figure",
-          "The gain, with the caveats in a footnote",
-          "Nothing, until a second season confirms it"
+          "Report the replicated gain and state the dry season and site in the same sentence",
+          "Report the larger selected-plot gain because those are the lines entering the programme",
+          "Report the replicated gain as the headline and put environmental limits in a footnote",
+          "Withhold the result until another season shows the same numerical advantage"
         ],
-        "correctChoice": "The gain, with the season and the site attached to it"
+        "correctChoice": "Report the replicated gain and state the dry season and site in the same sentence"
       },
       "assumes": [
         "a trial's conclusions belong to the conditions it ran under"
-      ],
-      "equations": [
-        {
-          "e": "R = h²·S",
-          "c": "the breeder’s equation — response as heritability times the selection differential",
-          "v": [
-            [
-              "R",
-              "the gain that actually appears in the next generation"
-            ],
-            [
-              "h²",
-              "heritability, the fraction of the variation that is inherited"
-            ],
-            [
-              "S",
-              "how far the selected parents were above the population mean"
-            ]
-          ],
-          "s": "Only the heritable part of a superiority travels in the seed, which is why a plot chosen for being twenty per cent ahead of the field does not produce a line twenty per cent ahead of anything."
-        }
       ]
     }
   ],
   "LAB": [
     {
       "day": 1,
-      "title": "What a marker is standing in for",
-      "scene": "Nakagawa has eleven F2 plants that carry the marker band and show no resistance. The marker sits about four centimorgans from the gene. Everybody wants to know which of the two is wrong.",
-      "takeaway": "A marker travels with a gene because they are close, and closeness is not attachment.",
+      "title": "One disagreement, two possible causes",
+      "scene": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. Eleven carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
+      "takeaway": "PCR can identify a DNA sequence, but a linked DNA marker can still separate from the gene it predicts.",
       "place": "Molecular Laboratory",
-      "story": "Nakagawa has eleven F2 plants that carry the marker band and show no resistance. The marker sits about four centimorgans from the gene. Everybody wants to know which of the two is wrong.",
+      "story": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. Eleven carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
       "game": {
-        "type": "DIAGNOSIS",
-        "title": "What a marker is standing in for",
+        "type": "DEGENERACY",
+        "title": "One disagreement, two possible causes",
         "setup": "Molecular Laboratory",
-        "play": "Which explanation accounts for the whole panel?",
-        "task": "Which explanation accounts for the whole panel?",
-        "question": "Which explanation accounts for the whole panel?",
-        "answer": "Recombination has separated the marker from the gene in those plants",
-        "why": "A marker is useful because it sits near the gene and is usually inherited with it. Four centimorgans means about four gametes in a hundred have a crossover between the two, so roughly that fraction of the offspring carry one without the other — eleven in 400 is under three per cent and entirely expected. The panel rules out the alternatives: the controls worked, the re-run agrees with itself, and escape from inoculation would produce the opposite error. This is what selecting on a marker costs, and it is the reason a breeder confirms with the plant before releasing anything.\n",
-        "headline": "Eleven of 400 plants carry the marker and are not resistant.",
-        "readings": [
-          {
-            "zone": "Mismatch rate",
-            "label": "Marker without the trait",
-            "value": "11 in 400",
-            "status": "alarm"
+        "play": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them.",
+        "task": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them.",
+        "question": "Which combinations can explain the first disagreement rate, and which one survives the direct-gene PCR check?",
+        "answer": "The first result permits several mixes of recombination and marker error. Direct-gene PCR removes the assay-error explanation, leaving linkage and about four per cent recombination.",
+        "why": "PCR copies a chosen DNA region through repeated denaturation, primer annealing, and extension. Gel electrophoresis can then separate the resulting DNA fragments by size. Here that tool reads a marker near the resistance gene, not the gene itself. Marker–trait disagreement can therefore come from recombination or assay error. One disagreement rate cannot separate those causes. A second PCR assay aimed inside the resistance gene adds independent evidence. When it confirms the gene call, linkage and recombination remain.",
+        "degeneracy": {
+          "controls": [
+            {
+              "id": "recombination",
+              "label": "Recombination fraction",
+              "min": 0,
+              "max": 0.08,
+              "step": 0.01,
+              "unit": "fraction"
+            },
+            {
+              "id": "marker_error",
+              "label": "Marker-assay error fraction",
+              "min": 0,
+              "max": 0.08,
+              "step": 0.01,
+              "unit": "fraction"
+            }
+          ],
+          "observable": {
+            "label": "Marker–phenotype disagreement, 11 of 400 in this generation"
           },
-          {
-            "zone": "Map distance",
-            "label": "Marker to gene",
-            "value": "about 4 cM",
-            "status": "normal"
+          "locus": [
+            {
+              "a": 0,
+              "b": 0.04
+            },
+            {
+              "a": 0.01,
+              "b": 0.03
+            },
+            {
+              "a": 0.02,
+              "b": 0.02
+            },
+            {
+              "a": 0.03,
+              "b": 0.01
+            },
+            {
+              "a": 0.04,
+              "b": 0
+            }
+          ],
+          "second": {
+            "label": "PCR aimed inside the resistance gene itself, on the eleven discordant plants",
+            "apply": "Run the direct-gene assay",
+            "locus": [
+              {
+                "a": 0.02,
+                "b": 0
+              },
+              {
+                "a": 0.04,
+                "b": 0
+              },
+              {
+                "a": 0.06,
+                "b": 0
+              }
+            ]
           },
-          {
-            "zone": "Controls",
-            "label": "Known resistant and susceptible parents",
-            "value": "both correct",
-            "status": "normal"
+          "truth": {
+            "a": 0.04,
+            "b": 0
           },
-          {
-            "zone": "Screening",
-            "label": "Inoculation coverage",
-            "value": "uniform across the bay",
-            "status": "normal"
+          "tolerance": {
+            "a": 0.005,
+            "b": 0.005
           },
-          {
-            "zone": "Repeat",
-            "label": "Same plants re-run",
-            "value": "same bands",
-            "status": "normal",
-            "note": "not a laboratory error"
-          }
-        ],
-        "choices": [
-          {
-            "label": "Recombination has separated the marker from the gene in those plants",
-            "mechanism": "A crossover between two loci 4 cM apart happens in roughly 4 per cent of gametes."
-          },
-          {
-            "label": "The marker is unreliable and should be discarded",
-            "mechanism": "An unreliable marker would fail in the parents as well as the offspring."
-          },
-          {
-            "label": "Those plants escaped infection in the screening bay",
-            "mechanism": "Escape would appear as extra resistance, not as marker-positive susceptibility."
-          },
-          {
-            "label": "The laboratory has mixed up eleven samples",
-            "mechanism": "A mix-up would not reproduce when the same plants are run again."
-          }
-        ],
-        "correctChoice": "Recombination has separated the marker from the gene in those plants"
+          "hint": "Use the first panel to find more than one pair that fits. Then open the PCR check aimed inside the resistance gene and keep only combinations that fit both measurements.",
+          "commit": "Report it"
+        }
       },
       "assumes": [
-        "a marker is a piece of DNA near the gene rather than the gene itself"
+        "PCR uses primers to amplify a chosen DNA region",
+        "gel electrophoresis separates DNA fragments by size",
+        "a nearby marker can be separated from a gene by crossing over"
       ],
       "equations": [
         {
@@ -1402,7 +1632,7 @@ export const CURRICULUM = {
         "task": "Test whether the marker still works here",
         "question": "Set the marker score above which a seedling is kept, on the plants the marker was mapped in — then freeze it and score it on a population it has never seen. What does it get?",
         "answer": "About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — twenty points of it was that one population's noise.",
-        "why": "A cut-off chosen on a sample is chosen partly on that sample's accidents, and accidents do not repeat. The broad shelf between about 40 and 56 is a property of the marker's distance from the gene, which the new cross also has. The spike at 63 is a property of 240 particular plants, which it does not. Choosing the best-scoring line and then reporting that same score is not a measurement of the marker at all — it is a measurement of the marker plus the plants it was fitted on, and it is wrong in the same direction every time.\n",
+        "why": "A cut-off chosen on one population partly fits that population’s accidents. Those accidents do not have to repeat. The broad high-scoring shelf is useful because it persists when the rule is frozen and applied to the new donor cross. The sharp optimum at 63 does not persist; it was overfit to the mapping plants. A holdout population separates a marker rule that generalises from one that merely describes the sample used to choose it.",
         "holdout": {
           "axis": {
             "label": "Marker score cut-off",
@@ -1502,61 +1732,45 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "One gene, one solution",
-      "scene": "WM-712 carries a single resistance gene and it has held for four seasons. The new race east of the border is growing on a variety carrying that same gene, in a field somebody photographed last week.",
-      "takeaway": "A defence with one lock gets opened as soon as one spore has the key and everything it meets is that lock.",
+      "title": "One base, one broken lock",
+      "scene": "WM-712 is failing east of the border. Nakagawa has sequenced a rust gene from older and newer isolates. The newer isolate differs by one nucleotide in a coding region, while the rest of that gene is unchanged.",
+      "takeaway": "A mutation matters through what it changes in RNA, protein, and phenotype; selection then acts on that phenotype.",
       "place": "Molecular Laboratory",
-      "story": "WM-712 carries a single resistance gene and it has held for four seasons. The new race east of the border is growing on a variety carrying that same gene, in a field somebody photographed last week.",
+      "story": "WM-712 is failing east of the border. Nakagawa has sequenced a rust gene from older and newer isolates. The newer isolate differs by one nucleotide in a coding region, while the rest of that gene is unchanged.",
       "game": {
         "type": "CHOICE",
-        "title": "One gene, one solution",
+        "title": "One base, one broken lock",
         "setup": "Molecular Laboratory",
-        "play": "Say what one gene of resistance is worth",
-        "task": "Say what one gene of resistance is worth",
-        "question": "Why does single-gene resistance tend to fail?",
-        "answer": "Any spore that beats it inherits an entire crop to grow on",
-        "why": "A rust population makes an enormous number of spores, and rare variants exist in it whether or not anybody is selecting for them. Plant one resistance gene across a whole region and every one of those variants that happens to beat it finds unlimited host and no competition: what was one spore in a billion becomes the population within a couple of seasons. Nothing about the gene changes. The selection is what changed, and the breeder applied it. Two genes with different mechanisms need two simultaneous variants, which is the square of a very small number.\n",
+        "play": "Trace how a DNA change can become a resistance-breaking phenotype",
+        "task": "Trace how a DNA change can become a resistance-breaking phenotype",
+        "question": "How can one DNA substitution change whether WM-712 recognizes the pathogen?",
+        "answer": "The DNA substitution can change an mRNA codon and therefore an amino acid in the pathogen protein. If that changes recognition, the resulting phenotype can spread by natural selection.",
+        "why": "A point mutation replaces one nucleotide in DNA. When that region is transcribed, the change can alter an mRNA codon. During translation, a changed codon may place a different amino acid in the pathogen protein. That can alter the protein’s shape or function, although some substitutions are silent. If the altered protein escapes recognition by WM-712, that rust variant can reproduce on resistant plants. Selection then raises the frequency of the resistance-breaking variant.",
         "rebuttals": [
-          "Genes do not tire; what changes is the pathogen population in front of them.",
-          "Drought silencing is a different phenomenon and would not explain a new race spreading.",
-          "The sexual stage matters where the alternate host grows, and asexual spores alone are enough for this."
+          "The pathogen mutation changes the pathogen's information; it does not rewrite the wheat genome.",
+          "Heritable sequence information resides in DNA. The mRNA is a temporary transcript of it.",
+          "Some substitutions are silent, and others change one amino acid without creating a stop codon."
         ],
         "choices": [
-          "Any spore that beats it inherits an entire crop to grow on",
-          "Resistance genes wear out over repeated seasons of use",
-          "The gene is silenced when the plant is stressed by drought",
-          "Rust reproduces sexually and recombines around any defence"
+          "The substitution can alter an mRNA codon, changing the protein that the wheat recognizes",
+          "The substitution directly rewrites the wheat resistance protein during infection",
+          "The changed mRNA is inherited even though the pathogen DNA stays unchanged",
+          "Every single-base substitution stops translation before the protein is completed"
         ],
-        "correctChoice": "Any spore that beats it inherits an entire crop to grow on"
+        "correctChoice": "The substitution can alter an mRNA codon, changing the protein that the wheat recognizes"
       },
       "assumes": [
-        "a pathogen population contains variation and reproduces enormously"
-      ],
-      "equations": [
-        {
-          "e": "15 : 1",
-          "c": "two genes acting either-way, and the ratio that separates it from one",
-          "v": [
-            [
-              "15",
-              "offspring carrying a dominant copy at either locus"
-            ],
-            [
-              "1",
-              "offspring with neither"
-            ]
-          ],
-          "s": "Only the plants that are recessive at both loci show the recessive phenotype, and a quarter of a quarter is one in sixteen — which is how a count tells two genes from one without any sequencing at all."
-        }
+        "genes contain DNA sequences that can be transcribed into mRNA",
+        "ribosomes translate mRNA codons into amino acids"
       ]
     },
     {
       "day": 4,
       "title": "What the screen may not find",
-      "scene": "Of the fifty accessions being screened for a second resistance gene, twenty-two are on the drifted list. Nakagawa wants to know whether the screen is still worth running.",
+      "scene": "Nakagawa is screening fifty accessions for a second resistance gene. Twenty-two are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.",
       "takeaway": "A screen finds what is in front of it, and what is in front of it is what survived the last grow-out.",
       "place": "Molecular Laboratory",
-      "story": "Of the fifty accessions being screened for a second resistance gene, twenty-two are on the drifted list. Nakagawa wants to know whether the screen is still worth running.",
+      "story": "Nakagawa is screening fifty accessions for a second resistance gene. Twenty-two are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.",
       "game": {
         "type": "CHOICE",
         "title": "What the screen may not find",
@@ -1565,7 +1779,7 @@ export const CURRICULUM = {
         "task": "Say what this does to the rust screen",
         "question": "What does the drift mean for the screen?",
         "answer": "A negative result on those accessions no longer proves absence",
-        "why": "Drift removes what was uncommon, and a resistance allele nobody has been selecting for is exactly the kind of thing that is uncommon. So a clean negative from a drifted accession has two readings — the allele was never there, or it was there in 1994 and is not in the packet now — and the screen cannot distinguish them. Positives remain trustworthy; absence stops being evidence. The way out is not a better marker. It is finding material that has not been through the bottleneck, which is where Fenn's fields come in.\n",
+        "why": "Drift can remove an allele that was uncommon in the original population. A clean negative from a drifted accession therefore has two explanations: the allele was never present, or it was present and disappeared during regeneration. The marker cannot distinguish those histories. A positive remains useful because drift does not invent the target allele. The remedy is not a different marker. It is to test material that has avoided the bottleneck, or to compare with older archived material when that exists.",
         "rebuttals": [
           "Drift removes alleles rather than inventing them, so positives are unaffected.",
           "The markers work; what has changed is the population they are being run on.",
@@ -1585,85 +1799,100 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Two hits, and what is wrong with them",
-      "scene": "Two accessions out of fifty carry a different resistance gene. One is on the drifted list and regenerated three times. The other has never been regenerated and has eleven grams of seed left in the vault.",
-      "takeaway": "A resistance gene is only useful if there is enough of it to grow, and enough of it to grow from.",
+      "title": "Which positive is worth the screenhouse slot",
+      "scene": "Two of fifty accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
+      "takeaway": "The best measurement is the one that can change the decision, not the one that produces the most detailed description.",
       "place": "Molecular Laboratory",
-      "story": "Two accessions out of fifty carry a different resistance gene. One is on the drifted list and regenerated three times. The other has never been regenerated and has eleven grams of seed left in the vault.",
+      "story": "Two of fifty accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
       "game": {
-        "type": "TRIAGE",
-        "title": "Two hits, and what is wrong with them",
+        "type": "VALUE",
+        "title": "Which positive is worth the screenhouse slot",
         "setup": "Molecular Laboratory",
-        "play": "Read the screen's two hits",
-        "task": "Read the screen's two hits",
-        "question": "Which of the two should the programme work with?",
-        "answer": "The unregenerated one, on eleven grams, with a careful increase",
-        "why": "Eleven grams is roughly three hundred seeds, which is thin and workable: sown carefully in the screenhouse it becomes a kilogram in one season. What it has that the other has not is integrity — it has never been through a bottleneck, so what the marker found is the population's, not a survivor's. The regenerated accession has plenty of seed and is the material whose drift started this, so a negative from it means nothing and a positive needs confirming anyway. Doing both looks careful and spends the screenhouse on the copy that is worth less.\n",
-        "rebuttals": [
-          "Quantity is the easy problem here; a season of increase fixes it and nothing fixes drift.",
-          "Splitting the screenhouse halves the increase of the one accession that matters.",
-          "The screen has controls and its positives are reliable; waiting costs a season for nothing."
-        ],
-        "choices": [
-          "The unregenerated one, on eleven grams, with a careful increase",
-          "The regenerated one, because there is plenty of seed to work with immediately",
-          "Both at once, to see which performs better",
-          "Neither, until the screen has been repeated"
-        ],
-        "correctChoice": "The unregenerated one, on eleven grams, with a careful increase"
+        "play": "Spend the two evidence credits on checks that can change which positive accession receives the single increase slot.",
+        "task": "Spend the two evidence credits on checks that can change which positive accession receives the single increase slot.",
+        "question": "Which evidence is worth buying before choosing the accession to increase?",
+        "answer": "Buy the regeneration-history audit, with the seed-count check if budget remains. Increase the unregenerated accession: its 11 g is roughly 300 seeds, enough for a careful increase.",
+        "why": "The decision is not which accession has more seed today. Seed quantity can be repaired by one careful increase if enough viable seed remains. The harder issue is genetic integrity. The regeneration-history audit shows that one positive has never passed through a grow-out. The abundant one was regenerated three times and belongs to the drifted group. A repeat marker or small yield test may add detail, but neither restores the original population. Evidence is valuable when it changes which source deserves the scarce increase slot.",
+        "value": {
+          "budget": {
+            "amount": 2,
+            "unit": "evidence credits"
+          },
+          "decision": "Which marker-positive accession should receive the single screenhouse increase slot?",
+          "options": [
+            {
+              "id": "history",
+              "label": "Audit regeneration history",
+              "cost": 1,
+              "axis": "genetic integrity",
+              "reveals": "The thin-vial accession has never been regenerated. The full-vial accession has been regenerated three times and is on the drifted list.",
+              "decisive": true
+            },
+            {
+              "id": "seed_count",
+              "label": "Count viable seed in the thin vial",
+              "cost": 1,
+              "axis": "increase feasibility",
+              "reveals": "Eleven grams is roughly 300 viable seeds, enough for a careful protected increase."
+            },
+            {
+              "id": "repeat_marker",
+              "label": "Repeat the resistance-marker screen",
+              "cost": 2,
+              "axis": "assay repeatability",
+              "reveals": "Both positive calls repeat with clean controls; the repeat does not tell which accession still represents its original population."
+            },
+            {
+              "id": "yield_trial",
+              "label": "Run a small field-performance comparison",
+              "cost": 3,
+              "axis": "agronomic performance",
+              "reveals": "A one-season yield difference would not establish which seed lot has preserved the accession's original genetic variation."
+            }
+          ],
+          "hint": "Buy evidence that could change which accession deserves the scarce increase slot. A precise answer to a side question can still be poor value.",
+          "commit": "Commit the decision"
+        }
       },
       "assumes": [
-        "an accession's stored seed is a finite quantity"
+        "a regeneration can change allele frequencies by sampling",
+        "a small viable seed lot can sometimes be increased without first using it in a field trial"
       ]
     },
     {
       "day": 6,
-      "title": "What to check, and when",
-      "scene": "Nakagawa can screen seedlings at the two-leaf stage or wait and score the plants. The backcross needs four generations, and every generation screened early saves five months.",
-      "takeaway": "Screening early buys generations, and confirming late is what keeps the marker honest.",
+      "title": "DNA present, resistance working?",
+      "scene": "Nakagawa can run the linked DNA marker at the two-leaf stage. On final candidates she can also measure resistance-gene mRNA after rust exposure and challenge leaves with the pathogen. The marker is four centimorgans from the gene.",
+      "takeaway": "DNA can show what a plant carries; RNA and phenotype show whether that information is being used and whether it works.",
       "place": "Molecular Laboratory",
-      "story": "Nakagawa can screen seedlings at the two-leaf stage or wait and score the plants. The backcross needs four generations, and every generation screened early saves five months.",
+      "story": "Nakagawa can run the linked DNA marker at the two-leaf stage. On final candidates she can also measure resistance-gene mRNA after rust exposure and challenge leaves with the pathogen. The marker is four centimorgans from the gene.",
       "game": {
         "type": "CHOICE",
-        "title": "What to check, and when",
+        "title": "DNA present, resistance working?",
         "setup": "Molecular Laboratory",
-        "play": "Set what the marker work commits to",
-        "task": "Set what the marker work commits to",
-        "question": "How should the marker be used through the backcross?",
-        "answer": "Screen every generation early, and confirm the last one on the plant",
-        "why": "Early screening is what makes the warm bay worth having: discard the three quarters that did not inherit the gene at two leaves and every generation costs three months instead of eight. But a marker four centimorgans away is wrong about four plants in a hundred, and those errors compound over four generations — so the line that comes out has to be challenged with the actual pathogen before anybody believes it. Early for speed, late for truth, and the last one is not optional because the whole point of the line is that it survives the disease.\n",
+        "play": "Decide what to screen early and what the finished line must still prove",
+        "task": "Decide what to screen early and what the finished line must still prove",
+        "question": "Which evidence belongs early, and what should the final line still be required to show?",
+        "answer": "Use the DNA marker early. On the final line, confirm that the resistance gene is expressed after rust exposure and that the plant actually resists the pathogen.",
+        "why": "The linked DNA marker is useful early because it can remove unlikely seedlings months before resistance can be tested. But recombination can separate that marker from the gene. Even direct DNA evidence only shows that a sequence is present. Transcription produces mRNA, translation produces protein, and regulatory interactions affect how much gene product appears and when. An RNA check after rust exposure tests expression. The pathogen challenge then tests whether the whole pathway produces the resistant phenotype.",
         "rebuttals": [
-          "Screening only at the end throws away the time saving the bay exists to provide.",
-          "Confirming every generation means growing every plant to maturity, which is the delay being avoided.",
-          "Four per cent error over four generations is enough to release a line that has no gene at all."
+          "RNA shows expression, but the final phenotype still tests whether the complete pathway works.",
+          "Waiting for a pathogen phenotype every generation gives up the time advantage of early DNA screening.",
+          "A linked marker can recombine away, and even the gene's presence does not by itself prove expression or function."
         ],
         "choices": [
-          "Screen every generation early, and confirm the last one on the plant",
-          "Screen only the final generation, when it matters most",
-          "Confirm every generation on the plant to be certain",
-          "Screen early and skip confirmation, since the marker is reliable enough"
+          "Use the DNA marker early; on the final line check induced mRNA and the resistance phenotype",
+          "Measure mRNA in every generation; on the final line the pathogen challenge is unnecessary",
+          "Challenge plants in every generation; use the DNA marker only after the final backcross",
+          "Use the DNA marker early and late; DNA presence alone is enough to certify resistance"
         ],
-        "correctChoice": "Screen every generation early, and confirm the last one on the plant"
+        "correctChoice": "Challenge plants in every generation; use the DNA marker only after the final backcross"
       },
       "assumes": [
-        "a marker can be run before the trait can be seen"
+        "a linked marker can separate from a gene by recombination",
+        "transcription makes RNA from DNA and translation makes protein from mRNA"
       ],
       "equations": [
-        {
-          "e": "3 : 1",
-          "c": "the monohybrid ratio, and what a count of a whole generation is evidence for",
-          "v": [
-            [
-              "3",
-              "offspring showing the dominant phenotype"
-            ],
-            [
-              "1",
-              "offspring showing the recessive one"
-            ]
-          ],
-          "s": "Two heterozygous parents each pass one of two alleles at random, so one cross in four gets neither dominant copy — which is why three quarters show the trait and a count near three to one says one gene with a dominant allele."
-        },
         {
           "e": "recombination frequency ≈ map distance in cM",
           "c": "linkage: how often a marker and a gene come apart",
@@ -1694,7 +1923,7 @@ export const CURRICULUM = {
         "task": "Say where the mass in the harvest came from",
         "question": "Where does almost all the dry weight of that grain come from?",
         "answer": "Carbon dioxide taken from the air through the leaves",
-        "why": "Dry matter is mostly carbohydrate, and the carbon in it arrived as gas. Photosynthesis fixes carbon dioxide into sugar using light energy and water, and the plant builds everything else from that. Water is essential and mostly leaves again through the same pores the carbon dioxide comes in by; the soil supplies nitrogen, phosphorus and the rest, which matter enormously and account for a small percentage of the weight. A field is a machine for turning air into food, and the machine's throughput is what a breeder is really selecting on.\n",
+        "why": "Most dry crop mass is carbohydrate, and its carbon entered the leaf as carbon dioxide. Photosynthesis uses light energy and water to fix that carbon into sugars. The plant then builds grain, stems and roots from those products. Water is essential, but most water entering the roots later leaves as vapour. Mineral nutrients such as nitrogen and phosphorus control how much tissue can be built. They are essential to growth while contributing only a small fraction of the final dry mass.",
         "rebuttals": [
           "Minerals are essential and make up a few per cent of dry matter at most.",
           "Water is most of a living plant and nearly all of it is gone by the time grain is dry.",
@@ -1727,7 +1956,7 @@ export const CURRICULUM = {
         "task": "Say why a dry summer costs yield",
         "question": "Why does drought cut yield even though the mass comes from the air?",
         "answer": "Closing the pores to save water also shuts out carbon dioxide",
-        "why": "A leaf takes in carbon dioxide through stomata, and water vapour goes out through the same openings — hundreds of grams of it for every gram of carbon fixed. Under drought the plant closes them to survive, and closing them stops the supply of the raw material for photosynthesis. That trade-off is the whole of drought physiology: the plant is choosing between dying today and building today. Water as a reactant is a real requirement and a tiny fraction of what passes through.\n",
+        "why": "Leaves take carbon dioxide in through stomata, and water vapour leaves through the same pores. A crop can lose far more water through transpiration than it uses directly in photosynthesis. When soil dries, stomata close to limit water loss. That also lowers carbon dioxide entry and slows carbon fixation. Drought can create other stresses too, including nutrient and heat effects. The central trade-off here is gas exchange: conserving water restricts the carbon supply needed to keep building biomass and grain.",
         "rebuttals": [
           "Mineral uptake does suffer in dry soil and is not the main route from drought to lost yield.",
           "Heat damage to enzymes is a separate stress that often arrives with drought.",
@@ -1760,7 +1989,7 @@ export const CURRICULUM = {
         "task": "Say what the shorter plants do to the harvest",
         "question": "Why can a shorter wheat outyield a taller one?",
         "answer": "More of what it builds goes into grain instead of stem",
-        "why": "Total dry matter changes surprisingly little with height; what changes is where it goes. A short stem is cheap, so a larger share of the season's photosynthesis ends up in the ear — and a short crop does not fall over in August, which is the difference between a harvest and a mess. That share has a name, harvest index, and raising it was most of the green revolution. It is also why Volpe's fifteen centimetres is an argument rather than a complaint: she does not know yet whether this particular shortness comes with the grain.\n",
+        "why": "A shorter wheat can put a larger share of its seasonal dry matter into grain instead of stem. That fraction is the harvest index. Shorter stems also reduce lodging, so more grain reaches the combine after wind and rain. This logic helped drive the success of semi-dwarf wheats. It does not mean every short plant is better. Volpe still has to learn whether this donor-linked shortness improves allocation and standing ability or simply reduces useful growth.",
         "rebuttals": [
           "Photosynthetic rate per unit leaf is not what height changes.",
           "Water use tracks leaf area and season length rather than stem height.",
@@ -1780,35 +2009,62 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "What resistance is paid for with",
-      "scene": "Toft has yield data on near-identical lines with and without the resistance gene, grown where there is no rust at all. The resistant ones yield about two per cent less.",
-      "takeaway": "A plant's budget is one budget, and a defence is drawn from the same account as the grain.",
+      "title": "Where the missing two per cent went",
+      "scene": "Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about two per cent less. Nakagawa also detects the defence transcript in clean leaves before infection.",
+      "takeaway": "Gene regulation controls when defence proteins are made, and expression before infection can carry a standing resource cost.",
       "place": "Drying & Processing Hall",
-      "story": "Toft has yield data on near-identical lines with and without the resistance gene, grown where there is no rust at all. The resistant ones yield about two per cent less.",
+      "story": "Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about two per cent less. Nakagawa also detects the defence transcript in clean leaves before infection.",
       "game": {
-        "type": "CHOICE",
-        "title": "What resistance is paid for with",
+        "type": "BALANCE",
+        "title": "Where the missing two per cent went",
         "setup": "Drying & Processing Hall",
-        "play": "Say what the defence costs the plant",
-        "task": "Say what the defence costs the plant",
-        "question": "Why do the resistant lines yield less where there is no disease?",
-        "answer": "Defence uses carbon and nitrogen that would have gone into grain",
-        "why": "Everything a plant makes comes from the same pool of fixed carbon and taken-up nitrogen — leaves, roots, defence compounds, grain. Maintaining a defence apparatus and running it costs a small share of that pool, and where the disease never arrives that cost buys nothing. Two per cent is what the insurance premium looks like. Where the rust does arrive, the same gene is worth thirty or forty per cent, which is why nobody sensible argues from the no-disease figure alone.\n",
-        "rebuttals": [
-          "The gene is not harmful; it is expensive, which is a different thing.",
-          "Stomatal behaviour is not what this class of resistance gene changes.",
-          "The comparison is between near-identical lines, which is the design that makes it credible."
-        ],
-        "choices": [
-          "Defence uses carbon and nitrogen that would have gone into grain",
-          "The gene damages the plant when it is not needed",
-          "Resistant plants close their pores more often",
-          "The comparison is confounded by the plots, and the difference is not real"
-        ],
-        "correctChoice": "Defence uses carbon and nitrogen that would have gone into grain"
+        "play": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation.",
+        "task": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation.",
+        "question": "Which hidden allocation closes the resistant line's resource budget and matches the yield penalty?",
+        "answer": "The hidden two-unit allocation is defence. The resistance line is expressing the pathway even without rust, so some resources are committed before infection.",
+        "why": "Regulatory DNA and transcription factors control whether a gene is transcribed. Some genes are expressed continuously, while others are induced by a signal. Here the defence transcript is already present in clean leaves, so the plant is investing in that pathway before rust arrives. Translation turns the mRNA into protein, and maintaining that machinery uses part of the plant’s resource budget. The simplified ledger assigns the missing two units to defence, matching the observed yield penalty.",
+        "balance": {
+          "total": {
+            "amount": 100,
+            "unit": "resource units",
+            "label": "Seasonal assimilated-resource budget"
+          },
+          "streams": [
+            {
+              "id": "grain",
+              "label": "Grain allocation",
+              "value": 48,
+              "display": "48 units"
+            },
+            {
+              "id": "shoot",
+              "label": "Leaves and stems",
+              "value": 34,
+              "display": "34 units"
+            },
+            {
+              "id": "roots",
+              "label": "Roots and maintenance",
+              "value": 16,
+              "display": "16 units"
+            },
+            {
+              "id": "defence",
+              "label": "Resistance-system maintenance",
+              "value": 2,
+              "display": "2 units",
+              "hidden": true
+            }
+          ],
+          "tolerance": 0.5,
+          "hint": "Count only terms expressed in the same 100-unit seasonal resource budget. The visible allocations do not quite close the total.",
+          "commit": "Report the total"
+        }
       },
       "assumes": [
-        "everything a plant builds comes out of the same fixed supply of fixed carbon"
+        "transcription produces mRNA from DNA",
+        "translation uses mRNA to make protein",
+        "gene expression can be constitutive or inducible"
       ]
     },
     {
@@ -1826,7 +2082,7 @@ export const CURRICULUM = {
         "task": "Say what explains two of the twenty",
         "question": "Why did the early lines yield best in this season?",
         "answer": "They captured light and set grain before the soil dried",
-        "why": "Yield is roughly the light a crop intercepts, times how efficiently it converts it, times the share that reaches the grain — and in a season that dries after flowering, the first term is what runs out. A canopy that closes eleven days early intercepts eleven more days of light while there is still water to keep the pores open, and it fills grain earlier into the drying period. In a wet year the same trait is worth nothing at all, which is why escape strategies are a bet on the weather rather than an improvement.\n",
+        "why": "Yield depends on how much light the crop intercepts, how efficiently it converts that energy, and how much biomass reaches grain. In this dry season, soil water became limiting after flowering. The lines that closed their canopies earlier captured more light while stomata could still stay open. Earlier flowering also shifted grain filling toward the wetter part of the season. These traits are therefore escape strategies for this environment. In a wet year their advantage could shrink or disappear.",
         "rebuttals": [
           "Efficiency per unit leaf is not what flowering date changes.",
           "Rust arrived nowhere near this trial, and escape would show as health rather than yield.",
@@ -1847,10 +2103,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Measuring while it is still happening",
-      "scene": "Toft can measure canopy cover now or yield in August. He points out that only one of them can still be measured, and only one of them explains anything.",
+      "scene": "Toft can measure canopy cover this week, while every plot is still green, or wait for yield in August. The board already records flowering date and soil-water status, but several canopy measurements are about to disappear with leaf senescence.",
       "takeaway": "A measurement taken after the fact records an outcome; one taken during it can explain the outcome.",
       "place": "Drying & Processing Hall",
-      "story": "Toft can measure canopy cover now or yield in August. He points out that only one of them can still be measured, and only one of them explains anything.",
+      "story": "Toft can measure canopy cover this week, while every plot is still green, or wait for yield in August. The board already records flowering date and soil-water status, but several canopy measurements are about to disappear with leaf senescence.",
       "game": {
         "type": "CHOICE",
         "title": "Measuring while it is still happening",
@@ -1859,7 +2115,7 @@ export const CURRICULUM = {
         "task": "Take the readings that need a growing crop",
         "question": "Why is canopy cover worth measuring now rather than reconstructing later?",
         "answer": "It is gone by harvest, and it is what the yield was built from",
-        "why": "Yield is the end of a process and says nothing about how it got there. Canopy cover, days to flowering and water use are the process, and every one of them is a state the crop passes through and does not return to. Measure them and a good line can be explained — this one closed early, that one stayed green longer — which is what tells a breeder what to select for next. Skip them and the programme has a table of yields and no idea which traits made them, which is how a good line becomes impossible to repeat.\n",
+        "why": "Yield is an outcome; canopy cover, flowering time and water use describe processes that produced it. Those states are temporary. Measuring canopy now lets the breeder later ask whether a high-yield line closed early, stayed green longer or used water differently. Skipping the measurement leaves only the final weight, which cannot reconstruct the path that created it. Process traits therefore do not replace yield. They explain why yield differed and identify traits worth testing in the next generation.",
         "rebuttals": [
           "Canopy cover explains yield; it does not predict it better than measuring yield does.",
           "Weighbridge numbers are extremely accurate and are about a different question.",
@@ -1880,10 +2136,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Eleven years, and what they are for",
-      "scene": "Toft's canopy and flowering records now run to twelve seasons. Nobody has ever asked for them, and this year two of them explained the best plots in the trial.",
+      "scene": "Toft’s canopy, flowering and weather records now span twelve seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.",
       "takeaway": "A measurement series is worth more each year, and it can only be started early.",
       "place": "Drying & Processing Hall",
-      "story": "Toft's canopy and flowering records now run to twelve seasons. Nobody has ever asked for them, and this year two of them explained the best plots in the trial.",
+      "story": "Toft’s canopy, flowering and weather records now span twelve seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.",
       "game": {
         "type": "CHOICE",
         "title": "Eleven years, and what they are for",
@@ -1892,7 +2148,7 @@ export const CURRICULUM = {
         "task": "Say what the year's agronomy is worth keeping",
         "question": "What makes the twelve-year record valuable?",
         "answer": "It lets any one season be read against how ordinary it was",
-        "why": "One season's numbers are uninterpretable alone: eleven per cent better than the standard means one thing in an ordinary year and something else in the driest year in a decade, and only a record says which this was. That is what turns a result into evidence — and it cannot be created retrospectively, which is the whole difficulty. Every year somebody proposes dropping the boring measurements because nobody asked for last year's. The answer is that a series is worth nothing for ten years and then settles an argument.\n",
+        "why": "One season’s result is hard to interpret without a reference for how unusual that season was. A long weather and crop-development record supplies that context. It can show whether this year was exceptionally dry, early or otherwise unusual. That helps explain why particular traits paid off now. The series cannot be reconstructed later because past canopy and flowering states are gone. Routine measurements may feel unimportant in any single year, but their accumulated context becomes valuable when an unexpected season forces a comparison.",
         "rebuttals": [
           "Each year's measurement is as accurate as its instrument, however many years exist.",
           "Nothing in publication requires it, which is why it is the first thing cut.",
@@ -1915,14 +2171,14 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "POP-1": {
-    "prompt": "One hundred plants, scored at one locus: 36 carry two copies of the tall allele, 48 carry one, 16 carry none. Each plant holds two alleles.\n",
-    "question": "Choose the counts and the total number of alleles.",
+    "prompt": "One hundred plants have genotypes 36 AA, 48 Aa and 16 aa. Each plant carries two copies of the locus.",
+    "question": "Choose the tall-allele copies contributed by AA and Aa plants, and the total allele copies.",
     "labels": [
-      "72  (alleles in the 36 two-copy plants)",
-      "48  (alleles in the 48 one-copy plants)",
-      "200  (alleles in 100 plants)",
+      "72  (A copies in the 36 AA plants)",
+      "48  (A copies in the 48 Aa plants)",
+      "200  (all allele copies in 100 plants)",
       "100  (plants sampled)",
-      "16  (plants with no copy)"
+      "16  (aa plants)"
     ],
     "values": [
       72,
@@ -1942,17 +2198,17 @@ export const BALLPARK_CALCS = {
     "target": 0.6,
     "tolerance": 0.05,
     "units": "frequency of the tall allele",
-    "solution": "(72 + 48) ÷ 200 = 0.6.",
-    "explanation": "0.6, so the short allele is at 0.4. Two accessions can hold the same alleles at very different frequencies, and that difference is most of what a collection is for.\n"
+    "solution": "(72 + 48) ÷ 200 = 0.60; q = 0.40; p² = 0.36, 2pq = 0.48, q² = 0.16.",
+    "explanation": "p = 0.60 and q = 0.40. The Hardy–Weinberg expectations are 0.36, 0.48 and 0.16, exactly matching this sample's genotype fractions."
   },
   "POP-2": {
-    "prompt": "Of 120 plants, 18 contributed pollen and 102 contributed only ovules. For unequal contributions the effective size is 4 × Nm × Nf ÷ (Nm + Nf).\n",
-    "question": "Choose the constant and the two contributing counts.",
+    "prompt": "A separate-sex accession had 18 pollen donors and 102 seed parents. Use Ne = 4NmNf/(Nm+Nf).",
+    "question": "Choose the constant and the two contributing-parent counts.",
     "labels": [
-      "4  (the constant for two unequal contributions)",
-      "18  (plants contributing pollen)",
-      "102  (plants contributing only ovules)",
-      "120  (plants in the plot)",
+      "4  (the sex-ratio constant)",
+      "18  (pollen donors)",
+      "102  (seed parents)",
+      "120  (plants standing in the plot)",
       "60  (half the plot)"
     ],
     "values": [
@@ -1973,17 +2229,17 @@ export const BALLPARK_CALCS = {
     "target": 61.2,
     "tolerance": 6,
     "units": "effective plants",
-    "solution": "4 × 18 × 102 ÷ 120 ≈ 61.",
-    "explanation": "About 61, from a plot of 120 — and the rule of thumb Wellmere uses asks for 200. The plot was full, the seed was good, and the collection still lost the tail of its variation.\n"
+    "solution": "4 × 18 × 102 ÷ (18 + 102) = 61.2.",
+    "explanation": "The imbalance makes the population behave genetically like about 61 equal contributors, not 120."
   },
   "TRIAL-5": {
-    "prompt": "Trial mean 7.4 t/ha, selected mean 9.1 t/ha, heritability 0.3. The response to selection is the heritability times the selection differential, added to the mean.\n",
-    "question": "Choose the mean, the two terms of the differential, and the heritability.",
+    "prompt": "Trial mean 7.4 t/ha, selected mean 9.1 t/ha, heritability 0.3. Predict the next-generation mean.",
+    "question": "Choose the original mean, selected mean and heritability.",
     "labels": [
       "7.4  (trial mean, t/ha)",
-      "9.1  (mean of the selected plots, t/ha)",
-      "0.3  (heritability of yield here)",
-      "1.7  (the differential, already worked out)",
+      "9.1  (selected mean, t/ha)",
+      "0.3  (heritability)",
+      "1.7  (selection differential, already calculated)",
       "240  (plots in the trial)"
     ],
     "values": [
@@ -2004,8 +2260,8 @@ export const BALLPARK_CALCS = {
     "target": 7.91,
     "tolerance": 0.15,
     "units": "t/ha next generation",
-    "solution": "7.4 + 0.3 × (9.1 − 7.4) = 7.4 + 0.51 ≈ 7.9 t/ha.",
-    "explanation": "About 7.9 — half a tonne of the 1.7 the selected plots showed. Reporting the 9.1 as what the programme has achieved is the commonest overstatement in plant breeding.\n"
+    "solution": "7.4 + 0.3 × (9.1 − 7.4) = 7.91 t/ha.",
+    "explanation": "The selected plots are 1.7 t/ha above average, but only 30% of that differential is expected to appear in the next generation."
   }
 };
 
@@ -2295,6 +2551,13 @@ export const JARGON = [
     "def": "A group of neighbouring plots, close enough to be alike. Comparing inside one removes most of what the field itself contributes."
   },
   {
+    "name": "Pathogen",
+    "aliases": [
+      "pathogens"
+    ],
+    "def": "Anything living that makes a plant ill — a fungus, a bacterium, a virus. It is under selection too, which is why a defence does not stay one."
+  },
+  {
     "name": "Rust",
     "aliases": [],
     "def": "A fungal disease of cereals that spreads on the wind and evolves around resistance. It is why nobody plants one variety everywhere."
@@ -2304,7 +2567,7 @@ export const JARGON = [
     "aliases": [
       "resistance"
     ],
-    "def": "An allele that lets a plant fight off a particular disease. A pathogen that changes can make it worthless in a season.",
+    "def": "An allele that lets a plant fight off a particular disease. A disease that changes can make it worthless in a season.",
     "core": true
   }
 ];

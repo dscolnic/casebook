@@ -42,7 +42,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 0,
-        "task": "Which explanation accounts for the whole panel?"
+        "task": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them."
       },
       {
         "group": "DRY",
@@ -71,7 +71,7 @@ export const MISSIONS = [
       {
         "group": "TRIAL",
         "lesson": 1,
-        "task": "Say what the plot layout is protecting against"
+        "task": "Hold the wheat line fixed, change one field variable at a time, then reverse the change."
       }
     ]
   },
@@ -133,12 +133,12 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 1,
-        "task": "Work out the effective size of the grow-out"
+        "task": "Estimate the effective size of this unequal-parent regeneration"
       },
       {
         "group": "VAULT",
         "lesson": 2,
-        "task": "Read the germination curve"
+        "task": "Set the field-reservation and grow-out thresholds before replaying the viability record."
       },
       {
         "group": "TRIAL",
@@ -157,7 +157,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 2,
-        "task": "Say what one gene of resistance is worth"
+        "task": "Trace how a DNA change can become a resistance-breaking phenotype"
       },
       {
         "group": "POP",
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "DRY",
         "lesson": 3,
-        "task": "Say what the defence costs the plant"
+        "task": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation."
       }
     ]
   },
@@ -205,7 +205,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 3,
-        "task": "Which explanation fits the whole panel?"
+        "task": "Open the dependencies behind the genetic and viability results, keep the independent evidence, and name the shared source behind the shifts."
       },
       {
         "group": "LAB",
@@ -258,7 +258,7 @@ export const MISSIONS = [
       {
         "group": "VAULT",
         "lesson": 5,
-        "task": "Do the backlog while the door is open"
+        "task": "Keep the worsening vault problem and delegate the other two with an owner, first action and return condition."
       },
       {
         "group": "CROSS",
@@ -277,7 +277,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 4,
-        "task": "Read the screen's two hits"
+        "task": "Spend the two evidence credits on checks that can change which positive accession receives the single increase slot."
       },
       {
         "group": "POP",
@@ -325,7 +325,7 @@ export const MISSIONS = [
       {
         "group": "CROSS",
         "lesson": 7,
-        "task": "Spend the eight slots on the decade rather than on the season."
+        "task": "Spend eight programme slots across four crossing packages and preserve both resistance goals."
       },
       {
         "group": "POP",
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 5,
-        "task": "Set what the marker work commits to"
+        "task": "Decide what to screen early and what the finished line must still prove"
       }
     ]
   },

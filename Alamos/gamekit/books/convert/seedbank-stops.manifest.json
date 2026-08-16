@@ -1,0 +1,470 @@
+{
+ "theme": "seedbank",
+ "book": "books/seedbank.yml",
+ "course": "AP Biology — the heredity, evolution and plant-energetics half, which Outbreak: Riverton cannot reach from a hospital",
+ "curriculum": [
+  "Seed viability as a rate: what a stored seed is still doing",
+  "Why cold and dry both work, and that they multiply",
+  "Meiosis and segregation: one copy of each gene into each gamete",
+  "Monohybrid ratios, and reading a count as evidence for a mechanism",
+  "Dominance, and why one allele is enough",
+  "Independent assortment, and the ratios two genes give instead",
+  "Linkage and recombination: distance on a chromosome as a probability",
+  "A marker as a proxy, and the error a proxy carries",
+  "Genotype and phenotype: what a gene predicts and what it does not",
+  "Allele frequency as the thing a collection actually holds",
+  "Genetic drift, and why it is worst in a small sample",
+  "Effective population size, and what a grow-out has to be",
+  "Selection acting on standing variation, in a field and not in a nursery",
+  "Founder effects and bottlenecks in a stored collection",
+  "Photosynthesis as where a crop’s dry mass comes from",
+  "Where water and mineral nutrients do and do not go",
+  "Resource allocation: defence, growth and yield out of one budget",
+  "Canopy, flowering time and the traits that build a yield",
+  "Replication and randomisation: telling a line from a piece of ground",
+  "Regression to the mean, and why the best plot flatters itself",
+  "Genotype by environment: a result belongs to its conditions",
+  "Monoculture and a single resistance gene as one point of failure",
+  "Pedigree, relatedness and the narrowing of a breeding base",
+  "Controlled crossing: emasculation, bagging and knowing the father",
+  "Backcrossing a gene into an existing line, one generation at a time",
+  "In situ against ex situ conservation, and what each preserves"
+ ],
+ "equations": [
+  {
+   "e": "3 : 1",
+   "about": "the monohybrid ratio, and what a count of a whole generation is evidence for",
+   "symbols": [
+    [
+     "3",
+     "offspring showing the dominant phenotype"
+    ],
+    [
+     "1",
+     "offspring showing the recessive one"
+    ]
+   ]
+  },
+  {
+   "e": "15 : 1",
+   "about": "two genes acting either-way, and the ratio that separates it from one",
+   "symbols": [
+    [
+     "15",
+     "offspring carrying a dominant copy at either locus"
+    ],
+    [
+     "1",
+     "offspring with neither"
+    ]
+   ]
+  },
+  {
+   "e": "p + q = 1,  p² + 2pq + q² = 1",
+   "about": "Hardy–Weinberg, as the null a collection is measured against",
+   "symbols": [
+    [
+     "p, q",
+     "the frequencies of the two alleles"
+    ],
+    [
+     "p², 2pq, q²",
+     "the expected frequencies of the three genotypes"
+    ]
+   ]
+  },
+  {
+   "e": "recombination frequency ≈ map distance in cM",
+   "about": "linkage: how often a marker and a gene come apart",
+   "symbols": [
+    [
+     "cM",
+     "centimorgans — one per cent recombination per generation"
+    ]
+   ]
+  },
+  {
+   "e": "R = h²·S",
+   "about": "the breeder’s equation — response as heritability times the selection differential",
+   "symbols": [
+    [
+     "R",
+     "the gain that actually appears in the next generation"
+    ],
+    [
+     "h²",
+     "heritability, the fraction of the variation that is inherited"
+    ],
+    [
+     "S",
+     "how far the selected parents were above the population mean"
+    ]
+   ]
+  },
+  {
+   "e": "Nₑ ≈ 4NmNf / (Nm + Nf)",
+   "about": "effective population size, and why a grow-out of thirty is not thirty",
+   "symbols": [
+    [
+     "Nₑ",
+     "the effective size — how large the population behaves as, genetically"
+    ],
+    [
+     "Nm, Nf",
+     "the numbers actually contributing as each parent"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Season Lead · Wellmere Seed Bank",
+ "groups": [
+  {
+   "id": "VAULT",
+   "name": "Conservation & Viability",
+   "desc": "What a seed is doing while it sits still, and how long it can go on doing it."
+  },
+  {
+   "id": "CROSS",
+   "name": "Heredity & Crossing",
+   "desc": "Which parents, which offspring, and what a ratio is evidence of."
+  },
+  {
+   "id": "POP",
+   "name": "Population Genetics",
+   "desc": "What a collection holds, and what is lost every time it is grown out."
+  },
+  {
+   "id": "TRIAL",
+   "name": "Field Trials & Selection",
+   "desc": "Telling a good line from a good year, on ground that is never uniform."
+  },
+  {
+   "id": "LAB",
+   "name": "Markers & Gene Expression",
+   "desc": "What a piece of DNA can tell you about a plant you have not grown yet."
+  },
+  {
+   "id": "DRY",
+   "name": "Agronomy & Plant Energetics",
+   "desc": "Where the mass in a seed comes from, and what it costs the plant to make it."
+  }
+ ],
+ "stops": [
+  {
+   "id": "seedbank.m01.s1",
+   "day": 1,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "Why the vault is cold"
+  },
+  {
+   "id": "seedbank.m01.s2",
+   "day": 1,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "Two parents, and what you are asking of them"
+  },
+  {
+   "id": "seedbank.m01.s3",
+   "day": 1,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "Why the same line is sown four times"
+  },
+  {
+   "id": "seedbank.m02.s1",
+   "day": 2,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "Counting a generation"
+  },
+  {
+   "id": "seedbank.m02.s2",
+   "day": 2,
+   "group": "LAB",
+   "format": "DIAGNOSIS",
+   "title": "What a marker is standing in for"
+  },
+  {
+   "id": "seedbank.m02.s3",
+   "day": 2,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Where a tonne of grain comes from"
+  },
+  {
+   "id": "seedbank.m03.s1",
+   "day": 3,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Frequencies, not plants"
+  },
+  {
+   "id": "seedbank.m03.s2",
+   "day": 3,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "How many plants make a population"
+  },
+  {
+   "id": "seedbank.m03.s3",
+   "day": 3,
+   "group": "TRIAL",
+   "format": "CONTROL",
+   "title": "Move the line, not the story"
+  },
+  {
+   "id": "seedbank.m04.s1",
+   "day": 4,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "What a season costs"
+  },
+  {
+   "id": "seedbank.m04.s2",
+   "day": 4,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "What the trial can actually claim"
+  },
+  {
+   "id": "seedbank.m04.s3",
+   "day": 4,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "What the crop cannot do without water"
+  },
+  {
+   "id": "seedbank.m05.s1",
+   "day": 5,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "What came with the gene"
+  },
+  {
+   "id": "seedbank.m05.s2",
+   "day": 5,
+   "group": "LAB",
+   "format": "HOLDOUT",
+   "title": "A marker fitted where it worked"
+  },
+  {
+   "id": "seedbank.m05.s3",
+   "day": 5,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Short is not simply worse"
+  },
+  {
+   "id": "seedbank.m06.s1",
+   "day": 6,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Not the number of plants"
+  },
+  {
+   "id": "seedbank.m06.s2",
+   "day": 6,
+   "group": "VAULT",
+   "format": "TRIGGER",
+   "title": "Write the viability rule before it falls"
+  },
+  {
+   "id": "seedbank.m06.s3",
+   "day": 6,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "A difference that was the field"
+  },
+  {
+   "id": "seedbank.m07.s1",
+   "day": 7,
+   "group": "LAB",
+   "format": "CHOICE",
+   "title": "One base, one broken lock"
+  },
+  {
+   "id": "seedbank.m07.s2",
+   "day": 7,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "Where an unused allele lives"
+  },
+  {
+   "id": "seedbank.m07.s3",
+   "day": 7,
+   "group": "DRY",
+   "format": "BALANCE",
+   "title": "Where the missing two per cent went"
+  },
+  {
+   "id": "seedbank.m08.s1",
+   "day": 8,
+   "group": "TRIAL",
+   "format": "BALLPARK",
+   "title": "What one round returns"
+  },
+  {
+   "id": "seedbank.m08.s2",
+   "day": 8,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "An extra generation in the bay"
+  },
+  {
+   "id": "seedbank.m08.s3",
+   "day": 8,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Why those two did well"
+  },
+  {
+   "id": "seedbank.m09.s1",
+   "day": 9,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "Same number, different population"
+  },
+  {
+   "id": "seedbank.m09.s2",
+   "day": 9,
+   "group": "LAB",
+   "format": "CHOICE",
+   "title": "What the screen may not find"
+  },
+  {
+   "id": "seedbank.m09.s3",
+   "day": 9,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "What the store did right"
+  },
+  {
+   "id": "seedbank.m10.s1",
+   "day": 10,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "The other copy"
+  },
+  {
+   "id": "seedbank.m10.s2",
+   "day": 10,
+   "group": "VAULT",
+   "format": "SEQUENCE",
+   "title": "What a grow-out has to be from now on"
+  },
+  {
+   "id": "seedbank.m10.s3",
+   "day": 10,
+   "group": "TRIAL",
+   "format": "SCIENCETANK",
+   "title": "Ground that is already committed"
+  },
+  {
+   "id": "seedbank.m11.s1",
+   "day": 11,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Measuring while it is still happening"
+  },
+  {
+   "id": "seedbank.m11.s2",
+   "day": 11,
+   "group": "VAULT",
+   "format": "DELEGATE",
+   "title": "Three jobs, one still damaging seed"
+  },
+  {
+   "id": "seedbank.m11.s3",
+   "day": 11,
+   "group": "CROSS",
+   "format": "SEQUENCE",
+   "title": "The fortnight when it is possible"
+  },
+  {
+   "id": "seedbank.m12.s1",
+   "day": 12,
+   "group": "LAB",
+   "format": "VALUE",
+   "title": "Which positive is worth the screenhouse slot"
+  },
+  {
+   "id": "seedbank.m12.s2",
+   "day": 12,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "What was lost, and when"
+  },
+  {
+   "id": "seedbank.m12.s3",
+   "day": 12,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "The copy that was never in the vault"
+  },
+  {
+   "id": "seedbank.m13.s1",
+   "day": 13,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "What cannot be done later"
+  },
+  {
+   "id": "seedbank.m13.s2",
+   "day": 13,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "Forty tonnes and a failing gene"
+  },
+  {
+   "id": "seedbank.m13.s3",
+   "day": 13,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "An outbreak in the right place"
+  },
+  {
+   "id": "seedbank.m14.s1",
+   "day": 14,
+   "group": "CROSS",
+   "format": "ALLOCATE",
+   "title": "Eight crossing commitments"
+  },
+  {
+   "id": "seedbank.m14.s2",
+   "day": 14,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "How narrow the base has become"
+  },
+  {
+   "id": "seedbank.m14.s3",
+   "day": 14,
+   "group": "LAB",
+   "format": "CHOICE",
+   "title": "DNA present, resistance working?"
+  },
+  {
+   "id": "seedbank.m15.s1",
+   "day": 15,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "What the catalogue says and what is there"
+  },
+  {
+   "id": "seedbank.m15.s2",
+   "day": 15,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "One site, one year, again"
+  },
+  {
+   "id": "seedbank.m15.s3",
+   "day": 15,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Eleven years, and what they are for"
+  }
+ ]
+}
