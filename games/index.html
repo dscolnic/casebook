@@ -2,112 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>First Person Learning</title>
-<!-- The shelf. Fifteen mission-based games, each a course you walk through.
-     The catalogue is games.json, written by the Alamos repo's sync tool
-     (gamekit/tools/sync-casebook.mjs) — adding a game is a sync, not an edit
-     here. The account header and the resume line come from the app's own API
-     and both degrade to nothing when they are not answered, so this page also
-     works opened straight off the filesystem. -->
+<!-- The shelf. The catalogue is games.json, written by the Alamos repo's sync
+     tool (gamekit/tools/sync-casebook.mjs) — adding a game is a sync, not an
+     edit here. The account header and the resume line come from the app's own
+     API and both degrade to nothing when they are not answered, so this page
+     also works opened straight off the filesystem.
+
+     The look is the local picker's — gamekit/tools/gallery.mjs — because that
+     is the one that was designed rather than inherited. The two pages are not
+     the same file and cannot be: the picker is generated at build time from the
+     catalogue and reads localStorage, while this one is served to an account and
+     asks the API who is signed in. What is shared is the language, and that is
+     deliberate: a player who sees both should not think they are two products.
+     If you restyle one, restyle the other. -->
 <style>
   :root{
-    --bg:#ffffff; --panel:#ffffff; --ink:#1a1a17; --muted:#565651;
-    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f4f4f1; --hover:#eef0f2;
-    --serif:Georgia,"Times New Roman",serif;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#14140f; --panel:#1c1c16; --ink:#ece9df; --muted:#a6a598;
-      --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; --hover:#22221a; }
+    --bg:#0d0f13; --bg2:#141821; --ink:#e9ecf2; --dim:#98a1b2; --faint:#5d6675;
+    --line:#242a36; --radius:16px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
-       line-height:1.55;font-size:17px;padding:0 20px}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 0 12vh}
-  a{color:var(--accent)}
+  /* Two wide, very dilute washes off the top corners. On a flat black the cards
+     float with nothing behind them; this gives the page a top edge without
+     putting a colour anywhere near the screenshots. */
+  body{
+    margin:0; background:
+      radial-gradient(1100px 620px at 12% -8%, #1b2333 0%, transparent 60%),
+      radial-gradient(900px 520px at 92% 4%, #201a2b 0%, transparent 58%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink);
+    font:16px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  .wrap{max-width:1320px; margin:0 auto; padding:56px 24px 96px}
+  a{color:inherit}
 
-  .masthead{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;
-            flex-wrap:wrap;padding:6vh 0 0}
-  .mast-left{flex:1;min-width:260px}
-  .masthead h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6vw,54px);
-               line-height:1;letter-spacing:.5px;margin:0;text-transform:uppercase}
-  .lede{font-family:var(--serif);font-size:21px;line-height:1.4;margin:18px 0 0;max-width:44ch;
-        color:var(--muted)}
+  header{margin-bottom:34px; display:flex; justify-content:space-between;
+         align-items:flex-start; gap:30px; flex-wrap:wrap}
+  .mast{flex:1; min-width:280px}
+  .kicker{
+    font:600 12px/1 var(--mono); letter-spacing:.18em;
+    text-transform:uppercase; color:var(--faint); margin:0 0 14px;
+  }
+  h1{
+    margin:0 0 10px; font-size:clamp(34px,5.6vw,58px); line-height:1.02;
+    letter-spacing:-.025em; font-weight:680;
+  }
+  /* The one piece of colour in the type. Clipped to the glyphs, so it reads as
+     ink rather than as a highlight behind the words. */
+  h1 em{font-style:normal; background:linear-gradient(92deg,#6fc7d8,#8f6fd0 46%,#e0868f);
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{margin:0; max-width:60ch; color:var(--dim); font-size:17px}
 
   /* Account. Hidden until /api/auth/user answers — a static host never will. */
-  .account{display:none;align-items:center;gap:12px;font-family:var(--sans);font-size:13px}
+  .account{display:none; align-items:center; gap:12px; font-size:13px}
   .account.show{display:flex}
-  .account .who{display:flex;flex-direction:column;line-height:1.25;text-align:right}
-  .account .who b{font-size:14px;font-family:var(--sans)}
-  .account .who span{color:var(--muted);font-size:12px}
-  .avatarpic{width:44px;height:44px;border-radius:50%;overflow:hidden;border:1.5px solid var(--ink);
-             background:var(--chip);flex:none}
-  .avatarpic img{display:block;width:100%;height:100%;object-fit:cover}
-  .avatarpic .initials{display:grid;place-items:center;width:100%;height:100%;
-                       font-family:var(--sans);font-size:15px;font-weight:700;color:var(--ink)}
-  .signout{font-family:var(--sans);font-size:13px;color:var(--muted);text-decoration:none;
-           border:1px solid var(--hair);border-radius:999px;padding:6px 14px;white-space:nowrap}
-  .signout:hover{background:var(--hover);color:var(--ink)}
+  .account .who{display:flex; flex-direction:column; line-height:1.25; text-align:right}
+  .account .who b{font-size:14px; font-weight:640}
+  .account .who span{color:var(--faint); font-size:12px}
+  .avatarpic{width:42px; height:42px; border-radius:50%; overflow:hidden;
+             border:1px solid var(--line); background:var(--bg2); flex:none}
+  .avatarpic img{display:block; width:100%; height:100%; object-fit:cover}
+  .avatarpic .initials{display:grid; place-items:center; width:100%; height:100%;
+                       font-size:14px; font-weight:700; color:var(--dim)}
+  .signout{font-size:13px; color:var(--dim); text-decoration:none;
+           border:1px solid var(--line); border-radius:999px; padding:6px 14px; white-space:nowrap}
+  .signout:hover{border-color:#39435a; color:var(--ink)}
 
-  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:38px 0 0}
-  .chip{font-family:var(--sans);font-size:13px;font-weight:650;border:1px solid var(--hair);
-        background:var(--panel);color:var(--muted);border-radius:999px;padding:7px 15px;cursor:pointer}
-  .chip:hover{background:var(--hover);color:var(--ink)}
-  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  /* The level row sits under the subjects and picks exactly one — the two rows
-     narrow the same shelf, so they are the same control and read alike. Tighter
-     above than the 38px the subject row takes, so the pair group together
-     instead of looking like two separate sections. */
-  .filters.levels{margin:10px 0 0}
-  .filters.levels[hidden]{display:none}
-  .chipn{font-variant-numeric:tabular-nums;opacity:.62;margin-left:6px;font-weight:600}
+  /* One segmented control, not a row of loose pills: the levels are alternatives
+     and the shared track says so. The count under each label is what makes it
+     honest — a level with two games in it should look like a level with two
+     games in it before you press it. */
+  .levels{display:inline-flex; gap:4px; margin:26px 0 2px; padding:4px;
+    border:1px solid var(--line); border-radius:999px; background:#111520}
+  .levels[hidden]{display:none}
+  .level{
+    appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
+    border-radius:999px; padding:8px 18px; font:inherit; font-size:14px; line-height:1.15;
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+    transition:background .16s, color .16s;
+  }
+  .level small{font-size:11px; letter-spacing:.04em; color:var(--faint)}
+  .level:hover{color:var(--ink)}
+  .level[aria-pressed="true"]{background:var(--ink); color:#0d0f13}
+  .level[aria-pressed="true"] small{color:#4a5262}
+  .level:focus-visible{outline:2px solid #6fc7d8; outline-offset:2px}
 
-  .sectionhead{font-family:var(--sans);font-weight:800;font-size:13px;letter-spacing:2px;
-               text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:9px;
-               margin:26px 0 22px}
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin:26px 0 4px}
+  .chip{
+    appearance:none; cursor:pointer; border:1px solid var(--line); background:var(--bg2);
+    color:var(--dim); border-radius:999px; padding:7px 15px; font:inherit; font-size:13.5px;
+    transition:border-color .16s, color .16s, background .16s, transform .12s;
+  }
+  .chip:hover{color:var(--ink); border-color:#39435a; transform:translateY(-1px)}
+  .chip[aria-pressed="true"]{background:var(--ink); color:#0d0f13; border-color:var(--ink)}
+  .chip:focus-visible{outline:2px solid #6fc7d8; outline-offset:2px}
 
-  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-  .card{display:flex;flex-direction:column;border:1px solid var(--hair);border-radius:12px;
-        background:var(--panel);overflow:hidden;text-decoration:none;color:inherit;
-        transition:border-color .16s ease, transform .16s ease}
-  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
-  .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .shot{aspect-ratio:16/9;background:var(--chip);position:relative;border-bottom:1px solid var(--hair)}
-  .shot img{display:block;width:100%;height:100%;object-fit:cover}
-  /* A game with no snapshot gets a flat field in its own colour rather than a
-     broken image — the accent is the only thing the card knows about it. */
-  .shot.blank{background:linear-gradient(160deg,var(--tint),var(--chip))}
-  .field{position:absolute;left:10px;top:10px;font-family:var(--sans);font-size:11px;font-weight:700;
-         letter-spacing:.09em;text-transform:uppercase;background:var(--bg);color:var(--ink);
-         border:1px solid var(--hair);border-radius:999px;padding:4px 10px}
-  .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
-  .body h2{font-family:var(--serif);font-size:24px;margin:0;letter-spacing:-.3px;line-height:1.15}
-  .course{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.06em;
-          text-transform:uppercase;color:var(--accent);margin:7px 0 0}
-  .place{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--muted);margin:10px 0 0}
-  .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;
-        margin-top:auto;padding-top:14px}
-  .state{font-family:var(--sans);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-  .state.resume{color:var(--accent);font-weight:700}
-  .go{font-family:var(--sans);font-size:13.5px;font-weight:650;border:1px solid var(--accent);
-      background:var(--accent);color:#fff;padding:8px 14px;border-radius:6px}
-  .card.unbuilt{opacity:.55;pointer-events:none}
-  .card.unbuilt .go{background:transparent;color:var(--muted);border-color:var(--hair)}
+  .grid{
+    display:grid; gap:22px; margin-top:26px;
+    grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  }
 
-  .note{font-family:var(--sans);font-size:13px;color:var(--muted);margin:34px 0 0;
-        border-top:1px solid var(--hair);padding-top:14px}
-  @media (prefers-reduced-motion: reduce){.card{transition:none}}
+  .card{
+    display:flex; flex-direction:column; text-decoration:none; color:inherit;
+    background:linear-gradient(180deg,#161b25,#111520);
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    transition:transform .18s cubic-bezier(.2,.7,.3,1), border-color .18s, box-shadow .18s;
+  }
+  /* The game's own accent is the only thing the shelf knows about how it looks,
+     so the hover state is built out of it. */
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:color-mix(in srgb, var(--accent) 55%, var(--line));
+    box-shadow:0 16px 40px -18px color-mix(in srgb, var(--accent) 70%, transparent),
+               0 2px 0 0 color-mix(in srgb, var(--accent) 35%, transparent) inset;
+  }
+  .card:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  .card--unbuilt{opacity:.62; cursor:default; pointer-events:none}
+
+  .shot{position:relative; aspect-ratio:16/9; background:#080a0e; overflow:hidden}
+  .shot img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transform:scale(1.02); transition:transform .5s cubic-bezier(.2,.7,.3,1); filter:saturate(1.05);
+  }
+  .card:hover .shot img{transform:scale(1.09)}
+  .shot__none{
+    width:100%; height:100%; display:grid; place-items:center;
+    background:repeating-linear-gradient(135deg,#12161f 0 10px,#0e121a 10px 20px);
+    color:var(--faint); font:12px/1 var(--mono); letter-spacing:.1em;
+  }
+  /* The title sits on the picture, so the picture has to fall away under it.
+     A gradient rather than a flat scrim: the top of the shot stays the shot. */
+  .shot__veil{
+    position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg,rgba(8,10,14,.10) 0%,rgba(8,10,14,.05) 38%,rgba(8,10,14,.88) 100%);
+  }
+  .shot h2{
+    position:absolute; left:16px; right:16px; bottom:11px; margin:0;
+    font-size:21px; line-height:1.15; letter-spacing:-.015em; font-weight:640;
+    text-shadow:0 2px 14px rgba(0,0,0,.75);
+  }
+  .field{
+    position:absolute; top:12px; left:12px; z-index:1;
+    font:600 10.5px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase;
+    color:#0d0f13; background:var(--accent); border-radius:999px; padding:5px 9px;
+  }
+  .play{
+    position:absolute; top:11px; right:12px; z-index:1;
+    width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+    font-size:11px; color:#0d0f13; background:var(--ink);
+    opacity:0; transform:scale(.8); transition:opacity .18s, transform .18s;
+  }
+  .card:hover .play, .card:focus-visible .play{opacity:1; transform:scale(1)}
+  .unbuilt{
+    position:absolute; top:12px; right:12px; z-index:1;
+    font:600 10px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase;
+    color:var(--dim); border:1px solid var(--line); background:#0d0f13cc;
+    border-radius:999px; padding:5px 8px;
+  }
+  /* A campaign already under way. Bottom-RIGHT of the shot: the title is bottom
+     left, the field chip top left and the play mark top right, and this is the
+     one corner left. */
+  .resume{
+    position:absolute; right:12px; bottom:12px; z-index:2;
+    font:600 10.5px/1 var(--mono); letter-spacing:.08em;
+    color:#0d0f13; background:var(--ink); border-radius:999px; padding:5px 9px;
+  }
+  .resume--done{background:var(--accent)}
+  .card--started{outline:1px solid color-mix(in srgb, var(--accent) 55%, transparent)}
+
+  .body{padding:15px 17px 17px; display:flex; flex-direction:column; gap:8px; flex:1}
+  .course{margin:0; font-weight:600; font-size:13.5px; line-height:1.35; color:var(--accent)}
+  .place{margin:0; color:var(--dim); font-size:14.5px}
+  .meta{
+    margin:auto 0 0; display:flex; flex-wrap:wrap; gap:6px;
+    font:11.5px/1 var(--mono); color:var(--faint);
+  }
+  .meta span{
+    border:1px solid var(--line); border-radius:6px; padding:5px 7px;
+    max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .progress{margin:0; font:500 12px/1.45 inherit; color:var(--accent)}
+  .progress__bar{display:block; height:3px; margin-top:6px; border-radius:2px;
+    background:var(--line); overflow:hidden}
+  .progress__bar i{display:block; height:100%; background:var(--accent)}
+
+  .note{margin:56px 0 0; padding-top:22px; border-top:1px solid var(--line);
+        color:var(--faint); font-size:13.5px}
+
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="masthead">
-    <div class="mast-left">
-      <h1>First Person Learning</h1>
+  <header>
+    <div class="mast">
+      <p class="kicker">First Person Learning · mission-based STEM games</p>
+      <h1>Walk in, work it out, <em>save the day.</em></h1>
       <p class="lede">Designed by a Duke University astrophysics professor, a series of
         STEM games with immersive worlds. Save the day by understanding the material.</p>
     </div>
@@ -118,9 +214,8 @@
     </div>
   </header>
 
+  <div class="levels" id="levels" role="group" aria-label="Choose a level"></div>
   <div class="filters" id="filters"></div>
-  <div class="filters levels" id="levels" role="group" aria-label="Reading level"></div>
-  <h2 class="sectionhead" id="count">The games</h2>
   <div class="grid" id="grid"></div>
   <p class="note" id="note"></p>
 
@@ -138,16 +233,16 @@ let field = 'All';
 
 // ------------------------------------------------------------------- level
 //
-// Five games ship at two reading levels — the same place and the same cast,
+// Several games ship at two reading levels — the same place and the same cast,
 // a differently written book — so the catalogue holds two rows for each and the
 // shelf drew Planetary Defense twice with nothing to tell them apart. This is
 // one or the other, never both.
 //
-// Youngest first, so the row reads as a scale rather than as three unrelated
-// buttons. A level with no games in it never gets drawn, so Elementary is one
-// card today and will simply widen as editions land.
-// `hold: true` keeps a level off the shelf entirely — no chip, and its games do
-// not appear anywhere. Elementary is held because it is one game (Hospital
+// Youngest first, so the control reads as a scale rather than as three
+// unrelated buttons.
+//
+// `hold: true` keeps a level off the shelf entirely — no segment, and its games
+// do not appear anywhere. Elementary is held because it is one game (Hospital
 // Heroes), and a whole reading level offered for a single card promises a shelf
 // that is not there yet. Delete the flag when there are enough to be worth
 // choosing; nothing else here needs to change.
@@ -161,8 +256,8 @@ const LEVEL_KEY = 'casebook_shelf_level';
 // Senior high is the default because most of the set is written for it. A stored
 // value that is unknown — or names a level since put on hold — falls back rather
 // than emptying the page.
-const saved = localStorage.getItem(LEVEL_KEY);
-let level = SHOWN.some(l => l.id === saved) ? saved : 'high';
+const stored = localStorage.getItem(LEVEL_KEY);
+let level = SHOWN.some(l => l.id === stored) ? stored : 'high';
 
 const inLevel = (g) => (SHOWN.find(l => l.id === level) ?? SHOWN[0]).has(g);
 
@@ -201,48 +296,58 @@ async function loadSaves(){
   for(const s of (out?.saves ?? [])) saves[s.theme] = s;
 }
 
-// What the card says under the title. A campaign in progress is the one piece
-// of state worth putting on a shelf — it is the difference between fifteen
-// things to start and one thing to carry on with.
-function stateLine(g){
+// The corner mark on the shot, and the line under the card. A campaign in
+// progress is the one piece of state worth putting on a shelf — it is the
+// difference between twenty things to start and one thing to carry on with.
+function progressOf(g){
   const s = saves[g.id];
-  if(!g.built) return { text: 'Not built yet', resume: false };
-  if(!s) return { text: g.size ? `${g.size.days} days · ${g.size.stops} stops` : 'New campaign', resume: false };
-  if(s.status === 'won') return { text: 'Campaign complete', resume: false };
-  if(s.status === 'lost') return { text: 'Campaign ended — start again', resume: false };
-  const of = g.size ? ` of ${g.size.days}` : '';
-  return { text: `Day ${s.mission ?? 1}${of}`, resume: true };
+  if(!s) return null;
+  if(s.status === 'won')  return { pill: 'complete', done: true, text: 'Campaign complete', frac: 1 };
+  if(s.status === 'lost') return { pill: 'ended',    done: true, text: 'Campaign ended — start again', frac: 1 };
+  const days = g.size?.days;
+  const day = s.mission ?? 1;
+  return {
+    pill: 'resume', done: false,
+    text: days ? `Day ${day} of ${days}` : `Day ${day}`,
+    frac: days ? Math.min(1, day / days) : 0,
+  };
 }
 
 function cardHTML(g){
-  const st = stateLine(g);
-  const shot = g.hero
-    ? `<img src="${esc(g.hero)}" alt="" loading="lazy">`
-    : '';
+  const p = progressOf(g);
+  const built = g.built !== false;
+  const tag = built ? 'a' : 'div';
+  const href = built ? ` href="./${esc(g.id)}/index.html"` : '';
   return `
-  <a class="card${g.built ? '' : ' unbuilt'}" href="./${esc(g.id)}/index.html">
-    <div class="shot${g.hero ? '' : ' blank'}" style="--tint:${esc(g.accent)}">
-      ${shot}<span class="field">${esc(g.field)}</span>
+  <${tag} class="card${built ? '' : ' card--unbuilt'}${p && !p.done ? ' card--started' : ''}"${href}
+     style="--accent:${esc(g.accent)}">
+    <div class="shot">
+      ${g.hero ? `<img src="${esc(g.hero)}" alt="" loading="lazy">`
+               : `<div class="shot__none" aria-hidden="true"><span>no snapshot yet</span></div>`}
+      <div class="shot__veil"></div>
+      <span class="field">${esc(g.field)}</span>
+      ${built ? '<span class="play" aria-hidden="true">▶</span>'
+              : '<span class="unbuilt">not built</span>'}
+      ${p ? `<span class="resume${p.done ? ' resume--done' : ''}">${esc(p.pill)}</span>` : ''}
+      <h2>${esc(g.title)}</h2>
     </div>
     <div class="body">
-      <h2>${esc(g.title)}</h2>
       <p class="course">${esc(g.course)}</p>
       <p class="place">${esc(g.place)}</p>
-      <div class="foot">
-        <span class="state${st.resume ? ' resume' : ''}">${esc(st.text)}</span>
-        <span class="go">${st.resume ? 'Resume' : 'Play'}</span>
-      </div>
+      <p class="meta">
+        ${g.role ? `<span>${esc(g.role)}</span>` : ''}
+        ${g.grade ? `<span>reads at grade ${esc(g.grade)}</span>` : ''}
+        ${g.grades ? `<span>${esc(g.grades)}</span>` : ''}
+      </p>
+      ${p ? `<p class="progress">${esc(p.text)}
+               <span class="progress__bar"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
     </div>
-  </a>`;
+  </${tag}>`;
 }
 
 function render(){
   const shown = games.filter(g => inLevel(g) && (field === 'All' || g.field === field));
-  const levelLabel = (LEVELS.find(l => l.id === level) ?? LEVELS[0]).label;
   document.getElementById('grid').innerHTML = shown.map(cardHTML).join('');
-  document.getElementById('count').textContent =
-    field === 'All' ? `${levelLabel} — ${shown.length} game${shown.length === 1 ? '' : 's'}`
-                    : `${field} · ${levelLabel} — ${shown.length}`;
   const resumable = games.filter(g => saves[g.id] && saves[g.id].status === 'playing').length;
   document.getElementById('note').textContent = resumable
     ? `${resumable} campaign${resumable === 1 ? '' : 's'} in progress. Your progress follows your account, not this browser.`
@@ -267,18 +372,18 @@ function renderFilters(){
     b.addEventListener('click', () => { field = b.dataset.field; renderFilters(); render(); });
   });
 
-  // Only offer a level that has games in it. If every game is senior-high —
+  // Only offer a level that has games in it. If every game were senior-high —
   // which was true until the first edition shipped — there is nothing to choose
-  // between and the row hides itself rather than offering a control that
-  // empties the page.
+  // between and the control hides itself rather than offering to empty the page.
   const live = SHOWN.filter(l => games.some(l.has));
   const box = document.getElementById('levels');
   box.hidden = live.length < 2;
-  box.innerHTML = live.map(l =>
-    `<button class="chip" type="button" data-level="${l.id}" aria-pressed="${l.id === level}">`
-    + `${esc(l.label)} <span class="chipn">${games.filter(l.has).length}</span></button>`
-  ).join('');
-  box.querySelectorAll('.chip').forEach(b => {
+  box.innerHTML = live.map(l => {
+    const n = games.filter(l.has).length;
+    return `<button class="level" type="button" data-level="${l.id}" aria-pressed="${l.id === level}">`
+      + `<span>${esc(l.label)}</span><small>${n} game${n === 1 ? '' : 's'}</small></button>`;
+  }).join('');
+  box.querySelectorAll('.level').forEach(b => {
     b.addEventListener('click', () => {
       level = b.dataset.level;
       try{ localStorage.setItem(LEVEL_KEY, level); }catch(e){}
@@ -292,8 +397,8 @@ function renderFilters(){
   // the API never answers, so neither await blocks the other.
   const [cat] = await Promise.all([json('./games.json'), loadAccount(), loadSaves()]);
   // A held level is dropped here rather than at each place that reads `games`,
-  // so the chips, the counts and the campaigns-in-progress note cannot disagree
-  // about which games exist.
+  // so the segments, the subject chips and the campaigns-in-progress note cannot
+  // disagree about which games exist.
   games = (cat?.games ?? []).filter(g => SHOWN.some(l => l.has(g)));
   if(!games.length){
     document.getElementById('note').textContent =
