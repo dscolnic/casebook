@@ -1309,7 +1309,10 @@ export function furnishCorridor(spec){
   ];
 
   // Overhead: tray runs the length of it, in sections so it reads as installed.
-  for(let z = z0 + 3; z < z1 - 3; z += 8){
+  // `tray: false` for a corridor with nothing over it — a tray hung from a
+  // ceiling that is not there reads as a beam, which is the thing the open
+  // soffit was removed to get rid of.
+  for(let z = (spec.tray === false ? z1 : z0 + 3); z < z1 - 3; z += 8){
     box(0.3, 0.07, 7.4, wallX - 0.15, 2.55, z + 3.7, M.metal);
     box(0.07, 0.34, 0.07, wallX - 0.15, 2.72, z + 0.4, M.metal);
     placed += 1;

@@ -1,0 +1,121 @@
+// theme.js — the manifest. This is the only file the engine reads directly.
+//
+// Start a game with the scaffold, not by copying this by hand:
+//
+//   npm run new-theme <name>              outdoor
+//   npm run new-theme <name> -- --interior   a floor, not a town
+//
+// It copies this directory, imports book.yml over it and registers the theme,
+// so `npm run check <name>` is green and `THEME=<name> npm run dev` is walkable
+// before you have written a word. Then replace book.yml with the real book.
+//
+// Every key below is read by the engine. Nothing else in here is.
+import { plan } from './plan.js';
+import { OUTFITS, roleToOutfit } from './outfits.js';
+import { GROUPS } from './content/groups.js';
+import { MISSIONS } from './content/missions.js';
+// tools/import-book.mjs writes all of these. BALLPARK_CALCS and JARGON must be
+// imported or the estimates render un-answerable and no term is clickable.
+import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
+import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
+import { COPY } from './content/copy.js';
+import { INTERIORS } from './interiors.js';
+import { decorate, fitOutRoom, fitOutSpine } from './props.js';
+
+export default {
+  id: 'the_trial',
+  title: 'The Trial',
+  subtitle: 'Methodology & Operations Lead · CLARION-3',
+
+  // AP Statistics with a pharmacology unit — the largest course none of the ten
+  // other games touches. Grade 12: the type scales from this, and validateContent
+  // fails a passage two grades over it.
+  audience: { grade: 12 },
+
+  // A mission really is one working day here, which is the one game in the set
+  // where the default label is the true one.
+  dayNoun: 'Day',
+
+  // The place. `site.kind` picks the world module in vite.config.js:
+  //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
+  //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
+  // A theme whose place already exists may declare its own instead, with
+  // `world: 'themes/<name>/world.js'` inside plan.js. Deep Watch does.
+  site: { kind: 'interior', name: 'The Fenwick Coordinating Centre', plan },
+
+  // Where the player starts the day, and which way they face. The day's budget
+  // is measured from here, not from wherever the player is standing.
+  // On the working floor, outside data management, facing up the corridor. The
+  // clinic is a flight down behind you and the firewall a flight up ahead — the
+  // day starts in the middle of the building on purpose.
+  start: { x: 0, z: 33, yaw: 0 },
+
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
+
+  people: {
+    OUTFITS,
+    roleToOutfit,
+    // spawn must be >= ROSTER.length, or characters past the limit never appear
+    // and any mission stop naming them is unreachable. Validated.
+    spawn: ROSTER.length,
+    // Background people. A narrow place needs far fewer: on the submarine more
+    // than eight and the player cannot get down the passage.
+    extras: 18,
+  },
+
+  // What is inside each room the player walks into, from book.yml. Rooms are
+  // built by engine/world/interiorBuilding.js on first entry, in a district
+  // four kilometres from the town.
+  interiors: INTERIORS,
+  // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
+  // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
+  interiorStyle: 'lab',
+
+  // The title card: ONE paragraph of situation. No mechanics, no controls, no
+  // scope note — every game had those and every game lost them.
+  opening: [
+    'CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of '
+    + 'them receiving a drug and half standard care, and nobody in this building knows which is '
+    + 'which. You are the methodology and operations lead at the coordinating centre, which means '
+    + 'the pack the independent monitoring board reads is assembled by you. It sits in three weeks, '
+    + 'and it can recommend that the trial stops.',
+  ],
+
+  // The last thing anybody reads. Says what happened, what it cost and what is
+  // unfinished, and takes all three from the fifteen days the player worked.
+  ending: [
+    'The board recommended continuing to the planned 380 events, with the investigator-rated '
+    + 'symptom score dropped from the primary reporting and the four liver cases followed under a '
+    + 'formal protocol. CLARION-3 reported eleven months later on 383 adjudicated events: an '
+    + 'absolute reduction of 3.6 percentage points, about twenty-eight people treated for one event '
+    + 'avoided, and an interval that excludes no benefit but is wider than anybody wanted.',
+    'What it cost: the symptom score, which was the outcome participants cared most about and the '
+    + 'one the trial could no longer defend; a year in which half of those recruited went on '
+    + 'receiving the arm that lost; and a subgroup finding in the over-seventies that two other '
+    + 'groups have since failed to reproduce. What is unfinished: nobody knows what the drug does '
+    + 'past two years, the liver signal is four cases and still four cases, and the next trial of '
+    + 'this drug will have to be blinded some other way, because this one never really was.',
+  ],
+
+  look: {
+    fov: 66,            // a 72° field distorts badly in a corridor
+    near: 0.08,
+    // The spine is 74 m end to end and the fog has to sit beyond it, or the
+    // far end of the corridor is a grey wall rather than a long view.
+    far: 220,
+    fog: { colour: 0xdfe4e6, near: 34, far: 130 },
+    exposure: 1.0,
+    // How wide the player is, for collision. 0.45 suits a street; a place with
+    // metre-wide doorways needs 0.3 or the player gets stuck in them.
+    playerRadius: 0.38,
+    // Six real lights is the ceiling. A light per ceiling fixture took one
+    // build from 118 fps to 20; ambient plus emissive panels looks the same.
+    lighting: { ambient: 0.55, hemi: 0.6 },
+  },
+
+  // Theme hooks. `decorate` is called by the outdoor world, the two fit-out
+  // hooks by the interior one; the unused ones are ignored.
+  decorate,
+  fitOutRoom,
+  fitOutSpine,
+};

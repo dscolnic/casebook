@@ -164,16 +164,95 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     scene.add(f);
   }
 
-  wall(envelope.x0, envelope.z0, envelope.x1, envelope.z0, { baseSides: [1] });
-  wall(envelope.x0, envelope.z1, envelope.x1, envelope.z1, { baseSides: [-1] });
-  wall(envelope.x0, envelope.z0, envelope.x0, envelope.z1, { baseSides: [1] });
-  wall(envelope.x1, envelope.z0, envelope.x1, envelope.z1, { baseSides: [-1] });
+  // An end may be left open, for a floor that continues into something this
+  // builder does not build — a stairwell to the level above, a link to another
+  // wing. `plan.openEnds: { z0, z1 }`.
+  //
+  // Open means an *opening*, not a missing wall: the end is still built either
+  // side of the corridor, and only the spine's own width is left clear. Omitting
+  // the whole wall opens the building's entire cross-section, and what the
+  // player sees looking that way is the rooms' outer walls from behind and then
+  // nothing at all. The end glazing goes with the wall, because a window in a
+  // doorway is a window in mid-air.
+  const openEnd = plan.openEnds ?? {};
+  const hw = P.corridorHalfWidth;
+  const endWall = (zz, baseSide, open) => {
+    if(!open){ wall(envelope.x0, zz, envelope.x1, zz, { baseSides: [baseSide] }); return; }
+    wall(envelope.x0, zz, -hw, zz, { baseSides: [baseSide] });
+    wall(hw, zz, envelope.x1, zz, { baseSides: [baseSide] });
+  };
+  endWall(envelope.z0, 1, openEnd.z0);
+  endWall(envelope.z1, -1, openEnd.z1);
+
+  /**
+   * One long side may be glass instead of wall.
+   *
+   * `plan.glazedSide: 'e' | 'w'` — the envelope wall on that side is built as a
+   * mullioned screen rather than plaster, so whatever the theme puts outside it
+   * is the view from every room along it. It is still solid: the collider is the
+   * same one a wall gets, because a window you can walk through is a hole.
+   *
+   * This exists because a building's silhouette is the only thing separating one
+   * interior game from another, and "the same floor plan with a different
+   * palette" is what two of them looked like. A wall of glass with something
+   * behind it is not a palette change.
+   */
+  // The two long sides. One of them may be glass instead (below); the other is
+  // always a wall, and losing it is how fifty-nine notices ended up hanging in
+  // mid-air with nothing behind them.
+  if(plan.glazedSide !== 'w') wall(envelope.x0, envelope.z0, envelope.x0, envelope.z1, { baseSides: [1] });
+  if(plan.glazedSide !== 'e') wall(envelope.x1, envelope.z0, envelope.x1, envelope.z1, { baseSides: [-1] });
+
+  if(plan.glazedSide === 'e' || plan.glazedSide === 'w'){
+    const gx = plan.glazedSide === 'e' ? envelope.x1 : envelope.x0;
+    const inward = plan.glazedSide === 'e' ? -1 : 1;
+    // NOT `M.glass`. That material is a dark metallic mirror — right for a
+    // window seen from outside a building at dusk, and completely opaque from
+    // within, which is how a wall of glass with a waterfall behind it rendered
+    // as a grey slab. A screen meant to be looked *through* is transparent and
+    // barely tinted.
+    const glassMat = mat('seeThroughGlass', () => new THREE.MeshStandardMaterial({
+      color: 0xdfeaee, roughness: 0.04, metalness: 0.0,
+      transparent: true, opacity: 0.10, depthWrite: false,
+      envMapIntensity: 0.5, side: THREE.DoubleSide,
+    }));
+    const zSpan = envelope.z1 - envelope.z0;
+    // Where the spine is open the glass runs to the underside of the deck, not
+    // to the tile line — a screen that stops at 3.2 m under a soffit at 3.95
+    // leaves a 750 mm slot along the whole building.
+    const gh = (plan.ceiling === true || plan.ceiling === undefined)
+      ? P.ceilingH : P.ceilingH + 0.75;
+    // Floor to ceiling, and nothing else. The first version had a 0.3 m cill and
+    // a 0.26 m head band, which turns a wall of glass into a strip window — and
+    // a strip window is what every other building in the set already has.
+    const bays = Math.max(2, Math.round(zSpan / 4.2));
+    const bw = zSpan / bays;
+    for(let i = 0; i < bays; i++){
+      const cz = envelope.z0 + bw * (i + 0.5);
+      const pane = box(P.wall * 0.28, gh - 0.1, bw - 0.09,
+        gx + inward * P.wall * 0.2, (gh - 0.1) / 2 + 0.05, cz, glassMat);
+      pane.castShadow = false;
+      markStructure([pane], 'glazing');
+      // A slim mullion between bays, and nothing at the head or the foot.
+      markStructure([box(P.wall * 0.5, gh, 0.09,
+        gx + inward * P.wall * 0.12, gh / 2, envelope.z0 + bw * i, M.frame)], 'mullion');
+    }
+    markStructure([box(P.wall * 0.5, gh, 0.09, gx + inward * P.wall * 0.12,
+      gh / 2, envelope.z1, M.frame)], 'mullion');
+    // A shadow gap at the floor rather than a cill, so the glass reads as
+    // reaching the slab.
+    markStructure([box(P.wall * 0.6, 0.05, zSpan, gx + inward * P.wall * 0.12,
+      0.025, (envelope.z0 + envelope.z1) / 2, M.base)], 'shadow gap');
+    collide(gx, (envelope.z0 + envelope.z1) / 2, P.wall, zSpan, gh);
+  }
 
   // End glazing — the daylight source and the only view out.
   const winMat = new THREE.MeshStandardMaterial({
     color: 0xdfeaf0, emissive: 0xdfeaf0, emissiveIntensity: 0.85, roughness: 0.1, metalness: 0.1,
   });
-  for(const [zz, ry] of [[envelope.z0 + 0.11, 0], [envelope.z1 - 0.11, Math.PI]]){
+  const glazedEnds = [[envelope.z0 + 0.11, 0], [envelope.z1 - 0.11, Math.PI]]
+    .filter(([, ry]) => (ry === 0 ? !openEnd.z0 : !openEnd.z1));
+  for(const [zz, ry] of glazedEnds){
     for(const dx of [-5.4, -1.8, 1.8, 5.4]){
       const w = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 1.7), winMat);
       w.position.set(dx, 1.65, zz); w.rotation.y = ry;
@@ -183,39 +262,99 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     }
   }
 
-  // Suspended ceiling on a 600 mm grid.
+  /**
+   * Suspended ceiling on a 600 mm grid — over the whole floor, over the rooms
+   * only, or not at all. `plan.ceiling: true | 'rooms' | 'none'`.
+   *
+   * `'rooms'` leaves the spine open to the structure above, which is what a
+   * building with a glazed wall down one side actually looks like: a tile grid
+   * stops half a metre short of the glass and caps the view, and in a tower
+   * whose whole point is the window it reads as a corridor with a lid on it.
+   * What goes over the open part instead is a dark soffit with beams, high
+   * enough to be structure rather than ceiling — and it still stops the player
+   * on a stair seeing over the top of the floor below.
+   */
+  const ceilMode = plan.ceiling === false ? 'none' : (plan.ceiling ?? true);
   const ceilTex = ceilingTileTexture();
   ceilTex.repeat.set((envelope.x1 - envelope.x0) / 2.4, (envelope.z1 - envelope.z0) / 2.4);
-  const ceil = new THREE.Mesh(
-    new THREE.PlaneGeometry(envelope.x1 - envelope.x0, envelope.z1 - envelope.z0),
-    new THREE.MeshStandardMaterial({ map: ceilTex, roughness: 0.96, envMapIntensity: 0.4 }));
-  ceil.rotation.x = Math.PI / 2;
-  ceil.position.set(0, P.tileH, (envelope.z0 + envelope.z1) / 2);
-  ceil.receiveShadow = true;
-  scene.add(ceil);
+  // DoubleSide, because in a building with open galleries you look *down* on
+  // the office ceilings from the stair — and a single-sided plane seen from
+  // above is not there at all, so the rooms read as roofless from outside and
+  // roofed from inside. (No text on it, which is the rule DoubleSide breaks.)
+  const ceilMat = new THREE.MeshStandardMaterial({
+    map: ceilTex, roughness: 0.96, envMapIntensity: 0.4, side: THREE.DoubleSide });
+  const ceilPanel = (w, cx) => {
+    const c = new THREE.Mesh(new THREE.PlaneGeometry(w, envelope.z1 - envelope.z0), ceilMat);
+    c.rotation.x = Math.PI / 2;
+    c.position.set(cx, P.tileH, (envelope.z0 + envelope.z1) / 2);
+    c.receiveShadow = true;
+    markStructure([c], 'ceiling');
+    scene.add(c);
+  };
+  if(ceilMode === true){
+    ceilPanel(envelope.x1 - envelope.x0, 0);
+  } else if(ceilMode === 'rooms'){
+    // Only over a side that has rooms on it. A floor whose east side is a glazed
+    // gallery was getting a tile ceiling over the gallery too — a ceiling over
+    // nothing, and the thing the player is standing under when they walk to the
+    // window.
+    const roomW = envelope.x1 - P.corridorHalfWidth;
+    const sideHasRooms = (s) => (plan.rooms ?? []).some(r => (r.side === 'w' ? -1 : 1) === s);
+    for(const side of [-1, 1]){
+      if(!sideHasRooms(side)) continue;
+      ceilPanel(roomW, side * (P.corridorHalfWidth + roomW / 2));
+    }
+  }
+  // What the open part is open to. `plan.soffit: false` leaves it open to
+  // whatever the theme puts overhead — the sky, in a building that is a set of
+  // terraced decks rather than a floor with a lid. Otherwise a dark structural
+  // deck, so the player is not looking into a void.
+  if(ceilMode !== true && plan.soffit !== false){
+    const soffitY = P.ceilingH + 0.75;
+    const deck = new THREE.Mesh(
+      new THREE.PlaneGeometry(envelope.x1 - envelope.x0, envelope.z1 - envelope.z0),
+      new THREE.MeshStandardMaterial({ color: 0x555f63, roughness: 0.95, envMapIntensity: 0.35 }));
+    deck.rotation.x = Math.PI / 2;
+    deck.position.set(0, soffitY, (envelope.z0 + envelope.z1) / 2);
+    markStructure([deck], 'soffit');
+    scene.add(deck);
+  }
 
   // Recessed fixtures, air grilles and sprinklers. These are *emissive panels*,
-  // not lights: see rule 1 in THEME_CONTRACT.md.
+  // not lights: see rule 1 in THEME_CONTRACT.md. Where the spine is open they
+  // hang from the soffit instead of sitting in a tile.
   const diffTex = diffuserTexture();
   const troffMat = new THREE.MeshStandardMaterial({
     map: diffTex, emissive: 0xffffff, emissiveMap: diffTex, emissiveIntensity: 1.0, roughness: 0.5,
   });
   const grilleMat = new THREE.MeshStandardMaterial({ color: 0xd6d8d6, roughness: 0.6, metalness: 0.3 });
+  const spineOpen = ceilMode !== true;
   for(let z = envelope.z0 + 3; z < envelope.z1; z += 3.0){
+    const sideHasRooms = (sgn) => (plan.rooms ?? []).some(r => (r.side === 'w' ? -1 : 1) === sgn);
     for(const dx of [0, -5.4, 5.4]){
+      const overSpine = dx === 0;
+      // and nothing over a side with no rooms on it, for the same reason.
+      if(!overSpine && ceilMode !== true && !sideHasRooms(Math.sign(dx))) continue;
+      // No fittings over an open spine at all. A recessed troffer needs a tile
+      // to be recessed into, and hanging one under an open soffit puts a strip
+      // light where the point of the room is that there is nothing overhead.
+      if(overSpine && spineOpen) continue;
+      const y = P.tileH - 0.012;
       const t = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.6), troffMat);
       t.rotation.x = Math.PI / 2;
-      t.position.set(dx, P.tileH - 0.012, z + (dx ? 1.5 : 0));
+      t.position.set(dx, y, z + (dx ? 1.5 : 0));
       scene.add(t);
       lightPanels.push(t);
     }
-    const gr = new THREE.Mesh(new THREE.PlaneGeometry(0.58, 0.58), grilleMat);
-    gr.rotation.x = Math.PI / 2;
-    gr.position.set(srandRange(-1.2, 1.2), P.tileH - 0.008, z + 1.5);
-    scene.add(gr);
-    const spr = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.02, 0.07, 6), M.rail);
-    spr.position.set(srandRange(-1.4, 1.4), P.tileH - 0.045, z - 0.9);
-    scene.add(spr);
+    if(!spineOpen){
+      const gr = new THREE.Mesh(new THREE.PlaneGeometry(0.58, 0.58), grilleMat);
+      gr.rotation.x = Math.PI / 2;
+      gr.position.set(srandRange(-1.2, 1.2), P.tileH - 0.008, z + 1.5);
+      scene.add(gr);
+      const spr = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.02, 0.07, 6), M.rail);
+      spr.position.set(srandRange(-1.4, 1.4), P.tileH - 0.045, z - 0.9);
+      scene.add(spr);
+    }
   }
 
   // ------------------------------------------------------------------ rooms
