@@ -25,6 +25,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { GAMES, cards } from './games.js';
+import { SYLLABUS } from './syllabus.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
@@ -70,6 +71,81 @@ const roleOf = (id) => {
   if (!existsSync(f)) return '';
   const m = /subtitle:\s*'([^']*)'/.exec(readFileSync(f, 'utf8'));
   return m ? m[1].replace(/\\'/g, "'") : '';
+};
+
+/**
+ * The drama, in the game's own words.
+ *
+ * Not authored here. Every theme already opens on one paragraph of situation —
+ * what has happened, whose job it is, and what it costs in people — and that
+ * paragraph has been through the reading-level gate and the four-beat sweep.
+ * A separate hook written for the shelf would be a second description of the
+ * same game, and the second one goes stale.
+ *
+ * `opening` is a JS array of concatenated string literals in the manifest, so
+ * this joins the pieces, unescapes, and takes whole sentences up to a budget —
+ * cutting mid-sentence reads as a truncation bug rather than as a summary.
+ */
+const dramaOf = (id, budget = 330) => {
+  const f = resolve(themeDirOf(id), 'theme.js');
+  if (!existsSync(f)) return '';
+  const src = readFileSync(f, 'utf8');
+  const block = /opening:\s*\[([\s\S]*?)\n\s*\],/.exec(src);
+  if (!block) return '';
+  // Every quoted run in the block, in order: that is the paragraph, whatever
+  // the author's line breaks and `+` joins happen to look like.
+  const parts = [...block[1].matchAll(/'((?:[^'\\]|\\.)*)'/g)].map(m => m[1]);
+  const text = parts.join('').replace(/\\'/g, "'").replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+
+  // A full stop between two digits is a decimal point, not the end of a
+  // sentence. Aftershock opens on "A magnitude 6.2 struck…" and the naive split
+  // made the whole card read "A magnitude 6."
+  const sentences = (text.replace(/(\d)\.(\d)/g, '$1\u0000$2')
+    .match(/[^.!?]+[.!?]+(\s|$)/g) ?? [text]).map(x => x.replace(/\u0000/g, '.').trim());
+  if (sentences.length <= 2) return text;
+
+  // The first two beats of the card, and only those.
+  //
+  // An opening has four beats in a fixed order (CLAUDE.md, editions and copy):
+  // what has happened, the player's job stated as authority, the clock, and last
+  // what it costs in people. Taking sentences one to three caught the first beat
+  // and then whatever quantities the clock needed — Headwater came out as
+  // ninety-two million cubic metres, 88% and nine days of rain, every number
+  // true and no drama in any of them.
+  //
+  // Reaching for the closing beat instead was worse, and it is worth writing
+  // down why: the last sentence of a paragraph is written to be read *after* the
+  // rest of it, so it is full of back-reference. Lifted out on its own it became
+  // "Neither can you", "whatever those two can be got to agree to make", "needs
+  // to know which you have", "The river can rise in two". Every one of them
+  // grammatical, and every one of them pointing at a sentence that is no longer
+  // there.
+  //
+  // These two beats cannot do that. The opening sentence has nothing before it
+  // to refer back to, and "You are the X, which means Y" carries its own
+  // antecedent. Two sentences that always parse beat three that sometimes do.
+  const first = sentences[0];
+  const authority = sentences.find((x, i) => i > 0 && /\bYou (are|lead|direct|have|run)\b/.test(x))
+                 ?? sentences[1];
+  const out = [first];
+  if (authority && authority !== first && (first.length + authority.length) <= budget) {
+    out.push(authority);
+  }
+  return out.join(' ');
+};
+
+/**
+ * What the course actually covers, out of the syllabus the game is measured
+ * against. A spread rather than the first few: the list is in teaching order,
+ * so the top of it is all foundations and reads the same for every game in a
+ * subject. Sampling across it shows the range instead.
+ */
+const conceptsOf = (id, n = 5) => {
+  const all = (SYLLABUS[id]?.concepts ?? []).map(c => c.c).filter(Boolean);
+  if (all.length <= n) return all;
+  const step = (all.length - 1) / (n - 1);
+  return Array.from({ length: n }, (_, i) => all[Math.round(i * step)]);
 };
 
 /** How many days and how many stops the campaign actually runs to. */
@@ -158,6 +234,8 @@ const catalogue = ALL.map(g => ({
   hero: copyHero(g),
   role: roleOf(g.build),
   grade: gradeOf(g.build),
+  drama: dramaOf(g.build),
+  concepts: conceptsOf(g.build),
   size: sizeOf(g.build),
   built: existsSync(resolve(GAMES_DIR, g.build, 'index.html')),
 }));
