@@ -1,8 +1,12 @@
 import * as THREE from 'three';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { colliders, softColliders } from './world.js';
+import { initTouch, wantsTouch } from './touch.js';
 
 export let controls, camera, velocity, moveState, isLocked=false, playerHeight=1.7;
+// Null on anything with a mouse. `main.js` calls setMode on it so the collective
+// buttons only appear in the air.
+export let touchControls = null;
 let onGround=true;
 
 // Set by initPlayer from the theme. Indoors the ground is flat and `GROUND`
@@ -40,6 +44,9 @@ export function initPlayer(canvas, scene, renderer, opts = {}){
 
   // Click to lock
   renderer.domElement.addEventListener('click', ()=>{
+    // A tablet has no Pointer Lock API, so this would either throw or resolve
+    // never; touch.js has already declared the player locked by hand.
+    if(wantsTouch()) return;
     const overlay=document.getElementById('overlay');
     if(overlay && overlay.classList.contains('show')) return;
     const setup=document.getElementById('setupOverlay');
@@ -56,6 +63,17 @@ export function initPlayer(canvas, scene, renderer, opts = {}){
   window.addEventListener('keyup', onKeyUp);
 
   scene.add(controls.getObject());
+
+  // Thumbs, where there is no mouse to lock. `isLocked` gates both updatePlayer
+  // and the interaction raycast, and on a tablet nothing will ever set it, so
+  // the touch layer declares it — there is no pointer to capture and therefore
+  // nothing to be locked out of.
+  touchControls = initTouch({ camera, moveState });
+  if(touchControls){
+    isLocked = true;
+    document.body.classList.add('locked');
+  }
+
   return { camera, controls };
 }
 
@@ -104,7 +122,12 @@ export function updatePlayer(delta){
   // compute desired move
   const move = new THREE.Vector3();
   if(forward) move.addScaledVector(dir, forward * speed * delta);
-  if(right) move.addScaledVector(rightDir, -right * speed * delta);
+  // `rightDir` is already the camera's own right — dir × up — so the scalar is
+  // `right`, not `-right`. It was negated for most of this repo's life, which
+  // strafed A to the right and D to the left in all fifteen games. Nobody
+  // reported it because a mouse corrects the heading faster than the error
+  // registers; a thumbstick does not, which is how it finally surfaced.
+  if(right) move.addScaledVector(rightDir, right * speed * delta);
 
   const oldPos = controls.getObject().position.clone();
   const newPos = oldPos.clone().add(move);

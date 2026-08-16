@@ -8,7 +8,7 @@
 import theme from '@theme/theme.js';
 import * as world from '../engine/core/world.js';
 import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLocked,
-         setGround, setBounds, moveState } from '../engine/core/player.js';
+         setGround, setBounds, moveState, touchControls } from '../engine/core/player.js';
 import { updateInteractions, getCurrentTarget } from '../engine/core/interactions.js';
 import { initCrowd, updateCrowd, getNPCs } from '../engine/people/crowd.js';
 import {
@@ -328,8 +328,13 @@ const sheet = (id, on) => {
 };
 function openMap(){
   // The M-key sheet is the whole screen: give the map most of it.
+  // 760, not 1100: the sheet card is `min(820px, 100%)` and the body and the map
+  // wrapper take 30 px of padding a side out of that. The old number was never
+  // reached while the map was the whole site — the aspect of the place capped the
+  // width first — and the moment a windowed map filled it, the right-hand edge of
+  // the drawing and every label on it went under the edge of the card.
   document.getElementById('mapBody').innerHTML = renderMap({
-    maxW: Math.min(1100, innerWidth - 120), maxH: Math.min(760, innerHeight - 190),
+    maxW: Math.min(760, innerWidth - 120), maxH: Math.min(760, innerHeight - 190),
   });
   sheet('mapOverlay', true);
 }
@@ -422,18 +427,25 @@ function frame(now){
   if(flying.active) flying.update(delta);
   else if(driving.active) driving.update(delta);
   else updatePlayer(delta);
+  // The collective is the one control that does not exist on foot, so the two
+  // buttons for it come and go with the aircraft. Null on anything with a mouse.
+  touchControls?.setMode(flying.active ? 'fly' : driving.active ? 'drive' : 'walk');
   miniMap?.update(now);
   if(isLocked && !driving.active && !flying.active) updateInteractions(promptEl);
   else if(driving.active){
     // A scooter is not got out of. The vehicle carries its own line where the
     // default one would be wrong.
     promptEl.textContent = driving.vehicle?.hint
-      ?? 'W/S drive · A/D steer · Shift faster · E — get out';
+      ?? (touchControls ? 'Thumb forward to drive · left and right to steer · Run for speed · Use — get out'
+                        : 'W/S drive · A/D steer · Shift faster · E — get out');
     promptEl.classList.remove('hidden');
   } else if(flying.active){
     const alt = Math.round(flying.altitude);
-    promptEl.textContent = `R climb · F descend · W/S · A/D yaw · Shift faster · ${alt} m · `
-      + (flying.airborne ? 'E — land first' : 'E — get out');
+    promptEl.textContent = touchControls
+      ? `Climb · Descend · thumb to fly and yaw · Run for speed · ${alt} m · `
+        + (flying.airborne ? 'Use — land first' : 'Use — get out')
+      : `R climb · F descend · W/S · A/D yaw · Shift faster · ${alt} m · `
+        + (flying.airborne ? 'E — land first' : 'E — get out');
     promptEl.classList.remove('hidden');
   } else promptEl.classList.add('hidden');
 
@@ -476,9 +488,15 @@ if(import.meta.env?.DEV){
   // `teleport` is here because a background tab gets no animation frame, so the
   // player never walks and every interaction test fails for a reason that has
   // nothing to do with the game. Fourth time that cost an hour.
+  // `moveState` + `updatePlayer` for the same reason, one level down: teleport
+  // answers "can the player be somewhere", not "does the input that is supposed
+  // to walk them actually walk them". Importing player.js from the console does
+  // not answer it either — that resolves to a second copy of the module with its
+  // own uninitialised `camera`, which is the trap in THEME_CONTRACT's console
+  // note. Stepping through this handle is the only honest test of an input path.
   exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition, teleport,
                        updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving, flying, day,
-                       interiors });
+                       interiors, moveState, updatePlayer, touchControls });
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `
     + `${Object.values(theme.content.CURRICULUM).reduce((n, v) => n + v.length, 0)} lessons.\n`
