@@ -17,19 +17,30 @@ does not look like the eight already built, and a decision the campaign can turn
 on that is genuinely arguable from both sides. An idea missing any of the three
 is in "not yet" at the bottom, with the reason.
 
-## The subject gaps, as of the twelfth game
+## The subject gaps, as of the fifteenth game
 
-Covered: analytical chemistry · nuclear physics · astronomy and mechanics ·
-biology and epidemiology · mechanics, circuits and thermal · waves and acoustics
-· power systems and AC · anatomy (grade 2) · seismology and structural
-engineering · modern quantum · statistics and study design · climate measurement
-and proxies.
+Covered: analytical chemistry · physical chemistry, the reaction half · nuclear
+physics · astronomy and mechanics · biology and epidemiology · genetics and plant
+breeding · mechanics, circuits and thermal · waves and acoustics · power systems
+and AC · anatomy (grade 2) · seismology and structural engineering · modern
+quantum · statistics and study design · climate measurement and proxies ·
+calculus.
 
 Still open, roughly in order of how many students sit the course: control
-systems, organic and process chemistry, and materials. Four of the gaps this
+systems, organic and process chemistry, and materials. Five of the gaps this
 list opened with have been built since it was written — statistics as The Trial,
-climate measurement as Ice Core, calculus as Headwater, and genetics as
-Wellmere.
+climate measurement as Ice Core, calculus as Headwater, genetics as Wellmere, and
+the back half of AP Chemistry as Red Sand.
+
+**A second game on one subject is allowed, and Red Sand is the worked example.**
+The Contaminated City had chemistry, and what it had was the front of the course:
+composition, gases, solutions, stoichiometry, thermochemistry. Kinetics,
+equilibrium, electrochemistry, entropy and free energy — the half students
+actually fail — were untouched by any of the fourteen games. The test that
+matters is not "is this subject taken" but "which units, and does the place force
+the argument the units are about": a propellant plant makes rate and equilibrium
+the same argument about the same reactor, which a course taught unit by unit
+never gets to do.
 
 Calculus was worth a note while it was open, and the note is still the reason
 Headwater is written the way it is. Bring Them Home lists integration among its
@@ -43,6 +54,30 @@ sit.
 
 Worked out to the level a scaffold needs: the course, the place, the argument
 with its named days, the areas, the equation list and the arc.
+
+### ~~Red Sand~~ — built, the fifteenth game
+
+Arcadia Rise, a propellant plant on Mars. See `GAMES.md` for what it is and
+`STORIES.md` for what happens in it. Three things it proved that the next one can
+lean on:
+
+- **A subject already covered can be split by unit.** The whole game is the AP
+  Chemistry units The Contaminated City does not teach, and the two share only
+  the mole.
+- **A site plan can be a syllabus.** The plant is laid out in process order —
+  intake, water, electrolysis, reactor, cold end, tanks, pad — so walking from
+  the spawn to the vehicle walks one carbon atom through the course, and the day
+  budget makes the far end of the process cost real time.
+- **The engine can be taught a sky that is not Earth's.** `atmosphere.tint` and
+  `atmosphere.haze` in `outdoorSite.js` are two optional keys, added for this
+  game and inert everywhere else: the Preetham model solves for nitrogen and
+  oxygen and no combination of its four uniforms reaches butterscotch, so the
+  dome's own output is tinted and the horizon and fog are given the colour to
+  match. Anything else off Earth costs those two lines and nothing more.
+
+Left unfinished when it shipped: the eight-shot ballpark set covers eight of its
+nine equations and the ninth (Q against K) is reasoned about rather than
+computed, and none of the twenty instrument formats is authored.
 
 ### ~~Aftershock~~ — built, August 2026
 
@@ -416,6 +451,70 @@ also better writing. And `tools/common-words.mjs` is load-bearing across every
 game — adding farm vocabulary to it to quiet `jargonDepth` moved the `JARGON[n]`
 stamping in three unrelated themes and broke their book parity. Reword the
 glossary instead.
+
+**And then the place was rebuilt, which is the part worth reading.** Wellmere
+shipped on `outdoorTown` with six buildings in a yard and a rectangular trial
+field north of them. It passed every check and it was the weakest place in the
+set, for a reason worth naming: **its layout was arbitrary.** Nothing about where
+the vault sat relative to the crossing hall taught anything, so at a glance it
+read as the same silhouette as Riverton, Calder and Arcadia Rise — buildings
+standing in a yard — and the one shape carrying it sat 140 m from the spawn.
+
+The set's good places all have an **axis that is the course**: Quantum walks a
+temperature, Red Sand walks a carbon atom through a process, Headwater walks a
+height, The Trial walks distance from the patient. Wellmere had none. The rebuild
+gave it one, and the quantity is **isolation distance** — the hardest practical
+constraint in plant breeding, because two populations that must not cross must
+not be able to reach each other. Wheat is safe at about 20 m, maize wants 200, a
+wind-pollinated outcrosser wants a kilometre.
+
+So the station is now concentric, on a headland called Saltmere Point:
+
+    r = 0        the crossing block, alone
+    r = 18–42    inner buffer — mown, empty, and empty is the point
+    r = 42–75    the increase ring — screenhouses, regeneration plots
+    r = 75–102   outer buffer
+    r = 102–150  the trial ring, in arcs
+    r = 141      the compound on the neck — vault, laboratory
+    r = 170      the cliff, and the sea, on every bearing but one
+    r = 326      the gate, at the far end of the causeway
+
+What that bought, none of it needing a line of question-writing:
+
+- **The walk costs what the science costs.** `budgetForRoute` measures the day
+  from the map, so reaching the crossing block is expensive *because it is
+  isolated* — which is the trade-off a breeder makes for real.
+- **The buffers are visible and empty**, with a marker line and a plate on each
+  boundary. An isolation buffer is *nothing*, and nothing is invisible; the
+  marker is what turns an empty band into a stated rule.
+- **The threat has a direction.** Prevailing wind south-west, over the causeway,
+  off the mainland — the one approach is also the one bearing contamination can
+  arrive on, and Idris Fenn's farm is at the end of it, visible and never
+  reachable. Days 12 and 13 are now an argument about something you can see.
+- **The sea is the isolation**, which is a boundary needing no fence and no
+  explaining, and the plots curve, which nothing else in the set does.
+- **A rule became a building.** The glasshouse range stands *inside* the inner
+  buffer, where nothing may flower in the open — because a sealed house is its
+  own isolation. The one structure allowed in the empty band is the one that does
+  not need it.
+
+Four things the rebuild cost, all of them reusable:
+
+- **`mesa.rimRadius` may now be a function of bearing** (`outdoorSite.js`), in
+  the same spirit as a horizon rank's `amp`. A mesa whose rim reaches a long way
+  on one bearing and stops short elsewhere *is* a promontory with a neck, and the
+  neck is a causeway once there is water round it. Inert for every other theme.
+- **`water.open`** skips the carved channel and the bank, and **`water.colour` /
+  `roughness` / `metalness`** let a theme state its own. The default is a river
+  seen from its bank; on 2,400 m of open sea it mirrored the whole sky and
+  rendered as white paper, and the island stopped reading as one.
+- **A rim is one radius per bearing, so it cannot say land, sea, land.** The
+  mainland is therefore horizon ranks and distant props, never terrain — which is
+  fine, because the player is stopped at the gate.
+- **The ground and the crop have to be a value apart.** First pass had both at a
+  mid green, so 1,300 plots read as one flat smear from twenty metres. The fix is
+  the ground: turned earth, two stops darker and browner than looks right on the
+  canvas. Then the crop pops without being lightened into pastel.
 
 ### Headwater — the sketch this was built from
 

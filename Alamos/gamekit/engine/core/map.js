@@ -52,8 +52,21 @@ function heading(x, z, yaw, len, colour){
     + `<path d="M${tx},${tz} L${ax},${az} L${bx},${bz} Z" fill="${colour}"/>`;
 }
 
-/** World bounds that hold everything worth drawing. */
+/**
+ * World bounds that hold everything worth drawing.
+ *
+ * A site may state its own with `site.mapBounds`, and one with a long approach
+ * should. The bounds are otherwise the union of every building, path and the
+ * spawn — which is right for a town and wrong for a place reached down a
+ * corridor: Wellmere's causeway is a 170 m path with nothing on it, and drawing
+ * it squeezed the entire station into the top quarter of a vertical ribbon. The
+ * map is how a person stop is found, so what it must show is where people are.
+ */
 function bounds(site){
+  if(site.mapBounds){
+    const m = site.mapBounds;
+    return { x0: m.x0, x1: m.x1, z0: m.z0, z1: m.z1 };
+  }
   const xs = [], zs = [];
   // An interior describes itself as rooms along a plan rather than buildings on
   // terrain. Without this the map had nothing to size itself against and drew

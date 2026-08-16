@@ -56,9 +56,17 @@ export function groundHeight(x, z){ return terrainHeight(x, z); }
 // --------------------------------------------------------------------- water
 function buildWater(water){
   const geo = new THREE.PlaneGeometry(water.width, water.depth, 1, 1);
-  const m = new THREE.Mesh(geo, mat('town.water', () => new THREE.MeshStandardMaterial({
-    color: 0x2c4a52, roughness: 0.12, metalness: 0.35, envMapIntensity: 1.0,
-  })));
+  // A theme may state its own. The default is a river seen from its bank, and a
+  // river's material on two thousand metres of open sea mirrors the whole sky
+  // and renders as white paper — the horizon disappears and an island stops
+  // reading as one.
+  const colour = water.colour ?? 0x2c4a52;
+  const rough = water.roughness ?? 0.12;
+  const metal = water.metalness ?? 0.35;
+  const m = new THREE.Mesh(geo, mat(`town.water.${colour}.${rough}.${metal}`,
+    () => new THREE.MeshStandardMaterial({
+      color: colour, roughness: rough, metalness: metal, envMapIntensity: 1.0,
+    })));
   m.rotation.x = -Math.PI / 2;
   m.position.set(water.cx, water.level ?? -0.6, water.cz);
   m.receiveShadow = true;
@@ -66,6 +74,12 @@ function buildWater(water){
   // below-floor rule should not report.
   m.userData.ignoreAudit = true;
   scene.add(m);
+
+  // `open: true` is the sea rather than a river: the landform already puts the
+  // ground below the plane everywhere the water is, so there is no channel to
+  // cut and — the part that matters — no bank. A bank is a kerb along one edge,
+  // and a kerb laid across open water is a concrete wall standing in the sea.
+  if(water.open) return m;
 
   // A low bank on the town side, so the water plane never meets the terrain in a
   // visible seam. The bed cut by `setWaterBed` is what puts the water *below* the
@@ -144,7 +158,9 @@ export function initWorld(canvas, activeTheme){
   // The river bed, registered with the pads and for the same reason: the visible
   // terrain mesh is built from groundHeight(), so a channel added afterwards would
   // exist in the height function and not on screen.
-  if(site.water){
+  // Open water needs no bed: the landform is already below the plane out there,
+  // and carving a rectangular channel into a coastline puts a trench across it.
+  if(site.water && !site.water.open){
     const w = site.water;
     const level = w.level ?? -0.6;
     setWaterBed({
@@ -335,15 +351,22 @@ export function updateTimeOfDay(hours){
 export function getPeopleStations(){ return peopleStations; }
 export function getExtraSpots(){
   const site = theme?.site ?? {};
+  // A site may name its own gathering points — a triage queue, an ambulance
+  // bay, a screening line. Paths alone put everybody on the roads, which is
+  // right for a town and wrong for a campus whose whole story happens in the
+  // courtyards between the buildings. Each entry may carry `weight` to ask for
+  // several people at that spot.
+  const named = (site.crowdSpots ?? []).flatMap(s =>
+    Array.from({ length: Math.max(1, s.weight ?? 1) }, () => ({ x: s.x, z: s.z })));
   // Along the routes, which is where people in a working city actually are.
-  return (site.paths ?? []).flatMap(p => {
+  return [...named, ...(site.paths ?? []).flatMap(p => {
     const long = p.d > p.w;
     const n = Math.max(2, Math.round((long ? p.d : p.w) / 26));
     return Array.from({ length: n }, (_, i) => {
       const t = (i + 0.5) / n - 0.5;
       return long ? { x: p.cx, z: p.cz + t * p.d } : { x: p.cx + t * p.w, z: p.cz };
     });
-  });
+  })];
 }
 
 /** Spin the objective ring so the marker is findable in peripheral vision. */

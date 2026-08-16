@@ -3,7 +3,7 @@
 > New game? Start at [`README.md`](README.md), which names the two documents
 > to read first — `gamekit/STORY_SPEC.md` then `gamekit/NEW_GAME.md`.
 
-Fourteen playable games, one engine. Everything below is current as of the last
+Fifteen playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`GAME_IDEAS.md` is the games that do not exist yet** — the subject gaps and
@@ -14,7 +14,7 @@ timeline, the four beats of a day card, and how each is checked.
 
 ```sh
 cd gamekit
-npm run check                       # all fifteen themes: content, reachability, styles, world parity
+npm run check                       # all sixteen themes: content, reachability, styles, world parity
 THEME=<name> npm run dev            # every game: all of them live in gamekit/themes now
 npm run shots <theme>               # a picture of every room, and a contact sheet
 npm run traps                       # break every instrument trap; all 35 must fire
@@ -34,11 +34,12 @@ npm run drive <theme>               # open every live panel in Chrome, answer it
 | **The Trial** | `gamekit/themes/the_trial` | AP Statistics — experimental design and inference — carried through a running clinical trial. Methodology & Operations Lead, CLARION-3 | One long floor, and the walk down it is distance from the patient: screening and infusion at the south end, then monitoring, the central lab, adjudication, and the data floor with the enrolment wall at the north. The corridor is a gradient in evidence, the way Quantum's is a gradient in temperature |
 | **Ice Core** | `gamekit/themes/icecore` | Earth and environmental science, with the measurement half of a palaeoclimate course. Season Science Lead, Vestri Dome | A deep-drilling camp on a high polar plateau: six modules on legs beside a groomed route, flag lines on both sides of it, a trench dug into the snow with a tower over it, and a stake array two kilometres out. The flattest, emptiest horizon in the set — the skyline ranks are seven metres high at six hundred metres out, and there is nothing else on it |
 | **Headwater** | `gamekit/themes/headwater` | Calculus, through a reservoir that has to be drawn down before it rains. Includes DERIVE, the twentieth instrument: build a result line by line, each line naming the rule it used | A five-storey tower in a gorge beside the dam. The whole east side is one floor-to-soffit glazed screen onto the spillway, and the hallways and stairs have **no ceiling at all** — you look up the shaft to the sky, open-air-mall fashion. Only the offices and labs are roofed |
-| **Wellmere** | `gamekit/themes/seedbank` | AP Biology, the half a hospital campus cannot reach: heredity, population genetics, selection, plant energetics. Season Lead, Wellmere Seed Bank | A working farm with a vault under it. Two shapes carry it and nothing else in the set has either: a range of three glazed glasshouse bays, and **the trial grid** — 240 staked plots on a numbered lattice running north to a shelterbelt, walked between, with a wet corner that flatters whatever is in it |
+| **Wellmere** | `gamekit/themes/seedbank` | AP Biology, the half a hospital campus cannot reach: heredity, population genetics, selection, plant energetics. Season Lead, Wellmere, Saltmere Point | **The layout is the syllabus, and the quantity is isolation distance.** A breeding station on a headland, laid out in concentric rings by how far pollen travels: the crossing block alone at the centre, an empty buffer, the increase ring, another buffer, the trial ring in arcs, and the compound out on the neck. Sea on three bearings — the sea *is* the isolation — and one causeway south to a gate, which is also the only bearing contamination can arrive on. The plots curve, which nothing else in the set does |
+| **Red Sand** | `gamekit/themes/redsand` | AP Chemistry, the back half of the course The Contaminated City leaves alone: kinetics, equilibrium, electrochemistry, entropy and free energy, phase behaviour, colligative properties. Propellant Lead, Arcadia Rise | A propellant plant on Mars, and the only place in the set on another planet. Nine modules buried to the eaves in regolith along one graded track, an ascent vehicle standing on a pad four hundred metres past the last of them with a propellant gauge up its side that fills as the campaign does, six hundred solar panels with the swept third legible from the road, and a butterscotch sky the engine had to be taught to draw. **The geography is the process**: walking the site from the spawn to the pad walks one carbon atom through the whole plant, in order |
 | **Project Y** | `gamekit/themes/projecty` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. The last game to lose its own entry point: `project-y-fps/` is a tombstone now |
 | **Hospital Heroes** | `gamekit/themes/hospital` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it, and the floor `engine/world/interiorSite.js` was generalised out of. `audience: { grade: 2 }`, so its whole interface comes up 1.18× larger |
 
-A fifteenth theme, `instruments`, is registered and checked but is not a game:
+A sixteenth theme, `instruments`, is registered and checked but is not a game:
 four missions authoring one stop of each instrument format, so a panel can be
 opened without playing to the day that holds it.
 
@@ -95,7 +96,7 @@ The three games that predate the format were converted with
 the generated `content/`, and `bookParity` inside `npm run check` fails if any
 book stops regenerating what its game ships. All eleven pass.
 
-## Starting an eleventh
+## Starting a sixteenth
 
 ```sh
 npm run new-theme <name>                 # a town
@@ -122,13 +123,14 @@ anything. Then replace `book.yml`. Full runbook: `gamekit/NEW_GAME.md`.
   this problem: they register in `engine/core/instruments.js` with
   `{ html, bind, verdict, facts, tag }` and reach the game only through the
   `ctx.commit` they are handed.
-- **The twelve instruments are unauthored by every shipped game** — see above.
-  The engine, the importer traps and the two harnesses (`npm run traps`,
-  `npm run drive`) are done; the questions are not written.
+- **The instruments are nearly unauthored by the shipped games.** Red Sand
+  authors one — an ALLOCATE on its dust-storm sol, which `npm run drive redsand`
+  exercises — and the other fourteen games author none. The engine, the importer
+  traps and the two harnesses (`npm run traps`, `npm run drive`) are done; the
+  questions are not written.
 - **Engine vocabulary** still says `divisions`, `budget`, `Director funds`.
-- **`STORIES.md` is two games behind** — it carries eight, and Aftershock and
-  Quantum are not in it. A day cannot be checked against an arc that is not
-  written down.
+- **`STORIES.md` is behind** — Aftershock and Quantum are still not in it. A day
+  cannot be checked against an arc that is not written down; Red Sand is.
 - **Quantum still ships the scaffold's placeholder site name** —
   `site: { kind: 'interior', name: 'Replace with the name of this place', plan }`
   in `themes/quantum/theme.js`. The place is called the Ridgeway Quantum

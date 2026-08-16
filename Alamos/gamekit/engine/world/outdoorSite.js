@@ -26,6 +26,10 @@ export const TERRAIN_DEFAULTS = {
   summits: [],             // [{ x, z, r, height, sharp }]
   basin: -40,              // where the ground sits between the summits
   relief: 1.0,             // vertical scale of the surface undulation
+  // 'mesa': a flat top with a hard rim. `rimRadius` may be a number or a
+  // function of the bearing — see `rimRadius()` — and a shaped one is how a
+  // headland is built. `farRise` beyond the map extent leaves the ground down
+  // at the foot of the drop, which is what a sea needs under it.
   mesa: { rimRadius: 122, rimWobble: [6, 4, 2], dropDepth: 62, dropRun: 52, farRise: 230 },
   // 'gorge' only: a valley with a dam across it. Heights are metres above the
   // valley floor at the toe, which is where the powerhouse stands.
@@ -145,9 +149,23 @@ export function pathWeight(x, z, feather = 8){
   return best;
 }
 
+/**
+ * How far the flat top reaches on a given bearing.
+ *
+ * `mesa.rimRadius` may be a **function of the bearing** as well as a number, in
+ * the same spirit as a horizon rank's `amp`: given the angle it returns the
+ * radius. That is what turns a mesa into a headland — a plateau that reaches a
+ * long way on one bearing and stops short everywhere else is a promontory with a
+ * neck, and the neck is a causeway once there is water round it.
+ *
+ * The wobble is added either way, so a shaped rim still gets a coastline rather
+ * than a drawn circle. A theme that wants a *hard* edge on some bearing sets
+ * `rimWobble: [0, 0, 0]`.
+ */
 function rimRadius(ang){
   const m = CFG.mesa, [a, b, c] = m.rimWobble;
-  return m.rimRadius + Math.sin(ang * 3.1) * a + Math.cos(ang * 5.7) * b + Math.sin(ang * 11.3) * c;
+  const base = typeof m.rimRadius === 'function' ? m.rimRadius(ang) : m.rimRadius;
+  return base + Math.sin(ang * 3.1) * a + Math.cos(ang * 5.7) * b + Math.sin(ang * 11.3) * c;
 }
 
 /**
@@ -705,6 +723,27 @@ export function buildSky(scene, renderer, atmosphere = {}){
     u.mieDirectionalG.value = A.mieG;
   }
 
+  // A sky that is not Earth's. `atmosphere.tint` multiplies the dome's own
+  // colour, and the same tint goes on the dome that bakes the IBL so the ground
+  // and every surface under it are lit by the same sky the player sees.
+  //
+  // It exists because the physical sky model is Preetham's, which solves for
+  // Rayleigh scattering off nitrogen and oxygen. No combination of its four
+  // uniforms produces the butterscotch of a dusty carbon-dioxide atmosphere:
+  // turbidity and mie make it hazier and paler, and rayleigh only ever moves it
+  // between blue and white. Tinting the output is honest about what it is — the
+  // scattering is still Earth's, and the colour is the theme's.
+  if(A.tint !== undefined){
+    const c = new THREE.Color(A.tint);
+    for(const s of [sky, envSky]){
+      s.material.uniforms.skyTint = { value: c };
+      s.material.fragmentShader = 'uniform vec3 skyTint;\n' + s.material.fragmentShader
+        .replace('gl_FragColor = vec4( retColor, 1.0 );',
+                 'gl_FragColor = vec4( retColor * skyTint, 1.0 );');
+      s.material.needsUpdate = true;
+    }
+  }
+
   const sp = [], sc = [];
   for(let i = 0; i < A.stars; i++){
     const u = srand() * Math.PI * 2, v = Math.acos(srand() * 0.98), R = A.scale * 0.92;
@@ -804,8 +843,16 @@ export function updateSky(scene, direction, dayBlend){
     scene.background = deep ? (scene.userData.nightColour ??= new THREE.Color(night)) : null;
   }
 
-  const horizon = new THREE.Color().setHSL(
-    0.58 - 0.05 * dayBlend, 0.10 + 0.22 * dayBlend, 0.035 + 0.72 * dayBlend);
+  // The colour the far ridges are hazed toward, and the colour the fog takes.
+  // The default is a blue-grey daylight sky. `atmosphere.haze` overrides it with
+  // a night and a day colour of the theme's own, for the same reason `tint`
+  // exists: on a dusty planet a blue horizon behind a butterscotch sky puts a
+  // seam along the skyline that no amount of fog tuning removes.
+  const hz = A.haze;
+  const horizon = hz
+    ? new THREE.Color(hz.night ?? 0x120b08).lerp(new THREE.Color(hz.day ?? 0xd8a172), Math.pow(dayBlend, 0.8))
+    : new THREE.Color().setHSL(
+      0.58 - 0.05 * dayBlend, 0.10 + 0.22 * dayBlend, 0.035 + 0.72 * dayBlend);
   ridges.forEach(r => {
     r.mesh.material.color.copy(r.base).lerp(horizon, r.haze * (0.55 + 0.45 * dayBlend));
     if(dayBlend < 0.35) r.mesh.material.color.multiplyScalar(0.18 + 0.82 * (dayBlend / 0.35));

@@ -1,76 +1,73 @@
-// shots.js — where to stand to photograph Wellmere.
+// shots.js — where to stand to photograph Saltmere Point.
 //
 // The world is generated from site.js, so `shots` can find the buildings on its
-// own. What it cannot find is the half of this place that is not a building:
-// the trial grid, the wet corner, the shelterbelt and the glasshouse range read
-// from *between* things, and every one of them is evidence a lesson turns on.
-// A contact sheet of six doorways would say nothing about whether the grid is
-// laid out, whether the wet corner is visible from the alley, or whether the
-// glasshouse roofs are sitting on their parapets — which is exactly the defect
-// they had first time round.
+// own. What it cannot find is the thing this place is *for*: the rings, the
+// empty bands between them, the cliff, the causeway and the farm across the
+// water. A contact sheet of six doorways would say nothing about whether the
+// layout reads as a layout, which is the only reason it was rebuilt.
 //
 // Yaw is the game's: forward is (−sin θ, 0, −cos θ). θ = 0 looks toward −z,
-// which is north, up the site toward the trial ground.
-const N = 0;                 // toward −z, up the slope
-const S = Math.PI;           // toward +z, back to the road
-const E = -Math.PI / 2;      // toward +x
-const W = Math.PI / 2;       // toward −x
+// which is north, up the Point toward the crossing block at the centre.
+const N = 0;                 // toward −z, up the Point
+const S = Math.PI;           // toward +z, back down the causeway
+const E = -Math.PI / 2;
+const W = Math.PI / 2;
 
 export const VIEWS = [
-  // ---------------------------------------------------------------- the yard
-  { name: 'yard--spawn', at: { x: 0, z: 52 }, yaw: N,
-    note: 'where the day starts: the glasshouses ahead, the ground beyond them' },
-  { name: 'yard--vault', at: { x: -18, z: 50 }, yaw: W,
-    note: 'the vault, from the yard — the one building with no windows' },
-  { name: 'yard--drying', at: { x: 20, z: 50 }, yaw: E,
-    note: 'the drying hall and the seed crates outside its door' },
-  { name: 'yard--board', at: { x: 10, z: 54 }, yaw: N,
-    note: 'the season board, read from where somebody would stand at it' },
-  { name: 'yard--south', at: { x: 0, z: 58 }, yaw: S,
-    note: 'records and the threshing floor, and the sacks waiting to be threshed' },
+  // ---------------------------------------------------------- the approach
+  { name: 'a-gate', at: { x: 0, z: 318 }, yaw: N,
+    note: 'from the gate, the whole walk in: causeway, compound, and the Point beyond' },
+  { name: 'b-causeway', at: { x: 0, z: 260 }, yaw: N,
+    note: 'on the causeway — sea both sides, and it should read as a neck' },
+  { name: 'c-causeway-back', at: { x: 0, z: 240 }, yaw: S,
+    note: 'looking back down the causeway at the gate and the mainland' },
+  { name: 'd-mainland', at: { x: -30, z: 300 }, yaw: S,
+    note: "Fenn's farm across the water, upwind, and never reachable" },
 
-  // ------------------------------------------------------- the working middle
-  { name: 'middle--crossing', at: { x: -24, z: 2 }, yaw: W,
-    note: 'the crossing hall, with the nursery benches of pots outside it' },
-  { name: 'middle--lab', at: { x: 24, z: 2 }, yaw: E,
-    note: 'the molecular laboratory' },
+  // ---------------------------------------------------------- the compound
+  { name: 'e-spawn', at: { x: 0, z: 155 }, yaw: N,
+    note: 'where the day starts: vault and laboratory either side, rings beyond' },
+  { name: 'f-compound-back', at: { x: 0, z: 150 }, yaw: S,
+    note: 'records, the threshing floor, and the causeway leaving south' },
+  { name: 'g-windsock', at: { x: 34, z: 158 }, yaw: E,
+    note: 'the windsock, which points at the argument' },
 
-  // ------------------------------------------------- the glasshouse range
-  // Three glazed bays in a row: the shape that carries the place at a distance,
-  // and the one that was wrong first time — the gables sat inside the parapets
-  // and read as a fan of loose slats from the road.
-  { name: 'glasshouse--range', at: { x: -2, z: -14 }, yaw: N,
-    note: 'the range head on: roofs should sit ON the parapets, not inside them' },
-  // Three quarters from the north-west, out on open ground. Due west puts the
-  // three bays one behind another and photographs the end of the nearest — they
-  // are 26 m deep and 26 m apart — and the south-west approach is blocked by the
-  // crossing hall.
-  { name: 'glasshouse--along', at: { x: -72, z: -70 }, yaw: -1.97,
-    note: 'all three bays at three quarters, so the range reads as one run of glass' },
-  { name: 'glasshouse--screening', at: { x: 26, z: -22 }, yaw: N,
-    note: 'the screening bay, which carries the red band and is kept apart' },
+  // -------------------------------------------------------- the trial ring
+  { name: 'h-trial-marker', at: { x: 0, z: 112 }, yaw: N,
+    note: 'the TRIAL RING boundary sign, standing on the boundary it names' },
+  { name: 'i-trial-arc', at: { x: 30, z: 118 }, yaw: W,
+    note: 'along the arc — the plots should curve, which no other game has' },
+  { name: 'j-trial-lab', at: { x: 62, z: -62 }, yaw: -Math.PI * 0.25,
+    note: 'the field laboratory, standing in its own wedge of the ring' },
+  { name: 'k-trial-seaward', at: { x: -96, z: -60 }, yaw: W,
+    note: 'the seaward plots, which stand thinner, and the cliff behind them' },
 
-  // ----------------------------------------------------------- the ground
-  { name: 'field--road', at: { x: 0, z: -84 }, yaw: N,
-    note: 'the field road, with the two field buildings either side' },
-  { name: 'field--screenhouse', at: { x: 12, z: -88 }, yaw: N,
-    note: 'the screenhouse: mesh on a frame, benched trays inside' },
-  { name: 'field--gate', at: { x: 0, z: -125 }, yaw: N,
-    note: 'the trial gate, and the whole grid behind it to the shelterbelt' },
+  // ------------------------------------------------------------ the buffers
+  { name: 'l-buffer-outer', at: { x: 0, z: 90 }, yaw: N,
+    note: 'the outer buffer: it is meant to be empty, and empty is the lesson' },
+  { name: 'm-increase-marker', at: { x: 0, z: 80 }, yaw: N,
+    note: 'the INCREASE RING boundary, where the empty band ends' },
+  { name: 'n-screenhouses', at: { x: -40, z: 62 }, yaw: -Math.PI * 0.75,
+    note: 'the screenhouses, in the ring whose radius is why they work' },
+  { name: 'o-increase-arc', at: { x: -58, z: -20 }, yaw: N,
+    note: 'the increase ring from inside it: smaller plots, one accession each' },
 
-  // The grid itself. Half the campaign's calls are made looking at this, and
-  // the wet corner is the evidence in three of them — it has to be legible from
-  // the alley without anybody being told it is there.
-  { name: 'trial--alley', at: { x: -30, z: -150 }, yaw: E,
-    note: 'down an alley, across the rows' },
-  { name: 'trial--middle', at: { x: 0, z: -170 }, yaw: N,
-    note: 'in among the plots, halfway up' },
-  { name: 'trial--wet-corner', at: { x: 40, z: -190 }, yaw: N,
-    note: 'the north-east corner: these plots should read darker and thicker' },
-  { name: 'trial--shelterbelt', at: { x: 0, z: -222 }, yaw: N,
-    note: 'the top of the ground, the shelterbelt, and the ridge behind it' },
-  { name: 'trial--back', at: { x: 0, z: -205 }, yaw: S,
-    note: 'looking back down the grid at the station, which is the long view' },
+  // ------------------------------------------------------------ the centre
+  { name: 'p-inner-buffer', at: { x: 0, z: 34 }, yaw: N,
+    note: 'the last buffer, and the crossing block alone at the middle of it' },
+  { name: 'q-crossing', at: { x: 0, z: 22 }, yaw: N,
+    note: 'the crossing block: the most isolated point on the site, by design' },
+  { name: 'r-centre-out', at: { x: 0, z: -12 }, yaw: N,
+    note: 'from the centre looking out — rings, cliff, and sea past them' },
+  { name: 's-centre-sea', at: { x: -8, z: 6 }, yaw: W,
+    note: 'west from the centre: every ring in one frame, ending at the water' },
+
+  // --------------------------------------------------------------- the edge
+  // North-west, clear of the shelterbelt. The first version of this viewpoint
+  // stood inside a tree, which is what a soft collider stops the player doing
+  // and does not stop a teleport doing.
+  { name: 't-cliff', at: { x: -108, z: -108 }, yaw: Math.PI * 0.25,
+    note: 'the cliff edge and its fence, with open sea beyond' },
 ];
 
 export default VIEWS;

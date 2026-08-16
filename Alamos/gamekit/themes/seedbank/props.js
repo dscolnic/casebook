@@ -1,114 +1,124 @@
-// props.js — the objects that make Wellmere a seed bank on a farm.
+// props.js — what makes Saltmere Point a breeding station laid out by distance.
 //
 // Generic shells, benches, bins and signs come from engine/world/kit.js and are
-// configured in site.js. What is here is the two things that carry the
-// silhouette, and nothing else in the set has either:
+// configured in site.js. What is here is the layout *as an object*: the rings,
+// the empty bands between them, the cliff that ends them and the one direction
+// anything can arrive from.
 //
-//   · **the trial grid** — 240 plots on a numbered lattice running north to the
-//     shelterbelt. A grid of staked plots stretching to a treeline is a shape no
-//     town has, and half the campaign's calls happen looking at it.
-//   · **the glasshouse range** — three glazed volumes in a row. site.js builds
-//     the shells; what makes them read as glass is the roof and the glazing
-//     bars, which are here.
+// EVERYTHING IS POLAR. `site.js` exports `RINGS` and every radius below is read
+// from it, because the boundary markers have to stand on the boundary the
+// buildings were placed against. Two descriptions of one ring is how a sign
+// saying ISOLATION 18 M ends up at 61 m, and nothing in `check` can see it.
 //
-// Two rules paid for elsewhere in this repo and obeyed here:
+// Rules paid for elsewhere in this repo and obeyed here:
 //
 //   · Placement helpers take `(x, z, y)` — ground last.
-//   · No real lights. This is a daytime site and the budget is the sun rig; the
-//     one lit thing is an emissive panel.
-//
-// Everything repeated more than about forty times is an InstancedMesh with its
-// bounding sphere computed by hand. An instanced mesh whose instances are all
-// two hundred metres from its origin has a useless default bounding sphere and
-// vanishes; `frustumCulled = false` fixes that by pushing it through the
-// renderer from every camera angle, which is the expensive way to be correct.
+//   · No real lights. Daytime site; the budget is the sun rig.
+//   · An InstancedMesh whose instances are all two hundred metres from its
+//     origin has a useless default bounding sphere and vanishes, so every one
+//     below computes its own rather than turning culling off.
+//   · An albedo darker than looks right, because under ACES with a bright sky
+//     IBL a mid one renders near-white.
 
 import * as THREE from 'three';
 import {
-  MATERIALS, box, cyl, post, sign, crateStack, tank, fenceRun, vehicle,
+  MATERIALS, box, cyl, sign, crateStack, tank, fenceRun, vehicle,
 } from '../../engine/world/kit.js';
+import { RINGS, rimAt } from './site.js';
 
-// ---------------------------------------------------------------- the trial
-//
-// 20 plots across by 12 up: 240, which is the number on the season board and in
-// four of the lessons. A plot is 5 m by 6 m with a metre of alley round it, so
-// the grid is 120 m across and 84 m deep and the player walks the alleys.
-const PLOT = { cols: 20, rows: 12, w: 5, d: 6, gap: 1.0 };
-const GRID = {
-  x0: -((PLOT.cols * (PLOT.w + PLOT.gap)) / 2) + (PLOT.w + PLOT.gap) / 2,
-  z0: -142,          // the near edge, just past the field road
-};
-const plotX = (c) => GRID.x0 + c * (PLOT.w + PLOT.gap);
-const plotZ = (r) => GRID.z0 - r * (PLOT.d + PLOT.gap);
+const TAU = Math.PI * 2;
 
-/** Deterministic noise. Math.random would give a different field every load. */
+/** Deterministic noise. Math.random would give a different station every load. */
 const rnd = (i, salt = 0) => {
   const s = Math.sin(i * 127.1 + salt * 311.7) * 43758.5453;
   return s - Math.floor(s);
 };
 
-/**
- * The trial ground: 240 crop blocks, 240 stakes, and one wet corner.
- *
- * The crop is one instanced box per plot rather than modelled ears. At the
- * distance a plot is read from — the alley, or the field laboratory window —
- * height and colour are the whole content, and both of them are the data: a
- * plot's height varies by line, and the north-east corner is greener because it
- * is the wet corner three lessons turn on.
- */
-function trialGrid(scene, y){
-  const N = PLOT.cols * PLOT.rows;
-  // A plot's crop is 4.4 m of a 5 m plot, so the alley reads as an alley from
-  // the end of the row rather than the grid closing up into one field.
-  const crop = new THREE.InstancedMesh(
-    new THREE.BoxGeometry(PLOT.w - 0.6, 1, PLOT.d - 0.6),
-    new THREE.MeshStandardMaterial({ roughness: 0.97, metalness: 0, envMapIntensity: 0.35 }),
-    N);
-  crop.material.color.set(0xffffff);          // instance colours carry it
-  const stake = new THREE.InstancedMesh(
-    new THREE.BoxGeometry(0.05, 0.9, 0.05), MATERIALS.paintedSteel(0x6a6252), N);
-  const tag = new THREE.InstancedMesh(
-    new THREE.BoxGeometry(0.16, 0.11, 0.012), MATERIALS.panel(), N);
+/** Polar to world. Bearing in radians, 0 = north (−z), clockwise. */
+const pol = (r, a) => ({ x: Math.sin(a) * r, z: -Math.cos(a) * r });
 
-  const m = new THREE.Matrix4();
-  const c = new THREE.Color();
-  let i = 0;
-  for(let r = 0; r < PLOT.rows; r++){
-    for(let col = 0; col < PLOT.cols; col++, i++){
-      const x = plotX(col), z = plotZ(r);
-      const g = y(x, z);
-      // Height is the line, plus the site. The campaign opens in the first week
-      // of March with sowing three weeks off, so this is a winter crop in early
-      // spring — green and about knee high — rather than the ripe wheat it was
-      // first built as. Waist-high straw here made the grid read as a maze of
-      // walls and put the season five months ahead of the story.
-      const line = 0.30 + 0.22 * rnd(i, 1);
-      // The wet corner: north-east, and it flatters whatever is in it. This is
-      // the reason TRIAL/3 exists, and it should be visible from the alley.
-      const wet = Math.max(0, (col - 12) / 7) * Math.max(0, (r - 7) / 4);
-      const h = line + wet * 0.16;
-      m.makeTranslation(x, g + h / 2, z);
-      m.elements[5] = h;                       // scale y in place
-      crop.setMatrixAt(i, m);
-      // Spring green, varying by line, and the wet corner darker and thicker —
-      // which is the whole of the evidence in three of the trial lessons and
-      // has to be visible from the alley without anybody being told.
-      //
-      // The lightness looks far too dark written down and is correct on screen.
-      // Under ACES with a bright sky IBL a mid albedo renders near-white, which
-      // is how a wheat trial came out as a car park the first time.
-      c.setHSL(0.235 + 0.020 * wet + 0.015 * rnd(i, 2),
-               0.34 + 0.18 * wet,
-               0.145 + 0.045 * rnd(i, 3) - 0.02 * wet);
-      crop.setColorAt(i, c);
-      // The stake stands in the alley at the plot's south-west corner, which is
-      // where a plot number goes on a real trial and where the player reads it.
-      const sx = x - PLOT.w / 2 - PLOT.gap / 2, sz = z + PLOT.d / 2 + PLOT.gap / 2;
-      const sg = y(sx, sz);
-      stake.setMatrixAt(i, m.makeTranslation(sx, sg + 0.45, sz));
-      tag.setMatrixAt(i, m.makeTranslation(sx, sg + 0.86, sz + 0.02));
+/** Compass bearing to the atan2(z, x) angle the terrain's rim is written in. */
+const rimOnBearing = (a) => rimAt(Math.atan2(-Math.cos(a), Math.sin(a)));
+
+/** How far the land reaches straight out along +z at this z. Half-width, metres. */
+function landHalfWidth(z){
+  let half = 0;
+  for(let x = 0; x < 80; x += 0.5){
+    if(Math.hypot(x, z) < rimAt(Math.atan2(z, x))) half = x;
+  }
+  return half;
+}
+
+// ---------------------------------------------------------------- the plots
+//
+// A plot on a ring is a wedge, not a rectangle: the same 5 m by 6 m at the
+// radius it sits at, laid along the arc. That is the shape the layout gives for
+// free, and no other game in the set has a curved field.
+function ringPlots(scene, y, { r0, r1, plotD = 6, plotW = 5, gap = 1.2, skip = () => false, seed = 0 }){
+  const rows = [];
+  for(let r = r0 + plotD / 2; r + plotD / 2 <= r1; r += plotD + gap) rows.push(r);
+  const cells = [];
+  for(const r of rows){
+    const step = (plotW + gap) / r;              // angular pitch at this radius
+    const n = Math.max(4, Math.floor(TAU / step));
+    for(let i = 0; i < n; i++){
+      const a = i * (TAU / n);
+      const p = pol(r, a);
+      if(skip(p.x, p.z, r, a)) continue;
+      cells.push({ ...p, r, a });
     }
   }
+  if(!cells.length) return null;
+
+  const crop = new THREE.InstancedMesh(
+    new THREE.BoxGeometry(plotW - 0.5, 1, plotD - 0.5),
+    new THREE.MeshStandardMaterial({ roughness: 0.97, metalness: 0, envMapIntensity: 0.35 }),
+    cells.length);
+  crop.material.color.set(0xffffff);
+  const stake = new THREE.InstancedMesh(
+    new THREE.BoxGeometry(0.05, 0.85, 0.05), MATERIALS.paintedSteel(0x6a6252), cells.length);
+  const tag = new THREE.InstancedMesh(
+    new THREE.BoxGeometry(0.15, 0.1, 0.012), MATERIALS.panel(), cells.length);
+
+  const m = new THREE.Matrix4();
+  const q = new THREE.Quaternion();
+  const up = new THREE.Vector3(0, 1, 0);
+  const scl = new THREE.Vector3();
+  const pos = new THREE.Vector3();
+  const c = new THREE.Color();
+
+  cells.forEach((cell, i) => {
+    const j = i + seed * 977;
+    const g = y(cell.x, cell.z);
+    // A winter crop in early spring: green, knee high. Waist-high straw made the
+    // first version of this field read as a maze of walls, and put the season
+    // five months ahead of a campaign that opens in the first week of March.
+    const line = 0.38 + 0.24 * rnd(j, 1);
+    // The seaward side stands thinner: the wind is off the water on that bearing
+    // and the soil over the cliff is shallowest. This is the ring's own site
+    // effect, and it is what three of the trial lessons are arguing about.
+    const exposure = Math.max(0, -Math.cos(cell.a - Math.PI * 0.15));
+    const h = line * (1 - 0.30 * exposure);
+    q.setFromAxisAngle(up, cell.a);
+    scl.set(1, h, 1);
+    pos.set(cell.x, g + h / 2, cell.z);
+    crop.setMatrixAt(i, m.compose(pos, q, scl));
+    // Saturated enough to separate from the turned earth it stands in. The
+    // ground is the browner half of this pair and the crop is the greener; get
+    // them within a stop of each other and the whole field reads as one surface.
+    c.setHSL(0.245 - 0.025 * exposure + 0.015 * rnd(j, 2),
+             0.55 - 0.14 * exposure,
+             0.115 + 0.038 * rnd(j, 3));
+    crop.setColorAt(i, c);
+    // The stake goes on the inboard edge, in the alley, where a plot number is
+    // read from — which on a ring means toward the centre.
+    const sp = pol(cell.r - plotD / 2 - gap / 2, cell.a);
+    const sg = y(sp.x, sp.z);
+    scl.set(1, 1, 1);
+    stake.setMatrixAt(i, m.compose(pos.set(sp.x, sg + 0.42, sp.z), q, scl));
+    tag.setMatrixAt(i, m.compose(pos.set(sp.x, sg + 0.82, sp.z), q, scl));
+  });
+
   for(const mesh of [crop, stake, tag]){
     mesh.instanceMatrix.needsUpdate = true;
     mesh.computeBoundingSphere();
@@ -120,33 +130,150 @@ function trialGrid(scene, y){
 }
 
 /**
- * The shelterbelt at the top of the ground. Two staggered rows of conifer, dark
- * and close, because the point of one is that it is a wall — and because the
- * campaign's horizon is otherwise the same hills at every bearing.
+ * A boundary marker on a ring: a short post, a rail either side of it, and a
+ * plate saying what the distance is for.
+ *
+ * This is the one prop that makes the whole layout legible. An isolation buffer
+ * is *nothing* — twenty-odd metres of mown grass — and nothing is invisible. The
+ * marker turns an empty band into a stated rule, and it is why a player who asks
+ * "why is there a gap here" gets an answer standing in front of them.
  */
-function shelterbelt(scene, y, soft){
+function ringMarkers(scene, y, r, text, { count = 10, colour = 0xb8a24a, soft } = {}){
+  const plate = MATERIALS.paintedSteel(colour);
+  const steel = MATERIALS.paintedSteel(0x7d7a6e);
+  for(let i = 0; i < count; i++){
+    const a = (i / count) * TAU + 0.13;
+    const p = pol(r, a);
+    const g = y(p.x, p.z);
+    const grp = new THREE.Group();
+    box(grp, 0.09, 1.5, 0.09, 0, 0.75, 0, steel);
+    box(grp, 0.62, 0.34, 0.05, 0, 1.32, 0.06, plate);
+    // A rail either side, so the line reads as a line and not as scattered posts.
+    for(const s of [-1, 1]) box(grp, 3.6, 0.07, 0.07, s * 2.1, 0.95, 0, steel);
+    for(const s of [-1, 1]) box(grp, 0.07, 0.95, 0.07, s * 3.9, 0.48, 0, steel);
+    grp.position.set(p.x, g, p.z);
+    grp.rotation.y = a;
+    scene.add(grp);
+    if(soft) soft({ x: p.x, z: p.z, r: 0.6 });
+  }
+  // One legible sign per ring, beside the ring road the player walks in on.
+  const p = pol(r, Math.PI);
+  sign(scene, text, {
+    x: p.x + 8, y: y(p.x + 8, p.z) + 2.4, z: p.z, w: 6.6, h: 1.4, facing: Math.PI,
+    sub: 'Wellmere isolation standard',
+  });
+}
+
+/** The cliff-edge fence. The sea is the boundary; this is what stops a fall. */
+function cliffFence(scene, y, colliders){
   const N = 96;
-  const trunk = new THREE.InstancedMesh(
-    new THREE.CylinderGeometry(0.16, 0.24, 3, 5), MATERIALS.paintedSteel(0x4a3f33), N);
-  const crown = new THREE.InstancedMesh(
-    new THREE.ConeGeometry(2.1, 9, 7), new THREE.MeshStandardMaterial({
-      color: 0x2f4030, roughness: 0.96, metalness: 0 }), N);
+  let run = null;
+  for(let i = 0; i <= N; i++){
+    const a = (i / N) * TAU;
+    // Break the fence where the neck leaves the headland: that is the causeway,
+    // and it has rails of its own.
+    if(rimOnBearing(a) > RINGS.rim + 1){ run = null; continue; }
+    const p = pol(RINGS.rim - 4, a);
+    if(run){
+      colliders.push(fenceRun(scene, {
+        x0: run.x, z0: run.z, x1: p.x, z1: p.z,
+        y: y((run.x + p.x) / 2, (run.z + p.z) / 2), height: 1.3,
+      }));
+    }
+    run = p;
+  }
+}
+
+/**
+ * The causeway: a roadway with the sea both sides, and a rail on each.
+ *
+ * The rail is not decoration. The neck is eleven metres of land either side of
+ * the road at its widest and four at the gate, so without one the walk out is a
+ * walk on an unmarked ledge.
+ */
+function causeway(scene, y, colliders){
+  for(const s of [-1, 1]){
+    let prev = null;
+    for(let z = 176; z <= 340; z += 8){
+      // Follow the land, not a straight line: the neck tapers, so a straight
+      // rail runs into the sea at one end and stands in the field at the other.
+      const p = { x: s * Math.max(3.8, landHalfWidth(z) - 2.0), z };
+      if(prev){
+        colliders.push(fenceRun(scene, {
+          x0: prev.x, z0: prev.z, x1: p.x, z1: p.z,
+          y: y((prev.x + p.x) / 2, (prev.z + p.z) / 2), height: 1.15,
+        }));
+      }
+      prev = p;
+    }
+  }
+}
+
+/**
+ * Idris Fenn's farm, on the mainland, and the sea between.
+ *
+ * Looked at, argued about, never walked to. It is upwind — the prevailing wind
+ * is south-west, over the causeway — which is the whole reason the crossing
+ * block is a hundred and fifty metres the other way, and the reason days twelve
+ * and thirteen are about somebody else's field.
+ *
+ * Given no collider at all, because nothing here is reachable: the gate is the
+ * end of the walk.
+ */
+function mainland(scene){
+  const g = new THREE.Group();
+  const land = new THREE.Mesh(
+    new THREE.PlaneGeometry(1600, 460),
+    new THREE.MeshStandardMaterial({ color: 0x59654a, roughness: 0.98, metalness: 0,
+      envMapIntensity: 0.3 }));
+  land.rotation.x = -Math.PI / 2;
+  land.position.set(0, -17.2, 760);
+  land.userData.ignoreAudit = true;
+  g.add(land);
+  // A low shore, so the far side of the water is a coast rather than a cut edge.
+  const shore = box(g, 1600, 3.4, 28, 0, -18.3, 545, MATERIALS.paintedSteel(0x6c6a58));
+  if(shore) shore.userData.ignoreAudit = true;
+
+  // Fenn's ground: field blocks in the middle distance, on the bearing the wind
+  // comes from. Bigger and squarer than anything on the Point, because a farm is
+  // not laid out by isolation distance — which is the comparison being drawn.
+  const fields = new THREE.InstancedMesh(
+    new THREE.BoxGeometry(1, 1, 1),
+    new THREE.MeshStandardMaterial({ roughness: 0.97, metalness: 0, envMapIntensity: 0.3 }),
+    26);
   const m = new THREE.Matrix4();
-  for(let i = 0; i < N; i++){
-    const row = i % 2;
-    const x = -168 + (i / N) * 336 + rnd(i, 4) * 4;
-    const z = -252 - row * 7 - rnd(i, 5) * 3;
-    const g = y(x, z);
-    const s = 0.82 + 0.36 * rnd(i, 6);
-    trunk.setMatrixAt(i, m.makeTranslation(x, g + 1.5 * s, z).scale(new THREE.Vector3(s, s, s)));
-    crown.setMatrixAt(i, m.makeTranslation(x, g + 6.4 * s, z).scale(new THREE.Vector3(s, s, s)));
-    soft({ x, z, r: 1.7 * s });
+  const q = new THREE.Quaternion();
+  const up = new THREE.Vector3(0, 1, 0);
+  const c = new THREE.Color();
+  for(let i = 0; i < 26; i++){
+    const w = 60 + 90 * rnd(i, 7), d = 50 + 80 * rnd(i, 8);
+    const x = -540 + 1080 * rnd(i, 9);
+    const z = 590 + 300 * rnd(i, 10);
+    q.setFromAxisAngle(up, (rnd(i, 11) - 0.5) * 0.5);
+    fields.setMatrixAt(i, m.compose(
+      new THREE.Vector3(x, -16.8, z), q, new THREE.Vector3(w, 0.9, d)));
+    c.setHSL(0.16 + 0.09 * rnd(i, 12), 0.30, 0.17 + 0.05 * rnd(i, 13));
+    fields.setColorAt(i, c);
   }
-  for(const mesh of [trunk, crown]){
-    mesh.instanceMatrix.needsUpdate = true;
-    mesh.computeBoundingSphere();
-    scene.add(mesh);
-  }
+  fields.instanceMatrix.needsUpdate = true;
+  if(fields.instanceColor) fields.instanceColor.needsUpdate = true;
+  fields.computeBoundingSphere();
+  fields.userData.ignoreAudit = true;
+  g.add(fields);
+
+  // The farmstead itself, south-west, so the windsock and the argument point at
+  // the same thing.
+  const farm = new THREE.Group();
+  box(farm, 22, 9, 13, 0, 4.5, 0, MATERIALS.paintedSteel(0x8a8271));
+  box(farm, 34, 7, 15, 30, 3.5, 14, MATERIALS.paintedSteel(0x6f7466));
+  box(farm, 9, 12, 9, -22, 6, 6, MATERIALS.paintedSteel(0x94897a));
+  farm.position.set(-300, -16.4, 610);
+  farm.rotation.y = 0.4;
+  farm.userData.ignoreAudit = true;
+  g.add(farm);
+
+  scene.add(g);
+  return g;
 }
 
 /**
@@ -155,7 +282,7 @@ function shelterbelt(scene, y, soft){
  * ordinary building; this is what turns it into a glasshouse from a hundred
  * metres, which is the distance it is nearly always seen from.
  */
-function glaze(scene, { x, z, w, d, h }, y, tint){
+function glaze(scene, { x, z, w, d, h }, y, tint, facing = 0){
   const g = new THREE.Group();
   const glass = new THREE.MeshStandardMaterial({
     color: 0xc2d6d0, roughness: 0.18, metalness: 0, transparent: true, opacity: 0.52,
@@ -207,20 +334,20 @@ function glaze(scene, { x, z, w, d, h }, y, tint){
   // The screening bay is kept apart and painted so: a red band at the eaves.
   if(tint) for(const s of [-1, 1]) box(g, 0.2, 0.34, d + 0.4, s * half, roofY - 0.3, 0, MATERIALS.paintedSteel(tint));
   g.position.set(x, y(x, z), z);
+  g.rotation.y = facing;
   scene.add(g);
   return g;
 }
 
 /**
- * The screenhouse: a mesh box on a frame, which is how an increase of one
- * accession stays that accession. Deliberately not glazed — the whole point of
- * it is that air goes through and pollen does not.
+ * A screenhouse: mesh on a frame, benched trays inside. Deliberately not glazed
+ * — the whole point is that air goes through it and pollen does not.
  */
-function screenhouse(scene, x, z, y, w = 16, d = 11, h = 3.6){
+function screenhouse(scene, x, z, y, facing = 0, w = 13, d = 9, h = 3.4){
   const g = new THREE.Group();
   const frame = MATERIALS.paintedSteel(0x9aa0a2);
   const mesh = new THREE.MeshStandardMaterial({
-    color: 0xb9c2bb, roughness: 0.95, metalness: 0, transparent: true, opacity: 0.4,
+    color: 0xb0b9b2, roughness: 0.95, metalness: 0, transparent: true, opacity: 0.42,
     side: THREE.DoubleSide,
   });
   for(const [sx, sz] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]){
@@ -232,108 +359,178 @@ function screenhouse(scene, x, z, y, w = 16, d = 11, h = 3.6){
     const side = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mesh);
     side.position.set(0, h / 2, s * d / 2);
     g.add(side);
-    const endp = new THREE.Mesh(new THREE.PlaneGeometry(d, h), mesh);
-    endp.rotation.y = Math.PI / 2;
-    endp.position.set(s * w / 2, h / 2, 0);
-    g.add(endp);
+    const end = new THREE.Mesh(new THREE.PlaneGeometry(d, h), mesh);
+    end.rotation.y = Math.PI / 2;
+    end.position.set(s * w / 2, h / 2, 0);
+    g.add(end);
   }
   const top = new THREE.Mesh(new THREE.PlaneGeometry(w, d), mesh);
   top.rotation.x = -Math.PI / 2;
   top.position.y = h;
   g.add(top);
-  // Benched trays inside, so it is not an empty cage.
-  for(let i = -2; i <= 2; i++){
-    box(g, w - 2.4, 0.08, 0.9, 0, 0.78, i * 2.0, MATERIALS.panel());
-    for(const s of [-1, 1]) box(g, 0.07, 0.78, 0.07, s * (w / 2 - 1.6), 0.39, i * 2.0, frame);
+  for(let i = -1; i <= 1; i++){
+    box(g, w - 2.2, 0.08, 0.85, 0, 0.76, i * 2.4, MATERIALS.panel());
+    for(const s of [-1, 1]) box(g, 0.07, 0.76, 0.07, s * (w / 2 - 1.5), 0.38, i * 2.4, frame);
   }
   g.position.set(x, y(x, z), z);
+  g.rotation.y = facing;
   scene.add(g);
   return g;
 }
 
 /**
- * Decorate the station. `ctx` is the outdoor world's, after ground, buildings
- * and site furniture.
+ * The shelterbelt on the windward quarter: two staggered rows of salt-burned
+ * conifer, leaning inland. Nothing on a coast grows straight.
+ *
+ * All the way round it would be scenery. On one bearing it is a statement about
+ * where the weather — and everything else — arrives from.
+ */
+function shelterbelt(scene, y, soft){
+  const N = 64;
+  const trunk = new THREE.InstancedMesh(
+    new THREE.CylinderGeometry(0.15, 0.22, 3, 5), MATERIALS.paintedSteel(0x4a3f33), N);
+  const crown = new THREE.InstancedMesh(
+    new THREE.ConeGeometry(1.9, 7.5, 7), new THREE.MeshStandardMaterial({
+      color: 0x33422f, roughness: 0.96, metalness: 0 }), N);
+  const m = new THREE.Matrix4();
+  const q = new THREE.Quaternion();
+  const lean = new THREE.Vector3(0, 0, 1);
+  const scl = new THREE.Vector3();
+  const pos = new THREE.Vector3();
+  for(let i = 0; i < N; i++){
+    const row = i % 2;
+    // The south-west quarter only, which is where the weather and the
+    // neighbour's pollen come from.
+    const a = 3.45 + (i / N) * 1.75 + rnd(i, 4) * 0.02;
+    const r = RINGS.rim - 12 - row * 7 - rnd(i, 5) * 3;
+    const p = pol(r, a);
+    const g = y(p.x, p.z);
+    const s = 0.72 + 0.3 * rnd(i, 6);
+    // Leaning inland. 0.14 rad is enough to read and not enough to look broken.
+    q.setFromAxisAngle(lean, 0.14 * Math.sin(a));
+    scl.set(s, s, s);
+    trunk.setMatrixAt(i, m.compose(pos.set(p.x, g + 1.4 * s, p.z), q, scl));
+    crown.setMatrixAt(i, m.compose(pos.set(p.x, g + 5.4 * s, p.z), q, scl));
+    soft({ x: p.x, z: p.z, r: 1.5 * s });
+  }
+  for(const mesh of [trunk, crown]){
+    mesh.instanceMatrix.needsUpdate = true;
+    mesh.computeBoundingSphere();
+    scene.add(mesh);
+  }
+}
+
+/**
+ * Decorate the Point. `ctx` is the outdoor world's, after ground, buildings and
+ * site furniture.
  */
 export function decorate(scene, ctx){
   const { groundHeight, colliders, softColliders } = ctx;
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
 
-  // ============================================================== the ground
-  trialGrid(scene, y);
+  // ================================================================ the rings
+  // The trial ring, minus the wedges the two field buildings stand in.
+  ringPlots(scene, y, {
+    r0: RINGS.trial.r0, r1: RINGS.trial.r1, seed: 1,
+    skip: (x, z) => Math.hypot(x - 82, z + 82) < 22 || Math.hypot(x - 128, z - 13) < 24,
+  });
+  // The increase ring: smaller plots and more of them, because an increase is
+  // one accession at a time.
+  ringPlots(scene, y, {
+    r0: RINGS.increase.r0, r1: RINGS.increase.r1, plotW: 3.4, plotD: 4, gap: 1.6, seed: 2,
+    skip: (x, z) => Math.hypot(x + 41.7, z + 41.7) < 20,
+  });
+  // The crossing block's own ground: a handful of bagged rows at the centre.
+  ringPlots(scene, y, { r0: 9, r1: 17, plotW: 2.6, plotD: 3, gap: 1.4, seed: 3 });
+
+  // The boundaries, which are what make the empty bands mean anything.
+  ringMarkers(scene, y, RINGS.buffer1.r0, 'ISOLATION 18 M — nothing in flower beyond this line',
+    { count: 8, colour: 0xb8a24a, soft });
+  ringMarkers(scene, y, RINGS.increase.r0, 'INCREASE RING — one accession to a plot',
+    { count: 12, colour: 0x6f9487, soft });
+  ringMarkers(scene, y, RINGS.trial.r0, 'TRIAL RING — commercial scale, nothing crossed here',
+    { count: 16, colour: 0x8a7b57, soft });
+
+  // ================================================================ the edges
+  cliffFence(scene, y, colliders);
+  causeway(scene, y, colliders);
+  mainland(scene);
   shelterbelt(scene, y, soft);
 
-  // A stock fence round the trial, with the gate left where the field road
-  // meets it. A trial ground is fenced because a trial eaten by deer is not a
-  // trial, and it is the line that says where the experiment starts.
+  // ========================================================= the glasshouses
+  // In the inner buffer, because a sealed house is its own isolation — see the
+  // note on LANDMARKS in site.js. The order round the arc is the order the
+  // campaign uses them: warm, cool, screening.
+  glaze(scene, { x: -20.1, z: -22.3, w: 12, d: 20, h: 5.2 }, y, null, Math.PI * 1.77);
+  glaze(scene, { x: 0, z: -31.0, w: 12, d: 20, h: 5.2 }, y, null, Math.PI);
+  glaze(scene, { x: 20.1, z: -22.3, w: 12, d: 20, h: 5.2 }, y, 0xb5502f, Math.PI * 0.23);
+
+  // ============================================================ the increase
+  // Screenhouses: mesh cages where an accession is grown out with nothing flying
+  // in. They are the physical form of the day 9 lesson, standing in the ring
+  // whose radius is the reason they work.
+  for(let i = 0; i < 3; i++){
+    const a = Math.PI * (1.12 + i * 0.17);
+    const p = pol(RINGS.increase.r0 + 15, a);
+    colliders.push(new THREE.Box3().setFromObject(screenhouse(scene, p.x, p.z, y, a)));
+  }
   {
-    const x0 = plotX(0) - PLOT.w / 2 - 3, x1 = plotX(PLOT.cols - 1) + PLOT.w / 2 + 3;
-    const z0 = GRID.z0 + PLOT.d / 2 + 3, z1 = plotZ(PLOT.rows - 1) - PLOT.d / 2 - 3;
-    const runs = [
-      [x0, z0, -6, z0], [6, z0, x1, z0],       // the near side, with the gateway
-      [x0, z1, x1, z1],
-      [x0, z0, x0, z1], [x1, z0, x1, z1],
-    ];
-    for(const [ax, az, bx, bz] of runs){
-      colliders.push(fenceRun(scene, {
-        x0: ax, z0: az, x1: bx, z1: bz, y: y((ax + bx) / 2, (az + bz) / 2), height: 1.5,
-      }));
-    }
-    // Gateposts, either side of the gap the field road runs through.
-    for(const s of [-1, 1]) soft(post(scene, s * 6, z0, y(s * 6, z0), 1.9, 0.12, 0x6a6252));
+    const p = pol(RINGS.increase.r0 + 15, Math.PI * 1.12);
+    sign(scene, 'Screenhouses', {
+      x: p.x, y: y(p.x, p.z + 10) + 3.0, z: p.z + 10, w: 4.8, h: 1.4, facing: Math.PI,
+      sub: 'Insect-proof mesh · regeneration',
+    });
   }
 
-  // ========================================================= the glasshouses
-  // The three bays, in the order the campaign uses them: warm, cool, screening.
-  glaze(scene, { x: -26, z: -40, w: 14, d: 26, h: 5.4 }, y, null);
-  glaze(scene, { x: 0, z: -40, w: 14, d: 26, h: 5.4 }, y, null);
-  glaze(scene, { x: 26, z: -40, w: 14, d: 26, h: 5.4 }, y, 0xb5502f);
-
-  // The screenhouse, on the field road west of the Genetic Resources office.
-  // Its nameplate is a plain sign rather than a site landmark: a landmark is a
-  // building, and a 0.1 m building still gets a 2.6 m door.
-  colliders.push(new THREE.Box3().setFromObject(screenhouse(scene, 12, -108, y)));
-  sign(scene, 'Screenhouse', {
-    x: 12, y: y(12, -102) + 3.0, z: -102.2, w: 4.6, h: 1.5, facing: Math.PI,
-    sub: 'Insect-proof mesh · seed increase',
-  });
-
-  // ================================================================ the yard
-  // A drill and a tractor, parked where they were left. The drill is the thing
-  // the whole first week is counted towards.
-  // `vehicle` returns a Box3, not a soft circle: these go in the hard list.
-  colliders.push(vehicle(scene, -16, 26, y(-16, 26), { facing: 0.3, colour: 0x2f6a3f, box: false }));
-  colliders.push(vehicle(scene, 20, 22, y(20, 22), { facing: -0.5, colour: 0xa8481f, box: true }));
-
-  // Grain, going out and coming back. Sacks by the threshing floor, seed crates
-  // by the drying hall door.
-  soft(crateStack(scene, 22, 68, y(22, 68), { rows: 3, colour: 0x9a8b6a }));
-  soft(crateStack(scene, 26, 70, y(26, 70), { rows: 2, colour: 0x8d7f61 }));
-  soft(crateStack(scene, 46, 40, y(46, 40), { rows: 2, colour: 0x7f8a7c }));
-
-  // Irrigation, because the wet corner and the dry season are half the argument.
-  soft(tank(scene, 62, -70, y(62, -70), { r: 3.2, h: 8, colour: 0xb6bcb2 }));
-  soft(tank(scene, 70, -70, y(70, -70), { r: 3.2, h: 8, colour: 0xaeb4ab }));
-
-  // Rows of pots outside the crossing hall: a nursery bench, and the only thing
-  // on the station that looks like it is being worked on today.
+  // ================================================================= the gate
+  // Built here rather than in site.js: a landmark 326 m down the causeway drags
+  // the minimap's bounds out with it, and the map is how a person stop is found.
   {
-    const pots = new THREE.InstancedMesh(
-      new THREE.CylinderGeometry(0.14, 0.11, 0.24, 8), MATERIALS.paintedSteel(0x8a5a44), 120);
-    const m = new THREE.Matrix4();
-    for(let i = 0; i < 120; i++){
-      const row = Math.floor(i / 30);
-      const x = -56 + (i % 30) * 0.42, z = 4 + row * 0.5;
-      pots.setMatrixAt(i, m.makeTranslation(x, y(x, z) + 0.72, z));
-    }
-    pots.instanceMatrix.needsUpdate = true;
-    pots.computeBoundingSphere();
-    scene.add(pots);
-    for(let row = 0; row < 4; row++){
-      box(scene, 13, 0.07, 0.62, -49.7, y(-49.7, 4 + row * 0.5) + 0.6, 4 + row * 0.5, MATERIALS.panel());
-    }
-    soft({ x: -49.7, z: 4.8, r: 7 });
+    const z = 326, g = y(0, z);
+    const kiosk = new THREE.Group();
+    box(kiosk, 3.4, 3.0, 3.0, 0, 1.5, 0, MATERIALS.paintedSteel(0x8f9186));
+    box(kiosk, 4.2, 0.3, 3.8, 0, 3.1, 0, MATERIALS.paintedSteel(0x6f7466));
+    box(kiosk, 1.6, 1.1, 0.1, 0, 1.9, 1.55, MATERIALS.glass());
+    kiosk.position.set(-5.2, g, z);
+    scene.add(kiosk);
+    colliders.push(new THREE.Box3().setFromObject(kiosk));
+    // The barrier itself, across the road, in the raised position.
+    const arm = new THREE.Group();
+    box(arm, 0.16, 1.1, 0.16, 0, 0.55, 0, MATERIALS.paintedSteel(0x9aa0a2));
+    box(arm, 0.14, 7.0, 0.14, 0, 4.4, 0, MATERIALS.paintedSteel(0xc4552f));
+    arm.position.set(-2.8, g, z);
+    scene.add(arm);
+    sign(scene, 'Point Gate', {
+      x: 3.6, y: g + 2.9, z, w: 5.0, h: 1.4, facing: Math.PI,
+      sub: 'The only way on or off the Point',
+    });
+    soft({ x: -2.8, z, r: 0.6 });
+  }
+
+  // ============================================================= the compound
+  // `vehicle` returns a Box3, not a soft circle: these go in the hard list.
+  colliders.push(vehicle(scene, -14, 160, y(-14, 160), { facing: 0.3, colour: 0x2f6a3f, box: false }));
+  colliders.push(vehicle(scene, 18, 163, y(18, 163), { facing: -0.5, colour: 0xa8481f, box: true }));
+
+  soft(crateStack(scene, 24, 182, y(24, 182), { rows: 3, colour: 0x9a8b6a }));
+  soft(crateStack(scene, 28, 184, y(28, 184), { rows: 2, colour: 0x8d7f61 }));
+  soft(tank(scene, -50, 152, y(-50, 152), { r: 3.0, h: 7.5, colour: 0xb6bcb2 }));
+
+  // The windsock, on the bearing everything else on this site is about.
+  {
+    const p = { x: 48, z: 152 };
+    const g = y(p.x, p.z);
+    cyl(scene, 0.12, 8, p.x, g + 4, p.z, MATERIALS.paintedSteel(0x8d949a));
+    const sock = new THREE.Mesh(
+      new THREE.ConeGeometry(0.62, 2.6, 10, 1, true),
+      new THREE.MeshStandardMaterial({ color: 0xc4552f, roughness: 0.9, metalness: 0,
+        side: THREE.DoubleSide }));
+    sock.rotation.z = -Math.PI / 2;
+    sock.rotation.y = Math.PI * 0.25;          // streaming away from the south-west
+    sock.position.set(p.x + 1.1, g + 7.4, p.z);
+    scene.add(sock);
+    soft({ x: p.x, z: p.z, r: 0.8 });
   }
 }
 

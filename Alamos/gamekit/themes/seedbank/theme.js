@@ -71,11 +71,12 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'You are Season Lead at Wellmere, where forty-one thousand seed samples are held at '
-    + 'minus eighteen and a breeding programme works the ground above them. Sowing starts in '
-    + 'three weeks. The trial has to be laid out, the overdue accessions grown out, and a new '
-    + 'wheat either released to the merchant or held back. Two hundred kilometres east there is '
-    + 'a rust the programme has one gene against, and it is moving this way.',
+    'You are Season Lead at Wellmere, a breeding station on Saltmere Point, where forty-one '
+    + 'thousand seed samples are held at minus eighteen and the ground is laid out in rings by '
+    + 'how far pollen travels. Sowing starts in three weeks. The trial has to be laid out, the '
+    + 'overdue accessions grown out, and a new wheat either released to the merchant or held '
+    + 'back. Two hundred kilometres east there is a rust the programme has one gene against, '
+    + 'and the wind that would bring it comes over the causeway.',
   ],
 
   look: {
@@ -88,7 +89,11 @@ export default {
     // sits at scale + 250. At 900 it is clipped away from the trial ground and
     // the sky renders black above the shelterbelt in broad daylight.
     far: 1500,
-    fog: { colour: 0xc3ccc9, near: 220, far: 900 },
+    // Pushed well out. At near 220 the far rim was hazed to nothing from the
+    // middle of the site, which on a headland loses the one thing the place is
+    // — you could not see that the ground ended. Maritime haze belongs in the
+    // last third of the view, not the middle of it.
+    fog: { colour: 0x9fb0b6, near: 340, far: 1250 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
     exposure: 0.95,
     // How wide the player is, for collision. 0.45 suits a street; a place with

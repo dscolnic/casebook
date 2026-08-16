@@ -3,16 +3,17 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "VAULT": "<p>The Seed Vault. No windows, one door, and forty-one thousand foil packets on rolling shelves at minus eighteen. Everything in here is alive and doing as little as the cold will let it.</p>",
-  "DRY": "<p>Drying and Processing. Trays on racks in still, dry air, a cleaning mill that has not been rebalanced since March, and every sack labelled twice because a sack labelled once is a sack with no history.</p>",
-  "CROSS": "<p>The Crossing Hall. Glassine bags, forceps, a bench of pollinated heads under numbered tags, and a whiteboard where eight slots decide what the programme works on until 2033.</p>",
-  "LAB": "<p>The Molecular Laboratory. Plates, a thermal cycler running its third batch of the day, and a wall of gels that say which piece of chromosome a plant inherited and nothing at all about what it will do in a field.</p>",
-  "TRIAL": "<p>The Field Laboratory, at the bottom of the trial ground. Scales, a drying oven, sample bags by plot number, and the wet corner visible through the window from here.</p>",
-  "POP": "<p>Genetic Resources. Passport records, collection maps with pencilled routes on them, and the regeneration log that turns out to be the most important document on the station.</p>",
-  "GH1": "<p>Glasshouse 1, the warm bay. Lights on a timer, two generations a year, and the backcross that has to be finished before the rust is regional.</p>",
+  "VAULT": "<p>The Seed Vault, on the neck. No windows, one door, and forty-one thousand foil packets on rolling shelves at minus eighteen. It is the landward end of the site because it is the only building here that needs a lorry.</p>",
+  "DRY": "<p>Drying and Processing, out on the trial ring where the harvest comes off. Trays on racks in still, dry air, a cleaning mill that has not been rebalanced since March, and every sack labelled twice because a sack labelled once is a sack with no history.</p>",
+  "CROSS": "<p>The Crossing Hall, alone at the centre of the Point. Everything else on this site is arranged around the distance from here: glassine bags, forceps, a bench of pollinated heads under numbered tags, and a whiteboard where eight slots decide what the programme works on until 2033.</p>",
+  "LAB": "<p>The Molecular Laboratory, beside the vault. Plates, a thermal cycler on its third batch of the day, and a wall of gels that say which piece of chromosome a plant inherited and nothing at all about what it will do in a field.</p>",
+  "TRIAL": "<p>The Field Laboratory, standing in its own wedge of the trial ring. Scales, a drying oven, sample bags by plot number, and the seaward plots visible through the window standing a hand shorter than the rest.</p>",
+  "POP": "<p>Genetic Resources, out in the increase ring among the grow-outs. Passport records, collection maps with pencilled routes on them, and the regeneration log that turns out to be the most important document on the station.</p>",
+  "GH1": "<p>Glasshouse 1, the warm bay. Lights on a timer, two generations a year, and the backcross that has to be finished before the rust is regional. It stands inside the isolation buffer because a sealed house is its own isolation.</p>",
   "GH2": "<p>Glasshouse 2, the cool bay. Trays of vernalising seedlings held at four degrees, because a winter wheat that never gets a winter never flowers.</p>",
-  "GH3": "<p>Glasshouse 3, the screening bay, kept apart from the rest with its own door and its own boots. What is grown in here is deliberately infected.</p>",
-  "SCREEN": "<p>The screenhouse. Insect-proof mesh over the whole frame, so an increase of one accession stays that accession and nothing flies in with other pollen.</p>",
+  "GH3": "<p>Glasshouse 3, the screening bay, with its own door and its own boots. What is grown in here is deliberately infected, which is why it is the far end of the arc from everything else.</p>",
+  "SCREEN": "<p>The screenhouses, in the increase ring. Insect-proof mesh over the whole frame, so an increase of one accession stays that accession and nothing flies in with other pollen.</p>",
   "RECORDS": "<p>Passport Records. Where every accession came from, who collected it, on what date and off which hillside, in handwriting going back to 1961.</p>",
-  "THRESH": "<p>The threshing floor. Harvest in, chaff out, and forty paper bags with a farmer's handwriting on them waiting to be threshed one plant at a time.</p>"
+  "THRESH": "<p>The threshing floor, by the gate end of the compound. Harvest in, chaff out, and forty paper bags with a farmer's handwriting on them waiting to be threshed one plant at a time.</p>",
+  "GATE": "<p>Point Gate, at the landward end of the causeway. The only way on or off, and the bearing the wind comes from — which is the whole reason the crossing block is three hundred metres the other way.</p>"
 };
