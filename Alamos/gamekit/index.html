@@ -218,6 +218,21 @@ body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{anima
   </div>
 </div>
 
-<script type="module" src="./src/main.js"></script>
+<!-- The account's campaign is read BEFORE the entry point, not inside it.
+     `main.js` calls tryLoadSaved() during module evaluation, so hydrating from
+     there would be a top-level await in the middle of the graph — every theme
+     served from this page would inherit the ordering. Awaiting here and then
+     importing main.js keeps the ordering in one place and out of the game.
+     Behind a static server the fetch fails once, cloudSave turns itself off,
+     and this is two milliseconds of nothing. -->
+<script type="module">
+  // No top-level await: it needs an esnext build target, and the one thing this
+  // block must never do is fail to build.
+  import('./engine/core/cloudSave.js')
+    .then(m => m.hydrate())
+    // Never let the account layer be the reason a game does not start.
+    .catch(e => console.warn('cloud save unavailable:', e))
+    .then(() => import('./src/main.js'));
+</script>
 </body>
 </html>

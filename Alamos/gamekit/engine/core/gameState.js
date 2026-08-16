@@ -2,6 +2,7 @@ import { WEEKS, DAY_NOUN, WEEKLY_APPROPRIATION, DAILY_STIPEND } from './constant
 import { def, currentMilestone, completeMilestoneIfReady, readiness, baseWork, leader, getCurrentMission, getNextStop, missionStopDone, nextMissionStopIndex, completedMissionStops, missionComplete, missionStopForGroup, plannedWeeklySpend } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { saveState, loadState } from './save.js';
+import { postResult } from './cloudSave.js';
 import { clamp, seeded } from './utils.js';
 import { freshState } from './simulation.js';
 import { GROUP_DEFS } from './divisions.js';
@@ -40,6 +41,24 @@ export function getState(){ return _state; }
 export function setState(s){ _state=s; }
 
 export function save(){ if(_state) saveState(_state); }
+
+// A finished campaign, won or lost, told to whatever account is behind the
+// game. Inert behind a static server. The score is the fraction of every area's
+// four developments that got completed, out of 100 — the one number that means
+// the same thing in all fifteen games, since the areas and the milestones are
+// the only structure every theme shares.
+function reportCampaign(won){
+  if(!_state) return;
+  const groups = _state.groups ?? [];
+  const done = groups.reduce((n, gs) => n + (gs.milestone || 0), 0);
+  const total = groups.length * 4;
+  postResult({
+    won,
+    score: total ? Math.round((done / total) * 100) : null,
+    missions: _state.week ?? null,
+    hours: _state.timeHours ?? null,
+  });
+}
 export function load(){ const s=loadState(); _state=s; return s; }
 
 export function createFresh(assign){
@@ -301,7 +320,9 @@ export function advanceTime(hours, reason=''){
   if(_state.timeHours>=TOTAL_HOURS){
     // time out but missions may still be incomplete — mark lost if not won
     if(_state.status==='playing' && _state.week < WEEKS){
-      _state.status='lost'; _state.finishedHours=_state.timeHours; save(); return 'lost';
+      _state.status='lost'; _state.finishedHours=_state.timeHours; save();
+      reportCampaign(false);
+      return 'lost';
     }
   }
   save();
@@ -364,7 +385,9 @@ export function completeMission(){
   });
   _state.log.push({week:missionNumber, text:`Mission ${missionNumber} completed: ${mission.title}. ${mission.takeaway}`});
   if(missionNumber>=WEEKS){
-    _state.status='won'; _state.finishedWeek=WEEKS; save(); return 'won';
+    _state.status='won'; _state.finishedWeek=WEEKS; save();
+    reportCampaign(true);
+    return 'won';
   }
   _state.week++;
   _state.reserve+=WEEKLY_APPROPRIATION;

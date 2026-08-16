@@ -1,4 +1,7 @@
 import { KEY } from './constants.js';
+// The account's copy, when the game is served from an app that has accounts.
+// Every call in here is inert behind a static server — see cloudSave.js.
+import { push as pushCloud, wipe as wipeCloud } from './cloudSave.js';
 // The slot this name refers to predates per-theme keys. It is read once so an
 // in-progress campaign survives the change, then written forward under the
 // theme's own key.
@@ -13,6 +16,10 @@ const LEGACY_KEYS = KEY === 'gamekit_hospital_v1' ? [LEGACY_KEY] : [];
 
 export function saveState(state){
   try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  // Stays synchronous: the cloud write is debounced and never awaited, so the
+  // engine's assumption that saving is free holds whether or not there is an
+  // account behind it.
+  pushCloud(state);
 }
 
 export function loadState(){
@@ -40,4 +47,6 @@ export function loadState(){
 
 export function clearState(){
   try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY); }catch(e){}
+  // Or the next boot hydrates the campaign that was just restarted away.
+  wipeCloud();
 }

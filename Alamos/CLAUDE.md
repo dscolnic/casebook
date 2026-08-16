@@ -31,7 +31,7 @@ the check-and-look loop, which builder each game's rooms come from — three of
 them are furnished outside the shared fit-out entirely — and the one mistake that
 has now been made four times.
 
-## The fourteen games
+## The fifteen games
 
 `GAMES.md` is the full inventory with what each one teaches. This table is the
 short version — the place, and the command that runs it.
@@ -49,7 +49,8 @@ short version — the place, and the command that runs it.
 | The Trial | `gamekit/themes/the_trial/` | One long floor of a coordinating centre; the walk down it is distance from the patient. AP Statistics | `THEME=the_trial npm run dev` |
 | Ice Core | `gamekit/themes/icecore/` | A deep-drilling camp on a polar plateau: modules on legs, flag lines, a trench under a tower | `THEME=icecore npm run dev` |
 | Headwater | `gamekit/themes/headwater/` | A five-storey tower in a gorge beside a dam: one glazed wall onto the spillway, and no ceiling over the hallways. Calculus | `THEME=headwater npm run dev` |
-| Wellmere | `gamekit/themes/seedbank/` | A seed bank and breeding station: three glasshouse bays and a 240-plot trial grid running to a shelterbelt. AP Biology, the heredity half | `THEME=seedbank npm run dev` |
+| Wellmere | `gamekit/themes/seedbank/` | A breeding station on a headland, laid out in concentric rings by isolation distance; sea on three sides, one causeway. AP Biology, the heredity half | `THEME=seedbank npm run dev` |
+| Red Sand | `gamekit/themes/redsand/` | A propellant plant on Mars: modules buried in regolith along one track, an ascent vehicle on a pad with a gauge that fills as the campaign does, and a butterscotch sky. AP Chemistry, the back half | `THEME=redsand npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 
@@ -147,6 +148,43 @@ typed as the nearest format the importer knew, nine packs referenced and never
 imported. Only the place — `site.js` or `plan.js` — and the props stay outside
 the book.
 
+## The games ship to an app that has accounts
+
+`gamekit/dist` behind a static server is how these are played locally. The other
+way they are played is the **casebook** app (`~/code/casebook`, Replit, Express +
+Clerk + Postgres), where `/` is the game shelf and every page is behind a
+sign-in.
+
+```sh
+cd gamekit
+npm run sync-casebook                      # build all 15, copy them into casebook/games/
+npm run sync-casebook -- --only headwater  # one of them
+npm run sync-casebook -- --no-build        # copy what dist/ already has
+```
+
+Built output is **committed to casebook deliberately.** The theme is chosen at
+build time, so serving fifteen games means fifteen builds, and running those on
+the app host would put ten minutes of vite in front of a deploy for output that
+only changes when a game does.
+
+**`tools/games.js` is the catalogue** — one row per game, read by both front
+doors (`tools/gallery.mjs` writes `dist/index.html`, `tools/sync-casebook.mjs`
+writes `games.json` for the app's shelf). It was inline in gallery.mjs and was
+two games stale within a week of Wellmere and Red Sand shipping, which is what
+extracting it is for.
+
+**`engine/core/cloudSave.js` is the account, and it is inert without one.** It
+reads the campaign at boot, debounces the write (the engine autosaves on every
+tick and treats saving as free), clears the server copy on restart, and posts a
+row when a campaign finishes. The first failed call turns the whole module off
+for the session, so a 404 from a static server and a 401 from a signed-out
+session both mean "carry on with localStorage". Two things it must keep doing:
+the read happens in `index.html` **before** `src/main.js` is imported, because
+the entry point reads the save during module evaluation; and the local timestamp
+is re-stamped from the server's own `savedAt` after a write, because two
+browsers signed into one account do not agree what time it is and a fast clock
+would silently stop that device pulling the account's campaign.
+
 ## Checks — one command, several tools
 
 ```sh
@@ -168,6 +206,7 @@ node engine/dev/checkVoice.mjs    <theme>    # cards brief the player, they do n
 node engine/dev/placeStory.mjs    <theme>    # the landscape matches the story told on it
 node engine/dev/checkPassages.mjs <theme>    # talking to somebody teaches something
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
+node engine/dev/equationOrder.mjs  <theme>    # nothing is asked before the equation it is built out of
 node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
@@ -349,8 +388,11 @@ wrote, at load, for every theme — so a re-import cannot lose it.
   brake has to lead), RESIDUAL (structure in what a fit leaves over), INJECT
   (push a known population through your own pipeline) and ROUTE (a sequence that
   can be rejoined after an interruption). `books/instruments.yml` authors one
-  stop of each across seven days; the eight shipped games author none of them
-  yet, which is now content work rather than engine work.
+  stop of each across seven days. **Red Sand is the first shipped game to author
+  one**: its sol 12 is an ALLOCATE — four hundred and thirty kilowatt-hours on a
+  dust-storm sol against seven loads that want more than that between them — and
+  `npm run drive redsand` drives it right and wrong. The other fourteen author
+  none, which is content work rather than engine work.
 - **Every instrument carries a trap, and the trap is an importer check.** A
   cloud whose pass mark a re-target reaches, an allocation board affordable
   whole, a chain whose distractor governs, a verify whose every prediction is
@@ -470,12 +512,47 @@ wrote, at load, for every theme — so a re-import cannot lose it.
    `atmosphere.nightSky` and the dome is hidden below deep night. Related:
    `nightTurbidity` / `nightRayleigh` and `look.nightLift` exist because the
    engine's defaults are tuned for a *daytime* game's dusk.
-18. **`look.far` has to clear the sky dome outdoors.** At an interior's 160 the
-   dome is clipped away and the sky renders black in broad daylight, with no
-   error anywhere and the horizon ranks gone. 900 is the working value.
-19. **Grep for the previous game's nouns before assuming a module is generic.**
+18. **`look.far` has to clear the sky dome outdoors — from the far end of the
+   site, not from the spawn.** At an interior's 160 the dome is clipped away and
+   the sky renders black in broad daylight, with no error anywhere and the
+   horizon ranks gone. 900 is the working value on a compact site; the clearance
+   is `atmosphere.scale + how far the player can get from the origin`, so
+   Wellmere's 300 m of headland and causeway needs 1500 against a dome of 700.
+   The symptom is a black band above the horizon at one end of the map only,
+   which reads as a rendering bug and is a camera setting.
+19. **Ground and crop have to be a value apart, and the ground is the one to
+   move.** Wellmere's first field put mid-green plots on mid-green turf and
+   1,300 of them read as one flat smear from twenty metres. Lightening the crop
+   turns it to pastel under ACES; darkening and browning the *ground* — turned
+   earth, two stops below what looks right on the canvas — separates them and
+   makes the alleys read as alleys. Same rule as house rule 6, applied to a pair
+   rather than a surface.
+20. **Grep for the previous game's nouns before assuming a module is generic.**
    `simulation.js` held one game's cast, `constants.js` one game's save key,
    `player.js` one game's field of view and floor height.
+20. **The sky model is Earth's, and it can be tinted rather than argued with.**
+   `buildSky` runs three.js's Preetham sky, which solves for Rayleigh scattering
+   off nitrogen and oxygen. No combination of its four uniforms reaches the
+   butterscotch of a dusty carbon-dioxide atmosphere — turbidity and mie only
+   make it hazier and paler, rayleigh only moves it between blue and white. Red
+   Sand added two optional keys instead: `atmosphere.tint` multiplies the dome's
+   output *and* the dome that bakes the IBL, so the ground is lit by the sky the
+   player sees, and `atmosphere.haze: { day, night }` replaces the hard-coded
+   blue-grey the far ranks and the fog are taken toward. Both are inert unless a
+   theme sets them. Set one without the other and a seam appears along the
+   skyline, which is what the first pass looked like.
+21. **A hard equation early is fine; a derived one before its base is not.** The
+   test is dependency, not difficulty — Blackout opens on the swing equation and
+   that is the right first question. What was wrong in eight of the fifteen games
+   was impulse on day 3 with `F = ma` computed nowhere, the chain rule on day 2
+   with the power rule not until day 7, apparent power on day 3 with `P = IV` on
+   day 10. `needs` in `tools/syllabus.js` names what each equation is derived
+   from, by `e` string rather than by position, and `equationOrder.mjs` fails the
+   game for an inversion. Only a question that *computes* settles it, so a base
+   taught only through `CHOICE` — which has no relationship, template or worked
+   solution — is a base the course never teaches. Corollary: a `DERIVE`'s own
+   lines are arithmetic, and reading only `relationship` said Headwater computed
+   the power rule on day 7 when the player had been applying it on day 1.
 
 ## Screenshot before believing anything visual
 

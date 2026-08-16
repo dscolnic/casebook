@@ -29,77 +29,9 @@ const DIST = resolve(root, 'dist');
 
 // ---------------------------------------------------------------- the games
 //
-// `course` is the short form the card prints — the whole point of the page is
-// that somebody can see at a glance which subject each game is. The long form
-// comes from SYLLABUS and goes underneath, because it is the honest one.
-// `hero` is a file under shots/<id>/, chosen by looking at them: most themes
-// have several and most of those are of a wall.
-const GAMES = [
-  { id: 'contamcity', title: 'The Contaminated City',
-    course: 'AP Chemistry → college analytical', field: 'Chemistry', accent: '#4ea3d8',
-    place: 'A wide river city, three days after a freight-yard fire.',
-    hero: 'rack-day.png' },
-
-  { id: 'headwater', title: 'Headwater',
-    course: 'AP Calculus AB', field: 'Maths & Stats', accent: '#3f92c9',
-    place: 'Ashfell Dam from the inside — galleries, a gate chamber, and a hundred metres of air off the crest.',
-    hero: 'spawn-1.png' },
-
-  { id: 'the_trial', title: 'The Trial',
-    course: 'AP Statistics · trial design', field: 'Maths & Stats', accent: '#cf7fae',
-    place: 'One long floor, where walking north is distance from the patient.',
-    hero: 'infusion-bay--end.png' },
-
-  { id: 'quantum', title: 'Quantum',
-    course: 'Modern quantum · 2nd-year physics', field: 'Physics', accent: '#7f8fe0',
-    place: 'A laboratory spine that is a temperature gradient, walked end to end.',
-    hero: 'corridor-018-north.png' },
-
-  { id: 'bring_them_home', title: 'Bring Them Home',
-    course: 'AP Physics 1 → Physics C mechanics', field: 'Physics', accent: '#c2603f',
-    place: 'Mission Control: four tiers stepping down to a wall of plot boards. The teams are rows, not rooms.',
-    hero: 'control--boards.png' },
-
-  { id: 'deepwatch', title: 'Deep Watch',
-    course: 'Waves & sound · systems engineering', field: 'Physics', accent: '#3f8f86',
-    place: 'A submarine — one line of ten compartments, hatches between them, and no sky at all.',
-    hero: 'spawn-1.png' },
-
-  { id: 'projecty', title: 'Project Y',
-    course: 'AP Physics 2 · nuclear', field: 'Physics', accent: '#d8a24e',
-    place: 'A mesa laboratory in 1943. Chalkboards and typed sheets, and no screens anywhere.',
-    hero: 'spawn-7.png' },
-
-  { id: 'blackout', title: 'Blackout',
-    course: 'AP Physics 2 · circuits & induction', field: 'Engineering', accent: '#d9b23c',
-    place: 'Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.',
-    hero: 'spawn-7.png' },
-
-  { id: 'aftershock', title: 'Aftershock',
-    course: 'Earth science · statics & materials', field: 'Engineering', accent: '#b6553f',
-    place: 'Kestrel Bay three days after, where the fault broke the surface and you can walk the scarp.',
-    hero: 'spawn-2.png' },
-
-  { id: 'planetary_defense', title: 'Planetary Defense',
-    course: 'Astronomy · AP Physics 1 mechanics', field: 'Earth & Space', accent: '#8f6fd0',
-    place: 'A mountain ridge: one road, domes with open shutters, a thirty-metre dish and red service lamps.',
-    hero: 'spawn-6.png' },
-
-  { id: 'icecore', title: 'Ice Core',
-    course: 'Earth & environmental science', field: 'Earth & Space', accent: '#6fc7d8',
-    place: 'A deep-drilling camp on a polar plateau, with the flattest, emptiest horizon in the set.',
-    hero: 'core-line.png' },
-
-  { id: 'outbreak_riverton', title: 'Outbreak: Riverton',
-    course: 'AP Biology · public health', field: 'Biology', accent: '#5fae63',
-    place: 'A hospital campus in week three: triage marquees, container labs, and a fence with one gate.',
-    hero: 'spawn-7.png' },
-
-  { id: 'hospital', title: 'Hospital Heroes',
-    course: 'Anatomy & physiology', field: 'Biology', accent: '#e0868f',
-    place: "A children's hospital ward — a spine with rooms off it, and everything a size larger.",
-    hero: 'emergency-triage--doorway.png' },
-];
+// The catalogue lives in tools/games.js — this page and the casebook shelf
+// both read it, and a second copy is how a shipped game ends up with no card.
+import { GAMES } from './games.js';
 
 // ------------------------------------------------------------------ helpers
 
@@ -138,9 +70,8 @@ const sizeOf = (id) => {
   const f = resolve(themeDirOf(id), 'content', 'missions.js');
   if (!existsSync(f)) return null;
   const src = readFileSync(f, 'utf8');
-  const days = (src.match(/^\s*\{\s*id:\s*'M\d/gm) ?? []).length
-    || (src.match(/\bday:\s*\d+/g) ?? []).length;
-  const stops = (src.match(/\bgroup:\s*'/g) ?? []).length;
+  const days = (src.match(/^\s{4}"title":/gm) ?? []).length;
+  const stops = (src.match(/"group":/g) ?? []).length;
   return days ? { days, stops } : null;
 };
 
@@ -337,7 +268,10 @@ function page(games) {
     margin:auto 0 0; display:flex; flex-wrap:wrap; gap:6px;
     font:11.5px/1 ui-monospace,Menlo,monospace; color:var(--faint);
   }
-  .meta span{border:1px solid var(--line); border-radius:6px; padding:5px 7px; white-space:nowrap}
+  .meta span{
+    border:1px solid var(--line); border-radius:6px; padding:5px 7px;
+    max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
   .full{
     margin:0; padding-top:9px; border-top:1px dashed var(--line);
     font-size:12.5px; color:var(--faint); font-style:italic;
