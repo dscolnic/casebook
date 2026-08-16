@@ -105,6 +105,31 @@ function bounds(site){
 }
 
 /**
+ * A window of the world, centred on the player, for a site too spread out to
+ * draw whole.
+ *
+ * Planetary Defense is 1.6 km across and its base camp is a 200 m cluster in the
+ * middle of it, so the whole-site map drew that cluster nine pixels wide: every
+ * building the player can actually walk to was one indistinguishable blob. A
+ * site says `mapRadius` and gets a square window of that radius instead, with
+ * everything outside it reduced to an arrow on the edge — the same trade a car
+ * navigation screen makes, and for the same reason.
+ *
+ * The window is clamped inside the site so it never shows empty ground beyond
+ * the edge of the world; on an axis the site is not much bigger than the window,
+ * it stays centred on the site instead of sliding.
+ */
+function focusBounds(p, r, full, aspect = 1){
+  const rx = aspect >= 1 ? r * aspect : r;
+  const rz = aspect >= 1 ? r : r / aspect;
+  const centre = (c, lo, hi, half) =>
+    (hi - lo <= 2 * half ? (lo + hi) / 2 : Math.min(Math.max(c, lo + half), hi - half));
+  const cx = centre(p.x, full.x0, full.x1, rx);
+  const cz = centre(p.z, full.z0, full.z1, rz);
+  return { x0: cx - rx, x1: cx + rx, z0: cz - rz, z1: cz + rz };
+}
+
+/**
  * The map, as SVG. North (-Z) is up, which is how the site comment in site.js
  * describes the place, so the two never disagree.
  */
@@ -126,14 +151,14 @@ export function renderMap(opts = {}){
   const mini = !!opts.mini;
   const site = theme.site ?? {};
   const state = getState();
-  const b = bounds(site);
+  const ppos = getPosition();
+  const full = bounds(site);
   const maxW = opts.maxW ?? 720;
   const maxH = opts.maxH ?? 420;
   // A submarine is fifty-five metres long and four and a half wide. Drawn with
   // north up it is a strip four compartments tall in a panel that shows two, so
   // a place much longer than it is wide is turned on its side: its length runs
   // across the map and the bow is on the left.
-  const spanX = b.x1 - b.x0, spanZ = b.z1 - b.z0;
   // Turn the plan on its side when that fits the box better. A submarine is
   // fifty-five metres long and four wide; drawn north-up it is a strip four
   // compartments tall in a panel that shows two. The test used to be a fixed
@@ -145,6 +170,16 @@ export function renderMap(opts = {}){
   const labelGutter = site.plan ? 64 : 0;
   const boxW = Math.max(120, maxW - (site.plan ? 40 : 0));
   const boxH = Math.max(120, maxH - labelGutter);
+  // Only window a site that is actually bigger than the window. A theme keeps
+  // its `mapRadius` when it grows or shrinks; the map decides per draw. The
+  // radius is half the *short* side and the long one is opened out to the shape
+  // of the panel — a square window in a 1100×600 sheet leaves half the sheet
+  // blank and shows less ground for it.
+  const focusR = Number.isFinite(site.mapRadius) ? site.mapRadius : 0;
+  const focus = focusR > 0
+    && ((full.x1 - full.x0) > focusR * 2.4 || (full.z1 - full.z0) > focusR * 2.4);
+  const b = focus ? focusBounds(ppos, focusR, full, boxW / boxH) : full;
+  const spanX = b.x1 - b.x0, spanZ = b.z1 - b.z0;
   const fitUpright = Math.min(boxW / spanX, boxH / spanZ);
   const fitSideways = Math.min(boxW / spanZ, boxH / spanX);
   const sideways = fitSideways > fitUpright * 1.02;
@@ -208,7 +243,7 @@ export function renderMap(opts = {}){
    * Put a label somewhere it can be read, or nowhere.
    * @returns svg text, or '' when there was no room for it at any anchor.
    */
-  function label(cx, cy, halfW, halfH, text, { weight = 600, colour = '#2b2a27', size = 11, force = false } = {}){
+  function label(cx, cy, halfW, halfH, text, { weight = 600, colour = '#2b2a27', size = 11, force = false, whole = false } = {}){
     const anchorsFor = (candidate) => {
       const tw = textW(candidate, size);
       return [
@@ -227,7 +262,11 @@ export function renderMap(opts = {}){
       + (halo ? ` stroke="#efeade" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke"` : '')
       + `>${esc(candidate)}</text>`;
 
-    for(const candidate of [text, shorten(text)]){
+    // `whole` is for a label whose tail is the information: an edge arrow reads
+    // "Planetary Radar Control · 1.4 km", and `shorten` cuts at the separator, so
+    // the shortened form was the name with the distance thrown away — the one
+    // thing the arrow could not say by pointing.
+    for(const candidate of whole ? [text] : [text, shorten(text)]){
       for(const a of anchorsFor(candidate)){
         const box = boxOf(a);
         if(offMap(box) || overlaps(box)) continue;
@@ -446,22 +485,90 @@ export function renderMap(opts = {}){
   // way they are facing — they walk, so a static dot would be a lie by the time
   // the player got there.
   // The player, with the direction they are actually looking.
-  const p = getPosition();
-  const pxx = px(p.x, p.z), pz = py(p.x, p.z);
+  const pxx = px(ppos.x, ppos.z), pz = py(ppos.x, ppos.z);
   let yaw = 0;
   if(camera){
-    const d = new (p.constructor)();
+    const d = new (ppos.constructor)();
     camera.getWorldDirection(d);
     yaw = Math.atan2(d.x, d.z);
   }
   g += heading(pxx, pz, yawOf(yaw), 17, '#1c1b19')
      + `<circle cx="${pxx}" cy="${pz}" r="6" fill="#fff" stroke="#1c1b19" stroke-width="2.5"/>`;
 
+  // ---- what the window cut off
+  //
+  // A windowed map hides most of the site, so everything hidden that the player
+  // might want gets an arrow on the edge it lies beyond, pointing at it, with
+  // how far away it is. Without this the map is a lie by omission: the base camp
+  // reads as the whole world and the radar station forty minutes' flight away
+  // does not exist.
+  let offCount = 0;
+  if(focus){
+    const outside = (x, z) => x < b.x0 || x > b.x1 || z < b.z0 || z > b.z1;
+    const marks = [];
+    for(const w of wantedPeople){
+      const x = w.pos?.x ?? 0, z = w.pos?.z ?? 0;
+      if(!outside(x, z)) continue;
+      marks.push({ x, z, name: w.char?.name ?? 'your contact',
+                   colour: def(w.division)?.color ?? '#8a6410', rank: 0 });
+    }
+    for(const bl of site.buildings ?? []){
+      if(!outside(bl.x, bl.z)) continue;
+      const area = bl.group ? def(bl.group) : null;
+      const isTarget = bl.group && targetGroups.has(bl.group);
+      marks.push({ x: bl.x, z: bl.z, name: bl.name ?? bl.id,
+                   colour: isTarget ? '#f2c14e' : (area?.color ?? '#8d867a'),
+                   rank: isTarget ? 1 : area ? 2 : 3 });
+    }
+    // Nearest first within a rank, and only as many as the edge can carry: on a
+    // mini-map there is no room for names, so there is no room for a queue of
+    // arrows either.
+    const dist = (m) => Math.hypot(m.x - ppos.x, m.z - ppos.z);
+    marks.sort((a, c) => (a.rank - c.rank) || (dist(a) - dist(c)));
+    const inset = mini ? 9 : 15;
+    for(const m of marks.slice(0, mini ? 4 : 8)){
+      const tx = px(m.x, m.z), ty = py(m.x, m.z);
+      const dx = tx - pxx, dy = ty - pz;
+      if(!dx && !dy) continue;
+      // Where the line from the player to it leaves the drawing.
+      const tX = dx > 0 ? (W - inset - pxx) / dx : dx < 0 ? (inset - pxx) / dx : Infinity;
+      const tY = dy > 0 ? (H - inset - pz) / dy : dy < 0 ? (inset - pz) / dy : Infinity;
+      const t = Math.max(0, Math.min(tX, tY));
+      if(!Number.isFinite(t)) continue;
+      const ex = pxx + dx * t, ey = pz + dy * t;
+      const len = Math.hypot(dx, dy) || 1;
+      const ux = dx / len, uy = dy / len;
+      const size = mini ? 6 : 8;
+      // A solid head sitting on the edge, tip outward.
+      const hx = ex + ux * size, hy = ey + uy * size;
+      const ax = ex - ux * size - uy * size * 0.72, ay = ey - uy * size + ux * size * 0.72;
+      const bx = ex - ux * size + uy * size * 0.72, by = ey - uy * size - ux * size * 0.72;
+      g += `<path d="M${hx.toFixed(1)},${hy.toFixed(1)} L${ax.toFixed(1)},${ay.toFixed(1)} `
+         + `L${bx.toFixed(1)},${by.toFixed(1)} Z" fill="${m.colour}" stroke="#efeade" stroke-width="1.4" `
+         + `stroke-linejoin="round"/>`;
+      // The head is an obstacle like any footprint: two places off the same edge
+      // put their arrows a few pixels apart, and without this the second one's
+      // name is drawn straight through the first one's head.
+      taken.push({ x0: Math.min(hx, ax, bx), x1: Math.max(hx, ax, bx),
+                   y0: Math.min(hy, ay, by), y1: Math.max(hy, ay, by) });
+      const away = Math.round(dist(m));
+      const text = `${m.name} · ${away >= 1000 ? (away / 1000).toFixed(1) + ' km' : away + ' m'}`;
+      // Anchored back inside the drawing: the label goes where the arrow came
+      // from, never past the edge it is pointing over.
+      g += label(ex - ux * size * 2.2, ey - uy * size * 2.2, size, size, text,
+                 { weight: m.rank <= 1 ? 800 : 600, size: 10, whole: true });
+      offCount++;
+    }
+  }
+
   const legend = [site.plan ? (sideways ? 'Bow to the left' : 'Bow at the top') : 'North is up',
                   'you are the white dot']
     .concat(targetGroups.size ? ['gold outline is a call still open — take them in any order'] : [])
     .concat(wantedPeople.length
       ? [`ringed dots are people you owe a call: ${wantedPeople.map(w => w.char?.name ?? 'a colleague').join(', ')}`]
+      : [])
+    .concat(offCount
+      ? [`this is the ground around you — arrows on the edge point to places off it, with the distance`]
       : []);
   return `<div class="mapWrap"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" `
        + `aria-label="Map of the site"><rect width="${W}" height="${H}" fill="#efeade"/>${g}</svg>`

@@ -150,6 +150,13 @@ export const site = {
 
   buildings: [...AREA_BUILDINGS, ...LANDMARKS],
 
+  // The map draws a window this wide around the player, not the whole range.
+  // Base camp is seven buildings inside 200 m and the survey telescope is 950 m
+  // away up a mountain with nothing between: drawn whole, the part of the site
+  // anybody walks around came out a centimetre across and unreadable. Anything
+  // outside the window becomes an arrow on the edge with its distance.
+  mapRadius: 170,
+
   board: { x: 8, z: 62, facing: PI, title: 'Campaign Status' },
 
   // Sparse, and all of it beside the road. A mountain site has no street

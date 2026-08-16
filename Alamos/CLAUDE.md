@@ -31,7 +31,7 @@ the check-and-look loop, which builder each game's rooms come from — three of
 them are furnished outside the shared fit-out entirely — and the one mistake that
 has now been made four times.
 
-## The fifteen games
+## The sixteen games
 
 `GAMES.md` is the full inventory with what each one teaches. This table is the
 short version — the place, and the command that runs it.
@@ -50,6 +50,7 @@ short version — the place, and the command that runs it.
 | Ice Core | `gamekit/themes/icecore/` | A deep-drilling camp on a polar plateau: modules on legs, flag lines, a trench under a tower | `THEME=icecore npm run dev` |
 | Headwater | `gamekit/themes/headwater/` | A five-storey tower in a gorge beside a dam: one glazed wall onto the spillway, and no ceiling over the hallways. Calculus | `THEME=headwater npm run dev` |
 | Wellmere | `gamekit/themes/seedbank/` | A breeding station on a headland, laid out in concentric rings by isolation distance; sea on three sides, one causeway. AP Biology, the heredity half | `THEME=seedbank npm run dev` |
+| Safety Factor | `gamekit/themes/midway/` | Corbin Park: a shut amusement park, and the rides are the syllabus — tower, coaster, carousel, wheel, bumper floor, ship, flume. AP Physics 1, taught in derivations | `THEME=midway npm run dev` |
 | Red Sand | `gamekit/themes/redsand/` | A propellant plant on Mars: modules buried in regolith along one track, an ascent vehicle on a pad with a gauge that fills as the campaign does, and a butterscotch sky. AP Chemistry, the back half | `THEME=redsand npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
@@ -768,6 +769,22 @@ Corollaries:
   corridor — drawing every room full-width put opposite rooms on top of each
   other — and a name that will not fit inside its room goes outside with a leader
   line rather than being truncated.
+- **A site spread over kilometres draws a window, not the whole place.**
+  `site.mapRadius` (Planetary Defense: 170 m) centres the map on the player and
+  reduces everything outside it to an arrow on the edge it lies beyond, with the
+  distance — because the range is 1.6 km wide and base camp is seven buildings
+  inside 200 m of it, so the whole-site map drew the only part anybody walks
+  around as one unreadable blob. The window is half a radius in the short
+  direction and opened out to the panel's aspect in the long one, and clamped
+  inside the site so it never shows ground beyond the edge of the world. The
+  arrow labels carry their distance after a `·`, so they are placed with
+  `whole: true` — the label placer's shortening rule cuts at exactly that
+  separator, and threw the distance away. Themes without `mapRadius` are
+  unchanged.
+- **`maxW` for the map sheet is 760, because the card is `min(820px, 100%)`.**
+  The caller asked for 1100 for years and it never showed, because the aspect of
+  a whole site capped the width first; the first map that could fill it ran its
+  right-hand edge and every label on it under the edge of the card.
 
 ## Content and safety
 
