@@ -1,0 +1,1374 @@
+# instruments.yml — the Meridian Verification Office.
+#
+# THIS BOOK IS THE WORKED EXAMPLE OF THE TWELVE FORMATS IN `FORMATS.md`. One
+# stop each, over four days, in a place invented for the purpose: an office that
+# checks other people's measurements, so every one of the twelve is something
+# somebody there does on an ordinary Tuesday.
+#
+# It exists for the reason `tools/BOOK_TEMPLATE.md` exists — a format nobody has
+# authored is a format nobody has tested. Each stop below is deliberately the
+# *minimum* that clears its own importer trap, so it doubles as the reference for
+# what each block has to contain and why. Read a stop's comment before writing
+# your own; every one of them records a check that will otherwise reject your book
+# with a sentence you have to reverse-engineer.
+#
+#   node tools/import-book.mjs books/instruments.yml instruments --verify
+#   THEME=instruments npm run dev   ->  /engine/dev/instruments.html
+
+theme:
+  id: instruments
+  title: Meridian
+  subtitle: Verification Officer · Meridian Verification Office
+
+# ---------------------------------------------------------------- the areas
+# A design decision. No design document contains it: the book teaches topics,
+# and this is the choice of which topics are *places* the player walks to.
+groups:
+  - id: G1
+    code: G1
+    name: Field Station
+    color: '#2980b9'
+    desc: What an instrument can measure, and what it cannot.
+    defaultLeader: lead1
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+  - id: G2
+    code: G2
+    name: Sample Room
+    color: '#27ae60'
+    desc: Getting a number that means something.
+    defaultLeader: lead2
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+  - id: G3
+    code: G3
+    name: Records Office
+    color: '#c0392b'
+    desc: What was written down, and what it leaves out.
+    defaultLeader: lead3
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+  - id: G4
+    code: G4
+    name: Response Desk
+    color: '#d35400'
+    desc: Deciding what to do while the evidence is still incomplete.
+    defaultLeader: lead4
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+
+# ------------------------------------------------------------------ the cast
+# Books name functions — "the local expert", "the skeptical reviewer". People
+# are yours to invent. EVERY entry needs a `division` or that area's person
+# stops are unreachable, and nothing says so until somebody walks the whole map.
+roster:
+  - id: lead1
+    name: Ada Merrick
+    role: Station Lead
+    division: G1
+    bio: |
+      Runs the field station, which is two instruments and a rule. The rule is
+      that a reading is a claim, and a claim needs evidence that could have come
+      out differently.
+
+      Every instrument here answers one narrow question well and every other
+      question badly. Knowing which question an instrument is answering is most
+      of the job.
+
+      Her limit is calibration: an instrument that has drifted is confident and
+      wrong, and it will not tell you which.
+    quiz:
+      - q: Why does Merrick distrust a single confident reading?
+        a: A drifted instrument sounds exactly like one that has not drifted
+        wrong:
+          - Field instruments cannot resolve anything below about one part per million, whatever the display shows
+          - Readings taken outdoors run low because the ambient temperature is never the calibration temperature
+          - Any measurement has to be repeated the following week before it can be entered in the station log
+  - id: lead2
+    name: Tomas Oyelaran
+    role: Sample Room Lead
+    division: G2
+    bio: |
+      Keeps the sample room, where every container is a record of where it has
+      been. A sample with no history is a sample about nothing.
+
+      He measures twice and writes down both, because two numbers that disagree
+      are information and one number that agrees with itself is not.
+
+      His limit is time: some things change in the container, and the answer he
+      gets is the answer at the moment he asks.
+    quiz:
+      - q: Why does Oyelaran write down both of two disagreeing numbers?
+        a: The disagreement is itself information; one number hides it
+        wrong:
+          - Duplicate runs are required by the sample room's procedure before any result can leave it
+          - The higher of the two readings is the one that gets reported, so both have to be on record
+          - A disagreement between runs means the instrument is due for recalibration and must be logged
+  - id: lead3
+    name: Priya Naidoo
+    role: Records Officer
+    division: G3
+    bio: |
+      Holds the paperwork, which is the only part of this work that outlasts the
+      people doing it. She reads a form for what it does not have room to say.
+
+      A gap in a record is not the same as a zero, and she will not let anybody
+      treat it as one.
+
+      Her limit is that she was not there. Everything she has is somebody else's
+      account of the day.
+    quiz:
+      - q: What does Naidoo refuse to let anybody treat a gap in a record as?
+        a: A zero. Nothing written is not a written nothing
+        wrong:
+          - An error on the form, which has to be corrected before the day's paperwork can be filed
+          - Evidence that the work was never done, since anything done would have been written down
+          - A reason to reissue the whole day's paperwork and have every entry signed for a second time
+  - id: lead4
+    name: Ruth Calderón
+    role: Response Desk Lead
+    division: G4
+    bio: |
+      Sits at the desk that has to decide before the evidence is finished. Every
+      hour spent making a number better is an hour the decision is not made in.
+
+      She asks one question of any proposed piece of work: if it comes back the
+      other way, does anybody do anything differently? Work that fails that test
+      is work for the report, not for the response.
+
+      Her limit is that she is paying for information with time, and the clock
+      belongs to the people out at the site.
+    quiz:
+      - q: What does Calderón ask before funding a measurement?
+        a: Whether a result the other way would change anything
+        wrong:
+          - Whether the instrument involved has been calibrated within the current month's schedule
+          - Whether the result can be obtained and written up before the end of the working day
+          - Whether anybody at the station or elsewhere has attempted the same measurement before
+  - id: helper1
+    name: Ben Achterberg
+    role: Field Assistant
+    division: G1
+    bio: |
+      Carries the kit, sets the stakes out and writes the times down. Has read
+      every log in the station and remembers which ones disagree.
+    quiz:
+      - q: What is Achterberg most useful for on a disputed reading?
+        a: He knows which earlier logs disagree with it
+        wrong:
+          - He recalibrates the station's instruments before every run and records the offsets he applied
+          - He decides which of two disagreeing readings the field station reports up to the response desk
+          - He signs off the day's measurements once the whole team has agreed what the numbers mean
+  - id: helper2
+    name: Kit Sorensen
+    role: Laboratory Assistant
+    division: G2
+    bio: |
+      Runs the routine measurements, which means they see every result before
+      anybody else and notice when a run stops looking like the last one.
+    quiz:
+      - q: Why does running the routine measurements make Sorensen worth asking?
+        a: Seeing every result in order is what makes a change visible
+        wrong:
+          - Routine measurements are inherently more accurate than the one-off runs done on request
+          - They are the only person in the sample room permitted to operate the analysis instrument
+          - They hold the calibration certificates, so nothing can be reported without going past them
+
+glossary:
+  - name: Calibration
+    aliases: [calibrate, calibrated]
+    def: Checking an instrument against something already known, so its numbers mean something.
+  - name: Blank
+    aliases: [blank run]
+    def: A run with no sample in it. Anything it shows came from the process, not the thing measured.
+  - name: Sonar
+    aliases: [sonar array, the array]
+    def: A set of underwater microphones and the displays that turn what they hear into a picture of frequency against time.
+  - name: Common mode
+    aliases: [common-mode, shared reference]
+    def: An error that reaches several measurements at once because they were all computed from the same thing.
+  - name: Locus
+    aliases: [family of solutions]
+    def: The set of parameter combinations that reproduce one measurement equally well.
+
+# ---------------------------------------------------------------- the days
+# Each mission is one working day: three stops, taken in whatever order the
+# player likes. From day 3 the engine adds a fourth call revisiting an earlier
+# area — you do not author that.
+#
+# Do not send a day into the same area twice: normalize.js turns the repeat into
+# a person stop, which works, but the day reads better if you chose it.
+# ---------------------------------------------------------------- the days
+# Four days, twelve stops, one per format in FORMATS.md. No day visits the same
+# area twice, so nothing here becomes a person stop by accident.
+missions:
+  - title: Three instruments, one reference
+    objective: Find out whether the numbers agree because they are right or because they share a source.
+    briefing: Four channels agree, one gauge does not, and the bilge is still rising.
+    stake: >-
+      Tuesday, and the Halden site has filed a fortnight of readings that all agree with each other, which is what Ada Merrick does not like about them. The response desk wants to publish by noon; Priya Naidoo has found a signature on the closing checklist from somebody who was ashore that week. Today you establish which of the site's numbers were computed from a shared reference, account for a flow nobody has been adding up, and decide which of the closing claims can be signed off on the evidence actually present. A number that inherits somebody else's error is not wrong on its own terms, which is exactly why nobody catches it.
+    takeaway: Agreement between measurements says nothing until you know what they were each computed from.
+    stops:
+      # ---- TRACE. The importer wants two things that are easy to leave out: at
+      # least two channels sharing the target (with one there is no common mode)
+      # and at least one genuinely independent channel (with none the right answer
+      # is to throw everything away). It also refuses a channel whose own label
+      # says "shared" — put the dependency in `depends`, or nobody opens the graph.
+      - group: G1
+        task: Find out what the agreeing numbers were computed from
+        title: Four channels, one denominator
+        place: Field Station
+        scene: >
+          Four of Halden's five numbers agree to within a few percent. The fifth,
+          a mechanical gauge nobody has touched in a year, does not. Merrick has
+          the derivation sheets and is waiting.
+        assumes:
+          - a ratio inherits the error of whatever it was divided by
+          - two displays fed from one sensor are one measurement
+        takeaway: Independence is a property of the measurement chain, not of how many displays report it.
+        format: TRACE
+        question: >-
+          Everything except the mechanical gauge agrees. Open the derivations, keep what still
+          stands, and name the source at fault.
+        trace:
+          hint: >-
+            Open a channel to see what it was computed from. Tick the ones whose evidence still
+            stands on its own, then name the source.
+          channels:
+            - { id: ratioA, label: Halden site ratio, reading: '3.0', depends: [vault] }
+            - { id: ratioB, label: Harbour site ratio, reading: '2.1', depends: [vault] }
+            - { id: driftC, label: Fortnight drift estimate, reading: '4 mm', depends: [vault] }
+            - { id: gauge, label: Mechanical gauge, reading: '0.31 units', depends: [] }
+            - { id: counts, label: Overnight event counts, reading: '61', depends: [] }
+          resources:
+            - { id: vault, label: 'Old vault, used as the competent-rock reference' }
+            - { id: clock, label: Site timing model }
+          independent: [gauge, counts]
+          target: vault
+          commit: Correct it
+        answerText: >-
+          The old vault. It was treated as a competent-rock reference and reads 1.6 times rock in
+          the working band, so every ratio computed against it is low by that factor — and the
+          mechanical gauge and the event counts, which never used it, keep their evidence.
+        why: >
+          Three of these numbers are ratios, and a ratio is a comparison: it carries the error of
+          whatever sits underneath the line. The vault was assumed to be rock and is not, so every
+          quantity divided by it is wrong by the same factor and they agree with each other
+          beautifully while doing it. That is what makes a common-mode error survive review —
+          nothing looks inconsistent. The correction is arithmetic on exactly those three and
+          nothing else: the gauge measured a pressure directly and the counts came off a separate
+          network, so neither of them ever touched the bad denominator and neither should move.
+      # ---- BALANCE. The trap is the last two checks: the streams must sum to the
+      # total, AND the streams that are not `hidden` must NOT — otherwise leaving
+      # the hidden term out still passes and the format has taught nothing.
+      - group: G2
+        task: Account for the whole flow, not the part that shows
+        title: What the level rise leaves out
+        place: Sample Room
+        scene: >
+          The bilge is up eight centimetres in a minute over four square metres
+          of deck. The drain pump has been running the whole time. Tomas Oyelaran
+          wants the leak rate, not the rise.
+        assumes:
+          - a volume rate is a level rate multiplied by a plan area
+          - what accumulates is what is left after everything already leaving has left
+        takeaway: An accumulation rate is the inflow minus everything already being removed from it.
+        format: BALANCE
+        question: >-
+          Read what you need and report the total inflow at the hull.
+        balance:
+          hint: >-
+            Reading a stream is free. Counting it is the claim you are making about where the
+            water is going.
+          total: { amount: 410, unit: L/min, label: Inflow at the hull }
+          streams:
+            - { id: rise, label: Accumulation in the bilge, value: 320, display: '8 cm over 4.0 m2 in one minute = 320 L/min' }
+            - { id: pump, label: Drain pump discharge, value: 90, display: 90 L/min, hidden: true, note: 'running since the alarm' }
+            - { id: fw, label: Fresh-water tank level, value: 0, display: 'unchanged' }
+          tolerance: 25
+          commit: Report the inflow
+        answerText: >-
+          About 410 litres a minute — the 320 that accumulated plus the 90 the pump had already
+          discharged during the same minute.
+        why: >
+          The level in the bilge is not the leak; it is what got past the pump. Anything already
+          being removed while you were measuring has to go back into the total, and a pump that
+          has been running since the alarm is easy to leave out precisely because it is not a
+          reading — nothing on the panel changes when it runs. Report the 320 and the response is
+          sized for a leak two thirds of its actual rate, which decides how many pumps are worth
+          starting and, more to the point, whether starting pumps is the answer at all.
+      # ---- ATTEST. Three interlocking counts: at least one critical claim
+      # unbacked (or closing blind passes), no more of them than the `checks`
+      # budget (or the stop is unanswerable), and at least one critical claim that
+      # IS backed — without that, holding everything critical passes by reflex.
+      - group: G3
+        task: Close the list on evidence rather than on signatures
+        title: The signature and the thing it stands for
+        place: Records Office
+        scene: >
+          The closing checklist is signed throughout. Naidoo has the watch bill
+          open beside it and has not said anything yet. There is time to verify
+          three items.
+        assumes:
+          - a signature records responsibility, not a physical condition
+          - an indication reports a commanded state rather than a measured one
+        takeaway: A record is evidence that somebody accepted a claim, which is not evidence for the claim.
+        format: ATTEST
+        question: >-
+          Verify what the time allows and hold whatever cannot be closed on the evidence present.
+        attest:
+          hint: >-
+            Every one of these is signed. Verifying costs time and there is not enough of it for
+            the whole list.
+          checks: 3
+          claims:
+            - { id: hull, label: Hull valve 14 shut and locked, signedBy: Petrov, critical: true, backed: true, evidence: 'shut, locked, and witnessed at 0620' }
+            - { id: bilge, label: Forward bilge dry, signedBy: Hallam, backed: true, evidence: 'dry, checked at 0640' }
+            - { id: escape, label: Aft escape route clear, signedBy: Dunne, critical: true, evidence: 'obstructed since Tuesday — stores not struck down' }
+            - { id: brkr, label: Breaker 2B isolated, signedBy: Okonkwo, critical: true, evidence: 'the log says isolated and the conductor reads 440 V' }
+            - { id: pump, label: Drain pump tested, signedBy: Nakashima, backed: true, evidence: 'run and logged at 0700' }
+            - { id: vent, label: Ventilation dampers set, signedBy: Lindqvist, evidence: 'set as recorded' }
+        answerText: >-
+          Hold the aft escape route and breaker 2B. Both are critical, both were signed, and
+          neither has evidence that supports the claim — the route is obstructed and the
+          conductor is live whatever the log says.
+        why: >
+          A checklist is a compression of experience, and its signatures record who accepted each
+          claim at the time. That is worth having and it is not the same as the condition being
+          true now. The two items that fail here fail differently: one was signed for a space
+          nobody could enter, and one is contradicted by a direct measurement at the boundary,
+          which beats a written record every time because it is the actual state rather than the
+          reported one. Verifying the whole list is not available, so the decision that matters is
+          which claims would hurt if they were wrong.
+
+  - title: What the measurement is worth
+    objective: Spend scarce evidence on the questions that change what happens next.
+    briefing: The desk will fund one more measurement and wants to know which.
+    stake: >-
+      Wednesday, and Ruth Calderón has one slot left in the day's budget. Three proposals are on her desk and all three are good science; only one of them changes what the crew does at noon. Meanwhile the field station has a tone nobody can source and four candidate machines, and the sample room has a brightness that fits any size you like. Today you decide what to buy, isolate a cause by changing one thing at a time, and find out why a second measurement of different physics settles what a better version of the first one cannot.
+    takeaway: The value of a measurement is the decision it would change, not the precision it would add.
+    stops:
+      # ---- VALUE. Three checks make the trap real: the board must cost more than
+      # the budget, at least one option must be `decisive`, and at least two
+      # distinct `axis` values must be present — buying more of the same axis is
+      # the mistake, so the same axis everywhere means there is no mistake to make.
+      - group: G4
+        task: Buy the thing that would change the decision
+        title: One slot, three good proposals
+        place: Response Desk
+        scene: >
+          Three proposals, one funded slot, and a crew that mobilises at noon
+          either way. Calderón has read all three and will not say which she
+          prefers.
+        assumes:
+          - evidence is worth what it changes, not what it costs
+          - a second measurement of the same kind narrows the same thing again
+        takeaway: A measurement earns its cost by changing a decision that has not yet been taken.
+        format: VALUE
+        question: >-
+          You have four hours of the day's budget. Buy what changes what the crew does at noon.
+        value:
+          hint: >-
+            Everything here is real evidence. The question is which of it changes what happens at
+            noon.
+          budget: { amount: 4, unit: h }
+          decision: Whether the crew enters the lower gallery at noon
+          options:
+            - { id: repeat, label: Repeat the surface survey, cost: 2, axis: surface concentration, reveals: 'The same value again, to a tighter uncertainty.' }
+            - { id: deeper, label: Third surface transect, cost: 2, axis: surface concentration, reveals: 'Consistent with the first two.' }
+            - { id: gallery, label: Lower the monitor into the gallery, cost: 3, axis: conditions where the crew will actually be, decisive: true, reveals: 'Oxygen at 17 per cent four metres down, and falling with depth.' }
+            - { id: archive, label: Pull the 1998 survey from the archive, cost: 1, axis: history of the site, reveals: 'The gallery was backfilled in two stages, which the plan does not show.' }
+          commit: Fund it
+        answerText: >-
+          Lower the monitor into the gallery. It is the only measurement taken where the crew will
+          be, and it is the only one whose result changes whether they go in.
+        why: >
+          Two of these proposals measure the surface again. They are careful and they will produce
+          a tighter number about a place nobody is standing, which is the failure this decision
+          exists to avoid: a measurement can be rigorous and still answer a question whose answer
+          does not enter the choice. The test that separates them is whether a result the other
+          way changes anything, and only the gallery reading does — a low oxygen four metres down
+          stops the entry, while a third transect agreeing with the first two stops nothing. The
+          archive is cheap and genuinely informative, and it still does not decide noon.
+      # ---- CONTROL. `response` has to clear `noise` by more than 3×, or a trial
+      # is a coin toss. Securing several machines at once is allowed and the panel
+      # reports it as ambiguous, which is the teaching. The reversal is graded.
+      - group: G1
+        task: Make the tone follow one machine
+        title: A cause, and a coincidence that looks like one
+        place: Field Station
+        scene: >
+          A new tone appeared on the array overnight at 214 hertz. Four machines
+          changed state in the same hour. Achterberg has the plant log and the
+          sonar operator is waiting.
+        assumes:
+          - a controlled test changes one variable and holds the rest
+          - a machinery-order tone scales with the rate of the machine producing it
+        takeaway: A relationship is causal when it reverses, not when it coincides.
+        format: CONTROL
+        question: >-
+          Four candidates, one tone. Establish which machine is producing it and prove it.
+        control:
+          hint: >-
+            Change what you like and run the measurement. What you change is a decision; what it
+            tells you depends on how many things moved.
+          observable: { label: Tone at 214 Hz, unit: dB }
+          held: [own speed, depth, array state]
+          variables:
+            - { id: tg2, label: Turbogenerator 2 }
+            - { id: swb, label: Seawater pump B }
+            - { id: hyd, label: Hydraulic plant }
+            - { id: fan, label: Forward ventilation fan }
+          truth: swb
+          baseline: 74
+          # Signed: securing the pump takes the tone DOWN nineteen decibels.
+          response: -19
+          noise: 1.5
+          changeVerb: secured
+          run: Ask sonar for the level
+          commit: Name it
+        answerText: >-
+          Seawater pump B. Securing it alone drops the tone nineteen decibels, and restoring it
+          brings the line straight back — which is what separates it from the machine that
+          happened to start in the same hour.
+        why: >
+          Four things changed in one hour, so the log alone cannot name a cause; it can only name
+          candidates. Securing several at once makes the display quieter and settles nothing,
+          because a quieter display is consistent with any of them being responsible. One variable
+          at a time gives a candidate, and restoring it is what turns the candidate into a cause:
+          a coincidence does not come back on demand. The reversal also costs almost nothing here,
+          which is worth noticing — the reason it gets skipped is not expense, it is that by then
+          the answer already feels known.
+      # ---- DEGENERACY. Two controls exactly. The first locus needs five points
+      # and at least three of them outside the answer tolerance, or the first
+      # measurement was never ambiguous and the second has nothing to collapse.
+      # Both loci have to pass through the truth, or the crossing is not the answer.
+      - group: G2
+        task: Get a size out of a brightness
+        title: Any size you like, for the right albedo
+        place: Sample Room
+        scene: >
+          One brightness measurement, and a model with two knobs in it. Kit
+          Sorensen has the thermal data on a second screen and has not brought it
+          over yet.
+        assumes:
+          - reflected brightness depends on the product of area and reflectivity
+          - absorbed and reflected fractions of the incident light sum to one
+        takeaway: One observable across two unknowns fixes a family of solutions, not a solution.
+        format: DEGENERACY
+        question: >-
+          Match the brightness, then say what size it is.
+        degeneracy:
+          hint: >-
+            Both controls change the model. The match to the measurement is the number to watch.
+          observable: { label: Reflected brightness }
+          controls:
+            - { id: diameter, label: Diameter, min: 60, max: 600, step: 10, unit: m }
+            - { id: albedo, label: Reflectivity, min: 0.03, max: 0.6, step: 0.01 }
+          # The brightness locus: diameter falls as reflectivity rises, at fixed
+          # brightness. Every point on it fits the measurement equally.
+          locus:
+            - { a: 100, b: 0.45 }
+            - { a: 140, b: 0.23 }
+            - { a: 180, b: 0.14 }
+            - { a: 260, b: 0.067 }
+            - { a: 360, b: 0.035 }
+            - { a: 460, b: 0.021 }
+          second:
+            label: Thermal infrared flux
+            apply: Bring the thermal data over
+            # Thermal flux rises with area and with the absorbed fraction, so its
+            # locus runs the other way and crosses the first once.
+            locus:
+              - { a: 120, b: 0.05 }
+              - { a: 180, b: 0.14 }
+              - { a: 250, b: 0.30 }
+          truth: { a: 180, b: 0.14 }
+          tolerance: { a: 25, b: 0.04 }
+          still: [bulk density, internal strength]
+          commit: Report the size
+        answerText: >-
+          About 180 metres, at a reflectivity near 0.14 — and that is the diameter measured, not
+          the density or the strength, which are still inferred from a surface classification.
+        why: >
+          The brightness is the product of an area and a reflectivity, so halving one and
+          quadrupling the other reproduces it exactly. That is not a noisy measurement; it is a
+          measurement of one number where two are wanted, and a better telescope slides along the
+          same curve. Thermal infrared breaks it because it responds to the absorbed fraction
+          rather than the reflected one — the same albedo that makes an object faint makes it warm
+          — so its curve runs the other way and the two cross once. What comes out is a diameter.
+          The density underneath it is still an assumption wearing a number.
+
+  - title: What the plan cannot answer
+    objective: Trace a path, spend a finite pool, and locate something from constraints that do not meet at a point.
+    briefing: The gym is cleared on paper, the crate holds twenty slots, and three stations disagree politely.
+    stake: >-
+      Thursday, and Priya Naidoo has three jobs that have to close before the report does. The gym next to the school is cleared on a rapid inspection that never traced a load path; the river programme has twenty laboratory slots and six questions that all deserve them; and the overnight event has three arrival times and one station whose clock has been drifting since the spring. Today you follow force from a roof to the ground, decide what a sampling plan is allowed not to answer, and report a location as the region it actually is.
+    takeaway: A finite plan is defined as much by what it forgoes as by what it covers.
+    stops:
+      # ---- CHAIN. The `distractor` is required and must differ from `governing`,
+      # and the governing link may not be first in the order — "the first thing in
+      # the list" is answerable without reading anything.
+      - group: G3
+        task: Follow the force to the ground
+        title: The small anchor and the large panel
+        place: Records Office
+        scene: >
+          The gym is cleared on a rapid inspection. Naidoo has the drawings out
+          and the roof-to-panel anchors are the only thing on them with no
+          capacity written beside it.
+        assumes:
+          - lateral force reaches the ground through a continuous set of physical connections
+          - a chain of transfers is limited by the weakest one the path requires
+        takeaway: A load path is governed by its weakest required transfer, whatever the elements either side of it can carry.
+        format: CHAIN
+        question: >-
+          Put the transfers in the order the force takes, then name the one that decides whether
+          the path holds.
+        chain:
+          hint: >-
+            Every interface has to be there. A path with a gap in it is not a path.
+          links:
+            - { id: diaphragm, label: Roof deck acting as a diaphragm, transfers: 'roof inertia into the plane of the roof' }
+            - { id: collector, label: Collector member, transfers: 'diaphragm shear along to the resisting line' }
+            - { id: anchor, label: Roof-to-panel anchor, transfers: 'inertia across the joint between roof and wall' }
+            - { id: panel, label: Precast wall panel, transfers: 'in-plane shear down to its base' }
+            - { id: footing, label: Foundation, transfers: 'base shear into the ground' }
+          order: [diaphragm, collector, anchor, panel, footing]
+          governing: anchor
+          distractor: panel
+          commit: Name the governing transfer
+        answerText: >-
+          Roof deck, collector, roof-to-panel anchor, wall panel, foundation — governed by the
+          anchor, the one transfer in the path with no tested capacity behind it.
+        why: >
+          Force does not travel from a roof to the ground by being near it. Every interface has to
+          carry what the one above it delivers, and the path is limited by whichever required
+          transfer is weakest — which has nothing to do with the size of the elements on either
+          side. The panel is the largest thing here by a wide margin and it is not the question;
+          if the anchor cannot pass the roof and wall inertia across the joint, the panel's own
+          strength has nothing to act against and a heavy element is left unsupported out of
+          plane. That is why the item with no number beside it is the item to test.
+      # ---- ALLOCATE. Four counts to satisfy: the board costs more than the pool,
+      # the protected items fit, at least one answer is `required`, and at least
+      # one is NOT — a board where every answer is required has removed the
+      # decision the format exists to make.
+      - group: G4
+        task: Spend twenty slots on a plan you can defend
+        title: What twenty bottles cannot ask
+        place: Response Desk
+        scene: >
+          A crate with twenty laboratory slots in it, the river map on the wall,
+          and the partition model's prediction pinned beside it. Nobody has
+          written down a recommended plan.
+        assumes:
+          - a contaminant divides between water, suspended particles and sediment
+          - a measurement without a blank cannot be defended afterwards
+        takeaway: Sampling is experimental design under a budget, and every feasible plan forgoes a question.
+        format: ALLOCATE
+        question: >-
+          Twenty slots. Build the plan, and know which of the four questions it leaves open.
+        allocate:
+          hint: >-
+            Nothing here is a wrong choice on its own. What a plan cannot answer is the price of
+            what it can.
+          pool: { amount: 20, unit: slots, mode: scalar }
+          items:
+            - { id: intake, label: Intake water, cost: 4, protected: true, note: 'the release decision needs it' }
+            - { id: qc, label: Blanks and replicates, cost: 3, note: 'nothing is defensible without them' }
+            - { id: upstream, label: Upstream water, cost: 3 }
+            - { id: downstream, label: Downstream water, cost: 3 }
+            - { id: solids, label: Suspended solids, cost: 4 }
+            - { id: cores, label: Sediment cores, cost: 6 }
+            - { id: second, label: A second time point at every station, cost: 5 }
+          answers:
+            - { question: 'Is the intake above the release criterion today?', requires: [intake, qc], required: true }
+            - { question: 'Is it travelling dissolved or on particles?', requires: [solids, downstream] }
+            - { question: 'Is there a reservoir that keeps releasing after the plume passes?', requires: [cores] }
+            - { question: 'Is the concentration rising or falling?', requires: [second] }
+          commit: Commit the crate
+        answerText: >-
+          Any plan that keeps the intake and the QC and stays inside twenty slots is defensible —
+          and it will answer two of the remaining three questions at most. Naming which one you
+          left open is the answer.
+        why: >
+          Every line on this crate is worth sampling, which is exactly why a list of options
+          cannot teach the decision: read one at a time they are all justified. A finite inventory
+          makes the trade concrete — the sediment cores and the second time point together cost
+          more than what is left after the protected slots, so a plan that asks whether the
+          concentration is rising cannot also ask whether there is a reservoir underneath it. The
+          error worth avoiding is not choosing badly. It is finishing the programme without having
+          noticed that a question was silently dropped, and reporting reassurance built on the
+          phase nobody sampled.
+      # ---- TRIANGULATE. Every station's authored `distance` must put its ring
+      # through the truth within tolerance, or the region does not contain the
+      # answer; and a `systematic` must be larger than the tolerance, or
+      # correcting it changes nothing and the player learns it did not matter.
+      - group: G1
+        task: Report where it was, not how far
+        title: Three circles and an area
+        place: Field Station
+        scene: >
+          Three stations, three arrival separations, and a regional map. The
+          ridge station's clock has been drifting since the spring and there is a
+          correction sheet for it on the bench.
+        assumes:
+          - two wave types travelling at different speeds separate further with distance
+          - a location computed from arrival times inherits any error in those times
+        takeaway: One station gives a distance, three give a region, and a timing error moves the whole region.
+        format: TRIANGULATE
+        question: >-
+          Switch the stations in, decide what to do about the ridge clock, and report the position.
+        triangulate:
+          hint: >-
+            Switching a station in draws what its own measurement permits. Click the map to report
+            where you think it is.
+          unit: km
+          stations:
+            - { id: upper, label: Upper Town, x: 0, y: 0, distance: 33.9, observation: 'S–P 4.0 s' }
+            - { id: bay, label: Bay Road, x: 11, y: -4, distance: 30.9, observation: 'S–P 3.7 s' }
+            - { id: ridge, label: Ridge, x: -62, y: 38, distance: 87.1, observation: 'S–P 10.4 s' }
+          truth: { x: 24, y: 24 }
+          tolerance: 6
+          systematic:
+            id: ridgeclock
+            label: Apply the ridge station clock correction (−0.6 s)
+            appliesTo: ridge
+            delta: 14
+          commit: Report the position
+        answerText: >-
+          Around 24 east, 24 north, as a region several kilometres across — and only after the
+          ridge clock correction, which moves that station's ring fourteen kilometres.
+        why: >
+          One station's arrival separation says how far the source was. It says nothing about
+          direction, so on its own it leaves a whole ring. Three rings intersect, and what they
+          intersect in is an area, not a point. Reporting a coordinate claims a precision the
+          arrival times do not support, and somebody downstream will treat it as certain. The
+          clock matters because the calculation runs on times, not on waveforms. A station biased
+          by six tenths of a second draws its ring in the wrong place. Its own record looks
+          perfectly normal, and the intersection moves with it.
+
+  - title: Before the number moves
+    objective: Judge a spread against a limit, measure what you changed, and write the rules before the data arrives.
+    briefing: Calderón wants the response board signed before tonight's update, not after it.
+    stake: >-
+      Friday, and three decisions have to be made in the order that makes them possible. The entry solution is a distribution and the corridor is two and a half degrees wide; the deflection was delivered on Tuesday and nobody has yet said what it did; and the public-response thresholds have to exist before tonight's orbit update rather than after it. Calderón will hold you to whichever rules you write. Today you narrow a spread instead of moving it, spend the tracking to find out what actually happened, and set thresholds against lead times that cannot be compressed.
+    takeaway: A rule written after the number moves is not a rule, and an action nobody measured is not a result.
+    stops:
+      # ---- CLOUD. The importer computes both ends: applying every `shift` and no
+      # `narrow` must fall short of `pass`, and applying everything must clear it.
+      # Without the first the player learns that re-centring works.
+      - group: G2
+        task: Get the distribution inside the corridor
+        title: Moving the dot and moving the cloud
+        place: Sample Room
+        scene: >
+          The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9
+          with nine tenths of a degree on it, and a fifth of the trajectories are
+          outside.
+        assumes:
+          - a state estimate is a distribution over what the measurements permit
+          - the limits of a corridor come from survivability, not from navigation
+        takeaway: Re-centring moves the whole distribution; only new information makes it narrower.
+        format: CLOUD
+        question: >-
+          Bring the entry solution inside the corridor, and say when it is ready.
+        cloud:
+          hint: >-
+            The band is what the measurements permit, not what is most likely. Everything in it is
+            a trajectory you might actually be on.
+          bounds: { min: 5.3, max: 7.7, unit: deg, label: Entry flight-path angle }
+          centre: 6.9
+          spread: 0.9
+          pass: 0.97
+          seed: 17
+          costUnit: h
+          actions:
+            - { id: retarget, label: Retarget the nominal to corridor centre, effect: shift, amount: 1, cost: 1 }
+            - { id: trim, label: Trim correction, effect: shift, amount: 0.5, cost: 2 }
+            - { id: pass1, label: One more tracking pass, effect: narrow, amount: 0.62, cost: 4 }
+            - { id: pass2, label: A second tracking pass, effect: narrow, amount: 0.72, cost: 4 }
+          commit: Declare it ready
+        answerText: >-
+          Both tracking passes. Re-centring alone leaves better than one trajectory in twenty
+          outside the corridor; narrowing the spread is the only thing that moves that number.
+        why: >
+          The nominal angle is the one place the vehicle is least likely to be. Re-targeting it
+          slides the whole distribution across without changing its width. The fraction outside
+          the corridor barely moves; the trajectories that were long become shallow instead. What
+          is being asked is not where to aim but how much the measurements permit, and only new
+          tracking reduces that. It costs hours the day would rather spend elsewhere. That is the
+          real decision, because the corridor is a survivability limit and does not negotiate.
+      # ---- VERIFY. `truth` must sit inside the prediction range, and some
+      # prediction in that range must fall outside `passRatio` — otherwise every
+      # prediction passes and nothing is being tested. The measurement is
+      # deliberately skippable: reporting without it is a distinct failure.
+      - group: G3
+        task: Find out what the impact actually did
+        title: A confirmed impact is not a confirmed deflection
+        place: Records Office
+        scene: >
+          The impactor arrived on Tuesday and the confirmation is on the wall.
+          The ejecta enhancement was quoted as somewhere between one and five.
+          Three tracking passes remain in the budget.
+        assumes:
+          - momentum leaving a surface as ejecta carries some of the transferred impulse
+          - an orbital period change is measurable by tracking
+        takeaway: An intervention is verified by measuring what it changed, not by confirming that it happened.
+        format: VERIFY
+        question: >-
+          Predict the period change, commit the impact, and report what happened.
+        verify:
+          hint: >-
+            Lock a prediction before the intervention. Nothing about it can be changed afterwards,
+            which is the point of making it first.
+          prediction: { label: Predicted change in orbital period, unit: min, min: 2, max: 24, step: 0.5 }
+          truth: 14.5
+          passRatio: [0.6, 1.6]
+          intervention:
+            label: The kinetic impactor
+            note: 610 kg at 6.1 km/s, closing on the leading hemisphere.
+            outcome: Impact confirmed. Ejecta plume observed for nineteen minutes.
+          measurement:
+            label: Post-impact orbital period
+            note: Three tracking passes, refit against the pre-impact solution.
+            cost: 3
+            costUnit: passes
+          unmeasuredMoral: >-
+            The impactor arrived, the plume was photographed, and the orbit was never re-measured.
+            Nothing in that sequence establishes that the asteroid moved.
+          commit: Report the deflection
+        answerText: >-
+          Around fourteen and a half minutes — but only the post-impact tracking establishes it.
+          A confirmed impact with no measured orbit is a confirmed impact and nothing else.
+        why: >
+          The spacecraft's own momentum is known to a few percent. What is not known is how much
+          more the ejecta carried away, and quoting that as a single number rather than the factor
+          of several it actually is turns an honest uncertainty into a false prediction. Both
+          halves of the error are ordinary; the failure that is specific to this decision is
+          finishing without measuring. Confirmation of impact is confirmation of an event, not of
+          an effect, and if the tracking budget goes on refining the pre-impact orbit there is
+          nothing left to compare it against — the campaign then produces a photograph instead of
+          a result.
+      # ---- TRIGGER. The scale must reach above the stream's highest value, or
+      # every threshold fires and no rule can be written badly; and for each stage
+      # some update must arrive with its lead time still in hand, or the stage
+      # cannot be got right.
+      - group: G4
+        task: Write the thresholds before tonight's update
+        title: Rules, and the lead time they need
+        place: Response Desk
+        scene: >
+          The response board is blank. The current probability is one in two and
+          a half thousand, the next update lands tonight, and Calderón wants the
+          board signed before it does.
+        assumes:
+          - a probability is a statement about knowledge rather than about the object
+          - a staged response has a lead time that cannot be compressed
+        takeaway: A rule written before the data is a decision; the same rule written afterwards is a reaction.
+        format: TRIGGER
+        question: >-
+          Set each stage's threshold, release the board, and stand by what it does.
+        trigger:
+          hint: >-
+            Set each stage against the probability scale, then release the board. The updates
+            arrive afterwards and your own rules decide what happens.
+          scale: { label: Impact probability, unit: '%', min: 0, max: 12, step: 0.05 }
+          conditions:
+            - { id: advisory, label: Public advisory, leadHours: 6, owner: Calderón, action: 'publish the corridor and its uncertainty' }
+            - { id: stage, label: Stage regional resources, leadHours: 72, owner: Calderón, action: 'move shelter and transport into the corridor' }
+            - { id: evac, label: Begin staged evacuation, leadHours: 336, owner: the prefecture, action: 'open the evacuation order' }
+          stream:
+            - { at: day 0, value: 0.04, hoursLeft: 528, update: 'one in 2500, eleven days of arc' }
+            - { at: day 4, value: 0.32, hoursLeft: 432, update: 'one in 310 after radar; the nominal miss moves away' }
+            - { at: day 9, value: 2.5, hoursLeft: 312, update: 'one in 40; the corridor narrows to two provinces' }
+            - { at: day 15, value: 0.011, hoursLeft: 168, update: 'one in 9000 after the fourth tracking pass' }
+          release: Release the board
+          commit: Stand by the board
+        answerText: >-
+          Every threshold has to sit low enough to fire while its own lead time is still available
+          — the evacuation stage below about 0.3 per cent, since it needs fourteen days and only
+          the first two updates arrive with that much left.
+        why: >
+          Two ways of getting this wrong look nothing alike and cost the same. A threshold set too
+          high never fires, and the stage simply does not happen. A threshold set at a sensible
+          number fires on the day nine update with three hundred hours left, which is a correct
+          rule for an action that needed three hundred and thirty-six — so the rule is satisfied
+          and the evacuation is already impossible. The day fifteen collapse to one in nine
+          thousand does not make the day nine decision a mistake, and the board is what makes that
+          arguable afterwards, because it was signed before anybody knew.
+
+  - title: Which number is carrying the error
+    objective: Find what actually dominates an uncertainty, and what survives an assumption moving.
+    briefing: Three jobs where the obvious quantity is not the one that decides anything.
+    stake: >-
+      Monday, and Ada Merrick has an energy figure quoted to three significant figures that nobody can defend. The radius is measured, the density is inferred, and the two are being treated as though they were the same kind of number. Meanwhile the remediation board has four options that are only ranked at one value of a containment endurance nobody measured, and the subsidence survey has two fits with a tenth of a millimetre between them. Today you find which input carries the uncertainty, which option survives the assumption moving, and which fit you would be willing to propagate.
+    takeaway: A quantity is only as good as the widest thing it was built from.
+    stops:
+      # ---- PROPAGATE. Two checks make it a lesson rather than a shortcut: the
+      # dominant term has to be the widest contribution (exponent × fractional
+      # width, which the importer computes), and it must NOT be the term with the
+      # largest exponent — otherwise ranking by exponent gets it right and the
+      # arithmetic never has to be done.
+      - group: G1
+        task: Decide which measurement is worth buying
+        title: The exponent is not the whole story
+        place: Field Station
+        scene: >
+          The energy figure is on the board to three significant figures. Merrick
+          has the three inputs it was built from beside it, each with what it is
+          actually known to, and one measurement slot left in the day.
+        assumes:
+          - fractional uncertainties combine weighted by the power each term is raised to
+          - a measured quantity and an inferred one are different kinds of number
+        takeaway: A term's contribution is its own width times its exponent, so a badly known number with no power over it can dominate a well-known one cubed.
+        format: PROPAGATE
+        question: >-
+          One measurement is affordable. Which of these is carrying the uncertainty in the energy?
+        propagate:
+          hint: >-
+            Each term contributes its own width times the power it is raised to. The bar is that
+            contribution.
+          output: { label: Impact energy, unit: J }
+          costUnit: h
+          inputs:
+            - { id: radius, label: Radius, value: 90, unit: m, sigmaFrac: 0.08, exponent: 3 }
+            - { id: density, label: Bulk density, value: 2600, unit: kg/m3, sigmaFrac: 0.45, exponent: 1 }
+            - { id: speed, label: Entry speed, value: 16.4, unit: km/s, sigmaFrac: 0.02, exponent: 2 }
+          improvable:
+            - { id: radius, label: One more radar pass, cost: 1, newSigmaFrac: 0.03 }
+            - { id: density, label: Bulk sampling at two depths, cost: 2, newSigmaFrac: 0.12 }
+            - { id: speed, label: Refit the arc, cost: 1 }
+          dominant: density
+          commit: Report the range
+        answerText: >-
+          The density. It is raised to the first power and known to forty-five per cent, which
+          outweighs a radius cubed and known to eight — so the sampling is the measurement worth
+          buying, and the energy is a range rather than a figure.
+        why: >
+          A term contributes its exponent multiplied by its own fractional width. The radius is
+          cubed, which is the part everybody sees, and it is known well enough that three times
+          eight per cent is still smaller than one times forty-five. Buying another radar pass
+          therefore improves the number that was already good and moves the total almost not at
+          all. What makes this worth catching is that the shortcut — rank by exponent — is
+          reasonable, teachable and produces exactly the wrong answer here. The density is also
+          the term nobody can measure directly from orbit, which is why it stays wide.
+      # ---- STRESS. The board must have exactly one candidate feasible across the
+      # whole range, and it must NOT be the one that wins on `optimiseOn` at the
+      # nominal — otherwise choosing well costs nothing and the slider is scenery.
+      - group: G2
+        task: Choose the option that survives the assumption moving
+        title: Best at the nominal, and nowhere else
+        place: Sample Room
+        scene: >
+          Four remediation options are ranked on the board, all at one figure for
+          how long the containment holds. Tomas Oyelaran has the range that figure
+          actually came with and has said nothing about it.
+        assumes:
+          - an assumption stated as a range is not a value
+          - an option is only available while the conditions it needs still hold
+        takeaway: A choice that is only best at the nominal is a choice that has not been tested.
+        format: STRESS
+        question: >-
+          Move the endurance through its range, then choose the option you would commit to.
+        stress:
+          hint: >-
+            The endurance has a range because nobody measured it exactly. Move it through the
+            range before you choose.
+          assumption:
+            label: Containment endurance
+            unit: h
+            min: 58
+            max: 94
+            nominal: 78
+            step: 1
+          criteria:
+            - { key: hours, label: Time to complete, unit: h }
+            - { key: cost, label: Cost, unit: k }
+            - { key: residual, label: Left behind, unit: kg }
+          candidates:
+            - { id: direct, label: Direct excavation }
+            - { id: hybrid, label: Staged excavation with an interim cap }
+            - { id: flush, label: In-place flushing }
+            - { id: slow, label: Slow biological treatment }
+          scores:
+            direct: { hours: 58, cost: 210, residual: 4 }
+            hybrid: { hours: 71, cost: 160, residual: 9 }
+            flush: { hours: 91, cost: 95, residual: 31 }
+            slow: { hours: 88, cost: 70, residual: 22 }
+          # The hours of containment each option needs to remain possible at all.
+          feasible:
+            direct: 62
+            hybrid: 54
+            flush: 88
+            slow: 84
+          optimiseOn: hours
+          robust: hybrid
+          commit: Commit the choice
+        answerText: >-
+          The staged excavation. It is not the fastest at the nominal and it is the only one still
+          possible at the pessimistic end of the endurance range, which is the end nobody
+          measured away.
+        why: >
+          At seventy-eight hours the direct excavation finishes first and looks like the obvious
+          call. The endurance was never seventy-eight hours; it was a range with seventy-eight in
+          the middle of it, and at the low end the direct option needs more containment than there
+          is. What the slider shows is that three of the four options are conditional on an
+          assumption holding, and the ranking everybody was reading is a ranking of what happens
+          if it does. Choosing the staged option costs thirteen hours and buys the property that
+          the plan does not have to be abandoned partway.
+      # ---- RESIDUAL. The lowest-RMS fit must be the wrong one and must be marked
+      # `structured`, or "take the best number" is correct and nobody looks at the
+      # field.
+      - group: G3
+        task: Say which fit you would propagate
+        title: A pattern is not an outlier
+        place: Records Office
+        scene: >
+          Three fits of the same subsidence survey are on Priya Naidoo's screen,
+          within two hundredths of a millimetre of each other on the summary
+          statistic. The residuals are plotted where each marker actually sits.
+        assumes:
+          - a complete model leaves residuals that look like noise
+          - a fitted parameter can absorb a systematic without removing it
+        takeaway: A low summary statistic with a pattern under it hides a systematic that will bias every later prediction the same way.
+        format: RESIDUAL
+        question: >-
+          Look at each field before you choose. Which of these fits would you propagate forward?
+        residual:
+          hint: >-
+            Each stick is one marker, drawn where it sits on the site. Up is a positive residual,
+            down a negative one.
+          fits:
+            - id: filed
+              label: As filed
+              rms: 0.21
+              structured: true
+              residuals:
+                - { x: -2, y: -2, value: 0.24 }
+                - { x: 0, y: -2, value: 0.22 }
+                - { x: 2, y: -2, value: 0.25 }
+                - { x: -2, y: 2, value: -0.19 }
+                - { x: 0, y: 2, value: -0.2 }
+                - { x: 2, y: 2, value: -0.23 }
+            - id: tilt
+              label: With a tilt term fitted
+              rms: 0.17
+              structured: true
+              residuals:
+                - { x: -2, y: -2, value: 0.18 }
+                - { x: 0, y: -2, value: 0.17 }
+                - { x: 2, y: -2, value: 0.2 }
+                - { x: -2, y: 2, value: -0.15 }
+                - { x: 0, y: 2, value: -0.16 }
+                - { x: 2, y: 2, value: -0.18 }
+            - id: levelled
+              label: After re-levelling the benchmark
+              rms: 0.19
+              residuals:
+                - { x: -2, y: -2, value: 0.2 }
+                - { x: 0, y: -2, value: -0.17 }
+                - { x: 2, y: -2, value: 0.06 }
+                - { x: -2, y: 2, value: -0.21 }
+                - { x: 0, y: 2, value: 0.14 }
+                - { x: 2, y: 2, value: -0.09 }
+          accept: levelled
+          commit: Accept this fit
+        answerText: >-
+          The re-levelled fit, at 0.19. The tilt term scores better and its residuals still change
+          sign across the site, which means it absorbed the benchmark error into a parameter
+          rather than removing it.
+        why: >
+          Two of these three leave residuals that are positive on one side of the site and
+          negative on the other. That is not scatter; it is a quantity the model does not contain,
+          and adding a free parameter that soaks it up improves the summary statistic while
+          leaving the cause in place. It will then bias every extrapolation in the same direction,
+          quietly, because nothing about the fit looks wrong afterwards. The re-levelled fit
+          scores worse and its residuals change sign at random, which is what a complete model
+          produces. One large residual would be a bad marker; six small ones in a pattern are a
+          cause.
+
+  - title: What you take yourself
+    objective: Decide what command changes first, fly a plan with no damping, and measure your own blind spot.
+    briefing: Four conditions at once, a trolley that will not stop, and a network that never sees one direction.
+    stake: >-
+      Tuesday, and four conditions arrive on Ruth Calderón's desk inside a minute. One of them is loud and none of the loud ones is the one with a margin running out. In the flooded gallery the survey trolley runs on a rail with nothing to slow it down, and the last operator stopped the motor at the mark and watched it carry on past. Kit Sorensen has the injection results for the monitoring network. Today you decide what you keep, what you hand over and with what condition, and what a network is failing to see at all.
+    takeaway: What decides an order is a margin closing on something irreversible, not which alarm is loudest.
+    stops:
+      # ---- DELEGATE. Exactly one problem may be rising AND irreversible, or there
+      # is no first; and at least one must be `loud` and stable, or the alarm and
+      # the priority are the same thing and there is nothing to get wrong.
+      - group: G4
+        task: Take one condition and hand over the rest
+        title: The loudest is not the first
+        place: Response Desk
+        scene: >
+          Four conditions, one watch team, and a clock that runs whether or not
+          anybody has decided. Ruth Calderón will take whichever one you leave
+          her, and she wants the others owned.
+        assumes:
+          - a trend and a rate say more than a current value
+          - an instruction without a return condition produces no report until it is too late
+        takeaway: A handover is an owner, a first action and a condition that brings them back; two of the three is nobody watching it.
+        format: DELEGATE
+        question: >-
+          Which do you change first, and who has the others?
+        delegate:
+          hint: >-
+            One of these you deal with yourself. Everything else goes to somebody, with a first
+            action and a condition that brings them back.
+          team:
+            - { id: merrick, label: Merrick }
+            - { id: oyelaran, label: Oyelaran }
+            - { id: naidoo, label: Naidoo }
+            - { id: achterberg, label: Achterberg }
+          firstActions:
+            - { id: isolate, label: isolate at the boundary }
+            - { id: slow, label: reduce the rate and buy time }
+            - { id: measure, label: take an independent reading }
+            - { id: stand, label: stand by and log }
+          problems:
+            - id: gallery
+              label: Groundwater rising toward the gallery sill
+              trend: rising
+              rate: 40 mm/h against 300 mm of freeboard
+              consequence: once it is over the sill the records below cannot be recovered
+              irreversible: true
+              # Nobody else can weigh the records against the water; the other
+              # three are a phone call, a bund and a taxi.
+              delegable: false
+            - id: alarm
+              label: Fire panel in continuous alarm
+              trend: stable
+              rate: unchanged for 20 minutes
+              consequence: a known fault on a detector head, logged twice this month
+              loud: true
+            - id: spill
+              label: Bunded spill in the yard
+              trend: rising
+              rate: 2 L/min inside a 400 L bund
+              consequence: contained, and cleanup cost rises with volume
+            - id: cut
+              label: Contractor with a cut hand
+              trend: stable
+              rate: bleeding controlled
+              consequence: needs transport within the hour
+          first: gallery
+          commit: Take the watch
+        answerText: >-
+          Take the groundwater yourself. It is the only one whose margin is closing on something
+          that cannot be undone, and everything else goes out with an owner, a first action and a
+          condition that brings them back.
+        why: >
+          The fire panel is the loudest thing in the building and it has been stable for twenty
+          minutes on a fault that is already in the log. The spill is rising and it is inside a
+          bund, so what it costs is money and time rather than an option. The groundwater is the
+          only condition where waiting removes a choice: over the sill, the records are gone and
+          no amount of later effort brings them back. That is what puts it first — not the rate,
+          not the noise, but a margin closing on something irreversible. Everything else can be
+          somebody else's if they are told when to come back.
+      # ---- FLY. Two checks: some pulse and braking angle inside the ranges and
+      # the budget must land on target, and braking AT the target must overshoot
+      # by more than the tolerance — otherwise waiting until it arrives is right
+      # and the format has no lesson.
+      - group: G1
+        task: Stop the trolley where you meant to
+        title: You stopped driving. You did not stop
+        place: Field Station
+        scene: >
+          The survey trolley runs on a rail in the flooded gallery, where nothing
+          slows it down. Ben Achterberg has the last operator's trace, which
+          shows the motor cut at the mark and the trolley eighteen metres past it.
+        assumes:
+          - a body with no resisting force keeps whatever velocity it was given
+          - removing a velocity takes the same impulse that produced it
+        takeaway: With nothing to damp it, the braking impulse has to begin before the target, by exactly as far as the acceleration carried it.
+        format: FLY
+        question: >-
+          Set the pulse and the distance at which braking starts, then run it and see where it
+          stops.
+        fly:
+          hint: >-
+            There is nothing to slow it down. Whatever you put in has to be taken back out, and
+            taking it out takes as long as putting it in.
+          state: { label: Distance along the rail, unit: m, init: 0 }
+          rate: { label: Speed, unit: m/s }
+          accel: 0.42
+          pulse: { min: 4, max: 8, step: 0.5, unit: s }
+          brake: { min: 40, max: 95, step: 1, unit: m }
+          pulseLabel: Drive pulse, each way
+          brakeLabel: Begin braking at
+          target: 90
+          tolerance: 3
+          rateTolerance: 0.05
+          budget: 12
+          run: Run it
+          commit: Report where it stopped
+        answerText: >-
+          Braking has to start about seven and a half metres short of the mark on a six-second
+          pulse — around 82 metres — because that is how far the trolley travels while the braking
+          impulse is being applied.
+        why: >
+          The trolley leaves the acceleration with a speed, and on a rail in still water there is
+          nothing to take that speed away except an equal impulse in the other direction. So the
+          braking has to start early, and by a specific amount: the distance covered while the
+          brake is working, which is set by the same pulse that produced the speed. Cutting the
+          drive at the mark is not braking at all — it only stops adding speed, and the trolley
+          carries the speed it already has. A longer pulse gets there sooner and needs a longer
+          brake and more of the budget, which is the trade the two controls actually make.
+      # ---- INJECT. The configuration with the most detections must NOT be the one
+      # that wins on the metric, or counting detections answers the stop.
+      - group: G2
+        task: Find what the network cannot see
+        title: More detections, the same amount of notice
+        place: Sample Room
+        scene: >
+          Five thousand synthetic events with known times and sizes, ready to push
+          through the monitoring network exactly as a real one would go. Kit
+          Sorensen has the recovery display up and nothing on it yet.
+        assumes:
+          - a detection pipeline has a selection function, and it can be measured
+          - a warning is only useful if it arrives while something can still be done
+        takeaway: Injecting a population whose truth you know measures the pipeline rather than the world, and what never comes back is not absent.
+        format: INJECT
+        question: >-
+          Run the configurations you want, then fund the upgrade that actually buys something.
+        inject:
+          hint: >-
+            The population is synthetic and its truth is known, so what comes back out is a
+            measurement of the network rather than of the ground.
+          population: { n: 5000 }
+          metric: { label: median warning time, unit: h }
+          configs:
+            - { id: current, label: The network as it stands, detections: 1200, metric: 9 }
+            - { id: deeper, label: Lower the detection threshold, detections: 2900, metric: 11 }
+            - { id: faster, label: Report every six minutes instead of hourly, detections: 2100, metric: 26 }
+            - { id: upstream, label: Three stations above the catchment divide, detections: 1400, metric: 31 }
+          best: upstream
+          blindSpot: >-
+            Nothing arriving from above the catchment divide is recovered in any configuration.
+            Lowering the threshold does not change it, because the network has no station there.
+          commit: Fund it
+        answerText: >-
+          The upstream stations. They recover the fewest additional events of any upgrade and more
+          than triple the median warning time, because they are the only ones that see the
+          direction the network is currently blind to.
+        why: >
+          Lowering the threshold more than doubles the count, which is the number everybody
+          reports, and it adds two hours of notice. What the injection shows is that the extra
+          events are ones the network was already going to catch, only slightly earlier. The
+          direction above the divide produces no recoveries in any configuration at all, and that
+          is not a property of the events — the truth is known and they are there. It is a
+          property of where the stations are. A discovery is worth what the downstream response
+          can do with the time it buys, so a configuration that finds more and warns no earlier
+          has bought a longer list.
+
+  - title: Down there without the lights
+    objective: Learn a route well enough to rejoin it, and close the fortnight out.
+    briefing: The vault lighting fails on Thursdays and the survey has to be finished either way.
+    stake: >-
+      Wednesday, and Priya Naidoo needs the lower vault surveyed before the transfer on Friday. The lighting circuit there has failed twice this fortnight and the second time somebody counted paces to get out, took a detour round a jammed door and finished the count in the wrong room. Ada Merrick wants the route learned as places rather than as a number. Today you walk it once with the labels showing, walk it again without them, and find out what a compartment sequence gives you that a pace count does not.
+    takeaway: A route learned as places can be rejoined from anywhere in it; a count cannot.
+    stops:
+      # ---- ROUTE. Landmarks must all differ, or the recovery is a guess; the
+      # detour has to drop the player ahead of where they stopped; and the labels
+      # must not all be numbered, or the dark half is readable without them.
+      - group: G3
+        task: Learn the route, then find it again
+        title: Where you are, and how you know
+        place: Records Office
+        scene: >
+          The lower vault runs as one line of rooms with a door at each end. Priya
+          Naidoo walks it with you once with the labels up, and mentions that one
+          of the doors sticks.
+        assumes:
+          - a count of paces or turns cannot be resumed once it is interrupted
+          - a place can be recognised from something in it that is not a label
+        takeaway: A sequence of recognisable places can be re-entered at any point; a count of anything cannot.
+        format: ROUTE
+        question: >-
+          Walk it lit, then put it back together in the dark — and say where you are when the
+          route is broken.
+        route:
+          hint: >-
+            Walk it once with the names showing. They will not be there on the way back, and one
+            of the doors will not open.
+          stops:
+            - { id: deed, label: Deed store, landmark: the brass rail along the shelving }
+            - { id: map, label: Map and plan room, landmark: the wide flat drawers }
+            - { id: micro, label: Microfilm bay, landmark: the smell of warm ballast }
+            - { id: bind, label: Bindery, landmark: the press bolted to the floor }
+            - { id: transfer, label: Transfer room, landmark: the trolley ramp up to the door }
+            - { id: strong, label: Strong room, landmark: 'the second door, hinged inward' }
+          order: [deed, map, micro, bind, transfer, strong]
+          interruptAfter: 2
+          resumeAt: transfer
+          detour: >-
+            The bindery door is jammed. You go round through the service passage and come out
+            somewhere with no label on it. What you can see is:
+          commit: Report your position
+        answerText: >-
+          Deed store, map room, microfilm bay, bindery, transfer room, strong room — and after the
+          jammed door you are in the transfer room, because the trolley ramp is only in one of
+          them.
+        why: >
+          A pace count and a turn count both produce an answer and neither can be resumed. Once
+          the route is broken the count is measuring a journey that did not happen, and there is
+          no way to check it from inside the building. A sequence of places has the property the
+          count does not: every element of it is recognisable on its own, so being put down in the
+          middle of it is recoverable. Naming where you are is the whole of the recovery, and it
+          is only possible because each room has something in it that no other room has.
+      # ---- Two of the older formats, so the day is not three instruments in a row.
+      - group: G4
+        task: Say what the fortnight established
+        title: What can be signed off
+        place: Response Desk
+        scene: >
+          Ruth Calderón has the fortnight's findings on one sheet and a transfer
+          on Friday. She wants to know which of them she is entitled to put her
+          name to.
+        assumes:
+          - a corrected ratio and an uncorrected one are different claims
+        takeaway: What a verification office establishes is bounded by what it actually measured.
+        format: CHOICE
+        question: Which of these can the office state without qualification?
+        choices:
+          - The Halden site ratio is 4.8 against competent rock, corrected for the vault reference.
+          - The Halden site amplifies ground motion by a factor of five at all frequencies.
+          - The mechanical gauge reading was wrong and has been discarded.
+          - Every measurement taken at Halden this fortnight is unreliable.
+        answer: The Halden site ratio is 4.8 against competent rock, corrected for the vault reference.
+        why: >
+          The office measured a reference factor and recomputed the ratios that used it. That is a
+          bounded claim with a stated basis, and it is the only one on this list. The second is
+          the same number stretched into a frequency range nobody worked in. The third inverts
+          what was found — the gauge was the independent instrument and it stands. The fourth
+          throws away the correctly measured numerators along with the mislabelled denominator,
+          which is the failure the whole fortnight was about.
+        rebuttals:
+          - The correction was made in one frequency band, and the ratio outside it was never measured.
+          - The gauge is the channel that did not use the vault, so it is the one thing untouched by the error.
+          - The numerators were measured correctly; only the label on the denominator was wrong.
+      - group: G2
+        task: Match each finding to what it rests on
+        title: What each claim is standing on
+        place: Sample Room
+        scene: >
+          Four findings from the fortnight, and four different kinds of evidence
+          underneath them. Tomas Oyelaran wants them paired before anything is
+          filed.
+        assumes:
+          - different kinds of evidence support different kinds of claim
+        takeaway: A claim is only as strong as the kind of evidence under it, and the two are easy to swap.
+        format: PROTOCOL
+        task: Match each finding to the evidence it actually rests on.
+        scenarios:
+          - The inflow at the hull was 410 litres a minute.
+          - The tone at 214 hertz came from seawater pump B.
+          - The asteroid is about 180 metres across.
+          - The aft escape route could not be signed off.
+        choices:
+          - A rate measured directly, plus a removal term that was running throughout.
+          - A single variable changed and then restored, with the feature following it both ways.
+          - Two measurements responding to the same property through different physics.
+          - An inspection that found the physical condition did not match the record.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each of these findings is strong, and each is strong for a different reason. Confusing
+          them is how a bounded claim turns into a general one somewhere downstream.
+
+      # ---- DERIVE. The thirteenth. Two halves are graded — the line and the
+      # rule — and the trap is `survives`: at least one wrong branch per step
+      # has to stay algebraically valid, or the step is passable by elimination.
+      - group: G1
+        task: Turn a gate opening into a rate of discharge
+        title: What the gate is doing to the river
+        place: Field Station
+        scene: >
+          The gate is winding open at a steady rate and the head above the sill is 2.0 metres.
+          Ada Merrick needs the discharge rate written down before the shift changes, and the
+          gauge downstream only reports what has already arrived.
+        assumes:
+          - the discharge over a weir depends on the head raised to a power
+          - a quantity that changes because another one changes needs the chain rule
+        takeaway: A rate on the left needs every factor the right-hand side's own change brings with it.
+        format: DERIVE
+        question: >-
+          Derive how fast the discharge is rising, in terms of how fast the head is rising.
+        derive:
+          hint: >-
+            Choose the line that actually follows, then say which rule gets you there.
+          start: 'Q = C·L·H^(3/2)'
+          startNote: given
+          goal: 'dQ/dt in terms of dH/dt'
+          rules: [power, product, quotient, chain, implicit]
+          steps:
+            - ask: Differentiate both sides with respect to time.
+              answer: 0
+              candidates:
+                - text: 'dQ/dt = C·L·(3/2)·H^(1/2)·dH/dt'
+                  rule: chain
+                - text: 'dQ/dt = C·L·(3/2)·H^(1/2)'
+                  rule: power
+                  survives: true
+                  why: >-
+                    H is a function of t, so differentiating with respect to t carries a factor of
+                    dH/dt. Without it this is dQ/dH — a different quantity, and one that stays
+                    algebraically respectable for the rest of the derivation, which is why it
+                    survives being wrong.
+                - text: 'dQ/dt = C·L·(3/2)·H^(3/2)·dH/dt'
+                  rule: chain
+                  why: >-
+                    The power rule drops the exponent by one. Left at 3/2 it is the original
+                    power, so this line is not the derivative of anything.
+                - text: 'dQ/dt = C·L·H^(1/2)·dH/dt'
+                  rule: chain
+                  why: >-
+                    The 3/2 that comes down in front is part of the power rule, not a constant
+                    that can be absorbed into C·L.
+            - ask: 'Put in C·L = 21.0 and H = 2.0, and keep dH/dt symbolic.'
+              answer: 2
+              candidates:
+                - text: 'dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt'
+                  rule: power
+                  why: >-
+                    H^(1/2) at H = 2.0 is the square root of two, about 1.41. Using 2.00 evaluates
+                    H rather than its square root.
+                - text: 'dQ/dt = 21.0 × 1.5 × 1.5 × dH/dt = 47.3·dH/dt'
+                  rule: power
+                  why: >-
+                    The 3/2 is already in front as the 1.5. Multiplying by it again applies the
+                    power rule twice.
+                - text: 'dQ/dt = 21.0 × 1.5 × 1.41 × dH/dt = 44.5·dH/dt'
+                  rule: power
+                - text: 'dQ/dt = 21.0 × 1.41 × dH/dt = 29.7·dH/dt'
+                  rule: power
+                  survives: true
+                  why: >-
+                    This is the arithmetic of the line whose 3/2 was never brought down. Nothing
+                    about it looks broken, and it is the derivative of the wrong function — which
+                    is the mistake this step exists to catch.
+          commit: Report the rate
+        answerText: >-
+          dQ/dt ≈ 44.5·dH/dt — so a head rising at 0.05 m/min raises the discharge by about
+          2.2 cubic metres a second every minute.
+        why: >
+          The discharge does not follow the gate; it follows the head, and it follows it through a
+          three-halves power. That exponent is why a spillway is hard to run: the same half metre
+          of head does far more when the head is already high, so a rate that looked manageable an
+          hour ago is not the rate you have now. The chain rule is what carries the head's own
+          motion into the discharge, and dropping its inner factor leaves you with dQ/dH — a slope
+          that is perfectly correct about a question nobody asked.
+
+# ---------------------------------------------------------------- the place
+# What each room says when the player walks into it. The book owns this, or
+# bookParity reports the theme shipping a file the book does not produce.
+copy:
+  ARRIVE: <p>Sign-in. Everybody who comes through this floor is on the sheet by the door.</p>
+  WAIT: <p>Where people wait to be seen, and where they talk to each other while they do.</p>
+  QUIET: <p>A room with a door that shuts. There is one of these in every building that works.</p>
+  STORE: <p>Supplies. Nothing here is interesting until the day something has run out.</p>
+  LABX: <p>The analysis bench. Shared, booked by the hour, and always behind.</p>
+  DESK: <p>The team desk. Every argument about the week has happened at it.</p>
+  BACK: <p>Back of house. Deliveries, spares, and the boxes nobody has opened.</p>
+  GATE: <p>The gatehouse. Sign in, take the day's calls, and start walking.</p>
+  G1: <p>The field station. Two instruments, and a rule about what they are each answering.</p>
+  G2: <p>The sample room. Every container here is a record of where it has been.</p>
+  G3: <p>The records office. The only part of this work that outlasts the people doing it.</p>
+  G4: <p>The response desk. Where somebody has to decide before the evidence is finished.</p>

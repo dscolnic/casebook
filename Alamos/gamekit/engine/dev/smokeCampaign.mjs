@@ -38,6 +38,69 @@ const problems = [];
 const fail = (m) => problems.push(m);
 
 /**
+ * Whether one of the twelve instrument formats can be reached and graded.
+ *
+ * This asks only "does the engine have something to compute a verdict from" —
+ * the format's own trap (a budget that buys the whole board, a cloud that a
+ * retarget passes) is validateContent's business. The split matters: a stop can
+ * be perfectly reachable and still teach the opposite of what it meant to.
+ */
+const INSTRUMENT_GRADEABLE = (kind, ch) => {
+  const b = ch[String(kind).toLowerCase()];
+  if(!b) return false;
+  switch(kind){
+    case 'TRIGGER':     return (b.conditions ?? []).length >= 2 && (b.stream ?? []).length >= 3;
+    case 'VALUE':       return (b.options ?? []).some(o => o.decisive) && +b.budget?.amount > 0;
+    case 'CLOUD':       return Number.isFinite(+b.pass) && +b.spread > 0
+                                && (b.actions ?? []).some(a => a.effect === 'narrow');
+    case 'ALLOCATE':    return +b.pool?.amount > 0 && (b.items ?? []).length >= 4
+                                && (b.answers ?? []).some(q => q.required);
+    case 'TRACE':       return (b.channels ?? []).length >= 4 && (b.independent ?? []).length >= 1
+                                && (b.resources ?? []).some(r => String(r.id) === String(b.target));
+    case 'ATTEST':      return (b.claims ?? []).some(c => c.critical && !c.backed) && +b.checks >= 1;
+    case 'CONTROL':     return (b.variables ?? []).some(v => String(v.id) === String(b.truth))
+                                && Math.abs(+b.response) > 0;
+    case 'TRIANGULATE': return (b.stations ?? []).length >= 3 && +b.tolerance > 0
+                                && Number.isFinite(+b.truth?.x);
+    case 'DEGENERACY':  return (b.controls ?? []).length === 2 && (b.locus ?? []).length >= 5
+                                && Number.isFinite(+b.truth?.a) && +b.tolerance?.a > 0;
+    // The bank may hold decoys the path does not use, so the path is what has to
+    // be complete — not the bank.
+    case 'CHAIN':       return (b.order ?? []).length >= 4
+                                && (b.order ?? []).every(id =>
+                                     (b.links ?? []).some(l => String(l.id) === String(id)))
+                                && (b.order ?? []).map(String).includes(String(b.governing));
+    case 'BALANCE':     return (b.streams ?? []).length >= 3 && Number.isFinite(+b.total?.amount)
+                                && +b.tolerance > 0;
+    case 'VERIFY':      return Number.isFinite(+b.truth) && (b.passRatio ?? []).length === 2
+                                && Number.isFinite(+b.prediction?.min);
+    case 'PROPAGATE':   return (b.inputs ?? []).length >= 3
+                                && (b.improvable ?? []).some(m => String(m.id) === String(b.dominant)
+                                     && m.newSigmaFrac != null);
+    case 'STRESS':      return (b.candidates ?? []).some(c => String(c.id) === String(b.robust))
+                                && Number.isFinite(+b.assumption?.min);
+    case 'DELEGATE':    return (b.problems ?? []).some(p => String(p.id) === String(b.first))
+                                && (b.team ?? []).length >= 2 && (b.firstActions ?? []).length >= 2;
+    case 'FLY':         return Number.isFinite(+b.target) && +b.tolerance > 0
+                                && +b.rateTolerance > 0 && +b.accel > 0;
+    case 'RESIDUAL':    return (b.fits ?? []).some(f => String(f.id) === String(b.accept))
+                                && (b.fits ?? []).length >= 2;
+    case 'INJECT':      return (b.configs ?? []).some(c => String(c.id) === String(b.best))
+                                && (b.configs ?? []).length >= 3;
+    case 'ROUTE':       return (b.stops ?? []).length >= 5
+                                && (b.order ?? []).length === (b.stops ?? []).length
+                                && (b.stops ?? []).some(x => String(x.id) === String(b.resumeAt));
+    // Every step needs candidates and an answer that indexes into them, or the
+    // panel renders lines nobody can be right about.
+    case 'DERIVE':      return (b.steps ?? []).length >= 2 && (b.rules ?? []).length >= 3
+                                && (b.steps ?? []).every(st => (st.candidates ?? []).length >= 3
+                                     && Number.isInteger(+st.answer)
+                                     && +st.answer < (st.candidates ?? []).length);
+    default:            return false;
+  }
+};
+
+/**
  * A diagnosis is playable when the panel can be read at a glance — a figure, or
  * readings spanning three or more zones — and when every answer it names is on
  * the candidate list. `correctChoices` is the L4 form, where no single cause
@@ -122,6 +185,11 @@ function diagnosisAnswerable(ch){
         (kind === 'TALLY' && (ch.tally?.settings ?? []).length >= 2
           && ch.tally.settings.every(x => Number.isFinite(+x.pSame))
           && Number.isFinite(+ch.tally?.target) && +ch.tally?.tolerance > 0) ||
+        // The twelve from FORMATS.md. Each is graded on an action rather than on a
+        // labelled option, so what makes one reachable is that its own data block
+        // exists and carries the thing the grade is computed against — nothing
+        // here re-checks the trap, which is validateContent's job.
+        INSTRUMENT_GRADEABLE(kind, ch) ||
         (kind === 'DIAGNOSIS' && ch.choices?.length >= 4 && diagnosisAnswerable(ch)) ||
         (kind === 'TRIAGE' && ch.choices?.length >= 2 && ch.choices.includes(ch.correctChoice)) ||
         (kind === 'CHOICE' && ch.choices?.length >= 3 &&

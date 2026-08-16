@@ -1,34 +1,43 @@
-# Hospital Heroes — Junior Doctor
+# hospital-fps — gone. The game is `gamekit/themes/hospital`.
 
-Interior first-person mission game, roughly grades 3–4. Fifteen shifts across
-six departments.
+Hospital Heroes was the last game with an entry point of its own, and the last
+with a hand-built world. It is an ordinary gamekit theme now, and this directory
+is a tombstone: a bookmark, a stale `npm run dev` in a terminal tab, or a session
+that remembers the old layout fails here rather than quietly booting a copy of
+the game that no longer gets fixed.
 
 ```sh
-npx vite          # dev
-npx vite build    # dist/
+cd gamekit
+THEME=hospital npm run dev      # the game
+npm run check hospital          # its checks
+npm run shots hospital          # its screenshots
 ```
 
-## It runs on the shared engine
+## What moved where
 
-`src/gameState.js`, `time.js`, `utils.js`, `terminology.js`, `interactions.js`,
-`simulation.js`, `questionUI.js`, `dashboard.js`, `save.js`, `constants.js` and
-`player.js` are **one-line re-exports of `../../../gamekit/engine/core/`**.
-Editing them here does nothing; edit the engine, and build all three games.
+| Was | Is |
+| --- | --- |
+| `src/main.js`, 900 lines | `gamekit/src/main.js`, shared with every theme |
+| `src/world.js`, 1,070 lines | `engine/world/interiorFloor.js`. `interiorSite.js` was generalised out of *this floor*, so the flip renamed the plan's keys rather than rebuilding the place |
+| `src/plan.js` | `themes/hospital/plan.js`, in the engine's own plan shape |
+| `src/npcs.js`, 951 lines | `engine/people/crowd.js`, plus `themes/hospital/outfits.js` for the scrubs |
+| `src/hospitalProps.js`, 766 lines, and `src/interiorEnv.js` | `themes/hospital/props.js` on top of `engine/world/interiorKit.js`, which has had two years of fixes this fork never got |
+| `index.html`, `styles.css` | gamekit's, shared |
+| `content/` | `gamekit/themes/hospital/content/`, generated from `gamekit/books/hospital.yml` |
 
-`theme.js` adapts this game's content. `vite.config.js` needs
-`resolve.dedupe: ['three']` and `server.fs.allow: ['..']`.
+## What is worth knowing
 
-## Still this game's own
+The ward is unchanged as a *place* — same corridor, same thirteen rooms, same
+room ids, so the book and every mission still point at the rooms they always
+did. What changed is who builds it.
 
-`src/main.js` (the wiring), `src/world.js`, `src/interiorEnv.js`,
-`src/hospitalProps.js`, `src/plan.js`, `src/npcs.js`, and all content.
+`audience: { grade: 2 }` still scales the whole interface up 1.18×, and
+`playerRadius` is 0.34 here rather than the usual 0.45: the doorways are 1.25 m
+and getting wedged in one is the fastest way to lose a player who is eight.
 
-## Two known gaps
+Everything is in git if any of it is wanted again:
 
-- **The world cannot migrate yet.** It needs
-  `gamekit/engine/world/interiorBuilding.js`, which does not exist —
-  `interiorSite.js` has the parts but not the world-contract exports.
-- **Bios are one-liners** (median 14 characters), so the passage quiz falls back
-  to a role question for 32 of the 37 characters. Fixing that is content: those
-  characters want two or three sentences each, as the other two games' casts
-  have. `content` invariants are checked by `validateContent.mjs`.
+```sh
+git log --oneline -- Hospital/hospital-fps
+git show <commit>:Alamos/Hospital/hospital-fps/src/world.js
+```

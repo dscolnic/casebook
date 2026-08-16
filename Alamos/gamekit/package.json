@@ -12,7 +12,12 @@
     "new-theme": "node tools/new-theme.mjs",
     "import-book": "node tools/import-book.mjs",
     "question-book": "node tools/question-book.mjs",
-    "shots": "node engine/dev/shots.mjs"
+    "shots": "node engine/dev/shots.mjs",
+    "traps": "node engine/dev/instrumentTraps.mjs",
+    "drive": "node engine/dev/instrumentDrive.mjs",
+    "export-stops": "node tools/export-stops.mjs",
+    "check-conversions": "node tools/check-conversions.mjs",
+    "apply-conversions": "node tools/apply-conversions.mjs"
   },
   "dependencies": {
     "three": "^0.160.0"

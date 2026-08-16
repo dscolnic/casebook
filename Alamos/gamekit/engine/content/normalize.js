@@ -40,6 +40,33 @@ export const FORMATS = new Set([
   // fault from where the pattern breaks rather than from a table handed to them
   // with the answer already in it.
   'PROBE',
+  // ---- the twelve from FORMATS.md, rendered by engine/core/instruments.js.
+  // Six interaction documents, one per game, produced 104 authored interactions
+  // that turned out to be nineteen designs; these are the twelve carrying four
+  // instances or more. Each is a move a scientist makes that no format above can
+  // express.
+  'TRIGGER',      // write the rule before the number moves, then be held to it
+  'VALUE',        // what would this measurement change? scarcity and orthogonality
+  'CLOUD',        // a distribution against a boundary — narrowing is not shifting
+  'ALLOCATE',     // a finite pool across claims, scalar or rate × time
+  'TRACE',        // which channels share a reference; agreement is not independence
+  'ATTEST',       // the record is not the condition
+  'CONTROL',      // change one thing, hold the rest, confirm by reversal
+  'TRIANGULATE',  // several constraints make a region, and a systematic moves it
+  'DEGENERACY',   // a family of solutions fits one observable until other physics arrives
+  'CHAIN',        // trace a transfer path and name the governing link
+  'BALANCE',      // close the ledger; the removal term does not announce itself
+  'VERIFY',       // predict, act, measure — and failing to measure is its own failure
+  // ---- Tier 2: two or three authored instances each, and ROUTE with one.
+  'PROPAGATE',    // the error budget — which input width dominates the output's
+  'STRESS',       // candidates against an assumption's range; the nominal optimum fails
+  'DELEGATE',     // a finite team, evolving problems, owner + first action + threshold
+  'FLY',          // bounded commands on undamped dynamics — the brake has to lead
+  'RESIDUAL',     // structure in what a fit leaves over, against a lower RMS that hides it
+  'INJECT',       // push a known population through your own pipeline and count what returns
+  'ROUTE',        // a sequence that can be rejoined after an interruption
+  // ---- The thirteenth, written for a calculus course.
+  'DERIVE',       // build the derivation a line at a time, and name what licenses each
 ]);
 
 /** 'Science Tank' | 'sciencetank' | 'SCIENCE_TANK' -> 'SCIENCETANK'. */

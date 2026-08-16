@@ -619,3 +619,415 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .probeBlank{color:#b3bec4 !important;font-style:italic}
 .probePanel .btn{padding:3px 10px;font-size:.72rem;white-space:nowrap}
 .probeCount{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0;margin:8px 0 0}
+
+/* ===================================================================
+   THE TWELVE — engine/core/instruments.js
+   Every one of these is a board or a live control the player operates.
+   They share the sweep's typography deliberately: an instrument in this
+   engine looks like an instrument, whichever of the twelve it is.
+   =================================================================== */
+
+.instPanel{margin:10px auto 0;max-width:560px}
+/* Wide boards get more room than a plot does. A twelve-row claim list at
+   480 px wraps every signature onto its own line and reads as a wall. */
+.trigPanel,.attPanel,.tracePanel,.allocPanel,.balPanel,.valPanel{max-width:600px}
+.cloudPanel,.degPanel,.triPanel,.verPanel{max-width:480px}
+
+/* The verdict boards. Half of these formats are lists, not plots, and
+   forcing a list through lineChart produced figures about nothing. */
+.instVerdict{margin:10px 0 0}
+.instTable{width:100%;border-collapse:collapse;font-size:.76rem}
+.instTable td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:#4e4a43}
+.instTable td:first-child{width:38%}
+.instTable tr.bad td{background:#fdf3f1}
+.instMark{display:inline-block;width:15px;font-weight:800}
+.instMark.ok{color:#3f8f56}
+.instMark.no{color:#c0392b}
+.instMiss{color:#c0392b;font-style:italic}
+
+/* --- TRIGGER: a blank board, then the updates arrive. */
+.trigRows{display:grid;gap:8px;margin:8px 0 0}
+.trigRow{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:#fff}
+.trigHead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.trigHead b{font:700 .84rem/1.3 Inter,system-ui;color:#2f4652}
+.trigLead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#b06a2a}
+.trigWho{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0;margin-top:1px}
+.trigSet{display:flex;align-items:center;gap:9px;margin-top:6px}
+.trigSet span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;white-space:nowrap}
+.trigSet .trigRange{flex:1;accent-color:#2f6f8f}
+.trigAt{font:800 .84rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums;min-width:66px;text-align:right}
+.trigResult{font:600 .7rem/1.4 Inter,system-ui;margin-top:5px}
+.trigResult.good{color:#3f8f56}
+.trigResult.late{color:#b06a2a}
+.trigResult.never{color:#c0392b}
+.trigStream{margin:10px 0 0}
+.trigStreamHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin-bottom:4px}
+.trigTick{display:grid;grid-template-columns:66px 1fr auto;gap:8px;padding:4px 0;
+  border-top:1px solid var(--line);font-size:.72rem;color:#4e4a43}
+.trigTick b{color:#2f4652}
+.trigTick em{font-style:normal;font:700 .68rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:#8a97a0;white-space:nowrap}
+
+/* Every stacked list in these panels is a one-column grid, and a one-column grid
+   with no explicit template sizes that column to MAX-CONTENT — so a long label
+   makes the row wider than the panel that contains it, and whatever sits at the
+   right-hand end of the row is pushed off the card. It renders, it is not
+   clipped by any overflow rule, and it is simply not on screen. Found by
+   measuring, not by looking: `npm run drive` now reports any element wider than
+   its panel. */
+.trigRows,.delRows,.attRows,.traceRows,.balRows,.injRows,.allocItems,.allocAnswers,
+.ctrlVars,.triStations,.chainRail,.routeRail,.resFields{grid-template-columns:minmax(0,1fr)}
+
+/* --- VALUE: everything on the board is real evidence. Nothing marks the
+   decisive option; the axis is the information to reason from. */
+.valDecision{display:flex;gap:10px;align-items:baseline;padding:8px 0 6px;border-bottom:2px solid #2f4652}
+.valDecision span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#8a97a0}
+.valDecision b{font:700 .84rem/1.35 Inter,system-ui;color:#2f4652}
+.valSpend{font:600 .72rem/1.4 Inter,system-ui;color:#8a97a0;margin:6px 0 0}
+.valSpend b{color:#2f4652;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.valGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:8px;margin:8px 0 0}
+.valOpt{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:#fff;
+  display:flex;flex-direction:column;gap:4px}
+.valOpt.bought{background:#f4f8f5;border-color:#bcd6c4}
+.valTop{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.valTop b{font:700 .8rem/1.3 Inter,system-ui;color:#2f4652;min-width:0;overflow-wrap:anywhere}
+.valCost{font:800 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b06a2a;white-space:nowrap}
+.valAxis{font:600 .66rem/1.35 Inter,system-ui;color:#8a97a0}
+.valIrrev{font:700 .62rem/1.3 Inter,system-ui;color:#c0392b}
+.valReveal em{font-style:normal;font:600 .7rem/1.4 Inter,system-ui;color:#4e4a43}
+.valOpt .btn{align-self:flex-start;padding:3px 12px;font-size:.72rem}
+
+/* --- CLOUD: the spread is drawn as a spread. Red dots are outside. */
+.cloudPlot{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block;margin:6px 0 8px}
+.cloudActs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.cloudActs .btn{padding:4px 11px;font-size:.74rem;display:inline-flex;gap:7px;align-items:baseline}
+.cloudActs .btn.used{opacity:1;background:#eef2f4;color:#9aa7ae}
+.cloudCost{font:700 .66rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b06a2a}
+
+/* --- ALLOCATE: the answers panel is the format. It never says whether the
+   plan is good, only what it can settle. */
+.allocMeter{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:8px 0 0}
+.allocMeter span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#8a97a0}
+.allocMeter b{font:800 1rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+.allocBar{flex-basis:100%;height:6px;border-radius:3px;background:#e6ecef;overflow:hidden}
+.allocBar i{display:block;height:100%;background:#2f6f8f;width:0;transition:width .12s linear}
+.allocOver .allocBar i{background:#c0392b}
+.allocItems{display:grid;gap:5px;margin:9px 0 0}
+.allocItem{display:flex;align-items:center;gap:9px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:8px;background:#fff;cursor:pointer}
+.allocItem.on{border-color:#2f6f8f}
+.allocName{flex:1;font:600 .78rem/1.3 Inter,system-ui;color:#2f4652}
+.allocName em{display:block;font-style:normal;font:600 .64rem/1.3 Inter,system-ui;color:#8a97a0}
+.allocCost{font:800 .78rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#4e4a43;
+  font-variant-numeric:tabular-nums}
+.allocAnswersHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:12px 0 4px}
+.allocAnswers{display:grid;gap:4px}
+.allocAnswer{display:flex;gap:8px;align-items:baseline;font:600 .74rem/1.4 Inter,system-ui;color:#8a97a0}
+.allocAnswer.on{color:#2f4652}
+.allocAnswer em{font-style:normal;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;
+  text-transform:uppercase;color:#b06a2a;white-space:nowrap}
+
+/* --- TRACE: dependencies are hidden until opened, the way a probe's
+   readings are. Handing over the graph makes it a reading exercise. */
+.traceRows{display:grid;gap:6px;margin:8px 0 0}
+.traceRow{display:flex;align-items:flex-start;gap:10px;padding:7px 9px;border:1px solid var(--line);
+  border-radius:8px;background:#fff}
+.traceRow .btn{padding:3px 10px;font-size:.71rem;white-space:nowrap}
+.traceBody{flex:1;min-width:0}
+.traceBody b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.traceReading{font:700 .74rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#4e4a43}
+.traceDeps{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.traceDep{font:700 .62rem/1.5 Inter,system-ui;padding:1px 7px;border-radius:9px;
+  background:#eef2f4;color:#5b6a72}
+.traceDep.own{background:#f0f6f2;color:#3f8f56}
+.traceKeep{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.traceKeep span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#8a97a0}
+.traceResHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:12px 0 4px}
+.traceResRow{display:flex;flex-wrap:wrap;gap:6px}
+.traceResRow .btn{padding:4px 12px;font-size:.74rem}
+.traceResRow .btn.on{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+
+/* --- ATTEST: every claim is signed. Verifying costs, and the budget does
+   not cover the list. */
+.attMeter{font:600 .72rem/1.4 Inter,system-ui;color:#8a97a0;margin:8px 0 0}
+.attMeter b{font:800 .95rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+.attRows{display:grid;gap:6px;margin:8px 0 0}
+.attRow{display:flex;align-items:flex-start;gap:10px;padding:7px 9px;border:1px solid var(--line);
+  border-radius:8px;background:#fff}
+.attRow.held{border-color:#b06a2a;box-shadow:inset 0 0 0 1px #b06a2a}
+.attBody{flex:1;min-width:0}
+.attBody b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.attSig{font:600 .66rem/1.35 Inter,system-ui;color:#8a97a0}
+.attCrit{font-style:normal;font-weight:800;color:#c0392b;text-transform:uppercase;letter-spacing:.05em;
+  font-size:.58rem}
+.attFound{font:700 .74rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#4e4a43}
+.attBtns{display:flex;flex-direction:column;gap:4px}
+.attBtns .btn{padding:3px 10px;font-size:.71rem;white-space:nowrap}
+
+/* --- CONTROL: changing four things at once is allowed, and the readout
+   says what it is worth. */
+.ctrlHeld{font:600 .66rem/1.35 Inter,system-ui;color:#8a97a0;margin:6px 0 0}
+.ctrlVars{display:grid;gap:5px;margin:8px 0 10px}
+.ctrlVar{display:flex;align-items:center;gap:9px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:8px;background:#fff;cursor:pointer}
+.ctrlVar.named{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+.ctrlVar span{flex:1;font:600 .78rem/1.3 Inter,system-ui;color:#2f4652}
+.ctrlVar .btn{padding:2px 10px;font-size:.7rem}
+.ctrlLog{display:grid;gap:3px;margin:10px 0 0;max-height:150px;overflow-y:auto}
+.ctrlTrial{display:flex;gap:9px;font:600 .72rem/1.4 Inter,system-ui;color:#4e4a43;
+  padding:3px 0;border-top:1px solid var(--line)}
+.ctrlTrial b{color:#8a97a0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.ctrlTrial.ambiguous span{color:#b06a2a}
+
+/* --- TRIANGULATE: click the map. Tolerance is authored in world units and
+   generous — the decision is whether to correct, not where to aim. */
+.triMap{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block;
+  margin:6px 0 8px;cursor:crosshair}
+.triStations{display:grid;gap:5px}
+.triStation{display:flex;align-items:flex-start;gap:9px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:8px;background:#fff;cursor:pointer}
+.triStation span{flex:1;min-width:0}
+.triStation b{display:block;font:700 .78rem/1.3 Inter,system-ui;color:#2f4652}
+.triStation em{font-style:normal;font:700 .72rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#4e4a43}
+.triFix{display:flex;align-items:center;gap:8px;margin:8px 0 0;padding:6px 10px;
+  border:1px dashed #cfd8dd;border-radius:8px;cursor:pointer}
+.triFix span{font:600 .74rem/1.35 Inter,system-ui;color:#4e4a43}
+.triReport{font:600 .72rem/1.4 Inter,system-ui;color:#8a97a0;margin:8px 0 0}
+
+/* --- DEGENERACY: two controls, one locus, and a second curve that is not
+   drawn until the second measurement is applied. */
+.degPlot{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block;margin:6px 0 4px}
+.degCtl{margin:6px 0 0}
+.degRange{width:100%;margin:2px 0 4px;accent-color:#2f6f8f}
+.degAt{font:800 .84rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+
+/* --- CHAIN: the rail refuses to close while an interface is missing. */
+.chainRail{display:grid;gap:5px;margin:8px 0 0;min-height:44px}
+.chainLink{display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid var(--line);
+  border-radius:8px;background:#fff;cursor:pointer}
+.chainLink.gov{border-color:#b06a2a;box-shadow:inset 0 0 0 1px #b06a2a}
+.chainNum{width:20px;height:20px;border-radius:50%;background:#2f4652;color:#fff;flex:none;
+  display:grid;place-items:center;font:800 .68rem/1 Inter,system-ui}
+.chainLink b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.chainLink em{font-style:normal;font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0}
+.chainPick{margin-left:auto;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;
+  text-transform:uppercase;color:#b06a2a;white-space:nowrap}
+.chainBankHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:12px 0 4px}
+.chainBank{display:flex;flex-wrap:wrap;gap:6px}
+.chainBank .btn{padding:4px 11px;font-size:.74rem}
+.chainEmpty{font:600 .72rem/1.4 Inter,system-ui;color:#b3bec4;font-style:italic}
+
+/* --- DERIVE: the rail is what the player has built, one line at a time. The
+   candidates are monospaced and the same width, because a longer expression that
+   happens to be the right one is an answer identifiable by its shape. */
+.deriveGoal{display:flex;gap:8px;align-items:baseline;margin:8px 0 2px}
+.deriveGoal span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;
+  text-transform:uppercase;color:#8a97a0}
+.deriveGoal b{font:700 .8rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+.deriveRail{display:grid;gap:4px;margin:6px 0 10px}
+.deriveLine{display:flex;align-items:baseline;gap:9px;padding:6px 9px;border:1px solid var(--line);
+  border-radius:8px;background:#fff}
+.deriveLine.bad{border-color:#c0563a}
+.deriveNum{width:19px;height:19px;border-radius:50%;background:#2f4652;color:#fff;flex:none;
+  display:grid;place-items:center;font:800 .64rem/1 Inter,system-ui}
+.deriveLine code{font:600 .82rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;color:#22323b}
+.deriveLine em{margin-left:auto;font-style:normal;font:700 .62rem/1.2 Inter,system-ui;
+  letter-spacing:.04em;text-transform:uppercase;color:#8a97a0;white-space:nowrap}
+.deriveAsk{font:600 .8rem/1.45 Inter,system-ui;color:#2f4652;margin:2px 0 6px}
+.deriveCands{display:grid;gap:5px}
+.deriveCand{justify-content:flex-start;text-align:left;padding:7px 10px;width:100%}
+.deriveCand code{font:600 .8rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}
+.deriveCand.on{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+.deriveRulesHead{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:11px 0 4px}
+.deriveRules{display:flex;flex-wrap:wrap;gap:6px}
+.deriveRule{padding:4px 11px;font-size:.74rem}
+.deriveRule.on{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+.deriveDone{font:600 .76rem/1.4 Inter,system-ui;color:#8a97a0;font-style:italic;margin:8px 0}
+
+/* --- BALANCE: reading is free, counting is the claim. */
+.balRows{display:grid;gap:6px;margin:8px 0 10px}
+.balRow{display:flex;align-items:flex-start;gap:10px;padding:7px 9px;border:1px solid var(--line);
+  border-radius:8px;background:#fff}
+.balRow.on{border-color:#2f6f8f}
+.balRow .btn{padding:3px 10px;font-size:.71rem;white-space:nowrap}
+.balBody{flex:1;min-width:0}
+.balBody b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.balBody em{font-style:normal;font:600 .66rem/1.35 Inter,system-ui;color:#8a97a0}
+.balNum{font:700 .8rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+.balCount{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.balCount span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#8a97a0}
+
+/* --- VERIFY: three steps, and the measurement is skippable on purpose. */
+.verStep{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:#fff;
+  margin:8px 0 0;opacity:.45}
+.verStep.on{opacity:1;border-color:#2f6f8f}
+.verStep>b{display:block;font:800 .62rem/1.2 Inter,system-ui;letter-spacing:.06em;
+  text-transform:uppercase;color:#8a97a0;margin-bottom:5px}
+.verNote{font:600 .74rem/1.4 Inter,system-ui;color:#4e4a43}
+.verNote em{font-style:normal;font-weight:800;color:#b06a2a}
+.verRange{width:100%;margin:4px 0 2px;accent-color:#2f6f8f}
+.verAt{font:800 .92rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+.verResult{margin:6px 0 0}
+.verLine{font:600 .74rem/1.5 Inter,system-ui;color:#4e4a43}
+.verLine.measured{display:flex;justify-content:space-between;gap:10px;padding-top:4px;
+  border-top:1px solid var(--line);margin-top:4px}
+.verLine.measured span{font:800 .92rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+
+/* ===================================================================
+   TIER 2 — the remaining seven of FORMATS.md. Same language as the
+   twelve above; only the mechanics differ.
+   =================================================================== */
+.propPanel,.stressPanel,.delPanel,.injPanel,.routePanel{max-width:600px}
+.flyPanel,.resPanel{max-width:480px}
+
+/* --- PROPAGATE: the contribution bar is the argument. A term's share is its
+   exponent times its own width, which is why the widest bar is often the one
+   with the smallest power over it. */
+.propTable{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:.76rem}
+.propTable th{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;text-align:right;padding:0 6px 5px;border-bottom:1px solid var(--line)}
+.propTable th:first-child{text-align:left}
+.propTable td{padding:6px;border-bottom:1px solid var(--line);text-align:right;
+  font:700 .8rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.propName{text-align:left !important;font:600 .78rem/1.3 Inter,system-ui !important;color:#2f4652}
+.propSigma{color:#b06a2a}
+.propBarCell{width:42%;white-space:nowrap}
+/* The bar lives in a wrapper, not directly in the cell: `display:flex` on a <td>
+   takes it out of table layout, so the column never got a width and the
+   percentage beside it wrapped onto a second line. */
+.propBarWrap{display:inline-block;width:calc(100% - 46px);height:8px;border-radius:4px;
+  background:#e6ecef;vertical-align:middle;overflow:hidden}
+.propBar{display:block;height:100%;border-radius:4px;background:#2f6f8f;width:0}
+.propShare{display:inline-block;width:40px;text-align:right;color:#5b6a72;
+  vertical-align:middle;padding-left:6px}
+.propBuysHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:12px 0 4px}
+.propBuys{display:flex;flex-wrap:wrap;gap:6px}
+.propBuys .btn{padding:5px 12px;font-size:.74rem;display:inline-flex;flex-direction:column;
+  align-items:flex-start;gap:1px}
+.propBuys .btn.bought{border-color:#3f8f56;box-shadow:inset 0 0 0 1px #3f8f56}
+.propCost{font:700 .62rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b06a2a}
+
+/* --- STRESS: rows go dark as the assumption moves. That is the format; a table
+   of static numbers is a CHOICE. */
+.stressRange{width:100%;margin:6px 0 2px;accent-color:#2f6f8f}
+.stressAt{font:800 .92rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+.stressTable{width:100%;border-collapse:collapse;margin:6px 0;font-size:.76rem}
+.stressTable th{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;text-align:right;padding:0 6px 5px;border-bottom:1px solid var(--line)}
+.stressTable th:first-child{text-align:left}
+.stressTable td{padding:6px;border-bottom:1px solid var(--line);text-align:right;
+  font:700 .8rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.stressName{text-align:left !important;font:600 .78rem/1.3 Inter,system-ui !important;color:#2f4652}
+/* Darkened, never faded: rule 5 in CLAUDE.md — opacity on a gameplay element is
+   how a disabled row becomes an unreadable one. */
+.stressRow.dead td{background:#f2f4f5;color:#a8b3b9}
+.stressRow.dead .stressName{color:#a8b3b9}
+.stressRow.dead .stressPick{visibility:hidden}
+.stressRow.picked td{background:#eef4f7}
+.stressTable .btn{padding:2px 10px;font-size:.7rem}
+.stressNote{font:600 .7rem/1.4 Inter,system-ui;color:#8a97a0;margin:2px 0 0}
+
+/* --- DELEGATE: an assignment is an owner, a first action and a return
+   condition. Two of the three is "watch it". */
+.delRows{display:grid;gap:6px;margin:8px 0 0}
+.delRow{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border:1px solid var(--line);
+  border-radius:8px;background:#fff}
+.delRow.first{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+.delBody{flex:1;min-width:0}
+.delBody b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.delTrend{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0}
+.delTrend em{font-style:normal;font-weight:800;color:#b06a2a;text-transform:uppercase;
+  letter-spacing:.05em;font-size:.58rem}
+.delAssign{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+/* `min-width:0` and a max are both needed. A <select> is sized by its longest
+   option, and a first action authored as a whole sentence — "Order immediate
+   isolation of the main and confirm flow is stopping" — made the row wider than
+   the card and pushed the button off the right-hand edge. */
+.delAssign select,.delAssign input{font:600 .72rem/1.3 Inter,system-ui;padding:3px 6px;
+  border:1px solid var(--line);border-radius:6px;background:#fff;color:#2f4652;
+  min-width:0;max-width:100%;flex:1 1 150px}
+.delRow .btn{padding:3px 10px;font-size:.71rem;white-space:nowrap;flex:none}
+.delNote{font:600 .7rem/1.4 Inter,system-ui;color:#8a97a0;margin:8px 0 0}
+
+/* --- FLY: commit a plan, watch it run. Nothing here is timed. */
+.flyPlot{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block;margin:6px 0 4px}
+.flyCtl{margin:6px 0 0}
+.flyRange{width:100%;margin:2px 0 4px;accent-color:#2f6f8f}
+.flyAt{font:800 .84rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+
+/* --- RESIDUAL: the residual as a stick, because a dot cannot show a sign flip
+   and the sign flip is the lesson. */
+.resTabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 6px}
+.resTabs .btn{padding:5px 12px;font-size:.74rem;display:inline-flex;flex-direction:column;
+  align-items:flex-start;gap:1px}
+.resTabs .btn.on{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+.resRms{font:700 .62rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a97a0}
+.resPlot{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block;margin:0 0 8px}
+
+/* --- INJECT: run a configuration, read what came back, fund one. */
+.injPop{font:600 .7rem/1.4 Inter,system-ui;color:#8a97a0;margin:8px 0 0}
+.injRows{display:grid;gap:6px;margin:8px 0 0}
+.injRow{display:flex;align-items:flex-start;gap:10px;padding:7px 9px;border:1px solid var(--line);
+  border-radius:8px;background:#fff}
+.injRow.picked{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+.injRow .btn{padding:3px 10px;font-size:.71rem;white-space:nowrap}
+.injBody{flex:1;min-width:0}
+.injBody b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.injOut{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px}
+.injOut span{font:700 .74rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+.injOut em{font:800 .56rem/1 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#9aa7ae;font-style:normal;margin-right:3px}
+.injBlind{font:700 .72rem/1.45 Inter,system-ui;color:#c0392b;margin:9px 0 0}
+.injBlind:empty{display:none}
+
+/* --- ROUTE: lit once, then degraded. The landmarks are all that is left. */
+.routeHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:8px 0 5px}
+.routeStopRow{display:flex;align-items:center;gap:10px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:8px;background:#fff;margin-bottom:5px}
+.routeStopRow b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
+.routeStopRow em{font-style:normal;font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0}
+.routeRail{display:grid;gap:5px;min-height:40px}
+.routeBankHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin:12px 0 4px}
+.routeBank{display:flex;flex-wrap:wrap;gap:6px}
+.routeBank .btn{padding:4px 11px;font-size:.74rem}
+.routeLost{margin:12px 0 0;padding:10px 12px;border:1px solid #dccb9f;border-radius:9px;
+  background:#fdf9ee}
+.routeLost b{font:800 .82rem/1.3 Inter,system-ui;color:#8a5a12}
+.routeLost p{margin:4px 0 6px;font:600 .74rem/1.45 Inter,system-ui;color:#4e4a43}
+.routeLandmark{font:700 .86rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  padding:6px 9px;background:#fff;border:1px solid var(--line);border-radius:7px}
+.routeGuess{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.routeGuess .btn{padding:4px 11px;font-size:.74rem}
+.routeGuess .btn.on{border-color:#2f6f8f;box-shadow:inset 0 0 0 1px #2f6f8f}
+/* A BALANCE row that is a different quantity from the rest — a purity among
+   mass flows. Readable, never countable, and it does not say so until it has
+   been read. */
+.balNotFlow span{font:700 .58rem/1.2 Inter,system-ui;letter-spacing:.05em;text-transform:uppercase;
+  color:#b06a2a;text-align:right;max-width:96px}
+
+/* The format's own line about what the move is, above the stop's hint. Set
+   apart from the prose around it because it is the same sentence every time
+   this format appears — a player learns to look for it, and then stops needing
+   to read it. */
+.instMethod{margin:8px 0 6px;padding:8px 11px;border-left:3px solid #2f6f8f;
+  background:#f2f6f8;border-radius:0 8px 8px 0;
+  font:600 .76rem/1.5 Inter,system-ui;color:#3d5763}
+.instMethod span{display:block;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#7d919c;margin-bottom:3px}

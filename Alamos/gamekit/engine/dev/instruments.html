@@ -18,9 +18,15 @@
     THEME=quantum npm run dev   →   http://localhost:<port>/engine/dev/instruments.html
 
   The panel is wrapped in `.modal` at the modal's real width so the layout here is
-  the layout in the game. What this page does NOT show is what sits above the
-  panel in a real visit — the scene, the context strip, the equation chips — so it
-  answers "does the panel work", not "does the whole card fit".
+  the layout in the game.
+
+  It now also shows what sits above the panel in a real visit — the scene, what
+  the question takes as read, and what it is about. That was left out on the
+  grounds that this page answers "does the panel work" rather than "does the
+  whole card fit", which was true and was also why anybody reading this page came
+  away saying they could not tell what they were meant to be doing or learning.
+  A panel judged without its card is judged as a puzzle with no situation
+  attached, which is not what the player ever sees.
 -->
 <link rel="stylesheet" href="/engine/core/styles.css">
 <style>
@@ -36,6 +42,11 @@
   .facts{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#6b7c85;margin:10px 0 0}
   .miss{max-width:820px;margin:8px auto 0;padding:14px 18px;background:#fff2f0;border:1px solid #e3b4ad;
     border-radius:8px}
+  .devCard{margin:0 0 10px;padding:0 0 10px;border-bottom:1px solid #e6ecef}
+  .devScene{font:400 .92rem/1.6 Georgia,serif;color:#41505a;margin:0}
+  .devMeta{font:600 .76rem/1.5 Inter,system-ui;color:#5b6a72;margin:7px 0 0}
+  .devMeta span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;
+    color:#8a97a0;margin-right:7px}
 </style>
 </head>
 <body>
@@ -49,8 +60,23 @@ import { CURRICULUM } from '@theme/content/curriculum.js';
 import { sweepHTML, bindSweep, holdoutHTML, bindHoldout, tallyHTML, bindTally,
          probeHTML, bindProbe, sweepVerdictFigure, holdoutVerdictFigure, tallyVerdictFigure,
          probeVerdictFigure } from '/engine/core/questionUI.js';
+// The twelve. They already ship a registry of exactly the shape this page wants,
+// so they are spread in rather than listed — a page that names them one at a time
+// is a page that silently omits the thirteenth.
+import { INSTRUMENTS, INERT } from '/engine/core/instruments.js';
+
+// Exposed for engine/dev/instrumentDrive.mjs, which drives every panel from
+// outside the page. It cannot import '@theme/...' itself — that alias is
+// resolved by vite at transform time and means nothing to a runtime import() —
+// and two of the games live in package directories outside gamekit, so the
+// served-path fallback cannot reach them either. This module already has the
+// content; handing it over is the whole fix.
+window.__CURRICULUM = CURRICULUM;
 
 const LIVE = {
+  ...Object.fromEntries(Object.entries(INSTRUMENTS).map(([k, v]) =>
+    [k, { html: v.html, bind: (mount, g) => v.bind(mount, g, INERT),
+          facts: v.facts, tag: v.tag, verdict: v.verdict }])),
   SWEEP: { html: sweepHTML, bind: bindSweep,
     facts: g => `target ${g.sweep.target} ±${g.sweep.tolerance} ${g.sweep.axis.unit ?? ''}`
       + ` · axis ${g.sweep.axis.min}–${g.sweep.axis.max} step ${g.sweep.axis.step}`
@@ -71,6 +97,10 @@ const LIVE = {
       + ` · ${g.tally.minShots} shots minimum`,
     tag: () => 'counts' },
 };
+
+// The page builds its own markup, so it needs the same escaping the engine uses.
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 const out = document.getElementById('out');
 const found = [];
@@ -98,7 +128,18 @@ for(const { group, i, l, g, kind } of found){
     // `.modalBody` matters: the action row's `position:sticky; bottom:0` rule is
     // scoped to it, and that rule is what hid a sweep's readouts in the game while
     // this page showed them fine.
-    + `<div class="modal"><div class="modalBody"><div class="mount"></div>`
+    + `<div class="modal"><div class="modalBody">`
+    // Everything the askCard puts above the panel in a real visit. Same fields,
+    // same order, so what is judged here is what a player meets.
+    // Its own container, not `.askCard`: that class lays a portrait out beside
+    // the body, and without one the body collapses to a column two words wide.
+    + `<div class="devCard">`
+    + (l.scene ? `<p class="devScene">${esc(l.scene)}</p>` : '')
+    + ((l.assumes ?? []).length
+        ? `<p class="devMeta"><span>Takes as read</span> ${esc(l.assumes.join(' · '))}</p>` : '')
+    + (l.takeaway ? `<p class="devMeta"><span>What this is about</span> ${esc(l.takeaway)}</p>` : '')
+    + `</div>`
+    + `<div class="mount"></div>`
     + `<p class="facts">${spec.facts(g)}</p></div></div>`;
   out.append(wrap);
   const mount = wrap.querySelector('.mount');
@@ -124,6 +165,64 @@ const verdict = (title, note, html) => {
   out.append(wrap);
   wrap.querySelector('.modal').innerHTML = html;
 };
+
+// A worked wrong answer for each of the twelve, so the page shows the picture a
+// player gets when it goes badly — which is the one nobody sees until it ships.
+// Each result below is the *plausible* mistake the format was built to catch, not
+// a random one: the retarget that did not narrow, the plan that answered
+// everything but the required question, the intervention nobody measured.
+const WRONG = {
+  TRIGGER: g => ({ triggerThresholds: g.trigger.conditions.map(() => g.trigger.scale.max),
+    triggerFired: g.trigger.conditions.map(() => null) }),
+  VALUE: g => ({ valueBought: g.value.options
+    .map((o, i) => (o.decisive ? -1 : i)).filter(i => i >= 0).slice(0, 1) }),
+  CLOUD: g => {
+    const mid = (g.cloud.bounds.min + g.cloud.bounds.max) / 2;
+    return { cloudCentre: mid, cloudSpread: g.cloud.spread, cloudInside: g.cloud.pass * 0.8,
+      cloudUsed: [] };
+  },
+  ALLOCATE: g => ({ allocPicked: g.allocate.items
+      .map((it, i) => (it.protected ? i : -1)).filter(i => i >= 0),
+    allocAnswered: g.allocate.answers.map(() => false), allocSpend: 0 }),
+  TRACE: g => ({ traceRes: 0, traceKeep: [], traceNamedOk: true, traceKeepOk: false }),
+  ATTEST: g => ({ attHeld: [], attChecked: [] }),
+  CONTROL: g => ({ ctrlNamed: g.control.variables
+    .findIndex(v => String(v.id) !== String(g.control.truth)), ctrlTrials: 1 }),
+  TRIANGULATE: g => ({ triMark: { x: +g.triangulate.truth.x + +g.triangulate.tolerance * 3,
+      y: +g.triangulate.truth.y }, triFixed: false, triOn: 3,
+    triMiss: +g.triangulate.tolerance * 3 }),
+  DEGENERACY: g => {
+    const p = g.degeneracy.locus[0];
+    return { degA: +p.a, degB: +p.b, degApplied: false };
+  },
+  CHAIN: g => ({ chainPlaced: g.chain.links.map((_, i) => i),
+    chainGov: g.chain.links.findIndex(l => String(l.id) === String(g.chain.distractor)),
+    chainPathOk: false }),
+  BALANCE: g => {
+    const counted = g.balance.streams.map((s, i) => (s.hidden ? -1 : i)).filter(i => i >= 0);
+    return { balCounted: counted, balRead: counted,
+      balSum: counted.reduce((n, i) => n + +g.balance.streams[i].value, 0) };
+  },
+  VERIFY: g => ({ verPred: +g.verify.prediction.min, verMeasured: null }),
+};
+const NOTE = {
+  TRIGGER: 'every threshold written at the top of the scale',
+  VALUE: 'bought the thorough option, not the decisive one',
+  CLOUD: 'retargeted to the middle and declared it ready',
+  ALLOCATE: 'committed only what was protected',
+  TRACE: 'right source, whole fortnight thrown away with it',
+  ATTEST: 'closed the list on the signatures',
+  CONTROL: 'named the machine that changed most recently',
+  TRIANGULATE: 'reported without applying the correction',
+  DEGENERACY: 'took a size off the first measurement alone',
+  CHAIN: 'named the largest member as the governing one',
+  BALANCE: 'counted every stream that had a gauge on it',
+  VERIFY: 'reported the prediction without measuring',
+};
+for(const { l, g, kind } of found){
+  if(!WRONG[kind]) continue;
+  verdict(l.title ?? '', NOTE[kind], INSTRUMENTS[kind].verdict(g, WRONG[kind](g)));
+}
 
 for(const { l, g, kind } of found){
   const title = l.title ?? '';
