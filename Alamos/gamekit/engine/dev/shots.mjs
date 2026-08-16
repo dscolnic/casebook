@@ -272,6 +272,31 @@ try{
   })();
   if(!ready) throw new Error('the game never finished loading (no window.gamekit after 60 s)');
 
+  // Put the clock in the middle of the working day before anything is rendered.
+  //
+  // The day's countdown has not started when the harness arrives — the plan card
+  // is still up and `dayLeft` is 0 — and `hourOfDay()` derives the sun angle
+  // from how much of the day is *gone*, so an unstarted day reads as a finished
+  // one and the sun sits at the end of `look.dayWindow`. Every outdoor
+  // screenshot this tool has ever taken was at dusk or after it: Riverton at
+  // night, the mesa under a black sky, and a real clipped-dome bug that took an
+  // hour to tell apart from this.
+  //
+  // Midday rather than dawn, because both ends of the window are a low sun and
+  // the point of a screenshot is to see the place.
+  const clock = await cdp.eval(`(() => {
+    const g = window.gamekit;
+    const st = g && g.getState && g.getState();
+    if(!st) return null;
+    const w = (g.theme && g.theme.look && g.theme.look.dayWindow) || [8, 18];
+    const hour = (w[0] + w[1]) / 2;
+    if(st.dayBudget) st.dayLeft = st.dayBudget * 0.5;
+    st.timeHours = hour;
+    if(g.world && g.world.updateTimeOfDay) g.world.updateTimeOfDay(hour % 24);
+    return hour;
+  })()`);
+  if(clock) console.log(`  clock: ${String(clock).slice(0, 5)}h — mid-window, so the sun is up`);
+
   // The shot is of the room, so everything that is not the room goes. Hiding a
   // list of ids missed a widget drawn by script that has no id in the markup at
   // all; hiding every child of body except the canvas cannot, and does not need
