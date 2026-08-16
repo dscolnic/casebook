@@ -31,7 +31,10 @@ the check-and-look loop, which builder each game's rooms come from — three of
 them are furnished outside the shared fit-out entirely — and the one mistake that
 has now been made four times.
 
-## The eight games
+## The fourteen games
+
+`GAMES.md` is the full inventory with what each one teaches. This table is the
+short version — the place, and the command that runs it.
 
 | Game | Where | The place, and why it looks unlike the others | Run it |
 | --- | --- | --- | --- |
@@ -41,6 +44,12 @@ has now been made four times.
 | Bring Them Home | `gamekit/themes/bring_them_home/` | Mission Control — its own world. One room, four tiers stepping down to a wall of plot boards; the teams are rows, not rooms | `THEME=bring_them_home npm run dev` |
 | Planetary Defense | `gamekit/themes/planetary_defense/` | A mountain ridge, played entirely at night: one dark road, domes, a radar dish, red service lamps | `THEME=planetary_defense npm run dev` |
 | Blackout | `gamekit/themes/blackout/` | Calder Switching Station: a flat river plain, a switchyard, lattice towers walking off the map. Senior-high electrical engineering | `THEME=blackout npm run dev` |
+| Aftershock | `gamekit/themes/aftershock/` | Kestrel Bay three days after: granite bench above, liquefied fill below, and a 1.8 m fault scarp walked between them | `THEME=aftershock npm run dev` |
+| Quantum | `gamekit/themes/quantum/` | An interior spine that is a temperature gradient, walked warm end to cold | `THEME=quantum npm run dev` |
+| The Trial | `gamekit/themes/the_trial/` | One long floor of a coordinating centre; the walk down it is distance from the patient. AP Statistics | `THEME=the_trial npm run dev` |
+| Ice Core | `gamekit/themes/icecore/` | A deep-drilling camp on a polar plateau: modules on legs, flag lines, a trench under a tower | `THEME=icecore npm run dev` |
+| Headwater | `gamekit/themes/headwater/` | A five-storey tower in a gorge beside a dam: one glazed wall onto the spillway, and no ceiling over the hallways. Calculus | `THEME=headwater npm run dev` |
+| Wellmere | `gamekit/themes/seedbank/` | A seed bank and breeding station: three glasshouse bays and a 240-plot trial grid running to a shelterbelt. AP Biology, the heredity half | `THEME=seedbank npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 

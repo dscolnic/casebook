@@ -249,3 +249,43 @@ day is the report — what is established, what is inferred, what is still a gue
 — and which of the fortnight's emergency habits is worth its cost on an ordinary
 Monday. Only one of them would have caught the sensor.
 
+
+---
+
+## Wellmere — *the copy nobody needed yet*
+
+A seed bank with forty-one thousand accessions under it and a breeding station
+on top, and one season to decide what happens to both. The first week is the
+sowing plan: sixty stored samples have dropped below the germination line and
+need growing out, there is ground for about forty, and the same ground is what
+Chiara Volpe wants for the trial that carries WM-712 to release. Underneath the
+arithmetic is a slower question — what a grow-out actually is, which is a
+sample, and what a sample loses. Tomas Ivanescu genotypes one landrace and finds
+the accession is no longer the population that was collected in 1994.
+
+The two arguments are named and both of them win once. Volpe holds that a line
+good enough to release should be released, because a season withheld is food
+nobody eats and the delay is paid by every line queued behind it. Amara Qureshi
+holds that the collection is the only copy of what nobody has needed yet.
+**Volpe is right on day 4**, when the deferral genuinely costs more than a
+season and the pipeline behind WM-712 moves back with it. Days five to ten are
+the ordinary work of a station: a marker that disagrees with eleven plants, a
+crop's dry mass that did not come from the soil, a wet corner of the trial
+ground that flatters whatever is sown in it, and a resistance gene that costs
+the plant a fraction of a tonne to carry.
+
+The reversal is day nine and it is a list rather than an event: thirty of ninety
+accessions have drifted, and they sort cleanly on how many times each has been
+regenerated. **Qureshi is right on day 12**, when the rust arrives two hundred
+kilometres closer than it was on Friday, the single resistance gene stops
+holding, and the second gene that would have answered it turns out to have been
+in an accession that lost it across three grow-outs of thirty plants in the
+1990s. The 1994 collector's own notes describe the resistant plants. What
+survives is on a farm: Idris Fenn's family have grown one of these landraces
+continuously in a district where rust arrives most years, and the disease has
+been selecting it every season the vault stood still.
+
+Day fourteen is the last reversible moment — eight slots in the crossing block,
+which fix what the programme works on until 2033 — and day fifteen is what can
+honestly be said to a board: a third of the twice-regenerated material, not a
+third of the collection, and a gain with the season and the site attached to it.

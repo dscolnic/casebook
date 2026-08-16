@@ -3,7 +3,7 @@
 > New game? Start at [`README.md`](README.md), which names the two documents
 > to read first — `gamekit/STORY_SPEC.md` then `gamekit/NEW_GAME.md`.
 
-Twelve playable games, one engine. Everything below is current as of the last
+Fourteen playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`GAME_IDEAS.md` is the games that do not exist yet** — the subject gaps and
@@ -14,8 +14,8 @@ timeline, the four beats of a day card, and how each is checked.
 
 ```sh
 cd gamekit
-npm run check                       # all fourteen themes: content, reachability, styles, world parity
-THEME=<name> npm run dev            # the ten games that live in gamekit/themes
+npm run check                       # all fifteen themes: content, reachability, styles, world parity
+THEME=<name> npm run dev            # every game: all of them live in gamekit/themes now
 npm run shots <theme>               # a picture of every room, and a contact sheet
 npm run traps                       # break every instrument trap; all 35 must fire
 npm run drive <theme>               # open every live panel in Chrome, answer it right and wrong
@@ -33,22 +33,25 @@ npm run drive <theme>               # open every live panel in Chrome, answer it
 | **Quantum** | `gamekit/themes/quantum` | Modern quantum through the hardware. Group Lead, Ridgeway Quantum Laboratory | An interior spine that is a **temperature gradient**, walked: deliveries and offices at the warm south end, then fabrication, the fridge hanging open with its stages exposed, the microwave rack wall, and a magnetically shielded room at the cold end. Interior and industrial at once — metal and cable rather than architecture |
 | **The Trial** | `gamekit/themes/the_trial` | AP Statistics — experimental design and inference — carried through a running clinical trial. Methodology & Operations Lead, CLARION-3 | One long floor, and the walk down it is distance from the patient: screening and infusion at the south end, then monitoring, the central lab, adjudication, and the data floor with the enrolment wall at the north. The corridor is a gradient in evidence, the way Quantum's is a gradient in temperature |
 | **Ice Core** | `gamekit/themes/icecore` | Earth and environmental science, with the measurement half of a palaeoclimate course. Season Science Lead, Vestri Dome | A deep-drilling camp on a high polar plateau: six modules on legs beside a groomed route, flag lines on both sides of it, a trench dug into the snow with a tower over it, and a stake array two kilometres out. The flattest, emptiest horizon in the set — the skyline ranks are seven metres high at six hundred metres out, and there is nothing else on it |
+| **Headwater** | `gamekit/themes/headwater` | Calculus, through a reservoir that has to be drawn down before it rains. Includes DERIVE, the twentieth instrument: build a result line by line, each line naming the rule it used | A five-storey tower in a gorge beside the dam. The whole east side is one floor-to-soffit glazed screen onto the spillway, and the hallways and stairs have **no ceiling at all** — you look up the shaft to the sky, open-air-mall fashion. Only the offices and labs are roofed |
+| **Wellmere** | `gamekit/themes/seedbank` | AP Biology, the half a hospital campus cannot reach: heredity, population genetics, selection, plant energetics. Season Lead, Wellmere Seed Bank | A working farm with a vault under it. Two shapes carry it and nothing else in the set has either: a range of three glazed glasshouse bays, and **the trial grid** — 240 staked plots on a numbered lattice running north to a shelterbelt, walked between, with a wet corner that flatters whatever is in it |
 | **Project Y** | `gamekit/themes/projecty` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. The last game to lose its own entry point: `project-y-fps/` is a tombstone now |
 | **Hospital Heroes** | `gamekit/themes/hospital` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it, and the floor `engine/world/interiorSite.js` was generalised out of. `audience: { grade: 2 }`, so its whole interface comes up 1.18× larger |
 
-A thirteenth theme, `instruments`, is registered and checked but is not a game:
+A fifteenth theme, `instruments`, is registered and checked but is not a game:
 four missions authoring one stop of each instrument format, so a panel can be
 opened without playing to the day that holds it.
 
 Every game is 15 missions and 57–62 stops, except the harness. Roster sizes run
-from 12 (the newest seven) to 37 (Hospital Heroes).
+from 11 (Wellmere) to 37 (Hospital Heroes).
 
 ## What they all share
 
 One loop, in `gamekit/engine/`: fifteen missions, each **one working day** with a
 countdown budgeted from the actual route; three authored stops plus a callback
-from day 3; take them in any order; a wrong call costs $5 to retry or $10 to
-leave; run out of either and the day restarts.
+from day 3; take them in any order. A wrong call is a penalty box: the stop
+shuts for an hour of game time and reopens by itself, or $10 buys another
+attempt now. Run out of the day and it restarts.
 
 Question formats, in three sets. The ones the player **reads**: PROTOCOL,
 SEQUENCE, BALLPARK, SCIENCETANK, DIAGNOSIS, TRIAGE, CASEBOOK, CHOICE. The ones

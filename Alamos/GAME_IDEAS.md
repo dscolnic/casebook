@@ -25,15 +25,17 @@ biology and epidemiology · mechanics, circuits and thermal · waves and acousti
 engineering · modern quantum · statistics and study design · climate measurement
 and proxies.
 
-Still open, roughly in order of how many students sit the course: **calculus**
-— the largest of the lot, worked up below as Headwater — then control systems,
-organic and process chemistry, materials, and genetics. Statistics and climate
-measurement have both been built since this list was written, as The Trial and
-Ice Core.
+Still open, roughly in order of how many students sit the course: control
+systems, organic and process chemistry, and materials. Four of the gaps this
+list opened with have been built since it was written — statistics as The Trial,
+climate measurement as Ice Core, calculus as Headwater, and genetics as
+Wellmere.
 
-Calculus is worth a note. Bring Them Home lists integration among its areas and
-Blackout differentiates a frequency trace, so the *set* touches it; no game
-teaches the method, and the method is the course a million students a year sit.
+Calculus was worth a note while it was open, and the note is still the reason
+Headwater is written the way it is. Bring Them Home lists integration among its
+areas and Blackout differentiates a frequency trace, so the *set* touched it; no
+game taught the method, and the method is the course a million students a year
+sit.
 
 ---
 
@@ -360,7 +362,62 @@ student can do on paper, and the central failure — a real effect that got a
 little help from a procedure nobody questioned — is the honest version of what
 goes wrong in medicine, told without a villain.
 
-### Headwater — calculus, and a reservoir that has to be emptied before it rains
+### ~~Headwater~~ — built, the thirteenth game
+
+Ashfell, in a gorge. See `GAMES.md` for what it is. The plan it was built from
+follows, and two things it changed for everyone else: **DERIVE**, the twentieth
+instrument — a result built one line at a time, each line naming the rule it
+used, with at least one wrong line that survives the rule check and has to be
+caught on meaning — and `engine/world/interiorLevels.js`, the stacked-floor world
+promoted out of The Trial so a third game need not fork one. The lesson that cost
+the most hours: the levels have to be offset along **z** as well as y, because
+`groundHeight(x, z)` takes no level argument and collision ignores height
+entirely.
+
+### ~~Wellmere~~ — built, the fourteenth game, and the second AP Biology one
+
+A seed bank and a breeding station, one season. See `GAMES.md`.
+
+**Why a second biology game rather than a first something-else.** Outbreak:
+Riverton is AP Biology's medical-molecular half — cells, membranes, diagnostics,
+immunity, epidemiology — and it is the half a hospital campus can hold. The other
+half of that course is heredity, population genetics, selection and plant
+energetics, and none of it can be taught by a patient: a Punnett square wants two
+parents and a season, an allele frequency wants a population you can grow out, and
+"where does the mass of a tonne of grain come from" wants a field. So the setting
+is the opposite of a hospital in every axis that matters — plants not patients,
+seasons not shifts, populations not individuals, and a decision that is felt in
+seven years rather than in an afternoon. That also closes the **genetics** gap
+named at the top of this file.
+
+**The argument, and it is genuinely two-sided.** Elena Volpe holds that a line
+good enough to release should be released, because a season withheld is food
+nobody eats and the delay is paid by every line queued behind it. Amara Qureshi
+holds that the collection is the only copy of what nobody has needed yet, and
+that every shortcut through it is taken from people who are not in the room.
+**Volpe is right on day 4** — the deferral genuinely costs more than a season —
+and **Qureshi is right on day 12**, when the rust arrives and the resistance gene
+that would have answered it turns out to have been lost in three small grow-outs
+in the 1990s. Neither of them is the villain and neither wins the whole campaign.
+
+**The place, and the one shape nothing else has: the trial grid.** 240 plots on
+a numbered lattice, five metres by six with a metre of alley, running north from
+the field road to a shelterbelt — walked between, staked, and with a wet corner
+in the north-east that flatters whatever is sown in it. That corner is not
+decoration: three lessons turn on telling a good line from a good piece of
+ground, and the evidence is visible from the alley. The other shape is the
+glasshouse range, three glazed bays in a row, which reads as nothing else at any
+distance. Both are built in `themes/seedbank/props.js`, instanced.
+
+**What it taught the next game.** A checker can be satisfied the wrong way: the
+answer-shape gate was cleared not by shortening the keys but by making each wrong
+option wrong *for a stated reason*, which is what the gate was asking for and is
+also better writing. And `tools/common-words.mjs` is load-bearing across every
+game — adding farm vocabulary to it to quiet `jargonDepth` moved the `JARGON[n]`
+stamping in three unrelated themes and broke their book parity. Reword the
+glossary instead.
+
+### Headwater — the sketch this was built from
 
 **Course:** AP Calculus AB, and the first term of a university calculus sequence.
 Grade 12–13. It is the largest STEM course in the country by enrolment and none
