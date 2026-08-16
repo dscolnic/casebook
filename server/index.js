@@ -5,43 +5,52 @@ const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
 } = require("./storage");
-const casebook = require("./casebook");
 
 const PORT = process.env.PORT || 5000;
 const ROOT = path.join(__dirname, "..");
 
-async function main() {
-  casebook.init();
-  await casebook.syncCaseBank();
+// The Clue-style deduction games this app used to be. The files are all still
+// in the tree — server/casebook.js, casebook.html, casebook_build/ — and so is
+// everything they wrote to the database; they are simply not served any more.
+// Undoing this is deleting the middleware below and restoring the two startup
+// calls, which is why nothing was removed instead.
+//
+// Startup no longer runs casebook.init() or syncCaseBank(), which read every
+// pack off disk and wrote the case bank on every boot. Nothing reads that bank
+// now, and it was the app's only way to fail to start.
+const RETIRED = new Set([
+  "/casebook.html",
+  "/casebook_static.html",
+  "/reckon.html",
+  "/character.html",
+]);
 
+async function main() {
   const app = express();
   // A First Person Learning campaign is a fair-sized object — fifteen missions
   // of progress plus a hundred-line log — and the default 100 kB body limit
   // rejects one with a 413 the game has no way to report.
   app.use(express.json({ limit: "2mb" }));
-  // The front door is the game shelf. reckon.html and casebook.html still work
-  // if you type them; nothing links to them.
+  // The front door is the game shelf.
   app.get("/", (_req, res) => res.redirect("/games/"));
 
+  // Retired, before anything else can answer for them. A page goes to the shelf
+  // rather than a 404 — anyone arriving has a bookmark, and a dead end teaches
+  // them nothing — but the two case APIs answer 410, because their caller is
+  // fetch() and a redirect to an HTML page would arrive at a JSON parser.
+  app.use((req, res, next) => {
+    // Lowercased: on a case-insensitive filesystem — which is every Mac this is
+    // developed on — `/Casebook.html` misses the set and then static serves the
+    // file anyway. Linux would 404 it, so the bypass only exists where it is
+    // least likely to be noticed.
+    if (RETIRED.has(req.path.toLowerCase())) return res.redirect("/games/");
+    if (req.path === "/api/shelf" || req.path.startsWith("/api/case/")) {
+      return res.status(410).json({ message: "The casebook games are no longer served here." });
+    }
+    next();
+  });
+
   setupAuth(app);
-
-  app.get("/api/shelf", async (req, res, next) => {
-    try {
-      res.json(await casebook.getShelf());
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/api/case/:id", async (req, res, next) => {
-    try {
-      const pack = await casebook.getCaseIfReleased(req.params.id);
-      if (!pack) return res.status(404).json({ message: "Case not found" });
-      res.json(pack);
-    } catch (err) {
-      next(err);
-    }
-  });
 
   app.get("/api/auth/user", async (req, res, next) => {
     try {
@@ -132,7 +141,10 @@ async function main() {
     }
   });
 
-  // Investigator portrait (character.html): per-user saved character.
+  // Investigator portrait: per-user saved character. Its page (character.html)
+  // is retired, so nothing calls these — they stay because the column they read
+  // still holds every portrait anyone drew, and a route is cheaper to keep than
+  // a column is to restore.
   app.get("/api/avatar", requireUser, async (req, res, next) => {
     try {
       res.json({ avatar: await getAvatar(req.userId) });
@@ -161,7 +173,8 @@ async function main() {
     return res.redirect("/sign-in.html");
   });
 
-  // Static site (casebook.html, icons, manifest, service worker, etc.)
+  // Static site: games/, icons, manifest, service worker, and whatever else is
+  // in the root that has not been retired above.
   app.use(
     express.static(ROOT, {
       dotfiles: "ignore",

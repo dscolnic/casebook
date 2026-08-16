@@ -8,9 +8,14 @@ and hand off. `/` goes to `/games/`; see [`games/README.md`](games/README.md) fo
 how they get here (they are built in the Alamos repo and synced, not authored
 here) and how a campaign is kept against the account.
 
-Everything below is **Casebook**, the deduction games, which still work at
-`/casebook.html` and `/reckon.html` and share the same sign-in, `users` table and
-streak.
+Everything below is **Casebook**, the deduction games, which the app **no longer
+serves**. `/casebook.html`, `/casebook_static.html`, `/reckon.html` and
+`/character.html` redirect to the shelf, `/api/shelf` and `/api/case/:id` answer
+410, and startup no longer syncs the case bank. Nothing was deleted — the files,
+the packs, the build tool and every row they wrote are all still here, and
+undoing it is deleting one middleware in `server/index.js` and restoring two
+calls in `main()`. The documentation below is kept for that reason and is
+otherwise out of date about how the app runs.
 
 ---
 
