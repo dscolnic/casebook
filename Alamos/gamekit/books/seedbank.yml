@@ -117,11 +117,11 @@ roster:
     bio: |
       Answers one question for a living: how long will this live? A seed in the
       vault is not inert. It is respiring, slowly, and everything he controls —
-      the drying room, the moisture content, the minus eighteen — is aimed at
+      the drying room, the moisture content, the minus 18 — is aimed at
       making that slower.
 
       He germinates a sample of every accession on a schedule and plots the
-      curve. When it drops below eighty-five per cent the accession has to be
+      curve. When it drops below 85 per cent the accession has to be
       grown out, which is the moment the argument between the vault and the
       field starts again.
 
@@ -219,7 +219,7 @@ roster:
       breed from.
 
       His limit is that a field is not a chamber. Everything he measures is
-      confounded with the weather, which is why he keeps eleven years of it.
+      confounded with the weather, which is why he keeps 11 years of it.
     quiz:
       - q: Why does Toft measure canopy cover and flowering date alongside yield?
         a: They explain a yield instead of only recording it
@@ -238,7 +238,7 @@ roster:
 
       They are quietly the most careful person on site. A mislabelled packet is
       not a small error: it is a plant whose passport belongs to something else,
-      and it can be twenty years before anybody notices.
+      and it can be 20 years before anybody notices.
 
       Their limit is that they can only record what the field tells them. A plot
       harvested into the wrong bag arrives here already wrong.
@@ -329,7 +329,7 @@ glossary:
     def: The molecule those instructions are written in, copied into every cell and handed on when a plant reproduces.
   - name: Chromosome
     aliases: [chromosomes]
-    def: One long thread carrying many instructions in a fixed order, and inherited whole. A wheat plant has twenty-one pairs.
+    def: One long thread carrying many instructions in a fixed order, and inherited whole. A wheat plant has 21 pairs.
   - name: Pollen
     aliases: []
     def: What a plant fertilises with. One grain of it carries a single set of chromosomes to an egg.
@@ -440,12 +440,12 @@ missions:
   # ---------------------------------------------------------------- day 1
   - title: What is actually in the vault
     objective: Find out what Wellmere is holding and what it is doing while it sits there.
-    briefing: Forty-one thousand accessions, and sixty of them overdue.
+    briefing: 41000 accessions, and 60 of them overdue.
     stake: >-
       Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere
-      holds 41,000 accessions at minus eighteen, and Yusuf Mbaye's germination schedule says sixty
+      holds 41,000 accessions at minus 18, and Yusuf Mbaye's germination schedule says 60
       of them have dropped below the line where they have to be grown out this season. There is
-      room in the ground for about forty. Chiara Volpe wants that ground for her own trial and
+      room in the ground for about 40. Chiara Volpe wants that ground for her own trial and
       Nasrin Qureshi wants it for the collection. Today you find out what a seed is doing while it
       is stored, what the crossing programme is trying to make, and how the trial ground is laid
       out — because Friday's plan is made out of those three things.
@@ -455,7 +455,7 @@ missions:
         task: Say what the cold and the drying are for
         title: Why the vault is cold
         place: Seed Vault
-        scene: Mbaye has two lots of the same accession on the bench. One spent four years at minus eighteen degrees and six per cent moisture. The other sat in a warm shed and now germinates at thirty-one per cent.
+        scene: Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6 per cent moisture. The other sat in a warm shed and now germinates at 31 per cent.
         assumes:
           - orthodox seeds are seeds that can survive drying and cold storage
         takeaway: Cold and low moisture extend orthodox-seed life by slowing the reactions that drive deterioration.
@@ -498,7 +498,7 @@ missions:
         task: Read the trial ground
         title: Why the same line is sown four times
         place: Field Laboratory
-        scene: "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing four times across four blocks. The order is randomised, and the north end of the field is visibly wetter than the south."
+        scene: "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south."
         assumes:
           - the same crop grows differently in different parts of a field
         takeaway: A field is not uniform, so a single plot measures the plot as much as the line in it.
@@ -518,11 +518,11 @@ missions:
   # ---------------------------------------------------------------- day 2
   - title: What the generation tells you
     objective: Read the second generation of last year's cross, and check it against a marker.
-    briefing: Four hundred plants in the warm bay, and a ratio to count.
+    briefing: 400 plants in the warm bay, and a ratio to count.
     stake: >-
-      Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — four hundred plants, and the first
+      Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — 400 plants, and the first
       generation of any cross where the parents' alleles come apart and show themselves. Hana
-      Nakagawa has run a marker on the same plants and has a disagreement to explain: eleven of them
+      Nakagawa has run a marker on the same plants and has a disagreement to explain: 11 of them
       score as carrying the resistance allele and do not look it. Osman Toft, meanwhile, wants
       somebody to explain to the trainees where the grain in his drying hall came from. Today you
       count what the generation is telling you, decide what the marker mismatch means, and follow
@@ -534,14 +534,14 @@ missions:
         title: Counting a generation
         place: Crossing Hall
         scene: |-
-          Four hundred F2 plants, and 306 of them show the resistant reaction while 94 do not. Bengtsson asks what that number is supposed to be, and whether it is close enough.
+          400 F2 plants, and 306 of them show the resistant reaction while 94 do not. Bengtsson asks what that number is supposed to be, and whether it is close enough.
         assumes:
           - a plant carries two copies of each gene and passes on one
         takeaway: The proportions in a whole generation carry information that no single plant in it does.
         format: CHOICE
         question: What do 306 resistant and 94 susceptible plants tell you about this resistance?
         answerText: "The counts fit a single dominant resistance locus: about 300:100 is expected, while a 15:1 two-gene model would predict about 375:25."
-        why: F1 plants carry one resistance allele and one susceptible allele. Meiosis separates those alleles, so two heterozygous parents give a 3:1 phenotype expectation when resistance is dominant. In 400 offspring that is 300 resistant and 100 susceptible. The observed 306 and 94 are close. Two independently assorting genes where either dominant allele gives resistance predict 15:1, or 375 resistant and 25 susceptible. The counts therefore support one dominant locus much better than the two-locus alternative.
+        why: F1 plants carry one resistance allele and one susceptible allele. Meiosis separates those alleles, so 2 heterozygous parents give a 3:1 phenotype expectation when resistance is dominant. In 400 offspring that is 300 resistant and 100 susceptible. The observed 306 and 94 are close. 2 independently assorting genes where either dominant allele gives resistance predict 15:1, or 375 resistant and 25 susceptible. The counts therefore support one dominant locus much better than the two-locus alternative.
         choices:
           - One gene is involved and the resistant allele is dominant
           - Two genes are involved and either one confers resistance
@@ -549,14 +549,14 @@ missions:
           - The marker used to select the parents was wrong
         answer: One gene is involved and the resistant allele is dominant
         rebuttals:
-          - Two genes acting either-way give about one susceptible in sixteen, not one in four.
+          - 2 genes acting either-way give about 1 susceptible in 16, not 1 in 4.
           - The screening bay is inoculated deliberately, so escape is possible and would not give a clean ratio.
           - A wrong marker in the parents would break the ratio rather than produce a textbook one.
       - group: LAB
         task: Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them.
         title: One disagreement, two possible causes
         place: Molecular Laboratory
-        scene: Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. Eleven carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.
+        scene: Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 11 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.
         assumes:
           - PCR uses primers to amplify a chosen DNA region
           - gel electrophoresis separates DNA fragments by size
@@ -593,7 +593,7 @@ missions:
             - a: 0.04
               b: 0
           second:
-            label: PCR aimed inside the resistance gene itself, on the eleven discordant plants
+            label: PCR aimed inside the resistance gene itself, on the 11 discordant plants
             apply: Run the direct-gene assay
             locus:
               - a: 0.02
@@ -616,7 +616,7 @@ missions:
         title: Where a tonne of grain comes from
         place: Drying & Processing Hall
         scene: |-
-          Toft has eleven tonnes from one field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered properly before it goes any further.
+          Toft has 11 tonnes from 1 field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered properly before it goes any further.
         assumes:
           - plants build sugars from carbon dioxide and water using light
         takeaway: A harvest weighs what it weighs because of something that was not there when it started.
@@ -638,7 +638,7 @@ missions:
     objective: Count what the vault holds at the level that actually matters.
     briefing: Not varieties. Frequencies.
     stake: >-
-      Wednesday. Tomas Ivanescu has genotyped a sample from one landrace accession — the one Idris
+      Wednesday. Tomas Ivanescu has genotyped a sample from 1 landrace accession — the 1 Idris
       Fenn's grandfather gave Wellmere in 1994 — and has put the numbers on the board rather than a
       description. Sylvie Pirelli has found that two accession numbers point at the same collection
       site, which may mean one of them is a duplicate taking a regeneration slot. Today you learn
@@ -650,17 +650,17 @@ missions:
         task: Work out what the sample says about the population
         title: Frequencies, not plants
         place: Genetic Resources Office
-        scene: Ivanescu has 100 plants from the 1994 accession scored at one locus. Thirty-six are AA, forty-eight are Aa and sixteen are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.
+        scene: Ivanescu has 100 plants from the 1994 accession scored at 1 locus. 36 are AA, 48 are Aa and 16 are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.
         assumes:
           - a diploid plant carries two copies of the locus
           - Hardy–Weinberg is a null model that predicts genotype frequencies from allele frequencies
         takeaway: A frequency describes the population; a genotype describes one plant, and they answer different questions.
         format: BALLPARK
         question: Estimate the frequency of the tall allele in this accession.
-        answerText: 0.6 for the tall allele, and 0.4 for the short one.
-        why: One hundred diploid plants carry 200 allele copies. The 36 AA plants contribute 72 A copies, and the 48 heterozygotes contribute 48 more. That gives p = 120/200 = 0.60 and q = 0.40. Hardy–Weinberg predicts p² = 0.36, 2pq = 0.48 and q² = 0.16. Those values exactly match the observed genotype fractions here. This gives a clean null model before drift, selection, migration, non-random mating or a bottleneck changes the population.
+        answerText: 0.6 for the tall allele, and 0.4 for the short 1.
+        why: 100 diploid plants carry 200 allele copies. The 36 AA plants contribute 72 A copies, and the 48 heterozygotes contribute 48 more. That gives p = 120/200 = 0.60 and q = 0.40. Hardy–Weinberg predicts p² = 0.36, 2pq = 0.48 and q² = 0.16. Those values exactly match the observed genotype fractions here. This gives a clean null model before drift, selection, migration, non-random mating or a bottleneck changes the population.
         estimate:
-          prompt: One hundred plants have genotypes 36 AA, 48 Aa and 16 aa. Each plant carries two copies of the locus.
+          prompt: 100 plants have genotypes 36 AA, 48 Aa and 16 aa. Each plant carries two copies of the locus.
           question: Choose the tall-allele copies contributed by AA and Aa plants, and the total allele copies.
           labels:
             - 72  (A copies in the 36 AA plants)
@@ -687,12 +687,12 @@ missions:
         title: How many plants make a population
         place: Seed Vault
         scene: |-
-          Mbaye can regenerate the 1994 accession from whatever number of plants the ground allows. Volpe points out that thirty plants would free half a plot. Ivanescu has gone very quiet.
+          Mbaye can regenerate the 1994 accession from whatever number of plants the ground allows. Volpe points out that 30 plants would free half a plot. Ivanescu has gone very quiet.
         assumes:
           - each generation's alleles are a sample of the last generation's
         takeaway: A grow-out is a sample, and a small sample loses whatever was rare in what it came from.
         format: CHOICE
-        question: What does regenerating from thirty plants instead of two hundred cost?
+        question: What does regenerating from 30 plants instead of 200 cost?
         why: Every regeneration samples alleles from the population that came before it. Rare variants are easiest to miss because few plants carry them. If an observable type occurs in only a few plants, a small grow-out can contain none of those plants by chance. Once the allele is absent from every contributor, careful storage cannot restore it. The resulting seed may still germinate well and look normal. That is why a genetic bottleneck can damage a collection without leaving an obvious sign in routine viability tests.
         choices:
           - The rare alleles, which drop out by chance alone
@@ -701,7 +701,7 @@ missions:
           - The purity of the accession, through cross-pollination
         answer: The rare alleles, which drop out by chance alone
         rebuttals:
-          - Seed from thirty well-grown plants germinates as well as seed from three hundred.
+          - Seed from 30 well-grown plants germinates as well as seed from 300.
           - The passport record describes where the accession came from and is unaffected by how it is grown.
           - Cross-pollination is a separate risk, handled by isolation distance and by bagging.
       - group: TRIAL
@@ -738,9 +738,9 @@ missions:
     objective: Weigh a release against a delay, with a dry summer forecast.
     briefing: WM-712 is ready. The ground it needs is the ground the vault wants.
     stake: >-
-      Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through four
-      seasons of trials and yields eleven per cent over the standard in dry years. Releasing it
-      needs the whole west ground for seed increase, which is the ground Qureshi's sixty overdue
+      Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through 4
+      seasons of trials and yields 11 per cent over the standard in dry years. Releasing it
+      needs the whole west ground for seed increase, which is the ground Qureshi's 60 overdue
       accessions would have used. The forecast for the summer is dry, the merchant wants a decision,
       and both of them are right about something. Today you work out what a season's delay actually
       costs, what the trial data does and does not support, and what the crop gets out of a wet
@@ -752,13 +752,13 @@ missions:
         title: What a season costs
         place: Crossing Hall
         scene: |-
-          Volpe has the pipeline on the board: cross to release is seven years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.
+          Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.
         assumes:
           - a breeding programme moves one generation at a time
         takeaway: The cost of holding something back is rarely paid by the thing being held back.
         format: CHOICE
         question: Why does a one-season deferral cost more than one season?
-        why: "A breeding programme is a queue that shares seasons, ground and staff. Holding WM-712 for one year also delays its seed increase, the trial that would have used that ground, and the crosses waiting behind it. The cost therefore lands on lines that were never part of the argument. That is the strongest version of Volpe’s case: delay has opportunity costs throughout the pipeline. It does not prove release is right, but it makes the price of waiting explicit."
+        why: "A breeding programme is a queue that shares seasons, ground and staff. Holding WM-712 for 1 year also delays its seed increase, the trial that would have used that ground, and the crosses waiting behind it. The cost therefore lands on lines that were never part of the argument. That is the strongest version of Volpe’s case: delay has opportunity costs throughout the pipeline. It does not prove release is right, but it makes the price of waiting explicit."
         choices:
           - Every line behind it in the pipeline waits too
           - The line loses its advantage as the standard improves
@@ -774,13 +774,13 @@ missions:
         title: What the trial can actually claim
         place: Field Laboratory
         scene: |-
-          Four seasons, one site, four replicates each. WM-712 is ahead by eleven per cent in the two dry years and by two per cent in the wet ones. The merchant's leaflet says "eleven per cent higher yielding".
+          Four seasons, one site, four replicates each. WM-712 is ahead by 11 per cent in the 2 dry years and by 2 per cent in the wet ones. The merchant's leaflet says "11 per cent higher yielding".
         assumes:
           - a trial measures lines under the conditions the trial happened in
         takeaway: A number from a trial carries the conditions it was measured under, or it is a different claim.
         format: CHOICE
         question: What does this trial support saying about WM-712?
-        answerText: "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the two dry years than in the wet years."
+        answerText: "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the 2 dry years than in the wet years."
         why: "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only two per cent. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal."
         choices:
           - At this site, its advantage is much larger in dry seasons than in wet ones
@@ -789,7 +789,7 @@ missions:
           - It should outyield the standard whenever seasonal rainfall falls below average
         answer: At this site, its advantage is much larger in dry seasons than in wet ones
         rebuttals:
-          - The wet-year advantage is only two per cent, so eleven per cent is not a season-independent effect.
+          - The wet-year advantage is only 2 per cent, so 11 per cent is not a season-independent effect.
           - One site can motivate a drought-adaptation hypothesis, but it cannot establish performance across regions.
           - The trial separates dry from wet years here; it does not define a rainfall threshold that guarantees the same response.
       - group: DRY
@@ -797,7 +797,7 @@ missions:
         title: What the crop cannot do without water
         place: Drying & Processing Hall
         scene: |-
-          Toft has eleven years of yield against summer rainfall and a straight-ish line through it. A trainee asks why a plant that is mostly built from air minds a dry summer at all.
+          Toft has 11 years of yield against summer rainfall and a straight-ish line through it. A trainee asks why a plant that is mostly built from air minds a dry summer at all.
         assumes:
           - plants take in carbon dioxide through pores in their leaves
         takeaway: The opening a leaf takes carbon in through is the opening it loses water through.
@@ -819,7 +819,7 @@ missions:
     objective: Find out what else the resistance gene is dragging behind it.
     briefing: The resistant lines are shorter, and nobody bred them that way.
     stake: >-
-      Friday, and the plan is signed: WM-712 goes to seed increase, forty of the sixty accessions
+      Friday, and the plan is signed: WM-712 goes to seed increase, 40 of the 60 accessions
       get regenerated, and Qureshi has said what she thinks of that in writing. In the glasshouse
       the backcross lines carrying the resistance gene are all noticeably shorter than their
       siblings, which nobody selected for and nobody wants. Nakagawa has the marker data and a
@@ -832,7 +832,7 @@ missions:
         task: Explain the short plants
         title: What came with the gene
         place: Crossing Hall
-        scene: Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.
+        scene: Every backcross line carrying the resistance allele is 12 to 15 centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.
         assumes:
           - genes sit at fixed places on chromosomes
         takeaway: A chromosome is inherited in stretches, so a wanted gene arrives with its neighbours.
@@ -846,7 +846,7 @@ missions:
           - The short plants were selected for unintentionally in the glasshouse
         answer: They carry the donor's neighbouring genes along with the resistance
         rebuttals:
-          - A defence response has a real cost and it does not produce a consistent fifteen centimetres.
+          - A defence response has a real cost and it does not produce a consistent 15 centimetres.
           - Backcrossing recovers the recurrent parent and does not reduce vigour by itself.
           - Selection in the bay was for the marker, and height was not scored at all.
       - group: LAB
@@ -854,13 +854,13 @@ missions:
         title: A marker fitted where it worked
         place: Molecular Laboratory
         scene: |-
-          The marker was mapped in the original population and has picked plants correctly for three seasons. Nakagawa has a new population from a different donor and a hundred plants scored both ways.
+          The marker was mapped in the original population and has picked plants correctly for three seasons. Nakagawa has a new population from a different donor and 100 plants scored both ways.
         assumes:
           - a marker predicts a trait by being close to the gene, in that population
         takeaway: A rule fitted on one population has to be scored on a population it has never seen.
         format: HOLDOUT
         question: Set the marker score above which a seedling is kept, on the plants the marker was mapped in — then freeze it and score it on a population it has never seen. What does it get?
-        answerText: About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — twenty points of it was that one population's noise.
+        answerText: About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — 20 points of it was that 1 population's noise.
         why: A cut-off chosen on one population partly fits that population’s accidents. Those accidents do not have to repeat. The broad high-scoring shelf is useful because it persists when the rule is frozen and applied to the new donor cross. The sharp optimum at 63 does not persist; it was overfit to the mapping plants. A holdout population separates a marker rule that generalises from one that merely describes the sample used to choose it.
         holdout:
           hint: The calibration curve is the population this marker was built from. The other one is next year's.
@@ -920,7 +920,7 @@ missions:
         title: Short is not simply worse
         place: Drying & Processing Hall
         scene: |-
-          Toft points out that shorter wheats were the whole point of the 1960s: less stem, more grain, and they stand up in the rain. Volpe still does not want fifteen centimetres she did not ask for.
+          Toft points out that shorter wheats were the whole point of the 1960s: less stem, more grain, and they stand up in the rain. Volpe still does not want 15 centimetres she did not ask for.
         assumes:
           - a plant divides what it builds between stem, leaf and grain
         takeaway: What matters is the share of what the plant built that ends up in the grain.
@@ -940,11 +940,11 @@ missions:
   # ---------------------------------------------------------------- day 6
   - title: How many is enough
     objective: Put a number on what a regeneration needs, and on what the vault is losing.
-    briefing: Forty accessions, one field, and a number nobody wants to hear.
+    briefing: 40 accessions, 1 field, and a number nobody wants to hear.
     stake: >-
-      Monday of the second week, and the regeneration list has to be cut from sixty to forty.
+      Monday of the second week, and the regeneration list has to be cut from 60 to 40.
       Ivanescu has spent the weekend on the arithmetic of how many plants each grow-out needs, and
-      it is not the number in the manual. Mbaye has eleven years of germination tests on one
+      it is not the number in the manual. Mbaye has 11 years of germination tests on 1
       accession and a curve that is about to cross his line. Quiroga wants to know why last year's
       trial found a difference in plant height that this year's cannot see. Today you size the
       samples, read the curve, and work out which of last year's results were the ground talking.
@@ -954,7 +954,7 @@ missions:
         task: Estimate the effective size of this unequal-parent regeneration
         title: Not the number of plants
         place: Genetic Resources Office
-        scene: Last year’s regeneration of a dioecious conservation accession used 120 plants. Eighteen pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.
+        scene: Last year’s regeneration of a dioecious conservation accession used 120 plants. 18 pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.
         assumes:
           - dioecious means pollen and seed are produced by separate plants
           - unequal parental contributions reduce effective population size
@@ -990,7 +990,7 @@ missions:
         task: Set the field-reservation and grow-out thresholds before replaying the viability record.
         title: Write the viability rule before it falls
         place: Seed Vault
-        scene: Mbaye has eleven germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.
+        scene: Mbaye has 11 germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.
         assumes:
           - germination percentage measures the fraction of seeds that can produce seedlings
           - regeneration requires field space before seed can be multiplied
@@ -1097,11 +1097,11 @@ missions:
           - Careless measurement adds scatter rather than removing a difference of nine centimetres.
           - Height is strongly heritable, which is exactly why the disappearance is worth explaining.
   # ---------------------------------------------------------------- day 7
-  - title: Four hundred kilometres away
+  - title: 400 kilometres away
     objective: Decide what to do about a disease that has not arrived.
     briefing: A new race of the rust, reported on the other side of the border.
     stake: >-
-      Tuesday. The regional bulletin reports a new race of stem rust four hundred kilometres east,
+      Tuesday. The regional bulletin reports a new race of stem rust 400 kilometres east,
       on a variety that carries the same resistance gene as WM-712 — and it is not stopping it.
       Nakagawa can screen for a second gene in the collection, Ivanescu can tell her where to look,
       and neither of them can do it in one season without giving something up. The line is already
@@ -1119,7 +1119,7 @@ missions:
           - ribosomes translate mRNA codons into amino acids
         takeaway: A mutation matters through what it changes in RNA, protein, and phenotype; selection then acts on that phenotype.
         format: CHOICE
-        question: How can one DNA substitution change whether WM-712 recognizes the pathogen?
+        question: How can 1 DNA substitution change whether WM-712 recognizes the pathogen?
         answerText: The DNA substitution can change an mRNA codon and therefore an amino acid in the pathogen protein. If that changes recognition, the resulting phenotype can spread by natural selection.
         why: A point mutation replaces one nucleotide in DNA. When that region is transcribed, the change can alter an mRNA codon. During translation, a changed codon may place a different amino acid in the pathogen protein. That can alter the protein’s shape or function, although some substitutions are silent. If the altered protein escapes recognition by WM-712, that rust variant can reproduce on resistant plants. Selection then raises the frequency of the resistance-breaking variant.
         choices:
@@ -1137,7 +1137,7 @@ missions:
         title: Where an unused allele lives
         place: Genetic Resources Office
         scene: |-
-          Ivanescu has to pick fifty accessions to screen out of 41,000. On the board: modern varieties, the breeding programme's own parents, and the landraces from districts where rust has always been present.
+          Ivanescu has to pick 50 accessions to screen out of 41,000. On the board: modern varieties, the breeding programme's own parents, and the landraces from districts where rust has always been present.
         assumes:
           - populations are shaped by what has been selecting them
         takeaway: Where a disease has always been, the plants that stayed are the ones that could.
@@ -1196,13 +1196,13 @@ missions:
   # ---------------------------------------------------------------- day 8
   - title: What you asked for and what you got
     objective: Predict what one round of selection will actually deliver.
-    briefing: The best twenty plots, and what their offspring will be like.
+    briefing: The best 20 plots, and what their offspring will be like.
     stake: >-
-      Wednesday. The trial is scored and Volpe wants to select the best twenty plots out of 240 to
+      Wednesday. The trial is scored and Volpe wants to select the best 20 plots out of 240 to
       carry forward. Quiroga has the numbers for what that will actually produce, which is less than
-      the twenty plots suggest and more than nothing. Bengtsson can give the programme an extra
+      the 20 plots suggest and more than nothing. Bengtsson can give the programme an extra
       generation in the warm bay if the decision is made this week, and Toft has finally got the
-      canopy data that explains why two of those twenty are good. Today you predict the gain from
+      canopy data that explains why 2 of those 20 are good. Today you predict the gain from
       one round of selection, and decide what to do with an extra generation.
     takeaway: What a round of selection returns is the part of the difference that was inherited, and no more.
     stops:
@@ -1210,7 +1210,7 @@ missions:
         task: Predict the gain
         title: What one round returns
         place: Field Laboratory
-        scene: The trial mean is 7.4 tonnes per hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.
+        scene: The trial mean is 7.4 tonnes per hectare. The 20 plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.
         assumes:
           - a plant's performance is part inheritance and part where it grew
         takeaway: Only the heritable share of an advantage is passed on, and for yield that share is small.
@@ -1245,7 +1245,7 @@ missions:
         task: Decide what the extra generation is for
         title: An extra generation in the bay
         place: Crossing Hall
-        scene: Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs three months instead of twelve, and there is bench room for one population.
+        scene: Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs 3 months instead of 12, and there is bench room for 1 population.
         assumes:
           - a glasshouse can complete a generation out of season
         takeaway: A generation indoors is for advancing material, not for judging it.
@@ -1255,7 +1255,7 @@ missions:
         why: The warm bay is valuable when calendar time is the main constraint. Breaking linkage drag needs more meioses and more opportunities for a rare crossover, so another generation directly advances that goal. Yield cannot be judged credibly under glass because the field environment is missing. Regenerating a landrace there would impose an unintended glasshouse selection. Seed multiplication mainly needs area, which the bay lacks. The scarce indoor generation therefore belongs to the backcross rather than to work that needs field conditions or space.
         choices:
           - Advancing the backcross that needs a rare crossover
-          - Yield-testing the twenty selected lines early
+          - Yield-testing the 20 selected lines early
           - Growing out the overdue landrace accession
           - Multiplying seed of WM-712 for the merchant
         answer: Advancing the backcross that needs a rare crossover
@@ -1264,11 +1264,11 @@ missions:
           - Regenerating an accession under glass applies a selection nobody chose and cannot undo.
           - Multiplication is an area problem, and the bay is the smallest ground on the station.
       - group: DRY
-        task: Say what explains two of the twenty
+        task: Say what explains 2 of the 20
         title: Why those two did well
         place: Drying & Processing Hall
         scene: |-
-          Two of the twenty selected plots reached full canopy eleven days before the rest and flowered four days earlier. Their yields are the highest in the trial and the season was dry after flowering.
+          2 of the 20 selected plots reached full canopy 11 days before the rest and flowered 4 days earlier. Their yields are the highest in the trial and the season was dry after flowering.
         assumes:
           - a crop builds most of its grain from light captured after flowering
         takeaway: An early canopy captures light while there is still water to use it with.
@@ -1290,19 +1290,19 @@ missions:
     objective: Find out why the regenerated accessions no longer match their own passports.
     briefing: A genotyping run that was meant to be routine.
     stake: >-
-      Thursday. Nakagawa ran a routine genotyping panel across ninety accessions to build a
+      Thursday. Nakagawa ran a routine genotyping panel across 90 accessions to build a
       reference set, and a third of them do not match the passport data — same numbers, same
       records, different populations. Pirelli has checked the labelling twice and found nothing
       wrong with it. Qureshi has gone down to the vault and has not come back up. Today you work out
       what has actually happened to those accessions, whether the vault or the field is where it
-      happened, and what it means for the fifty being screened for rust resistance.
+      happened, and what it means for the 50 being screened for rust resistance.
     takeaway: A collection can be kept perfectly and still stop being the thing it was.
     stops:
       - group: POP
         task: Open the dependencies behind the genetic and viability results, keep the independent evidence, and name the shared source behind the shifts.
         title: Which evidence shares the grow-out
         place: Genetic Resources Office
-        scene: "Thirty of ninety accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean."
+        scene: "30 of 90 accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean."
         assumes:
           - a result can depend on earlier handling as well as on the current assay
           - independent evidence does not share the same critical source
@@ -1328,14 +1328,14 @@ missions:
           channels:
             - id: frequency
               label: Allele-frequency comparison
-              reading: 18 of 30 loci have moved more than five percentage points from the 1994 record
+              reading: 18 of 30 loci have moved more than 5 percentage points from the 1994 record
               depends:
                 - passport
                 - current_genotype
                 - regen_history
             - id: rare
               label: Rare-variant comparison
-              reading: Nine alleles recorded in 1994 at under five per cent are absent from the current sample
+              reading: 9 alleles recorded in 1994 at under 5 per cent are absent from the current sample
               depends:
                 - passport
                 - current_genotype
@@ -1349,7 +1349,7 @@ missions:
                 - regen_history
             - id: viability
               label: Germination panel
-              reading: Germination 91 per cent, and the store has held minus 18 for twenty-eight years
+              reading: Germination 91 per cent, and the store has held minus 18 for 28 years
               depends:
                 - germination
                 - vault_log
@@ -1362,7 +1362,7 @@ missions:
         task: Say what this does to the rust screen
         title: What the screen may not find
         place: Molecular Laboratory
-        scene: Nakagawa is screening fifty accessions for a second resistance gene. Twenty-two are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.
+        scene: Nakagawa is screening 50 accessions for a second resistance gene. 22 are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.
         assumes:
           - an allele that is uncommon in a population may be missing from a small sample of it
         takeaway: A screen finds what is in front of it, and what is in front of it is what survived the last grow-out.
@@ -1383,7 +1383,7 @@ missions:
         task: Say what the vault can still be trusted for
         title: What the store did right
         place: Seed Vault
-        scene: Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers twenty-eight years without an excursion, and current germination remains strong in the affected packets.
+        scene: Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers 28 years without an excursion, and current germination remains strong in the affected packets.
         assumes:
           - a store preserves what it is given rather than improving it
         takeaway: Storage held what it was handed; the loss happened in the field, on the way back in.
@@ -1404,11 +1404,11 @@ missions:
   # ---------------------------------------------------------------- day 10
   - title: What is left to work with
     objective: Rebuild the season's plan around material that has not been through a bottleneck.
-    briefing: The vault is one copy. The other one is in a field forty miles away.
+    briefing: The vault is one copy. The other 1 is in a field 40 miles away.
     stake: >-
-      Friday. The finding is written up and the season has to be re-planned around it. Twenty-two of
-      the fifty screening candidates are unreliable, the ground is already committed, and the one
-      source of unbottlenecked material is Idris Fenn's four landraces, which have been grown every
+      Friday. The finding is written up and the season has to be re-planned around it. 22 of
+      the 50 screening candidates are unreliable, the ground is already committed, and the 1
+      source of unbottlenecked material is Idris Fenn's 4 landraces, which have been grown every
       year on his own farm and selected by his own weather. Fenn is willing. Volpe points out, not
       unfairly, that none of this changes what is already in seed increase. Today you decide what
       the screen is run on, what regeneration looks like from now on, and what the field can absorb.
@@ -1418,7 +1418,7 @@ missions:
         task: Say what on-farm material offers
         title: The other copy
         place: Genetic Resources Office
-        scene: Fenn’s four landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.
+        scene: Fenn’s 4 landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.
         assumes:
           - a population in cultivation continues to be selected by where it is grown
         takeaway: Material that never stopped growing has never been through a sampling step.
@@ -1440,7 +1440,7 @@ missions:
         title: What a grow-out has to be from now on
         place: Seed Vault
         scene: |-
-          Qureshi has to write a standard that survives the next twenty years and the next four season leads. The ground available does not change and the collection does not shrink.
+          Qureshi has to write a standard that survives the next 20 years and the next 4 season leads. The ground available does not change and the collection does not shrink.
         assumes:
           - the effective size of a grow-out depends on how many plants contribute
         takeaway: A standard is what survives the person who wrote it, so it has to name a number.
@@ -1464,7 +1464,7 @@ missions:
         format: SCIENCETANK
         why: The first place to find ground is outside the measured yield trial. Headlands and spare block can hold a screening nursery that mainly needs many plants and reliable inoculation. If more ground is still needed, shortening every plot spreads a modest precision cost across the trial. Dropping a replicate removes an entire independent comparison. That weakens small yield differences. Removing guard rows is worse because vigorous plots can borrow light and water from neighbours, quietly biasing every comparison. Different cuts therefore sacrifice different kinds of evidence.
         evidence: |-
-          The yield trial has 240 plots: 60 lines, four replicates. Guard rows take about 8 per cent
+          The yield trial has 240 plots: 60 lines, 4 replicates. Guard rows take about 8 per cent
           of the area and stop plots from borrowing light and water from their neighbours. Shortening
           plots by a fifth would free 20 per cent but raises the error variance because a short plot
           samples less ground. Dropping the fourth replicate frees a quarter and removes most of the
@@ -1521,7 +1521,7 @@ missions:
         task: Keep the worsening vault problem and delegate the other two with an owner, first action and return condition.
         title: Three jobs, one still damaging seed
         place: Seed Vault
-        scene: Ashworth has 400 packets with failed foil seals, a viability-testing schedule three months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.
+        scene: Ashworth has 400 packets with failed foil seals, a viability-testing schedule 3 months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.
         assumes:
           - moisture exposure accelerates deterioration of stored orthodox seed
           - a viability test measures condition but does not repair it
@@ -1598,7 +1598,7 @@ missions:
         title: The fortnight when it is possible
         place: Crossing Hall
         scene: |-
-          Crossing needs the female parent before the anthers shed and the male in flower on the same morning. Bengtsson has the two parents at the right stage for about eleven days.
+          Crossing needs the female parent before the anthers shed and the male in flower on the same morning. Bengtsson has the 2 parents at the right stage for about 11 days.
         assumes:
           - a plant can only be crossed while its flowers are at the right stage
         takeaway: Some work has a window rather than a deadline, and the window is set by the plant.
@@ -1613,13 +1613,13 @@ missions:
   # ---------------------------------------------------------------- day 12
   - title: The rust arrives
     objective: Find a second resistance gene, in a collection that may no longer have one.
-    briefing: Two hundred kilometres in four days, and WM-712 is in the ground.
+    briefing: 200 kilometres in 4 days, and WM-712 is in the ground.
     stake: >-
-      Tuesday. The wind has come round off the foothills and the new race is two hundred kilometres
+      Tuesday. The wind has come round off the foothills and the new race is 200 kilometres
       closer than it was on Friday and there are
       pustules on the screening nursery this morning — the same nursery WM-712's sister lines are in.
       The single resistance gene is not holding. Volpe, who was right in March about the season, has
-      stopped arguing. Nakagawa's screen of the fifty candidate accessions has come back with two
+      stopped arguing. Nakagawa's screen of the 50 candidate accessions has come back with 2
       hits, and Ivanescu can tell you what is wrong with both of them. Today you find out what the
       collection can still offer, and where the rest of it is.
     takeaway: The insurance was bought decades ago by people who did not know what for, and only some of it survived.
@@ -1628,7 +1628,7 @@ missions:
         task: Spend the two evidence credits on checks that can change which positive accession receives the single increase slot.
         title: Which positive is worth the screenhouse slot
         place: Molecular Laboratory
-        scene: Two of fifty accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.
+        scene: 2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only 1 this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.
         assumes:
           - a regeneration can change allele frequencies by sampling
           - a small viable seed lot can sometimes be increased without first using it in a field trial
@@ -1654,7 +1654,7 @@ missions:
               cost: 1
               axis: increase feasibility
               decisive: false
-              reveals: Eleven grams is roughly 300 viable seeds, enough for a careful protected increase.
+              reveals: 11 grams is roughly 300 viable seeds, enough for a careful protected increase.
             - id: repeat_marker
               label: Repeat the resistance-marker screen
               cost: 2
@@ -1677,13 +1677,13 @@ missions:
         title: What was lost, and when
         place: Genetic Resources Office
         scene: |-
-          Ivanescu has the 1994 field notes for the drifted accession. The collector recorded rust on the crop and noted that about one plant in twenty stayed clean. Today's sample has none.
+          Ivanescu has the 1994 field notes for the drifted accession. The collector recorded rust on the crop and noted that about 1 plant in 20 stayed clean. Today's sample has none.
         assumes:
           - an allele present at low frequency can be lost when a population is sampled
         takeaway: An allele that has vanished was not necessarily destroyed; it may only have failed to be picked.
         format: DIAGNOSIS
         answerText: The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly five per cent.
-        why: The 1994 field note says about five per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If five per cent of plants show it, a random sample of thirty has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.
+        why: The 1994 field note says about 5 per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If 5 per cent of plants show it, a random sample of 30 has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.
         headline: The 1994 notes describe resistant plants in this accession. The 2026 sample has none.
         readings:
           - zone: 1994 notes
@@ -1709,7 +1709,7 @@ missions:
             note: grown in a clean nursery
         choices:
           - label: Drift removed it across three small grow-outs
-            mechanism: An allele at five per cent has a real chance of missing a sample of thirty, three times over.
+            mechanism: An allele at 5 per cent has a real chance of missing a sample of 33 times over.
           - label: The 1994 collector recorded it wrongly
             mechanism: A mistaken note would not be consistent with the rest of that collection trip.
           - label: The resistance was selected against during the grow-outs
@@ -1737,7 +1737,7 @@ missions:
         rebuttals:
           - Freshness affects germination and has nothing to do with which alleles are present.
           - Quantity is not the issue; the vault has plenty of a population that has lost the gene.
-          - Mutation is far too rare to restore an allele in thirty years.
+          - Mutation is far too rare to restore an allele in 30 years.
   # ---------------------------------------------------------------- day 13
   - title: Three things before the drill
     objective: Rank a nursery, a merchant and a phone call.
@@ -1745,8 +1745,8 @@ missions:
     stake: >-
       Wednesday, and three things need deciding before the drill goes out at two. The screening
       nursery is infected and Nakagawa can score it today or lose the reading to fungicide drift
-      from the neighbouring farm. The merchant wants WM-712's release confirmed or cancelled by five,
-      with forty tonnes of seed already increased. And Fenn has rung to say he has rust in the field
+      from the neighbouring farm. The merchant wants WM-712's release confirmed or cancelled by 5,
+      with 40 tonnes of seed already increased. And Fenn has rung to say he has rust in the field
       the landraces are in, which is either a disaster or the most useful thing that has happened
       all season. Today you decide the order and live with it.
     takeaway: Three urgent things are three decisions, and the order is one of them.
@@ -1775,16 +1775,16 @@ missions:
           - The seed increase figures are arithmetic and can be done at any hour.
       - group: CROSS
         task: Answer the merchant
-        title: Forty tonnes and a failing gene
+        title: 40 tonnes and a failing gene
         place: Crossing Hall
         scene: |-
-          Forty tonnes of WM-712 seed exists. Its single resistance gene is being beaten two hundred kilometres away and in Wellmere's own nursery this morning. It still yields eleven per cent more in a dry year.
+          40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11 per cent more in a dry year.
         assumes:
           - a released variety is planted over a large area at once
         takeaway: What makes a variety valuable is also what makes a single failing gene expensive.
         format: CHOICE
         question: What should Wellmere tell the merchant?
-        why: The dry-year yield advantage is real, and forty tonnes of seed already exists. Destroying it does not repair the resistance gene. The risk is that a variety sold as resistant may be planted widely as though one failing gene were enough. Naming the weakness changes management and surveillance. Adding a second gene belongs in the next breeding cycle because existing seed cannot be genetically changed today. The biology defines the trade-off, while release policy still sets what level of risk is acceptable.
+        why: The dry-year yield advantage is real, and 40 tonnes of seed already exists. Destroying it does not repair the resistance gene. The risk is that a variety sold as resistant may be planted widely as though one failing gene were enough. Naming the weakness changes management and surveillance. Adding a second gene belongs in the next breeding cycle because existing seed cannot be genetically changed today. The biology defines the trade-off, while release policy still sets what level of risk is acceptable.
         choices:
           - Release it, with the resistance stated as a known weakness
           - Release it as planned and say nothing about the rust
@@ -1793,7 +1793,7 @@ missions:
         answer: Release it, with the resistance stated as a known weakness
         rebuttals:
           - Silence is what produces a district planted to one failing gene.
-          - Forty tonnes of a high-yielding line is worth something even where rust arrives.
+          - 40 tonnes of a high-yielding line is worth something even where rust arrives.
           - The second gene is the plan for the next line; it cannot be added to seed already grown.
       - group: POP
         task: Decide what to do about Fenn's field
@@ -1822,10 +1822,10 @@ missions:
     briefing: The block is drilled tomorrow. After that the parents are fixed.
     stake: >-
       Thursday. The crossing block goes in tomorrow morning and it decides what the programme is
-      working on until 2033 — a cross made in it is a line in four years and a release in seven.
+      working on until 2033 — a cross made in it is a line in 4 years and a release in 7.
       Volpe has her list, Qureshi has hers, and this year they overlap more than they ever have.
-      The screen has one clean source of a second resistance gene, Fenn has forty marked plants
-      being threshed individually, and there is room in the block for eight crosses. Today you fix
+      The screen has 1 clean source of a second resistance gene, Fenn has 40 marked plants
+      being threshed individually, and there is room in the block for 8 crosses. Today you fix
       the eight, and after tomorrow nothing in this season can be changed.
     takeaway: A crossing block is a decision about a decade, made in one morning with what is to hand.
     stops:
@@ -1931,7 +1931,7 @@ missions:
     stake: >-
       Friday, and the season is set. The crossing block went in yesterday, WM-712 was released with
       its weakness written on the label, and the drifted accessions are on a list that will take
-      fifteen years to work through. Fenn's marked plants are drying in forty paper bags with his
+      15 years to work through. Fenn's marked plants are drying in 40 paper bags with his
       handwriting on them. The board meets on Monday and Qureshi has to say what happened here in
       terms somebody who funds a gene bank will understand. Today you settle what the season
       established, what it cost to find out, and which of the things done under pressure are worth
@@ -1942,24 +1942,24 @@ missions:
         task: Say what the season established about the collection
         title: What the catalogue says and what is there
         place: Seed Vault
-        scene: Ninety accessions were genotyped. Thirty had drifted, and every one of those had been regenerated at least twice. The other sixty, regenerated once or not at all, still matched. About 9,000 accessions have two or more regenerations.
+        scene: 90 accessions were genotyped. 30 had drifted, and every 1 of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.
         assumes:
           - a sample of a collection supports an estimate about the collection
         takeaway: A sample can identify a high-risk group without proving the exact fraction affected in the entire collection.
         format: CHOICE
         question: What can Wellmere honestly say to its board on Monday?
         answerText: Repeated regeneration is the high-risk category. Prioritise those accessions for audit and change the protocol now, while a larger sample estimates how common drift is within that group.
-        why: "The sample separates sharply by regeneration history: all thirty repeatedly regenerated accessions drifted, while the sixty less-regenerated accessions matched. That is strong evidence that repeated regeneration marks a high-risk group. It does not justify saying one third of the whole collection has drifted, because the sampled groups had different exposure histories. It also does not prove every one of the 9,000 repeatedly regenerated accessions is affected. The board can act on the risk group now while a larger audit estimates its true prevalence."
+        why: "The sample separates sharply by regeneration history: all 30 repeatedly regenerated accessions drifted, while the 60 less-regenerated accessions matched. That is strong evidence that repeated regeneration marks a high-risk group. It does not justify saying one third of the whole collection has drifted, because the sampled groups had different exposure histories. It also does not prove every 1 of the 9,000 repeatedly regenerated accessions is affected. The board can act on the risk group now while a larger audit estimates its true prevalence."
         choices:
           - Repeatedly regenerated accessions are a high-risk group and should be prioritised for audit
-          - About one third of the entire 41,000-accession collection has drifted
-          - Only the thirty sampled accessions can be treated as affected
+          - About 1 third of the entire 41,000-accession collection has drifted
+          - Only the 30 sampled accessions can be treated as affected
           - All 9,000 accessions regenerated twice or more should be assumed to have drifted
-        answer: About one third of the entire 41,000-accession collection has drifted
+        answer: About 1 third of the entire 41,000-accession collection has drifted
         rebuttals:
           - The one-third figure mixes accessions with very different regeneration histories and cannot be applied to the full collection.
-          - The sample identifies a strong risk pattern beyond the thirty measured packets, even though it cannot name every affected accession.
-          - All thirty sampled repeated-regeneration accessions drifted, but a sample of thirty does not establish a literal 100% prevalence across all 9,000.
+          - The sample identifies a strong risk pattern beyond the 30 measured packets, even though it cannot name every affected accession.
+          - All 30 sampled repeated-regeneration accessions drifted, but a sample of 30 does not establish a literal 100% prevalence across all 9,000.
       - group: TRIAL
         task: Say what the season's trial data supports
         title: One site, one year, again
@@ -1984,9 +1984,9 @@ missions:
           - A second season tests how portable the result is; it is not required for the first season's conditional result to be real.
       - group: DRY
         task: Say what the year's agronomy is worth keeping
-        title: Eleven years, and what they are for
+        title: 11 years, and what they are for
         place: Drying & Processing Hall
-        scene: Toft’s canopy, flowering and weather records now span twelve seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.
+        scene: Toft’s canopy, flowering and weather records now span 12 seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.
         assumes:
           - a long record allows a season to be compared against others
         takeaway: A measurement series is worth more each year, and it can only be started early.
@@ -2006,7 +2006,7 @@ missions:
 interiors:
   VAULT:
     caption: Seed dies by respiring. Cold and dry is the whole of the method.
-    standLine: Forty-one thousand accessions, and a list of which ones are still what the label says.
+    standLine: 41000 accessions, and a list of which ones are still what the label says.
     station:
       kind: panel
       title: Vault conditions
@@ -2016,7 +2016,7 @@ interiors:
         - { label: Door open today, value: 41 minutes, status: high }
         - { label: Viability tests overdue, value: "1,140 accessions", status: alarm }
   DRY:
-    caption: A seed comes in at twenty per cent water and has to leave at five.
+    caption: A seed comes in at 20 per cent water and has to leave at 5.
     standLine: Slow and cool, because heat kills the embryo it is meant to be preserving.
     station:
       kind: panel
@@ -2039,7 +2039,7 @@ interiors:
         - { label: Sharing a grandparent, value: 4 of 6, status: alarm }
   LAB:
     caption: A marker reports a piece of chromosome, and the gene is somewhere near it.
-    standLine: Ninety accessions genotyped, and thirty of them are not what the catalogue says.
+    standLine: 90 accessions genotyped, and 30 of them are not what the catalogue says.
     station:
       kind: panel
       title: Marker run
@@ -2050,7 +2050,7 @@ interiors:
         - { label: Expected error, value: about 4 in 100, status: alarm }
   TRIAL:
     caption: The plot is the unit, and everything true here is true of this ground and this year.
-    standLine: Two hundred and forty plots, four replicates, and a wet corner that flatters whatever is in it.
+    standLine: 240 plots, 4 replicates, and a wet corner that flatters whatever is in it.
     station:
       kind: panel
       title: Trial ground
@@ -2061,7 +2061,7 @@ interiors:
         - { label: Gain across replicates, value: 11 per cent, status: normal }
   POP:
     caption: A collection is a set of frequencies, and every grow-out is a chance to change them.
-    standLine: What was collected in 1994 and what is in the packet now are two different populations.
+    standLine: What was collected in 1994 and what is in the packet now are 2 different populations.
     station:
       kind: panel
       title: Regeneration log
@@ -2072,9 +2072,9 @@ interiors:
         - { label: Drift found in the sample, value: 30 of 90, status: alarm }
 
 copy:
-  VAULT: <p>The Seed Vault, on the neck. No windows, one door, and forty-one thousand foil packets on rolling shelves at minus eighteen. It is the landward end of the site because it is the only building here that needs a lorry.</p>
+  VAULT: <p>The Seed Vault, on the neck. No windows, 1 door, and 41000 foil packets on rolling shelves at minus 18. It is the landward end of the site because it is the only building here that needs a lorry.</p>
   DRY: <p>Drying and Processing, out on the trial ring where the harvest comes off. Trays on racks in still, dry air, a cleaning mill that has not been rebalanced since March, and every sack labelled twice because a sack labelled once is a sack with no history.</p>
-  CROSS: <p>The Crossing Hall, alone at the centre of the Point. Everything else on this site is arranged around the distance from here: glassine bags, forceps, a bench of pollinated heads under numbered tags, and a whiteboard where eight slots decide what the programme works on until 2033.</p>
+  CROSS: <p>The Crossing Hall, alone at the centre of the Point. Everything else on this site is arranged around the distance from here: glassine bags, forceps, a bench of pollinated heads under numbered tags, and a whiteboard where 8 slots decide what the programme works on until 2033.</p>
   LAB: <p>The Molecular Laboratory, beside the vault. Plates, a thermal cycler on its third batch of the day, and a wall of gels that say which piece of chromosome a plant inherited and nothing at all about what it will do in a field.</p>
   TRIAL: <p>The Field Laboratory, standing in its own wedge of the trial ring. Scales, a drying oven, sample bags by plot number, and the seaward plots visible through the window standing a hand shorter than the rest.</p>
   POP: <p>Genetic Resources, out in the increase ring among the grow-outs. Passport records, collection maps with pencilled routes on them, and the regeneration log that turns out to be the most important document on the station.</p>
@@ -2083,5 +2083,5 @@ copy:
   GH3: <p>Glasshouse 3, the screening bay, with its own door and its own boots. What is grown in here is deliberately infected, which is why it is the far end of the arc from everything else.</p>
   SCREEN: <p>The screenhouses, in the increase ring. Insect-proof mesh over the whole frame, so an increase of one accession stays that accession and nothing flies in with other pollen.</p>
   RECORDS: <p>Passport Records. Where every accession came from, who collected it, on what date and off which hillside, in handwriting going back to 1961.</p>
-  THRESH: <p>The threshing floor, by the gate end of the compound. Harvest in, chaff out, and forty paper bags with a farmer's handwriting on them waiting to be threshed one plant at a time.</p>
-  GATE: <p>Point Gate, at the landward end of the causeway. The only way on or off, and the bearing the wind comes from — which is the whole reason the crossing block is three hundred metres the other way.</p>
+  THRESH: <p>The threshing floor, by the gate end of the compound. Harvest in, chaff out, and 40 paper bags with a farmer's handwriting on them waiting to be threshed 1 plant at a time.</p>
+  GATE: <p>Point Gate, at the landward end of the causeway. The only way on or off, and the bearing the wind comes from — which is the whole reason the crossing block is 300 metres the other way.</p>

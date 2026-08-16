@@ -123,7 +123,7 @@ export const ROSTER = [
     "role": "Survey Pipeline Scientist",
     "division": "DISC",
     "color": "#315c78",
-    "bio": "<p>Owns the software that decides which of the night's forty thousand detections a human being ever sees. Most of what it flags is a satellite, a cosmic ray or a column of hot pixels.</p><p>Her measure of the pipeline is not how many objects it finds but how many real ones it throws away, which can only be known by feeding it synthetic objects and counting how many come back.</p>",
+    "bio": "<p>Owns the software that decides which of the night's 40000 detections a human being ever sees. Most of what it flags is a satellite, a cosmic ray or a column of hot pixels.</p><p>Her measure of the pipeline is not how many objects it finds but how many real ones it throws away, which can only be known by feeding it synthetic objects and counting how many come back.</p>",
     "quiz": [
       {
         "q": "How does Virtanen measure whether the survey is missing objects?",

@@ -172,7 +172,7 @@ roster:
     division: NET
     color: '#d35400'
     bio: >-
-      <p>Runs the fibre to a substation forty kilometres away and spends most of his time on things that are
+      <p>Runs the fibre to a substation 40 kilometres away and spends most of his time on things that are
       not quantum at all: splices, connectors, a contractor with a digger, and the temperature of a duct.</p>
       <p>He is clear that the security argument only holds if the hardware does what the protocol assumed,
       which is where every real attack has been.</p>
@@ -439,12 +439,12 @@ missions:
         task: Say why 42 millikelvin is not close enough
         title: The energy of one quantum against the energy of the room
         place: Cryogenics & Vacuum
-        scene: The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes two energy scales beside it — one quantum at that frequency and the thermal energy at 42 millikelvin — and waits.
+        scene: The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes 2 energy scales beside it — 1 quantum at that frequency and the thermal energy at 42 millikelvin — and waits.
         assumes:
           - a system in contact with something warm can absorb energy from it
         takeaway: Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.
         format: BALLPARK
-        question: Using the two energy scales, estimate the equilibrium excited-state fraction at 42 mK.
+        question: Using the 2 energy scales, estimate the equilibrium excited-state fraction at 42 mK.
         answerText: About 0.34 per cent.
         why: |-
           "A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \"the ground state\" is partly a measurement of the fridge."
@@ -468,9 +468,9 @@ missions:
           units: of the qubits
           solution: e^(−3.3e-24 / 5.8e-25) = e^(−5.7) ≈ 0.003.
           explanation: |-
-            About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly seven orders of magnitude even though the absolute population is still below one per cent.
+            About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly 7 orders of magnitude even though the absolute population is still below 1 per cent.
           givens:
-            - One quantum at 5 GHz is 3.3 × 10⁻²⁴ J
+            - 1 quantum at 5 GHz is 3.3 × 10⁻²⁴ J
             - The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J
           relationship: |-
             For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.
@@ -500,10 +500,10 @@ missions:
     objective: Locate a transition and turn a drive into a pulse that flips it.
     briefing: The chip is cold again and one qubit is not where the design says it should be.
     stake: >-
-      Friday, the fridge is at 11 millikelvin and eleven of the twelve qubits are where they were last month.
+      Friday, the fridge is at 11 millikelvin and 11 of the 12 qubits are where they were last month.
       The twelfth is not answering anywhere near its design frequency, and Kofi Mensah has spent the morning
       sweeping. Sara Lindqvist thinks the junction on that one came out of a run she has been suspicious of
-      since the spring. Priya Raghavan needs twelve working qubits for the circuit she has promised the
+      since the spring. Priya Raghavan needs 12 working qubits for the circuit she has promised the
       review. Today you find the transition by sweeping for it, turn the drive into a pulse that flips the
       qubit reliably, and decide whether this chip is the one to spend the fortnight on.
     takeaway: A qubit is not at the frequency you designed; it is at the frequency it answers to, and finding that is the first measurement.
@@ -568,7 +568,7 @@ missions:
         why: >
           "Driving on resonance does not simply leave the qubit excited. Under a coherent drive
           the population oscillates between the two basis states at the Rabi frequency. A π
-          pulse corresponds to half of one population cycle, so the 84 ns period gives a first
+          pulse corresponds to half of 1 population cycle, so the 84 ns period gives a first
           calibration near 42 ns. That number is only a starting point: changing drive amplitude
           changes the Rabi frequency, and strong drives can introduce leakage or other
           off-resonant effects."
@@ -577,7 +577,7 @@ missions:
             The population completes a full Rabi cycle every 84 nanoseconds.
           question: Choose the cycle time and the fraction of a cycle a flip takes.
           labels:
-            - 84 ns  (one full Rabi cycle)
+            - 84 ns  (1 full Rabi cycle)
             - 2  (a flip is half a cycle)
             - 4.61 GHz  (the qubit frequency)
             - 11 mK  (the fridge temperature)
@@ -592,28 +592,28 @@ missions:
           units: ns
           solution: t_π = 84 ÷ 2 = 42 ns.
           explanation: >
-            Forty-two nanoseconds. The qubit frequency is what you drive at rather than how long for, and
+            42 nanoseconds. The qubit frequency is what you drive at rather than how long for, and
             the fridge temperature and the qubit count belong to other questions entirely.
           givens:
-            - One full Rabi cycle takes 84 ns
+            - 1 full Rabi cycle takes 84 ns
             - A flip is half a cycle
           relationship: >
-            The flip pulse length = one Rabi cycle ÷ 2, because half a cycle takes the population from the
+            The flip pulse length = 1 Rabi cycle ÷ 2, because half a cycle takes the population from the
             ground state to the excited state.
         answerText: About 42 ns.
       - group: FAB
         task: Decide whether to keep this chip
-        title: One bad qubit out of twelve
+        title: 1 bad qubit out of 12
         place: Fabrication & Materials
         scene: "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual."
         assumes:
           - a fabrication run produces chips with a spread of properties
         takeaway: A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.
         format: SCIENCETANK
-        why: The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has eleven qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.
+        why: The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has 11 qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.
         proposals:
           - label: A
-            text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report twelve qubits with one of them worse.
+            text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with 1 of them worse.
           - label: B
             text: Swap in the spare chip now, even though it came from the same fabrication run, at four days of warm-up and cooldown.
           - label: C
@@ -624,7 +624,7 @@ missions:
           A: 50
           C: 25
         evidence: |-
-          The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four
+          The chip has 12 qubits and 11 are within 40 MHz of design. Warm-up and cooldown is four
           days out of the ten before the review. The spare comes from the same suspicious run. Junction
           resistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been
           characterised on any chip in this lab.
@@ -633,7 +633,7 @@ missions:
     briefing: T1 is respectable and T2 is a third of what it should be, on every qubit at once.
     stake: >-
       Monday, and the coherence numbers are lopsided. Anders Holm has the relaxation time on every qubit
-      sitting about where he wants it and the coherence time at a fraction of that, on all twelve within a
+      sitting about where he wants it and the coherence time at a fraction of that, on all 12 within a
       few per cent — and a qubit's coherence can never exceed twice its relaxation time, so whatever is
       doing this is scrambling phase without taking any energy at all. Ijeoma Okafor says the fridge is
       quiet and has a fortnight of logs to show it. Ren Nakamura suspects the flux line. Priya Raghavan
@@ -765,7 +765,7 @@ missions:
           Residual photons in a dispersively coupled readout resonator can also shift the qubit
           frequency randomly and dephase it. A resonant material defect can exchange energy with
           the qubit and often shows up strongly in T1, although real defects can affect more
-          than one coherence channel. The classification here is therefore about the dominant
+          than 1 coherence channel. The classification here is therefore about the dominant
           signature in this situation, not a universal one-to-one rule.
         rebuttals:
           - Flux noise moves the qubit frequency slightly between repetitions, which is dephasing.
@@ -792,8 +792,8 @@ missions:
     briefing: The readout says 96 per cent fidelity. Nakamura says that number is doing a lot of work.
     stake: >-
       Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96
-      per cent, and Ren Nakamura points out that it is the product of three separate things — how well the
-      resonator separates the two states, how much noise the amplifier chain adds, and where somebody drew
+      per cent, and Ren Nakamura points out that it is the product of 3 separate things — how well the
+      resonator separates the 2 states, how much noise the amplifier chain adds, and where somebody drew
       the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline
       figure for the review. Today you work out what the readout chain does to a signal, what a
       discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.
@@ -831,7 +831,7 @@ missions:
         sweep:
           mode: boundary
           axis: { label: Discriminator threshold, unit: mV, min: -40, max: 40, step: 1 }
-          # Two costs, moving in opposite directions. No position makes both
+          # 2 costs, moving in opposite directions. No position makes both
           # small, which is the thing the panel is for.
           series:
             - label: Ground shots called excited
@@ -860,7 +860,7 @@ missions:
           start: -40
           commit: Set the threshold
         answerText: >-
-          Near where the two error curves cross, about −3 mV. Total misassignment there is about
+          Near where the 2 error curves cross, about −3 mV. Total misassignment there is about
           5 per cent, and no threshold anywhere on the axis gets it lower.
         why: >
           The line does not remove ambiguous shots; it decides which state they are called, so
@@ -992,10 +992,10 @@ missions:
         evidence: Delft's independent-device slot begins in ten days and the next is a quarter away. Their device is a different design, which is what makes it an independent check. Ridgeway's own result has been measured on one device by one group. The external review follows soon after the Delft run. Delft has asked for sequences only, not for results.
   - title: A defect with a date on it
     objective: Trace a fault in a device back to the process that made it.
-    briefing: The weak response near 4.55 GHz turns up on three chips, all from the same six weeks.
+    briefing: The weak response near 4.55 GHz turns up on 3 chips, all from the same 6 weeks.
     stake: >-
       Thursday, and Sara Lindqvist has been through the drawer. The weak absorption sitting 60 megahertz
-      below the twelfth qubit appears on three chips, and all three came from wafers processed in a
+      below the twelfth qubit appears on 3 chips, and all 3 came from wafers processed in a
       six-week window last spring — the same window in which the oxidation step was changed to raise yield.
       Kofi Mensah has watched a qubit lose energy every time its frequency drifts into that feature. Priya
       Raghavan has to decide whether this goes in the review as a known cause or as an open question. Today
@@ -1014,7 +1014,7 @@ missions:
         format: DIAGNOSIS
         why: |-
           The evidence strongly favours a device-local material resonance. The feature appears only on chips from one process window, survives changes in shared room-temperature electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit or a generator artefact should have different cross-chip behaviour, while thermal photons usually change linewidths and backgrounds rather than producing the same isolated chip-specific line. A two-level material defect is therefore the leading hypothesis. Calling it specifically a defect in the junction oxide would require more localisation evidence than this spectrum alone provides.
-        headline: A narrow absorption sits 60 MHz below one qubit, on three chips from one six-week window.
+        headline: A narrow absorption sits 60 MHz below 1 qubit, on 3 chips from 1 six-week window.
         readings:
           - zone: Feature
             label: Linewidth
@@ -1061,7 +1061,7 @@ missions:
           - two systems at the same frequency can exchange energy
         takeaway: If a loss channel is sharply resonant, frequency can be an engineering control knob as well as a measurement.
         format: SWEEP
-        question: Relaxation is around 90 microseconds across most of the band and much worse in one place. Which frequency should this qubit be kept away from?
+        question: Relaxation is around 90 microseconds across most of the band and much worse in 1 place. Which frequency should this qubit be kept away from?
         sweep:
           axis: { label: Qubit frequency, unit: GHz, min: 4.40, max: 4.80, step: 0.005 }
           readout: { label: Relaxation time T1, unit: µs }
@@ -1127,9 +1127,9 @@ missions:
     objective: Meet the part of this field that already works, and the discipline that comes with it.
     briefing: The magnetometer has to be recalibrated by two, because a hospital is using its numbers.
     stake: >-
-      Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields a hundred
-      million times weaker than the Earth's, a hospital across the city uses those numbers in a study that
-      has been running for three years, and the calibration is due at two o'clock whatever else is
+      Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields 100 million
+      times weaker than the Earth's, a hospital across the city uses those numbers in a study that
+      has been running for 3 years, and the calibration is due at 2 o'clock whatever else is
       happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review
       slides, has been told to come back at three. Today you work out where a sensor's precision limit comes
       from, what averaging can and cannot buy, and why a number that leaves the building carries obligations
@@ -1141,7 +1141,7 @@ missions:
         title: What averaging buys
         place: Quantum Sensing
         scene: >
-          Each measurement takes a hundred milliseconds and resolves 40 picotesla on its own. Barros can
+          Each measurement takes 100 milliseconds and resolves 40 picotesla on its own. Barros can
           average as many as she likes into one number, and she has an hour of instrument time.
         assumes:
           - independent measurements can be averaged to reduce random error
@@ -1172,9 +1172,9 @@ missions:
           averaging for half of one, so the extra hour of instrument time buys nothing.
         why: >
           Random noise averages down as the square root of the number of independent
-          measurements, so the first factor of ten in resolution is cheap and the next costs a
-          hundred times the time — the reason sensing is a patience problem rather than a
-          precision one. Two things then fight. Averaging improves the number only while the
+          measurements, so the first factor of 10 in resolution is cheap and the next costs 100
+          times the time — the reason sensing is a patience problem rather than a
+          precision 3 things then fight. Averaging improves the number only while the
           measurements are independent, and past about half a minute the instrument itself has
           drifted, so later measurements are of a slightly different machine. Beyond the knee
           the curve turns back up and more data makes the answer worse. That is also why the
@@ -1252,7 +1252,7 @@ missions:
     stake: >-
       Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4
       per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and
-      they answer different questions; Priya Raghavan says the review will only print one of them. Dasha
+      they answer different questions; Priya Raghavan says the review will only print 1 of them. Dasha
       Petrova wants whichever number is comparable with the threshold, because below that line adding
       qubits helps and above it they do not. Today you work out what randomised benchmarking actually
       measures, why a long sequence gives a different answer from a short one, and which number belongs in
@@ -1298,7 +1298,7 @@ missions:
           probabilities multiply and the curve falls exponentially rather than in a straight
           line. That makes the half-way length a per-gate error measurement: the length itself
           says how much each gate costs, and 57 gates to lose half of them works out at a bit
-          over one per cent each. It is also why the shape matters more than any single point.
+          over 1 per cent each. It is also why the shape matters more than any single point.
           A readout that mislabels a fixed fraction of shots pulls the whole curve down without
           changing how fast it falls, so a number read from the decay survives an offset that
           would ruin a number read from one sequence — which is the difference between the two
@@ -1324,13 +1324,13 @@ missions:
           can still be inadequate for deep circuits.
         estimate:
           prompt: >
-            One gate has fidelity 0.988, and the circuit applies 400 of them in succession.
+            1 gate has fidelity 0.988, and the circuit applies 400 of them in succession.
           question: Choose the single-gate fidelity and the depth.
           labels:
-            - 0.988  (fidelity of one gate)
+            - 0.988  (fidelity of 1 gate)
             - 400  (gates in the circuit)
             - 12  (qubits used)
-            - 0.012  (error of one gate)
+            - 0.012  (error of 1 gate)
             - 1.2  (benchmarked error, per cent)
           values: [0.988, 400, 12, 0.012, 1.2]
           slots: 2
@@ -1342,7 +1342,7 @@ missions:
           units: 'chance the circuit is right'
           solution: 0.988^400 ≈ 0.008.
           explanation: >
-            About 0.8 per cent, or roughly one run in 125, in the independent-identical-error
+            About 0.8 per cent, or roughly 1 run in 125, in the independent-identical-error
             toy model. Real circuit fidelity need not equal this product when errors are
             coherent, correlated or gate-dependent.
           givens:
@@ -1368,7 +1368,7 @@ missions:
         why: >
           "For *this stated simplified model*, the 1.2 per cent randomized-benchmarking error is
           the intended comparison and it lies above the 1 per cent line. The 0.4 per cent direct
-          figure is a best-case measurement of one gate under a different procedure, so using it
+          figure is a best-case measurement of 1 gate under a different procedure, so using it
           would answer a different question. In real fault-tolerance work, even an average
           benchmarking error may not be enough: coherent and correlated errors can make the
           worst-case behaviour relevant to a code much worse than the average infidelity. The
@@ -1384,7 +1384,7 @@ missions:
           - What it is good for
         scenarios:
           - 1.2 per cent, from randomized benchmarking, with the model assumption stated.
-          - 0.4 per cent, from one directly measured gate under favourable conditions.
+          - 0.4 per cent, from 1 directly measured gate under favourable conditions.
           - About 0.8 per cent, the toy-model success probability of the 400-gate circuit.
           - 4 per cent readout error, a separate measurement channel.
         choices:
@@ -1421,7 +1421,7 @@ missions:
         question: Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?
         answerText: About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.
         why: |-
-          A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those four values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why a hundred shots per setting can put the combination either side of two and four hundred usually does not. The bound of two belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.
+          A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every 1 of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of 600 usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.
         tally:
           settings:
             - label: a with b
@@ -1446,7 +1446,7 @@ missions:
           target: 2.78
           tolerance: 0.14
           commit: Report S
-          readyNote: Every pair has four hundred shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself.
+          readyNote: Every pair has 400 shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself.
       - group: NET
         task: Say what the number excludes
         title: What has been ruled out
@@ -1522,11 +1522,11 @@ missions:
 
   - title: Reading a claim as a claim
     objective: Work out what an advantage result asserts, and what would falsify it.
-    briefing: A competing group's paper says a classical computer would need nine thousand years. That is a claim about a classical computer.
+    briefing: A competing group's paper says a classical computer would need 9000 years. That is a claim about a classical computer.
     stake: >-
       "Wednesday, and the paper everybody has been arguing about is on the table. A group has
       run a sampling circuit on a 67-qubit device and estimates that reproducing its output with
-      the best classical methods they analysed would take about nine thousand years. Priya
+      the best classical methods they analysed would take about 9000 years. Priya
       Raghavan wants Ridgeway's response ready for the review. Anders Holm points out that the
       headline joins several different claims: what the quantum device measured, how its
       fidelity was inferred, and how difficult the task is for specified classical algorithms
@@ -1565,7 +1565,7 @@ missions:
           - What kind of statement it is
         scenarios:
           - The output distribution their device produced.
-          - Nine thousand years for the best known classical algorithm.
+          - 9000 years for the best known classical algorithm.
           - The estimated circuit fidelity.
           - The comparison of energy used.
         choices:
@@ -1576,10 +1576,10 @@ missions:
         mapping: [0, 1, 2, 3]
       - group: CTRL
         task: Say what Ridgeway's own machine could check
-        title: What twelve qubits can say about sixty-seven
+        title: What 12 qubits can say about 67
         place: Control & Readout
         scene: >
-          Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can
+          Ridgeway has 12 qubits. Mensah is asked what, if anything, a twelve-qubit device can
           contribute to an argument about a sixty-seven-qubit one.
         assumes:
           - a small system can be simulated exactly and a large one cannot
@@ -1589,11 +1589,11 @@ missions:
         choices:
           - The exact sixty-seven-qubit runtime, by scaling a twelve-qubit timing measurement upward.
           - Checking the method where the exact answer is already known.
-          - The sixty-seven-qubit device's hardware error rate, by reproducing the same circuit on twelve qubits.
+          - The sixty-seven-qubit device's hardware error rate, by reproducing the same circuit on 12 qubits.
           - The asymptotic complexity class of the sampling problem, by comparing one small quantum and classical run.
         answer: Checking the method where the exact answer is already known.
         why: >
-          "At twelve qubits, exact classical calculation of the ideal distribution is easy
+          "At 12 qubits, exact classical calculation of the ideal distribution is easy
           enough to serve as a ground truth. Ridgeway can therefore run the same *analysis
           method* at small size and test whether the estimator recovers the answer it is
           supposed to recover, including how it behaves as controlled noise is added. That does
@@ -1660,9 +1660,9 @@ missions:
         takeaway: A rule chosen on a sample is scored generously by that sample, so the only honest number comes from data the rule has never seen.
         format: HOLDOUT
         question: Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?
-        answerText: About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the two per cent it appeared to gain was a feature of that one sample.
+        answerText: About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the 2 per cent it appeared to gain was a feature of that 1 sample.
         why: |-
-          A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the two clouds, which the next batch of shots also has, and the spike is a property of four thousand particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.
+          A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the 2 clouds, which the next batch of shots also has, and the spike is a property of 4000 particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.
         holdout:
           axis:
             label: Discriminator threshold
@@ -1825,7 +1825,7 @@ missions:
         title: Converged, and on what
         place: Control & Readout
         scene: >
-          The automatic tune-up reports success on all twelve qubits in eleven minutes. Mensah asks what,
+          The automatic tune-up reports success on all 12 qubits in 11 minutes. Mensah asks what,
           precisely, that success is a statement about.
         assumes:
           - an automated procedure optimises the quantity it was given
@@ -1855,7 +1855,7 @@ missions:
         place: Quantum Sensing
         scene: >
           Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it
-          has for eleven months. She writes it in the log with the same care as if it had not.
+          has for 11 months. She writes it in the log with the same care as if it had not.
         assumes:
           - a calibration can pass or fail and both are results
         takeaway: A calibration that agrees with its reference is a quantitative bound on drift, not an absence of information.
@@ -1913,9 +1913,9 @@ missions:
     objective: Rank three demands on one group in one afternoon.
     briefing: A fibre cut, a clock drifting, and a review deadline, all inside an hour.
     stake: >-
-      Monday, 15:20, and three things arrive together. A contractor with a digger has cut the fibre to the
+      Monday, 15:20, and 3 things arrive together. A contractor with a digger has cut the fibre to the
       substation, which ends Yusuf Sadiq's key run mid-session. Grace Whitfield's clock comparison has come
-      back 4 × 10⁻¹⁵ off, which is ten times its usual scatter and would put every frequency in the building
+      back 4 × 10⁻¹⁵ off, which is 10 times its usual scatter and would put every frequency in the building
       slightly wrong. And the review pack is due at five, with the corrected fidelity numbers still being
       rerun. Priya Raghavan has one group, one afternoon, and has asked for an order rather than a
       discussion. Today you decide what gets attention first, work out what a cut link does to a key
@@ -1926,7 +1926,7 @@ missions:
         task: Decide what the group does first
         title: Which of the three cannot wait
         place: Networks & Security
-        scene: Within twenty minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.
+        scene: Within 20 minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.
         assumes:
           - a problem still developing is different from one that has finished
         takeaway: Urgency is a product of ongoing damage, downstream reach and time-to-containment, not simply deadline pressure.
@@ -2060,21 +2060,21 @@ missions:
           asks for a clearly labelled twelve-qubit projection under the toy assumption that
           every qubit has the same independent readout fidelity."
         assumes:
-          - for this estimate only, all twelve qubits have identical independent readout fidelity of 0.941
+          - for this estimate only, all 12 qubits have identical independent readout fidelity of 0.941
         takeaway: Exponentiating a per-qubit fidelity gives a projection only after you state the independence and identical-performance assumptions.
         format: BALLPARK
-        question: Under that toy assumption, estimate the probability that all twelve readouts are classified correctly in the same shot.
+        question: Under that toy assumption, estimate the probability that all 12 readouts are classified correctly in the same shot.
         why: >
-          "If twelve readouts are independent and each is correct with probability 0.941, the
-          probability that *all twelve* are correct is 0.941^12 ≈ 0.48. That is not a measured
-          twelve-qubit circuit fidelity: only three qubits have been remeasured, the twelve
+          "If 12 readouts are independent and each is correct with probability 0.941, the
+          probability that *all 12* are correct is 0.941^12 ≈ 0.48. That is not a measured
+          twelve-qubit circuit fidelity: only 3 qubits have been remeasured, the 12
           qubits may have different fidelities, and readout errors can be correlated. The
           calculation is still useful because it shows how modest per-qubit misclassification
           can compound across a register — as long as the slide calls the result a projection
           and names the assumptions."
         estimate:
           prompt: >
-            "Toy model: each of twelve qubits has independent readout fidelity 0.941. Estimate the probability that all twelve are read correctly."
+            "Toy model: each of 12 qubits has independent readout fidelity 0.941. Estimate the probability that all 12 are read correctly."
           question: Choose the per-qubit fidelity and the number of qubits.
           labels:
             - 0.941  (corrected readout fidelity per qubit)
@@ -2097,7 +2097,7 @@ missions:
             fidelities.
           givens:
             - Corrected readout fidelity is 0.941 per qubit
-            - The projection assumes twelve identical, independent readouts
+            - The projection assumes 12 identical, independent readouts
           relationship: >
             "Toy model: P(all 12 read correctly) = (per-qubit readout fidelity)^12."
         answerText: About 0.48, as a twelve-qubit all-readouts-correct projection.
@@ -2158,7 +2158,7 @@ missions:
         why: >
           The training/evaluation flaw is directly reproducible in the pipeline and is
           independently exposed by the Delft comparison. The corrected 0.941 readout figure is a
-          held-out measurement, but only on three qubits so far. The link between the
+          held-out measurement, but only on 3 qubits so far. The link between the
           fabrication change and the defects remains an inference from a process-window
           correlation until the controlled old-versus-new fabrication comparison is done.
           Expected behaviour under future error correction is a projection that depends on a
@@ -2179,7 +2179,7 @@ missions:
           - With error correction this architecture would reach useful depth.
         choices:
           - Directly demonstrated analysis bias, supported by the pipeline audit and the independent-device discrepancy.
-          - Measured on held-out data, but on three qubits so far rather than the full twelve.
+          - Measured on held-out data, but on 3 qubits so far rather than the full 12.
           - Inferred from a process-window correlation; a controlled fabrication comparison is still missing.
           - Projected from a specified error-correction model and hardware regime the group has not yet reached.
         mapping: [0, 1, 2, 3]
@@ -2267,7 +2267,7 @@ interiors:
         - { label: Process window, value: 'spring, oxidation changed', status: high }
   CTRL:
     caption: Pulses in, one bit out, and everything that can go wrong between.
-    standLine: Twelve qubits, tuned this morning, and a chain of amplifiers to hear them through.
+    standLine: 12 qubits, tuned this morning, and a chain of amplifiers to hear them through.
     station:
       kind: panel
       title: Tune-up
@@ -2300,7 +2300,7 @@ interiors:
         - { label: Clock offset, value: 4e-15, status: alarm }
   NET:
     caption: Sending a quantum state somewhere, and what survives the trip.
-    standLine: Forty kilometres of fibre, a substation, and a contractor with a digger.
+    standLine: 40 kilometres of fibre, a substation, and a contractor with a digger.
     station:
       kind: panel
       title: Key link
@@ -2316,7 +2316,7 @@ copy:
   CTRL: <p>Control and readout. Racks of microwave gear, more cable than anybody expects, and the desks where the machine is argued with several times a day.</p>
   VER: <p>Verification. Plots of error against sequence length on every surface, and the wall of results nobody is allowed to believe yet.</p>
   SENSE: <p>Sensing. A magnetometer inside a shield, a frequency standard in a rack, and the only instrument in the building somebody outside the group depends on.</p>
-  NET: <p>Networks. A fibre spool, a splice tray, and forty kilometres of duct between here and a substation.</p>
+  NET: <p>Networks. A fibre spool, a splice tray, and 40 kilometres of duct between here and a substation.</p>
   ARRIVE: <p>Sign-in. The register, the interlock keys, and the list of what may not be carried past this desk.</p>
   OFFICE: <p>The group office. Where the argument about publishing happens, most days, at the kettle.</p>
   STORE: <p>Gas and cryogen store. Helium, nitrogen, and the delivery schedule that decides what can be done this month.</p>

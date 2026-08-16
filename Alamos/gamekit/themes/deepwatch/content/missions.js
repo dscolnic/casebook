@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Contact in the Noise",
     "objective": "Work out what is out there before the boat commits to anything.",
     "briefing": "Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.",
-    "stake": "Second day out, forenoon watch. Four traces on the broadband display, and the sonar supervisor, Nils Rask, has been arguing with his own operator about the fourth for eleven minutes: it holds almost the same bearing and it is getting louder. The captain, Commander Iris Vance, wants a classification before the boat commits to the track she has been ordered onto. This watch you sort out what is out there and say what a steady bearing means. Sound is all you have. And a bearing that does not change is not a quiet situation — it is the signature of two ships on converging courses.",
+    "stake": "Second day out, forenoon watch. 4 traces on the broadband display, and the sonar supervisor, Nils Rask, has been arguing with his own operator about the fourth for 11 minutes: it holds almost the same bearing and it is getting louder. The captain, Commander Iris Vance, wants a classification before the boat commits to the track she has been ordered onto. This watch you sort out what is out there and say what a steady bearing means. Sound is all you have. And a bearing that does not change is not a quiet situation — it is the signature of two ships on converging courses.",
     "takeaway": "A bearing is a measurement; a track is an argument built from several of them.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Position Without a Trusted Fix",
     "objective": "Work out not where the boat is, but how well that is known.",
     "briefing": "The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.",
-    "stake": "Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the depth sounder, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. Sixty fathoms, and a bank half a mile off the track.",
+    "stake": "Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the depth sounder, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. 60 fathoms, and a bank half a mile off the track.",
     "takeaway": "Precision is not accuracy, and two displays sharing a source are one measurement.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Silent Passage",
     "objective": "Cross a constrained area without losing contact awareness or making unnecessary noise.",
     "briefing": "The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.",
-    "stake": "Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the plot's uncertainty is a circle two miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. What matters is how much water stays under the keel.",
+    "stake": "Fifth day, first watch. The narrows are 4 miles across, the transit takes 11 hours, and the plot's uncertainty is a circle 2 miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. What matters is how much water stays under the keel.",
     "takeaway": "Quiet costs capability, and the trade has to be made deliberately rather than by default.",
     "stops": [
       {
@@ -102,7 +102,7 @@ export const MISSIONS = [
   {
     "title": "Forward Flooding",
     "objective": "Find the water, decide whether pumping can win, and stop the source.",
-    "briefing": "The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at ninety metres, which is what makes it a hole worth respecting.",
+    "briefing": "The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at 90 metres, which is what makes it a hole worth respecting.",
     "stake": "Sixth day, morning watch, and water is over the bilge in the forward space with the drain pump running. Ruth Hallam, on the pumps, has the level and reports it steady. Ferro does not believe steady means anything and is looking for the hole. This watch you find where the water is coming in, work out whether pumping can win, and decide what shutting that supply costs elsewhere — the two valves that stop it sit on a header that feeds other things. Pumping buys minutes. They are worth nothing unless somebody spends them finding the source.",
     "takeaway": "Flooding is stopped at the hull fitting; everything else is delay.",
     "stops": [
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "Electrical Fire",
     "objective": "Put out a fire whose ignition source is electrical, in the order that makes it stay out.",
     "briefing": "Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.",
-    "stake": "Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard in the electrical space. The indicator shows the bus open and a meter his own electrician's mate put on the cable inside reads four hundred and forty volts. The chief electrician, Bede Okonkwo, will not send anybody in on the strength of a lamp. This watch you take the fire apart into the things keeping it alive, decide what that meter is telling you, and work out how to fight a space nobody can see into. The order of your actions matters more here than the speed of any one of them.",
+    "stake": "Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard in the electrical space. The indicator shows the bus open and a meter his own electrician's mate put on the cable inside reads 440 volts. The chief electrician, Bede Okonkwo, will not send anybody in on the strength of a lamp. This watch you take the fire apart into the things keeping it alive, decide what that meter is telling you, and work out how to fight a space nobody can see into. The order of your actions matters more here than the speed of any one of them.",
     "takeaway": "An electrical fire is put out by de-energizing it; the agent only finishes the job.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Sonar Blinded by the Boat",
     "objective": "Find the noise the boat is making about itself, and prove which machine it is.",
     "briefing": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.",
-    "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and the broadband operator, Kes Dunne, has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. While the array is degraded other boats can still hear this one, and it cannot hear them.",
+    "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in 1 sector, and the broadband operator, Kes Dunne, has found a new narrowband line at 113 hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. While the array is degraded other boats can still hear this one, and it cannot hear them.",
     "takeaway": "Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.",
     "stops": [
       {

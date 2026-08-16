@@ -68,7 +68,7 @@ export const CURRICULUM = {
         "task": "Estimate the total binding energy and the binding energy per nucleon.",
         "question": "Estimate the total binding energy and the binding energy per nucleon.",
         "answer": "About 1.5×10^3 MeV total, or about 7.5 MeV per nucleon.",
-        "why": "A bound nucleus weighs less than the loose protons and neutrons that went into it. That missing mass is the binding energy holding it together. The conversion factor is the speed of light squared. So a mass difference far too small to weigh becomes an energy larger than any chemical reaction can produce. Work in atomic mass units and one unit is about 931 MeV. That is what turns a defect of eight thousandths of a unit per nucleon into more than a thousand MeV for the whole nucleus.",
+        "why": "A bound nucleus weighs less than the loose protons and neutrons that went into it. That missing mass is the binding energy holding it together. The conversion factor is the speed of light squared. So a mass difference far too small to weigh becomes an energy larger than any chemical reaction can produce. Work in atomic mass units and 1 unit is about 931 MeV. That is what turns a defect of 8 thousandths of a unit per nucleon into more than 1000 MeV for the whole nucleus.",
         "givens": [
           "Mass defect is about 0.008 u per nucleon",
           "A nucleus of this size has about 200 nucleons",
@@ -134,10 +134,10 @@ export const CURRICULUM = {
         "task": "Estimate how many nuclei remain after the shift, then use the half-life to estimate the sample's activity at that moment.",
         "question": "Estimate how many nuclei remain after the shift, then use the half-life to estimate the sample's activity at that moment.",
         "answer": "About 1,250 nuclei remain. With λ = ln2/(2 h) ≈ 9.6×10^-5 s^-1, the activity is A = λN ≈ 0.12 decays/s, or 0.12 Bq.",
-        "why": "Decay is random for one nucleus and predictable for a large population. Six hours is three two-hour half-lives, so 10,000 nuclei fall to one eighth, or about 1,250. Half-life also fixes the decay constant: λ = ln2/t½. For a two-hour half-life, λ is about 9.6×10⁻⁵ s⁻¹. Activity is then A = λN, so the remaining sample produces about 0.12 decays each second. Population and count rate are linked by the same decay law.",
+        "why": "Decay is random for one nucleus and predictable for a large population. 6 hours is 3 two-hour half-lives, so 10,000 nuclei fall to 1 eighth, or about 1,250. Half-life also fixes the decay constant: λ = ln2/t½. For a two-hour half-life, λ is about 9.6×10⁻⁵ s⁻¹. Activity is then A = λN, so the remaining sample produces about 0.12 decays each second. Population and count rate are linked by the same decay law.",
         "givens": [
           "Each half-life leaves one-half of the previous amount",
-          "A 6-hour wait is three 2-hour half-lives"
+          "A 6-hour wait is 3 2-hour half-lives"
         ],
         "relationship": "First λ = ln2/t½. Then N(t) = N₀e^(−λt), and activity is A = λN.",
         "calcKey": "T-3"
@@ -227,8 +227,8 @@ export const CURRICULUM = {
         "play": "Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.",
         "task": "Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.",
         "question": "Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.",
-        "answer": "Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after one mean free path I/I₀ = e^-1 ≈ 0.37.",
-        "why": "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After one mean free path, x = 1/Σ, so the exponent is minus one and about 37 percent of an uncollided beam remains. One parameter connects all three ideas.",
+        "answer": "Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after 1 mean free path I/I₀ = e^-1 ≈ 0.37.",
+        "why": "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37 percent of an uncollided beam remains. One parameter connects all three ideas.",
         "givens": [
           "Sigma = n sigma",
           "Mean free path = 1/Sigma"
@@ -380,19 +380,19 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Spontaneous fission and neutron backgrounds",
-      "scene": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. Two assembly schemes are on the table, and one takes a thousand times longer than the other.",
+      "scene": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.",
       "takeaway": "The same background source term is negligible or decisive depending on how long the system is exposed to it.",
       "place": "",
-      "story": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. Two assembly schemes are on the table, and one takes a thousand times longer than the other.",
+      "story": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.",
       "game": {
         "type": "BALLPARK",
         "title": "Spontaneous fission and neutron backgrounds",
-        "setup": "A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.",
+        "setup": "A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast 1 takes about 10^-6 s.",
         "play": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
         "task": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
         "question": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
-        "answer": "About 10 neutrons for the slow assembly, against about 0.01 for the fast one.",
-        "why": "A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees a thousand times as many chances as one lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.",
+        "answer": "About 10 neutrons for the slow assembly, against about 0.01 for the fast 1.",
+        "why": "A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees 1000 times as many chances as 1 lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.",
         "givens": [
           "Expected events = rate x exposure time",
           "Slow assembly window = 10^-3 s",
@@ -441,7 +441,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "Competing timescales",
-        "setup": "A shock front crosses a test fixture at about 8 x 10^3 m/s. Two initiation channels fire 0.5 microseconds apart.",
+        "setup": "A shock front crosses a test fixture at about 8 x 10^3 m/s. 2 initiation channels fire 0.5 microseconds apart.",
         "play": "Estimate how far ahead the early side runs, in millimetres.",
         "task": "Estimate how far ahead the early side runs, in millimetres.",
         "question": "Estimate how far ahead the early side runs, in millimetres.",
@@ -474,7 +474,7 @@ export const CURRICULUM = {
         "task": "Estimate the total fractional uncertainty.",
         "question": "Estimate the total fractional uncertainty.",
         "answer": "About 10%.",
-        "why": "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. Eight percent and six percent make ten, not fourteen. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent.",
+        "why": "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. 8 percent and 6 percent make 10, not 14. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent.",
         "givens": [
           "Independent fractional uncertainties combine in quadrature"
         ],
@@ -960,8 +960,8 @@ export const CURRICULUM = {
         "answer": "About 900 neutrons.",
         "why": "1000 x 0.95^2 is about 903.",
         "givens": [
-          "After one generation N1=k N0",
-          "After two generations N2=k^2 N0"
+          "After 1 generation N1=k N0",
+          "After 2 generations N2=k^2 N0"
         ],
         "relationship": "After n generations, the population = the starting number × kⁿ.",
         "calcKey": "T-17"
@@ -1008,9 +1008,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Criticality safety as a systems concept",
         "setup": "A laboratory has 100 credits to reduce uncertainty in routine handling of fissile materials.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 45 to A, 50 to B, 5 held for follow-up; near-zero to C.",
         "why": "The highest-value work reduces uncertainty in the variables that govern neutron balance and provides independent controls.",
         "proposals": [
@@ -1159,9 +1159,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Resonances and thresholds",
         "setup": "Only one of three measurement campaigns can be fully supported.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 70 to B, 20 to A, 10 held or used for calibration; little to C.",
         "why": "A scan can reveal structure that a single point cannot, while some precision and calibration remain valuable.",
         "proposals": [
@@ -1305,9 +1305,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Sensitivity analysis",
         "setup": "A model depends on three uncertain inputs.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 55 to B, 35 to C, 10 to A.",
         "why": "Decision value depends on uncertainty multiplied by sensitivity, not uncertainty alone.",
         "proposals": [
@@ -1639,10 +1639,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Poisson counting statistics",
-      "scene": "A run has finished with four hundred net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.",
+      "scene": "A run has finished with 400 net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.",
       "takeaway": "Four times as many counts are needed to cut statistical uncertainty in half.",
       "place": "",
-      "story": "A run has finished with four hundred net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.",
+      "story": "A run has finished with 400 net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.",
       "game": {
         "type": "BALLPARK",
         "title": "Poisson counting statistics",
@@ -1651,7 +1651,7 @@ export const CURRICULUM = {
         "task": "Estimate the fractional statistical uncertainty.",
         "question": "Estimate the fractional statistical uncertainty.",
         "answer": "About 5%.",
-        "why": "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. Four hundred counts gives five percent. To cut that in half, to 2.5 percent, you need four times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively.",
+        "why": "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. 400 counts gives 5 percent. To cut that in half, to 2.5 percent, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively.",
         "givens": [
           "Poisson fluctuation is about sqrt(N)",
           "Fractional uncertainty is sqrt(N)/N"
@@ -1845,7 +1845,7 @@ export const CURRICULUM = {
           "baseline": 14,
           "response": -13,
           "noise": 1,
-          "hint": "Run one substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.",
+          "hint": "Run 1 substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.",
           "run": "Run the measurement",
           "commit": "Name it"
         }
@@ -1870,7 +1870,7 @@ export const CURRICULUM = {
         "task": "Estimate the blur distance.",
         "question": "Estimate the blur distance.",
         "answer": "0.5 mm.",
-        "why": "Anything moving during the exposure travels a real distance, and that distance becomes motion blur: speed times exposure time. Five hundred metres per second across one microsecond is half a millimetre. That is a resolution limit even if the optics are perfect. Exposure time, viewing angle, penetration, and timing all decide what an image can establish. Blur is especially useful because it is calculable before the shot, so the diagnostic can be designed around the feature size rather than judged afterwards.",
+        "why": "Anything moving during the exposure travels a real distance, and that distance becomes motion blur: speed times exposure time. 500 metres per second across 1 microsecond is half a millimetre. That is a resolution limit even if the optics are perfect. Exposure time, viewing angle, penetration, and timing all decide what an image can establish. Blur is especially useful because it is calculable before the shot, so the diagnostic can be designed around the feature size rather than judged afterwards.",
         "givens": [
           "Blur distance = speed x exposure time"
         ],
@@ -2324,7 +2324,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "Coincidence measurements",
-        "setup": "Two independent detectors count at 100/s and 200/s with a 1 microsecond coincidence window.",
+        "setup": "2 independent detectors count at 100/s and 200/s with a 1 microsecond coincidence window.",
         "play": "Estimate the accidental coincidence rate.",
         "task": "Estimate the accidental coincidence rate.",
         "question": "Estimate the accidental coincidence rate.",
@@ -2471,9 +2471,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Signal-to-noise optimization",
         "setup": "A weak line sits on substantial background.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 45 to B, 35 to C, 20 to A.",
         "why": "Targeted background reduction can outperform raw area; longer running improves statistics as the square root of time.",
         "proposals": [
@@ -2604,9 +2604,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Redundancy and common-mode failure",
         "setup": "The current system relies on two detectors sharing the same clock and amplifier design.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 80 to B, 15 to A for capacity, 5 held; near-zero to C.",
         "why": "Independence matters more than count when all channels share the same failure mode.",
         "proposals": [
@@ -2848,7 +2848,7 @@ export const CURRICULUM = {
         "task": "Read the reported quantities, decide which belong in the material ledger, and close the input to within the allowed tolerance.",
         "question": "Which uncounted route closes the material balance?",
         "answer": "Count the vessel-wall loss. Recorded outputs account for 93.9% of the input; adding the 5.8% found on the walls gives 99.7%, which closes the 100% input within rounding.",
-        "why": "The input is one hundred percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.",
+        "why": "The input is 100 percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.",
         "balance": {
           "total": {
             "amount": 100,
@@ -2942,10 +2942,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Acceptance criteria",
-      "scene": "A property has to be at least a hundred units and the measurement reads a hundred and two, plus or minus three. Material this scarce cannot be scrapped casually, or accepted on hope.",
+      "scene": "A property has to be at least 100 units and the measurement reads 102, plus or minus 3. Material this scarce cannot be scrapped casually, or accepted on hope.",
       "takeaway": "Acceptance criteria need explicit rules for uncertainty and borderline results.",
       "place": "",
-      "story": "A property has to be at least a hundred units and the measurement reads a hundred and two, plus or minus three. Material this scarce cannot be scrapped casually, or accepted on hope.",
+      "story": "A property has to be at least 100 units and the measurement reads 102, plus or minus 3. Material this scarce cannot be scrapped casually, or accepted on hope.",
       "game": {
         "type": "BALLPARK",
         "title": "Acceptance criteria",
@@ -2980,7 +2980,7 @@ export const CURRICULUM = {
         "task": "Why is ordinary chemistry a poor way to separate uranium-235 from uranium-238 in bulk?",
         "question": "Why is ordinary chemistry a poor way to separate uranium-235 from uranium-238 in bulk?",
         "answer": "Ordinary chemistry offers almost no selectivity because the isotopes have nearly identical electron structures. Enrichment has to exploit a small isotope-dependent physical difference, especially mass.",
-        "why": "Chemical behaviour is controlled mainly by electrons, and the two uranium isotopes have the same electron count and almost the same electronic structure. Their ordinary chemical reactions are therefore nearly identical. The useful contrast is the small mass difference, about one part in 235, which can be exploited by processes that respond to mass or mass-to-charge ratio. The tiny size of that contrast is why isotope enrichment requires repeated separation stages rather than one ordinary chemical reaction.",
+        "why": "Chemical behaviour is controlled mainly by electrons, and the two uranium isotopes have the same electron count and almost the same electronic structure. Their ordinary chemical reactions are therefore nearly identical. The useful contrast is the small mass difference, about 1 part in 235, which can be exploited by processes that respond to mass or mass-to-charge ratio. The tiny size of that contrast is why isotope enrichment requires repeated separation stages rather than one ordinary chemical reaction.",
         "rebuttals": [
           "The limitation is not mainly reaction speed or handling. The electronic structures that drive ordinary chemistry are almost the same.",
           "A tiny isotope mass difference does not make bulk solutions separate by ordinary settling or filtration.",
@@ -2989,7 +2989,7 @@ export const CURRICULUM = {
         "choices": [
           "Their electron structures are nearly identical, so ordinary chemical reactions provide almost no selectivity; enrichment instead exploits a small isotope-dependent physical difference.",
           "Their chemical reaction rates differ enough for separation, but the difference is too slow to be useful only because uranium compounds are difficult to handle.",
-          "Their densities differ by about one part in 235, so settling or filtration is the natural route but requires extremely long columns.",
+          "Their densities differ by about 1 part in 235, so settling or filtration is the natural route but requires extremely long columns.",
           "Their radioactivities differ, so radiation detectors can sort individual atoms even though the chemistry itself cannot."
         ],
         "correctChoice": "Their electron structures are nearly identical, so ordinary chemical reactions provide almost no selectivity; enrichment instead exploits a small isotope-dependent physical difference."
@@ -3008,7 +3008,7 @@ export const CURRICULUM = {
       "game": {
         "type": "VALUE",
         "title": "Leave a materials capability, not just better numbers",
-        "setup": "The division has one final 100-credit improvement budget.",
+        "setup": "The division has 1 final 100-credit improvement budget.",
         "play": "Spend the final 100-credit improvement budget on the evidence system that will remain useful when the next batch behaves differently.",
         "task": "Spend the final 100-credit improvement budget on the evidence system that will remain useful when the next batch behaves differently.",
         "question": "Which investment creates the most durable materials capability?",
@@ -3294,9 +3294,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Corrosion and compatibility",
         "setup": "A new process fluid contacts several metals and seals.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 35 to A, 60 to C, 5 held; none to B.",
         "why": "Screening identifies candidates; representative long tests reveal slow or stress-assisted failure.",
         "proposals": [
@@ -3467,9 +3467,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Heat treatment",
         "setup": "A material shows inconsistent hardness after fabrication.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 45 to A, 50 to C, 5 held; none to B.",
         "why": "A controlled process map connects thermal history, microstructure, and properties.",
         "proposals": [
@@ -3706,10 +3706,10 @@ export const CURRICULUM = {
       "game": {
         "type": "SCIENCETANK",
         "title": "Batch variability",
-        "setup": "Three interventions compete for 100 credits.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "setup": "3 interventions compete for 100 credits.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 35 to B, 55 to C, 10 to A.",
         "why": "Inspection catches failures; process measurement and controlled experiments explain and prevent them.",
         "proposals": [
@@ -3882,7 +3882,7 @@ export const CURRICULUM = {
         "why": "A small delay at one point does not produce a slightly worse implosion; it produces an asymmetric one. So simultaneity stops being a matter of setting clocks and becomes a physical interface problem: a difference in cable path length is a difference in arrival time, at the speed the signal travels. Divide the path mismatch by that speed and the answer is in nanoseconds. Cables, capacitors, switches and firing units all contribute time, and all of it has to be accounted for rather than assumed small.",
         "givens": [
           "Signal speed in cable = 2.0 x 10^8 m/s",
-          "Two cable paths differ by 0.40 m",
+          "2 cable paths differ by 0.40 m",
           "Delay difference = path difference / signal speed"
         ],
         "relationship": "Delay = path mismatch ÷ signal speed. Multiply by 10⁹ to turn seconds into nanoseconds.",
@@ -3928,14 +3928,14 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What evidence qualifies a lot?",
-      "scene": "The detonator programme has competing requests and one hundred points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
+      "scene": "The detonator programme has competing requests and 100 points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
       "takeaway": "Reliability is a property of a manufactured population, so acceptance evidence must measure its distribution rather than its best member.",
       "place": "",
-      "story": "The detonator programme has competing requests and one hundred points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
+      "story": "The detonator programme has competing requests and 100 points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
       "game": {
         "type": "VALUE",
         "title": "What evidence qualifies a lot?",
-        "setup": "The detonator program has three competing requests for its next 100 credits.",
+        "setup": "The detonator program has 3 competing requests for its next 100 credits.",
         "play": "Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.",
         "task": "Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.",
         "question": "Which measurement tells you whether a production lot is reliable?",
@@ -4168,7 +4168,7 @@ export const CURRICULUM = {
         "play": "Estimate how far the centre of mass sits from the light module.",
         "task": "Estimate how far the centre of mass sits from the light module.",
         "question": "Estimate how far the centre of mass sits from the light module.",
-        "answer": "About 1.13 m from the light module, three-quarters of the way toward the heavy one.",
+        "answer": "About 1.13 m from the light module, three-quarters of the way toward the heavy 1.",
         "why": "Balance follows the mass, so the centre of gravity sits close to the heavier module.",
         "givens": [
           "Total mass = 400 kg",
@@ -4189,9 +4189,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Integrate Fat Man with the Silverplate B-29",
         "setup": "The air-integration team can fund only the most decision-relevant work this month.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 75 to B, 15 to C after interface control, 10 in reserve; A receives none unless a functional problem emerges.",
         "why": "The instrumented carriage-and-release test addresses the coupled aircraft-weapon interface and can expose multiple failure modes at once.",
         "proposals": [
@@ -4362,9 +4362,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Select high-explosive materials for a wave-shaping system",
         "setup": "Choose a safe research portfolio; no formulations or processing recipes are provided.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 90 to B, 5 to A for bounded physics comparison, 5 in reserve.",
         "why": "The lens program required materials to satisfy a coupled set of physical and production constraints.",
         "proposals": [
@@ -4428,7 +4428,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "Cable routing and signal integrity",
-        "setup": "An inert test rack must hold two signal paths matched to within 2 ns; signal speed in the cable is 2.0 x 10^8 m/s. These are classroom values.",
+        "setup": "An inert test rack must hold 2 signal paths matched to within 2 ns; signal speed in the cable is 2.0 x 10^8 m/s. These are classroom values.",
         "play": "Estimate the largest allowed path mismatch, then state the engineering response.",
         "task": "Estimate the largest allowed path mismatch, then state the engineering response.",
         "question": "Estimate the largest allowed path mismatch, then state the engineering response.",
@@ -4515,7 +4515,7 @@ export const CURRICULUM = {
         "answer": "Worst case = +/-0.45 mm.",
         "why": "A fixture must control the assembly-level stack, not merely each individual component.",
         "givens": [
-          "Three independent worst-case placement limits are each +/-0.15 mm",
+          "3 independent worst-case placement limits are each +/-0.15 mm",
           "Worst-case absolute limits add",
           "Statistical root-sum-square may be smaller but requires justified independence"
         ],
@@ -4574,9 +4574,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Environmental qualification of Fat Man subsystems",
         "setup": "The qualification team must distribute its next 100 credits.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 85 to B, 10 to A only after prerequisites, 5 in reserve.",
         "why": "A staged campaign finds inexpensive failures early while preserving integrated tests for coupled effects.",
         "proposals": [
@@ -4610,7 +4610,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "Reliability of a series firing chain",
-        "setup": "A generic chain has four required subsystems, each with independent reliability 0.98 for one mission.",
+        "setup": "A generic chain has 4 required subsystems, each with independent reliability 0.98 for 1 mission.",
         "play": "Estimate total reliability.",
         "task": "Estimate total reliability.",
         "question": "Estimate total reliability.",
@@ -4676,9 +4676,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Common-mode failure in simultaneous initiation",
         "setup": "Choose the most valuable reliability investment.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 90 to B, 10 in reserve; A and C receive none until common causes are addressed.",
         "why": "Redundancy protects only against failures that are genuinely independent.",
         "proposals": [
@@ -4743,9 +4743,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "The Jumbo contingency decision",
         "setup": "The Trinity team must decide where to invest as confidence in implosion rises.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 70 to B, 15 to A for limited contingency knowledge, 15 to site safety and reserve within B.",
         "why": "Jumbo illustrates how contingency plans can become less valuable as evidence changes, while consequence management remains essential.",
         "proposals": [
@@ -4860,9 +4860,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Final Fat Man engineering readiness review",
         "setup": "The board must decide how to allocate its final review effort.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 90 to B, 10 to independent challenge and reserve; A and C are insufficient.",
         "why": "Trinity established the implosion principle, but readiness also depended on production, assembly, aircraft, safety, and field evidence.",
         "proposals": [
@@ -5038,8 +5038,8 @@ export const CURRICULUM = {
         "play": "Use the supplied values and give a sensible rounded result with units.",
         "task": "Use the supplied values and give a sensible rounded result with units.",
         "question": "Estimate the elapsed time since the first count.",
-        "answer": "8,000 to 500 is a factor of 16, which is four half-lives, so about 48 hours.",
-        "why": "Every half-life halves the count rate, so the elapsed time is the number of halvings times the half-life. Eight thousand to five hundred is a factor of sixteen, and sixteen is two to the fourth: four half-lives, or 48 hours. Written as a logarithm it is log base two of the ratio, which is what a semi-log plot shows as a straight line. The useful habit is to work in ratios rather than differences — the difference of 7,500 counts means nothing on its own.",
+        "answer": "8,000 to 500 is a factor of 16, which is 4 half-lives, so about 48 hours.",
+        "why": "Every half-life halves the count rate, so the elapsed time is the number of halvings times the half-life. 8000 to 500 is a factor of 32 is 2 to the fourth: 4 half-lives, or 48 hours. Written as a logarithm it is log base two of the ratio, which is what a semi-log plot shows as a straight line. The useful habit is to work in ratios rather than differences — the difference of 7,500 counts means nothing on its own.",
         "givens": [],
         "relationship": "Elapsed time = half-life × log2(first rate ÷ present rate).",
         "calcKey": "X-4"
@@ -5103,7 +5103,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "Synchronizing many channels",
-        "setup": "Three independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.",
+        "setup": "3 independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.",
         "play": "Estimate sigma_total.",
         "task": "Estimate sigma_total.",
         "question": "Estimate sigma_total.",
@@ -5253,10 +5253,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Compare a prediction band with an observation",
-      "scene": "A model predicts an observable between fifteen and twenty-five units. The measurement reads twenty-one, plus or minus two. The temptation after Trinity is to read one comparison as a verdict on everything.",
+      "scene": "A model predicts an observable between 40 units. The measurement reads 21, plus or minus 2. The temptation after Trinity is to read one comparison as a verdict on everything.",
       "takeaway": "Evidence should update a model claim by claim, not by declaring total victory.",
       "place": "",
-      "story": "A model predicts an observable between fifteen and twenty-five units. The measurement reads twenty-one, plus or minus two. The temptation after Trinity is to read one comparison as a verdict on everything.",
+      "story": "A model predicts an observable between 40 units. The measurement reads 21, plus or minus 2. The temptation after Trinity is to read one comparison as a verdict on everything.",
       "game": {
         "type": "BALLPARK",
         "title": "Compare a prediction band with an observation",
@@ -5265,7 +5265,7 @@ export const CURRICULUM = {
         "task": "Estimate the offset in units of the measurement uncertainty, then state the strongest justified conclusion.",
         "question": "Estimate the offset in units of the measurement uncertainty, then state the strongest justified conclusion.",
         "answer": "|21 - 20|/2 = 0.5 sigma. The observation is consistent with the prediction band, but a band that wide makes consistency weak evidence; it does not confirm every model assumption, and diagnostics that disagree with each other still need explaining.",
-        "why": "The gap between an observation and a prediction is measured in units of the measurement's own uncertainty. Take the difference and divide by that uncertainty. Half a sigma from the middle of the band is consistent. But consistency with a band this wide is weak evidence, because fifteen to twenty-five would have accommodated almost anything. Agreement supports the part of the model that produced the band, and no more. One agreeing diagnostic can sit beside others that disagree, and those still need explaining.",
+        "why": "The gap between an observation and a prediction is measured in units of the measurement's own uncertainty. Take the difference and divide by that uncertainty. Half a sigma from the middle of the band is consistent. But consistency with a band this wide is weak evidence, because 15 to 25 would have accommodated almost anything. Agreement supports the part of the model that produced the band, and no more. One agreeing diagnostic can sit beside others that disagree, and those still need explaining.",
         "givens": [
           "Prediction band: 15 to 25, midpoint 20",
           "Measurement: 21 +/- 2"
@@ -5346,9 +5346,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Invest in multipoint initiation evidence",
         "setup": "The implosion group has 100 credits for initiation research.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 90 to B, 5 to A as a reference, 5 in reserve.",
         "why": "The system needed reproducible simultaneity across manufactured components, not one exceptional assembly.",
         "proposals": [
@@ -5703,9 +5703,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Control jets and hydrodynamic instabilities",
         "setup": "The group has 100 credits after radiography reveals a narrow high-velocity feature near an interface.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 90 to B, 10 in reserve; A and C receive none.",
         "why": "Local defects and interface instabilities can grow into system-level asymmetry.",
         "proposals": [
@@ -5810,9 +5810,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Freeze the implosion architecture",
         "setup": "The laboratory has 100 credits and only months before Trinity.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 75 to B mainline development, 15 to independent challenge, 10 to targeted backup studies.",
         "why": "Late-stage programs need focus, but focus must be earned by evidence and protected against groupthink.",
         "proposals": [
@@ -5846,10 +5846,10 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Design the Trinity diagnostic portfolio",
         "setup": "The test director has 100 diagnostic credits.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: 85 to B, 10 to photography as one documented channel, 5 in reserve.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "answer": "Recommended: 85 to B, 10 to photography as 1 documented channel, 5 in reserve.",
         "why": "No single instrument could be guaranteed to survive, remain in range, or be interpreted correctly.",
         "proposals": [
           {
@@ -5982,10 +5982,10 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "Final Fat Man implosion synthesis",
         "setup": "The final review has 100 curriculum credits to preserve the most important lessons.",
-        "play": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "task": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "question": "Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: about 35 to A, 35 to B, and 30 to C; nearby balanced allocations are acceptable if the learner explicitly connects the three chains.",
+        "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
+        "answer": "Recommended: about 35 to A, 35 to B, and 30 to C; nearby balanced allocations are acceptable if the learner explicitly connects the 3 chains.",
         "why": "Fat Man cannot be understood as only a physics device, only an engineering project, or only a historical event.",
         "proposals": [
           {
@@ -6014,7 +6014,7 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "T-2": {
-    "prompt": "A medium-heavy nucleus has about 200 nucleons, with a mass defect of roughly 0.008 atomic mass units per nucleon. One atomic mass unit is worth about 931 MeV. Estimate both the binding energy per nucleon and the total binding energy.",
+    "prompt": "A medium-heavy nucleus has about 200 nucleons, with a mass defect of roughly 0.008 atomic mass units per nucleon. 1 atomic mass unit is worth about 931 MeV. Estimate both the binding energy per nucleon and the total binding energy.",
     "question": "Choose the mass defect per nucleon, the nucleon count, and the mass-to-energy conversion; compute B/A first and then B.",
     "labels": [
       "0.008 u/nucleon",
@@ -6043,7 +6043,7 @@ export const BALLPARK_CALCS = {
     "explanation": "The mass defect per nucleon gives about 7.5 MeV of binding per nucleon. Multiplying by about 200 nucleons gives roughly 1,500 MeV for the whole nucleus. The first number is what is plotted on the binding-energy-per-nucleon curve; the second is the total energy needed to separate this nucleus completely."
   },
   "T-3": {
-    "prompt": "A tracer starts with 10,000 nuclei, has a two-hour half-life, and sits for six hours. Estimate how many nuclei remain. Then use λ = ln2/t½ and A = λN to estimate the activity.",
+    "prompt": "A tracer starts with 10,000 nuclei, has a two-hour half-life, and sits for 6 hours. Estimate how many nuclei remain. Then use λ = ln2/t½ and A = λN to estimate the activity.",
     "question": "Choose the starting population, the number of half-lives, and the half-life needed to find λ.",
     "labels": [
       "10,000 nuclei",
@@ -6154,7 +6154,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.006,
     "units": "fraction",
     "solution": "1/√400 ≈ 0.05, or 5%.",
-    "explanation": "400 counts gives 5%. The scaling is what matters for planning: uncertainty falls as 1/√N, so halving it to 2.5% takes 1,600 counts — four times the run. Precision bought by counting longer gets expensive fast, which is why detector efficiency and background suppression are worth as much as extra hours."
+    "explanation": "400 counts gives 5%. The scaling is what matters for planning: uncertainty falls as 1/√N, so halving it to 2.5% takes 1,600 counts — 4 times the run. Precision bought by counting longer gets expensive fast, which is why detector efficiency and background suppression are worth as much as extra hours."
   },
   "T-6": {
     "prompt": "A sample emits spontaneous-fission neutrons at about 10⁴ per second, and a slow mechanical assembly takes about 10⁻³ s to complete. Estimate how many neutrons are expected during the assembly window.",
@@ -6182,7 +6182,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 1.5,
     "units": "neutrons",
     "solution": "10⁴ s⁻¹ × 10⁻³ s ≈ 10 neutrons.",
-    "explanation": "Ten neutrons during assembly is not a risk of starting early, it is a certainty: the chain begins well before the pieces are together. Put the fast assembly time in instead and the same source gives 10⁻² neutrons — roughly a one-in-a-hundred chance. Nothing about the material changed; only the length of time it spent vulnerable did. That single factor of a thousand in assembly speed is the whole argument for abandoning the slow route."
+    "explanation": "Ten neutrons during assembly is not a risk of starting early, it is a certainty: the chain begins well before the pieces are together. Put the fast assembly time in instead and the same source gives 10⁻² neutrons — roughly a one-in-a-hundred chance. Nothing about the material changed; only the length of time it spent vulnerable did. That single factor of 1000 in assembly speed is the whole argument for abandoning the slow route."
   },
   "T-7": {
     "prompt": "A sample is compressed by an average pressure of 5×10⁹ Pa while its volume falls by 2×10⁻⁶ m³. Estimate the compression work.",
@@ -6246,7 +6246,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Work in ratios, not differences. The rate falls by a constant factor each half-life."
   },
   "E-3": {
-    "prompt": "Two signal paths differ in length by 0.4 m, and signals travel at 2×10⁸ m/s in the cable. Estimate the timing difference in nanoseconds.",
+    "prompt": "2 signal paths differ in length by 0.4 m, and signals travel at 2×10⁸ m/s in the cable. Estimate the timing difference in nanoseconds.",
     "question": "Choose the path mismatch, the signal speed, and the seconds-to-nanoseconds conversion.",
     "labels": [
       "0.4 m path mismatch",
@@ -6304,7 +6304,7 @@ export const BALLPARK_CALCS = {
     "explanation": "0.5 mm of blur. Whether that is acceptable is not a property of the camera but a comparison: blur has to be small against the feature being resolved. A boundary moving across a 5 mm gap is measurable at this exposure; a 0.5 mm perturbation is not measurable at all, because it is smeared into its own width. Shortening the exposure is the only lever that does not also cost signal."
   },
   "T-8": {
-    "prompt": "A shock front crosses the assembly at about 8×10³ m/s. Two initiation channels fire 0.5 microseconds (5×10⁻⁷ s) apart. Estimate how far ahead the early side’s front runs by the time the late one starts, in millimetres.",
+    "prompt": "A shock front crosses the assembly at about 8×10³ m/s. 2 initiation channels fire 0.5 microseconds (5×10⁻⁷ s) apart. Estimate how far ahead the early side’s front runs by the time the late one starts, in millimetres.",
     "question": "Choose the wave speed, the channel spread, and the metres-to-millimetres conversion.",
     "labels": [
       "8×10³ m/s wave speed",
@@ -6330,10 +6330,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.5,
     "units": "mm",
     "solution": "8×10³ m/s × 5×10⁻⁷ s × 1,000 mm/m ≈ 4 mm.",
-    "explanation": "Half a microsecond of disagreement puts one side of the front 4 mm ahead of the other — a visible dent in a convergence that was supposed to be spherical. The timing requirement is written in nanoseconds not because that is what the electronics can manage, but because that is how far the physics moves while the channels argue. Every timing contribution combined later gets judged against this millimetre-scale yardstick."
+    "explanation": "Half a microsecond of disagreement puts 1 side of the front 4 mm ahead of the other — a visible dent in a convergence that was supposed to be spherical. The timing requirement is written in nanoseconds not because that is what the electronics can manage, but because that is how far the physics moves while the channels argue. Every timing contribution combined later gets judged against this millimetre-scale yardstick."
   },
   "X-5": {
-    "prompt": "Three independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.",
+    "prompt": "3 independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.",
     "question": "Choose the three component uncertainties to combine in quadrature.",
     "labels": [
       "2 ns trigger",
@@ -6359,10 +6359,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "ns",
     "solution": "√(2² + 3² + 4²) = √29 ≈ 5.4 ns.",
-    "explanation": "Quadrature gives 5.4 ns, well under the 9 ns a straight sum predicts, because independent errors do not all peak together — and the 4 ns recorder term alone carries more than half the total variance, so it is the one worth attacking first. Then check the answer against what the front does with that time: at 8×10³ m/s, 5.4 ns is about 0.04 mm of lead. Comfortably inside a millimetre-scale symmetry limit, which a half-microsecond spread would not be."
+    "explanation": "Quadrature gives 5.4 ns, well under the 9 ns a straight sum predicts, because independent errors do not all peak together — and the 4 ns recorder term alone carries more than half the total variance, so it is the 1 worth attacking first. Then check the answer against what the front does with that time: at 8×10³ m/s, 5.4 ns is about 0.04 mm of lead. Comfortably inside a millimetre-scale symmetry limit, which a half-microsecond spread would not be."
   },
   "T-9": {
-    "prompt": "A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the two are independent. Estimate the combined uncertainty.",
+    "prompt": "A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the 2 are independent. Estimate the combined uncertainty.",
     "question": "Choose the two component uncertainties to combine in quadrature.",
     "labels": [
       "8%",
@@ -6503,7 +6503,7 @@ export const BALLPARK_CALCS = {
     "explanation": "The neutron covers 200 cm of path but ends up only about 20 cm from where it started. That gap between path length and net displacement is why a moderator can be far smaller than the total distance a neutron travels inside it."
   },
   "T-17": {
-    "prompt": "A system starts with 1,000 neutrons and is slightly subcritical at k = 0.95. Estimate the population two generations later.",
+    "prompt": "A system starts with 1,000 neutrons and is slightly subcritical at k = 0.95. Estimate the population 2 generations later.",
     "question": "Choose the initial population, the multiplication factor, and the generation count.",
     "labels": [
       "1,000 neutrons",
@@ -6532,7 +6532,7 @@ export const BALLPARK_CALCS = {
     "explanation": "A system described as only slightly subcritical should have k just below one, so the population declines gently over a few generations."
   },
   "T-20": {
-    "prompt": "One fission releases about 200 MeV, and 1 MeV is 1.6×10⁻¹³ joule. Estimate the energy of a single fission in joules.",
+    "prompt": "1 fission releases about 200 MeV, and 1 MeV is 1.6×10⁻¹³ joule. Estimate the energy of a single fission in joules.",
     "question": "Choose the energy per fission and the MeV-to-joule conversion.",
     "labels": [
       "200 MeV",
@@ -6557,7 +6557,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 5e-12,
     "units": "J",
     "solution": "200 MeV × 1.6×10⁻¹³ J/MeV ≈ 3.2×10⁻¹¹ J.",
-    "explanation": "A fission releases a few hundred MeV. One MeV is about 1.6×10⁻¹³ joule."
+    "explanation": "A fission releases a few hundred MeV. 1 MeV is about 1.6×10⁻¹³ joule."
   },
   "T-25": {
     "prompt": "Leakage is set by how much boundary a body has per unit of volume. For a sphere that ratio is 3/R. Estimate it for a sphere of radius 5 cm.",
@@ -6698,7 +6698,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 1,
     "units": "%",
     "solution": "(1 − 2,000×10⁻⁵)×100 ≈ 98%.",
-    "explanation": "R tau is 0.02 here, so the linear correction is trustworthy and the detector is live 98% of the time. Ten times the rate would put R tau at 0.2, where the first-order form breaks down and the full nonparalyzable expression is needed — the formula carries its own validity limit."
+    "explanation": "R tau is 0.02 here, so the linear correction is trustworthy and the detector is live 98% of the time. 10 times the rate would put R tau at 0.2, where the first-order form breaks down and the full nonparalyzable expression is needed — the formula carries its own validity limit."
   },
   "P-18": {
     "prompt": "A gamma-ray line at 1 MeV is recorded with a full width at half maximum of 0.05 MeV. Estimate the detector’s percent energy resolution.",
@@ -6730,7 +6730,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Energy resolution is the peak width divided by the peak energy, expressed as a percentage."
   },
   "P-19": {
-    "prompt": "Two detectors count independently at 100 s⁻¹ and 200 s⁻¹ through a 1-microsecond (10⁻⁶ s) coincidence window. Estimate the accidental coincidence rate.",
+    "prompt": "2 detectors count independently at 100 s⁻¹ and 200 s⁻¹ through a 1-microsecond (10⁻⁶ s) coincidence window. Estimate the accidental coincidence rate.",
     "question": "Choose the two rates and the coincidence window.",
     "labels": [
       "100 s⁻¹",
@@ -6784,10 +6784,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 2500000,
     "units": "m/s",
     "solution": "3 m ÷ 10⁻⁷ s ≈ 3×10⁷ m/s.",
-    "explanation": "A few meters traversed in about one hundred nanoseconds corresponds to a few times ten million meters per second."
+    "explanation": "A few meters traversed in about 100 nanoseconds corresponds to a few times 10 million meters per second."
   },
   "CM-12": {
-    "prompt": "A solute has a distribution ratio of 4 between the organic and aqueous phases, and the two phase volumes are equal. Estimate the percentage extracted in one stage.",
+    "prompt": "A solute has a distribution ratio of 4 between the organic and aqueous phases, and the 2 phase volumes are equal. Estimate the percentage extracted in one stage.",
     "question": "Choose the distribution ratio and the phase-volume ratio.",
     "labels": [
       "4 distribution ratio",
@@ -6812,7 +6812,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 3,
     "units": "%",
     "solution": "4 ÷ (4+1) × 100 ≈ 80%.",
-    "explanation": "One stage at D = 4 leaves a fifth of the solute behind. A second identical stage would leave a fifth of that again, which is why extraction is run as a series of stages rather than pushed to completion in one."
+    "explanation": "1 stage at D = 4 leaves a fifth of the solute behind. A second identical stage would leave a fifth of that again, which is why extraction is run as a series of stages rather than pushed to completion in one."
   },
   "CM-19": {
     "prompt": "A metal sample has a mass of 250 g and a measured volume of 20 cm³. Estimate its density.",
@@ -6959,7 +6959,7 @@ export const BALLPARK_CALCS = {
     "explanation": "A fall from several kilometers takes tens of seconds in vacuum. Real trajectories require drag and full flight testing."
   },
   "E-18": {
-    "prompt": "A test rack must hold two signal paths matched to within 2 ns (2×10⁻⁹ s), and signals travel at 2×10⁸ m/s in the cable. Estimate the largest path mismatch that still meets the requirement, in centimetres.",
+    "prompt": "A test rack must hold 2 signal paths matched to within 2 ns (2×10⁻⁹ s), and signals travel at 2×10⁸ m/s in the cable. Estimate the largest path mismatch that still meets the requirement, in centimetres.",
     "question": "Choose the timing tolerance, the signal speed, and the metres-to-centimetres conversion.",
     "labels": [
       "2×10⁻⁹ s tolerance",
@@ -6988,7 +6988,7 @@ export const BALLPARK_CALCS = {
     "explanation": "A 2 ns budget buys 40 cm of route mismatch — generous on a rack, but easy to spend once a cable detours around equipment. Converting the timing requirement into a length limit is what makes it inspectable: a technician can measure cable, not nanoseconds."
   },
   "E-20": {
-    "prompt": "A fixture stacks three independently machined interfaces, each held to ±0.15 mm, and worst-case absolute limits add. Estimate the worst-case stack.",
+    "prompt": "A fixture stacks 3 independently machined interfaces, each held to ±0.15 mm, and worst-case absolute limits add. Estimate the worst-case stack.",
     "question": "Choose the per-interface tolerance and the number of interfaces.",
     "labels": [
       "0.15 mm/interface",
@@ -7016,7 +7016,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Worst-case tolerance stack-up adds aligned limits directly, unlike statistical root-sum-square combination."
   },
   "E-23": {
-    "prompt": "A firing chain needs four subsystems in series, each with independent reliability 0.98. Estimate the reliability of the whole chain.",
+    "prompt": "A firing chain needs 4 subsystems in series, each with independent reliability 0.98. Estimate the reliability of the whole chain.",
     "question": "Choose the per-subsystem reliability and the subsystem count.",
     "labels": [
       "0.98 per subsystem",
@@ -7801,7 +7801,7 @@ export const JARGON = [
     "aliases": [
       "mev"
     ],
-    "def": "Mega-electron-volt, a unit of energy equal to one million electron-volts and commonly used for nuclear processes.",
+    "def": "Mega-electron-volt, a unit of energy equal to 1 million electron-volts and commonly used for nuclear processes.",
     "core": true
   },
   {

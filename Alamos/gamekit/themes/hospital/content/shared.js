@@ -14,7 +14,7 @@ export const BALLPARK_BY_TITLE = {
       "5 breaths  (counted)",
       "4  (fifteen-second parts in a minute)",
       "15 seconds  (how long she counted)",
-      "60 seconds  (one minute)",
+      "60 seconds  (1 minute)",
       "2  (halves of a minute)"
     ],
     "values": [
@@ -44,7 +44,7 @@ export const BALLPARK_BY_TITLE = {
       "18 beats  (counted)",
       "4  (fifteen-second parts in a minute)",
       "15 seconds  (how long she counted)",
-      "60 seconds  (one minute)",
+      "60 seconds  (1 minute)",
       "3  (twenty-second parts in a minute)"
     ],
     "values": [
@@ -132,12 +132,12 @@ export const BALLPARK_BY_TITLE = {
     "explanation": "Groups of a thing multiply; they do not add. Three sets and five lifts added together gives eight, which is neither the number of sets nor the number of lifts."
   },
   "Temperature Difference": {
-    "prompt": "The chart holds two temperatures for Ms. Kim: 98 °F at the first reading and 101 °F three hours later.",
+    "prompt": "The chart holds two temperatures for Ms. Kim: 98 °F at the first reading and 101 °F 3 hours later.",
     "question": "How fast is her temperature rising, in degrees per hour?",
     "labels": [
       "101 °F  (later reading)",
       "98 °F  (earlier reading)",
-      "3 hours  (between the two readings)",
+      "3 hours  (between the 2 readings)",
       "100 °F  (the round number on the scale)",
       "2 readings  (how many are charted)"
     ],
@@ -160,6 +160,6 @@ export const BALLPARK_BY_TITLE = {
     "tolerance": 0.2,
     "units": "°F per hour",
     "solution": "It rose 3 °F over 3 hours, so about 1 °F each hour.",
-    "explanation": "A rise of 3 degrees means one thing over three hours and something quite different over twenty minutes. A rate needs both the change and the time it took, which is why the chart records when each reading was taken."
+    "explanation": "A rise of 3 degrees means 1 thing over 3 hours and something quite different over 20 minutes. A rate needs both the change and the time it took, which is why the chart records when each reading was taken."
   }
 };

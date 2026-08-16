@@ -144,7 +144,7 @@ export const DIAGNOSIS_PACKS = {
       "realsample": "It explains the high gross rate, and it would be the convenient answer. But the excess is still there with the sample off the stage — 131 counts/min against a 95 baseline. Whatever is counting is not on the stage.",
       "roombg": "It explains an excess that survives removing the sample. It fails twice: the second detector in the same room reads normal, and the excess follows the instrument to a clean room instead of staying behind.",
       "noisefloor": "It fits the two loud findings exactly — a persisting excess that extra lead does not touch. It dies on the high-voltage test: with the bias off, the counter records nothing at all, so the pulses are real ionization, not electronics.",
-      "statfluke": "Ten repeats agree within 3%. Chance spread does not reproduce ten times, and it cannot survive removing the sample."
+      "statfluke": "10 repeats agree within 3%. Chance spread does not reproduce ten times, and it cannot survive removing the sample."
     },
     "resolve": {
       "title": "The instrument is counting itself",
@@ -320,7 +320,7 @@ export const DIAGNOSIS_PACKS = {
         "Note that every quality figure on this batch is good. Purity is 91%, the standard checks out, the product weighs what the assay says it should, and the discarded phase is clean. A batch can pass every test it is given and still have lost a twentieth of the material to a route nobody measured."
       ],
       "why": {
-        "loud": "The two headline findings are a 6.1% gap and 5.8% of the input recovered from vessel walls. Neither alone identifies the cause: a gap fits three different candidates, and hot glassware fits both adsorption and co-precipitation.",
+        "loud": "The 2 headline findings are a 6.1% gap and 5.8% of the input recovered from vessel walls. Neither alone identifies the cause: a gap fits three different candidates, and hot glassware fits both adsorption and co-precipitation.",
         "quiet": "Together they close it, and the quiet readings confirm the mechanism rather than merely permitting it. The clean raffinate rules out an unfinished separation, the reference source rules out the counter, and the agreeing gravimetric rules out extra material coming down with the product."
       },
       "chain": [
@@ -478,7 +478,7 @@ export const DIAGNOSIS_PACKS = {
       "moderation": "It is a real mechanism and it produces exactly the pile-up of small pulses seen here — this is the rival worth taking seriously. It fails the cadmium test: a field slowed enough to lose two-thirds of the counts would collapse when cadmium is inserted, and the change measured is under 5%.",
       "absorption": "It explains a shortfall in arrivals. But the activation foil records the predicted activity, so the neutrons are reaching the detector face. Nothing removed them from the path.",
       "geometry": "Always worth suspecting when a prediction and a measurement disagree by a factor of three. The rate follows inverse-square within 4%, so the geometry matches the drawing it was predicted from.",
-      "normalvar": "Five runs agree within 4%, tighter than the Poisson scatter. A factor-of-three deficit that reproduces is not variation."
+      "normalvar": "5 runs agree within 4%, tighter than the Poisson scatter. A factor-of-three deficit that reproduces is not variation."
     },
     "resolve": {
       "title": "The neutrons arrived and were not counted",
@@ -572,7 +572,7 @@ export const DIAGNOSIS_PACKS = {
       "impurity": {
         "name": "Trace element assay",
         "zone": "assay",
-        "observed": "one trace element at 9x its usual level",
+        "observed": "1 trace element at 9x its usual level",
         "reference": "at or below usual levels",
         "purpose": "Elements too dilute to appear in the major assay. Small amounts can shift phase boundaries or concentrate locally during freezing."
       },
@@ -678,7 +678,7 @@ export const DIAGNOSIS_PACKS = {
     },
     "logic": [
       [
-        "Two phases, hardness 31% high",
+        "2 phases, hardness 31% high",
         "the structure is real — four mechanisms remain"
       ],
       [
@@ -700,7 +700,7 @@ export const DIAGNOSIS_PACKS = {
     "level": "L3",
     "title": "Eight channels that will not agree",
     "role": "You are finding out why a timing array disagrees with itself.",
-    "hook": "Eight channels watching one event report arrival times spread over 14 ns when the array is specified to 4. An independent clock cross-check came back clean, so the reference itself is sound. The spread is in the array.",
+    "hook": "8 channels watching 1 event report arrival times spread over 14 ns when the array is specified to 4. An independent clock cross-check came back clean, so the reference itself is sound. The spread is in the array.",
     "riddle": "Every channel sees the same event. What is different about what each one reports?",
     "salient": [
       "spread",
@@ -835,7 +835,7 @@ export const DIAGNOSIS_PACKS = {
     "reasons": {
       "clockoffset": "It is the first thing to check on a shared-reference array, and it would explain a large spread. The independent cross-check agrees within 0.3 ns, so the reference is sound — and a common offset would cancel in channel-to-channel differences anyway rather than creating them.",
       "timewalk": "The strongest rival. It survives both headline findings and it broadens the per-channel distribution exactly as observed. It requires recorded time to track pulse height, and there is no correlation between them at all.",
-      "cabledelay": "It explains a large spread with a sound reference, and it is easy to check. Cable lengths match within 5 cm, injected test pulses align across all channels, and the disagreement is scattered rather than isolated to one channel — a cable fault moves one channel, not eight.",
+      "cabledelay": "It explains a large spread with a sound reference, and it is easy to check. Cable lengths match within 5 cm, injected test pulses align across all channels, and the disagreement is scattered rather than isolated to 1 channel — a cable fault moves 1 channel, not 8.",
       "withinspec": "The array is specified to 4 ns and is delivering 14. Calling that acceptable would mean abandoning the specification rather than meeting it."
     },
     "resolve": {
@@ -845,7 +845,7 @@ export const DIAGNOSIS_PACKS = {
         "The distinction matters for what you do next. A fixed error can be measured once and subtracted. Jitter cannot: it must be reduced at the source by improving signal-to-noise, shaping the pulse, or replacing threshold discrimination with a method that does not depend on where a noisy edge crosses a fixed level."
       ],
       "why": {
-        "loud": "A 14 ns spread with a clean reference cross-check leaves three live candidates — time walk, cable delay, and jitter. The loud readings establish that the disagreement is real and was introduced downstream of the reference, and there they stop.",
+        "loud": "A 14 ns spread with a clean reference cross-check leaves 3 live candidates — time walk, cable delay, and jitter. The loud readings establish that the disagreement is real and was introduced downstream of the reference, and there they stop.",
         "quiet": "Two quiet readings in different parts of the chain finish it. No correlation between apparent time and pulse height eliminates time walk, the one rival that otherwise fits every observation. Matched cable lengths, backed by injected test pulses aligning across all channels, eliminate a path-length fault. What survives is a random error, and the broad per-channel width confirms it."
       },
       "chain": [
@@ -1012,7 +1012,7 @@ export const DIAGNOSIS_PACKS = {
         "Every acceptance check this part faced was passed. The material certificate was valid, the dimensions were in tolerance, and the load was within qualification. The property that failed — surface condition after machining — was not on the inspection list, and no dimensional measurement would ever have found it."
       ],
       "why": {
-        "loud": "The two headline findings are a surface 44% harder than the bulk and a crack that started at the machined surface. Neither settles it alone: elevated surface hardness also fits a bulk-brittle material, and a surface origin also fits fatigue and handling damage.",
+        "loud": "The 2 headline findings are a surface 44% harder than the bulk and a crack that started at the machined surface. Neither settles it alone: elevated surface hardness also fits a bulk-brittle material, and a surface origin also fits fatigue and handling damage.",
         "quiet": "Together they leave one answer, and the quiet readings close off the alternatives. No permanent deformation rules out plain overload, a single steady application rules out fatigue, and in-tolerance dimensions rule out geometry as the stress concentrator."
       },
       "chain": [
@@ -1097,7 +1097,7 @@ export const DIAGNOSIS_PACKS = {
       "channelcross": {
         "name": "Agreement between independent channels",
         "zone": "timing",
-        "observed": "three channels agree within 1%",
+        "observed": "3 channels agree within 1%",
         "reference": "agree within 2%",
         "purpose": "Whether separate instruments tell the same story. Agreement across independent channels makes an instrumentation fault very hard to sustain."
       },
@@ -1193,7 +1193,7 @@ export const DIAGNOSIS_PACKS = {
     "reasons": {
       "surrogate": "The rival that has to be taken most seriously, because it is the standard reason a mockup result does not transfer, and it survives both headline findings. Two readings defeat it: the surrogate certificate matches the real material within 1% on the property in question, and the size of the discrepancy does not scale with the density ratio the way a substitution artifact would.",
       "fixture": "It explains a late arrival, and fixtures do corrupt trials this way. The recovered hardware is intact, the fixture witness marks are clean, and the radiograph shows the designed geometry rather than a constrained one.",
-      "instrument": "Worth suspecting whenever a single number disagrees with a model. Three independent channels agree within 1% and the second shot reproduces within 1%. An instrumentation fault that reproduces identically across independent channels and repeat trials is not an instrumentation fault.",
+      "instrument": "Worth suspecting whenever a single number disagrees with a model. 3 independent channels agree within 1% and the second shot reproduces within 1%. An instrumentation fault that reproduces identically across independent channels and repeat trials is not an instrumentation fault.",
       "withintol": "The trial was specified to 2% and returned 8%, reproducibly. Widening the tolerance after the fact to contain the result is how a test stops being able to fail."
     },
     "resolve": {
@@ -1203,7 +1203,7 @@ export const DIAGNOSIS_PACKS = {
         "This is the outcome a mockup programme exists to make possible, and it is only available because the trial was built so that its own failure modes could be ruled out. Without the material certificate, the witness marks, the channel redundancy, and the repeat shot, an 8% discrepancy is an argument. With them it is a finding."
       ],
       "why": {
-        "loud": "A reproducible 8% late arrival with the designed geometry confirmed leaves three candidates: a surrogate artifact, an instrumentation fault, or a real effect. Correct geometry is what makes the discrepancy interesting rather than trivial, but it cannot say which of the three is responsible.",
+        "loud": "A reproducible 8% late arrival with the designed geometry confirmed leaves 3 candidates: a surrogate artifact, an instrumentation fault, or a real effect. Correct geometry is what makes the discrepancy interesting rather than trivial, but it cannot say which of the three is responsible.",
         "quiet": "Two quiet readings from different departments settle it. The materials certificate, backed by the discrepancy not scaling with the density ratio, eliminates the surrogate. Independent channel agreement, backed by the repeat shot, eliminates the instruments. Ruling out the mockup is what licenses believing it."
       },
       "chain": [
@@ -1572,12 +1572,12 @@ export const DIAGNOSIS_PACKS = {
     "reasons": {
       "synclost": "A lost fiducial is a real way for a channel to disagree without being wrong about amplitude. This one's fiducial is present and clean, and a timing misalignment would not explain a gain check 38% low or a drifting baseline.",
       "fieldofview": "A channel that cannot see a region should not be treated as evidence about it, so the check is the right one to make. The coverage map shows this channel covering the region in question, and like the fiducial explanation it accounts for nothing on the calibration side.",
-      "agreement": "The three so-called healthy channels disagree with each other by 9% against a 3% specification, and the recovered witness plate is clearly asymmetric. There is a disagreement, and it is not an artifact of uncertainty."
+      "agreement": "The 3 so-called healthy channels disagree with each other by 9% against a 3% specification, and the recovered witness plate is clearly asymmetric. There is a disagreement, and it is not an artifact of uncertainty."
     },
     "resolve": {
       "title": "A real asymmetry and a broken channel, at the same time",
       "paras": [
-        "Two things are true at once. The event genuinely was asymmetric — the three surviving channels disagree with each other by 9%, and the recovered witness plate, which owes nothing to any electronic channel, is clearly asymmetric. And separately, the fourth channel really has lost gain, with a pulser check 38% low and a drifting pre-shot baseline.",
+        "Two things are true at once. The event genuinely was asymmetric — the 3 surviving channels disagree with each other by 9%, and the recovered witness plate, which owes nothing to any electronic channel, is clearly asymmetric. And separately, the fourth channel really has lost gain, with a pulser check 38% low and a drifting pre-shot baseline.",
         "The proposal on the table was to discard the fourth channel and report the other three. That would have been half right and wholly misleading: the channel is faulty, but the disagreement it was blamed for is real and survives its removal. Discarding it would have produced three mutually inconsistent records reported as a consistent result.",
         "This is what integrated diagnostic coverage is for. A single faulty channel is recoverable. A faulty channel that happens to sit where a real effect is visible is only recoverable if there is independent evidence — here, the mutual disagreement among the others and a piece of recovered hardware."
       ],
@@ -1620,7 +1620,7 @@ export const SPECIAL_REQUESTS = {
     "title": "Criticality safety interlocks for the chemistry wing",
     "division": "CM",
     "paragraphs": [
-      "Joan Hinton, who works on critical assembly diagnostics, has flagged that the chemistry wing where plutonium solutions are handled still relies on a single administrative limit for mass and geometry. One mislabeled beaker or an extra transfer could bring fissile material close to a critical configuration. A $2 interlock — a second independent mass accounting check plus a neutron counter at the doorway — would give a layered safety case instead of trusting one person’s arithmetic.",
+      "Joan Hinton, who works on critical assembly diagnostics, has flagged that the chemistry wing where plutonium solutions are handled still relies on a single administrative limit for mass and geometry. One mislabeled beaker or an extra transfer could bring fissile material close to a critical configuration. A $2 interlock — a second independent mass accounting check plus a neutron counter at the doorway — would give a layered safety case instead of trusting 1 person’s arithmetic.",
       "This is not just a science question. The technicians are mostly young women on 12-hour shifts, sharing thin-walled hutments, and a criticality accident would be a health and community catastrophe before it ever affected the weapon program. Hinton argues that spending now preserves both accurate chemistry yields and the lives of the people who live two blocks from the lab. As director you can approve the $2 from the $20 reserve, or defer and accept 12–24h of added risk while the lab operates on a single barrier."
     ]
   },
@@ -1650,7 +1650,7 @@ export const SPECIAL_REQUESTS = {
     "title": "Theater and PX film for morale and timing calibration",
     "division": "X",
     "paragraphs": [
-      "Norris Bradbury, who will soon oversee assembly, requests $3 to keep Theater No. 2 running three nights a week and to buy high-speed film for the P-Division imaging group that shares the same projection budget. The cultural argument and the science argument coincide. The theater is the only building where the entire mesa can hear the same colloquium — Bethe on implosion was given there in February — and where mixed crews discuss misalignments without rank. Without it, X-Division lens crews and E-Division ordnance drift into separate vocabularies.",
+      "Norris Bradbury, who will soon oversee assembly, requests $3 to keep Theater No. 2 running 3 nights a week and to buy high-speed film for the P-Division imaging group that shares the same projection budget. The cultural argument and the science argument coincide. The theater is the only building where the entire mesa can hear the same colloquium — Bethe on implosion was given there in February — and where mixed crews discuss misalignments without rank. Without it, X-Division lens crews and E-Division ordnance drift into separate vocabularies.",
       "For health, the same film stock is also used to radiograph inert lens assemblies; without a steady supply, crews will test with fewer views and miss asymmetry that later shows up as jetting. At 2,200 m, with censored mail and no road out without a pass, morale directly governs precision. Funding both uses of the film sustains the shared language you built in Mission 1; deferring saves $3 but adds 12–24h as teams re-establish common timing baselines."
     ]
   },

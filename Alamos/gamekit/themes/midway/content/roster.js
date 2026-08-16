@@ -9,13 +9,13 @@ export const ROSTER = [
     "role": "County Ride Inspector",
     "division": "TOWER",
     "color": "#c0392b",
-    "bio": "<p>Inspects rides for the county, which makes him the one person here who does not work for the park. He signs or he does not sign, and a ride he has not signed does not turn.</p><p>His position is narrow and he states it the same way every time: a ride that has never hurt anybody is evidence about the past, and a margin is a statement about the future. Forty-one years of getting away with something is indistinguishable, from the outside, from forty-one years of doing it right.</p><p>His limit is that he cannot design anything. He can only ask for the working, and when the working is produced he has to accept it, whatever he thought that morning.</p>",
+    "bio": "<p>Inspects rides for the county, which makes him the one person here who does not work for the park. He signs or he does not sign, and a ride he has not signed does not turn.</p><p>His position is narrow and he states it the same way every time: a ride that has never hurt anybody is evidence about the past, and a margin is a statement about the future. 41 years of getting away with something is indistinguishable, from the outside, from 41 years of doing it right.</p><p>His limit is that he cannot design anything. He can only ask for the working, and when the working is produced he has to accept it, whatever he thought that morning.</p>",
     "quiz": [
       {
         "q": "Why will Vey not accept a ride's forty-one-year record as a margin?",
         "a": "A record says what happened, and a margin says what the ride can survive",
         "wrong": [
-          "County rules require every setting to be recalculated once each decade",
+          "County rules require every setting to be recalculated from scratch once each decade",
           "Records kept by a park cannot be audited by an outside inspector",
           "The park's insurers have refused to accept any evidence older than five years"
         ]
@@ -32,9 +32,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Santos trust a magnetic brake more than a friction one?",
-        "a": "The force it makes rises with speed, so it cannot be set to the wrong strength",
+        "a": "Nothing about it is adjustable, and it bites hardest exactly when the fall is fastest",
         "wrong": [
-          "Magnets are checked by the county twice a season and pads are not",
+          "Magnets are inspected by the county twice a season and friction pads are not inspected at all",
           "A magnetic brake stops a carriage in a shorter distance than pads do",
           "Copper fins are stronger than the steel a friction brake grips"
         ]
@@ -47,13 +47,13 @@ export const ROSTER = [
     "role": "Park Director",
     "division": "COASTER",
     "color": "#2f7fa8",
-    "bio": "<p>Owns the park, and has three weeks to reopen it. The season is a hundred and six days long and pays for the other two hundred and fifty-nine, and a ride that stays shut this summer is not a ride that opens next summer, because there is no next summer without this one.</p><p>Her argument is not that safety does not matter. It is that Brennan's settings are data: forty-one years, eleven million rides, no serious injury, written down in one hand in eleven notebooks that nobody has ever contradicted.</p><p>Her limit is that she is asking somebody else to sign. The certificate has the engineer's name on it and not hers, and she has never once pretended otherwise.</p>",
+    "bio": "<p>Owns the park, and has three weeks to reopen it. The season is 106 days long and pays for the other 259, and a ride that stays shut this summer is not a ride that opens next summer, because there is no next summer without this 1.</p><p>Her argument is not that safety does not matter. It is that Brennan's settings are data: 41 years, 11 million rides, no serious injury, written down in 1 hand in 11 notebooks that nobody has ever contradicted.</p><p>Her limit is that she is asking somebody else to sign. The certificate has the engineer's name on it and not hers, and she has never once pretended otherwise.</p>",
     "quiz": [
       {
         "q": "What does Marsh mean by calling Brennan's notebooks data?",
-        "a": "Eleven million rides with no serious injury is an observation about the rides",
+        "a": "11 million rides with no serious injury is an observation about the rides",
         "wrong": [
-          "The notebooks record the calculations Brennan did before each setting",
+          "The notebooks record the calculations Brennan worked through before he chose each setting",
           "County inspectors accepted the notebooks at every previous inspection",
           "The settings were copied from the manufacturers' original manuals"
         ]
@@ -72,7 +72,7 @@ export const ROSTER = [
         "q": "Why is Kovač's morning walk worth more than the maintenance file?",
         "a": "She can say what is on the structure now, and the file says what was intended",
         "wrong": [
-          "The maintenance file was destroyed in the flood two winters ago",
+          "The maintenance file was destroyed in the flood two winters ago and never reconstructed",
           "Every entry in the file was written by Brennan without dates",
           "She measures each section with instruments the file's authors lacked"
         ]
@@ -85,13 +85,13 @@ export const ROSTER = [
     "role": "Chief Mechanic, retired",
     "division": "CAROUSEL",
     "color": "#c99a2e",
-    "bio": "<p>Kept this park running for forty-one years and retired last autumn to a house eleven minutes' walk from the gate. He comes in when he is asked, and he is being asked a great deal this month.</p><p>Everything he knows is in eleven notebooks: settings, timings, the number of turns on a nut, the sound a bearing makes before it goes. What is not in them is a single line of working. He set the carousel at eight turns a minute because at nine the horses on the outside felt wrong to him, and he was right, and he cannot say why.</p><p>His limit is the one he states himself: he changed things and did not always write down that he had. The park is full of his corrections, and some of them are only in his memory.</p>",
+    "bio": "<p>Kept this park running for 41 years and retired last autumn to a house 11 minutes' walk from the gate. He comes in when he is asked, and he is being asked a great deal this month.</p><p>Everything he knows is in 11 notebooks: settings, timings, the number of turns on a nut, the sound a bearing makes before it goes. What is not in them is a single line of working. He set the carousel at eight turns a minute because at nine the horses on the outside felt wrong to him, and he was right, and he cannot say why.</p><p>His limit is the one he states himself: he changed things and did not always write down that he had. The park is full of his corrections, and some of them are only in his memory.</p>",
     "quiz": [
       {
         "q": "What is the difficulty with Brennan's settings, in his own account?",
         "a": "He altered the park over four decades and did not record every alteration",
         "wrong": [
-          "The notebooks were written in a shorthand nobody else can read",
+          "The notebooks were written in a private shorthand that nobody else at the park can read",
           "He set the rides by manufacturers' tables he no longer has",
           "His numbers were correct for equipment that has since been replaced"
         ]
@@ -104,13 +104,13 @@ export const ROSTER = [
     "role": "Ride Electrician",
     "division": "CAROUSEL",
     "color": "#c99a2e",
-    "bio": "<p>Wires the drives, the interlocks and the speed controllers, which means every limit anybody agrees to eventually becomes a setting she types in.</p><p>She is the one who asks what happens when the limit is reached: whether the ride refuses to start, slows itself, or lets an operator override it with a key. A number that only exists on paper is a number that gets exceeded on a hot Saturday.</p><p>Her limit is that an interlock can only measure what it is wired to. It can count revolutions, and it cannot see sixty people all standing on one side.</p>",
+    "bio": "<p>Wires the drives, the interlocks and the speed controllers, which means every limit anybody agrees to eventually becomes a setting she types in.</p><p>She is the one who asks what happens when the limit is reached: whether the ride refuses to start, slows itself, or lets an operator override it with a key. A number that only exists on paper is a number that gets exceeded on a hot Saturday.</p><p>Her limit is that an interlock can only measure what it is wired to. It can count revolutions, and it cannot see 60 people all standing on 1 side.</p>",
     "quiz": [
       {
         "q": "Why does Adeyemi ask what a ride does when a limit is reached?",
         "a": "A limit with no interlock behind it is a number an operator can pass",
         "wrong": [
-          "County rules require an audible alarm at every operating limit",
+          "County rules require an audible alarm and a warning lamp at every operating limit",
           "Controllers hold their settings only until the next power cut",
           "Operators are not told the limits, so the machine has to hold them"
         ]
@@ -123,7 +123,7 @@ export const ROSTER = [
     "role": "Structures Engineer",
     "division": "WHEEL",
     "color": "#7a4fa3",
-    "bio": "<p>Came in on contract to look at the wheel, and thinks in loads and load paths: what is carrying what, and what happens to the rest of the structure when one member stops carrying its share.</p><p>Her method is to work out the force at a joint before looking at the joint, so that the inspection has a number to be surprised by. A crack found without a computed load is a crack nobody can size.</p><p>Her limit is that a model is a set of assumptions about how a structure is loaded, and this wheel is eighty-one years old and has been modified by people who left no drawings.</p>",
+    "bio": "<p>Came in on contract to look at the wheel, and thinks in loads and load paths: what is carrying what, and what happens to the rest of the structure when one member stops carrying its share.</p><p>Her method is to work out the force at a joint before looking at the joint, so that the inspection has a number to be surprised by. A crack found without a computed load is a crack nobody can size.</p><p>Her limit is that a model is a set of assumptions about how a structure is loaded, and this wheel is 81 years old and has been modified by people who left no drawings.</p>",
     "quiz": [
       {
         "q": "Why does Raman compute a joint's load before she inspects the joint?",
@@ -142,7 +142,7 @@ export const ROSTER = [
     "role": "Rigging and Lifting",
     "division": "WHEEL",
     "color": "#7a4fa3",
-    "bio": "<p>Rigs anything that has to be lifted, held or lowered, and owns the only crane on the site. Everything he does is a moment about a point, and he has never once needed to be told that.</p><p>He works in what he calls the two numbers: what the load actually is, and what the arm holding it is. The second one is the one people get wrong, because it is measured perpendicular to the force and not along the beam.</p><p>His limit is the wind. He can rig anything in still air, and the same lift at thirty kilometres an hour is a different job with a different answer.</p>",
+    "bio": "<p>Rigs anything that has to be lifted, held or lowered, and owns the only crane on the site. Everything he does is a moment about a point, and he has never once needed to be told that.</p><p>He works in what he calls the two numbers: what the load actually is, and what the arm holding it is. The second one is the one people get wrong, because it is measured perpendicular to the force and not along the beam.</p><p>His limit is the wind. He can rig anything in still air, and the same lift at 30 kilometres an hour is a different job with a different answer.</p>",
     "quiz": [
       {
         "q": "Which of Novák's two numbers do people get wrong?",
@@ -180,13 +180,13 @@ export const ROSTER = [
     "role": "Midway Supervisor",
     "division": "BUMPER",
     "color": "#3f9e6b",
-    "bio": "<p>Runs the midway staff, which means she is responsible for what actually happens at a ride rather than what the procedure says happens. Twelve operators, most of them nineteen, and a queue that does not stop.</p><p>Her contribution to every safety argument is the same and it is always right: whatever the rule is, it has to be doable by a tired teenager on the four-hundredth cycle of a hot Saturday, or it is not a rule, it is a wish.</p><p>Her limit is that she cannot make a machine safe by supervising it harder, and she has stopped pretending she can.</p>",
+    "bio": "<p>Runs the midway staff, which means she is responsible for what actually happens at a ride rather than what the procedure says happens. 12 operators, most of them 19, and a queue that does not stop.</p><p>Her contribution to every safety argument is the same and it is always right: whatever the rule is, it has to be doable by a tired teenager on the four-hundredth cycle of a hot Saturday, or it is not a rule, it is a wish.</p><p>Her limit is that she cannot make a machine safe by supervising it harder, and she has stopped pretending she can.</p>",
     "quiz": [
       {
         "q": "What test does Hart apply to a proposed safety rule?",
-        "a": "Whether a tired operator can do it on the four-hundredth cycle of a day",
+        "a": "Whether somebody exhausted at the end of a busy day could still carry it out",
         "wrong": [
-          "Whether the rule can be written on a single laminated card",
+          "Whether the rule can be written out in full on a single laminated card by the console",
           "Whether two operators can carry it out without speaking",
           "Whether the county has approved the wording of the rule"
         ]
@@ -199,7 +199,7 @@ export const ROSTER = [
     "role": "Senior Ride Operator",
     "division": "SHIP",
     "color": "#4a6d8c",
-    "bio": "<p>Has run the pirate ship for twenty years and can tell from the console how full it is, because a fuller boat takes the drive a little differently even though it swings at the same rate.</p><p>He is the person who first said the drive was pushing at the wrong moment. He could not put it in the language anybody wanted, and what he said was that on a heavy boat the second push arrives late and you can feel it in the floor.</p><p>His limit is that being right about a machine is not the same as being able to prove it, and he has spent two seasons being told the ride is within specification.</p>",
+    "bio": "<p>Has run the pirate ship for 20 years and can tell from the console how full it is, because a fuller boat takes the drive a little differently even though it swings at the same rate.</p><p>He is the person who first said the drive was pushing at the wrong moment. He could not put it in the language anybody wanted, and what he said was that on a heavy boat the second push arrives late and you can feel it in the floor.</p><p>His limit is that being right about a machine is not the same as being able to prove it, and he has spent two seasons being told the ride is within specification.</p>",
     "quiz": [
       {
         "q": "What did Idowu notice about the drive that nobody could yet prove?",
@@ -237,7 +237,7 @@ export const ROSTER = [
     "role": "Pumps and Water Systems",
     "division": "FLUME",
     "color": "#2e8b8b",
-    "bio": "<p>Keeps the water moving: two pumps, four hundred metres of channel, a splash-down pool and a header tank that has to stay full or the ride stops mid-flume with a boat in it.</p><p>His way of thinking about the flume is that the pump does all the work at the start and the water gives it back all the way round. Every metre the channel drops is energy the boat gets for nothing; every metre the pump lifts is energy somebody pays for.</p><p>His limit is the leaks. He can measure what he pumps and what arrives, and the difference has been getting larger for three seasons without anybody finding where it goes.</p>",
+    "bio": "<p>Keeps the water moving: 2 pumps, 400 metres of channel, a splash-down pool and a header tank that has to stay full or the ride stops mid-flume with a boat in it.</p><p>His way of thinking about the flume is that the pump does all the work at the start and the water gives it back all the way round. Every metre the channel drops is energy the boat gets for nothing; every metre the pump lifts is energy somebody pays for.</p><p>His limit is the leaks. He can measure what he pumps and what arrives, and the difference has been getting larger for three seasons without anybody finding where it goes.</p>",
     "quiz": [
       {
         "q": "How does Abara describe what the pump is for?",
@@ -262,7 +262,7 @@ export const ROSTER = [
         "q": "Why did the new moulded hulls unsettle McCarthy's judgement?",
         "a": "Reading a boat by eye is a comparison, and the thing compared against changed",
         "wrong": [
-          "The moulded hulls sit lower in the water at every load",
+          "The moulded hulls sit lower in the water than the timber ones did at every load",
           "The new boats hold five adults where the old ones held four",
           "Their sides are too high to see the waterline from the platform"
         ]

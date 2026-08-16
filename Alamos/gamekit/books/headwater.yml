@@ -122,7 +122,7 @@ roster:
       bought at any price.
 
       She works in arrival times rather than in volumes. A release made now
-      reaches the first village in four hours and the last in eleven, and every
+      reaches the first village in 4 hours and the last in 11, and every
       hour of that is an hour somebody can use.
 
       Her limit is that she is right in a way nobody sees. A flood that does not
@@ -139,7 +139,7 @@ roster:
     role: Catchment Hydrologist
     division: INFLOW
     bio: |
-      Reads the catchment: eleven rain gauges, four river gauges and a
+      Reads the catchment: 11 rain gauges, 4 river gauges and a
       snowline. He can tell you what the river will do in six hours with some
       confidence and in three days with almost none, and he says which is which
       every time.
@@ -184,7 +184,7 @@ roster:
     role: Gate Mechanic
     division: GATES
     bio: |
-      Winds the gates and has done for nineteen years. He can hear a bad
+      Winds the gates and has done for 19 years. He can hear a bad
       hoist bearing from the far end of the chamber, and he will not run a gate
       he has not seen seat properly.
 
@@ -207,8 +207,8 @@ roster:
     role: Structural Engineer
     division: STRUCT
     bio: |
-      Reads the wall. Forty-one drain holes, nine seepage weirs and a row of
-      uplift gauges in the foundation gallery, and she has a plot of every one
+      Reads the wall. 41 drain holes, 9 seepage weirs and a row of
+      uplift gauges in the foundation gallery, and she has a plot of every 1
       of them going back to before she was born.
 
       A dam under a rising reservoir is under a rising load, and the gallery
@@ -253,7 +253,7 @@ roster:
     role: Downstream Warning Officer
     division: SAFE
     bio: |
-      Owns the list: eleven villages, two caravan sites, a school and a road
+      Owns the list: 11 villages, 2 caravan sites, a school and a road
       that floods before anything else does. She knows the arrival time to each
       of them from a release at the dam, and she has walked every one.
 
@@ -292,7 +292,7 @@ roster:
         wrong:
           - Echo sounders have improved and older surveys used cruder instruments
           - The curve is only valid between the levels that were surveyed
-          - Reservoir level records are lost after twenty-five years
+          - Reservoir level records are lost after 25 years
   - id: sato
     name: June Sato
     role: Forecast Liaison
@@ -322,7 +322,7 @@ roster:
     bio: |
       Speaks for the reach below the dam: farms, two caravan sites and the
       people who have to move animals when the river comes up. She has been on
-      the liaison committee for eleven years and has never missed a meeting.
+      the liaison committee for 11 years and has never missed a meeting.
 
       What she asks for is not less water. It is the same water with more
       notice, and she is the reason the warning list is a list of times rather
@@ -496,11 +496,11 @@ glossary:
 missions:
   # ---------------------------------------------------------------- day 1
   # Unit 1 — limits, the difference quotient, and where a derivative fails to exist.
-  - title: Eighty-eight per cent
+  - title: 88 per cent
     objective: Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.
     briefing: Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.
     stake: >-
-      Monday, and the reservoir is at 88 per cent after the driest summer in nine years. June Sato
+      Monday, and the reservoir is at 88 per cent after the driest summer in 9 years. June Sato
       brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and
       a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does
       not want one. Everything decided this fortnight is decided on rates rather than readings, so
@@ -513,19 +513,19 @@ missions:
         title: The slope between two readings
         place: Catchment & Inflow Desk
         scene: >
-          Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at six this
-          morning, 48 at eight. Halloran wants a number for how fast it is climbing, not another
+          Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this
+          morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another
           reading off the same trace.
         assumes:
           - a flow rate says how much water passes a point each second
           - the slope of a line through two points is the rise divided by the run
         takeaway: An average rate of change is the slope of the line joining an interval's two endpoints.
         format: BALLPARK
-        question: Estimate the average rate of change of the inflow between six and eight o'clock.
+        question: Estimate the average rate of change of the inflow between 14 o'clock.
         why: >
           An average rate of change is a slope, and the two readings are the two ends of it. It says
           nothing about what happened between them — the same pair comes from a river that climbed
-          steadily and from one that sat still for ninety minutes and then jumped. Shrinking the
+          steadily and from 1 that sat still for 90 minutes and then jumped. Shrinking the
           interval is the only cure, and the number that shrinking approaches, the limit of this
           slope as the two readings close together, is the instantaneous rate the forecast wants.
         estimate:
@@ -534,10 +534,10 @@ missions:
             change is the change in the quantity divided by the change in the time.
           question: Choose the later reading, the earlier reading and the length of the interval.
           labels:
-            - 48  (the reading at eight, cubic metres a second)
-            - 41  (the reading at six, cubic metres a second)
-            - 2  (hours between the two readings)
-            - 89  (the two readings added together)
+            - 48  (the reading at 8, cubic metres a second)
+            - 41  (the reading at 6, cubic metres a second)
+            - 2  (hours between the 2 readings)
+            - 89  (the 2 readings added together)
             - 8  (the hour the later reading was taken)
           values: [48, 41, 2, 89, 8]
           slots: 3
@@ -549,8 +549,8 @@ missions:
           units: cubic metres a second per hour
           solution: (48 − 41) ÷ 2 = 3.5 cubic metres a second per hour.
           explanation: >
-            About 3.5 cubic metres a second every hour. Carried forward six hours that is another
-            twenty-one on the gauge, which is the whole of this morning's argument — and it is a
+            About 3.5 cubic metres a second every hour. Carried forward 6 hours that is another
+            21 on the gauge, which is the whole of this morning's argument — and it is a
             straight-line carry, which the afternoon will show to be optimistic.
           givens:
             - 41 m³/s at 06:00, 48 m³/s at 08:00
@@ -558,7 +558,7 @@ missions:
           relationship: >
             Average rate of change = (Q(t₂) − Q(t₁)) ÷ (t₂ − t₁), which is the slope of the line
             through the two points on the hydrograph.
-        answerText: About 3.5 cubic metres a second per hour, averaged across the two hours.
+        answerText: About 3.5 cubic metres a second per hour, averaged across the 2 hours.
       - group: STORE
         task: Get a rate out of a formula, from the definition
         title: What the slope becomes
@@ -598,7 +598,7 @@ missions:
                   why: >-
                     (t + h)² is t² + 2th + h², and the dropped cross term 2th is the only part of the
                     expansion that survives the limit. This divides by h cleanly and stays valid all
-                    the way down to a derivative of 40, which is wrong at every hour but one.
+                    the way down to a derivative of 40, which is wrong at every hour but 1.
                 - text: '5(t + h)² + 40(t + h) − 5t² − 40t'
                   rule: expansion
                   why: >-
@@ -612,14 +612,14 @@ missions:
                 - text: '10t + 5h + 40, which approaches 10t + 45'
                   rule: limit
                   why: >-
-                    Sending h to zero removes the whole term 5h. It does not leave the coefficient 5
+                    Sending h to 0 removes the whole term 5h. It does not leave the coefficient 5
                     standing on its own.
                 - text: '10t + 5h + 40 for every h, so the limit does not exist'
                   rule: limit
                   why: >-
                     This is a polynomial in h, and a polynomial has a limit everywhere. Nothing is
                     undefined once the h in the denominator has cancelled.
-                - text: '10t + 5h + 40, and h cannot be set to zero, so the quotient is undefined'
+                - text: '10t + 5h + 40, and h cannot be set to 0, so the quotient is undefined'
                   rule: cancellation
                   survives: true
                   why: >-
@@ -645,21 +645,21 @@ missions:
                     how much, which is the number the call already has.
           commit: Report the rate
         answerText: >-
-          80 thousand cubic metres an hour at four hours — a limit of the difference quotient, not
+          80 thousand cubic metres an hour at 4 hours — a limit of the difference quotient, not
           an average across any interval.
         why: >
           The difference quotient is the slope of a line through two points on the curve, and its
           value depends on how far apart they are. Taking the limit closes that gap without ever
-          setting it to zero, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says
-          nothing, while its limit is one number. What comes out is a rule, 10t + 40, good at every
-          hour of the night, and the four-hour figure is one substitution away from it.
+          setting it to 0, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says
+          nothing, while its limit is 1 number. What comes out is a rule, 10t + 40, good at every
+          hour of the night, and the four-hour figure is 1 substitution away from it.
       - group: SAFE
         task: Say what the trace has no rate at
         title: The instant the gate moved
         place: Downstream Warning Desk
         scene: >
           Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at
-          60 cubic metres a second up to two o'clock and at 145 immediately after. She wants the
+          60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the
           trace read, not smoothed.
         assumes:
           - a limit describes what a quantity approaches from one side, which need not be what it reaches
@@ -674,8 +674,8 @@ missions:
           - The rate of change is zero, because the discharge is constant on either side of it
         answer: The one-sided limits differ, so there is no rate of change at that instant
         why: >
-          Approaching two o'clock from the left, the discharge tends to sixty. From the right it
-          tends to a hundred and forty-five. A derivative is the limit of a difference quotient
+          Approaching 2 o'clock from the left, the discharge tends to 60. From the right it
+          tends to 145. A derivative is the limit of a difference quotient
           taken across the instant. Here that quotient is a fixed jump divided by a shrinking
           interval, so it grows without bound. It never settles on a number. The trace has a
           good rate everywhere else, which is why asking for the rate of rise at two o'clock
@@ -802,7 +802,7 @@ missions:
                 - text: 'dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt'
                   rule: power
                   why: >-
-                    H^(1/2) at 2.0 m is the square root of two, about 1.41. Using 2.00 evaluates H
+                    H^(1/2) at 2.0 m is the square root of 2, about 1.41. Using 2.00 evaluates H
                     rather than its square root.
                 - text: 'dQ/dt = 21.0 × 1.5 × 1.50 × dH/dt = 47.3·dH/dt'
                   rule: power
@@ -884,8 +884,8 @@ missions:
                   survives: true
                   why: >-
                     The arithmetic is right and the unit is not. A rate of change of power is
-                    kilowatts per second, and reported as kilowatts it reads as an output of four
-                    watts rather than a climb of sixteen kilowatts an hour.
+                    kilowatts per second, and reported as kilowatts it reads as an output of 4
+                    watts rather than a climb of 16 kilowatts an hour.
                 - text: 'dP/dt = 8.6 × 46 × 61 × 0.000011 ≈ 0.27 kW/s'
                   rule: product
                   why: >-
@@ -893,7 +893,7 @@ missions:
                     again. The second term of the product rule is Q·dH/dt and carries no H.
           commit: Report the rate
         answerText: >-
-          About 0.0044 kilowatts a second — roughly sixteen kilowatts an hour, entirely from the
+          About 0.0044 kilowatts a second — roughly 16 kilowatts an hour, entirely from the
           head, with the gates untouched.
         why: >
           A product of two changing quantities has two rates in it, and the product rule keeps them
@@ -922,7 +922,7 @@ missions:
         title: Adding up a curve nobody wrote down
         place: Catchment & Inflow Desk
         scene: >
-          Ekundayo has five readings an hour and a half apart — 48, 60, 74, 87 and 96 cubic metres a
+          Ekundayo has 5 readings an hour and a half apart — 48, 60, 74, 87 and 96 cubic metres a
           second. Sato is asking for the volume already in, and there is no equation behind any of
           it.
         assumes:
@@ -946,10 +946,10 @@ missions:
           question: Choose the half-ends term, the interior sum and the interval in seconds.
           labels:
             - 72  (half of the first and last readings added)
-            - 221  (the three interior readings added)
+            - 221  (the 3 interior readings added)
             - 5400  (seconds in each interval)
             - 144  (the first and last readings added, not halved)
-            - 365  (all five readings added)
+            - 365  (all 5 readings added)
           values: [72, 221, 5400, 144, 365]
           slots: 3
           template: '({0} + {1}) × {2}'
@@ -960,16 +960,16 @@ missions:
           units: cubic metres
           solution: (72 + 221) × 5,400 ≈ 1.58 million cubic metres.
           explanation: >
-            About 1.58 million cubic metres in six hours. A left-endpoint sum over the same readings
+            About 1.58 million cubic metres in 6 hours. A left-endpoint sum over the same readings
             gives 1.40 million and a right-endpoint sum 1.66 — the trapezoid result is the average of
-            those two, and the true area is close to it because the rise is nearly straight.
+            those 2, and the true area is close to it because the rise is nearly straight.
           givens:
             - Readings 48, 60, 74, 87, 96 m³/s at 1.5-hour spacing
-            - Six hours in total, 5,400 seconds per interval
+            - 6 hours in total, 5,400 seconds per interval
           relationship: >
             Volume ≈ Δt × (½Q₀ + Q₁ + Q₂ + Q₃ + ½Q₄) — the trapezoid rule, which is every pair of
             readings averaged and added.
-        answerText: About 1.58 million cubic metres over the six hours.
+        answerText: About 1.58 million cubic metres over the 6 hours.
       - group: STRUCT
         task: Say which way a sum of readings is wrong
         title: Which end of the interval you believed
@@ -1043,9 +1043,9 @@ missions:
     objective: Use an antiderivative to evaluate an accumulation, and say what the accumulation function's own rate is.
     briefing: The release that was deferred on Monday has to be made today, and the arithmetic for it is an integral.
     stake: >-
-      Thursday. Sunniva Berg asked for a release on Monday and did not get one, and the water that
-      would have gone out at a hundred and twenty cubic metres a second now has to go out at four
-      hundred and eighty into a river with people beside it. The schedule is written as a formula
+      Thursday. Sunniva Berg asked for a release on Monday and did not get 1, and the water that
+      would have gone out at 120 cubic metres a second now has to go out at 480
+      into a river with people beside it. The schedule is written as a formula
       this time rather than a table, which means the volume it delivers can be evaluated exactly
       instead of summed. Today you use the fundamental theorem in both directions — an antiderivative to
       total a rate, and an accumulation to hand a rate back.
@@ -1065,16 +1065,16 @@ missions:
         takeaway: A net change is the integral of a difference, so every removal term has to be added back before the arrival is known.
         format: BALANCE
         question: >-
-          Read what you need and report the total volume that arrived over the twelve hours.
+          Read what you need and report the total volume that arrived over the 12 hours.
         balance:
           hint: >-
             Reading a stream costs nothing. Counting it is the claim you are making about where the
             water went.
-          total: { amount: 2160000, unit: m³, label: Volume that arrived over twelve hours }
+          total: { amount: 2160000, unit: m³, label: Volume that arrived over 12 hours }
           streams:
             - { id: rise, label: Storage gained overnight, value: 1060000, display: '1.06 million m³ from the level record' }
-            - { id: machines, label: Passed through the machines, value: 950000, display: '22 m³/s for twelve hours = 950,000 m³', hidden: true, note: 'both units ran all night' }
-            - { id: seepage, label: Seepage collected at the weirs, value: 150000, display: '3.5 m³/s for twelve hours = 150,000 m³', hidden: true, note: 'measured at the sump, runs continuously' }
+            - { id: machines, label: Passed through the machines, value: 950000, display: '22 m³/s for 12 hours = 950,000 m³', hidden: true, note: 'both units ran all night' }
+            - { id: seepage, label: Seepage collected at the weirs, value: 150000, display: '3.5 m³/s for 12 hours = 150,000 m³', hidden: true, note: 'measured at the sump, runs continuously' }
             - { id: spill, label: Over the spillway, value: 0, display: 'gates shut all night' }
             - { id: rain, label: Rain falling on the reservoir surface, value: 0, display: 'counted at the inflow gauge already' }
           tolerance: 90000
@@ -1086,7 +1086,7 @@ missions:
           The storage change is the integral of inflow minus outflow, so recovering the inflow means
           integrating every outflow term back in. Two of them are easy to miss for the same reason —
           nothing on the panel moves when they run. The machines and the seepage are steady rates
-          that were on for the whole twelve hours, and a steady rate integrates to rate times time
+          that were on for the whole 12 hours, and a steady rate integrates to rate times time
           without any further work. Report the 1.06 and the catchment's yield is understated by half,
           which is the number every forecast for the rest of the week is scaled from.
       - group: GATES
@@ -1095,7 +1095,7 @@ missions:
         place: Gate Chamber
         scene: >
           Wilkes has this afternoon's ramp written as R(t) = 120 + 60t cubic metres a second, with t
-          in hours from two o'clock. It runs for four hours and Berg wants the volume it will deliver
+          in hours from 2 o'clock. It runs for four hours and Berg wants the volume it will deliver
           before it starts.
         assumes:
           - the accumulation of a rate over an interval is the definite integral of that rate
@@ -1127,7 +1127,7 @@ missions:
                   survives: true
                   why: >-
                     The constant term 120 antidifferentiates to 120t, not to 120. It looks like a
-                    tidy line and it drops four hours of base flow — about 1.7 million cubic metres —
+                    tidy line and it drops 4 hours of base flow — about 1.7 million cubic metres —
                     without changing anything else on the page.
                 - text: "F(t) = 60"
                   rule: antiderivative
@@ -1247,12 +1247,12 @@ missions:
           commit: Name the governing transfer
         answerText: >-
           Runoff, inflow, storage, level, head, discharge — governed by storage into level, where
-          dividing by 2.6 million square metres cuts the rate by six orders of magnitude.
+          dividing by 2.6 million square metres cuts the rate by 6 orders of magnitude.
         why: >
           Every link on this path multiplies the rate by its own derivative, and the product is what
-          arrives. The spillway link is the one everybody watches because its exponent makes it
-          dramatic, but three-halves of a square root is a factor near forty and the storage-to-level
-          link divides by a surface area of two and a half million. That single division is why a
+          arrives. The spillway link is the 1 everybody watches because its exponent makes it
+          dramatic, but three-halves of a square root is a factor near 40 and the storage-to-level
+          link divides by a surface area of 2 and a half million. That single division is why a
           catchment can double its flow in a morning and the level move eight centimetres. It is also
           the link the resurvey is about to change, which is the reason it is worth naming now rather
           than in a week.
@@ -1299,7 +1299,7 @@ missions:
                 - text: '2U·(dU/dt) + 0.8·((dU/dt)·h + U·(dh/dt)) = 640'
                   rule: constant
                   why: >-
-                    640 is a constant, and the derivative of a constant is zero. Carrying it across
+                    640 is a constant, and the derivative of a constant is 0. Carrying it across
                     unchanged makes the relation a different equation entirely.
             - ask: 'Solve for dU/dt and evaluate at U = 20, h = 25, with dh/dt = 0.4 m a day.'
               answer: 1
@@ -1346,15 +1346,15 @@ missions:
         question: Estimate how fast the machine output is rising, in kilowatts a day.
         why: >
           The output is 8.6·Q·H and the flow is not moving, so the first term of the product rule is
-          zero and the entire rate is 8.6·Q·(dH/dt). What survives is a multiplication, and the
-          reason to write the product rule down anyway is that today's zero is an accident of the
+          0 and the entire rate is 8.6·Q·(dH/dt). What survives is a multiplication, and the
+          reason to write the product rule down anyway is that today's 0 is an accident of the
           gate settings: the moment anybody touches a gate the other term reappears and this number
           is wrong by more than it is right. It is also the rate that pays for the fortnight, which
           is why Halloran asks for it every morning.
         estimate:
           prompt: >
             Output is 8.6·Q·H kilowatts. The flow Q is steady at 46 cubic metres a second, so its
-            rate is zero, and the head is rising at 0.31 metres a day.
+            rate is 0, and the head is rising at 0.31 metres a day.
           question: Choose the constant, the flow and the rate the head is rising at.
           labels:
             - 8.6  (the constant in front of the product)
@@ -1379,7 +1379,7 @@ missions:
             - Output P = 8.6·Q·H kilowatts
             - Q steady at 46 m³/s, head rising at 0.31 m a day
           relationship: >
-            dP/dt = 8.6·((dQ/dt)·H + Q·(dH/dt)), and with dQ/dt zero the first term vanishes and only
+            dP/dt = 8.6·((dQ/dt)·H + Q·(dH/dt)), and with dQ/dt 0 the first term vanishes and only
             8.6·Q·(dH/dt) is left.
         answerText: About 123 kilowatts a day, entirely from the head.
   # ---------------------------------------------------------------- day 6
@@ -1463,11 +1463,11 @@ missions:
           commit: Name the hour
         answerText: >-
           Ten o'clock. The flow is still climbing there and climbing more slowly than it was — the
-          increments run 14, 16, 18, 16, 12, and the sign of their change turns between nine and ten.
+          increments run 14, 16, 18, 16, 12, and the sign of their change turns between 19.
         why: >
           Every reading in this column is higher than the one before it, so the first derivative
           never changes sign and the flow does not peak anywhere on the screen. What changes is the
-          second derivative: the increments grow to eighteen and then shrink. That turn is the
+          second derivative: the increments grow to 18 and then shrink. That turn is the
           earliest thing on a hydrograph that says the event has a top, and it arrives hours before
           the top does, which is the whole reason to look for it. Reading only the flow leaves
           nothing to say until the peak has already passed.
@@ -1500,7 +1500,7 @@ missions:
                 - text: "h'(t) = 214.6 + 0.9 − 0.06t"
                   rule: constant
                   why: >-
-                    The derivative of a constant is zero, so the 214.6 does not survive
+                    The derivative of a constant is 0, so the 214.6 does not survive
                     differentiation. Carried through it swamps everything else on the line.
                 - text: "h'(t) = 0.9 − 0.06t"
                   rule: power
@@ -1510,12 +1510,12 @@ missions:
                   why: >-
                     The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates
                     to −0.06t. Halving it doubles the day the level turns over, and every line after
-                    this one stays perfectly consistent with it.
+                    this 1 stays perfectly consistent with it.
                 - text: "h'(t) = 0.9t − 0.06t"
                   rule: power
                   why: >-
                     The term 0.9t differentiates to 0.9, with no t left. Keeping the t makes the
-                    derivative zero at t = 0 and nowhere else.
+                    derivative 0 at t = 0 and nowhere else.
             - ask: Set the derivative to zero and solve for the day.
               answer: 0
               candidates:
@@ -1557,7 +1557,7 @@ missions:
         why: >
           Setting the derivative to zero finds where the level stands still. On its own that
           does not say whether it is a crest or a trough. A reservoir topping out on day 15 and
-          one bottoming out on day 15 have the same first derivative there. The second
+          1 bottoming out on day 15 have the same first derivative there. The second
           derivative settles it with no further data. Because it is a constant here, it settles
           it on every day at once. A curve concave down over the whole fortnight has at most one
           turning point, so the day is unique as well as classified.
@@ -1593,7 +1593,7 @@ missions:
           - The outflow is a setting, and moving it changes when the net flow crosses zero rather than fixing it.
 
   # ---------------------------------------------------------------- day 7
-  # Unit 5 — optimisation, three ways: an interior critical point, a function with
+  # Unit 5 — optimisation, 3 ways: an interior critical point, a function with
   # none, and a maximum found by moving a control.
   - title: What the wall is carrying
     objective: Find a maximum at a critical point, at an endpoint, and by sweeping a control.
@@ -1624,13 +1624,13 @@ missions:
         why: >
           Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as
           a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst
-          case at eight metres, which is past the downstream toe and outside the wall entirely — an
-          answer that is not merely wrong but physically impossible, and one nobody catches because
-          the arithmetic is clean. The moment there is 24 against a true worst of 24 at four metres.
+          case at 8 metres, which is past the downstream toe and outside the wall entirely — an
+          answer that is not merely wrong but physically impossible, and 1 nobody catches because
+          the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.
         estimate:
           prompt: >
             The moment is M(a) = 12a − 1.5a². Differentiating gives 12 − 3a, since the exponent 2
-            comes down as a factor onto the 1.5. The maximum is where that derivative is zero.
+            comes down as a factor onto the 1.5. The maximum is where that derivative is 0.
           question: Choose the constant term of the derivative and the coefficient of a in it.
           labels:
             - 12  (the constant term of the derivative)
@@ -1646,10 +1646,10 @@ missions:
           target: 4
           tolerance: 0.4
           units: metres of uplift extent
-          solution: 12 ÷ 3 = 4 metres, where 12 − 3a first reaches zero.
+          solution: 12 ÷ 3 = 4 metres, where 12 − 3a first reaches 0.
           explanation: >
-            Four metres, giving a moment of 24 meganewton metres per metre of wall. Dividing by 1.5
-            instead of 3 puts it at eight metres, which is beyond the base of the dam — the answer
+            4 metres, giving a moment of 24 meganewton metres per metre of wall. Dividing by 1.5
+            instead of 3 puts it at 8 metres, which is beyond the base of the dam — the answer
             leaves the structure, and the only thing that catches it is the factor the power rule
             brought down.
           givens:
@@ -1657,7 +1657,7 @@ missions:
             - The base is 6.5 m from heel to toe
           relationship: >
             M'(a) = 12 − 3a, and the maximum is where M'(a) = 0 — so a = 12 ÷ 3.
-        answerText: Four metres of uplift extent, for a moment of about 24 meganewton metres per metre.
+        answerText: 4 metres of uplift extent, for a moment of about 24 meganewton metres per metre.
       - group: GATES
         task: Say where the rating is most sensitive
         title: A maximum with no critical point
@@ -1683,9 +1683,9 @@ missions:
             - ask: Differentiate the sensitivity and look for a critical point in the range.
               answer: 0
               candidates:
-                - text: 'd²Q/dH² = 15.75·H^(−1/2), which is never zero for H above zero'
+                - text: 'd²Q/dH² = 15.75·H^(−1/2), which is never 0 for H above 0'
                   rule: power
-                - text: 'd²Q/dH² = 15.75·H^(1/2), which is never zero for H above zero'
+                - text: 'd²Q/dH² = 15.75·H^(1/2), which is never 0 for H above 0'
                   rule: power
                   survives: true
                   why: >-
@@ -1695,9 +1695,9 @@ missions:
                 - text: 'd²Q/dH² = 31.5·H^(−1/2)'
                   rule: power
                   why: >-
-                    The exponent 1/2 comes down as a factor as well as dropping by one. Half the
+                    The exponent 1/2 comes down as a factor as well as dropping by 1. Half the
                     coefficient is missing.
-                - text: 'd²Q/dH² is zero at H = 0, so there is a critical point in the range'
+                - text: 'd²Q/dH² is 0 at H = 0, so there is a critical point in the range'
                   rule: critical point
                   why: >-
                     H = 0 is outside this interval, which starts at half a metre. A critical point
@@ -1780,7 +1780,7 @@ missions:
         why: >
           Output is flow times head, and the head is itself falling with the square of the flow, so
           the product climbs, flattens and turns over. Differentiating 8.6Q(61 − 0.006Q²) gives
-          8.6(61 − 0.018Q²), which is zero near 58 — the same place the trace turns, found by
+          8.6(61 − 0.018Q²), which is 0 near 58 — the same place the trace turns, found by
           calculus instead of by hunting. The shape is the lesson: near the top the curve is almost
           flat, so being a few cubic metres a second out costs almost nothing, while the same error
           low on the curve costs a great deal.
@@ -1805,12 +1805,12 @@ missions:
         title: One number for six hours
         place: Storage & Level Board
         scene: >
-          Ferrand has Wednesday's six hours totalled at 1,582,200 cubic metres and a committee sheet
-          with one line on it for the morning. He wants the steady flow that would have delivered the
+          Ferrand has Wednesday's 6 hours totalled at 1,582,200 cubic metres and a committee sheet
+          with 1 line on it for the morning. He wants the steady flow that would have delivered the
           same water.
         assumes:
           - the accumulation of a rate over an interval divided by that interval is a rate again
-          - six hours is 21,600 seconds
+          - 6 hours is 21,600 seconds
         takeaway: The average value of a rate is the accumulation divided by the length of the interval, not the average of the readings taken.
         format: BALLPARK
         question: Estimate the steady flow that would have delivered the same volume in the same six hours.
@@ -1824,13 +1824,13 @@ missions:
         estimate:
           prompt: >
             The morning delivered 1,582,200 cubic metres. The average value of a rate is its
-            accumulation divided by the length of the interval, and six hours is 21,600 seconds.
+            accumulation divided by the length of the interval, and 6 hours is 21,600 seconds.
           question: Choose the volume and the length of the interval in seconds.
           labels:
             - 1582200  (volume that arrived, cubic metres)
-            - 21600  (seconds in the six hours)
+            - 21600  (seconds in the 6 hours)
             - 6  (hours in the interval)
-            - 5400  (seconds in one reading interval)
+            - 5400  (seconds in 1 reading interval)
             - 293  (the trapezoid sum of the readings)
           values: [1582200, 21600, 6, 5400, 293]
           slots: 2
@@ -1842,7 +1842,7 @@ missions:
           units: cubic metres a second
           solution: 1,582,200 ÷ 21,600 ≈ 73 cubic metres a second.
           explanation: >
-            About 73 cubic metres a second. Dividing by the six rather than by the 21,600 seconds
+            About 73 cubic metres a second. Dividing by the 6 rather than by the 21,600 seconds
             gives 263,700, which is not a flow at all — and it is the mistake that survives longest,
             because the number is large and a flood morning is expected to produce a large number.
           givens:
@@ -1851,7 +1851,7 @@ missions:
           relationship: >
             Average value = (1 ÷ (b − a)) × ∫f — the accumulation over the interval, divided by the
             length of the interval, with both in the same units of time.
-        answerText: About 73 cubic metres a second, steady, for the same six hours.
+        answerText: About 73 cubic metres a second, steady, for the same 6 hours.
       - group: INFLOW
         task: Say what an average guarantees about the record
         title: Whether the river ever ran at it
@@ -1867,11 +1867,11 @@ missions:
         format: CHOICE
         question: What follows from the morning having averaged 73 cubic metres a second?
         choices:
-          - At some instant in the six hours it ran at exactly 73
-          - It ran at 73 at the midpoint of the six hours
+          - At some instant in the 6 hours it ran at exactly 73
+          - It ran at 73 at the midpoint of the 6 hours
           - It ran at 73 at least twice, once climbing and once falling
           - Nothing follows, since an average need not be attained
-        answer: At some instant in the six hours it ran at exactly 73
+        answer: At some instant in the 6 hours it ran at exactly 73
         why: >
           The average lies between the lowest and the highest values the flow took. A river's
           discharge is continuous, so it cannot get from 48 to 96 without passing through every
@@ -1889,7 +1889,7 @@ missions:
         title: The release she would have made
         place: Downstream Warning Desk
         scene: >
-          Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running six
+          Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running 6
           hours. She wants the flat release with the same total, to set beside the one she asked for
           on the first day.
         assumes:
@@ -1923,7 +1923,7 @@ missions:
                   rule: antiderivative
                   why: >-
                     The constant 48 antidifferentiates to 48t. Left as 48 it takes the same value at
-                    both ends and cancels, so six hours of base flow vanish from the total.
+                    both ends and cancels, so 6 hours of base flow vanish from the total.
                 - text: 'Q(6) − Q(0) = 96 − 48 = 48'
                   rule: evaluation
                   why: >-
@@ -1946,7 +1946,7 @@ missions:
                   why: >-
                     An average divides the accumulation by the interval. Multiplying gives a number
                     with no meaning and a release the spillway could not pass.
-            - ask: Say why 72 is also the mean of the two end readings.
+            - ask: Say why 72 is also the mean of the 2 end readings.
               answer: 2
               candidates:
                 - text: 'because the average value of any rate is the mean of its endpoints'
@@ -1956,7 +1956,7 @@ missions:
                     True for a straight line and false in general. Applied to a curving hydrograph it
                     is out by several per cent in a direction that depends on the curvature, and it
                     is the shortcut that stops anybody integrating again.
-                - text: 'because 48 and 96 are both whole multiples of six'
+                - text: 'because 48 and 96 are both whole multiples of 6'
                   rule: substitution
                   why: >-
                     A coincidence of these particular numbers rather than a property of the schedule.
@@ -1965,7 +1965,7 @@ missions:
                   rule: endpoint
           commit: Report the steady flow
         answerText: >-
-          72 cubic metres a second, steady, for six hours — the same total the ramp delivers, and the
+          72 cubic metres a second, steady, for 6 hours — the same total the ramp delivers, and the
           mean of its ends only because the ramp is a straight line.
         why: >
           Two steps and one trap. Integrating gives the total in the mixed units the formula was
@@ -1976,7 +1976,7 @@ missions:
           and the published figure is wrong in the direction the curvature points.
 
   # ---------------------------------------------------------------- day 9
-  # Unit 7 — a separable differential equation, and what one measurement does and
+  # Unit 7 — a separable differential equation, and what 1 measurement does and
   # does not fix about its solution.
   - title: The ledger that will not close
     objective: Solve the drawdown equation, and find what a single reading leaves undetermined.
@@ -2041,15 +2041,15 @@ missions:
                 - text: '√h = −k·t + C'
                   rule: antiderivative
                   why: >-
-                    Raising −1/2 by one gives +1/2, and dividing by that new exponent multiplies by
-                    two. The missing factor of two halves every drawdown time this produces.
+                    Raising −1/2 by 1 gives +1/2, and dividing by that new exponent multiplies by
+                    2. The missing factor of two halves every drawdown time this produces.
                 - text: '2·√h = −k·t + C'
                   rule: antiderivative
                 - text: '(1/2)·√h = −k·t + C'
                   rule: antiderivative
                   survives: true
                   why: >-
-                    Dividing by the new exponent of 1/2 means multiplying by two, not halving. The
+                    Dividing by the new exponent of 1/2 means multiplying by 2, not halving. The
                     curve has exactly the right shape and every time it predicts is out by a factor
                     of four.
                 - text: 'ln(h) = −k·t + C'
@@ -2081,7 +2081,7 @@ missions:
                     never reaches zero, and an outlet on a reservoir does.
           commit: Report the solution
         answerText: >-
-          h(t) = (√h₀ − kt/2)² — a parabola in time, reaching zero head at t = 2√h₀ ÷ k, which is a
+          h(t) = (√h₀ − kt/2)² — a parabola in time, reaching 0 head at t = 2√h₀ ÷ k, which is a
           finite hour rather than an approach that never arrives.
         why: >
           Separating the variables is the whole method. The equation ties a rate to the quantity
@@ -2097,7 +2097,7 @@ missions:
         place: Catchment & Inflow Desk
         scene: >
           Ekundayo has one level reading six hours into the drawdown and is being asked for the drain
-          constant. Rasmussen has a second reading from twelve hours later and has not brought it
+          constant. Rasmussen has a second reading from 12 hours later and has not brought it
           over yet.
         assumes:
           - a solved differential equation carries a constant that the equation itself does not fix
@@ -2121,7 +2121,7 @@ missions:
             - { a: 27.46, b: 0.18 }
             - { a: 28.73, b: 0.22 }
           second:
-            label: The reading taken twelve hours later
+            label: The reading taken 12 hours later
             apply: Bring the eighteen-hour reading over
             locus:
               - { a: 18.32, b: 0.02 }
@@ -2134,7 +2134,7 @@ missions:
           commit: Report the drain constant
         answerText: >-
           About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to
-          say so, because either one alone is matched by a whole line of pairs.
+          say so, because either 1 alone is matched by a whole line of pairs.
         why: >
           Integrating produced a constant, and the equation cannot supply it; only a measurement can.
           One reading is one equation in two unknowns, so a higher starting head paired with a faster
@@ -2160,8 +2160,8 @@ missions:
         why: >
           The solution rearranges to t = 2(√h₀ − √h) ÷ k, which is the whole practical value of
           having solved it: a curve becomes an hour somebody can act on. The square roots are also
-          where the surprise is — the first nine metres of drawdown take twenty hours, and the next
-          nine take twenty-six, because the head driving the outlet is falling the whole time. A
+          where the surprise is — the first 9 metres of drawdown take 20 hours, and the next
+          9 take 26, because the head driving the outlet is falling the whole time. A
           warning built on the first nine metres and carried forward linearly arrives early, and
           being early is not free on a river with people beside it.
         estimate:
@@ -2174,7 +2174,7 @@ missions:
             - 4  (the square root of the target head)
             - 0.10  (the drain constant, per hour)
             - 25  (the starting head itself, metres)
-            - 9  (the difference between the two heads, metres)
+            - 9  (the difference between the 2 heads, metres)
           values: [5, 4, 0.10, 25, 9]
           slots: 3
           template: '2 × ({0} − {1}) ÷ {2}'
@@ -2185,7 +2185,7 @@ missions:
           units: hours
           solution: 2 × (5 − 4) ÷ 0.10 = 20 hours.
           explanation: >
-            Twenty hours. Using the heads themselves rather than their roots gives 180 hours, which
+            20 hours. Using the heads themselves rather than their roots gives 180 hours, which
             is a week and a half and would be believed by anybody who had not solved the equation —
             the roots are the whole content of the solution.
           givens:
@@ -2194,7 +2194,7 @@ missions:
           relationship: >
             t = 2 × (√h₀ − √h) ÷ k, which is the drawdown solution rearranged for the time at a
             given head.
-        answerText: About twenty hours to bring the head from 25 metres to 16.
+        answerText: About 20 hours to bring the head from 25 metres to 16.
 
   # ---------------------------------------------------------------- day 10
   # Unit 8 — volume by cross-sections, and what happens to every accumulation when
@@ -2204,7 +2204,7 @@ missions:
     briefing: The survey boat has been out, and the curve every volume on this site came through is wrong.
     stake: >-
       Wednesday, and Ilya Rasmussen has been over the reservoir with an echo sounder. The stage-storage
-      curve was surveyed in 2003 and never resurveyed, and two decades of silt mean the surface area at
+      curve was surveyed in 2003 and never resurveyed, and 2 decades of silt mean the surface area at
       any given level is smaller than the sheet says. Nothing was faked and nobody was careless. But
       volume is the integral of area with respect to level, so an integrand wrong by a few per cent
       makes every accumulation this control room has computed for a fortnight wrong in the same
@@ -2216,7 +2216,7 @@ missions:
         title: A volume out of a stack of areas
         place: Storage & Level Board
         scene: >
-          Rasmussen has the resurveyed surface areas at three levels two metres apart — 2.30, 2.45
+          Rasmussen has the resurveyed surface areas at 3 levels 2 metres apart — 2.30, 2.45
           and 2.60 square kilometres. Ferrand wants the volume held between the lowest and the
           highest of them.
         assumes:
@@ -2230,19 +2230,19 @@ missions:
           stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same
           arithmetic as stacking flows in time, with height in place of time, and it is why the
           resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and
-          2.92 for the same three levels and returns 11.0 million for this slice, which is eleven per
+          2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11 per
           cent of headroom the control room believed it had.
         estimate:
           prompt: >
-            Resurveyed areas 2.30, 2.45 and 2.60 square kilometres, at levels two metres apart. Half
+            Resurveyed areas 2.30, 2.45 and 2.60 square kilometres, at levels 2 metres apart. Half
             of each end plus the interior gives 1.15 + 2.45 + 1.30 = 4.90 square kilometres. A square
-            kilometre is a million square metres.
+            kilometre is 1 million square metres.
           question: Choose the trapezoid sum of the areas, the spacing and the conversion.
           labels:
             - 4.90  (half of each end plus the interior area, square kilometres)
             - 2  (metres between surveyed levels)
             - 1000000  (square metres in a square kilometre)
-            - 7.35  (all three areas added without halving the ends)
+            - 7.35  (all 3 areas added without halving the ends)
             - 4  (metres of level covered in total)
           values: [4.90, 2, 1000000, 7.35, 4]
           slots: 3
@@ -2254,9 +2254,9 @@ missions:
           units: cubic metres
           solution: 4.90 × 2 × 1,000,000 = 9.8 million cubic metres.
           explanation: >
-            About 9.8 million cubic metres in that four-metre slice. Adding all three areas without
+            About 9.8 million cubic metres in that four-metre slice. Adding all 3 areas without
             halving the ends gives 14.7 million, which counts the top and bottom surfaces as though
-            each had two metres of water above and below it.
+            each had 2 metres of water above and below it.
           givens:
             - Areas 2.30, 2.45, 2.60 km² at 210, 212 and 214 m
             - Two metres between surveyed levels
@@ -2297,13 +2297,13 @@ missions:
           dominant: coeff
           commit: Report the range
         answerText: >-
-          The coefficient. It sits at the first power and is known to fifteen per cent, which beats a
-          head at the three-halves power known to four — so the gauged calibration is the slot worth
+          The coefficient. It sits at the first power and is known to 15 per cent, which beats a
+          head at the three-halves power known to 4 — so the gauged calibration is the slot worth
           spending, and the discharge is a range rather than a figure.
         why: >
           A factor contributes its exponent multiplied by its own fractional width. The head carries
           the three-halves that the whole spillway is famous for, and it is gauged well enough that
-          one and a half times four per cent is still small beside one times fifteen. Buying another
+          1 and a half times 4 per cent is still small beside 1 times 15. Buying another
           head gauge therefore improves the term that was already good and barely moves the total.
           What makes this worth catching is that the shortcut — rank by exponent — is reasonable,
           teachable, and gives exactly the wrong answer here. The coefficient stays wide because
@@ -2363,7 +2363,7 @@ missions:
         scene: >
           Anand is at 46 cubic metres a second through the machines and proposes 52. The slope of the
           output curve at 46 is 197 kilowatts for every extra cubic metre a second, and the tailrace
-          traverse takes two hours of deck time.
+          traverse takes 2 hours of deck time.
         assumes:
           - the tangent line at a point predicts nearby values of the quantity
           - a curve that bends away from its tangent makes that prediction worse the further it is carried
@@ -2392,7 +2392,7 @@ missions:
             that sequence establishes what the change was worth.
           commit: Report the gain
         answerText: >-
-          About 919 kilowatts. The tangent line at 46 promises 1,182 — six times 197 — and the curve
+          About 919 kilowatts. The tangent line at 46 promises 1,182 — 6 times 197 — and the curve
           bends away from it, so the honest figure is a quarter lower than the prediction.
         why: >
           A tangent line is the best straight-line description of a curve at one point. Over a
@@ -2406,9 +2406,9 @@ missions:
         title: Nothing over nothing
         place: Seepage & Uplift Bay
         scene: >
-          Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T four
+          Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T 4
           hours. The initial rate of arrival is that fraction divided by t, and at t = 0 both parts
-          are zero.
+          are 0.
         assumes:
           - a quotient whose numerator and denominator both go to zero has no value until it is worked
           - the derivative of e^(−t/T) with respect to t is −(1/T)·e^(−t/T)
@@ -2439,8 +2439,8 @@ missions:
                   rule: substitution
                   survives: true
                   why: >-
-                    e^(−t/T) goes to 1 at t = 0, so the numerator is 1 − 1 and goes to zero, not to
-                    one. The reading is a term out and produces a confident, wrong, infinite answer
+                    e^(−t/T) goes to 1 at t = 0, so the numerator is 1 − 1 and goes to 0, not to
+                    1. The reading is a term out and produces a confident, wrong, infinite answer
                     that nothing later contradicts.
                 - text: 'the numerator goes to 0 and the denominator to 0, so the limit is 1'
                   rule: substitution
@@ -2479,16 +2479,16 @@ missions:
                   rule: evaluation
                   survives: true
                   why: >-
-                    The rate is the reciprocal of the time constant. Reported as four the arrival is
-                    sixteen times too fast, in units that read perfectly well on a warning sheet.
-                - text: '0, since the exponential still goes to zero at t = 0'
+                    The rate is the reciprocal of the time constant. Reported as 4 the arrival is
+                    16 times too fast, in units that read perfectly well on a warning sheet.
+                - text: '0, since the exponential still goes to 0 at t = 0'
                   rule: evaluation
                   why: >-
-                    e^(−t/T) goes to one at t = 0, not to zero. It is e raised to nothing.
+                    e^(−t/T) goes to 1 at t = 0, not to 0. It is e raised to nothing.
           commit: Report the rate
         answerText: >-
           A quarter per hour. The limit is 1/T, so a four-hour reach begins taking a step release at
-          twenty-five per cent an hour, however little has arrived at the first instant.
+          25 per cent an hour, however little has arrived at the first instant.
         why: >
           Zero over zero is a statement that substitution has failed, not a value.
           Differentiating the top and the bottom separately replaces both by the rates at which
@@ -2502,11 +2502,11 @@ missions:
         place: Catchment & Inflow Desk
         scene: >
           Ekundayo has the rating slope at 44.5 cubic metres a second for every metre of head, and a
-          gauge showing the head six centimetres higher than at the morning call. Sato wants it in
+          gauge showing the head 6 centimetres higher than at the morning call. Sato wants it in
           flow, not in centimetres.
         assumes:
           - a small change in a quantity is its rate of change multiplied by the small change in the input
-          - six centimetres is 0.06 metres
+          - 6 centimetres is 0.06 metres
         takeaway: A differential is the tangent line's arithmetic — a slope times a step — and it is what turns a gauge reading into the quantity somebody cares about.
         format: BALLPARK
         question: Estimate the change in spillway discharge from a six-centimetre rise in head.
@@ -2520,7 +2520,7 @@ missions:
         estimate:
           prompt: >
             The rating slope at this head is 44.5 cubic metres a second per metre. The head has risen
-            six centimetres, which is 0.06 metres.
+            6 centimetres, which is 0.06 metres.
           question: Choose the slope and the change in head.
           labels:
             - 44.5  (rating slope, cubic metres a second per metre)
@@ -2538,8 +2538,8 @@ missions:
           units: cubic metres a second
           solution: 44.5 × 0.06 ≈ 2.7 cubic metres a second.
           explanation: >
-            About 2.7 cubic metres a second more over the spillway. Using the six rather than the
-            0.06 gives 267, which is most of a flood and would be believed for the length of one
+            About 2.7 cubic metres a second more over the spillway. Using the 6 rather than the
+            0.06 gives 267, which is most of a flood and would be believed for the length of 1
             phone call, because nothing about the arithmetic looks wrong.
           givens:
             - Rating slope 44.5 m³/s per metre at this head
@@ -2594,7 +2594,7 @@ missions:
                 - text: 'Q^(−1)·dQ = −k·dt, giving Q^0 ÷ 0 = −k·t + C'
                   rule: power
                   why: >-
-                    The power rule fails at an exponent of −1, because raising it by one gives zero
+                    The power rule fails at an exponent of −1, because raising it by 1 gives 0
                     and the division is by nothing. That single exception is why the logarithm exists.
                 - text: 'dQ = −k·Q·dt, integrating to Q = −k·Q·t + C'
                   rule: separation
@@ -2695,7 +2695,7 @@ missions:
           commit: Freeze the constant
         answerText: >-
           About 0.22 a day, scoring 94 on days it has never seen. The 0.34 that scores best on the
-          fitted week manages 88 on them, and the three points it appeared to gain were a property of
+          fitted week manages 88 on them, and the 3 points it appeared to gain were a property of
           that week rather than of this river.
         why: >
           A constant chosen on a sample is chosen partly on that sample's noise, and noise does not
@@ -2713,28 +2713,28 @@ missions:
           once the flow is below half of what it is now. She wants a date, not a curve.
         assumes:
           - the recession solution can be rearranged for the time at a given fraction of the start
-          - the natural logarithm of two is about 0.693
+          - the natural logarithm of 2 is about 0.693
         takeaway: Rearranging an exponential solution for time replaces the curve with a single number that does not depend on where you started.
         format: BALLPARK
         question: Estimate how long the recession takes to halve the flow.
         why: >
           Setting Q equal to half of Q₀ and taking logarithms cancels the starting flow entirely, so
           the halving time depends on the constant alone. That independence is the whole reason a
-          recession is quoted as a constant — it says the same thing about a river at four hundred
-          cubic metres a second and at forty, which no absolute rate of fall does. It also gives the
+          recession is quoted as a constant — it says the same thing about a river at 400
+          cubic metres a second and at 40, which no absolute rate of fall does. It also gives the
           shape of the wait: the next halving takes exactly as long as this one, so the machines wait
           three days for the first and three more for the second.
         estimate:
           prompt: >
-            Setting Q to half of Q₀ in Q₀·e^(−kt) gives t = ln(2) ÷ k. The natural logarithm of two
+            Setting Q to half of Q₀ in Q₀·e^(−kt) gives t = ln(2) ÷ k. The natural logarithm of 2
             is about 0.693 and the recession constant is 0.22 a day.
           question: Choose the logarithm of two and the recession constant.
           labels:
-            - 0.693  (the natural logarithm of two)
+            - 0.693  (the natural logarithm of 2)
             - 0.22  (the recession constant, per day)
             - 2  (the factor the flow is falling by)
             - 0.5  (the fraction of the flow that is left)
-            - 4.55  (one divided by the recession constant)
+            - 4.55  (1 divided by the recession constant)
           values: [0.693, 0.22, 2, 0.5, 4.55]
           slots: 2
           template: '{0} ÷ {1}'
@@ -2745,8 +2745,8 @@ missions:
           units: days
           solution: 0.693 ÷ 0.22 ≈ 3.2 days.
           explanation: >
-            About three days and four hours. Using the 2 instead of its logarithm gives nine days and
-            a window booked for the wrong week — and the mistake is invisible, because nine days is
+            About three days and four hours. Using the 2 instead of its logarithm gives 9 days and
+            a window booked for the wrong week — and the mistake is invisible, because 9 days is
             also a perfectly plausible answer for a river.
           givens:
             - Recession constant 0.22 a day
@@ -2808,11 +2808,11 @@ missions:
         title: What the gap between them added
         place: Gate Chamber
         scene: >
-          Wilkes has six hours from eight until two where the inflow averaged 96 cubic metres a
+          Wilkes has 6 hours from 8 until 2 where the inflow averaged 96 cubic metres a
           second and the release held at 62. He wants what the reservoir took on in that window.
         assumes:
           - the storage gained over an interval is the integral of the difference of two rates
-          - six hours is 21,600 seconds
+          - 6 hours is 21,600 seconds
         takeaway: The volume between two rate curves is the integral of their difference, which for two steady rates is a rectangle and nothing more.
         format: BALLPARK
         question: Estimate the volume the reservoir gained between eight and two.
@@ -2822,17 +2822,17 @@ missions:
           the same number, and much less arithmetic. On a window where both rates hold steady the
           integral collapses to a rectangle, and the only thing that can go wrong is integrating the
           inflow alone. That gives 2.07 million and describes a reservoir with no machines running
-          and no gates open, which is not the one anybody is standing in.
+          and no gates open, which is not the 1 anybody is standing in.
         estimate:
           prompt: >
-            The inflow averaged 96 cubic metres a second and the release held at 62, for six hours.
-            Six hours is 21,600 seconds.
+            The inflow averaged 96 cubic metres a second and the release held at 62, for 6 hours.
+            6 hours is 21,600 seconds.
           question: Choose the inflow, the release and the seconds in the window.
           labels:
             - 96  (average inflow, cubic metres a second)
             - 62  (release held, cubic metres a second)
-            - 21600  (seconds in the six hours)
-            - 158  (the two rates added together)
+            - 21600  (seconds in the 6 hours)
+            - 158  (the 2 rates added together)
             - 6  (hours in the window)
           values: [96, 62, 21600, 158, 6]
           slots: 3
@@ -2844,8 +2844,8 @@ missions:
           units: cubic metres
           solution: (96 − 62) × 21,600 ≈ 734,000 cubic metres.
           explanation: >
-            About 734,000 cubic metres, which at this level is nine centimetres on the gauge.
-            Integrating the inflow alone gives 2.07 million and three times the level rise, which is
+            About 734,000 cubic metres, which at this level is 9 centimetres on the gauge.
+            Integrating the inflow alone gives 2.07 million and 3 times the level rise, which is
             the number that gets quoted whenever the release is forgotten.
           givens:
             - Inflow about 96 m³/s, release held at 62 m³/s
@@ -2853,7 +2853,7 @@ missions:
           relationship: >
             Volume between the curves = ∫(I − R)dt, which for two steady rates is simply their
             difference multiplied by the length of the window.
-        answerText: About 734,000 cubic metres gained between eight and two.
+        answerText: About 734,000 cubic metres gained between 10.
       - group: INFLOW
         task: Integrate a record that resists as written
         title: The integrand that had to be changed
@@ -2885,7 +2885,7 @@ missions:
                   rule: substitution
                   survives: true
                   why: >-
-                    60t·dt is 30·du, because du already carries the factor of two. Keeping the 60
+                    60t·dt is 30·du, because du already carries the factor of 2. Keeping the 60
                     doubles the answer, and every line after it integrates and evaluates perfectly.
                 - text: 'u = t, du = dt, so the integral becomes ∫60u·du ÷ (u² + 4)'
                   rule: substitution
@@ -2904,7 +2904,7 @@ missions:
                   rule: antiderivative
                   why: >-
                     The antiderivative of one over u is the natural logarithm, not the next power
-                    down. An exponent of −1 is the one case the power rule cannot handle.
+                    down. An exponent of −1 is the 1 case the power rule cannot handle.
                 - text: '30·ln(u), evaluated from u = 4 to u = 20'
                   rule: limits
                 - text: '30·ln(u), evaluated from t = 0 to t = 4'
@@ -2933,7 +2933,7 @@ missions:
                   rule: evaluation
           commit: Report the load
         answerText: >-
-          About 48 tonnes in the four hours after the peak — 30·ln 5, from an integrand that could
+          About 48 tonnes in the 4 hours after the peak — 30·ln 5, from an integrand that could
           not be antidifferentiated in the shape it was written in.
         why: >
           The integrand resists because it is a quotient with the variable in both parts. It
@@ -2992,13 +2992,13 @@ missions:
           commit: Stand by the board
         answerText: >-
           Every stage has to sit low enough to fire while its own lead is still in hand — the farm
-          clearance below about 0.35 m a day, since only the first two updates arrive with the five
+          clearance below about 0.35 m a day, since only the first 2 updates arrive with the 5
           days it needs.
         why: >
           Two ways of getting this wrong look nothing alike and cost the same. A threshold set high
           never fires and the stage simply does not happen. A threshold set at a number that sounds
-          serious fires on Thursday with seventy-two hours left, which is a correct rule for an action
-          that needed a hundred and twenty — so the rule is satisfied and the clearance is already
+          serious fires on Thursday with 72 hours left, which is a correct rule for an action
+          that needed 120 — so the rule is satisfied and the clearance is already
           impossible. Writing the board on the rate rather than on the level is what makes any of it
           reachable, because the rate crosses its threshold two days before the level crosses its own.
       - group: STORE
@@ -3124,16 +3124,16 @@ missions:
           - The largest net flow is the steepest climb, which is where the level is rising fastest and is lowest.
 
   # ---------------------------------------------------------------- day 15
-  # Synthesis — a fit whose residuals say the model is missing a term, one average
-  # for a fortnight, and what the two weeks established.
+  # Synthesis — a fit whose residuals say the model is missing a term, 1 average
+  # for a fortnight, and what the 2 weeks established.
   - title: What the fortnight is worth
     objective: Judge a fit by what it leaves over, reduce a fortnight to one rate, and say what has been established.
     briefing: The water has gone and what is left is what can be defended in writing.
     stake: >-
       Monday, a fortnight on. The reservoir is at 91 per cent, the reach was warned twice and flooded
-      neither time, and the resurvey has moved every volume on the site by eleven per cent. Zawadzka
+      neither time, and the resurvey has moved every volume on the site by 11 per cent. Zawadzka
       has three fits of the uplift against head and the one with the best summary number is not
-      obviously the one to keep. Ferrand has to reduce fourteen days to a single figure for the
+      obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the
       annual return. And the liaison committee sits this evening. Today you judge a fit by what it
       leaves over, reduce a fortnight to one rate, and say what the two weeks actually established.
     takeaway: A model is judged by the structure it leaves behind, not by the size of what it leaves behind.
@@ -3193,7 +3193,7 @@ missions:
           accept: quad
           commit: Carry this fit forward
         answerText: >-
-          The one with the square term, at 0.26. The drift fit scores better and its residuals still
+          The 1 with the square term, at 0.26. The drift fit scores better and its residuals still
           change sign across the gallery, which means the drift parameter absorbed the curvature
           rather than removing it.
         why: >
@@ -3205,14 +3205,14 @@ missions:
           small ones in a pattern are a missing term.
       - group: STORE
         task: Reduce the fortnight to one figure
-        title: Fourteen days, one number
+        title: 14 days, 1 number
         place: Storage & Level Board
         scene: >
-          Ferrand has 47.2 million cubic metres through the site over fourteen days and one line on
+          Ferrand has 47.2 million cubic metres through the site over 14 days and 1 line on
           the annual return for it. He wants the steady flow that would have delivered the same water.
         assumes:
           - an average value is an accumulation divided by the length of its interval
-          - fourteen days is 1,209,600 seconds
+          - 14 days is 1,209,600 seconds
         takeaway: The same operation that reduced a morning to one flow reduces a fortnight to one, and neither is the mean of the readings.
         format: BALLPARK
         question: Estimate the average inflow across the fortnight, in cubic metres a second.
@@ -3220,19 +3220,19 @@ missions:
           This is the day-eight arithmetic on a longer interval. Nothing about it changes with
           the scale. An average value is an accumulation over a length, whether that length is
           six hours or a fortnight. It is also the honest way to compare this flood with the
-          record, because a peak compares two instants and an average compares two events. Forty
-          is a wet fortnight here and not a remarkable one. That is the sentence the return
+          record, because a peak compares two instants and an average compares two events. 40
+          is a wet fortnight here and not a remarkable 1. That is the sentence the return
           needs, and the peak of 136 would never have supplied it.
         estimate:
           prompt: >
             The fortnight delivered 47.2 million cubic metres. An average value is the accumulation
-            divided by the length of the interval, and fourteen days is 1,209,600 seconds.
+            divided by the length of the interval, and 14 days is 1,209,600 seconds.
           question: Choose the volume and the length of the fortnight in seconds.
           labels:
             - 47200000  (volume through the site, cubic metres)
-            - 1209600  (seconds in fourteen days)
+            - 1209600  (seconds in 14 days)
             - 14  (days in the fortnight)
-            - 86400  (seconds in one day)
+            - 86400  (seconds in 1 day)
             - 136  (the peak inflow, cubic metres a second)
           values: [47200000, 1209600, 14, 86400, 136]
           slots: 2
@@ -3244,11 +3244,11 @@ missions:
           units: cubic metres a second
           solution: 47,200,000 ÷ 1,209,600 ≈ 39 cubic metres a second.
           explanation: >
-            About 39 cubic metres a second, against a peak of 136. Dividing by the fourteen rather
+            About 39 cubic metres a second, against a peak of 136. Dividing by the 14 rather
             than by the seconds gives 3.4 million, which is not a flow — and it is the version that
             reaches an annual return, because nobody checks the units on a number that large.
           givens:
-            - 47.2 million m³ through the site in fourteen days
+            - 47.2 million m³ through the site in 14 days
             - The peak was 136 m³/s on the sixth day
           relationship: >
             Average value = accumulation ÷ length of interval, with the interval in the same units of
@@ -3268,12 +3268,12 @@ missions:
         format: SCIENCETANK
         task: Spend what the authority will release on what the fortnight showed was missing.
         evidence: |
-          The provisional correction to the stage-storage curve is eleven per cent at working levels
-          and rests on eleven transects. A full resurvey is four weeks of boat time. Every volume and
+          The provisional correction to the stage-storage curve is 11 per cent at working levels
+          and rests on 11 transects. A full resurvey is four weeks of boat time. Every volume and
           every level forecast on the site divides by that curve; the uplift and the seepage do not.
           The recession constant was fitted on a week and scored on four days it had never seen, and
-          held. The spillway coefficient is still a handbook figure carrying fifteen per cent, which
-          is the widest term in the discharge and the one nobody has ever measured here. The arrival
+          held. The spillway coefficient is still a handbook figure carrying 15 per cent, which
+          is the widest term in the discharge and the 1 nobody has ever measured here. The arrival
           times were checked against what the reach actually saw, for the first time in nine years.
         proposals:
           - { label: A, text: 'Complete the reservoir resurvey and reissue the stage-storage curve.' }
@@ -3282,8 +3282,8 @@ missions:
           - { label: D, text: 'Re-fit the uplift prediction on the fortnight of high-level data.' }
         why: >
           The two worth funding are the two that everything else is computed through. The area curve
-          is the integrand of every volume and the divisor of every level forecast, so an eleven per
-          cent error in it is an eleven per cent error in all of them at once, and eleven transects is
+          is the integrand of every volume and the divisor of every level forecast, so an 11 per
+          cent error in it is an 11 per cent error in all of them at once, and 11 transects is
           a provisional number the room is already relying on. The coefficient is the widest term in
           the discharge by a long way, and improving the head gauge instead would refine the term that
           was already good. More gauges would improve a forecast that was not what failed, and the
@@ -3291,7 +3291,7 @@ missions:
         recommended: { A: 50, B: 30 }
 interiors:
   INFLOW:
-    caption: Eleven rain gauges, four river gauges, and a snowline nobody can measure well.
+    caption: 11 rain gauges, 4 river gauges, and a snowline nobody can measure well.
     standLine: Ashfell gauge, fifteen-minute readings. Rising since 03:40.
     station:
       kind: panel
@@ -3346,7 +3346,7 @@ interiors:
         - { label: Output, value: 24 MW, status: normal }
         - { label: Machine 2 inspection, value: deferred since August, status: alarm }
   SAFE:
-    caption: Eleven villages, two caravan sites, a school, and a road that floods before anything else.
+    caption: 11 villages, 2 caravan sites, a school, and a road that floods before anything else.
     standLine: Reach list, with arrival times from a release at the dam.
     station:
       kind: panel
@@ -3358,10 +3358,10 @@ interiors:
         - { label: Released now, value: 180 m³/s, status: normal }
 
 copy:
-  INFLOW: <p>The inflow desk. Eleven rain gauges, four river gauges, and the standing question of how much of what fell has arrived yet.</p>
+  INFLOW: <p>The inflow desk. 11 rain gauges, 4 river gauges, and the standing question of how much of what fell has arrived yet.</p>
   STORE: <p>The storage board. Level on one wall, volume on the other, and the curve that turns one into the other pinned between them.</p>
-  GATES: <p>The gate chamber, over the spillway. Two hoists, a winch log going back to 1974, and a great deal of noise when the gate is running.</p>
-  STRUCT: <p>The seepage and uplift bay, cut into the rock at the foundation. Nine weirs, twelve uplift gauges, and forty years of plots.</p>
+  GATES: <p>The gate chamber, over the spillway. 2 hoists, a winch log going back to 1974, and a great deal of noise when the gate is running.</p>
+  STRUCT: <p>The seepage and uplift bay, cut into the rock at the foundation. 9 weirs, 12 uplift gauges, and 40 years of plots.</p>
   POWER: <p>The powerhouse at the toe. Two machines, and a chief who knows to the cubic metre what each of them is passing.</p>
   SAFE: <p>The downstream warning desk. A map of the reach with arrival times on it, and a list of people who answer the phone.</p>
   TAILRACE: <p>The tailrace deck. Everything the machines have finished with comes out here, and the noise is why nobody lingers.</p>
@@ -3378,7 +3378,7 @@ copy:
   BRIEF: <p>The briefing room. Where the morning call happens and where the liaison committee sits.</p>
   MET: <p>The met office link. A forecast arrives here as rainfall over a region and leaves as inflow over a catchment.</p>
   HOIST: <p>The hoist deck. Motors, brakes and a hand-winding handle nobody has needed since 1998.</p>
-  CREST: <p>The crest walk. Reservoir on one side, a hundred metres of air on the other, and a handrail between them.</p>
+  CREST: <p>The crest walk. Reservoir on 1 side, 100 metres of air on the other, and a handrail between them.</p>
   INTAKE: <p>The intake tower head. Where water leaves the reservoir for the machines, drawn from whichever depth is cleanest.</p>
   SPILL: <p>The spillway deck. When the gates are running this is the loudest place on the dam by a long way.</p>
   LOOKOUT: <p>The reservoir lookout. The whole pool from one window, which is the only place the level is a thing you can see.</p>

@@ -77,10 +77,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The trace that will not resolve",
-      "scene": "The fourth trace is faint, has held nearly the same bearing for eleven minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
+      "scene": "The fourth trace is faint, has held nearly the same bearing for 11 minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
       "takeaway": "Refraction can weaken a received path, but it does not selectively erase the source’s spectral content.",
       "place": "Sonar Room",
-      "story": "The fourth trace is faint, has held nearly the same bearing for eleven minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
+      "story": "The fourth trace is faint, has held nearly the same bearing for 11 minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
       "game": {
         "type": "CHOICE",
         "title": "The trace that will not resolve",
@@ -89,10 +89,10 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading, not just the loudest one?",
         "question": "Which explanation fits every reading, not just the loudest one?",
         "answer": "A weak external contact",
-        "why": "Broadband measures sound energy across a band. Narrowband looks for stable tonal lines. A sound-speed layer can bend a path and make an external source weak, but it does not selectively strip away machinery tones. Faintness and missing tonals are therefore separate clues. The layer can explain the weak level; the absent narrowband says no tonal line is above threshold. Eleven minutes of persistence argues against a transient artefact, and nothing aboard changed with the trace.",
+        "why": "Broadband measures sound energy across a band. Narrowband looks for stable tonal lines. A sound-speed layer can bend a path and make an external source weak, but it does not selectively strip away machinery tones. Faintness and missing tonals are therefore separate clues. The layer can explain the weak level; the absent narrowband says no tonal line is above threshold. 11 minutes of persistence argues against a transient artefact, and nothing aboard changed with the trace.",
         "rebuttals": [
           "Nothing aboard changed when the trace appeared, so own-ship noise does not fit the timing.",
-          "A brief biologic is possible, but eleven minutes on nearly one bearing is poor agreement with that explanation.",
+          "A brief biologic is possible, but 11 minutes on nearly 1 bearing is poor agreement with that explanation.",
           "Broadband is receiving acoustic energy. The question is what produced it, not whether the display drew a line from nothing.",
           "A persistent directional trace is evidence that needs an explanation."
         ],
@@ -107,7 +107,7 @@ export const CURRICULUM = {
           },
           {
             "label": "A biologic, holding station",
-            "mechanism": "A transient living source is less likely to hold one bearing for eleven minutes."
+            "mechanism": "A transient living source is less likely to hold 1 bearing for 11 minutes."
           },
           {
             "label": "An artefact of the processor",
@@ -152,10 +152,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Where the sound will not go",
-      "scene": "The sound-speed trace reads 1505 metres per second above 60 metres and 1485 below it. A contact held for forty minutes while this boat stayed at 20 metres, then vanished in one sweep while every other trace remained unchanged.",
+      "scene": "The sound-speed trace reads 1505 metres per second above 60 metres and 1485 below it. A contact held for 40 minutes while this boat stayed at 20 metres, then vanished in 1 sweep while every other trace remained unchanged.",
       "takeaway": "Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.",
       "place": "Sonar Shack",
-      "story": "The sound-speed trace reads 1505 metres per second above 60 metres and 1485 below it. A contact held for forty minutes while this boat stayed at 20 metres, then vanished in one sweep while every other trace remained unchanged.",
+      "story": "The sound-speed trace reads 1505 metres per second above 60 metres and 1485 below it. A contact held for 40 minutes while this boat stayed at 20 metres, then vanished in 1 sweep while every other trace remained unchanged.",
       "game": {
         "type": "CHOICE",
         "title": "Where the sound will not go",
@@ -275,10 +275,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The rise on every bearing",
-      "scene": "Broadband rises across every bearing at once. A new 212-hertz line also appears everywhere, and its frequency shifts slightly when the seawater-pump speed changes. The weather and sound-speed profile are steady. One pump was started twenty minutes ago.",
+      "scene": "Broadband rises across every bearing at once. A new 212-hertz line also appears everywhere, and its frequency shifts slightly when the seawater-pump speed changes. The weather and sound-speed profile are steady. 1 pump was started 20 minutes ago.",
       "takeaway": "A signal that follows an own-ship control is evidence of an own-ship source.",
       "place": "Sonar Room",
-      "story": "Broadband rises across every bearing at once. A new 212-hertz line also appears everywhere, and its frequency shifts slightly when the seawater-pump speed changes. The weather and sound-speed profile are steady. One pump was started twenty minutes ago.",
+      "story": "Broadband rises across every bearing at once. A new 212-hertz line also appears everywhere, and its frequency shifts slightly when the seawater-pump speed changes. The weather and sound-speed profile are steady. 1 pump was started 20 minutes ago.",
       "game": {
         "type": "CHOICE",
         "title": "The rise on every bearing",
@@ -538,20 +538,20 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "What twelve decibels is worth",
+      "title": "What 12 decibels is worth",
       "scene": "The yard quotes a 12 dB reduction in the boat’s radiated acoustic power level from new pump mounts. The wardroom has described that as “about a tenth quieter” and is weighing it against the other refits.",
       "takeaway": "A decibel difference is a logarithmic power ratio: 12 dB corresponds to about a sixteen-fold change in power.",
       "place": "Sonar Shack",
       "story": "The yard quotes a 12 dB reduction in the boat’s radiated acoustic power level from new pump mounts. The wardroom has described that as “about a tenth quieter” and is weighing it against the other refits.",
       "game": {
         "type": "BALLPARK",
-        "title": "What twelve decibels is worth",
+        "title": "What 12 decibels is worth",
         "setup": "Sonar Shack",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "By what factor do the mounts reduce radiated power?",
-        "answer": "A factor of about 15.85, usually rounded to sixteen; the new radiated power is about 6.3% of the old value.",
-        "why": "For a power ratio, ΔL = 10 log₁₀(P₂/P₁). A 12 dB reduction means the original-to-new power ratio is 10^(12/10) ≈ 15.85. So the new radiated power is about 1/15.85, or 6.3 percent, of the old value. The common “3 dB is a doubling” shortcut gives nearly the same answer: four 3 dB steps are about a factor of sixteen. The exact logarithmic calculation is better here because the equation is what the course is supposed to teach.",
+        "answer": "A factor of about 15.85, usually rounded to 16; the new radiated power is about 6.3% of the old value.",
+        "why": "For a power ratio, ΔL = 10 log₁₀(P₂/P₁). A 12 dB reduction means the original-to-new power ratio is 10^(12/10) ≈ 15.85. So the new radiated power is about 1/15.85, or 6.3 percent, of the old value. The common “3 dB is a doubling” shortcut gives nearly the same answer: 4 3 dB steps are about a factor of 16. The exact logarithmic calculation is better here because the equation is what the course is supposed to teach.",
         "givens": [],
         "relationship": "Reduction factor = 10^(ΔL/10) for a power-level difference in decibels.",
         "calcKey": "SONAR-8"
@@ -585,10 +585,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Why the level pulses three times a second",
-      "scene": "Two narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
+      "scene": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "takeaway": "Two nearby frequencies beat at their difference frequency because their relative phase cycles steadily.",
       "place": "Sonar Shack",
-      "story": "Two narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
+      "story": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "game": {
         "type": "BALLPARK",
         "title": "Why the level pulses three times a second",
@@ -789,10 +789,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Two displays, one source",
-      "scene": "The chart overlay and electronic repeat agree to within one hundred yards. The depth sounder returns an echo after 0.120 seconds; sound speed is 1500 metres per second. The chart says 102 metres here. The last trusted position fix was 3.5 hours ago.",
+      "scene": "The chart overlay and electronic repeat agree to within 100 yards. The depth sounder returns an echo after 0.120 seconds; sound speed is 1500 metres per second. The chart says 102 metres here. The last trusted position fix was 3.5 hours ago.",
       "takeaway": "Agreement only counts as confirmation when the second measurement can fail differently.",
       "place": "Control Room",
-      "story": "The chart overlay and electronic repeat agree to within one hundred yards. The depth sounder returns an echo after 0.120 seconds; sound speed is 1500 metres per second. The chart says 102 metres here. The last trusted position fix was 3.5 hours ago.",
+      "story": "The chart overlay and electronic repeat agree to within 100 yards. The depth sounder returns an echo after 0.120 seconds; sound speed is 1500 metres per second. The chart says 102 metres here. The last trusted position fix was 3.5 hours ago.",
       "game": {
         "type": "CHOICE",
         "title": "Two displays, one source",
@@ -805,8 +805,8 @@ export const CURRICULUM = {
         "rebuttals": [
           "A failed depth sounder is the comfortable answer, and it needs the two agreeing displays to be right. They agree because they share one navigator.",
           "An out-of-date chart moves the bottom, not the boat. It is possible, and it does not explain three and a half hours with no fix.",
-          "Tide and pressure move the surface by a metre or two, not twelve. The bottom is where the bottom is.",
-          "Twelve metres is not sounding scatter. A depth sounder that wrong would be failing in a way the sounding itself would show."
+          "Tide and pressure move the surface by a metre or 2, not 12. The bottom is where the bottom is.",
+          "12 metres is not sounding scatter. A depth sounder that wrong would be failing in a way the sounding itself would show."
         ],
         "choices": [
           {
@@ -827,7 +827,7 @@ export const CURRICULUM = {
           },
           {
             "label": "Ordinary background, nothing more",
-            "mechanism": "Twelve metres is within ordinary sounding scatter."
+            "mechanism": "12 metres is within ordinary sounding scatter."
           }
         ],
         "correctChoice": "The plot is wrong and the sounding is right"
@@ -1033,8 +1033,8 @@ export const CURRICULUM = {
         "rebuttals": [
           "The unresolved contact may be nothing, and it can be held and watched while something else is fixed.",
           "A wet bilge that is not rising is a note in the log. It becomes a casualty when the level moves.",
-          "Carbon dioxide at 0.7 per cent rising slowly has twenty hours of margin behind it and is measured continuously.",
-          "A bearing at a steady sixty-eight degrees is a watch item. Steady is the word that matters."
+          "Carbon dioxide at 0.7 per cent rising slowly has 20 hours of margin behind it and is measured continuously.",
+          "A bearing at a steady 68 degrees is a watch item. Steady is the word that matters."
         ],
         "choices": [
           {
@@ -1051,7 +1051,7 @@ export const CURRICULUM = {
           },
           {
             "label": "The carbon dioxide",
-            "mechanism": "A slow rise with twenty hours of margin behind it."
+            "mechanism": "A slow rise with 20 hours of margin behind it."
           },
           {
             "label": "The warm bearing",
@@ -1081,7 +1081,7 @@ export const CURRICULUM = {
         "task": "Learn a compartment in the order the facts depend on each other",
         "question": "Learn a compartment in the order the facts depend on each other",
         "answer": "",
-        "why": "A submarine survives a casualty by being divided. The pressure boundary comes first: at ninety metres it separates a flooded compartment from a flooded boat. The ways out come next, and they have to be proved rather than assumed. Then find what could start a casualty here: sea connections, cables or stores. Last, judge whether the equipment stored here can fight those threats. A locker is only the right locker once you know what this space can do to you.",
+        "why": "A submarine survives a casualty by being divided. The pressure boundary comes first: at 90 metres it separates a flooded compartment from a flooded boat. The ways out come next, and they have to be proved rather than assumed. Then find what could start a casualty here: sea connections, cables or stores. Last, judge whether the equipment stored here can fight those threats. A locker is only the right locker once you know what this space can do to you.",
         "rebuttals": [
           "The boundary first. It is what makes this a space rather than part of the next one, and everything after it is about what happens inside.",
           "Both ways out second, and proved to open. A hatch that has not been tried is not a way out.",
@@ -1132,7 +1132,7 @@ export const CURRICULUM = {
               "id": "rise",
               "label": "Bilge accumulation",
               "value": 88,
-              "display": "8 cm rise in one minute = 88 gpm"
+              "display": "8 cm rise in 1 minute = 88 gpm"
             },
             {
               "id": "fresh",
@@ -1167,19 +1167,19 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "What ninety metres puts behind the valve",
+      "title": "What 90 metres puts behind the valve",
       "scene": "The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.",
       "takeaway": "Hydrostatic gauge pressure rises in direct proportion to depth.",
       "place": "Forward Equipment & Handling",
       "story": "The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.",
       "game": {
         "type": "BALLPARK",
-        "title": "What ninety metres puts behind the valve",
+        "title": "What 90 metres puts behind the valve",
         "setup": "Forward Equipment & Handling",
         "play": "Estimate the pressure driving the seawater leak",
         "task": "Estimate the pressure driving the seawater leak",
         "question": "About how much gauge pressure is the sea applying at 90 metres?",
-        "answer": "About 0.91 MPa gauge, roughly nine atmospheres above surface pressure.",
+        "answer": "About 0.91 MPa gauge, roughly 9 atmospheres above surface pressure.",
         "why": "Hydrostatic pressure is p = ρgh. Use seawater density 1025 kg/m³, g = 9.81 m/s², and h = 90 m. The gauge pressure is about 905,000 pascals, or 0.91 megapascals. That is roughly nine atmospheres above surface pressure. Add the atmosphere already present, and the absolute pressure outside the hull is about ten atmospheres. This is why a small opening at depth can drive a large inflow and why the hull isolation matters more than adding another pump.",
         "givens": [],
         "relationship": "Hydrostatic pressure at depth is p = ρgh.",
@@ -1270,7 +1270,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "floodwater volume can be estimated from the bilge geometry",
-        "one tonne of mass weighs about 9.81 kilonewtons"
+        "1 tonne of mass weighs about 9.81 kilonewtons"
       ],
       "equations": [
         {
@@ -1513,7 +1513,7 @@ export const CURRICULUM = {
         "task": "Keep the one condition that cannot wait. Delegate every other problem with an owner, first action and return condition.",
         "question": "Which problem do you keep, and what complete assignment does each remaining problem get?",
         "answer": "Keep the rising fire boundary. Delegate the falling bilge, stable atmosphere and wrist injury with explicit first actions and report thresholds.",
-        "why": "The fire boundary is the one condition that gets worse fast enough to cross a damage threshold while you are deciding. At 54 °C and rising 6 °C per minute, an 80 °C insulation limit is only a few minutes away. The flooding is already losing twenty litres a minute net, so it can be watched. The atmosphere and wrist are stable. A useful handoff gives each problem an owner, a first action, and a number that brings it back to you. “Watch it” supplies none of those.",
+        "why": "The fire boundary is the one condition that gets worse fast enough to cross a damage threshold while you are deciding. At 54 °C and rising 6 °C per minute, an 80 °C insulation limit is only a few minutes away. The flooding is already losing 20 litres a minute net, so it can be watched. The atmosphere and wrist are stable. A useful handoff gives each problem an owner, a first action, and a number that brings it back to you. “Watch it” supplies none of those.",
         "delegate": {
           "team": [
             {
@@ -1765,10 +1765,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Nine people and a shut damper",
-      "scene": "Navarro has nine people in a 36-cubic-metre berthing space at 293 kelvin and about one atmosphere. With the damper shut, each person adds about 0.9 mole of carbon dioxide per hour. She wants the time for carbon dioxide to rise by one percentage point.",
+      "scene": "Navarro has 9 people in a 36-cubic-metre berthing space at 293 kelvin and about 1 atmosphere. With the damper shut, each person adds about 0.9 mole of carbon dioxide per hour. She wants the time for carbon dioxide to rise by one percentage point.",
       "takeaway": "The ideal gas law turns a concentration limit into a number of moles, and a production rate turns that amount into a deadline.",
       "place": "Berthing, Mess & Medical",
-      "story": "Navarro has nine people in a 36-cubic-metre berthing space at 293 kelvin and about one atmosphere. With the damper shut, each person adds about 0.9 mole of carbon dioxide per hour. She wants the time for carbon dioxide to rise by one percentage point.",
+      "story": "Navarro has 9 people in a 36-cubic-metre berthing space at 293 kelvin and about 1 atmosphere. With the damper shut, each person adds about 0.9 mole of carbon dioxide per hour. She wants the time for carbon dioxide to rise by one percentage point.",
       "game": {
         "type": "BALLPARK",
         "title": "Nine people and a shut damper",
@@ -1777,7 +1777,7 @@ export const CURRICULUM = {
         "task": "Work out how long the space has",
         "question": "Using the ideal gas law, roughly how long does a one-percentage-point carbon-dioxide rise take?",
         "answer": "About 1.9 hours for a one-percentage-point rise under the stated assumptions.",
-        "why": "A one-percentage-point rise means an added carbon-dioxide partial pressure of about 0.01 atmosphere, or 1013 pascals. Using PV = nRT, that is n = PV/RT ≈ 1013 × 36 /(8.314 × 293), about 15 moles. Nine people producing 0.9 mole per hour each add about 8.1 moles per hour. Fifteen divided by 8.1 is about 1.9 hours. The estimate is approximate, but it gives a planning deadline instead of the word “stuffy.”",
+        "why": "A one-percentage-point rise means an added carbon-dioxide partial pressure of about 0.01 atmosphere, or 1013 pascals. Using PV = nRT, that is n = PV/RT ≈ 1013 × 36 /(8.314 × 293), about 15 moles. 9 people producing 0.9 mole per hour each add about 8.1 moles per hour. 15 divided by 8.1 is about 1.9 hours. The estimate is approximate, but it gives a planning deadline instead of the word “stuffy.”",
         "givens": [],
         "relationship": "Use ΔP V = nRT to find the added moles, then divide by the crew production rate.",
         "calcKey": "ATMO-3"
@@ -1832,7 +1832,7 @@ export const CURRICULUM = {
         "task": "Put a deadline on the quiet",
         "question": "How long can the boat run on one scrubber train?",
         "answer": "",
-        "why": "A closed atmosphere with a production rate and a removal rate has a net rate. Compare that net rate with the remaining headroom to get a deadline. Here the crew produces 1.4 cubic metres per hour while one train removes 1.1. The net rise is 0.3 cubic metres per hour. Six cubic metres of headroom therefore lasts about twenty hours. Command can plan around twenty hours. It cannot plan around “soon,” which is why a slow problem becomes useful once its rate is known.",
+        "why": "A closed atmosphere with a production rate and a removal rate has a net rate. Compare that net rate with the remaining headroom to get a deadline. Here the crew produces 1.4 cubic metres per hour while 1 train removes 1.1. The net rise is 0.3 cubic metres per hour. 6 cubic metres of headroom therefore lasts about 20 hours. Command can plan around 20 hours. It cannot plan around “soon,” which is why a slow problem becomes useful once its rate is known.",
         "givens": [],
         "relationship": "Time = the headroom left ÷ the net rate of gain, which is production minus removal.",
         "calcKey": "ATMO-4"
@@ -1911,7 +1911,7 @@ export const CURRICULUM = {
           "A flat-folded hose on a reel, beside a small isolating valve."
         ],
         "choices": [
-          "Opening it at ninety metres admits the sea at ten atmospheres.",
+          "Opening it at 90 metres admits the sea at 10 atmospheres.",
           "It supplies breathing air, so a space can be entered before its atmosphere is fit to breathe.",
           "It holds the shoring and plugs that let this compartment fight its own casualty.",
           "It puts water on a fire, and only once the circuit has been proved dead."
@@ -2070,10 +2070,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Narrowing it to one mount",
-      "scene": "Four machines are running when a new 212-hertz line appears across the array. Only the seawater pump was started in the last half hour. Haruki will let you change one machine at a time, but sonar must report before each next change.",
+      "scene": "4 machines are running when a new 212-hertz line appears across the array. Only the seawater pump was started in the last half hour. Haruki will let you change one machine at a time, but sonar must report before each next change.",
       "takeaway": "A correlation becomes a causal test when one variable changes, the response follows, and the response returns when the variable is restored.",
       "place": "Propulsion Machinery",
-      "story": "Four machines are running when a new 212-hertz line appears across the array. Only the seawater pump was started in the last half hour. Haruki will let you change one machine at a time, but sonar must report before each next change.",
+      "story": "4 machines are running when a new 212-hertz line appears across the array. Only the seawater pump was started in the last half hour. Haruki will let you change one machine at a time, but sonar must report before each next change.",
       "game": {
         "type": "CONTROL",
         "title": "Narrowing it to one mount",
@@ -2124,10 +2124,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What each control actually does",
-      "scene": "The depth is still increasing and four actions are available in the next thirty seconds. Planes, speed, ballast air and the trim pump can all change the boat. Two actions are hard to take back at this depth, and command wants their effects named first.",
+      "scene": "The depth is still increasing and 4 actions are available in the next 30 seconds. Planes, speed, ballast air and the trim pump can all change the boat. Two actions are hard to take back at this depth, and command wants their effects named first.",
       "takeaway": "Speed and angle buy time; blowing buys depth and gives away position.",
       "place": "Machinery Control Room",
-      "story": "The depth is still increasing and four actions are available in the next thirty seconds. Planes, speed, ballast air and the trim pump can all change the boat. Two actions are hard to take back at this depth, and command wants their effects named first.",
+      "story": "The depth is still increasing and 4 actions are available in the next 30 seconds. Planes, speed, ballast air and the trim pump can all change the boat. Two actions are hard to take back at this depth, and command wants their effects named first.",
       "game": {
         "type": "PROTOCOL",
         "title": "What each control actually does",
@@ -2241,10 +2241,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One link is not handing the heat on",
-      "scene": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45 percent, and one of two pumps is secured.",
+      "scene": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45 percent, and 1 of 2 pumps is secured.",
       "takeaway": "For a similar heat load, lower coolant mass flow makes each kilogram of coolant warm more, so the outlet temperature rise gets larger.",
       "place": "Machinery Control Room",
-      "story": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45 percent, and one of two pumps is secured.",
+      "story": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45 percent, and 1 of 2 pumps is secured.",
       "game": {
         "type": "CHOICE",
         "title": "One link is not handing the heat on",
@@ -2291,10 +2291,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Four hours of quiet",
-      "scene": "Two narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
+      "scene": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "takeaway": "A robust choice still works when the margin you thought you had disappears.",
       "place": "Machinery Control Room",
-      "story": "Two narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
+      "story": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "game": {
         "type": "STRESS",
         "title": "Four hours of quiet",
@@ -2302,8 +2302,8 @@ export const CURRICULUM = {
         "play": "Stress the plan by shrinking the time margin left before the six-hour passage ceiling, then choose the lineup that still works.",
         "task": "Stress the plan by shrinking the time margin left before the six-hour passage ceiling, then choose the lineup that still works.",
         "question": "Which lineup survives when the two-hour schedule margin falls all the way to zero?",
-        "answer": "Balanced Quiet. It still meets the 7 dB acoustic requirement when the passage reaches six hours and the schedule margin is gone.",
-        "why": "A four-hour transit leaves two hours before the six-hour planning ceiling. Maximum Quiet looks best there because it cuts noise by 12 dB. But its equipment clock lasts only five hours, so it needs at least one hour of schedule margin. Balanced Quiet reaches the 7 dB requirement and lasts eight hours, so it still works with no margin left. Conservative lasts, but is too loud. Moving the margin changes the winner because uncertainty belongs inside the decision.",
+        "answer": "Balanced Quiet. It still meets the 7 dB acoustic requirement when the passage reaches 6 hours and the schedule margin is gone.",
+        "why": "A four-hour transit leaves two hours before the six-hour planning ceiling. Maximum Quiet looks best there because it cuts noise by 12 dB. But its equipment clock lasts only five hours, so it needs at least one hour of schedule margin. Balanced Quiet reaches the 7 dB requirement and lasts 8 hours, so it still works with no margin left. Conservative lasts, but is too loud. Moving the margin changes the winner because uncertainty belongs inside the decision.",
         "stress": {
           "candidates": [
             {
@@ -2538,7 +2538,7 @@ export const BALLPARK_CALCS = {
     "prompt": "The fitting is 90 m deep in seawater of density 1025 kg/m³. Use g = 9.81 m/s².",
     "question": "Estimate the gauge pressure at the fitting.",
     "labels": [
-      "8 cm  (rise in one minute)",
+      "8 cm  (rise in 1 minute)",
       "11 gallons per cm  (this bilge)",
       "55 gpm  (drain pump at this head)",
       "90 m  (depth)",
@@ -2566,7 +2566,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Depth multiplies the weight of the water column. The result is gauge pressure; atmospheric pressure is added only if absolute pressure is needed."
   },
   "ATMO-3": {
-    "prompt": "Berthing is 36 m³ at 293 K and about 1 atm. Nine people each add 0.9 mol of CO₂ per hour.",
+    "prompt": "Berthing is 36 m³ at 293 K and about 1 atm. 9 people each add 0.9 mol of CO₂ per hour.",
     "question": "Estimate the time for CO₂ partial pressure to rise by 0.01 atm.",
     "labels": [
       "36 m³  (compartment volume)",
@@ -2607,7 +2607,7 @@ export const BALLPARK_CALCS = {
       "8 kn  (present speed)",
       "3 kn  (the slow option)",
       "6 min  (since the plot degraded)",
-      "5 kn  (the difference between the two speeds)"
+      "5 kn  (the difference between the 2 speeds)"
     ],
     "values": [
       9,
@@ -2627,7 +2627,7 @@ export const BALLPARK_CALCS = {
     "target": 1.875,
     "tolerance": 0.2,
     "units": "hours",
-    "solution": "1.1 hours at eight knots against three at three knots, so slowing buys nearly two more.",
+    "solution": "1.1 hours at 8 knots against 3 at 3 knots, so slowing buys nearly 2 more.",
     "explanation": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours."
   },
   "SONAR-6": {
@@ -2666,7 +2666,7 @@ export const BALLPARK_CALCS = {
       "1025 kg/m³  (seawater density)",
       "1.6 m³  (floodwater volume)",
       "9.81 m/s²  (g)",
-      "9.81 kN  (weight of one tonne)"
+      "9.81 kN  (weight of 1 tonne)"
     ],
     "values": [
       4,
@@ -2692,8 +2692,8 @@ export const BALLPARK_CALCS = {
     "question": "Estimate how long until the boat reaches the limit.",
     "labels": [
       "1.4 m³/h  (crew production)",
-      "1.1 m³/h  (one train removes)",
-      "6.0 m³  (a one per cent rise, boat-wide)",
+      "1.1 m³/h  (1 train removes)",
+      "6.0 m³  (a 1 per cent rise, boat-wide)",
       "4 h  (the transit)"
     ],
     "values": [
@@ -2714,7 +2714,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 2,
     "units": "hours",
     "solution": "The net gain is 0.3 m³/h; 6.0 ÷ 0.3 = 20 hours to the limit.",
-    "explanation": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless."
+    "explanation": "20 hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless."
   },
   "SONAR-7": {
     "prompt": "SL = 145 dB, TL = 55 dB, NL = 85 dB, AG = 20 dB, and DT = 10 dB.",
@@ -2758,7 +2758,7 @@ export const BALLPARK_CALCS = {
       "12 dB  (level reduction)",
       "10  (power-ratio decibel divisor)",
       "15.85  (exact reduction factor)",
-      "3 dB  (about a factor of two, for scale)"
+      "3 dB  (about a factor of 2, for scale)"
     ],
     "values": [
       12,
@@ -2777,11 +2777,11 @@ export const BALLPARK_CALCS = {
     "target": 16,
     "tolerance": 2,
     "units": "× less power",
-    "solution": "10^(12/10) = 10^1.2 ≈ 15.85, so the power is about sixteen times lower, or 6.3% of the original.",
+    "solution": "10^(12/10) = 10^1.2 ≈ 15.85, so the power is about 16 times lower, or 6.3% of the original.",
     "explanation": "A logarithmic level difference turns subtraction in decibels into a power ratio."
   },
   "SONAR-9": {
-    "prompt": "Two tones are 147 Hz and 150 Hz in water where v ≈ 1500 m/s.",
+    "prompt": "2 tones are 147 Hz and 150 Hz in water where v ≈ 1500 m/s.",
     "question": "Estimate the beat frequency.",
     "labels": [
       "147 Hz  (first tone)",

@@ -31,7 +31,7 @@ for(const theme of wanted){
 // One cross-cutting check, not per theme: no game stylesheet re-declares the
 // engine's.
 if(!process.argv[2]){
-  for(const tool of ['checkStyles.mjs', 'worldParity.mjs']){
+  for(const tool of ['checkStyles.mjs', 'worldParity.mjs', 'readabilityParity.mjs']){
     const res = spawnSync(process.execPath, [resolve(here, tool)],
       { stdio: 'inherit', cwd: resolve(here, '../..') });
     if(res.status !== 0) failed++;

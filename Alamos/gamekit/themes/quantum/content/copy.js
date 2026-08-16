@@ -8,7 +8,7 @@ export const COPY = {
   "CTRL": "<p>Control and readout. Racks of microwave gear, more cable than anybody expects, and the desks where the machine is argued with several times a day.</p>",
   "VER": "<p>Verification. Plots of error against sequence length on every surface, and the wall of results nobody is allowed to believe yet.</p>",
   "SENSE": "<p>Sensing. A magnetometer inside a shield, a frequency standard in a rack, and the only instrument in the building somebody outside the group depends on.</p>",
-  "NET": "<p>Networks. A fibre spool, a splice tray, and forty kilometres of duct between here and a substation.</p>",
+  "NET": "<p>Networks. A fibre spool, a splice tray, and 40 kilometres of duct between here and a substation.</p>",
   "ARRIVE": "<p>Sign-in. The register, the interlock keys, and the list of what may not be carried past this desk.</p>",
   "OFFICE": "<p>The group office. Where the argument about publishing happens, most days, at the kettle.</p>",
   "STORE": "<p>Gas and cryogen store. Helium, nitrogen, and the delivery schedule that decides what can be done this month.</p>",

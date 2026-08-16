@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Temperature Trouble",
     "objective": "Homeostasis, sweating, shivering, and body temperature",
     "briefing": "Homeostasis, sweating, shivering, and body temperature",
-    "stake": "Thirteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at nine o'clock and 101 at twelve. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.",
+    "stake": "Thirteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at 9 o'clock and 101 at 12. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.",
     "takeaway": "Shift complete",
     "stops": [
       {

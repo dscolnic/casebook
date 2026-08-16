@@ -307,7 +307,7 @@ glossary:
       - transponder
     def: The box aboard the spacecraft that answers a radio pulse from the ground, which is what makes timing the round trip a distance measurement.
 
-# The campaign: one working day each, three stops and a callback from day 3.
+# The campaign: 1 working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Failure
     objective: Create a trusted state vector and a prioritized anomaly list before commanding the crew.
@@ -420,7 +420,7 @@ missions:
   - title: Find the Spacecraft
     objective: Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.
     briefing: Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.
-    stake: Nine hours after the bang, and the station carrying the whole solution sets in forty minutes. The guidance lead, Camila Reyes, will not sign the trajectory until she has one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going, and buy the next observation. Fitting the measurements together is the job, and only one station is still up. Her trajectory officer, Dale Whitaker, wants a number now so the room can start planning the correction. Reyes wants the right number. They are both right, and there are forty minutes.
+    stake: 9 hours after the bang, and the station carrying the whole solution sets in 40 minutes. The guidance lead, Camila Reyes, will not sign the trajectory until she has one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going, and buy the next observation. Fitting the measurements together is the job, and only one station is still up. Her trajectory officer, Dale Whitaker, wants a number now so the room can start planning the correction. Reyes wants the right number. They are both right, and there are 40 minutes.
     takeaway: Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.
     stops:
       - group: NAV
@@ -497,7 +497,7 @@ missions:
   - title: The Wrong Trajectory
     objective: Choose a correction that restores a safe return while preserving fuel and engine options.
     briefing: The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse to determine whether a small correction now can prevent a large correction later.
-    stake: Eighteen hours in, the drift is confirmed, and this is where Whitaker and Carter stop agreeing for the rest of the mission. The path misses the entry corridor by four hundred kilometres. Whitaker wants a modest burn this shift, arguing that a correction gets cheaper the earlier it is made. Carter wants to wait for the next tracking pass, because correcting a number you have not measured properly is how a small error becomes a committed one. This shift you settle it. That is Whitaker's whole case, and this shift it is the better one. There is no more propellant coming.
+    stake: 18 hours in, the drift is confirmed, and this is where Whitaker and Carter stop agreeing for the rest of the mission. The path misses the entry corridor by 400 kilometres. Whitaker wants a modest burn this shift, arguing that a correction gets cheaper the earlier it is made. Carter wants to wait for the next tracking pass, because correcting a number you have not measured properly is how a small error becomes a committed one. This shift you settle it. That is Whitaker's whole case, and this shift it is the better one. There is no more propellant coming.
     takeaway: Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -576,7 +576,7 @@ missions:
   - title: Turn Without Wasting Fuel
     objective: Develop a controlled reorientation procedure that stops the rotation at the required attitude.
     briefing: The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.
-    stake: Twenty-six hours in. The guidance platform is off to save power, one thruster quad is dead, and Hale has to turn the spacecraft ninety degrees by hand while Sato reads angles aloud. Kwame Mensah, who owns the structural dynamics, has done the sums and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and work out what a thruster actually does. Every degree of turn is paid for twice, once to start it and once to stop it. Let it tumble and the antenna, the array and the burn attitude go together.
+    stake: 26 hours in. The guidance platform is off to save power, 1 thruster quad is dead, and Hale has to turn the spacecraft 90 degrees by hand while Sato reads angles aloud. Kwame Mensah, who owns the structural dynamics, has done the sums and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and work out what a thruster actually does. Every degree of turn is paid for twice, once to start it and once to stop it. Let it tumble and the antenna, the array and the burn attitude go together.
     takeaway: Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.
     stops:
       - group: STRUCT
@@ -612,7 +612,7 @@ missions:
         task: Choose the opening pulse and the angle where counter-torque begins. Run the maneuver and stop the spacecraft at 90 degrees with almost no remaining rotation.
         title: Execute a manual attitude maneuver
         place: Crew Procedures Room
-        scene: The guidance platform is off. The crew must turn the spacecraft ninety degrees using two opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.
+        scene: The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.
         assumes:
           - a torque changes angular speed
           - rotation continues after a thruster stops firing
@@ -643,7 +643,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Torque from a thruster
         place: Guidance Console
-        scene: A 200 N thruster fires at right angles, three metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.
+        scene: A 200 N thruster fires at right angles, 3 metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.
         assumes:
           - a longer lever arm gives the same force more turning effect
         takeaway: Force location matters as much as force magnitude in rotational control.
@@ -652,7 +652,7 @@ missions:
         why: Torque is force times lever arm times the sine of the angle between them. Here the force is perpendicular, so that sine is one. The calculation is therefore just 200 newtons times 3 metres. The result is 600 newton metres. Move the same thruster closer to the centre of mass and the torque falls in direct proportion. On this vehicle, the crew can choose which thruster pair fires. That choice changes the lever arm without changing the thruster.
         estimate:
           relationship: Torque = force × lever arm, when the force is at right angles to the arm.
-          prompt: A 200 N thruster fires at right angles, three metres from the centre of mass.
+          prompt: A 200 N thruster fires at right angles, 3 metres from the centre of mass.
           question: Estimate the torque about the centre of mass.
           labels:
             - 3 m (lever arm to the centre of mass)
@@ -673,7 +673,7 @@ missions:
   - title: The Power Budget
     objective: Build a load-shedding plan that preserves essential functions through the next critical maneuver.
     briefing: Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.
-    stake: Thirty-four hours in, and the argument changes shape. Priya Shah, who runs the power systems, has the reserve down to hours and wants everything non-essential off by the end of the shift. Aaron Brooks, on thermal and life support, says the two things on his list are the scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The bus is sagging at 24 volts instead of 28 while the current sits near where it should be, which is Shah's other problem. This shift you work out how long the batteries last, decide why the voltage is low, and choose what goes off.
+    stake: 34 hours in, and the argument changes shape. Priya Shah, who runs the power systems, has the reserve down to hours and wants everything non-essential off by the end of the shift. Aaron Brooks, on thermal and life support, says the two things on his list are the scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The bus is sagging at 24 volts instead of 28 while the current sits near where it should be, which is Shah's other problem. This shift you work out how long the batteries last, decide why the voltage is low, and choose what goes off.
     takeaway: Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.
     stops:
       - group: ELEC
@@ -762,7 +762,7 @@ missions:
         task: Allocate 41 amp-hours across life support, thermal control, guidance windows, and communications. Keep every required mission condition satisfied through the 62-hour return.
         title: Shed load without losing the mission
         place: Mission Planning Desk
-        scene: Forty-one amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.
+        scene: 41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.
         assumes:
           - amp-hours equal current multiplied by time
           - some loads can be duty-cycled while others must run continuously
@@ -818,7 +818,7 @@ missions:
   - title: A Dangerous Battery Configuration
     objective: Approve only a configuration whose voltage, current sharing, and failure behavior are understood.
     briefing: Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The player must reason through series, parallel, internal resistance, and fault isolation.
-    stake: Forty-two hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus that would buy eleven hours, and Shah wants it connected before the next pass. Nobody knows its state of charge, and the connectors were never meant for this. Ferreira has already reported one connector on that bus running warm and cannot say why. This shift you decide whether that configuration is safe and what has to be measured first. Shah is counting the hours and Brooks is counting the people. Sealed cabin. Three of them. Eleven hours is not worth a fire.
+    stake: 42 hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus that would buy 11 hours, and Shah wants it connected before the next pass. Nobody knows its state of charge, and the connectors were never meant for this. Ferreira has already reported one connector on that bus running warm and cannot say why. This shift you decide whether that configuration is safe and what has to be measured first. Shah is counting the hours and Brooks is counting the people. Sealed cabin. Three of them. 11 hours is not worth a fire.
     takeaway: Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain rather than as isolated facts.
     stops:
       - group: ELEC
@@ -860,7 +860,7 @@ missions:
         takeaway: Small resistances matter when current is large because heating scales with current squared.
         format: BALLPARK
         question: Estimate the heating power at the connection.
-        why: Resistive heating is current squared times resistance, so the current term dominates. The same connector at half the current would give off a quarter of the power. The resistance sounds like nothing written down. The wattage it makes at this current is what decides whether the junction runs warm or starts a fire. Twenty watts is nothing spread over a radiator. It is a great deal in one connector, in a sealed cabin, with no air moving over it.
+        why: Resistive heating is current squared times resistance, so the current term dominates. The same connector at half the current would give off a quarter of the power. The resistance sounds like nothing written down. The wattage it makes at this current is what decides whether the junction runs warm or starts a fire. 20 watts is nothing spread over a radiator. It is a great deal in one connector, in a sealed cabin, with no air moving over it.
         estimate:
           relationship: Power dissipated = current² × resistance.
           prompt: A connector in the improvised path develops 0.05 ohms while carrying 20 amps.
@@ -933,17 +933,17 @@ missions:
         format: BALLPARK
         assumes:
           - it takes energy to warm a mass, and the same energy leaves when it cools
-        why: "A lumped estimate treats the cabin and everything in it as one thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up."
+        why: "A lumped estimate treats the cabin and everything in it as 1 thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up."
         question: Estimate the temperature drop over three hours.
         estimate:
           relationship: Temperature drop = energy lost ÷ heat capacity. Energy lost = power × time.
-          prompt: With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.
+          prompt: With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as 1 thermal mass of about 12 million joules per kelvin.
           question: Estimate the temperature drop over three hours.
           labels:
             - 1,000 W (net heat loss)
-            - 10,800 s (three hours)
+            - 10,800 s (3 hours)
             - 12e6 J/K (heat capacity)
-            - 3 h (three hours, in hours)
+            - 3 h (3 hours, in hours)
             - 4 °C (present cabin temperature)
           values: [1000, 10800, 12000000, 3, 4]
           slots: 3
@@ -1008,7 +1008,7 @@ missions:
   - title: The Air Problem
     objective: Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.
     briefing: Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.
-    stake: Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. The life support engineer, Petra Novak, has been on the loop with the crew for an hour, and the canisters that fit are aboard the module they cannot use. The scrubber fan still draws its rated current, which Brooks refuses to accept as good news. Today you find out why the air is not being cleaned, work out how fast three people fill a cabin, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first symptom, and he cannot notice it himself.
+    stake: 58 hours in. Carbon dioxide is climbing in a cabin built for two and holding three. The life support engineer, Petra Novak, has been on the loop with the crew for an hour, and the canisters that fit are aboard the module they cannot use. The scrubber fan still draws its rated current, which Brooks refuses to accept as good news. Today you find out why the air is not being cleaned, work out how fast three people fill a cabin, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first symptom, and he cannot notice it himself.
     takeaway: Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -1060,16 +1060,16 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: CO2 production scale
         place: Cabin Air Console
-        scene: Three crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.
+        scene: 3 crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.
         assumes:
           - a rate multiplied by a time is a total
         takeaway: Source rate sets the minimum removal requirement.
         format: BALLPARK
         question: Estimate the carbon dioxide produced in six hours.
-        why: Source rate sets the minimum removal rate. Three people at 20 litres per hour each produce 60 litres per hour together. Over six hours that becomes 360 litres. A scrubber that removes carbon dioxide more slowly than the crew produces it cannot hold the concentration steady. It only slows the rise. The estimate does not need high precision. It needs to tell the workshop whether the improvised system is large enough to matter and how much capacity it must provide.
+        why: Source rate sets the minimum removal rate. 3 people at 20 litres per hour each produce 60 litres per hour together. Over 6 hours that becomes 360 litres. A scrubber that removes carbon dioxide more slowly than the crew produces it cannot hold the concentration steady. It only slows the rise. The estimate does not need high precision. It needs to tell the workshop whether the improvised system is large enough to matter and how much capacity it must provide.
         estimate:
           relationship: Total = rate per person × number of people × time.
-          prompt: Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.
+          prompt: 3 crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next 6 hours.
           question: Estimate the carbon dioxide produced in six hours.
           labels:
             - 3 people
@@ -1085,7 +1085,7 @@ missions:
           target: 360
           tolerance: 25
           units: L
-          solution: 3 × 20 × 6 = 360 L over the six hours.
+          solution: 3 × 20 × 6 = 360 L over the 6 hours.
           explanation: A rate per person per hour needs a head count and an interval, and both have to match the question asked. A daily mass figure describes the same crew and cannot be multiplied into this one without a density and a different arithmetic.
       - group: INTEG
         task: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
@@ -1111,14 +1111,14 @@ missions:
   - title: Communication Fades
     objective: Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.
     briefing: The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.
-    stake: Sixty-six hours in, the link went weak at the moment the vehicle turned — down twelve decibels, and Hale is answering calls he can barely hear. The communications lead, Naomi Ito, has the link budget open and her network officer is arguing for a different term in it. Ito wants the pointing checked first and he wants the receiver. This shift you find the cause and get the link back. Losing this costs two things at once, because the signal is also a navigation measurement — the room goes deaf and half blind in the same minute, with a burn still to fly.
+    stake: 66 hours in, the link went weak at the moment the vehicle turned — down 12 decibels, and Hale is answering calls he can barely hear. The communications lead, Naomi Ito, has the link budget open and her network officer is arguing for a different term in it. Ito wants the pointing checked first and he wants the receiver. This shift you find the cause and get the link back. Losing this costs two things at once, because the signal is also a navigation measurement — the room goes deaf and half blind in the same minute, with a burn still to fly.
     takeaway: Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.
     stops:
       - group: COMMS
         task: Change one link condition at a time, measure received power, and reverse the change. Identify the cause only when the signal follows the change both ways.
         title: Why did the signal fade?
         place: Deep-Space Antenna
-        scene: Voice and telemetry are down about 12 decibels at two ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.
+        scene: Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.
         assumes:
           - decibels add gains and losses on a link budget
           - a causal test changes one condition while the others stay fixed
@@ -1175,12 +1175,12 @@ missions:
           tolerance: 0.015
           units: m
           solution: λ = c/f = 0.15 m.
-          explanation: A factor of a thousand in the frequency is a factor of a thousand in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation.
+          explanation: A factor of 1000 in the frequency is a factor of 1000 in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation.
       - group: STRUCT
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Recover the weak link
         place: Spacecraft Attitude Console
-        scene: The carrier is down twelve decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.
+        scene: The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.
         takeaway: Communication recovery joins wave physics, control, and estimation.
         format: SEQUENCE
         rebuttals:
@@ -1200,7 +1200,7 @@ missions:
   - title: A Blind Maneuver
     objective: Design a manual alignment procedure whose dominant angular errors are bounded.
     briefing: The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player must connect optics, angular measurement, and reference frames.
-    stake: Seventy-four hours in, and this is the quiet shift. There is no guidance platform and no star tracker, so Ruiz will aim the burn by eye through a window reticle while Sato holds a stopwatch. Reyes has spent the shift separating what actually moves the spacecraft's aim from what only appears to. This shift you decide how many sightings make an alignment trustworthy. A tenth of a degree is invisible in that window and hundreds of kilometres at the far end. Some of what Ruiz sees is real motion. Some is the window, the lighting, or his own eye at four degrees. Each sighting costs him twenty minutes of cold.
+    stake: 74 hours in, and this is the quiet shift. There is no guidance platform and no star tracker, so Ruiz will aim the burn by eye through a window reticle while Sato holds a stopwatch. Reyes has spent the shift separating what actually moves the spacecraft's aim from what only appears to. This shift you decide how many sightings make an alignment trustworthy. A tenth of a degree is invisible in that window and hundreds of kilometres at the far end. Some of what Ruiz sees is real motion. Some is the window, the lighting, or his own eye at four degrees. Each sighting costs him 20 minutes of cold.
     takeaway: Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than as isolated facts.
     stops:
       - group: COMMS
@@ -1236,7 +1236,7 @@ missions:
         task: Match each feature of the plotted trace to what it tells you about the motion.
         title: Reading the trace instead of the number
         place: Flight Director console
-        scene: The plot board has ninety minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.
+        scene: The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.
         assumes:
           - the slope of a distance-time graph is a speed
         takeaway: A graph carries rate and change of rate, neither of which is visible in the latest reading.
@@ -1279,7 +1279,7 @@ missions:
           labels:
             - 0.004 m/s² (residual acceleration)
             - 90 s (unpowered coast)
-            - 0.5 (the one half in the relationship)
+            - 0.5 (the 1 half in the relationship)
             - 9.81 m/s² (surface gravity, for scale)
           values: [0.004, 90, 0.5, 9.81]
           slots: 3
@@ -1294,7 +1294,7 @@ missions:
   - title: Crossing the Atmosphere
     objective: Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.
     briefing: "The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping back into space. The player must integrate drag, energy conversion, and atmospheric density."
-    stake: Eighty-two hours in, and nothing goes wrong this shift, which is its own kind of unnerving. The capsule will arrive at about eleven kilometres a second into a corridor roughly a degree wide, and Erika Lindqvist, integrating the flight dynamics, wants the whole room to understand what that means before anybody is asked to vote on it. This shift you follow where the energy goes, put a number on it, and decide how to protect the corridor. Too shallow and the capsule skips back out with no consumables to come round again. Too steep and the shield takes everything in seconds. The same physics keeps them alive and would kill them.
+    stake: 82 hours in, and nothing goes wrong this shift, which is its own kind of unnerving. The capsule will arrive at about 11 kilometres a second into a corridor roughly a degree wide, and Erika Lindqvist, integrating the flight dynamics, wants the whole room to understand what that means before anybody is asked to vote on it. This shift you follow where the energy goes, put a number on it, and decide how to protect the corridor. Too shallow and the capsule skips back out with no consumables to come round again. Too steep and the shield takes everything in seconds. The same physics keeps them alive and would kill them.
     takeaway: Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -1328,7 +1328,7 @@ missions:
         takeaway: Speed dominates kinetic energy because it enters squared.
         format: BALLPARK
         question: Estimate the kinetic energy to be dissipated.
-        why: Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about forty percent nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.
+        why: Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about 40 percent nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.
         estimate:
           relationship: Kinetic energy = ½ × mass × speed².
           prompt: A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.
@@ -1382,7 +1382,7 @@ missions:
   - title: The Structure Is Vibrating
     objective: Move the system away from resonance and verify that the mitigation works across operating conditions.
     briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.
-    stake: Ninety hours in, and a structural dynamics engineer, Chidi Okoye, caught this one — worth saying, because nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it, work out the structure's own natural rhythm, and stop it. The shaking dies away as soon as the pump moves off that speed, which is the part Okoye thinks matters. This is a shift where something is simply fixed.
+    stake: 90 hours in, and a structural dynamics engineer, Chidi Okoye, caught this 1 — worth saying, because nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it, work out the structure's own natural rhythm, and stop it. The shaking dies away as soon as the pump moves off that speed, which is the part Okoye thinks matters. This is a shift where something is simply fixed.
     takeaway: Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -1491,7 +1491,7 @@ missions:
   - title: Choose the Return Path
     objective: Select a return plan with explicit margins and contingencies for the dominant uncertainties.
     briefing: Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player must make a multi-constraint physical decision rather than optimize one variable.
-    stake: "Ninety-eight hours in. The correction Whitaker flew on the third shift has come back with a cost: tracking now says the path he chose is the expensive one, and Carter has not said anything about it, which is somehow worse. Four routes are on the board — fastest, least propellant, coolest entry, best tracking coverage — and once the burn flies most of them close. This shift you find what actually limits this vehicle and pick the path that survives being wrong. What you want is the path with something left when the next thing breaks."
+    stake: "98 hours in. The correction Whitaker flew on the third shift has come back with a cost: tracking now says the path he chose is the expensive one, and Carter has not said anything about it, which is somehow worse. Four routes are on the board — fastest, least propellant, coolest entry, best tracking coverage — and once the burn flies most of them close. This shift you find what actually limits this vehicle and pick the path that survives being wrong. What you want is the path with something left when the next thing breaks."
     takeaway: Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -1618,7 +1618,7 @@ missions:
   - title: The Last Correction
     objective: Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.
     briefing: Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.
-    stake: A hundred and six hours in, and it is Carter's turn — she has been waiting four days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.
+    stake: 106 hours in, and it is Carter's turn — she has been waiting 4 days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.
     takeaway: Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.
     stops:
       - group: NAV
@@ -1676,21 +1676,21 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Combine independent uncertainties
         place: Navigation Covariance Room
-        scene: The navigation board carries two position errors. One is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.
+        scene: The navigation board carries two position errors. 1 is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.
         assumes:
           - two errors along different directions do not simply add
         takeaway: Independent orthogonal uncertainties combine in quadrature.
         format: BALLPARK
         question: Estimate the combined two-dimensional uncertainty.
-        why: Independent errors along perpendicular directions combine in quadrature. Square each width, add the squares, and take the square root. Six and eight kilometres therefore combine to 10 kilometres. The result is larger than either contribution but smaller than their simple sum. That distinction matters operationally. Adding them directly exaggerates the uncertainty and can motivate an unnecessary burn. Treating the larger term alone understates the uncertainty and can hide a corridor problem. The combination rule preserves the geometry of independent errors.
+        why: Independent errors along perpendicular directions combine in quadrature. Square each width, add the squares, and take the square root. 14 kilometres therefore combine to 10 kilometres. The result is larger than either contribution but smaller than their simple sum. That distinction matters operationally. Adding them directly exaggerates the uncertainty and can motivate an unnecessary burn. Treating the larger term alone understates the uncertainty and can hide a corridor problem. The combination rule preserves the geometry of independent errors.
         estimate:
           relationship: "Independent errors along perpendicular axes add in quadrature: the root of the sum of the squares."
-          prompt: Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.
+          prompt: 2 independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.
           question: Estimate the combined two-dimensional uncertainty.
           labels:
             - 6 km (one-sigma, first axis)
             - 8 km (one-sigma, second axis)
-            - 14 km (the two added)
+            - 14 km (the 2 added)
             - 7 km (their average)
             - 2 (number of axes)
           values: [6, 8, 14, 7, 2]
@@ -1702,7 +1702,7 @@ missions:
           tolerance: 0.5
           units: km
           solution: √(6² + 8²) = 10 km.
-          explanation: Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by forty per cent here.
+          explanation: Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by 40 per cent here.
       - group: INTEG
         task: Spend the remaining tracking budget on the observation that can actually change the burn decision.
         title: Burn or observe?
@@ -1749,14 +1749,14 @@ missions:
   - title: Reentry
     objective: Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.
     briefing: "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery."
-    stake: "A hundred and eighteen hours in. The sequence starts in eleven minutes, four of them with no communications, and nothing in it can be undone. This shift you take the claims one at a time and decide whether this vehicle is ready. They are not equally strong: a heat shield cold for four days, a battery charged through a path Ferreira invented on the sixth shift, an alignment Ruiz flew by hand against stars, a corridor entered on Carter's independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word of this for five days, and today they say very little."
+    stake: "A hundred and 18 hours in. The sequence starts in 11 minutes, 4 of them with no communications, and nothing in it can be undone. This shift you take the claims one at a time and decide whether this vehicle is ready. They are not equally strong: a heat shield cold for four days, a battery charged through a path Ferreira invented on the sixth shift, an alignment Ruiz flew by hand against stars, a corridor entered on Carter's independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word of this for five days, and today they say very little."
     takeaway: Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
         task: Choose which readiness claims to verify before entry. You have two checks for four signed claims, so spend them where an unverified error would matter most.
         title: Disposition final readiness
         place: Integrated Flight Room
-        scene: Eleven minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.
+        scene: 11 minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.
         assumes:
           - a signature records responsibility, not physical truth
           - verification time should be spent according to consequence and existing evidence
@@ -1800,7 +1800,7 @@ missions:
         task: Order the entry around the four minutes with no communications.
         title: Execute the final physical chain
         place: Crew Capsule
-        scene: Everything now depends on the next eleven minutes, including four minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.
+        scene: Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.
         assumes:
           - you cannot fix from the ground what happens while the radio is quiet
         takeaway: "Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts."
@@ -1842,7 +1842,7 @@ missions:
 interiors:
   NAV:
     caption: A state estimate that cannot predict the next observation is a number, not a position.
-    standLine: Range from one station, two bearings ninety minutes apart, and a Doppler trace in a different time standard.
+    standLine: Range from 1 station, 2 bearings 90 minutes apart, and a Doppler trace in a different time standard.
     station:
       kind: panel
       title: Guidance console
@@ -1890,7 +1890,7 @@ interiors:
           status: normal
   COMMS:
     caption: A link budget is arithmetic. Which term broke it is evidence.
-    standLine: Carrier down twelve decibels and drifting, with attitude, range and antenna schedule all changed.
+    standLine: Carrier down 12 decibels and drifting, with attitude, range and antenna schedule all changed.
     station:
       kind: panel
       title: Downlink

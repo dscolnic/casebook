@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the vault is cold",
-      "scene": "Mbaye has two lots of the same accession on the bench. One spent four years at minus eighteen degrees and six per cent moisture. The other sat in a warm shed and now germinates at thirty-one per cent.",
+      "scene": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6 per cent moisture. The other sat in a warm shed and now germinates at 31 per cent.",
       "takeaway": "Cold and low moisture extend orthodox-seed life by slowing the reactions that drive deterioration.",
       "place": "Seed Vault",
-      "story": "Mbaye has two lots of the same accession on the bench. One spent four years at minus eighteen degrees and six per cent moisture. The other sat in a warm shed and now germinates at thirty-one per cent.",
+      "story": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6 per cent moisture. The other sat in a warm shed and now germinates at 31 per cent.",
       "game": {
         "type": "CHOICE",
         "title": "Why the vault is cold",
@@ -40,21 +40,21 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "How many plants make a population",
-      "scene": "Mbaye can regenerate the 1994 accession from whatever number of plants the ground allows. Volpe points out that thirty plants would free half a plot. Ivanescu has gone very quiet.",
+      "scene": "Mbaye can regenerate the 1994 accession from whatever number of plants the ground allows. Volpe points out that 30 plants would free half a plot. Ivanescu has gone very quiet.",
       "takeaway": "A grow-out is a sample, and a small sample loses whatever was rare in what it came from.",
       "place": "Seed Vault",
-      "story": "Mbaye can regenerate the 1994 accession from whatever number of plants the ground allows. Volpe points out that thirty plants would free half a plot. Ivanescu has gone very quiet.",
+      "story": "Mbaye can regenerate the 1994 accession from whatever number of plants the ground allows. Volpe points out that 30 plants would free half a plot. Ivanescu has gone very quiet.",
       "game": {
         "type": "CHOICE",
         "title": "How many plants make a population",
         "setup": "Seed Vault",
         "play": "Decide how many plants a grow-out needs",
         "task": "Decide how many plants a grow-out needs",
-        "question": "What does regenerating from thirty plants instead of two hundred cost?",
+        "question": "What does regenerating from 30 plants instead of 200 cost?",
         "answer": "The rare alleles, which drop out by chance alone",
         "why": "Every regeneration samples alleles from the population that came before it. Rare variants are easiest to miss because few plants carry them. If an observable type occurs in only a few plants, a small grow-out can contain none of those plants by chance. Once the allele is absent from every contributor, careful storage cannot restore it. The resulting seed may still germinate well and look normal. That is why a genetic bottleneck can damage a collection without leaving an obvious sign in routine viability tests.",
         "rebuttals": [
-          "Seed from thirty well-grown plants germinates as well as seed from three hundred.",
+          "Seed from 30 well-grown plants germinates as well as seed from 300.",
           "The passport record describes where the accession came from and is unaffected by how it is grown.",
           "Cross-pollination is a separate risk, handled by isolation distance and by bagging."
         ],
@@ -73,10 +73,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Write the viability rule before it falls",
-      "scene": "Mbaye has eleven germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
+      "scene": "Mbaye has 11 germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
       "takeaway": "A biological threshold must fire early enough for the action it triggers to arrive before the measured state crosses the limit.",
       "place": "Seed Vault",
-      "story": "Mbaye has eleven germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
+      "story": "Mbaye has 11 germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
       "game": {
         "type": "TRIGGER",
         "title": "Write the viability rule before it falls",
@@ -193,10 +193,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the store did right",
-      "scene": "Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers twenty-eight years without an excursion, and current germination remains strong in the affected packets.",
+      "scene": "Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers 28 years without an excursion, and current germination remains strong in the affected packets.",
       "takeaway": "Storage held what it was handed; the loss happened in the field, on the way back in.",
       "place": "Seed Vault",
-      "story": "Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers twenty-eight years without an excursion, and current germination remains strong in the affected packets.",
+      "story": "Qureshi wants one sentence for the board that names the failed process rather than the room it happened near. The vault temperature log covers 28 years without an excursion, and current germination remains strong in the affected packets.",
       "game": {
         "type": "CHOICE",
         "title": "What the store did right",
@@ -226,10 +226,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What a grow-out has to be from now on",
-      "scene": "Qureshi has to write a standard that survives the next twenty years and the next four season leads. The ground available does not change and the collection does not shrink.",
+      "scene": "Qureshi has to write a standard that survives the next 20 years and the next 4 season leads. The ground available does not change and the collection does not shrink.",
       "takeaway": "A standard is what survives the person who wrote it, so it has to name a number.",
       "place": "Seed Vault",
-      "story": "Qureshi has to write a standard that survives the next twenty years and the next four season leads. The ground available does not change and the collection does not shrink.",
+      "story": "Qureshi has to write a standard that survives the next 20 years and the next 4 season leads. The ground available does not change and the collection does not shrink.",
       "game": {
         "type": "SEQUENCE",
         "title": "What a grow-out has to be from now on",
@@ -276,10 +276,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Three jobs, one still damaging seed",
-      "scene": "Ashworth has 400 packets with failed foil seals, a viability-testing schedule three months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.",
+      "scene": "Ashworth has 400 packets with failed foil seals, a viability-testing schedule 3 months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.",
       "takeaway": "Urgency depends on whether damage is still accumulating and reversible; a handoff is complete only with an owner, first action and return condition.",
       "place": "Seed Vault",
-      "story": "Ashworth has 400 packets with failed foil seals, a viability-testing schedule three months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.",
+      "story": "Ashworth has 400 packets with failed foil seals, a viability-testing schedule 3 months behind, and a stack of faded labels still recoverable from shelf positions. The vault is quiet this week, and three staff roles are available.",
       "game": {
         "type": "DELEGATE",
         "title": "Three jobs, one still damaging seed",
@@ -373,7 +373,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Freshness affects germination and has nothing to do with which alleles are present.",
           "Quantity is not the issue; the vault has plenty of a population that has lost the gene.",
-          "Mutation is far too rare to restore an allele in thirty years."
+          "Mutation is far too rare to restore an allele in 30 years."
         ],
         "choices": [
           "Rust has selected it every year the vault was standing still",
@@ -390,10 +390,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What the catalogue says and what is there",
-      "scene": "Ninety accessions were genotyped. Thirty had drifted, and every one of those had been regenerated at least twice. The other sixty, regenerated once or not at all, still matched. About 9,000 accessions have two or more regenerations.",
+      "scene": "90 accessions were genotyped. 30 had drifted, and every 1 of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.",
       "takeaway": "A sample can identify a high-risk group without proving the exact fraction affected in the entire collection.",
       "place": "Seed Vault",
-      "story": "Ninety accessions were genotyped. Thirty had drifted, and every one of those had been regenerated at least twice. The other sixty, regenerated once or not at all, still matched. About 9,000 accessions have two or more regenerations.",
+      "story": "90 accessions were genotyped. 30 had drifted, and every 1 of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.",
       "game": {
         "type": "CHOICE",
         "title": "What the catalogue says and what is there",
@@ -402,19 +402,19 @@ export const CURRICULUM = {
         "task": "Say what the season established about the collection",
         "question": "What can Wellmere honestly say to its board on Monday?",
         "answer": "Repeated regeneration is the high-risk category. Prioritise those accessions for audit and change the protocol now, while a larger sample estimates how common drift is within that group.",
-        "why": "The sample separates sharply by regeneration history: all thirty repeatedly regenerated accessions drifted, while the sixty less-regenerated accessions matched. That is strong evidence that repeated regeneration marks a high-risk group. It does not justify saying one third of the whole collection has drifted, because the sampled groups had different exposure histories. It also does not prove every one of the 9,000 repeatedly regenerated accessions is affected. The board can act on the risk group now while a larger audit estimates its true prevalence.",
+        "why": "The sample separates sharply by regeneration history: all 30 repeatedly regenerated accessions drifted, while the 60 less-regenerated accessions matched. That is strong evidence that repeated regeneration marks a high-risk group. It does not justify saying one third of the whole collection has drifted, because the sampled groups had different exposure histories. It also does not prove every 1 of the 9,000 repeatedly regenerated accessions is affected. The board can act on the risk group now while a larger audit estimates its true prevalence.",
         "rebuttals": [
           "The one-third figure mixes accessions with very different regeneration histories and cannot be applied to the full collection.",
-          "The sample identifies a strong risk pattern beyond the thirty measured packets, even though it cannot name every affected accession.",
-          "All thirty sampled repeated-regeneration accessions drifted, but a sample of thirty does not establish a literal 100% prevalence across all 9,000."
+          "The sample identifies a strong risk pattern beyond the 30 measured packets, even though it cannot name every affected accession.",
+          "All 30 sampled repeated-regeneration accessions drifted, but a sample of 30 does not establish a literal 100% prevalence across all 9,000."
         ],
         "choices": [
           "Repeatedly regenerated accessions are a high-risk group and should be prioritised for audit",
-          "About one third of the entire 41,000-accession collection has drifted",
-          "Only the thirty sampled accessions can be treated as affected",
+          "About 1 third of the entire 41,000-accession collection has drifted",
+          "Only the 30 sampled accessions can be treated as affected",
           "All 9,000 accessions regenerated twice or more should be assumed to have drifted"
         ],
-        "correctChoice": "About one third of the entire 41,000-accession collection has drifted"
+        "correctChoice": "About 1 third of the entire 41,000-accession collection has drifted"
       },
       "assumes": [
         "a sample of a collection supports an estimate about the collection"
@@ -458,10 +458,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Counting a generation",
-      "scene": "Four hundred F2 plants, and 306 of them show the resistant reaction while 94 do not. Bengtsson asks what that number is supposed to be, and whether it is close enough.",
+      "scene": "400 F2 plants, and 306 of them show the resistant reaction while 94 do not. Bengtsson asks what that number is supposed to be, and whether it is close enough.",
       "takeaway": "The proportions in a whole generation carry information that no single plant in it does.",
       "place": "Crossing Hall",
-      "story": "Four hundred F2 plants, and 306 of them show the resistant reaction while 94 do not. Bengtsson asks what that number is supposed to be, and whether it is close enough.",
+      "story": "400 F2 plants, and 306 of them show the resistant reaction while 94 do not. Bengtsson asks what that number is supposed to be, and whether it is close enough.",
       "game": {
         "type": "CHOICE",
         "title": "Counting a generation",
@@ -470,9 +470,9 @@ export const CURRICULUM = {
         "task": "Read what the second generation shows",
         "question": "What do 306 resistant and 94 susceptible plants tell you about this resistance?",
         "answer": "The counts fit a single dominant resistance locus: about 300:100 is expected, while a 15:1 two-gene model would predict about 375:25.",
-        "why": "F1 plants carry one resistance allele and one susceptible allele. Meiosis separates those alleles, so two heterozygous parents give a 3:1 phenotype expectation when resistance is dominant. In 400 offspring that is 300 resistant and 100 susceptible. The observed 306 and 94 are close. Two independently assorting genes where either dominant allele gives resistance predict 15:1, or 375 resistant and 25 susceptible. The counts therefore support one dominant locus much better than the two-locus alternative.",
+        "why": "F1 plants carry one resistance allele and one susceptible allele. Meiosis separates those alleles, so 2 heterozygous parents give a 3:1 phenotype expectation when resistance is dominant. In 400 offspring that is 300 resistant and 100 susceptible. The observed 306 and 94 are close. 2 independently assorting genes where either dominant allele gives resistance predict 15:1, or 375 resistant and 25 susceptible. The counts therefore support one dominant locus much better than the two-locus alternative.",
         "rebuttals": [
-          "Two genes acting either-way give about one susceptible in sixteen, not one in four.",
+          "2 genes acting either-way give about 1 susceptible in 16, not 1 in 4.",
           "The screening bay is inoculated deliberately, so escape is possible and would not give a clean ratio.",
           "A wrong marker in the parents would break the ratio rather than produce a textbook one."
         ],
@@ -523,10 +523,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a season costs",
-      "scene": "Volpe has the pipeline on the board: cross to release is seven years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.",
+      "scene": "Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.",
       "takeaway": "The cost of holding something back is rarely paid by the thing being held back.",
       "place": "Crossing Hall",
-      "story": "Volpe has the pipeline on the board: cross to release is seven years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.",
+      "story": "Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.",
       "game": {
         "type": "CHOICE",
         "title": "What a season costs",
@@ -535,7 +535,7 @@ export const CURRICULUM = {
         "task": "Say what deferring the release costs",
         "question": "Why does a one-season deferral cost more than one season?",
         "answer": "Every line behind it in the pipeline waits too",
-        "why": "A breeding programme is a queue that shares seasons, ground and staff. Holding WM-712 for one year also delays its seed increase, the trial that would have used that ground, and the crosses waiting behind it. The cost therefore lands on lines that were never part of the argument. That is the strongest version of Volpe’s case: delay has opportunity costs throughout the pipeline. It does not prove release is right, but it makes the price of waiting explicit.",
+        "why": "A breeding programme is a queue that shares seasons, ground and staff. Holding WM-712 for 1 year also delays its seed increase, the trial that would have used that ground, and the crosses waiting behind it. The cost therefore lands on lines that were never part of the argument. That is the strongest version of Volpe’s case: delay has opportunity costs throughout the pipeline. It does not prove release is right, but it makes the price of waiting explicit.",
         "rebuttals": [
           "The standard does improve, slowly, and it is not what makes a single season expensive.",
           "A year in a cold store costs a well-dried sample very little germination.",
@@ -556,10 +556,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What came with the gene",
-      "scene": "Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.",
+      "scene": "Every backcross line carrying the resistance allele is 12 to 15 centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.",
       "takeaway": "A chromosome is inherited in stretches, so a wanted gene arrives with its neighbours.",
       "place": "Crossing Hall",
-      "story": "Every backcross line carrying the resistance allele is twelve to fifteen centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.",
+      "story": "Every backcross line carrying the resistance allele is 12 to 15 centimetres shorter than its susceptible siblings. The donor parent was a short landrace, while the recurrent elite parent is tall. Volpe wants to know what travelled with the target gene.",
       "game": {
         "type": "CHOICE",
         "title": "What came with the gene",
@@ -570,7 +570,7 @@ export const CURRICULUM = {
         "answer": "They carry the donor's neighbouring genes along with the resistance",
         "why": "Backcrossing recovers most of the recurrent parent’s genome while keeping the target resistance allele. The chromosome around that allele is different. Nearby donor genes tend to travel with the target because recombination is less likely across a short interval. That linked donor segment can carry unwanted traits such as short stature. Breaking the association requires a crossover between the target and the unwanted neighbour. Breeders therefore grow many offspring and screen for the rare recombinant that keeps resistance while losing the linked donor trait.",
         "rebuttals": [
-          "A defence response has a real cost and it does not produce a consistent fifteen centimetres.",
+          "A defence response has a real cost and it does not produce a consistent 15 centimetres.",
           "Backcrossing recovers the recurrent parent and does not reduce vigour by itself.",
           "Selection in the bay was for the marker, and height was not scored at all."
         ],
@@ -589,10 +589,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "An extra generation in the bay",
-      "scene": "Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs three months instead of twelve, and there is bench room for one population.",
+      "scene": "Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs 3 months instead of 12, and there is bench room for 1 population.",
       "takeaway": "A generation indoors is for advancing material, not for judging it.",
       "place": "Crossing Hall",
-      "story": "Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs three months instead of twelve, and there is bench room for one population.",
+      "story": "Bengtsson can run one more generation over the winter in the warm bay. It is the only place at Wellmere where a generation costs 3 months instead of 12, and there is bench room for 1 population.",
       "game": {
         "type": "CHOICE",
         "title": "An extra generation in the bay",
@@ -609,7 +609,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Advancing the backcross that needs a rare crossover",
-          "Yield-testing the twenty selected lines early",
+          "Yield-testing the 20 selected lines early",
           "Growing out the overdue landrace accession",
           "Multiplying seed of WM-712 for the merchant"
         ],
@@ -622,10 +622,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The fortnight when it is possible",
-      "scene": "Crossing needs the female parent before the anthers shed and the male in flower on the same morning. Bengtsson has the two parents at the right stage for about eleven days.",
+      "scene": "Crossing needs the female parent before the anthers shed and the male in flower on the same morning. Bengtsson has the 2 parents at the right stage for about 11 days.",
       "takeaway": "Some work has a window rather than a deadline, and the window is set by the plant.",
       "place": "Crossing Hall",
-      "story": "Crossing needs the female parent before the anthers shed and the male in flower on the same morning. Bengtsson has the two parents at the right stage for about eleven days.",
+      "story": "Crossing needs the female parent before the anthers shed and the male in flower on the same morning. Bengtsson has the 2 parents at the right stage for about 11 days.",
       "game": {
         "type": "SEQUENCE",
         "title": "The fortnight when it is possible",
@@ -654,23 +654,23 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Forty tonnes and a failing gene",
-      "scene": "Forty tonnes of WM-712 seed exists. Its single resistance gene is being beaten two hundred kilometres away and in Wellmere's own nursery this morning. It still yields eleven per cent more in a dry year.",
+      "title": "40 tonnes and a failing gene",
+      "scene": "40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11 per cent more in a dry year.",
       "takeaway": "What makes a variety valuable is also what makes a single failing gene expensive.",
       "place": "Crossing Hall",
-      "story": "Forty tonnes of WM-712 seed exists. Its single resistance gene is being beaten two hundred kilometres away and in Wellmere's own nursery this morning. It still yields eleven per cent more in a dry year.",
+      "story": "40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11 per cent more in a dry year.",
       "game": {
         "type": "CHOICE",
-        "title": "Forty tonnes and a failing gene",
+        "title": "40 tonnes and a failing gene",
         "setup": "Crossing Hall",
         "play": "Answer the merchant",
         "task": "Answer the merchant",
         "question": "What should Wellmere tell the merchant?",
         "answer": "Release it, with the resistance stated as a known weakness",
-        "why": "The dry-year yield advantage is real, and forty tonnes of seed already exists. Destroying it does not repair the resistance gene. The risk is that a variety sold as resistant may be planted widely as though one failing gene were enough. Naming the weakness changes management and surveillance. Adding a second gene belongs in the next breeding cycle because existing seed cannot be genetically changed today. The biology defines the trade-off, while release policy still sets what level of risk is acceptable.",
+        "why": "The dry-year yield advantage is real, and 40 tonnes of seed already exists. Destroying it does not repair the resistance gene. The risk is that a variety sold as resistant may be planted widely as though one failing gene were enough. Naming the weakness changes management and surveillance. Adding a second gene belongs in the next breeding cycle because existing seed cannot be genetically changed today. The biology defines the trade-off, while release policy still sets what level of risk is acceptable.",
         "rebuttals": [
           "Silence is what produces a district planted to one failing gene.",
-          "Forty tonnes of a high-yielding line is worth something even where rust arrives.",
+          "40 tonnes of a high-yielding line is worth something even where rust arrives.",
           "The second gene is the plan for the next line; it cannot be added to seed already grown."
         ],
         "choices": [
@@ -771,10 +771,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Frequencies, not plants",
-      "scene": "Ivanescu has 100 plants from the 1994 accession scored at one locus. Thirty-six are AA, forty-eight are Aa and sixteen are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
+      "scene": "Ivanescu has 100 plants from the 1994 accession scored at 1 locus. 36 are AA, 48 are Aa and 16 are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
       "takeaway": "A frequency describes the population; a genotype describes one plant, and they answer different questions.",
       "place": "Genetic Resources Office",
-      "story": "Ivanescu has 100 plants from the 1994 accession scored at one locus. Thirty-six are AA, forty-eight are Aa and sixteen are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
+      "story": "Ivanescu has 100 plants from the 1994 accession scored at 1 locus. 36 are AA, 48 are Aa and 16 are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
       "game": {
         "type": "BALLPARK",
         "title": "Frequencies, not plants",
@@ -782,8 +782,8 @@ export const CURRICULUM = {
         "play": "Work out what the sample says about the population",
         "task": "Work out what the sample says about the population",
         "question": "Estimate the frequency of the tall allele in this accession.",
-        "answer": "0.6 for the tall allele, and 0.4 for the short one.",
-        "why": "One hundred diploid plants carry 200 allele copies. The 36 AA plants contribute 72 A copies, and the 48 heterozygotes contribute 48 more. That gives p = 120/200 = 0.60 and q = 0.40. Hardy–Weinberg predicts p² = 0.36, 2pq = 0.48 and q² = 0.16. Those values exactly match the observed genotype fractions here. This gives a clean null model before drift, selection, migration, non-random mating or a bottleneck changes the population.",
+        "answer": "0.6 for the tall allele, and 0.4 for the short 1.",
+        "why": "100 diploid plants carry 200 allele copies. The 36 AA plants contribute 72 A copies, and the 48 heterozygotes contribute 48 more. That gives p = 120/200 = 0.60 and q = 0.40. Hardy–Weinberg predicts p² = 0.36, 2pq = 0.48 and q² = 0.16. Those values exactly match the observed genotype fractions here. This gives a clean null model before drift, selection, migration, non-random mating or a bottleneck changes the population.",
         "givens": [
           "36 AA, 48 Aa and 16 aa plants",
           "100 diploid plants means 200 allele copies"
@@ -817,10 +817,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Not the number of plants",
-      "scene": "Last year’s regeneration of a dioecious conservation accession used 120 plants. Eighteen pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.",
+      "scene": "Last year’s regeneration of a dioecious conservation accession used 120 plants. 18 pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.",
       "takeaway": "A regeneration can contain many plants yet behave genetically like a much smaller population when parental contributions are unbalanced.",
       "place": "Genetic Resources Office",
-      "story": "Last year’s regeneration of a dioecious conservation accession used 120 plants. Eighteen pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.",
+      "story": "Last year’s regeneration of a dioecious conservation accession used 120 plants. 18 pollen donors and 102 seed parents contributed to the harvested seed. Ivanescu wants the effective size before the next regeneration plan is approved.",
       "game": {
         "type": "BALLPARK",
         "title": "Not the number of plants",
@@ -862,10 +862,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Where an unused allele lives",
-      "scene": "Ivanescu has to pick fifty accessions to screen out of 41,000. On the board: modern varieties, the breeding programme's own parents, and the landraces from districts where rust has always been present.",
+      "scene": "Ivanescu has to pick 50 accessions to screen out of 41,000. On the board: modern varieties, the breeding programme's own parents, and the landraces from districts where rust has always been present.",
       "takeaway": "Where a disease has always been, the plants that stayed are the ones that could.",
       "place": "Genetic Resources Office",
-      "story": "Ivanescu has to pick fifty accessions to screen out of 41,000. On the board: modern varieties, the breeding programme's own parents, and the landraces from districts where rust has always been present.",
+      "story": "Ivanescu has to pick 50 accessions to screen out of 41,000. On the board: modern varieties, the breeding programme's own parents, and the landraces from districts where rust has always been present.",
       "game": {
         "type": "CHOICE",
         "title": "Where an unused allele lives",
@@ -895,10 +895,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Which evidence shares the grow-out",
-      "scene": "Thirty of ninety accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean.",
+      "scene": "30 of 90 accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean.",
       "takeaway": "Several results can agree because they share one history; independent evidence should be kept when the shared dependency is corrected.",
       "place": "Genetic Resources Office",
-      "story": "Thirty of ninety accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean.",
+      "story": "30 of 90 accessions no longer match their 1990s allele frequencies. Nakagawa has four evidence channels on the board: genetic comparisons, regeneration histories, germination results and the vault log. Independent shelf checks are clean.",
       "game": {
         "type": "TRACE",
         "title": "Which evidence shares the grow-out",
@@ -913,7 +913,7 @@ export const CURRICULUM = {
             {
               "id": "frequency",
               "label": "Allele-frequency comparison",
-              "reading": "18 of 30 loci have moved more than five percentage points from the 1994 record",
+              "reading": "18 of 30 loci have moved more than 5 percentage points from the 1994 record",
               "depends": [
                 "passport",
                 "current_genotype",
@@ -923,7 +923,7 @@ export const CURRICULUM = {
             {
               "id": "rare",
               "label": "Rare-variant comparison",
-              "reading": "Nine alleles recorded in 1994 at under five per cent are absent from the current sample",
+              "reading": "9 alleles recorded in 1994 at under 5 per cent are absent from the current sample",
               "depends": [
                 "passport",
                 "current_genotype",
@@ -943,7 +943,7 @@ export const CURRICULUM = {
             {
               "id": "viability",
               "label": "Germination panel",
-              "reading": "Germination 91 per cent, and the store has held minus 18 for twenty-eight years",
+              "reading": "Germination 91 per cent, and the store has held minus 18 for 28 years",
               "depends": [
                 "germination",
                 "vault_log"
@@ -992,10 +992,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The other copy",
-      "scene": "Fenn’s four landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.",
+      "scene": "Fenn’s 4 landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.",
       "takeaway": "Material that never stopped growing has never been through a sampling step.",
       "place": "Genetic Resources Office",
-      "story": "Fenn’s four landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.",
+      "story": "Fenn’s 4 landraces descend from populations sampled for Wellmere in 1994. His family has grown them every year since then, usually as large fields. The vault copies have been regenerated only twice, each time through much smaller grow-outs.",
       "game": {
         "type": "CHOICE",
         "title": "The other copy",
@@ -1042,10 +1042,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What was lost, and when",
-      "scene": "Ivanescu has the 1994 field notes for the drifted accession. The collector recorded rust on the crop and noted that about one plant in twenty stayed clean. Today's sample has none.",
+      "scene": "Ivanescu has the 1994 field notes for the drifted accession. The collector recorded rust on the crop and noted that about 1 plant in 20 stayed clean. Today's sample has none.",
       "takeaway": "An allele that has vanished was not necessarily destroyed; it may only have failed to be picked.",
       "place": "Genetic Resources Office",
-      "story": "Ivanescu has the 1994 field notes for the drifted accession. The collector recorded rust on the crop and noted that about one plant in twenty stayed clean. Today's sample has none.",
+      "story": "Ivanescu has the 1994 field notes for the drifted accession. The collector recorded rust on the crop and noted that about 1 plant in 20 stayed clean. Today's sample has none.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "What was lost, and when",
@@ -1054,7 +1054,7 @@ export const CURRICULUM = {
         "task": "What happened to the resistance in this accession?",
         "question": "What happened to the resistance in this accession?",
         "answer": "The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly five per cent.",
-        "why": "The 1994 field note says about five per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If five per cent of plants show it, a random sample of thirty has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.",
+        "why": "The 1994 field note says about 5 per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If 5 per cent of plants show it, a random sample of 30 has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.",
         "headline": "The 1994 notes describe resistant plants in this accession. The 2026 sample has none.",
         "readings": [
           {
@@ -1092,7 +1092,7 @@ export const CURRICULUM = {
         "choices": [
           {
             "label": "Drift removed it across three small grow-outs",
-            "mechanism": "An allele at five per cent has a real chance of missing a sample of thirty, three times over."
+            "mechanism": "An allele at 5 per cent has a real chance of missing a sample of 33 times over."
           },
           {
             "label": "The 1994 collector recorded it wrongly",
@@ -1201,10 +1201,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the same line is sown four times",
-      "scene": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing four times across four blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
+      "scene": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "takeaway": "A field is not uniform, so a single plot measures the plot as much as the line in it.",
       "place": "Field Laboratory",
-      "story": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing four times across four blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
+      "story": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "game": {
         "type": "CHOICE",
         "title": "Why the same line is sown four times",
@@ -1284,10 +1284,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What the trial can actually claim",
-      "scene": "Four seasons, one site, four replicates each. WM-712 is ahead by eleven per cent in the two dry years and by two per cent in the wet ones. The merchant's leaflet says \"eleven per cent higher yielding\".",
+      "scene": "Four seasons, one site, four replicates each. WM-712 is ahead by 11 per cent in the 2 dry years and by 2 per cent in the wet ones. The merchant's leaflet says \"11 per cent higher yielding\".",
       "takeaway": "A number from a trial carries the conditions it was measured under, or it is a different claim.",
       "place": "Field Laboratory",
-      "story": "Four seasons, one site, four replicates each. WM-712 is ahead by eleven per cent in the two dry years and by two per cent in the wet ones. The merchant's leaflet says \"eleven per cent higher yielding\".",
+      "story": "Four seasons, one site, four replicates each. WM-712 is ahead by 11 per cent in the 2 dry years and by 2 per cent in the wet ones. The merchant's leaflet says \"11 per cent higher yielding\".",
       "game": {
         "type": "CHOICE",
         "title": "What the trial can actually claim",
@@ -1295,10 +1295,10 @@ export const CURRICULUM = {
         "play": "Say what four seasons of trials support",
         "task": "Say what four seasons of trials support",
         "question": "What does this trial support saying about WM-712?",
-        "answer": "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the two dry years than in the wet years.",
+        "answer": "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the 2 dry years than in the wet years.",
         "why": "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only two per cent. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal.",
         "rebuttals": [
-          "The wet-year advantage is only two per cent, so eleven per cent is not a season-independent effect.",
+          "The wet-year advantage is only 2 per cent, so 11 per cent is not a season-independent effect.",
           "One site can motivate a drought-adaptation hypothesis, but it cannot establish performance across regions.",
           "The trial separates dry from wet years here; it does not define a rainfall threshold that guarantees the same response."
         ],
@@ -1350,10 +1350,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What one round returns",
-      "scene": "The trial mean is 7.4 tonnes per hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.",
+      "scene": "The trial mean is 7.4 tonnes per hectare. The 20 plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.",
       "takeaway": "Only the heritable share of an advantage is passed on, and for yield that share is small.",
       "place": "Field Laboratory",
-      "story": "The trial mean is 7.4 tonnes per hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.",
+      "story": "The trial mean is 7.4 tonnes per hectare. The 20 plots Volpe wants to keep average 9.1. Quiroga estimates yield heritability on this ground at 0.3 and asks what gain should actually reach the next generation.",
       "game": {
         "type": "BALLPARK",
         "title": "What one round returns",
@@ -1434,7 +1434,7 @@ export const CURRICULUM = {
           "B": 55,
           "A": 30
         },
-        "research": "The yield trial has 240 plots: 60 lines, four replicates. Guard rows take about 8 per cent\nof the area and stop plots from borrowing light and water from their neighbours. Shortening\nplots by a fifth would free 20 per cent but raises the error variance because a short plot\nsamples less ground. Dropping the fourth replicate frees a quarter and removes most of the\ntrial's ability to separate lines that differ by less than half a tonne. The screening\nmaterial needs the equivalent of 30 plots."
+        "research": "The yield trial has 240 plots: 60 lines, 4 replicates. Guard rows take about 8 per cent\nof the area and stop plots from borrowing light and water from their neighbours. Shortening\nplots by a fifth would free 20 per cent but raises the error variance because a short plot\nsamples less ground. Dropping the fourth replicate frees a quarter and removes most of the\ntrial's ability to separate lines that differ by less than half a tonne. The screening\nmaterial needs the equivalent of 30 plots."
       },
       "assumes": [
         "a trial's precision depends on its replication and its plot size"
@@ -1511,10 +1511,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "One disagreement, two possible causes",
-      "scene": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. Eleven carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
+      "scene": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 11 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
       "takeaway": "PCR can identify a DNA sequence, but a linked DNA marker can still separate from the gene it predicts.",
       "place": "Molecular Laboratory",
-      "story": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. Eleven carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
+      "story": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 11 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
       "game": {
         "type": "DEGENERACY",
         "title": "One disagreement, two possible causes",
@@ -1569,7 +1569,7 @@ export const CURRICULUM = {
             }
           ],
           "second": {
-            "label": "PCR aimed inside the resistance gene itself, on the eleven discordant plants",
+            "label": "PCR aimed inside the resistance gene itself, on the 11 discordant plants",
             "apply": "Run the direct-gene assay",
             "locus": [
               {
@@ -1620,10 +1620,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A marker fitted where it worked",
-      "scene": "The marker was mapped in the original population and has picked plants correctly for three seasons. Nakagawa has a new population from a different donor and a hundred plants scored both ways.",
+      "scene": "The marker was mapped in the original population and has picked plants correctly for three seasons. Nakagawa has a new population from a different donor and 100 plants scored both ways.",
       "takeaway": "A rule fitted on one population has to be scored on a population it has never seen.",
       "place": "Molecular Laboratory",
-      "story": "The marker was mapped in the original population and has picked plants correctly for three seasons. Nakagawa has a new population from a different donor and a hundred plants scored both ways.",
+      "story": "The marker was mapped in the original population and has picked plants correctly for three seasons. Nakagawa has a new population from a different donor and 100 plants scored both ways.",
       "game": {
         "type": "HOLDOUT",
         "title": "A marker fitted where it worked",
@@ -1631,7 +1631,7 @@ export const CURRICULUM = {
         "play": "Test whether the marker still works here",
         "task": "Test whether the marker still works here",
         "question": "Set the marker score above which a seedling is kept, on the plants the marker was mapped in — then freeze it and score it on a population it has never seen. What does it get?",
-        "answer": "About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — twenty points of it was that one population's noise.",
+        "answer": "About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — 20 points of it was that 1 population's noise.",
         "why": "A cut-off chosen on one population partly fits that population’s accidents. Those accidents do not have to repeat. The broad high-scoring shelf is useful because it persists when the rule is frozen and applied to the new donor cross. The sharp optimum at 63 does not persist; it was overfit to the mapping plants. A holdout population separates a marker rule that generalises from one that merely describes the sample used to choose it.",
         "holdout": {
           "axis": {
@@ -1743,7 +1743,7 @@ export const CURRICULUM = {
         "setup": "Molecular Laboratory",
         "play": "Trace how a DNA change can become a resistance-breaking phenotype",
         "task": "Trace how a DNA change can become a resistance-breaking phenotype",
-        "question": "How can one DNA substitution change whether WM-712 recognizes the pathogen?",
+        "question": "How can 1 DNA substitution change whether WM-712 recognizes the pathogen?",
         "answer": "The DNA substitution can change an mRNA codon and therefore an amino acid in the pathogen protein. If that changes recognition, the resulting phenotype can spread by natural selection.",
         "why": "A point mutation replaces one nucleotide in DNA. When that region is transcribed, the change can alter an mRNA codon. During translation, a changed codon may place a different amino acid in the pathogen protein. That can alter the protein’s shape or function, although some substitutions are silent. If the altered protein escapes recognition by WM-712, that rust variant can reproduce on resistant plants. Selection then raises the frequency of the resistance-breaking variant.",
         "rebuttals": [
@@ -1767,10 +1767,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the screen may not find",
-      "scene": "Nakagawa is screening fifty accessions for a second resistance gene. Twenty-two are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.",
+      "scene": "Nakagawa is screening 50 accessions for a second resistance gene. 22 are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.",
       "takeaway": "A screen finds what is in front of it, and what is in front of it is what survived the last grow-out.",
       "place": "Molecular Laboratory",
-      "story": "Nakagawa is screening fifty accessions for a second resistance gene. Twenty-two are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.",
+      "story": "Nakagawa is screening 50 accessions for a second resistance gene. 22 are on the drifted list, but their marker controls are clean. She wants to know what a negative result from those accessions is still allowed to mean.",
       "game": {
         "type": "CHOICE",
         "title": "What the screen may not find",
@@ -1800,10 +1800,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Which positive is worth the screenhouse slot",
-      "scene": "Two of fifty accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
+      "scene": "2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only 1 this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
       "takeaway": "The best measurement is the one that can change the decision, not the one that produces the most detailed description.",
       "place": "Molecular Laboratory",
-      "story": "Two of fifty accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
+      "story": "2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only 1 this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
       "game": {
         "type": "VALUE",
         "title": "Which positive is worth the screenhouse slot",
@@ -1833,7 +1833,7 @@ export const CURRICULUM = {
               "label": "Count viable seed in the thin vial",
               "cost": 1,
               "axis": "increase feasibility",
-              "reveals": "Eleven grams is roughly 300 viable seeds, enough for a careful protected increase."
+              "reveals": "11 grams is roughly 300 viable seeds, enough for a careful protected increase."
             },
             {
               "id": "repeat_marker",
@@ -1911,10 +1911,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Where a tonne of grain comes from",
-      "scene": "Toft has eleven tonnes from one field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered properly before it goes any further.",
+      "scene": "Toft has 11 tonnes from 1 field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered properly before it goes any further.",
       "takeaway": "A harvest weighs what it weighs because of something that was not there when it started.",
       "place": "Drying & Processing Hall",
-      "story": "Toft has eleven tonnes from one field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered properly before it goes any further.",
+      "story": "Toft has 11 tonnes from 1 field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered properly before it goes any further.",
       "game": {
         "type": "CHOICE",
         "title": "Where a tonne of grain comes from",
@@ -1944,10 +1944,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What the crop cannot do without water",
-      "scene": "Toft has eleven years of yield against summer rainfall and a straight-ish line through it. A trainee asks why a plant that is mostly built from air minds a dry summer at all.",
+      "scene": "Toft has 11 years of yield against summer rainfall and a straight-ish line through it. A trainee asks why a plant that is mostly built from air minds a dry summer at all.",
       "takeaway": "The opening a leaf takes carbon in through is the opening it loses water through.",
       "place": "Drying & Processing Hall",
-      "story": "Toft has eleven years of yield against summer rainfall and a straight-ish line through it. A trainee asks why a plant that is mostly built from air minds a dry summer at all.",
+      "story": "Toft has 11 years of yield against summer rainfall and a straight-ish line through it. A trainee asks why a plant that is mostly built from air minds a dry summer at all.",
       "game": {
         "type": "CHOICE",
         "title": "What the crop cannot do without water",
@@ -1977,10 +1977,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Short is not simply worse",
-      "scene": "Toft points out that shorter wheats were the whole point of the 1960s: less stem, more grain, and they stand up in the rain. Volpe still does not want fifteen centimetres she did not ask for.",
+      "scene": "Toft points out that shorter wheats were the whole point of the 1960s: less stem, more grain, and they stand up in the rain. Volpe still does not want 15 centimetres she did not ask for.",
       "takeaway": "What matters is the share of what the plant built that ends up in the grain.",
       "place": "Drying & Processing Hall",
-      "story": "Toft points out that shorter wheats were the whole point of the 1960s: less stem, more grain, and they stand up in the rain. Volpe still does not want fifteen centimetres she did not ask for.",
+      "story": "Toft points out that shorter wheats were the whole point of the 1960s: less stem, more grain, and they stand up in the rain. Volpe still does not want 15 centimetres she did not ask for.",
       "game": {
         "type": "CHOICE",
         "title": "Short is not simply worse",
@@ -2070,16 +2070,16 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Why those two did well",
-      "scene": "Two of the twenty selected plots reached full canopy eleven days before the rest and flowered four days earlier. Their yields are the highest in the trial and the season was dry after flowering.",
+      "scene": "2 of the 20 selected plots reached full canopy 11 days before the rest and flowered 4 days earlier. Their yields are the highest in the trial and the season was dry after flowering.",
       "takeaway": "An early canopy captures light while there is still water to use it with.",
       "place": "Drying & Processing Hall",
-      "story": "Two of the twenty selected plots reached full canopy eleven days before the rest and flowered four days earlier. Their yields are the highest in the trial and the season was dry after flowering.",
+      "story": "2 of the 20 selected plots reached full canopy 11 days before the rest and flowered 4 days earlier. Their yields are the highest in the trial and the season was dry after flowering.",
       "game": {
         "type": "CHOICE",
         "title": "Why those two did well",
         "setup": "Drying & Processing Hall",
-        "play": "Say what explains two of the twenty",
-        "task": "Say what explains two of the twenty",
+        "play": "Say what explains 2 of the 20",
+        "task": "Say what explains 2 of the 20",
         "question": "Why did the early lines yield best in this season?",
         "answer": "They captured light and set grain before the soil dried",
         "why": "Yield depends on how much light the crop intercepts, how efficiently it converts that energy, and how much biomass reaches grain. In this dry season, soil water became limiting after flowering. The lines that closed their canopies earlier captured more light while stomata could still stay open. Earlier flowering also shifted grain filling toward the wetter part of the season. These traits are therefore escape strategies for this environment. In a wet year their advantage could shrink or disappear.",
@@ -2135,14 +2135,14 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Eleven years, and what they are for",
-      "scene": "Toft’s canopy, flowering and weather records now span twelve seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.",
+      "title": "11 years, and what they are for",
+      "scene": "Toft’s canopy, flowering and weather records now span 12 seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.",
       "takeaway": "A measurement series is worth more each year, and it can only be started early.",
       "place": "Drying & Processing Hall",
-      "story": "Toft’s canopy, flowering and weather records now span twelve seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.",
+      "story": "Toft’s canopy, flowering and weather records now span 12 seasons. Nobody has ever asked for the whole series. This year two of those records explained why the highest-yielding plots separated from the rest during a dry finish.",
       "game": {
         "type": "CHOICE",
-        "title": "Eleven years, and what they are for",
+        "title": "11 years, and what they are for",
         "setup": "Drying & Processing Hall",
         "play": "Say what the year's agronomy is worth keeping",
         "task": "Say what the year's agronomy is worth keeping",
@@ -2171,7 +2171,7 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "POP-1": {
-    "prompt": "One hundred plants have genotypes 36 AA, 48 Aa and 16 aa. Each plant carries two copies of the locus.",
+    "prompt": "100 plants have genotypes 36 AA, 48 Aa and 16 aa. Each plant carries two copies of the locus.",
     "question": "Choose the tall-allele copies contributed by AA and Aa plants, and the total allele copies.",
     "labels": [
       "72  (A copies in the 36 AA plants)",
@@ -2291,7 +2291,7 @@ export const JARGON = [
     "aliases": [
       "chromosomes"
     ],
-    "def": "One long thread carrying many instructions in a fixed order, and inherited whole. A wheat plant has twenty-one pairs.",
+    "def": "One long thread carrying many instructions in a fixed order, and inherited whole. A wheat plant has 21 pairs.",
     "core": true
   },
   {

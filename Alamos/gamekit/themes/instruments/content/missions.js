@@ -54,8 +54,8 @@ export const MISSIONS = [
   {
     "title": "What the plan cannot answer",
     "objective": "Trace a path, spend a finite pool, and locate something from constraints that do not meet at a point.",
-    "briefing": "The gym is cleared on paper, the crate holds twenty slots, and three stations disagree politely.",
-    "stake": "Thursday, and Priya Naidoo has three jobs that have to close before the report does. The gym next to the school is cleared on a rapid inspection that never traced a load path; the river programme has twenty laboratory slots and six questions that all deserve them; and the overnight event has three arrival times and one station whose clock has been drifting since the spring. Today you follow force from a roof to the ground, decide what a sampling plan is allowed not to answer, and report a location as the region it actually is.",
+    "briefing": "The gym is cleared on paper, the crate holds 20 slots, and 3 stations disagree politely.",
+    "stake": "Thursday, and Priya Naidoo has three jobs that have to close before the report does. The gym next to the school is cleared on a rapid inspection that never traced a load path; the river programme has 20 laboratory slots and 6 questions that all deserve them; and the overnight event has 3 arrival times and 1 station whose clock has been drifting since the spring. Today you follow force from a roof to the ground, decide what a sampling plan is allowed not to answer, and report a location as the region it actually is.",
     "takeaway": "A finite plan is defined as much by what it forgoes as by what it covers.",
     "stops": [
       {
@@ -66,7 +66,7 @@ export const MISSIONS = [
       {
         "group": "G4",
         "lesson": 1,
-        "task": "Spend twenty slots on a plan you can defend"
+        "task": "Spend 20 slots on a plan you can defend"
       },
       {
         "group": "G1",

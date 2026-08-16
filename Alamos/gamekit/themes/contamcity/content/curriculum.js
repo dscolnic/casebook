@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the formula, not the rumor",
-      "scene": "A freight-yard fire has damaged several unlabelled containers, eighty metres from the river. Three different guesses about what is in them are already on the radio. Firefighters are picking a suppression agent from whatever identity you give them.",
+      "scene": "A freight-yard fire has damaged several unlabelled containers, 80 metres from the river. Three different guesses about what is in them are already on the radio. Firefighters are picking a suppression agent from whatever identity you give them.",
       "takeaway": "Chemical identity begins with explicit composition and charge.",
       "place": "Accident Command Post",
-      "story": "A freight-yard fire has damaged several unlabelled containers eighty metres from the river, and the shift supervisor's radio traffic is already carrying three different guesses about what is in them. A chemical formula is not a name: it states which elements are present, in what whole-number ratio, and what charge the unit carries, and each of those constrains what the substance can do. A subscript or a charge changed makes a different compound with different reactivity, different solubility and a different hazard class. Firefighters are choosing a suppression agent from whatever identity you give them, and some of the wrong answers react with water.",
+      "story": "A freight-yard fire has damaged several unlabelled containers 80 metres from the river, and the shift supervisor's radio traffic is already carrying 3 different guesses about what is in them. A chemical formula is not a name: it states which elements are present, in what whole-number ratio, and what charge the unit carries, and each of those constrains what the substance can do. A subscript or a charge changed makes a different compound with different reactivity, different solubility and a different hazard class. Firefighters are choosing a suppression agent from whatever identity you give them, and some of the wrong answers react with water.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read the formula, not the rumor",
@@ -173,7 +173,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Atomic mass is not the trend. What matters is how tightly the outer electron is held, and that weakens down the group.",
           "A shared anion is the reason the comparison works: it isolates the difference to the metal.",
-          "Ranking two group 1 metals is exactly what periodic trends are for, and running an unknown violent reaction to find out is the wrong order of work."
+          "Ranking 2 group 1 metals is exactly what periodic trends are for, and running an unknown violent reaction to find out is the wrong order of work."
         ],
         "choices": [
           "The caesium salt, because reactivity with water increases down group 1.",
@@ -277,7 +277,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Resolve the ambiguous peak",
-      "scene": "One peak at 4.2 minutes matches two candidates to within 0.05 minutes, and both are on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a detergent from the foam used on the fire.",
+      "scene": "1 peak at 4.2 minutes matches 2 candidates to within 0.05 minutes, and both are on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a detergent from the foam used on the fire.",
       "takeaway": "Better presentation cannot repair a method that was fooled, or evidence that was never validated.",
       "place": "Reference Library",
       "story": "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop coming off the column together, or bring in evidence that could not fail the same way, so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention.",
@@ -315,7 +315,7 @@ export const CURRICULUM = {
       "scene": "At the command trailer, a colourless plume is moving toward two neighbourhoods. Police are holding the evacuation roads open while the wind shifts. The release inventory is finally known, and the incident commander wants the gas scale before moving the roadblocks.",
       "takeaway": "Simple gas laws provide scale while atmospheric transport determines exposure.",
       "place": "Mobile Weather Station",
-      "story": "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts. The ideal gas law relates the amount of substance to the volume it occupies at a given temperature and pressure — at ordinary conditions about twenty-four litres per mole — which turns a mass in a tank into a scale you can reason about. It is a first-order tool and nothing more: it says how big the release is, not where it goes. Evacuating too little exposes people; evacuating too much blocks the roads the response needs.",
+      "story": "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts. The ideal gas law relates the amount of substance to the volume it occupies at a given temperature and pressure — at ordinary conditions about 24 litres per mole — which turns a mass in a tank into a scale you can reason about. It is a first-order tool and nothing more: it says how big the release is, not where it goes. Evacuating too little exposes people; evacuating too much blocks the roads the response needs.",
       "game": {
         "type": "BALLPARK",
         "title": "How much volume can the gas occupy?",
@@ -324,7 +324,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the gas volume at ambient conditions.",
         "question": "Estimate the gas volume at ambient conditions.",
         "answer": "V ≈ 2.0×10^4×8.31×300/10^5 ≈ 500 m³.",
-        "why": "The ideal gas law turns an amount of gas into a volume you can reason about. At ordinary temperature and pressure, the scale is about twenty-four litres per mole. It is a first-order tool and nothing more: it says how big the release is, not where it goes. The hazardous footprint depends on mixing, wind, terrain and chemistry, none of which appear in the calculation. The number still has to be right, because evacuating too little exposes people and evacuating too much blocks the roads the response needs.",
+        "why": "The ideal gas law turns an amount of gas into a volume you can reason about. At ordinary temperature and pressure, the scale is about 24 litres per mole. It is a first-order tool and nothing more: it says how big the release is, not where it goes. The hazardous footprint depends on mixing, wind, terrain and chemistry, none of which appear in the calculation. The number still has to be right, because evacuating too little exposes people and evacuating too much blocks the roads the response needs.",
         "givens": [
           "n = 2.0×10^4 mol",
           "T = 300 K",
@@ -500,7 +500,7 @@ export const CURRICULUM = {
         "task": "Same drum, same liquid, three times the vapour. Why?",
         "question": "Same drum, same liquid, three times the vapour. Why?",
         "answer": "Its vapour pressure rose with temperature, so more of it is in the gas phase.",
-        "why": "Vapour pressure is the pressure of gas in equilibrium with its own liquid, and it climbs steeply with temperature — often doubling for every ten or fifteen degrees. Warming the drum from morning to afternoon moves more molecules into the gas phase above the same liquid, so the air above it is more concentrated with no change in what is in the drum. This is why exposure limits are checked at the hottest part of the day, and why a hazard assessment made at dawn understates the afternoon.",
+        "why": "Vapour pressure is the pressure of gas in equilibrium with its own liquid, and it climbs steeply with temperature — often doubling for every 10 or 15 degrees. Warming the drum from morning to afternoon moves more molecules into the gas phase above the same liquid, so the air above it is more concentrated with no change in what is in the drum. This is why exposure limits are checked at the hottest part of the day, and why a hazard assessment made at dawn understates the afternoon.",
         "rebuttals": [
           "A new compound would show a different peak, and the analysis shows the same one.",
           "Both readings came from the same instrument, and a threefold change is far outside its drift.",
@@ -577,7 +577,7 @@ export const CURRICULUM = {
           "A second release would raise the primary vapour at the fence. It fell all day, from 42 ppb to 11.",
           "A shared inlet artefact is a genuine common-mode risk and the reason the inert tracer is on the network. The tracer held flat at 10 ppb all day, so the instruments are reporting real air.",
           "A wind reversal moves material, it does not create it. It cannot explain why the downwind compound is one the yard never released, or why it tracks the sun.",
-          "This is the conclusion the panel is built to refute. The source is sealed, the primary is falling, and today’s highest exposure still happened at 15:00 — nine hours later."
+          "This is the conclusion the panel is built to refute. The source is sealed, the primary is falling, and today’s highest exposure still happened at 15:00 — 9 hours later."
         ],
         "figure": {
           "kind": "line",
@@ -908,7 +908,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Use the common-ion effect to clear the limit",
       "scene": "The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal carbonate and pH is fixed. The pilot can raise dissolved carbonate eightfold without changing the water volume.",
-      "takeaway": "For a 1:1 sparingly soluble salt, increasing one ion lowers the equilibrium concentration of the other in inverse proportion.",
+      "takeaway": "For a 1:1 sparingly soluble salt, increasing 1 ion lowers the equilibrium concentration of the other in inverse proportion.",
       "place": "Water and Sediment Laboratory",
       "story": "The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal carbonate and pH is fixed. The pilot can raise dissolved carbonate eightfold without changing the water volume.",
       "game": {
@@ -918,20 +918,20 @@ export const CURRICULUM = {
         "play": "If carbonate is raised eightfold and the salt behaves as a 1:1 solid, estimate the new dissolved-metal concentration.",
         "task": "If carbonate is raised eightfold and the salt behaves as a 1:1 solid, estimate the new dissolved-metal concentration.",
         "question": "Eight times the carbonate: what happens to the dissolved metal?",
-        "answer": "About 0.39 mg/L. For a 1:1 salt, eight times the carbonate gives about one-eighth the dissolved metal. Thus 3.1/8 ≈ 0.39 mg/L.",
+        "answer": "About 0.39 mg/L. For a 1:1 salt, 8 times the carbonate gives about one-eighth the dissolved metal. Thus 3.1/8 ≈ 0.39 mg/L.",
         "why": "For a 1:1 metal carbonate, the solubility product is proportional to the dissolved metal concentration times the carbonate concentration. At fixed temperature, that product stays constant at equilibrium. Raising carbonate by a factor of eight therefore drives the dissolved metal down by the same factor. Starting from 3.1 mg/L gives about 0.39 mg/L. That is below the 0.5 mg/L limit, although a real pilot still has to check pH, complexation and settling.",
         "rebuttals": [
           "Ksp is fixed, not the dissolved-metal concentration. Changing the common ion changes the equilibrium solubility.",
-          "For a 1:1 salt, keeping Ksp fixed makes the two concentrations move inversely, not together.",
+          "For a 1:1 salt, keeping Ksp fixed makes the 2 concentrations move inversely, not together.",
           "The square would apply only if the stoichiometric powers in the Ksp expression required it. This simplified solid is 1:1."
         ],
         "choices": [
-          "About 0.39 mg/L, because the dissolved metal falls by about a factor of eight.",
+          "About 0.39 mg/L, because the dissolved metal falls by about a factor of 8.",
           "About 3.1 mg/L, because solubility is fixed once the solid exists.",
           "About 24.8 mg/L, because both ion concentrations rise together.",
-          "About 0.05 mg/L, because the concentration falls by the square of eight."
+          "About 0.05 mg/L, because the concentration falls by the square of 8."
         ],
-        "correctChoice": "About 0.39 mg/L, because the dissolved metal falls by about a factor of eight."
+        "correctChoice": "About 0.39 mg/L, because the dissolved metal falls by about a factor of 8."
       },
       "assumes": [
         "a saturated solution is in equilibrium with a 1:1 solid",
@@ -962,17 +962,17 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spend the river survey budget",
-      "scene": "The survey has twenty samples in the budget. The compound is sparingly soluble, and the river runs nine hundred metres from the release to the intake. Two grab samples taken so far disagree by a factor of six.",
+      "scene": "The survey has 20 samples in the budget. The compound is sparingly soluble, and the river runs 900 metres from the release to the intake. Two grab samples taken so far disagree by a factor of six.",
       "takeaway": "A sampling plan is a set of questions it can answer, and every bottle spent on one question is unavailable to another.",
       "place": "Sediment Analysis Room",
-      "story": "The survey has twenty samples in the budget. The compound is sparingly soluble, the river is nine hundred metres upstream of the intake, and the two grab samples taken so far disagree by a factor of six. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
+      "story": "The survey has 20 samples in the budget. The compound is sparingly soluble, the river is 900 metres upstream of the intake, and the 2 grab samples taken so far disagree by a factor of 6. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
       "game": {
         "type": "ALLOCATE",
         "title": "Spend the river survey budget",
         "setup": "The utility wants an answer this week. What does the survey sample?",
-        "play": "Allocate twenty sample bottles so the survey can answer the intake, background and phase-partitioning questions this week.",
-        "task": "Allocate twenty sample bottles so the survey can answer the intake, background and phase-partitioning questions this week.",
-        "question": "How do you spend twenty bottles without leaving a required river question unanswered?",
+        "play": "Allocate 20 sample bottles so the survey can answer the intake, background and phase-partitioning questions this week.",
+        "task": "Allocate 20 sample bottles so the survey can answer the intake, background and phase-partitioning questions this week.",
+        "question": "How do you spend 20 bottles without leaving a required river question unanswered?",
         "answer": "Use 18 bottles on background sites, the intake time series, suspended solids and sediment. Those packages answer all three required questions and leave two bottles uncommitted; the detailed stained-bank package is the defensible item to forgo.",
         "why": "Environmental sampling needs coverage across the dimensions that can change the conclusion. Intake samples measure current exposure, upstream samples establish background, and solids plus sediment test whether a water-avoiding compound has left the water column. A visually stained bank may be interesting, but it is not required for the main decision. The survey must test movement toward the intake and storage in another phase. The twenty-bottle limit forces those priorities to be explicit instead of letting every desirable sample appear on the plan.",
         "allocate": {
@@ -1062,7 +1062,7 @@ export const CURRICULUM = {
         "task": "Convert pH 4.0 to [H⁺], then estimate the moles of free hydrogen ion in 1,000 L.",
         "question": "How many moles of free H⁺ does the pH reading represent?",
         "answer": "pH 4.0 gives [H⁺] = 1.0×10⁻⁴ mol/L. In 1,000 L, n = cV = 0.10 mol of free H⁺.",
-        "why": "A pH of 4.0 means [H⁺] = 10⁻⁴ mol/L, not 4 mol/L and not four times neutral water. Multiplying that concentration by 1,000 L gives 0.10 mol of free H⁺. That number is useful but incomplete. Weak acids and buffers can release more H⁺ as base is added, so pH does not measure the full neutralisation demand. A titration does, which is why the later dosing decision cannot come from this calculation alone.",
+        "why": "A pH of 4.0 means [H⁺] = 10⁻⁴ mol/L, not 4 mol/L and not 4 times neutral water. Multiplying that concentration by 1,000 L gives 0.10 mol of free H⁺. That number is useful but incomplete. Weak acids and buffers can release more H⁺ as base is added, so pH does not measure the full neutralisation demand. A titration does, which is why the later dosing decision cannot come from this calculation alone.",
         "givens": [
           "volume = 1,000 L",
           "pH = 4.0"
@@ -1129,7 +1129,7 @@ export const CURRICULUM = {
         "why": "A titration curve shows how much base the water consumes as pH changes. A long plateau means a buffer is absorbing added base while pH moves slowly. An equivalence point above pH 7 is also diagnostic of a weak acid system. The conjugate base left near equivalence is itself basic. A strong acid reference reaches equivalence sharply and with much less added base. The curve therefore measures total neutralisation demand that the starting pH alone cannot reveal.",
         "rebuttals": [
           "A strong acid at pH 4.6 is the reference curve on the same axes, and it reaches equivalence at 5 mL with a sharp rise and no plateau. The intake does neither.",
-          "The electrode was calibrated against pH 4 and 7 buffers to within 0.02. The pH reading is correct — it is simply answering a different question from the one the dose needed.",
+          "The electrode was calibrated against pH 4 and 7 buffers to within 0.02. The pH reading is correct — it is simply answering a different question from the 1 the dose needed.",
           "An over-strength base would overshoot, but it would also shorten the titration. This titration took five times *more* base than expected, not less.",
           "A safety factor is a policy, not a mechanism, and it cannot explain a plateau, an equivalence point at 8.4, or a five-fold demand. Adding margin on top of a misread curve is how the overshoot happened."
         ],
@@ -1245,7 +1245,7 @@ export const CURRICULUM = {
             "label": "Plateau from 4 to 20 mL",
             "value": "pH moves 4.1 → 5.2",
             "status": "high",
-            "note": "Sixteen millilitres of base for one pH unit."
+            "note": "16 millilitres of base for 1 pH unit."
           },
           {
             "zone": "Titration",
@@ -1278,7 +1278,7 @@ export const CURRICULUM = {
         "choices": [
           {
             "label": "The water contains a weak acid and its buffer system",
-            "mechanism": "A long plateau, an equivalence point above pH 7 and five times the expected base demand are what a weak acid does — pH shows the free H⁺, not the reservoir behind it."
+            "mechanism": "A long plateau, an equivalence point above pH 7 and 5 times the expected base demand are what a weak acid does — pH shows the free H⁺, not the reservoir behind it."
           },
           {
             "label": "The intake is a strong acid at pH 4.6",
@@ -1323,7 +1323,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Control pH without overshoot",
-      "scene": "The base pump is primed and operators are waiting to open the valve. Intake water is at pH 4.8, the cast-iron line is corroding, and every pump change appears one sampling interval later on the mixed-tank electrode.",
+      "scene": "The base pump is primed and operators are waiting to open the valve. Intake water is at pH 4.8, the cast-iron line is corroding, and every pump change appears 1 sampling interval later on the mixed-tank electrode.",
       "takeaway": "When a process has delay, a control threshold must be set before the final limit because the system keeps moving while the action takes effect.",
       "place": "Treatment Control Room",
       "story": "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess.",
@@ -1570,7 +1570,7 @@ export const CURRICULUM = {
         "task": "Use freezing-point depression to estimate the pond freezing point and compare it with −4 °C.",
         "question": "Should this pond still be liquid at −4 °C?",
         "answer": "ΔTf ≈ 2 × 1.86 × 1.2 ≈ 4.5 °C, so the pond should freeze near −4.5 °C. Being liquid at −4 °C is therefore expected.",
-        "why": "For an ideal solution, ΔTf = iKf m. Sodium chloride contributes roughly two dissolved ions, so i is about 2. With Kf = 1.86 °C kg/mol and m = 1.2 mol/kg, the depression is about 4.5 °C. That puts the expected freezing point near −4.5 °C, so liquid water at −4 °C is plausible without any extra heat source. The estimate is imperfect at high salt concentration, but it gives the correct scale and direction.",
+        "why": "For an ideal solution, ΔTf = iKf m. Sodium chloride contributes roughly 2 dissolved ions, so i is about 2. With Kf = 1.86 °C kg/mol and m = 1.2 mol/kg, the depression is about 4.5 °C. That puts the expected freezing point near −4.5 °C, so liquid water at −4 °C is plausible without any extra heat source. The estimate is imperfect at high salt concentration, but it gives the correct scale and direction.",
         "rebuttals": [
           "Volume changes how long freezing takes, not the temperature at which it happens.",
           "The heat of solution was released when the salt dissolved, days ago, and has long since gone.",
@@ -1788,10 +1788,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Map concentration with limited samples",
-      "scene": "The city wants a concentration map of eleven kilometres of river, and the laboratory can run thirty samples. The two known hot spots are four hundred metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5.",
+      "scene": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5.",
       "takeaway": "Spatial coverage without analytical validity—or validity without spatial coverage—cannot protect the city.",
       "place": "Quality Assurance Desk",
-      "story": "The city wants a concentration map of eleven kilometres of river, and the laboratory can run thirty samples. The two known hot spots are four hundred metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
+      "story": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
       "game": {
         "type": "CHOICE",
         "title": "Map concentration with limited samples",
@@ -1833,7 +1833,7 @@ export const CURRICULUM = {
         "task": "Two candidates differing by one oxygen. What settles it, and how?",
         "question": "Two candidates differing by one oxygen. What settles it, and how?",
         "answer": "The molecular ion's mass-to-charge ratio, which differs by 16 between them.",
-        "why": "A mass spectrometer sorts ions by mass divided by charge. For a singly charged molecular ion, the molecular peak therefore reports molecular mass directly. One extra oxygen changes that mass by about 16 units, far larger than the ambiguity in the chromatographic retention time. Peak area instead measures response and abundance, not identity. The mass result supplies a different physical constraint from the separation. That is why it can break a tie between two candidates that chromatography alone cannot distinguish.",
+        "why": "A mass spectrometer sorts ions by mass divided by charge. For a singly charged molecular ion, the molecular peak therefore reports molecular mass directly. 1 extra oxygen changes that mass by about 16 units, far larger than the ambiguity in the chromatographic retention time. Peak area instead measures response and abundance, not identity. The mass result supplies a different physical constraint from the separation. That is why it can break a tie between two candidates that chromatography alone cannot distinguish.",
         "rebuttals": [
           "Retention order follows chemistry, not mass; heavier compounds sometimes elute first.",
           "Response factor varies by compound and says nothing about which compound it is.",
@@ -2028,7 +2028,7 @@ export const CURRICULUM = {
         "task": "Use the masses and molar masses to identify the limiting reactant, the maximum amount of B that can react, and the percent yield from the recovered product.",
         "question": "Which reactant limits, how much B can react, and what percent yield was recovered?",
         "answer": "A is limiting. The masses correspond to 10 mol A and 8 mol B, so at most 5.0 mol B can react. A recovered 4.2 mol equivalent is an 84% yield.",
-        "why": "A balanced equation compares particles, so masses have to become moles before the reactants can be compared. Five hundred grams of A at 50 g/mol is 10 mol. Six hundred forty grams of B at 80 g/mol is 8 mol. The 2:1 ratio means 10 mol A can consume only 5 mol B, so A limits. If the recovered product corresponds to 4.2 mol of reaction, the percent yield is 4.2/5.0 × 100 = 84%.",
+        "why": "A balanced equation compares particles, so masses have to become moles before the reactants can be compared. 500 grams of A at 50 g/mol is 10 mol. 640 grams of B at 80 g/mol is 8 mol. The 2:1 ratio means 10 mol A can consume only 5 mol B, so A limits. If the recovered product corresponds to 4.2 mol of reaction, the percent yield is 4.2/5.0 × 100 = 84%.",
         "givens": [
           "Available A = 10 mol",
           "Available B = 8 mol"
@@ -2085,16 +2085,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Heat release is not the spontaneity test",
-      "scene": "A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after six days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.",
+      "scene": "A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after 6 days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.",
       "takeaway": "Free energy sets thermodynamic favorability; activation barriers set how quickly a favorable reaction proceeds.",
       "place": "Reactions and Energy Bay",
-      "story": "A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after six days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.",
+      "story": "A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after 6 days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.",
       "game": {
         "type": "BALLPARK",
         "title": "Heat release is not the spontaneity test",
         "setup": "Separate the thermodynamic calculation from the observation about rate.",
-        "play": "Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the six quiet days imply about its rate.",
-        "task": "Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the six quiet days imply about its rate.",
+        "play": "Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the 6 quiet days imply about its rate.",
+        "task": "Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the 6 quiet days imply about its rate.",
         "question": "At 18 °C, what is ΔG, and what does the lack of product say about the reaction rate?",
         "answer": "ΔG ≈ −64 kJ/mol at 291 K, so the reaction is thermodynamically favored. Six quiet days point to a slow reaction rate, not unfavorable free energy.",
         "why": "Free energy combines enthalpy, entropy and temperature. At 291 K, ΔG = −180 − 291(−0.40) ≈ −64 kJ/mol, so the reaction is thermodynamically favorable. That does not make it fast. The unchanged tank points to a substantial activation barrier at this temperature. This distinction matters in treatment design. Temperature or a catalyst can change reaction rate without changing the sign of ΔG. A favorable ΔG alone never guarantees useful speed.",
@@ -2198,7 +2198,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Stored heat or continuing reaction?",
-      "scene": "Two storage bays were exposed to the same fire. Ninety minutes after cooling stopped, the east bay is cooling while the west bay is warming. West-bay off-gas is increasing, and the hottest point remains fixed at the drum stack.",
+      "scene": "Two storage bays were exposed to the same fire. 90 minutes after cooling stopped, the east bay is cooling while the west bay is warming. West-bay off-gas is increasing, and the hottest point remains fixed at the drum stack.",
       "takeaway": "Thermal diagnosis requires an energy balance, not a single temperature threshold.",
       "place": "Calorimetry Lab",
       "story": "Two bays are warm and Fire Command wants to know whether to release the site. There are only two ways a mass can be hot: it absorbed energy earlier and has not yet lost it, or it is making energy now. Those behave completely differently over time — anything that is merely storing heat can only cool toward its surroundings once the source is removed, while a self-heating mass can rise on its own and rise faster as it goes. The panel gives you both bays, and getting this wrong sends responders home before a runaway.",
@@ -2334,7 +2334,7 @@ export const CURRICULUM = {
             }
           ]
         },
-        "headline": "Ninety minutes after cooling was shut off, the west bay is still climbing — and it has crossed the closed-space entry limit.",
+        "headline": "90 minutes after cooling was shut off, the west bay is still climbing — and it has crossed the closed-space entry limit.",
         "readings": [
           {
             "zone": "West bay",
@@ -2409,7 +2409,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Control the self-heating risk",
-      "scene": "Fire Command wants the site released tonight. Bay three has risen from 31 to 44 degrees in eight hours, the rate of rise is itself increasing, and the mass is four tonnes with a two-metre depth.",
+      "scene": "Fire Command wants the site released tonight. Bay 3 has risen from 31 to 44 degrees in 8 hours, the rate of rise is itself increasing, and the mass is 4 tonnes with a two-metre depth.",
       "takeaway": "High-consequence thermal systems need detection, understanding, and mitigation.",
       "place": "Fire Command",
       "story": "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen.",
@@ -2655,7 +2655,7 @@ export const CURRICULUM = {
       "scene": "The first full-scale treatment batch is scheduled before dawn. Bench work stopped at 55 °C, the proposed vessel runs at 60 °C, and the cooling jacket tops out at 40 kilowatts. Heat release above 65 °C has never been measured.",
       "takeaway": "A safe operating choice is one that still satisfies the thermal constraint when a key kinetic assumption is wrong in the dangerous direction.",
       "place": "Process Control Room",
-      "story": "A safe operating envelope is a set of conditions under which the heat a process generates cannot outrun the heat it can lose. Establishing one takes measured rate data rather than assumed kinetics, honest heat-removal capacity at the worst case rather than the design case, and protection that works when the control system is the thing that has failed. Speed and yield are not safety, and a process that runs beautifully at the intended temperature can be the largest hazard on site fifteen degrees above it. What the vessel needs before it runs at scale is the bound, not the throughput.",
+      "story": "A safe operating envelope is a set of conditions under which the heat a process generates cannot outrun the heat it can lose. Establishing one takes measured rate data rather than assumed kinetics, honest heat-removal capacity at the worst case rather than the design case, and protection that works when the control system is the thing that has failed. Speed and yield are not safety, and a process that runs beautifully at the intended temperature can be the largest hazard on site 15 degrees above it. What the vessel needs before it runs at scale is the bound, not the throughput.",
       "game": {
         "type": "STRESS",
         "title": "Define the safe operating envelope",
@@ -2829,7 +2829,7 @@ export const CURRICULUM = {
         "task": "Estimate the uniform corrosion rate in millimetres per year and the corresponding time to lose 6 mm of wall.",
         "question": "What uniform wall-loss rate does 2.0 kg/year imply?",
         "answer": "About 0.063 mm/year, corresponding to roughly 95 years to lose 6 mm if the attack were truly uniform.",
-        "why": "Work out the average wall loss because it sets the scale of the problem. Two kilograms per year over four square metres of steel is about 0.063 mm of depth per year. At that uniform rate, losing a 6 mm wall would take roughly 95 years. That result says uniform corrosion is not the immediate threat. Localised attack is worse because the same total metal loss can be concentrated into a small coating defect and perforate the wall far sooner.",
+        "why": "Work out the average wall loss because it sets the scale of the problem. 2 kilograms per year over 4 square metres of steel is about 0.063 mm of depth per year. At that uniform rate, losing a 6 mm wall would take roughly 95 years. That result says uniform corrosion is not the immediate threat. Localised attack is worse because the same total metal loss can be concentrated into a small coating defect and perforate the wall far sooner.",
         "givens": [
           "corrosion mass loss = 2.0 kg/year",
           "affected area = 4.0 m²"
@@ -2889,7 +2889,7 @@ export const CURRICULUM = {
         "task": "Close the 100 kg contaminant ledger across the pilot streams and identify the mass that the water-removal headline does not account for.",
         "question": "How much material is missing from the measured streams, and does the ledger support a destruction claim?",
         "answer": "The measured streams account for 80 kg, so 20 kg remain unaccounted for. Until that term is identified and shown benign, the pilot supports a transfer/transformation claim, not 94% destruction.",
-        "why": "The treated water contains only 6 kg, but that does not mean 94 kg were destroyed. Seventy-one kilograms are measured in sludge and 3 kg appear in off-gas. Those visible streams total 80 kg, leaving a 20 kg term required to close the original 100 kg ledger. The bench already sees an unquantified transformation-product signal, so that missing mass has a plausible destination. The mass balance supports transfer and transformation, not a claim that the contaminant vanished.",
+        "why": "The treated water contains only 6 kg, but that does not mean 94 kg were destroyed. 71 kilograms are measured in sludge and 3 kg appear in off-gas. Those visible streams total 80 kg, leaving a 20 kg term required to close the original 100 kg ledger. The bench already sees an unquantified transformation-product signal, so that missing mass has a plausible destination. The mass balance supports transfer and transformation, not a claim that the contaminant vanished.",
         "balance": {
           "total": {
             "amount": 100,
@@ -3008,7 +3008,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Comparing removal under representative chemistry is the comparison, and judged on the target alone it will pick whichever method makes the most byproduct fastest.",
           "Whether the media wears out, and where the waste goes, matter — and they come once a method is short-listed. They describe the lifecycle of a choice already made.",
-          "Optimising removal at any dose is the narrow optimisation that produced a sludge with twenty kilograms unaccounted for."
+          "Optimising removal at any dose is the narrow optimisation that produced a sludge with 20 kilograms unaccounted for."
         ],
         "choices": [
           "The transformation products, and the stand-ins that track how toxic they are.",
@@ -3074,19 +3074,19 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Audit the electrochemical removal from the charge passed",
-      "scene": "The electrochemical polishing cell has run for six hours at forty amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
+      "scene": "The electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
       "takeaway": "Faraday’s law turns measured charge into a quantitative upper bound on electrochemical removal.",
       "place": "Treatment Plant Gallery",
-      "story": "The electrochemical polishing cell has run for six hours at forty amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
+      "story": "The electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
       "game": {
         "type": "BALLPARK",
         "title": "Audit the electrochemical removal from the charge passed",
         "setup": "Use the electrical log to set a theoretical ceiling before trusting the water analysis.",
         "play": "Use the current, time and ion charge to estimate the maximum moles of divalent metal that could plate out.",
         "task": "Use the current, time and ion charge to estimate the maximum moles of divalent metal that could plate out.",
-        "question": "What upper bound does six hours at 40 A place on metal removal?",
+        "question": "What upper bound does 6 hours at 40 A place on metal removal?",
         "answer": "Q = It = 864,000 C. That is about 8.95 mol e⁻, so a divalent ion can deposit at most 8.95/2 ≈ 4.48 mol of metal.",
-        "why": "Current times time is charge. Dividing charge by the Faraday constant gives moles of electrons, and a divalent metal needs two electrons per metal ion. Six hours at 40 A passes 864,000 C, or about 8.95 mol of electrons. The theoretical maximum is therefore about 4.48 mol of metal. Real removal is lower when side reactions carry some current. Comparing measured removal with this bound gives current efficiency and catches impossible treatment claims.",
+        "why": "Current times time is charge. Dividing charge by the Faraday constant gives moles of electrons, and a divalent metal needs two electrons per metal ion. 6 hours at 40 A passes 864,000 C, or about 8.95 mol of electrons. The theoretical maximum is therefore about 4.48 mol of metal. Real removal is lower when side reactions carry some current. Comparing measured removal with this bound gives current efficiency and catches impossible treatment claims.",
         "rebuttals": [
           "Concentration affects the rate and the efficiency; the charge is what limits the total.",
           "One electron deposits one atom only for a singly charged ion. A divalent ion needs two.",
@@ -3133,7 +3133,7 @@ export const CURRICULUM = {
       "scene": "The temporary laboratory is being packed up as the emergency budget closes. The plant is back online, but sediment still holds an estimated 71 kilograms. Four monitoring stations were built during the response; only one has permanent funding after next month.",
       "takeaway": "Stewardship continues after concentrations fall below the immediate threshold.",
       "place": "Long-Term Monitoring Office",
-      "story": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert fifteen days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
+      "story": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert 15 days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
       "game": {
         "type": "CHOICE",
         "title": "Fund the chemical legacy",
@@ -3142,7 +3142,7 @@ export const CURRICULUM = {
         "task": "The emergency money is about to move elsewhere. What does the city keep?",
         "question": "The emergency money is about to move elsewhere. What does the city keep?",
         "answer": "Long-term water, sediment and air monitoring.",
-        "why": "Nothing was destroyed. Seventy-one kilograms are in sediment, and twenty are unaccounted for. A transformation product is also still being characterised. These problems are below a threshold, not gone. Monitoring across water, sediment and air is the only item on the list that would notice any of it coming back. Corrosion control protects the infrastructure, which is a different hazard. Open records preserve the method and cost almost nothing. What outlasts a release is the part that fell quiet rather than the part that stopped.",
+        "why": "Nothing was destroyed. 71 kilograms are in sediment, and 20 are unaccounted for. A transformation product is also still being characterised. These problems are below a threshold, not gone. Monitoring across water, sediment and air is the only item on the list that would notice any of it coming back. Corrosion control protects the infrastructure, which is a different hazard. Open records preserve the method and cost almost nothing. What outlasts a release is the part that fell quiet rather than the part that stopped.",
         "rebuttals": [
           "Corrosion control and resilience protect the infrastructure, which is a different hazard from the one still sitting in the reservoir.",
           "Open records and reference materials preserve the method, cost very little, and should be done regardless of what this budget funds.",
@@ -3254,7 +3254,7 @@ export const BALLPARK_CALCS = {
     "target": 5,
     "tolerance": 0.5,
     "units": "mol B",
-    "solution": "A: 500/50 = 10 mol. B: 640/80 = 8 mol. Ten mol A can consume 5.0 mol B, so A limits. Yield = 4.2/5.0 × 100 = 84%.",
+    "solution": "A: 500/50 = 10 mol. B: 640/80 = 8 mol. 10 mol A can consume 5.0 mol B, so A limits. Yield = 4.2/5.0 × 100 = 84%.",
     "explanation": "Masses cannot be compared directly when substances have different molar masses. Convert each to moles, use the balanced ratio to find the theoretical limit, then compare the recovered amount with that limit."
   },
   "ENERGY-3": {
@@ -3407,11 +3407,11 @@ export const BALLPARK_CALCS = {
     "target": 0.0633,
     "tolerance": 0.008,
     "units": "mm per year",
-    "solution": "depth/year = 2.0 /(7,900 × 4.0) m ≈ 6.3×10⁻⁵ m/year = 0.063 mm/year. Six millimetres at that rate is about 95 years.",
+    "solution": "depth/year = 2.0 /(7,900 × 4.0) m ≈ 6.3×10⁻⁵ m/year = 0.063 mm/year. 6 millimetres at that rate is about 95 years.",
     "explanation": "A mass loss per unit area is not a depth until it is divided by a density; the two densities offered differ by a factor of eight, and only one of them is the metal. The answer matters because it is survivable: at this rate the wall lasts a working lifetime. The same total loss concentrated at a coating defect perforates it in a season, which is why the average is a bound and not a forecast."
   },
   "TREAT-8": {
-    "prompt": "The electrochemical polishing cell ran continuously for six hours at forty amperes on a divalent metal ion.",
+    "prompt": "The electrochemical polishing cell ran continuously for 6 hours at 40 amperes on a divalent metal ion.",
     "question": "Estimate the maximum moles of metal that could be deposited.",
     "labels": [
       "40 A  (current)",

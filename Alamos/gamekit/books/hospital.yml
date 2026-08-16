@@ -317,7 +317,7 @@ roster:
     bio: |-
       Dr. Okafor works on germs and immunity. Her whole job comes down to two questions: how does this germ move between people, and how do we stand in its way?
 
-      Germs travel in a few ordinary ways — on hands, in droplets from a cough, and on surfaces people touch afterwards. That is why hand-washing is the most powerful thing in the building. Soap does not poison germs; it breaks up the greasy coat around many of them and lets running water carry the whole lot away down the drain. Twenty seconds is about how long that takes.
+      Germs travel in a few ordinary ways — on hands, in droplets from a cough, and on surfaces people touch afterwards. That is why hand-washing is the most powerful thing in the building. Soap does not poison germs; it breaks up the greasy coat around many of them and lets running water carry the whole lot away down the drain. 20 seconds is about how long that takes.
 
       The immune system is her other subject. White blood cells learn the shape of a germ they have met before, so the second time it arrives they recognise it and start fighting immediately instead of taking days to work out what it is. That memory is exactly what a vaccine gives, without the illness.
     quiz:
@@ -471,7 +471,7 @@ roster:
     division: NUTR
     color: "#7f8c8d"
     bio: |-
-      Chloe has type 1 diabetes and has been managing it for three years. She is here for a routine review, and she can explain the whole thing faster than most adults.
+      Chloe has type 1 diabetes and has been managing it for 3 years. She is here for a routine review, and she can explain the whole thing faster than most adults.
 
       Sugar from food travels in the blood, but it cannot get into the cells that need to burn it without a key called insulin. Chloe’s body has stopped making that key, so the sugar stays in the blood instead of getting used — which is why she can feel tired and thirsty while the fuel is right there.
 
@@ -743,7 +743,7 @@ roster:
     bio: |-
       Mae is staying overnight for a sleep study, with soft sensors stuck to her head and a band around her chest. She was worried she would never fall asleep with all of it on. Almost everybody does.
 
-      The head sensors pick up the brain’s electrical activity, which is what an EEG measures. Sleep is not one flat state: brain activity moves through stages in cycles of roughly ninety minutes, from light sleep to deep sleep and into the dreaming stage, and the pattern of those cycles is what the team are recording.
+      The head sensors pick up the brain’s electrical activity, which is what an EEG measures. Sleep is not one flat state: brain activity moves through stages in cycles of roughly 90 minutes, from light sleep to deep sleep and into the dreaming stage, and the pattern of those cycles is what the team are recording.
 
       The chest band tracks her breathing and a finger clip tracks her oxygen at the same time, so the record shows what her breathing was doing at each stage — something that cannot be seen at all while someone is awake.
     quiz:
@@ -959,7 +959,7 @@ glossary:
       - triage
     def: Deciding who needs help first based on how urgent the clue is.
 
-# The campaign: one working day each, three stops and a callback from day 3.
+# The campaign: 1 working day each, 3 stops and a callback from day 3.
 missions:
   - title: Morning Rush
     objective: How doctors use clues and decide who needs help first
@@ -1080,20 +1080,20 @@ missions:
         title: Count the Breaths
         setup: Mrs. Grant  •  Nurse Station
         scene: Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.
-        story: Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. Nurses count in short blocks because it is faster. People also breathe differently when they know you are watching. Fifteen seconds is one quarter of a minute. This is math practice only. The care team decides what numbers mean.
+        story: Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. Nurses count in short blocks because it is faster. People also breathe differently when they know you are watching. 15 seconds is 1 quarter of a minute. This is math practice only. The care team decides what numbers mean.
         assumes:
           - a minute has 60 seconds
         takeaway: Doctors often turn short counts into one-minute estimates.
         format: BALLPARK
-        why: One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
+        why: 1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
         rebuttals:
-          - A. 10 — 10 would be only two groups of 5.
-          - B. 15 — 15 would be three groups of 5.
+          - A. 10 — 10 would be only 2 groups of 5.
+          - B. 15 — 15 would be 3 groups of 5.
           - D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths.
         estimate:
           givens:
             - Use the numbers shown
-          relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4.
+          relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4.
         answerText: "20"
   - title: Heart on the Move
     objective: The heart, blood, pulse, and circulation
@@ -1126,12 +1126,12 @@ missions:
         title: Pulse Math
         setup: Jordan  •  Rehab Hall
         scene: Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.
-        story: Jordan just climbed the stairs. Now he is resting. The therapist counts 18 beats in 15 seconds. Each heartbeat pushes blood along. That push makes a little bump you can feel. Counting it needs only fingers and a clock. It is one of the oldest checks in medicine. Fifteen seconds is a quarter of a minute.
+        story: Jordan just climbed the stairs. Now he is resting. The therapist counts 18 beats in 15 seconds. Each heartbeat pushes blood along. That push makes a little bump you can feel. Counting it needs only fingers and a clock. It is one of the oldest checks in medicine. 15 seconds is a quarter of a minute.
         assumes:
           - a minute has 60 seconds
         takeaway: A pulse is a clue that the heart is beating and moving blood.
         format: BALLPARK
-        why: One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
+        why: 1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
         rebuttals:
           - A. 36 — 36 is only 18 × 2.
           - B. 54 — 54 is 18 × 3.
@@ -1139,7 +1139,7 @@ missions:
         estimate:
           givens:
             - Use the numbers shown
-          relationship: A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4.
+          relationship: A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4.
         answerText: "72"
       - group: RESP
         call: Why the Faster Pulse?
@@ -1272,9 +1272,9 @@ missions:
         format: BALLPARK
         why: Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.
         rebuttals:
-          - A. 4 — 4 leaves out two of the cups.
-          - B. 5 — 5 is one cup too few.
-          - D. 7 — 7 is one cup too many.
+          - A. 4 — 4 leaves out 2 of the cups.
+          - B. 5 — 5 is 1 cup too few.
+          - D. 7 — 7 is 1 cup too many.
         estimate:
           givens:
             - Use the numbers shown
@@ -1415,15 +1415,15 @@ missions:
         task: How many leg lifts are in 3 sets of 5?
         title: Therapy Sets
         setup: Mr. Diaz  •  Rehab Track
-        scene: Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. Fifteen is harder. Groups of the same size are what multiplying is for.
+        scene: Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. 15 is harder. Groups of the same size are what multiplying is for.
         assumes:
           - a set is a group of the same thing
         takeaway: Repeated sets are groups, so multiplication helps count them quickly.
         format: BALLPARK
-        why: There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.
+        why: There are 3 sets, and each set has 5 lifts. So it is 5 3 times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.
         rebuttals:
           - A. 8 — 8 comes from adding 3 + 5.
-          - B. 10 — 10 is only two groups of 5.
+          - B. 10 — 10 is only 2 groups of 5.
           - D. 35 — 35 joins the digits instead of multiplying.
         estimate:
           givens:
@@ -1441,7 +1441,7 @@ missions:
         task: Theo grew four centimetres, mostly while asleep. What told his bones to do that?
         title: The Body's Slow Messages
         place: Brain and Senses Room
-        scene: Theo is eleven and has grown four centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.
+        scene: Theo is 11 and has grown 4 centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.
         assumes:
           - your blood carries things all around your body
         takeaway: The body sends slow chemical messages, and some of them tell the body to grow.
@@ -1760,7 +1760,7 @@ missions:
   - title: Temperature Trouble
     objective: Homeostasis, sweating, shivering, and body temperature
     briefing: Homeostasis, sweating, shivering, and body temperature
-    stake: Thirteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at nine o'clock and 101 at twelve. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.
+    stake: Thirteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at 9 o'clock and 101 at 12. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.
     takeaway: Shift complete
     stops:
       - group: DEF
@@ -1789,16 +1789,16 @@ missions:
         task: How fast is her temperature rising, in degrees per hour?
         title: Temperature Difference
         setup: Ms. Kim  •  Nurse Station
-        scene: A chart shows two numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.
-        story: A chart shows two temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are three hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
+        scene: A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.
+        story: A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
         assumes:
           - you can take one number away from another
         takeaway: A change on its own is not enough; how long it took is what says whether it is fast.
         format: BALLPARK
-        why: 101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in ten minutes would be a much bigger worry.
+        why: 101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in 10 minutes would be a much bigger worry.
         rebuttals:
-          - A. 1°F — 101 is three, not one, above 98.
-          - B. 2°F — 101 is three, not two, above 98.
+          - A. 1°F — 101 is 3, not 1, above 98.
+          - B. 2°F — 101 is 3, not 2, above 98.
           - D. 199°F — 199 comes from adding, but the question asks for the difference.
         estimate:
           givens:
@@ -2019,7 +2019,7 @@ lessons:
     answerText: 1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.
   - group: TRI
     task: Who should go to the first available room?
-    title: Six Patients, One First Room — Review 2
+    title: 6 Patients, 1 First Room — Review 2
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
     scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.
     assumes:
@@ -2134,7 +2134,7 @@ lessons:
     answerText: 1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.
   - group: TRI
     task: Who should go to the first available room?
-    title: Six Patients, One First Room — Review 3
+    title: 6 Patients, 1 First Room — Review 3
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
     scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.
     assumes:
@@ -2249,7 +2249,7 @@ lessons:
     answerText: 1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.
   - group: TRI
     task: Who should go to the first available room?
-    title: Six Patients, One First Room — Review 4
+    title: 6 Patients, 1 First Room — Review 4
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
     scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.
     assumes:
@@ -2326,7 +2326,7 @@ lessons:
     answer: Ava, because breathing trouble can affect the whole body quickly.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow One Breath — Review 2
+    title: Follow 1 Breath — Review 2
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     story: "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away."
@@ -2372,15 +2372,15 @@ lessons:
       - a minute has 60 seconds
     takeaway: Doctors often turn short counts into one-minute estimates.
     format: BALLPARK
-    why: One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
+    why: 1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
     rebuttals:
-      - A. 10 — 10 would be only two groups of 5.
-      - B. 15 — 15 would be three groups of 5.
+      - A. 10 — 10 would be only 2 groups of 5.
+      - B. 15 — 15 would be 3 groups of 5.
       - D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths.
     estimate:
       givens:
         - Use the numbers shown
-      relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4.
+      relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4.
     answerText: "20"
   - group: RESP
     task: Put the simplified blood loop in order, starting at the heart.
@@ -2410,7 +2410,7 @@ lessons:
       - a minute has 60 seconds
     takeaway: A pulse is a clue that the heart is beating and moving blood.
     format: BALLPARK
-    why: One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
+    why: 1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
     rebuttals:
       - A. 36 — 36 is only 18 × 2.
       - B. 54 — 54 is 18 × 3.
@@ -2418,7 +2418,7 @@ lessons:
     estimate:
       givens:
         - Use the numbers shown
-      relationship: A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4.
+      relationship: A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4.
     answerText: "72"
   - group: RESP
     task: What is the best explanation?
@@ -2443,7 +2443,7 @@ lessons:
     answer: Working muscles need more oxygen, so the heart moves blood faster.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow One Breath — Review 3
+    title: Follow 1 Breath — Review 3
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     story: "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away."
@@ -2489,15 +2489,15 @@ lessons:
       - a minute has 60 seconds
     takeaway: Doctors often turn short counts into one-minute estimates.
     format: BALLPARK
-    why: One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
+    why: 1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
     rebuttals:
-      - A. 10 — 10 would be only two groups of 5.
-      - B. 15 — 15 would be three groups of 5.
+      - A. 10 — 10 would be only 2 groups of 5.
+      - B. 15 — 15 would be 3 groups of 5.
       - D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths.
     estimate:
       givens:
         - Use the numbers shown
-      relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4.
+      relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4.
     answerText: "20"
   - group: RESP
     task: Put the simplified blood loop in order, starting at the heart.
@@ -2527,7 +2527,7 @@ lessons:
       - a minute has 60 seconds
     takeaway: A pulse is a clue that the heart is beating and moving blood.
     format: BALLPARK
-    why: One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
+    why: 1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
     rebuttals:
       - A. 36 — 36 is only 18 × 2.
       - B. 54 — 54 is 18 × 3.
@@ -2535,7 +2535,7 @@ lessons:
     estimate:
       givens:
         - Use the numbers shown
-      relationship: A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4.
+      relationship: A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4.
     answerText: "72"
   - group: RESP
     task: What is the best explanation?
@@ -2560,7 +2560,7 @@ lessons:
     answer: Working muscles need more oxygen, so the heart moves blood faster.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow One Breath — Review 4
+    title: Follow 1 Breath — Review 4
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     story: "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away."
@@ -2606,15 +2606,15 @@ lessons:
       - a minute has 60 seconds
     takeaway: Doctors often turn short counts into one-minute estimates.
     format: BALLPARK
-    why: One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
+    why: 1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.
     rebuttals:
-      - A. 10 — 10 would be only two groups of 5.
-      - B. 15 — 15 would be three groups of 5.
+      - A. 10 — 10 would be only 2 groups of 5.
+      - B. 15 — 15 would be 3 groups of 5.
       - D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths.
     estimate:
       givens:
         - Use the numbers shown
-      relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4.
+      relationship: A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4.
     answerText: "20"
   - group: RESP
     task: Put the simplified blood loop in order, starting at the heart.
@@ -2644,7 +2644,7 @@ lessons:
       - a minute has 60 seconds
     takeaway: A pulse is a clue that the heart is beating and moving blood.
     format: BALLPARK
-    why: One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
+    why: 1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.
     rebuttals:
       - A. 36 — 36 is only 18 × 2.
       - B. 54 — 54 is 18 × 3.
@@ -2652,7 +2652,7 @@ lessons:
     estimate:
       givens:
         - Use the numbers shown
-      relationship: A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4.
+      relationship: A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4.
     answerText: "72"
   - group: RESP
     task: What is the best explanation?
@@ -2677,7 +2677,7 @@ lessons:
     answer: Working muscles need more oxygen, so the heart moves blood faster.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow One Breath — Review 5
+    title: Follow 1 Breath — Review 5
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     story: "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away."
@@ -2734,7 +2734,7 @@ lessons:
     answer: The small intestine
   - group: NUTR
     task: Which matching set is correct?
-    title: Three Jobs, Three Organs — Review 2
+    title: 3 Jobs, 3 Organs — Review 2
     setup: Sam, Nia, and Owen  •  Pediatric Exam Room
     scene: Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.
     story: Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.
@@ -2786,9 +2786,9 @@ lessons:
     format: BALLPARK
     why: Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.
     rebuttals:
-      - A. 4 — 4 leaves out two of the cups.
-      - B. 5 — 5 is one cup too few.
-      - D. 7 — 7 is one cup too many.
+      - A. 4 — 4 leaves out 2 of the cups.
+      - B. 5 — 5 is 1 cup too few.
+      - D. 7 — 7 is 1 cup too many.
     estimate:
       givens:
         - Use the numbers shown
@@ -2852,7 +2852,7 @@ lessons:
     answer: The small intestine
   - group: NUTR
     task: Which matching set is correct?
-    title: Three Jobs, Three Organs — Review 3
+    title: 3 Jobs, 3 Organs — Review 3
     setup: Sam, Nia, and Owen  •  Pediatric Exam Room
     scene: Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.
     story: Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.
@@ -2904,9 +2904,9 @@ lessons:
     format: BALLPARK
     why: Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.
     rebuttals:
-      - A. 4 — 4 leaves out two of the cups.
-      - B. 5 — 5 is one cup too few.
-      - D. 7 — 7 is one cup too many.
+      - A. 4 — 4 leaves out 2 of the cups.
+      - B. 5 — 5 is 1 cup too few.
+      - D. 7 — 7 is 1 cup too many.
     estimate:
       givens:
         - Use the numbers shown
@@ -2970,7 +2970,7 @@ lessons:
     answer: The small intestine
   - group: NUTR
     task: Which matching set is correct?
-    title: Three Jobs, Three Organs — Review 4
+    title: 3 Jobs, 3 Organs — Review 4
     setup: Sam, Nia, and Owen  •  Pediatric Exam Room
     scene: Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.
     story: Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.
@@ -3022,9 +3022,9 @@ lessons:
     format: BALLPARK
     why: Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.
     rebuttals:
-      - A. 4 — 4 leaves out two of the cups.
-      - B. 5 — 5 is one cup too few.
-      - D. 7 — 7 is one cup too many.
+      - A. 4 — 4 leaves out 2 of the cups.
+      - B. 5 — 5 is 1 cup too few.
+      - D. 7 — 7 is 1 cup too many.
     estimate:
       givens:
         - Use the numbers shown
@@ -3169,10 +3169,10 @@ lessons:
       - a set is a group of the same thing
     takeaway: Repeated sets are groups, so multiplication helps count them quickly.
     format: BALLPARK
-    why: There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.
+    why: There are 3 sets, and each set has 5 lifts. So it is 5 3 times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.
     rebuttals:
       - A. 8 — 8 comes from adding 3 + 5.
-      - B. 10 — 10 is only two groups of 5.
+      - B. 10 — 10 is only 2 groups of 5.
       - D. 35 — 35 joins the digits instead of multiplying.
     estimate:
       givens:
@@ -3338,10 +3338,10 @@ lessons:
       - a set is a group of the same thing
     takeaway: Repeated sets are groups, so multiplication helps count them quickly.
     format: BALLPARK
-    why: There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.
+    why: There are 3 sets, and each set has 5 lifts. So it is 5 3 times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.
     rebuttals:
       - A. 8 — 8 comes from adding 3 + 5.
-      - B. 10 — 10 is only two groups of 5.
+      - B. 10 — 10 is only 2 groups of 5.
       - D. 35 — 35 joins the digits instead of multiplying.
     estimate:
       givens:
@@ -3863,16 +3863,16 @@ lessons:
     task: How fast is her temperature rising, in degrees per hour?
     title: Temperature Difference — Review 2
     setup: Ms. Kim  •  Nurse Station
-    scene: A chart shows two numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.
-    story: A chart shows two temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are three hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
+    scene: A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.
+    story: A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
     assumes:
       - you can take one number away from another
     takeaway: A change on its own is not enough; how long it took is what says whether it is fast.
     format: BALLPARK
-    why: 101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in ten minutes would be a much bigger worry.
+    why: 101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in 10 minutes would be a much bigger worry.
     rebuttals:
-      - A. 1°F — 101 is three, not one, above 98.
-      - B. 2°F — 101 is three, not two, above 98.
+      - A. 1°F — 101 is 3, not 1, above 98.
+      - B. 2°F — 101 is 3, not 2, above 98.
       - D. 199°F — 199 comes from adding, but the question asks for the difference.
     estimate:
       givens:
@@ -3984,7 +3984,7 @@ estimatesByTitle:
       - 5 breaths  (counted)
       - 4  (fifteen-second parts in a minute)
       - 15 seconds  (how long she counted)
-      - 60 seconds  (one minute)
+      - 60 seconds  (1 minute)
       - 2  (halves of a minute)
     values: [5, 4, 15, 60, 2]
     slots: 2
@@ -4003,7 +4003,7 @@ estimatesByTitle:
       - 18 beats  (counted)
       - 4  (fifteen-second parts in a minute)
       - 15 seconds  (how long she counted)
-      - 60 seconds  (one minute)
+      - 60 seconds  (1 minute)
       - 3  (twenty-second parts in a minute)
     values: [18, 4, 15, 60, 3]
     slots: 2
@@ -4055,12 +4055,12 @@ estimatesByTitle:
     solution: 3 sets × 5 lifts = 15 lifts.
     explanation: Groups of a thing multiply; they do not add. Three sets and five lifts added together gives eight, which is neither the number of sets nor the number of lifts.
   Temperature Difference:
-    prompt: "The chart holds two temperatures for Ms. Kim: 98 °F at the first reading and 101 °F three hours later."
+    prompt: "The chart holds two temperatures for Ms. Kim: 98 °F at the first reading and 101 °F 3 hours later."
     question: How fast is her temperature rising, in degrees per hour?
     labels:
       - 101 °F  (later reading)
       - 98 °F  (earlier reading)
-      - 3 hours  (between the two readings)
+      - 3 hours  (between the 2 readings)
       - 100 °F  (the round number on the scale)
       - 2 readings  (how many are charted)
     values: [101, 98, 3, 100, 2]
@@ -4072,4 +4072,4 @@ estimatesByTitle:
     tolerance: 0.2
     units: °F per hour
     solution: It rose 3 °F over 3 hours, so about 1 °F each hour.
-    explanation: A rise of 3 degrees means one thing over three hours and something quite different over twenty minutes. A rate needs both the change and the time it took, which is why the chart records when each reading was taken.
+    explanation: A rise of 3 degrees means 1 thing over 3 hours and something quite different over 20 minutes. A rate needs both the change and the time it took, which is why the chart records when each reading was taken.

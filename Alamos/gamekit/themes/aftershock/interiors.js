@@ -5,7 +5,7 @@
 export const INTERIORS = {
   "SEIS": {
     "caption": "An instrument records the place it stands in, not the earthquake.",
-    "standLine": "Two traces of one event, eleven hundred metres apart.",
+    "standLine": "2 traces of 1 event, 1100 metres apart.",
     "station": {
       "kind": "panel",
       "title": "Vault channel",
@@ -30,7 +30,7 @@ export const INTERIORS = {
   },
   "STRUCT": {
     "caption": "A placard states what the inspection covered, and nothing wider.",
-    "standLine": "Four hundred buildings in two days, and a second list of what nobody saw.",
+    "standLine": "400 buildings in 2 days, and a second list of what nobody saw.",
     "station": {
       "kind": "panel",
       "title": "Placard tally",
@@ -60,7 +60,7 @@ export const INTERIORS = {
   },
   "GEO": {
     "caption": "The buildings are not the story. The ground is.",
-    "standLine": "Fifteen metres of hydraulic fill, pumped in over four summers.",
+    "standLine": "15 metres of hydraulic fill, pumped in over 4 summers.",
     "station": {
       "kind": "panel",
       "title": "Ferry Street standpipe",
@@ -110,7 +110,7 @@ export const INTERIORS = {
   },
   "HAZ": {
     "caption": "A forecast is a rate with a range, not a date.",
-    "standLine": "Two hundred and ten events above magnitude 3, and falling.",
+    "standLine": "210 events above magnitude 3, and falling.",
     "station": {
       "kind": "panel",
       "title": "Sequence",
@@ -135,7 +135,7 @@ export const INTERIORS = {
   },
   "SAFE": {
     "caption": "A cordon is a decision remade every morning.",
-    "standLine": "Eleven streets, six days, and three different reasons wearing one line.",
+    "standLine": "11 streets, 6 days, and 3 different reasons wearing 1 line.",
     "station": {
       "kind": "panel",
       "title": "Cordon log",

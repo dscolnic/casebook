@@ -15,9 +15,9 @@ export const CURRICULUM = {
         "type": "CHOICE",
         "title": "Rate is not yield",
         "setup": "Catalyst Bay",
-        "play": "Say what forty degrees actually buys",
-        "task": "Say what forty degrees actually buys",
-        "question": "The bed is run forty degrees hotter at the same pressure and the same flow. What happens?",
+        "play": "Say what 40 degrees actually buys",
+        "task": "Say what 40 degrees actually buys",
+        "question": "The bed is run 40 degrees hotter at the same pressure and the same flow. What happens?",
         "answer": "The bed turns gas over faster, and the methane a single pass can give falls a little.",
         "why": "Temperature moves two different quantities in opposite directions. The rate constant rises because more collisions can clear the activation barrier. That is a kinetic effect. For this exothermic reaction, the equilibrium constant falls as temperature rises. That is a thermodynamic effect. A hotter bed can therefore reach a lower methane ceiling more quickly. Whether the trade helps depends on recycle, residence time and how much unreacted feed the loop can send around again.",
         "rebuttals": [
@@ -58,10 +58,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "How long a molecule stays in the bed",
-      "scene": "Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds three hundred and forty litres of packed catalyst and the loop is passing eighty-five litres a minute through it.",
+      "scene": "Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds 340 litres of packed catalyst and the loop is passing 85 litres a minute through it.",
       "takeaway": "Conversion depends on how fast the reaction runs and on how long it is allowed to run for.",
       "place": "Catalyst Bay",
-      "story": "Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds three hundred and forty litres of packed catalyst and the loop is passing eighty-five litres a minute through it.",
+      "story": "Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds 340 litres of packed catalyst and the loop is passing 85 litres a minute through it.",
       "game": {
         "type": "BALLPARK",
         "title": "How long a molecule stays in the bed",
@@ -101,10 +101,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a catalyst cannot do",
-      "scene": "Kaur has two charges on the bench: the spent one from sol 288 and a fresh one still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
+      "scene": "Kaur has two charges on the bench: the spent 1 from sol 288 and a fresh 1 still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
       "takeaway": "A catalyst changes how long the balance takes to arrive and leaves the balance where it was.",
       "place": "Catalyst Bay",
-      "story": "Kaur has two charges on the bench: the spent one from sol 288 and a fresh one still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
+      "story": "Kaur has two charges on the bench: the spent 1 from sol 288 and a fresh 1 still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
       "game": {
         "type": "CHOICE",
         "title": "What a catalyst cannot do",
@@ -175,10 +175,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Reading a bed by where its heat is",
-      "scene": "Nine sols of profiles are pinned along the wall in order. The hot spot starts four centimetres into the bed on the first and sits at thirty-four on the last, with about the same peak temperature on every one.",
+      "scene": "Nine sols of profiles are pinned along the wall in order. The hot spot starts 4 centimetres into the bed on the first and sits at 34 on the last, with about the same peak temperature on every 1.",
       "takeaway": "Where a bed is hot is where it is still working.",
       "place": "Catalyst Bay",
-      "story": "Nine sols of profiles are pinned along the wall in order. The hot spot starts four centimetres into the bed on the first and sits at thirty-four on the last, with about the same peak temperature on every one.",
+      "story": "Nine sols of profiles are pinned along the wall in order. The hot spot starts 4 centimetres into the bed on the first and sits at 34 on the last, with about the same peak temperature on every 1.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Reading a bed by where its heat is",
@@ -188,7 +188,7 @@ export const CURRICULUM = {
         "question": "Which explanation fits every reading?",
         "answer": "The front of the bed has stopped working",
         "why": "An unchanged peak temperature is the reading that decides it: wherever the reaction is happening it is going as hard as ever, so the catalyst that still works has not been weakened. What has changed is how much of the bed is doing it. Unchanged pressure drop rules out packing and fouling; unchanged feed rules out the third explanation. A bed dies from the inlet end, since that is where the feed is strongest, and conversion falls as the working length shrinks.",
-        "headline": "The hot spot has walked thirty centimetres down the bed in nine sols, at an unchanged peak temperature.",
+        "headline": "The hot spot has walked 30 centimetres down the bed in 9 sols, at an unchanged peak temperature.",
         "readings": [
           {
             "zone": "Bed profile",
@@ -250,10 +250,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "One line off the spent charge",
-      "scene": "The spent charge was assayed in three sections: the first twenty millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation.",
+      "scene": "The spent charge was assayed in three sections: the first 20 millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation.",
       "takeaway": "Two causes with one symptom are told apart in the material rather than in the plant readings.",
       "place": "Catalyst Bay",
-      "story": "The spent charge was assayed in three sections: the first twenty millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation.",
+      "story": "The spent charge was assayed in three sections: the first 20 millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation.",
       "game": {
         "type": "CHOICE",
         "title": "One line off the spent charge",
@@ -457,7 +457,7 @@ export const CURRICULUM = {
         "play": "State what is known about the catalyst and what is not",
         "task": "State what is known about the catalyst and what is not",
         "question": "What is the honest claim to hand over about this charge?",
-        "answer": "It matches the sol-270 charge at matched conditions over five sols, on polished water.",
+        "answer": "It matches the sol-270 charge at matched conditions over 5 sols, on polished water.",
         "why": "A claim is limited by the conditions under which the evidence was collected. Five sols at one set point on clean water support a narrow statement about that operating window. They do not establish performance at other temperatures or flows. They also do not test resistance to chloride because chloride was intentionally absent after the column change. A useful handover keeps those conditions attached to the claim. The next crew can then tell whether a future observation is a replication of this result or a genuinely new test.",
         "rebuttals": [
           "A comparison against every charge the station has run was not made, and two of them were never assayed.",
@@ -465,12 +465,12 @@ export const CURRICULUM = {
           "Five sols supports a narrow claim rather than none at all, and the narrow claim is worth writing down."
         ],
         "choices": [
-          "It matches the sol-270 charge at matched conditions over five sols, on polished water.",
+          "It matches the sol-270 charge at matched conditions over 5 sols, on polished water.",
           "It performs as well as any charge the station has run, on the evidence available.",
           "It is unaffected by chloride, since conversion has held since the column was changed.",
           "Its behaviour cannot be stated, since five sols is too short a run to say anything."
         ],
-        "correctChoice": "It matches the sol-270 charge at matched conditions over five sols, on polished water."
+        "correctChoice": "It matches the sol-270 charge at matched conditions over 5 sols, on polished water."
       },
       "assumes": [
         "a claim is limited by the conditions it was tested under",
@@ -509,10 +509,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Rate is not yield — Review",
-      "scene": "The greenhouse reactor is running cold and slow. Its operator proposes forty degrees more, and the same argument that ran through the propellant plant a fortnight ago starts again.",
+      "scene": "The greenhouse reactor is running cold and slow. Its operator proposes 40 degrees more, and the same argument that ran through the propellant plant a fortnight ago starts again.",
       "takeaway": "One setting moving two quantities in opposite directions is the normal case rather than a special one.",
       "place": "Catalyst Bay",
-      "story": "The greenhouse reactor is running cold and slow. Its operator proposes forty degrees more, and the same argument that ran through the propellant plant a fortnight ago starts again.",
+      "story": "The greenhouse reactor is running cold and slow. Its operator proposes 40 degrees more, and the same argument that ran through the propellant plant a fortnight ago starts again.",
       "game": {
         "type": "CHOICE",
         "title": "Rate is not yield — Review",
@@ -599,8 +599,8 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Each of these is the same principle applied to a different quantity. Pressure counts gas molecules, and five go in where three come out, so squeezing the loop favours the smaller side. Temperature is different in kind: heat is one of the products here, so the equilibrium constant itself falls as the bed is heated. Condensing the water changes the ratio without touching the constant. Argon raises the total pressure and no partial pressure, so the mixture never notices that it is there.",
         "scenarios": [
-          "The loop pressure is raised from eight bar to twelve.",
-          "The bed is run forty degrees hotter at the same pressure.",
+          "The loop pressure is raised from 8 bar to 12.",
+          "The bed is run 40 degrees hotter at the same pressure.",
           "Product water is condensed out before the gas returns to the inlet.",
           "Argon builds up in the loop, raising the total pressure at fixed volume."
         ],
@@ -708,10 +708,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "How much gas the bed has to be fed",
-      "scene": "The plant has to average thirteen point eight kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.",
+      "scene": "The plant has to average 13.8 kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.",
       "takeaway": "Stoichiometry turns a production target into a feed rate, and the feed rate is what the intake has to meet.",
       "place": "Reactor Hall",
-      "story": "The plant has to average thirteen point eight kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.",
+      "story": "The plant has to average 13.8 kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.",
       "game": {
         "type": "BALLPARK",
         "title": "How much gas the bed has to be fed",
@@ -722,7 +722,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Stoichiometry is mole bookkeeping. The balanced reaction sends one carbon atom from each carbon-dioxide molecule into one methane molecule. Mass adds one conversion step. Carbon dioxide has a molar mass of 44 g/mol, while methane is 16 g/mol. Each kilogram of methane therefore needs 44/16 kilograms of carbon dioxide. The intake compressors must gather that feed from a very thin atmosphere. The required compressor work scales directly with the production target the plant promises to meet.",
         "givens": [],
-        "relationship": "Feed mass = product mass × molar mass of the feed ÷ molar mass of the product, since CO₂ + 4H₂ → CH₄ + 2H₂O consumes one carbon dioxide for each methane.",
+        "relationship": "Feed mass = product mass × molar mass of the feed ÷ molar mass of the product, since CO₂ + 4H₂ → CH₄ + 2H₂O consumes 1 carbon dioxide for each methane.",
         "calcKey": "EQUIL-3"
       },
       "assumes": [
@@ -759,10 +759,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Compute which way it runs",
-      "scene": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. Four partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
+      "scene": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. 4 partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
       "takeaway": "Q < K drives the reaction forward, Q > K drives it backward, and Q = K is equilibrium.",
       "place": "Reactor Hall",
-      "story": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. Four partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
+      "story": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. 4 partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
       "game": {
         "type": "BALLPARK",
         "title": "Compute which way it runs",
@@ -848,7 +848,7 @@ export const CURRICULUM = {
         "task": "Match each assay line to what it says about the loop.",
         "question": "Match each assay line to what it says about the loop.",
         "answer": "",
-        "why": "Every line in an assay belongs to a part of the plant. The methane figure is the headline and the least informative. Carbon monoxide is not a contaminant that blew in; it is evidence of a second reaction on the same bed. Unreacted hydrogen is expected in a loop that recycles and would be alarming in one that did not. Water past the drier is a maintenance item that becomes an emergency two hundred metres downstream, at 273 K in the exchanger.",
+        "why": "Every line in an assay belongs to a part of the plant. The methane figure is the headline and the least informative. Carbon monoxide is not a contaminant that blew in; it is evidence of a second reaction on the same bed. Unreacted hydrogen is expected in a loop that recycles and would be alarming in one that did not. Water past the drier is a maintenance item that becomes an emergency 200 metres downstream, at 273 K in the exchanger.",
         "scenarios": [
           "Methane at 96.4 per cent of the dry stream.",
           "Carbon monoxide at 0.9 per cent.",
@@ -951,11 +951,11 @@ export const CURRICULUM = {
         "type": "BALANCE",
         "title": "Close the carbon pass",
         "setup": "Reactor Hall",
-        "play": "Close the 100-mole carbon ledger for one pass, then decide which carbon is lost and which is recycled.",
-        "task": "Close the 100-mole carbon ledger for one pass, then decide which carbon is lost and which is recycled.",
-        "question": "Where are all 100 carbon moles after one pass, and what does that imply for overall methane yield after repeated recycle?",
+        "play": "Close the 100-mole carbon ledger for 1 pass, then decide which carbon is lost and which is recycled.",
+        "task": "Close the 100-mole carbon ledger for 1 pass, then decide which carbon is lost and which is recycled.",
+        "question": "Where are all 100 carbon moles after 1 pass, and what does that imply for overall methane yield after repeated recycle?",
         "answer": "The pass closes as 64 CH₄ + 2 CO + 34 recycled CO₂ = 100 carbon moles. Recycle makes the overall methane fraction approach about 64/(64+2) ≈ 97%, not 64%.",
-        "why": "A one-pass conversion of 64% does not mean 36% of the feed is lost. The carbon ledger shows 64 moles leaving as methane, two as carbon monoxide and 34 returning as unreacted carbon dioxide. The recycle term is therefore inventory, not waste. If the same selectivity holds over repeated passes, the returned carbon keeps getting another chance. The ultimate split approaches the ratio of the irreversible products: 64/(64+2), or about 97% methane, with about 3% ending as carbon monoxide.",
+        "why": "A one-pass conversion of 64% does not mean 36% of the feed is lost. The carbon ledger shows 64 moles leaving as methane, 2 as carbon monoxide and 34 returning as unreacted carbon dioxide. The recycle term is therefore inventory, not waste. If the same selectivity holds over repeated passes, the returned carbon keeps getting another chance. The ultimate split approaches the ratio of the irreversible products: 64/(64+2), or about 97% methane, with about 3% ending as carbon monoxide.",
         "balance": {
           "total": {
             "amount": 100,
@@ -1014,7 +1014,7 @@ export const CURRICULUM = {
         "task": "Match each assay line to what it means for the vehicle.",
         "question": "Match each assay line to what it means for the vehicle.",
         "answer": "",
-        "why": "A specification is not one overall purity score. Each line protects a different downstream function. Water is the failure here: 400 ppm is eight times a 50 ppm limit. At cryogenic valve temperatures, that water can become solid and interfere with moving hardware. Carbon monoxide and carbon dioxide are still inside their stated limits. If either rose too far, it would create a different consequence. The vehicle therefore needs every assay line interpreted against its own limit and failure mode before loading begins.",
+        "why": "A specification is not one overall purity score. Each line protects a different downstream function. Water is the failure here: 400 ppm is 8 times a 50 ppm limit. At cryogenic valve temperatures, that water can become solid and interfere with moving hardware. Carbon monoxide and carbon dioxide are still inside their stated limits. If either rose too far, it would create a different consequence. The vehicle therefore needs every assay line interpreted against its own limit and failure mode before loading begins.",
         "scenarios": [
           "Methane at 99.1 per cent against a limit of 99.0.",
           "Water at 400 parts per million against a limit of 50.",
@@ -1078,7 +1078,7 @@ export const CURRICULUM = {
         "why": "The shape of the equation decides the answers, which is why a reactor making a completely different substance behaves the same way. Count the gas molecules to know what pressure does. Ask which side the heat is on to know what temperature does. Ask whether anything taking part has been added or removed to know whether the balance moves at all. A catalyst changes the time and never the destination.",
         "scenarios": [
           "The vessel is squeezed to twice its working pressure.",
-          "The vessel is warmed by sixty degrees.",
+          "The vessel is warmed by 60 degrees.",
           "Ammonia is condensed out of the product and the rest returned.",
           "A better catalyst is fitted at the same conditions."
         ],
@@ -1128,10 +1128,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Why the hotter pass gave less — Review",
-      "scene": "Herrera has the equilibrium constant for the methane assembly at four temperatures: 500 K, 550 K, 600 K and 650 K. It falls by more than a factor of ten across that range.",
+      "scene": "Herrera has the equilibrium constant for the methane assembly at four temperatures: 500 K, 550 K, 600 K and 650 K. It falls by more than a factor of 10 across that range.",
       "takeaway": "A table of constants against temperature is the plant's ceiling written out in advance.",
       "place": "Reactor Hall",
-      "story": "Herrera has the equilibrium constant for the methane assembly at four temperatures: 500 K, 550 K, 600 K and 650 K. It falls by more than a factor of ten across that range.",
+      "story": "Herrera has the equilibrium constant for the methane assembly at four temperatures: 500 K, 550 K, 600 K and 650 K. It falls by more than a factor of 10 across that range.",
       "game": {
         "type": "CHOICE",
         "title": "Why the hotter pass gave less — Review",
@@ -1204,10 +1204,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What freezes before methane condenses",
-      "scene": "The cold line takes the product stream from ten degrees down to a hundred and fifteen kelvin in one run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.",
+      "scene": "The cold line takes the product stream from 10 degrees down to 115 kelvin in 1 run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.",
       "takeaway": "A cold line is a series of temperatures, and every substance in the stream leaves the gas at its own one.",
       "place": "Cold End",
-      "story": "The cold line takes the product stream from ten degrees down to a hundred and fifteen kelvin in one run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.",
+      "story": "The cold line takes the product stream from 10 degrees down to 115 kelvin in 1 run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.",
       "game": {
         "type": "CHOICE",
         "title": "What freezes before methane condenses",
@@ -1256,7 +1256,7 @@ export const CURRICULUM = {
           {
             "zone": "Cold line",
             "label": "Flow",
-            "value": "fell to zero over 3 h",
+            "value": "fell to 0 over 3 h",
             "status": "alarm"
           },
           {
@@ -1314,10 +1314,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The order the cold end has to work in",
-      "scene": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. Two of the four exist because of what happened on sol 293.",
+      "scene": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. 2 of the 4 exist because of what happened on sol 293.",
       "takeaway": "Cleaning a stream is cheapest at the warmest temperature that will do it.",
       "place": "Cold End",
-      "story": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. Two of the four exist because of what happened on sol 293.",
+      "story": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. 2 of the 4 exist because of what happened on sol 293.",
       "game": {
         "type": "SEQUENCE",
         "title": "The order the cold end has to work in",
@@ -1348,10 +1348,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the tank farm loses standing still",
-      "scene": "Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about thirty watts through, and she wants that expressed in kilograms rather than in watts.",
+      "scene": "Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.",
       "takeaway": "Heat reaching a cryogenic tank is paid for in kilograms rather than in degrees.",
       "place": "Cold End",
-      "story": "Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about thirty watts through, and she wants that expressed in kilograms rather than in watts.",
+      "story": "Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.",
       "game": {
         "type": "BALLPARK",
         "title": "What the tank farm loses standing still",
@@ -1360,7 +1360,7 @@ export const CURRICULUM = {
         "task": "Put a number on what the tank loses each sol",
         "question": "Estimate the oxygen the tank loses to boil-off each sol.",
         "answer": "",
-        "why": "A cryogenic liquid sits near its boiling point. Heat that enters is therefore spent mainly on vaporising liquid rather than raising its temperature. The required energy per kilogram is the latent heat of vaporisation. That turns an insulation leak directly into a propellant-loss rate. Thirty watts sounds small, but it acts every second of the sol. Over 88,800 seconds it boils away about 12.5 kg of oxygen. Repeated across many sols, a modest heat leak becomes a major production loss.",
+        "why": "A cryogenic liquid sits near its boiling point. Heat that enters is therefore spent mainly on vaporising liquid rather than raising its temperature. The required energy per kilogram is the latent heat of vaporisation. That turns an insulation leak directly into a propellant-loss rate. 30 watts sounds small, but it acts every second of the sol. Over 88,800 seconds it boils away about 12.5 kg of oxygen. Repeated across many sols, a modest heat leak becomes a major production loss.",
         "givens": [],
         "relationship": "Boil-off mass = the heat reaching the tank × the time it reaches it for ÷ the energy needed to vaporise one kilogram.",
         "calcKey": "PHASE-4"
@@ -1395,10 +1395,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The tank pressure that is not a leak",
-      "scene": "The methane tank has climbed about 0.3 bar a sol for four sols. The mass in the tank is unchanged across the same four sols, and Moreau is being asked whether to vent it.",
+      "scene": "The methane tank has climbed about 0.3 bar a sol for 4 sols. The mass in the tank is unchanged across the same four sols, and Moreau is being asked whether to vent it.",
       "takeaway": "Pressure in a cryogenic tank is a reading of temperature until the mass says otherwise.",
       "place": "Cold End",
-      "story": "The methane tank has climbed about 0.3 bar a sol for four sols. The mass in the tank is unchanged across the same four sols, and Moreau is being asked whether to vent it.",
+      "story": "The methane tank has climbed about 0.3 bar a sol for 4 sols. The mass in the tank is unchanged across the same four sols, and Moreau is being asked whether to vent it.",
       "game": {
         "type": "CHOICE",
         "title": "The tank pressure that is not a leak",
@@ -1450,17 +1450,17 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The space left at the top",
-      "scene": "Bhatt's loading procedure stops the methane tank at ninety-five per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.",
+      "scene": "Bhatt's loading procedure stops the methane tank at 95 per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.",
       "takeaway": "A cryogenic tank is designed around what happens to it between filling and use.",
       "place": "Cold End",
-      "story": "Bhatt's loading procedure stops the methane tank at ninety-five per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.",
+      "story": "Bhatt's loading procedure stops the methane tank at 95 per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.",
       "game": {
         "type": "CHOICE",
         "title": "The space left at the top",
         "setup": "Cold End",
         "play": "Say how full a cryogenic tank may be filled",
         "task": "Say how full a cryogenic tank may be filled",
-        "question": "Why is the flight tank filled to ninety-five per cent rather than full?",
+        "question": "Why is the flight tank filled to 95 per cent rather than full?",
         "answer": "Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.",
         "why": "A cryogenic tank always contains some vapour because heat continues to enter. The gas space above the liquid is the ullage. It gives newly formed vapour room before pressure reaches the relief setting. Filling the tank completely with liquid removes that buffer. Heating then causes liquid expansion and vapour formation to drive pressure upward quickly. The relief system must vent material to protect the tank. Leaving planned ullage therefore prevents a small heat input from immediately becoming a propellant-loss event before the vehicle uses the fuel.",
         "rebuttals": [
@@ -1637,10 +1637,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "How much oxygen a tonne of methane needs",
-      "scene": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen two moles to one, and the vehicle carries six point six tonnes of fuel.",
+      "scene": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen 2 moles to 1, and the vehicle carries 6.6 tonnes of fuel.",
       "takeaway": "A mole ratio is not a mass ratio until both molar masses have been applied.",
       "place": "Cold End",
-      "story": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen two moles to one, and the vehicle carries six point six tonnes of fuel.",
+      "story": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen 2 moles to 1, and the vehicle carries 6.6 tonnes of fuel.",
       "game": {
         "type": "BALLPARK",
         "title": "How much oxygen a tonne of methane needs",
@@ -1649,7 +1649,7 @@ export const CURRICULUM = {
         "task": "Work out how much oxygen goes with the methane",
         "question": "Estimate the mass of oxygen needed for each kilogram of methane burned.",
         "answer": "",
-        "why": "A balanced equation gives a mole ratio, while tanks are filled by mass. Complete methane combustion uses two moles of oxygen for every mole of methane. Two moles of O₂ have a mass of 64 g, while one mole of CH₄ has a mass of 16 g. The stoichiometric oxygen-to-fuel mass ratio is therefore 4:1. A rocket engine may deliberately operate away from that exact ratio for performance reasons. That design choice does not change the stoichiometric calculation the loading team must understand.",
+        "why": "A balanced equation gives a mole ratio, while tanks are filled by mass. Complete methane combustion uses two moles of oxygen for every mole of methane. 2 moles of O₂ have a mass of 64 g, while 1 mole of CH₄ has a mass of 16 g. The stoichiometric oxygen-to-fuel mass ratio is therefore 4:1. A rocket engine may deliberately operate away from that exact ratio for performance reasons. That design choice does not change the stoichiometric calculation the loading team must understand.",
         "givens": [],
         "relationship": "Mass ratio = the mole ratio from the balanced equation × the molar mass of the oxidiser ÷ the molar mass of the fuel.",
         "calcKey": "PHASE-8"
@@ -1730,7 +1730,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading?",
         "question": "Which explanation fits every reading?",
         "answer": "Carbon dioxide past the trap is freezing in the line",
-        "why": "Three readings do the ruling out. A cold head at its set point has not lost capacity, and a steady jacket pressure is intact insulation. A valve moving would change the flow in the minute it moved rather than over two sols. What is left is something accumulating, and the trap's breakthrough figure names the material. It matters which material: carbon dioxide sublimes away when the line is warmed to 220 K, so this one is cleared without opening anything.",
+        "why": "Three readings do the ruling out. A cold head at its set point has not lost capacity, and a steady jacket pressure is intact insulation. A valve moving would change the flow in the minute it moved rather than over two sols. What is left is something accumulating, and the trap's breakthrough figure names the material. It matters which material: carbon dioxide sublimes away when the line is warmed to 220 K, so this 1 is cleared without opening anything.",
         "headline": "An oxygen line has slowed over two sols with the refrigerator holding temperature.",
         "readings": [
           {
@@ -1816,10 +1816,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Which electrode does which job",
-      "scene": "The hall runs two kinds of cell: one splits water, the other splits carbon dioxide at eight hundred degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
+      "scene": "The hall runs two kinds of cell: 1 splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
       "takeaway": "The two halves of one electron transfer can be run in separate places if something carries an ion between them.",
       "place": "Electrolysis Hall",
-      "story": "The hall runs two kinds of cell: one splits water, the other splits carbon dioxide at eight hundred degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
+      "story": "The hall runs two kinds of cell: 1 splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which electrode does which job",
@@ -1949,10 +1949,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "From amps to kilograms",
-      "scene": "One cell in the water stack carried six hundred and forty amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
+      "scene": "1 cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
       "takeaway": "Charge and moles are one measurement in two units, once the electrons per molecule are known.",
       "place": "Electrolysis Hall",
-      "story": "One cell in the water stack carried six hundred and forty amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
+      "story": "1 cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
       "game": {
         "type": "BALLPARK",
         "title": "From amps to kilograms",
@@ -1967,7 +1967,7 @@ export const CURRICULUM = {
         "calcKey": "ELEC-4"
       },
       "assumes": [
-        "one mole of electrons carries 96,485 coulombs",
+        "1 mole of electrons carries 96,485 coulombs",
         "splitting water to hydrogen takes two electrons per molecule"
       ],
       "equations": [
@@ -2039,7 +2039,7 @@ export const CURRICULUM = {
           "A": 45,
           "B": 35
         },
-        "research": "The plant ran for thirty-eight sols on water no column was polishing, and lost a catalyst\ncharge to it. The conductivity was logged the whole time and read by nobody. The array has\nnot been the limit on any sol this season, and there are four probes in the bed already."
+        "research": "The plant ran for 38 sols on water no column was polishing, and lost a catalyst\ncharge to it. The conductivity was logged the whole time and read by nobody. The array has\nnot been the limit on any sol this season, and there are four probes in the bed already."
       },
       "assumes": [
         "the polishing column gives no warning as it fills",
@@ -2078,10 +2078,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the dust leaves of the sun",
-      "scene": "Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver four hundred and ninety watts to each square metre of panel.",
+      "scene": "Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
       "takeaway": "Dust does not dim a beam in proportion; it multiplies it down, so each unit of depth costs more than the last.",
       "place": "Electrolysis Hall",
-      "story": "Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver four hundred and ninety watts to each square metre of panel.",
+      "story": "Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
       "game": {
         "type": "BALLPARK",
         "title": "What the dust leaves of the sun",
@@ -2090,7 +2090,7 @@ export const CURRICULUM = {
         "task": "Work out how much sunlight is reaching the panels",
         "question": "Estimate the direct beam reaching a panel through this dust.",
         "answer": "",
-        "why": "Dust attenuation is multiplicative. Each additional unit of optical depth removes the same fraction of the beam that remains. That is why a change from τ = 0.4 to τ = 2.4 is much worse than subtracting two equal pieces of sunlight. The direct beam falls to under a tenth of the above-dust value. The array still receives some scattered light from the sky, so direct-beam loss is not the same as total array output. The exponential relation describes only the unscattered beam.",
+        "why": "Dust attenuation is multiplicative. Each additional unit of optical depth removes the same fraction of the beam that remains. That is why a change from τ = 0.4 to τ = 2.4 is much worse than subtracting 2 equal pieces of sunlight. The direct beam falls to under a tenth of the above-dust value. The array still receives some scattered light from the sky, so direct-beam loss is not the same as total array output. The exponential relation describes only the unscattered beam.",
         "givens": [],
         "relationship": "Transmitted beam = the beam above the dust × e raised to minus the optical depth: each unit of depth divides the beam by a further factor of about 2.7.",
         "calcKey": "ELEC-6"
@@ -2125,10 +2125,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What limits the current",
-      "scene": "Sundqvist wants the stacks run twenty per cent above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
+      "scene": "Sundqvist wants the stacks run 20 per cent above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
       "takeaway": "The ceiling on a cell is usually thermal rather than electrochemical.",
       "place": "Electrolysis Hall",
-      "story": "Sundqvist wants the stacks run twenty per cent above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
+      "story": "Sundqvist wants the stacks run 20 per cent above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
       "game": {
         "type": "CHOICE",
         "title": "What limits the current",
@@ -2137,7 +2137,7 @@ export const CURRICULUM = {
         "task": "Say whether the stacks can be pushed harder",
         "question": "What sets the highest current these stacks can be run at?",
         "answer": "The heat the cooling loop can carry away, since the wasted voltage rises with the current.",
-        "why": "Faraday's law puts no ceiling on current at all: more charge is simply more product, in exact proportion. What rises with current is the overpotential, because resistance and sluggish electrode steps both cost more voltage the harder the cell is driven, and that extra voltage becomes heat inside the stack. So the limit is set by what the cooling loop can carry away before the cell cooks its own seals. Twenty per cent more current can cost forty per cent more heat.",
+        "why": "Faraday's law puts no ceiling on current at all: more charge is simply more product, in exact proportion. What rises with current is the overpotential, because resistance and sluggish electrode steps both cost more voltage the harder the cell is driven, and that extra voltage becomes heat inside the stack. So the limit is set by what the cooling loop can carry away before the cell cooks its own seals. 20 per cent more current can cost 40 per cent more heat.",
         "rebuttals": [
           "Faraday's constant converts charge into moles and does not cap the charge itself.",
           "Water feed is a limit worth checking and this hall has buffer enough for the requested rate.",
@@ -2276,7 +2276,7 @@ export const CURRICULUM = {
         "task": "Work out the free-energy change at the bed's temperature",
         "question": "Estimate the free-energy change for the reaction at the bed's temperature.",
         "answer": "",
-        "why": "The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still strongly negative. Using the same tabulated ΔH and ΔS gives a zero crossing near 960 K. Real thermodynamic values vary somewhat with temperature, so 960 K is a course-model threshold rather than an exact plant limit.",
+        "why": "The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still strongly negative. Using the same tabulated ΔH and ΔS gives 0 crossing near 960 K. Real thermodynamic values vary somewhat with temperature, so 960 K is a course-model threshold rather than an exact plant limit.",
         "givens": [],
         "relationship": "ΔG = ΔH − TΔS, with ΔG the free-energy change, ΔH the heat given out at constant pressure, T the absolute temperature in kelvin and ΔS the entropy change of the reaction.",
         "calcKey": "GIBBS-2"
@@ -2359,7 +2359,7 @@ export const CURRICULUM = {
         "choices": [
           "Heating favours the reaction that takes heat in and pushes the other back.",
           "Carbon monoxide forms faster than methane does, so a bed running faster makes more of it.",
-          "The catalyst changes what it makes once it is above three hundred degrees.",
+          "The catalyst changes what it makes once it is above 300 degrees.",
           "Carbon monoxide is the more stable product, and heat lets the mixture reach it."
         ],
         "correctChoice": "Heating favours the reaction that takes heat in and pushes the other back."
@@ -2471,7 +2471,7 @@ export const CURRICULUM = {
         "setup": "Plant Control",
         "play": "Build a plan for the power there is",
         "task": "Build a plan for the power there is",
-        "question": "Four hundred and thirty kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.",
+        "question": "430 kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.",
         "answer": "Keep the protected habitat bus and cryogenic refrigeration inside the 430 kWh limit. Then choose at most one substantial optional job. The jobs left unfunded are part of the answer.",
         "why": "The power plan should rank loads by the cost of stopping them. Digging is recoverable because the ground remains available. Batteries can recharge on the next clear sol. Electrolysis can be made up later if schedule margin remains. Cryogenic refrigeration is different. When it stops, heat keeps entering the tanks and already-made propellant boils away. That loss cannot be recovered without making new propellant later. Habitat power is protected separately. The scarce pool should therefore preserve irreversible assets before funding work that can simply be deferred.",
         "allocate": {
@@ -2616,7 +2616,7 @@ export const CURRICULUM = {
         "task": "Rank three faults against each other",
         "question": "Which of the three is dealt with first?",
         "answer": "The radiator, since every sol of doubled boil-off is propellant that leaves for good.",
-        "why": "Rank by what a delay costs and whether it can be recovered. Boil-off is a loss of a thing already made, running at fourteen extra kilograms a sol, and no later work brings those kilograms back. Batteries recharge on the next clear sol. A comparison run is information, and information waits at no cost provided the bed is watched. Only one of the three is spending an asset while it is queued, and that is the one that goes first.",
+        "why": "Rank by what a delay costs and whether it can be recovered. Boil-off is a loss of a thing already made, running at 14 extra kilograms a sol, and no later work brings those kilograms back. Batteries recharge on the next clear sol. A comparison run is information, and information waits at no cost provided the bed is watched. Only one of the three is spending an asset while it is queued, and that is the one that goes first.",
         "rebuttals": [
           "The battery bank refills on the next clear sol at no permanent cost, and one has been forecast.",
           "The comparison matters and loses nothing by waiting two sols, since the bed is under watch.",
@@ -2686,10 +2686,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What to leave running",
-      "scene": "Only two improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
+      "scene": "Only 2 improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
       "takeaway": "What outlives a crew is what somebody made automatic before they left.",
       "place": "Plant Control",
-      "story": "Only two improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
+      "story": "Only 2 improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
       "game": {
         "type": "SCIENCETANK",
         "title": "What to leave running",
@@ -2721,7 +2721,7 @@ export const CURRICULUM = {
           "A": 45,
           "B": 35
         },
-        "research": "This season lost thirty-eight sols of production to a measurement that was taken every sol,\nlogged every sol, and read by nobody. The bed already carries four thermocouples and the\narray has one sun sensor that has never disagreed with the sky."
+        "research": "This season lost 38 sols of production to a measurement that was taken every sol,\nlogged every sol, and read by nobody. The bed already carries four thermocouples and the\narray has one sun sensor that has never disagreed with the sky."
       },
       "assumes": [
         "the fault that cost this season went undetected because nothing measured it",
@@ -2777,7 +2777,7 @@ export const CURRICULUM = {
           "Methane assembling from carbon dioxide and hydrogen over the bed.",
           "Water splitting into hydrogen and oxygen in the stack.",
           "Liquid oxygen boiling in a warmed tank.",
-          "Compressing the atmosphere from six millibars to twelve bar."
+          "Compressing the atmosphere from 6 millibars to 12 bar."
         ],
         "choices": [
           "Runs downhill and needs a catalyst to be quick about it.",
@@ -2924,10 +2924,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The tank that will not freeze",
-      "scene": "The holding tank sat at minus forty overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
+      "scene": "The holding tank sat at minus 40 overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
       "takeaway": "In the ideal colligative model, freezing-point depression scales with the number of dissolved particles, not their chemical identity.",
       "place": "Water Plant",
-      "story": "The holding tank sat at minus forty overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
+      "story": "The holding tank sat at minus 40 overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
       "game": {
         "type": "BALLPARK",
         "title": "The tank that will not freeze",
@@ -3026,10 +3026,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The trace nobody read",
-      "scene": "The conductivity of the water leaving the polishing column is logged every sol. The trace runs flat for two hundred and sixty sols, steps up over about four, and runs flat and high from there to this morning.",
+      "scene": "The conductivity of the water leaving the polishing column is logged every sol. The trace runs flat for 260 sols, steps up over about 4, and runs flat and high from there to this morning.",
       "takeaway": "A step in a record is a date, and a date turns a fault into a history.",
       "place": "Water Plant",
-      "story": "The conductivity of the water leaving the polishing column is logged every sol. The trace runs flat for two hundred and sixty sols, steps up over about four, and runs flat and high from there to this morning.",
+      "story": "The conductivity of the water leaving the polishing column is logged every sol. The trace runs flat for 260 sols, steps up over about 4, and runs flat and high from there to this morning.",
       "game": {
         "type": "CHOICE",
         "title": "The trace nobody read",
@@ -3072,7 +3072,7 @@ export const CURRICULUM = {
         "task": "Decide what the water plant does with no drill",
         "question": "What lets the reactor keep running through a storm with the drill stopped?",
         "answer": "The holding tank, plus the water the reaction itself gives back into the loop.",
-        "why": "Two buffers separate the reactor from daily drilling. The first is stored water: 1,100 litres at 60 litres per sol is about eighteen sols of inventory. That is longer than the storms recorded at this site. The second is process recycle. The Sabatier reaction produces water, and the plant condenses and returns part of that stream. Those two buffers let extraction pause without forcing an immediate reactor shutdown. They also show why plant reliability depends on inventories between steps, not only on the machines themselves.",
+        "why": "Two buffers separate the reactor from daily drilling. The first is stored water: 1,100 litres at 60 litres per sol is about 18 sols of inventory. That is longer than the storms recorded at this site. The second is process recycle. The Sabatier reaction produces water, and the plant condenses and returns part of that stream. Those two buffers let extraction pause without forcing an immediate reactor shutdown. They also show why plant reliability depends on inventories between steps, not only on the machines themselves.",
         "rebuttals": [
           "The atmosphere here holds almost no water vapour, and the condenser works on the hopper stream instead.",
           "An exchange bed holds ions rather than water, and it holds no useful volume.",
@@ -3445,12 +3445,12 @@ export const BALLPARK_CALCS = {
     "explanation": "Power times time is energy, and energy divided by the heat of vaporisation is a mass. The boiling point and the molar mass do not enter it."
   },
   "ELEC-4": {
-    "prompt": "The cell carried 640 amps for 88,800 seconds. Making one mole of hydrogen takes two moles of electrons, which is 192,970 coulombs.",
+    "prompt": "The cell carried 640 amps for 88,800 seconds. Making 1 mole of hydrogen takes 2 moles of electrons, which is 192,970 coulombs.",
     "question": "Estimate the hydrogen one cell should produce over a sol.",
     "labels": [
       "640 A  (current through the cell)",
       "88800 s  (seconds in a sol)",
-      "192970 C/mol  (charge needed for one mole of hydrogen)",
+      "192970 C/mol  (charge needed for 1 mole of hydrogen)",
       "2.016 g/mol  (molar mass of hydrogen)",
       "1.75 V  (cell voltage)"
     ],
@@ -3791,7 +3791,7 @@ export const JARGON = [
       "faraday constant",
       "faraday's law, faraday's laws"
     ],
-    "def": "The charge carried by one mole of electrons, about 96,485 coulombs. It converts current and time into moles.",
+    "def": "The charge carried by 1 mole of electrons, about 96,485 coulombs. It converts current and time into moles.",
     "core": true
   },
   {
@@ -3963,7 +3963,7 @@ export const JARGON = [
     "aliases": [
       "sols"
     ],
-    "def": "One Martian day, 24 hours 39 minutes — about 88,800 seconds."
+    "def": "1 Martian day, 24 hours 39 minutes — about 88,800 seconds."
   },
   {
     "name": "Mixture ratio",

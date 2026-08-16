@@ -65,7 +65,7 @@ export const INTERIORS = {
   },
   "COLD": {
     "caption": "Every sample is melted once, and everything that touched it is written down first.",
-    "standLine": "Sixteen samples queued. Blank clean, opening standard within 0.03 per mil.",
+    "standLine": "16 samples queued. Blank clean, opening standard within 0.03 per mil.",
     "station": {
       "kind": "panel",
       "title": "Isotope line",
@@ -94,7 +94,7 @@ export const INTERIORS = {
     }
   },
   "GAS": {
-    "caption": "Air that stopped moving four hundred and fifty years after the snow around it fell.",
+    "caption": "Air that stopped moving 450 years after the snow around it fell.",
     "standLine": "Extraction vessel loaded, 1,642 m. Line tested against standard gas at 0740.",
     "station": {
       "kind": "panel",
@@ -125,7 +125,7 @@ export const INTERIORS = {
   },
   "FIELD": {
     "caption": "The only part of this record anybody can still watch being made.",
-    "standLine": "Forty-eight stakes, read this morning. Pit wall photographed to 1.4 m.",
+    "standLine": "48 stakes, read this morning. Pit wall photographed to 1.4 m.",
     "station": {
       "kind": "panel",
       "title": "Mast and stake array",

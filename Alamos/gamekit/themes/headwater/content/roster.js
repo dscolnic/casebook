@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Flood Engineer",
     "division": "SAFE",
     "color": "#5b6a72",
-    "bio": "<p>Buys headroom, and is unpopular for it. Her whole argument is about when a cubic metre of empty reservoir is cheap: a fortnight before the rain it costs a little generation, and on the morning of the peak it cannot be bought at any price.</p><p>She works in arrival times rather than in volumes. A release made now reaches the first village in four hours and the last in eleven, and every hour of that is an hour somebody can use.</p><p>Her limit is that she is right in a way nobody sees. A flood that does not happen leaves no evidence that anything was done.</p>",
+    "bio": "<p>Buys headroom, and is unpopular for it. Her whole argument is about when a cubic metre of empty reservoir is cheap: a fortnight before the rain it costs a little generation, and on the morning of the peak it cannot be bought at any price.</p><p>She works in arrival times rather than in volumes. A release made now reaches the first village in 4 hours and the last in 11, and every hour of that is an hour somebody can use.</p><p>Her limit is that she is right in a way nobody sees. A flood that does not happen leaves no evidence that anything was done.</p>",
     "quiz": [
       {
         "q": "Why does Berg want headroom bought early rather than on the day?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Catchment Hydrologist",
     "division": "INFLOW",
     "color": "#2f7fa8",
-    "bio": "<p>Reads the catchment: eleven rain gauges, four river gauges and a snowline. He can tell you what the river will do in six hours with some confidence and in three days with almost none, and he says which is which every time.</p><p>What he watches is not the inflow but its rate of rise. A river climbing steadily is a river that has not peaked; the moment the climb slackens is the first honest news of the day, and it arrives before the level does.</p><p>His limit is the radar. Rain over the high ground is measured badly by everything he owns, and that is where most of it falls.</p>",
+    "bio": "<p>Reads the catchment: 11 rain gauges, 4 river gauges and a snowline. He can tell you what the river will do in six hours with some confidence and in three days with almost none, and he says which is which every time.</p><p>What he watches is not the inflow but its rate of rise. A river climbing steadily is a river that has not peaked; the moment the climb slackens is the first honest news of the day, and it arrives before the level does.</p><p>His limit is the radar. Rain over the high ground is measured badly by everything he owns, and that is where most of it falls.</p>",
     "quiz": [
       {
         "q": "Why does Ekundayo watch the rate of rise rather than the inflow itself?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Gate Mechanic",
     "division": "GATES",
     "color": "#b0762a",
-    "bio": "<p>Winds the gates and has done for nineteen years. He can hear a bad hoist bearing from the far end of the chamber, and he will not run a gate he has not seen seat properly.</p><p>What he knows in his hands and everybody else has to calculate: the first half metre of opening does almost nothing and the last half metre does most of the work. A gate is not a tap, and the difference is the reason the schedule matters.</p><p>His limit is that he can only tell you what the gate is doing. What the river does with it is somebody else's arithmetic.</p>",
+    "bio": "<p>Winds the gates and has done for 19 years. He can hear a bad hoist bearing from the far end of the chamber, and he will not run a gate he has not seen seat properly.</p><p>What he knows in his hands and everybody else has to calculate: the first half metre of opening does almost nothing and the last half metre does most of the work. A gate is not a tap, and the difference is the reason the schedule matters.</p><p>His limit is that he can only tell you what the gate is doing. What the river does with it is somebody else's arithmetic.</p>",
     "quiz": [
       {
         "q": "Why will Wilkes not treat the gate opening as proportional to discharge?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Structural Engineer",
     "division": "STRUCT",
     "color": "#7a4fa3",
-    "bio": "<p>Reads the wall. Forty-one drain holes, nine seepage weirs and a row of uplift gauges in the foundation gallery, and she has a plot of every one of them going back to before she was born.</p><p>A dam under a rising reservoir is under a rising load, and the gallery reports it: seepage climbs with head, and uplift climbs with head, and both are supposed to climb by an amount she can predict. It is the ones that climb faster than predicted that she comes down here for.</p><p>Her limit is that everything she measures is a symptom. The crack she is looking for is in rock she will never see.</p>",
+    "bio": "<p>Reads the wall. 41 drain holes, 9 seepage weirs and a row of uplift gauges in the foundation gallery, and she has a plot of every 1 of them going back to before she was born.</p><p>A dam under a rising reservoir is under a rising load, and the gallery reports it: seepage climbs with head, and uplift climbs with head, and both are supposed to climb by an amount she can predict. It is the ones that climb faster than predicted that she comes down here for.</p><p>Her limit is that everything she measures is a symptom. The crack she is looking for is in rock she will never see.</p>",
     "quiz": [
       {
         "q": "Why is a seepage reading only useful to Zawadzka beside the reservoir level?",
@@ -142,7 +142,7 @@ export const ROSTER = [
     "role": "Downstream Warning Officer",
     "division": "SAFE",
     "color": "#5b6a72",
-    "bio": "<p>Owns the list: eleven villages, two caravan sites, a school and a road that floods before anything else does. She knows the arrival time to each of them from a release at the dam, and she has walked every one.</p><p>Her job is entirely about lead time. A warning that arrives with the water is not a warning, and the difference between four hours and one is the difference between moving stock and losing it.</p><p>Her limit is that she can only warn what she is told about. A release decided at four o'clock and passed to her at half past is a release she cannot get in front of.</p>",
+    "bio": "<p>Owns the list: 11 villages, 2 caravan sites, a school and a road that floods before anything else does. She knows the arrival time to each of them from a release at the dam, and she has walked every one.</p><p>Her job is entirely about lead time. A warning that arrives with the water is not a warning, and the difference between four hours and one is the difference between moving stock and losing it.</p><p>Her limit is that she can only warn what she is told about. A release decided at four o'clock and passed to her at half past is a release she cannot get in front of.</p>",
     "quiz": [
       {
         "q": "Why does Baptiste care when a release decision is made rather than how large it is?",
@@ -169,7 +169,7 @@ export const ROSTER = [
         "wrong": [
           "Echo sounders have improved and older surveys used cruder instruments",
           "The curve is only valid between the levels that were surveyed",
-          "Reservoir level records are lost after twenty-five years"
+          "Reservoir level records are lost after 25 years"
         ]
       }
     ]
@@ -199,7 +199,7 @@ export const ROSTER = [
     "role": "Riverside Landowner Representative",
     "division": "SAFE",
     "color": "#5b6a72",
-    "bio": "<p>Speaks for the reach below the dam: farms, two caravan sites and the people who have to move animals when the river comes up. She has been on the liaison committee for eleven years and has never missed a meeting.</p><p>What she asks for is not less water. It is the same water with more notice, and she is the reason the warning list is a list of times rather than a list of names.</p><p>Her limit is that she represents the people who stayed. The ones who were flooded out in the eighties are not on her committee.</p>",
+    "bio": "<p>Speaks for the reach below the dam: farms, two caravan sites and the people who have to move animals when the river comes up. She has been on the liaison committee for 11 years and has never missed a meeting.</p><p>What she asks for is not less water. It is the same water with more notice, and she is the reason the warning list is a list of times rather than a list of names.</p><p>Her limit is that she represents the people who stayed. The ones who were flooded out in the eighties are not on her committee.</p>",
     "quiz": [
       {
         "q": "What does Prowse ask the dam for on behalf of the reach?",

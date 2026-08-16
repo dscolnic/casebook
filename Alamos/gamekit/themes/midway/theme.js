@@ -26,11 +26,18 @@ export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
   // root font size, so the same game can ship at several reading levels.
   // grade 4 scales 1.18x, 7 scales 1.10x, 13 and up not at all.
-  audience: { grade: 12 },
+  audience: { grade: 11 },
 
   id: 'midway',
-  title: 'Template',
-  subtitle: 'Copy this to start a new game',
+  title: 'Safety Factor',
+  subtitle: 'Ride Engineer · Corbin Park',
+
+  // A mission is one working day of a three-week shutdown. `dayNoun` reaches the
+  // plan card, the continuity line and the turn-in button.
+  dayNoun: 'Day',
+  // What a non-person stop is called. Every area here is a ride, and the
+  // building the question happens in is its station or its plant room.
+  stopNoun: 'ride',
 
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
@@ -62,7 +69,7 @@ export default {
   interiors: INTERIORS,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
-  interiorStyle: 'lab',
+  interiorStyle: 'steel',
 
   // The title card: ONE paragraph. What the player is, where they are, and what
   // happens if the work is not done — the situation, and nothing else. The
@@ -71,16 +78,35 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Corbin Park lost its certificate in October, and the season opens in three '
-    + 'weeks. Seven rides have to get it back before the gates open, and getting '
-    + 'it back is your signature on seven documents. You are the ride engineer. '
-    + 'For forty-one years the work here was done by one man. Alf Brennan\'s '
-    + 'eleven notebooks are laid out on the workshop bench — settings, timings '
-    + 'and turns of a nut, in one hand, with not one line of working anywhere in '
-    + 'them. Delia Marsh, who owns the park, says a ride that has run safely for '
-    + 'forty-one years is evidence. Marcus Vey, the county inspector, says that '
-    + 'is a record of having got away with it, and he will not sign for a number '
-    + 'whose working nobody can produce.',
+    'Corbin Park lost its certificate in October and the season opens in three weeks. Seven rides '
+    + 'have to get it back — a coaster, a wheel, a drop tower, a pirate ship, a carousel, a bumper '
+    + 'floor and a log flume — and the signature on all seven documents is yours. You are the ride '
+    + 'engineer, hired in February. What you have inherited is eleven notebooks in one hand: '
+    + 'forty-one years of settings, timings and turns of a nut from a mechanic who retired last '
+    + 'autumn, with not one line of working anywhere in them. Delia Marsh, who owns the park, '
+    + 'points out that eleven million people have ridden on those numbers unhurt. Marcus Vey, who '
+    + 'inspects for the county, calls that a record of having got away with it. A hundred and six '
+    + 'days of season pay for the other two hundred and fifty-nine.',
+  ],
+
+  // The last thing anybody reads: what happened, what it cost and what is left over.
+  ending: [
+    'Six of the seven opened. The tower went first, on a witnessed drop that logged 5.4 g against '
+    + 'the 6.0 the certificate allows; the carousel and the swings opened on Brennan\'s own '
+    + 'settings, which the derivations confirmed to within a degree; the ship opened after its '
+    + 'drive was retimed from 5.60 seconds to the 5.90 the pendulum actually keeps, which Sam Idowu '
+    + 'had been describing from the floor for two seasons. The coaster opened with a condition on '
+    + 'it — a minimum station return speed, read with a wheel every morning before the first train '
+    + '— because its loop was regraded in 1998 and the crown demands 8.5 metres a second rather '
+    + 'than the 7.4 the 1974 drawing implies.',
+    'What it cost: the wheel stayed shut. The load in arm nine\'s bolt group is computed at 52.7 '
+    + 'kilonewtons and whether a 41-millimetre indication can carry it is a fracture assessment '
+    + 'nobody on site could do in three weeks, so twenty-four gondolas stood still through the '
+    + 'whole season and Marsh borrowed against next year to cover it. What is unfinished: the '
+    + 'coaster\'s margin is 1.20 and falling about a tenth of a metre a second each season, so the '
+    + 'morning rule buys time rather than settling anything; the flume\'s pump runs at 53.7 '
+    + 'kilowatts against a 55-kilowatt plate; and the 1974 drawings are still the only ones the '
+    + 'park has, now known to be wrong about at least one dimension by 1.8 metres.',
   ],
 
   look: {
@@ -89,10 +115,12 @@ export default {
     // Outdoors this has to reach past the horizon ranks and the sky dome. At an
     // interior's 160 the dome is clipped away entirely and the sky renders
     // black, in broad daylight, with no error anywhere.
-    far: 900,
-    fog: { colour: 0xb9c4c8, near: 150, far: 460 },
+    far: 950,   // the sky dome here is 850, and the rides are read at 400 m
+    // Lake air in early spring: hazy at distance, and the far shore is the one
+    // thing on the north skyline.
+    fog: { colour: 0xbcc6c4, near: 180, far: 540 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
-    exposure: 0.95,
+    exposure: 0.82,
     // How wide the player is, for collision. 0.45 suits a street; a place with
     // metre-wide doorways needs 0.3 or the player gets stuck in them.
     playerRadius: 0.45,

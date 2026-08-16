@@ -5,7 +5,7 @@
 export const INTERIORS = {
   "KINET": {
     "caption": "The bed is the only part of this plant that does something nothing else can do.",
-    "standLine": "Nine sols of temperature profiles, and a hot spot thirty centimetres further down the bed.",
+    "standLine": "9 sols of temperature profiles, and a hot spot 30 centimetres further down the bed.",
     "station": {
       "kind": "panel",
       "title": "Reactor bed profile",
@@ -95,7 +95,7 @@ export const INTERIORS = {
   },
   "ELEC": {
     "caption": "Charge and moles are one measurement in two units, and the gap between them is the cell.",
-    "standLine": "Twelve cells, six hundred and forty amps, and eight per cent of it making nothing.",
+    "standLine": "12 cells, 640 amps, and 8 per cent of it making nothing.",
     "station": {
       "kind": "panel",
       "title": "Water stack",
@@ -155,7 +155,7 @@ export const INTERIORS = {
   },
   "SOIL": {
     "caption": "What comes out of this ground is a solution, and everything dissolved in it has an address downstream.",
-    "standLine": "Eleven hundred litres in the tank, and a column nobody has changed since sol 190.",
+    "standLine": "1100 litres in the tank, and a column nobody has changed since sol 190.",
     "station": {
       "kind": "panel",
       "title": "Water plant",

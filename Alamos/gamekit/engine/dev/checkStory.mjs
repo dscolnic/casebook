@@ -258,7 +258,10 @@ if(!manifest.dayNoun){
       fail('the opening never says what the player is — "You are the …, which means …" is the beat');
     }
     // Mechanics belong in the first minute of play, not in front of it.
-    const MECHANICS = /\b(press|click|keyboard|mouse|menu|wasd|score|points|per cent complete|three stops|each mission|the clock runs|time limit)\b/i;
+    // `points` is not on this list as a bare word: "Marsh points out that…" is
+    // ordinary prose and the first card written after this rule went in was
+    // failed for it. Scoring words have to look like scoring.
+    const MECHANICS = /\b(press the|click|keyboard|mouse|menu|wasd|score|points for|points scored|per cent complete|three stops|each mission|the clock runs|time limit)\b/i;
     const m = card.match(MECHANICS);
     if(m) fail(`the opening explains a mechanic ("${m[0]}") — that is the first minute of play, not the card before it`);
 

@@ -157,7 +157,7 @@ export const INTERIORS = {
   },
   "ENG": {
     "caption": "Secure a pump to be quiet and you have started a clock nobody can see.",
-    "standLine": "Turns for eight knots at ninety metres, and the sonar room is asking why they can hear us.",
+    "standLine": "Turns for 8 knots at 90 metres, and the sonar room is asking why they can hear us.",
     "station": {
       "kind": "vitals",
       "animated": true,

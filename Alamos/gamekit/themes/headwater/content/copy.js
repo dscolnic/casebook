@@ -3,10 +3,10 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "INFLOW": "<p>The inflow desk. Eleven rain gauges, four river gauges, and the standing question of how much of what fell has arrived yet.</p>",
+  "INFLOW": "<p>The inflow desk. 11 rain gauges, 4 river gauges, and the standing question of how much of what fell has arrived yet.</p>",
   "STORE": "<p>The storage board. Level on one wall, volume on the other, and the curve that turns one into the other pinned between them.</p>",
-  "GATES": "<p>The gate chamber, over the spillway. Two hoists, a winch log going back to 1974, and a great deal of noise when the gate is running.</p>",
-  "STRUCT": "<p>The seepage and uplift bay, cut into the rock at the foundation. Nine weirs, twelve uplift gauges, and forty years of plots.</p>",
+  "GATES": "<p>The gate chamber, over the spillway. 2 hoists, a winch log going back to 1974, and a great deal of noise when the gate is running.</p>",
+  "STRUCT": "<p>The seepage and uplift bay, cut into the rock at the foundation. 9 weirs, 12 uplift gauges, and 40 years of plots.</p>",
   "POWER": "<p>The powerhouse at the toe. Two machines, and a chief who knows to the cubic metre what each of them is passing.</p>",
   "SAFE": "<p>The downstream warning desk. A map of the reach with arrival times on it, and a list of people who answer the phone.</p>",
   "TAILRACE": "<p>The tailrace deck. Everything the machines have finished with comes out here, and the noise is why nobody lingers.</p>",
@@ -23,7 +23,7 @@ export const COPY = {
   "BRIEF": "<p>The briefing room. Where the morning call happens and where the liaison committee sits.</p>",
   "MET": "<p>The met office link. A forecast arrives here as rainfall over a region and leaves as inflow over a catchment.</p>",
   "HOIST": "<p>The hoist deck. Motors, brakes and a hand-winding handle nobody has needed since 1998.</p>",
-  "CREST": "<p>The crest walk. Reservoir on one side, a hundred metres of air on the other, and a handrail between them.</p>",
+  "CREST": "<p>The crest walk. Reservoir on 1 side, 100 metres of air on the other, and a handrail between them.</p>",
   "INTAKE": "<p>The intake tower head. Where water leaves the reservoir for the machines, drawn from whichever depth is cleanest.</p>",
   "SPILL": "<p>The spillway deck. When the gates are running this is the loudest place on the dam by a long way.</p>",
   "LOOKOUT": "<p>The reservoir lookout. The whole pool from one window, which is the only place the level is a thing you can see.</p>"

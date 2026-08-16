@@ -5,7 +5,7 @@
 export const INTERIORS = {
   "VAULT": {
     "caption": "Seed dies by respiring. Cold and dry is the whole of the method.",
-    "standLine": "Forty-one thousand accessions, and a list of which ones are still what the label says.",
+    "standLine": "41000 accessions, and a list of which ones are still what the label says.",
     "station": {
       "kind": "panel",
       "title": "Vault conditions",
@@ -34,7 +34,7 @@ export const INTERIORS = {
     }
   },
   "DRY": {
-    "caption": "A seed comes in at twenty per cent water and has to leave at five.",
+    "caption": "A seed comes in at 20 per cent water and has to leave at 5.",
     "standLine": "Slow and cool, because heat kills the embryo it is meant to be preserving.",
     "station": {
       "kind": "panel",
@@ -95,7 +95,7 @@ export const INTERIORS = {
   },
   "LAB": {
     "caption": "A marker reports a piece of chromosome, and the gene is somewhere near it.",
-    "standLine": "Ninety accessions genotyped, and thirty of them are not what the catalogue says.",
+    "standLine": "90 accessions genotyped, and 30 of them are not what the catalogue says.",
     "station": {
       "kind": "panel",
       "title": "Marker run",
@@ -125,7 +125,7 @@ export const INTERIORS = {
   },
   "TRIAL": {
     "caption": "The plot is the unit, and everything true here is true of this ground and this year.",
-    "standLine": "Two hundred and forty plots, four replicates, and a wet corner that flatters whatever is in it.",
+    "standLine": "240 plots, 4 replicates, and a wet corner that flatters whatever is in it.",
     "station": {
       "kind": "panel",
       "title": "Trial ground",
@@ -155,7 +155,7 @@ export const INTERIORS = {
   },
   "POP": {
     "caption": "A collection is a set of frequencies, and every grow-out is a chance to change them.",
-    "standLine": "What was collected in 1994 and what is in the packet now are two different populations.",
+    "standLine": "What was collected in 1994 and what is in the packet now are 2 different populations.",
     "station": {
       "kind": "panel",
       "title": "Regeneration log",

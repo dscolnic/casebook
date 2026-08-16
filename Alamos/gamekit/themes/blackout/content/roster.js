@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Shift Supervisor, System Operations",
     "division": "OPS",
     "color": "#c0392b",
-    "bio": "<p>Twenty-two years on the desk, eleven of them on nights. She runs the room the way a bridge is run: nobody touches a control without saying out loud what they expect to happen, and then whether it did.</p><p>Her rule is that frequency is the only number on the wall that belongs to everybody. Voltage is local and can be argued about; frequency is the whole interconnection agreeing or failing to agree, and it moves before anything else does.</p><p>Her limit is that she is paid to act before the picture is complete. The operator who waits for certainty is the operator who watches the cascade.</p>",
+    "bio": "<p>22 years on the desk, 11 of them on nights. She runs the room the way a bridge is run: nobody touches a control without saying out loud what they expect to happen, and then whether it did.</p><p>Her rule is that frequency is the only number on the wall that belongs to everybody. Voltage is local and can be argued about; frequency is the whole interconnection agreeing or failing to agree, and it moves before anything else does.</p><p>Her limit is that she is paid to act before the picture is complete. The operator who waits for certainty is the operator who watches the cascade.</p>",
     "quiz": [
       {
         "q": "Why does Reyes treat frequency differently from voltage?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Generation Lead",
     "division": "GEN",
     "color": "#d35400",
-    "bio": "<p>Came up through turbine commissioning and still walks a machine hall listening rather than reading. She can tell a governor hunting from the sound of it before the trend on the screen has moved.</p><p>What she wants understood is that a generator is a flywheel first and a power source second. The stored rotational energy is what buys the seconds in which anybody gets to make a decision.</p><p>Her limit is ramp rate. A machine that can supply four hundred megawatts cannot supply them in the ninety seconds after a trip, and no amount of wanting changes the thermal gradient in a steam drum.</p>",
+    "bio": "<p>Came up through turbine commissioning and still walks a machine hall listening rather than reading. She can tell a governor hunting from the sound of it before the trend on the screen has moved.</p><p>What she wants understood is that a generator is a flywheel first and a power source second. The stored rotational energy is what buys the seconds in which anybody gets to make a decision.</p><p>Her limit is ramp rate. A machine that can supply 400 megawatts cannot supply them in the 90 seconds after a trip, and no amount of wanting changes the thermal gradient in a steam drum.</p>",
     "quiz": [
       {
         "q": "Why does Haddad describe a generator as a flywheel first?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Protection Engineer",
     "division": "TRANS",
     "color": "#2980b9",
-    "bio": "<p>Sets the relays, which means he designs the conditions under which the network is allowed to give up on part of itself. He describes the job as writing the rules for an argument that will happen in eighty milliseconds with nobody present.</p><p>A relay that never trips is not a cautious relay, it is a relay that lets a fault burn. A relay that trips early takes out a healthy line and moves the overload somewhere less convenient. Coordination is the whole discipline.</p><p>His limit is that he is protecting against faults he has to imagine in advance, and the cascade always finds the sequence nobody drew.</p>",
+    "bio": "<p>Sets the relays, which means he designs the conditions under which the network is allowed to give up on part of itself. He describes the job as writing the rules for an argument that will happen in 80 milliseconds with nobody present.</p><p>A relay that never trips is not a cautious relay, it is a relay that lets a fault burn. A relay that trips early takes out a healthy line and moves the overload somewhere less convenient. Coordination is the whole discipline.</p><p>His limit is that he is protecting against faults he has to imagine in advance, and the cascade always finds the sequence nobody drew.</p>",
     "quiz": [
       {
         "q": "Why does Novak call a relay setting the rules for an argument nobody attends?",

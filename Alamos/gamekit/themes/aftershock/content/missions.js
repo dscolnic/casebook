@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Two towns, one earthquake",
     "objective": "Work out why the same shaking wrecked one half of Kestrel Bay and spared the other.",
     "briefing": "Upper Town lost its chimneys. The Flats lost its streets. Both are the same distance from the source.",
-    "stake": "Friday, three days after, and the first thing anybody says on walking into the base is that it makes no sense. Upper Town, on the granite bench, has parapets in the street and almost every building standing. The Flats, eleven hundred metres away on the same side of the same fault, have sand in the gutters, a six-storey block leaning at eight degrees and a wharf that moved two metres. Marisol Okonkwo will not sign an assessment programme until she can say why. Elena Navarro thinks she already knows and wants a borehole to prove it. Today you read the two records side by side, work out what the ground did to the shaking on its way up, and decide which half of town gets the assessors first.",
+    "stake": "Friday, three days after, and the first thing anybody says on walking into the base is that it makes no sense. Upper Town, on the granite bench, has parapets in the street and almost every building standing. The Flats, 1100 metres away on the same side of the same fault, have sand in the gutters, a six-storey block leaning at 8 degrees and a wharf that moved 2 metres. Marisol Okonkwo will not sign an assessment programme until she can say why. Elena Navarro thinks she already knows and wants a borehole to prove it. Today you read the two records side by side, work out what the ground did to the shaking on its way up, and decide which half of town gets the assessors first.",
     "takeaway": "One earthquake produces as many shakings as there are grounds to shake, and the ground is the difference.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The number everybody has already heard",
     "objective": "Pin the magnitude and the location down, and separate them from what people felt.",
     "briefing": "Two agencies published two magnitudes, and the difference is being read as a disagreement.",
-    "stake": "Saturday, and the town has two numbers for the same earthquake. One agency said 6.6 within twenty minutes; another said 6.8 six hours later. Rei Tanaka can explain the difference in one sentence to an engineer and has spent the morning failing to explain it to a radio station. Funmi Adeyemi has to put something in a notice by four. Meanwhile Inês Cardoso has found that two field stations have been running on a clock that drifted since spring, which changes where the epicentre plots. Today you locate the earthquake properly, say what its magnitude is and what it is not, and write down what the difference between 6.6 and 6.8 actually means.",
+    "stake": "Saturday, and the town has two numbers for the same earthquake. 1 agency said 6.6 within 20 minutes; another said 6.8 6 hours later. Rei Tanaka can explain the difference in one sentence to an engineer and has spent the morning failing to explain it to a radio station. Funmi Adeyemi has to put something in a notice by four. Meanwhile Inês Cardoso has found that two field stations have been running on a clock that drifted since spring, which changes where the epicentre plots. Today you locate the earthquake properly, say what its magnitude is and what it is not, and write down what the difference between 6.6 and 6.8 actually means.",
     "takeaway": "A magnitude is a measurement with a method attached, and revising it is the method working.",
     "stops": [
       {
@@ -54,8 +54,8 @@ export const MISSIONS = [
   {
     "title": "What the placard is claiming",
     "objective": "Learn what a rapid assessment can honestly say, and what it cannot.",
-    "briefing": "Four hundred buildings were placarded in two days by six people. Somebody has to say what that is worth.",
-    "stake": "Sunday, and the first placards are being argued about. Alan Whitcombe's team got through four hundred buildings in two days, which is fast, and Whitcombe is the first to say what that speed bought and what it cost. A green placard on a house in the Flats means an engineer stood outside it for six minutes. Yvette Delacroix has residents asking whether green means safe, and Peter Ives at the hospital wants to know why his yellow has not moved in three days. Today you work out what a rapid assessment actually inspects, what a placard colour is claiming, and which buildings have to be looked at again properly.",
+    "briefing": "400 buildings were placarded in 2 days by 6 people. Somebody has to say what that is worth.",
+    "stake": "Sunday, and the first placards are being argued about. Alan Whitcombe's team got through 400 buildings in 2 days, which is fast, and Whitcombe is the first to say what that speed bought and what it cost. A green placard on a house in the Flats means an engineer stood outside it for six minutes. Yvette Delacroix has residents asking whether green means safe, and Peter Ives at the hospital wants to know why his yellow has not moved in three days. Today you work out what a rapid assessment actually inspects, what a placard colour is claiming, and which buildings have to be looked at again properly.",
     "takeaway": "A placard states what an inspection covered, and the ones that go wrong are the ones read as covering more.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The one everybody assumed was fine",
     "objective": "Look at a green building properly, and find what a walk-past could never see.",
     "briefing": "Bay Road School is green, term starts in a week, and nobody has been inside the gym.",
-    "stake": "Tuesday, and the school is the quiet problem. Bay Road School came through with a green placard, its classrooms look untouched, and the district would like four hundred children back in it next week. Alan Whitcombe placarded it on day one from outside and wrote on his second list that the gymnasium was locked. The gym is a single-storey hall with a long-span roof, no internal walls, and heavy precast panels for its side walls. Marisol Okonkwo has the keys this morning. Today you work out what a long-span hall does in an earthquake, what holds its walls to its roof, and whether four hundred children go into it on Monday.",
+    "stake": "Tuesday, and the school is the quiet problem. Bay Road School came through with a green placard, its classrooms look untouched, and the district would like 400 children back in it next week. Alan Whitcombe placarded it on day one from outside and wrote on his second list that the gymnasium was locked. The gym is a single-storey hall with a long-span roof, no internal walls, and heavy precast panels for its side walls. Marisol Okonkwo has the keys this morning. Today you work out what a long-span hall does in an earthquake, what holds its walls to its roof, and whether 400 children go into it on Monday.",
     "takeaway": "The dangerous building is often the one nobody looked at, because nothing about it invited a second look.",
     "stops": [
       {
@@ -126,8 +126,8 @@ export const MISSIONS = [
   {
     "title": "The hospital, and what waiting costs",
     "objective": "Resolve a yellow placard on the one building the district cannot do without.",
-    "briefing": "Ninety patients, three days of yellow, and an argument about whether more evidence is worth more time.",
-    "stake": "Wednesday, and the hospital has been yellow for four days. Peter Ives has ninety patients on the ground floor and the two upper floors closed, the district's surgery is being done sixty kilometres away, and two people have already been transferred who would not have been. Marisol Okonkwo wants the plant room opened and the shear walls cored before she signs anything. Bram Halvorsen says every day of that is a day of care not delivered, and this morning he is right: the evidence Okonkwo wants will take four days and will not change what the building is. Today you work out what is actually unresolved, what evidence would change the decision, and what the waiting is costing.",
+    "briefing": "90 patients, 3 days of yellow, and an argument about whether more evidence is worth more time.",
+    "stake": "Wednesday, and the hospital has been yellow for four days. Peter Ives has 90 patients on the ground floor and the 2 upper floors closed, the district's surgery is being done 60 kilometres away, and 2 people have already been transferred who would not have been. Marisol Okonkwo wants the plant room opened and the shear walls cored before she signs anything. Bram Halvorsen says every day of that is a day of care not delivered, and this morning he is right: the evidence Okonkwo wants will take four days and will not change what the building is. Today you work out what is actually unresolved, what evidence would change the decision, and what the waiting is costing.",
     "takeaway": "Gathering more evidence is not free, and evidence that cannot change the decision costs without buying anything.",
     "stops": [
       {
@@ -150,8 +150,8 @@ export const MISSIONS = [
   {
     "title": "What the ground will do next",
     "objective": "Turn an aftershock sequence into a rate somebody can plan around.",
-    "briefing": "Forty-one aftershocks yesterday, twenty-six today. Everybody wants to know when it stops.",
-    "stake": "Thursday, and the question in every room is when the aftershocks end. Rei Tanaka has the sequence: two hundred and ten events above magnitude 3 in four days, falling steadily. Bram Halvorsen wants a date he can put on a notice and Funmi Adeyemi has to write it. Marisol Okonkwo needs the rate for a different reason — a damaged building has a reduced capacity, and the chance of it being tested again is the only thing that makes a red placard urgent rather than tidy. Today you fit the decay, say what the forecast is and is not, and work out what a falling rate means for the buildings still standing with cracks in them.",
+    "briefing": "41 aftershocks yesterday, 26 today. Everybody wants to know when it stops.",
+    "stake": "Thursday, and the question in every room is when the aftershocks end. Rei Tanaka has the sequence: 210 events above magnitude 3 in 4 days, falling steadily. Bram Halvorsen wants a date he can put on a notice and Funmi Adeyemi has to write it. Marisol Okonkwo needs the rate for a different reason — a damaged building has a reduced capacity, and the chance of it being tested again is the only thing that makes a red placard urgent rather than tidy. Today you fit the decay, say what the forecast is and is not, and work out what a falling rate means for the buildings still standing with cracks in them.",
     "takeaway": "An aftershock forecast is a rate with a range, and the useful question is what it does to a decision.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "The material, and what it can still carry",
     "objective": "Get a number for the strength of a damaged building instead of an opinion.",
     "briefing": "The library's columns look cracked. Nobody has said what they can still hold.",
-    "stake": "Friday, and the argument at the base has moved from buildings to numbers. The public library is a 1970s concrete frame with diagonal cracking in three ground-floor columns, and three engineers have looked at it and used the words moderate, serious and superficial. Duarte Ferreira points out that none of those is a number, and that his laboratory can produce one in a day. Kirsten Sørensen has already cut four cores and refused a fifth for arriving without a label saying which column it came from. Today you take a sample properly, turn it into a strength, compare it with what the design assumed, and decide what the building may be used for while that is happening.",
+    "stake": "Friday, and the argument at the base has moved from buildings to numbers. The public library is a 1970s concrete frame with diagonal cracking in 3 ground-floor columns, and 3 engineers have looked at it and used the words moderate, serious and superficial. Duarte Ferreira points out that none of those is a number, and that his laboratory can produce one in a day. Kirsten Sørensen has already cut four cores and refused a fifth for arriving without a label saying which column it came from. Today you take a sample properly, turn it into a strength, compare it with what the design assumed, and decide what the building may be used for while that is happening.",
     "takeaway": "A word like serious is an opinion; a strength with a method behind it is something the next engineer can use.",
     "stops": [
       {
@@ -198,8 +198,8 @@ export const MISSIONS = [
   {
     "title": "The cordon nobody can lift",
     "objective": "Weigh what a cordon protects against what it costs the people inside it.",
-    "briefing": "Eleven streets have been closed for six days, and the reason is now three different reasons.",
-    "stake": "Saturday, and the cordon around the Flats is a week old. It was drawn on day one for falling masonry, kept on day three for the gas main, and is being kept today because nobody has said it can come down. Yvette Delacroix has a list of four hundred households, sixty of whom are sleeping in the sports hall, and a question the office has not answered: what has to be true for people to go home? Bram Halvorsen is losing patience and Marisol Okonkwo will not be hurried. Today you find out what the cordon is actually protecting against street by street, what each part of it costs, and where the line should be tonight.",
+    "briefing": "11 streets have been closed for 6 days, and the reason is now 3 different reasons.",
+    "stake": "Saturday, and the cordon around the Flats is a week old. It was drawn on day one for falling masonry, kept on day three for the gas main, and is being kept today because nobody has said it can come down. Yvette Delacroix has a list of 400 households, 60 of whom are sleeping in the sports hall, and a question the office has not answered: what has to be true for people to go home? Bram Halvorsen is losing patience and Marisol Okonkwo will not be hurried. Today you find out what the cordon is actually protecting against street by street, what each part of it costs, and where the line should be tonight.",
     "takeaway": "A cordon is a decision that is remade every day, and one kept out of habit is a decision nobody is making.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "The photograph that changed the meeting",
     "objective": "Deal with evidence that arrives from outside the process, in public.",
     "briefing": "A resident's photograph of a cracked column is on the front page, and the building is green.",
-    "stake": "Sunday, and the office is on the back foot. A resident photographed a cracked column in the basement car park of a green-placarded apartment block on Ferry Street and gave it to the paper. The photograph is real, the crack is real, and the block has ninety flats with people back inside it. Alan Whitcombe placarded it green from outside on day one and never saw the basement. Funmi Adeyemi has a public meeting at six. Marisol Okonkwo has two hours and no access key. Today you work out what the photograph does and does not establish, get into the basement, and decide what to say at six o'clock about a process that missed it.",
+    "stake": "Sunday, and the office is on the back foot. A resident photographed a cracked column in the basement car park of a green-placarded apartment block on Ferry Street and gave it to the paper. The photograph is real, the crack is real, and the block has 90 flats with people back inside it. Alan Whitcombe placarded it green from outside on day one and never saw the basement. Funmi Adeyemi has a public meeting at six. Marisol Okonkwo has two hours and no access key. Today you work out what the photograph does and does not establish, get into the basement, and decide what to say at six o'clock about a process that missed it.",
     "takeaway": "Evidence does not stop being evidence because of who found it, and a process that cannot absorb it will be worked around.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "The record that was wrong all along",
     "objective": "Re-read the fortnight after finding the instrument everyone trusted was mis-sited.",
     "briefing": "The vault on the bench is not on rock. It is on four metres of weathered granite, and that changes every comparison.",
-    "stake": "Tuesday, and Inês Cardoso has found the thing nobody wanted found. The vault above Upper Town is the reference station — the rock record every comparison in this fortnight has been made against — and when she went up to service it she looked at the trench log from its installation in 1998. It is not founded on rock. It sits on four metres of weathered, broken granite that behaves like a stiff soil, and it has been amplifying by about 1.6 since the day it was built. Every amplification figure this office has quoted is therefore too small. Today you work out what that does to the fortnight's conclusions, and which of them still stand.",
+    "stake": "Tuesday, and Inês Cardoso has found the thing nobody wanted found. The vault above Upper Town is the reference station — the rock record every comparison in this fortnight has been made against — and when she went up to service it she looked at the trench log from its installation in 1998. It is not founded on rock. It sits on 4 metres of weathered, broken granite that behaves like a stiff soil, and it has been amplifying by about 1.6 since the day it was built. Every amplification figure this office has quoted is therefore too small. Today you work out what that does to the fortnight's conclusions, and which of them still stand.",
     "takeaway": "A reference that is not what it claims moves every measurement made against it, and finding that out is a good day.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three demands on one office in one afternoon.",
     "briefing": "An aftershock, a burst main and a deadline for the school, all inside an hour.",
-    "stake": "Wednesday, 15:40, and three things arrive together. A magnitude 5.1 aftershock has just shaken the town, which is the largest in a week. A water main has burst on Ferry Street and is pouring into ground everybody now knows is loose. And the district wants a decision on the school gymnasium by five o'clock, because contractors are holding a slot for Saturday. Marisol Okonkwo has four engineers, Bram Halvorsen is on the phone to the utility, and Funmi Adeyemi has three drafts of a notice nobody has approved. Today you decide what gets attention first, work out what the aftershock did to buildings already damaged, and say what a burst main does to fill.",
+    "stake": "Wednesday, 15:40, and 3 things arrive together. A magnitude 5.1 aftershock has just shaken the town, which is the largest in a week. A water main has burst on Ferry Street and is pouring into ground everybody now knows is loose. And the district wants a decision on the school gymnasium by five o'clock, because contractors are holding a slot for Saturday. Marisol Okonkwo has four engineers, Bram Halvorsen is on the phone to the utility, and Funmi Adeyemi has three drafts of a notice nobody has approved. Today you decide what gets attention first, work out what the aftershock did to buildings already damaged, and say what a burst main does to fill.",
     "takeaway": "Ranking is about which problem grows fastest and which is cheapest to remove, not about which sounds worst.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "The last morning it can be changed",
     "objective": "Commit the town to a rebuilding standard while the window is open.",
     "briefing": "The recovery plan closes for comment today, and the ground improvement clause is in or out.",
-    "stake": "Thursday, and the recovery plan goes to the council tonight. Inside it is one clause that matters more than the rest: whether rebuilding in the Flats requires ground improvement, or merely stronger foundations. Elena Navarro has the corrected amplification and the borehole programme. Bram Halvorsen has the cost, which is large and falls on people who have just lost houses. Yvette Delacroix has four hundred households who want to rebuild this year and cannot afford to wait for a scheme. After tonight the clause cannot be reopened for five years. Today you work out what ground improvement buys, what it costs, and what the town commits to if the clause goes in — and what it commits to if it does not.",
+    "stake": "Thursday, and the recovery plan goes to the council tonight. Inside it is one clause that matters more than the rest: whether rebuilding in the Flats requires ground improvement, or merely stronger foundations. Elena Navarro has the corrected amplification and the borehole programme. Bram Halvorsen has the cost, which is large and falls on people who have just lost houses. Yvette Delacroix has 400 households who want to rebuild this year and cannot afford to wait for a scheme. After tonight the clause cannot be reopened for five years. Today you work out what ground improvement buys, what it costs, and what the town commits to if the clause goes in — and what it commits to if it does not.",
     "takeaway": "The moment a decision stops being reversible is the moment it needs the whole argument, not the quickest one.",
     "stops": [
       {

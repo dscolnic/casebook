@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Plant Production Lead",
     "division": "KINET",
     "color": "#d19a2b",
-    "bio": "<p>Runs the plant against a calendar. Her case is arithmetic: the tank has to hold twenty-nine tonnes on the sol the window opens, and a plant running below its rated output on any sol is a plant that has already lost that sol's kilograms.</p><p>She reads the reactor as a rate problem. Heat the bed, move more gas through it, recycle whatever comes out unconverted, and the loop makes up in passes what it gives away per pass. Twice she has been right about that when everybody else was being careful.</p><p>Her limit is that a kilogram made off-specification is not a kilogram. She knows it, argues with it, and has never once loaded a batch she was told not to.</p>",
+    "bio": "<p>Runs the plant against a calendar. Her case is arithmetic: the tank has to hold 29 tonnes on the sol the window opens, and a plant running below its rated output on any sol is a plant that has already lost that sol's kilograms.</p><p>She reads the reactor as a rate problem. Heat the bed, move more gas through it, recycle whatever comes out unconverted, and the loop makes up in passes what it gives away per pass. Twice she has been right about that when everybody else was being careful.</p><p>Her limit is that a kilogram made off-specification is not a kilogram. She knows it, argues with it, and has never once loaded a batch she was told not to.</p>",
     "quiz": [
       {
         "q": "Why does Sundqvist treat a slow sol as a loss she cannot get back?",
@@ -123,10 +123,10 @@ export const ROSTER = [
     "role": "Analytical Chemist",
     "division": "EQUIL",
     "color": "#c05a33",
-    "bio": "<p>Runs the assay bench, where every claim the plant makes about its own product is either confirmed or quietly withdrawn. Two instruments and a set of standards, and a rule that a number without a standard behind it is an opinion with a decimal point.</p><p>She is the reason the loop's carbon monoxide was found. It was not on anybody's list, so nobody was looking for it, and it sat in the product stream for eleven sols reading as inert.</p><p>Her limit is that she measures what she is asked to measure. An assay is a question, and a contaminant nobody asks about is a contaminant that passes.</p>",
+    "bio": "<p>Runs the assay bench, where every claim the plant makes about its own product is either confirmed or quietly withdrawn. Two instruments and a set of standards, and a rule that a number without a standard behind it is an opinion with a decimal point.</p><p>She is the reason the loop's carbon monoxide was found. It was not on anybody's list, so nobody was looking for it, and it sat in the product stream for 11 sols reading as inert.</p><p>Her limit is that she measures what she is asked to measure. An assay is a question, and a contaminant nobody asks about is a contaminant that passes.</p>",
     "quiz": [
       {
-        "q": "How did carbon monoxide sit in the product stream for eleven sols?",
+        "q": "How did carbon monoxide sit in the product stream for 11 sols?",
         "a": "The assay reported the compounds it was asked for, and that was not one",
         "wrong": [
           "The chromatograph could not resolve it from the methane peak",
@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Array Technician",
     "division": "ELEC",
     "color": "#3f9e8c",
-    "bio": "<p>Maintains eighteen hundred square metres of photovoltaic panel on an open plain in a place with weather. Dust settles on every one of them at a rate he has measured, and a swept panel is worth a measurable fraction more than an unswept one for about twenty sols.</p><p>His argument with the plant is about when to sweep. Sweeping costs power and crew time, and a storm undoes it, so the decision is a forecast rather than a schedule.</p><p>His limit is that he cannot make the sun brighter. On a bad sol the array delivers what the sky lets through, and everything downstream is a choice about what to switch off.</p>",
+    "bio": "<p>Maintains 1800 square metres of photovoltaic panel on an open plain in a place with weather. Dust settles on every 1 of them at a rate he has measured, and a swept panel is worth a measurable fraction more than an unswept 1 for about 20 sols.</p><p>His argument with the plant is about when to sweep. Sweeping costs power and crew time, and a storm undoes it, so the decision is a forecast rather than a schedule.</p><p>His limit is that he cannot make the sun brighter. On a bad sol the array delivers what the sky lets through, and everything downstream is a choice about what to switch off.</p>",
     "quiz": [
       {
         "q": "Why is Petrov's sweeping schedule a forecast rather than a routine?",

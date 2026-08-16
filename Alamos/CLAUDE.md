@@ -185,6 +185,37 @@ is re-stamped from the server's own `savedAt` after a write, because two
 browsers signed into one account do not agree what time it is and a fast clock
 would silently stop that device pulling the account's campaign.
 
+## A measurement can be wrong in a way that looks like a finding
+
+**A number costs what a number costs, however it is spelled.** Flesch–Kincaid is
+words-per-sentence and syllables-per-word and nothing else, so the way a book
+writes its quantities moves the grade without changing a word of the prose:
+"eleven point four" is three words and five syllables where `11.4` is one and
+one, and `11.4` also contains a full stop, which the sentence counter counts.
+Spelling numbers out pushes a card *up* the scale; using digits pushes it
+*down*. The two conventions are wrong in opposite directions, which is worse
+than either alone, because it spreads the games apart on an axis that is not
+reading difficulty at all.
+
+It was found by sweeping the fifteen mission cards, ranking the games, and
+noticing that Red Sand — thirteen numbers spelled out, no digits anywhere — came
+second, while Aftershock, which does the exact opposite, came ninth. The first
+published table was partly a ranking of house style. `tools/readability.js`
+normalises both forms to one dotless token now, and
+`engine/dev/readabilityParity.mjs` (inside `npm run check`) asserts that the same
+sentence scores identically written both ways.
+
+The general rule, which is the expensive half: **a measurement that produces a
+plausible answer is not thereby a working measurement.** Every check in this
+repo asserts that content is wrong in some way; this one asserted nothing about
+itself, so it reported confident numbers for weeks that were partly an artifact
+of the formula. When a new metric is added, write the case where two inputs that
+should score the same actually do — before trusting anything it says.
+
+The books remain free to spell numbers however they like; nothing enforces a
+convention, and the choice is a voice decision. What is enforced is that the
+measurement cannot see the difference.
+
 ## Checks — one command, several tools
 
 ```sh
@@ -209,6 +240,7 @@ node engine/dev/personStops.mjs    <theme>    # every mission person opens their
 node engine/dev/equationOrder.mjs  <theme>    # nothing is asked before the equation it is built out of
 node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
+node engine/dev/readabilityParity.mjs         # the reading grade cannot tell 11.4 from "eleven point four"
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
 ```
 

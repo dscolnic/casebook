@@ -80,21 +80,21 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The energy of one quantum against the energy of the room",
-      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes two energy scales beside it — one quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
+      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes 2 energy scales beside it — 1 quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
       "takeaway": "Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.",
       "place": "Cryogenics & Vacuum",
-      "story": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes two energy scales beside it — one quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
+      "story": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes 2 energy scales beside it — 1 quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
       "game": {
         "type": "BALLPARK",
         "title": "The energy of one quantum against the energy of the room",
         "setup": "Cryogenics & Vacuum",
         "play": "Say why 42 millikelvin is not close enough",
         "task": "Say why 42 millikelvin is not close enough",
-        "question": "Using the two energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
+        "question": "Using the 2 energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
         "answer": "About 0.34 per cent.",
         "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"",
         "givens": [
-          "One quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
+          "1 quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
           "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J"
         ],
         "relationship": "For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.",
@@ -290,24 +290,24 @@ export const CURRICULUM = {
   "FAB": [
     {
       "day": 1,
-      "title": "One bad qubit out of twelve",
+      "title": "1 bad qubit out of 12",
       "scene": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "takeaway": "A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.",
       "place": "Fabrication & Materials",
       "story": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "One bad qubit out of twelve",
+        "title": "1 bad qubit out of 12",
         "setup": "Fabrication & Materials",
         "play": "Decide whether to keep this chip",
         "task": "Decide whether to keep this chip",
         "question": "Decide whether to keep this chip",
         "answer": "",
-        "why": "The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has eleven qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.",
+        "why": "The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has 11 qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.",
         "proposals": [
           {
             "label": "A",
-            "text": "Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report twelve qubits with one of them worse."
+            "text": "Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with 1 of them worse."
           },
           {
             "label": "B",
@@ -326,7 +326,7 @@ export const CURRICULUM = {
           "A": 50,
           "C": 25
         },
-        "research": "The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four\ndays out of the ten before the review. The spare comes from the same suspicious run. Junction\nresistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been\ncharacterised on any chip in this lab."
+        "research": "The chip has 12 qubits and 11 are within 40 MHz of design. Warm-up and cooldown is four\ndays out of the ten before the review. The spare comes from the same suspicious run. Junction\nresistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been\ncharacterised on any chip in this lab."
       },
       "assumes": [
         "a fabrication run produces chips with a spread of properties"
@@ -347,7 +347,7 @@ export const CURRICULUM = {
         "task": "Say where slow noise comes from",
         "question": "Say where slow noise comes from",
         "answer": "",
-        "why": "Dephasing appears when the qubit accumulates a different phase from run to run. Flux noise and bias-current noise can do that by shifting the transition frequency. Residual photons in a dispersively coupled readout resonator can also shift the qubit frequency randomly and dephase it. A resonant material defect can exchange energy with the qubit and often shows up strongly in T1, although real defects can affect more than one coherence channel. The classification here is therefore about the dominant signature in this situation, not a universal one-to-one rule.\n",
+        "why": "Dephasing appears when the qubit accumulates a different phase from run to run. Flux noise and bias-current noise can do that by shifting the transition frequency. Residual photons in a dispersively coupled readout resonator can also shift the qubit frequency randomly and dephase it. A resonant material defect can exchange energy with the qubit and often shows up strongly in T1, although real defects can affect more than 1 coherence channel. The classification here is therefore about the dominant signature in this situation, not a universal one-to-one rule.\n",
         "rebuttals": [
           "Flux noise moves the qubit frequency slightly between repetitions, which is dephasing.",
           "Current noise on a bias line does the same thing by the same route.",
@@ -470,7 +470,7 @@ export const CURRICULUM = {
           "Thermal photons broaden the response instead of producing a narrow line, and the fridge is at 11 mK.",
           "An artefact in shared electronics should follow the measurement chain across chips; the process-window correlation argues for something on the device."
         ],
-        "headline": "A narrow absorption sits 60 MHz below one qubit, on three chips from one six-week window.",
+        "headline": "A narrow absorption sits 60 MHz below 1 qubit, on 3 chips from 1 six-week window.",
         "readings": [
           {
             "zone": "Feature",
@@ -803,12 +803,12 @@ export const CURRICULUM = {
         "task": "Turn the drive into a pulse",
         "question": "Estimate the length of a pulse that flips this qubit.",
         "answer": "About 42 ns.",
-        "why": "\"Driving on resonance does not simply leave the qubit excited. Under a coherent drive the population oscillates between the two basis states at the Rabi frequency. A π pulse corresponds to half of one population cycle, so the 84 ns period gives a first calibration near 42 ns. That number is only a starting point: changing drive amplitude changes the Rabi frequency, and strong drives can introduce leakage or other off-resonant effects.\"\n",
+        "why": "\"Driving on resonance does not simply leave the qubit excited. Under a coherent drive the population oscillates between the two basis states at the Rabi frequency. A π pulse corresponds to half of 1 population cycle, so the 84 ns period gives a first calibration near 42 ns. That number is only a starting point: changing drive amplitude changes the Rabi frequency, and strong drives can introduce leakage or other off-resonant effects.\"\n",
         "givens": [
-          "One full Rabi cycle takes 84 ns",
+          "1 full Rabi cycle takes 84 ns",
           "A flip is half a cycle"
         ],
-        "relationship": "The flip pulse length = one Rabi cycle ÷ 2, because half a cycle takes the population from the ground state to the excited state.\n",
+        "relationship": "The flip pulse length = 1 Rabi cycle ÷ 2, because half a cycle takes the population from the ground state to the excited state.\n",
         "calcKey": "CTRL-3"
       },
       "assumes": [
@@ -880,7 +880,7 @@ export const CURRICULUM = {
         "play": "Say what the discriminator decides",
         "task": "Say what the discriminator decides",
         "question": "Both mistakes cost the same in this circuit. Where should the line go, and what does the total misassignment there tell you?",
-        "answer": "Near where the two error curves cross, about −3 mV. Total misassignment there is about 5 per cent, and no threshold anywhere on the axis gets it lower.",
+        "answer": "Near where the 2 error curves cross, about −3 mV. Total misassignment there is about 5 per cent, and no threshold anywhere on the axis gets it lower.",
         "why": "The line does not remove ambiguous shots; it decides which state they are called, so every millivolt taken off one error is added to the other. That is why the two curves cross and why the sum has a minimum that is not zero. The floor is the overlap between the two clouds, and it is a property of the measurement rather than of the threshold — getting under it needs more signal, less noise or a longer integration, something that moves the clouds apart. Equal costs put the line at the crossing; where one mistake costs more than the other, the best line moves away from it, which makes this a question about the circuit and not only about the classifier.\n",
         "sweep": {
           "mode": "boundary",
@@ -1041,7 +1041,7 @@ export const CURRICULUM = {
         "setup": "Control & Readout",
         "play": "Say what it does to a qubit near it",
         "task": "Say what it does to a qubit near it",
-        "question": "Relaxation is around 90 microseconds across most of the band and much worse in one place. Which frequency should this qubit be kept away from?",
+        "question": "Relaxation is around 90 microseconds across most of the band and much worse in 1 place. Which frequency should this qubit be kept away from?",
         "answer": "About 4.555 GHz, where relaxation falls to roughly a third of the 90 microseconds available elsewhere. The damage is gone again within about 30 MHz either side.",
         "why": "A qubit loses energy quickly when there is somewhere for that energy to go, and a two-level defect is somewhere — but only while the two are close in frequency, which is why the loss appears and disappears over tens of megahertz rather than across the whole band. Two things follow. The width of the dip is a measurement of how strongly the two are coupled, and on a tunable device the frequency itself becomes an engineering control: move the qubit and the loss channel is not there at all. The half of the job that gets forgotten is writing the band down, because an undocumented defect is a trap for whoever retunes next month.\n",
         "sweep": {
@@ -1299,20 +1299,20 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "What twelve qubits can say about sixty-seven",
-      "scene": "Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
+      "title": "What 12 qubits can say about 67",
+      "scene": "Ridgeway has 12 qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
       "takeaway": "Small instances are valuable because they can validate an analysis against a truth that is independently computable.",
       "place": "Control & Readout",
-      "story": "Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
+      "story": "Ridgeway has 12 qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
       "game": {
         "type": "CHOICE",
-        "title": "What twelve qubits can say about sixty-seven",
+        "title": "What 12 qubits can say about 67",
         "setup": "Control & Readout",
         "play": "Say what Ridgeway's own machine could check",
         "task": "Say what Ridgeway's own machine could check",
         "question": "Which part of the sixty-seven-qubit claim can Ridgeway test most directly with a twelve-qubit device?",
         "answer": "Checking the method where the exact answer is already known.",
-        "why": "\"At twelve qubits, exact classical calculation of the ideal distribution is easy enough to serve as a ground truth. Ridgeway can therefore run the same *analysis method* at small size and test whether the estimator recovers the answer it is supposed to recover, including how it behaves as controlled noise is added. That does not validate the sixty-seven-qubit runtime claim by itself, nor does it prove the estimator behaves identically at all sizes. It does something more modest and useful: it tests a load-bearing method where the answer is knowable.\"\n",
+        "why": "\"At 12 qubits, exact classical calculation of the ideal distribution is easy enough to serve as a ground truth. Ridgeway can therefore run the same *analysis method* at small size and test whether the estimator recovers the answer it is supposed to recover, including how it behaves as controlled noise is added. That does not validate the sixty-seven-qubit runtime claim by itself, nor does it prove the estimator behaves identically at all sizes. It does something more modest and useful: it tests a load-bearing method where the answer is knowable.\"\n",
         "rebuttals": [
           "Runtime scaling from a tiny instance is not enough to determine the cost of the largest classical calculation.",
           "A twelve-qubit copy cannot measure another machine's hardware error rate; it can test the method used to interpret data.",
@@ -1321,7 +1321,7 @@ export const CURRICULUM = {
         "choices": [
           "The exact sixty-seven-qubit runtime, by scaling a twelve-qubit timing measurement upward.",
           "Checking the method where the exact answer is already known.",
-          "The sixty-seven-qubit device's hardware error rate, by reproducing the same circuit on twelve qubits.",
+          "The sixty-seven-qubit device's hardware error rate, by reproducing the same circuit on 12 qubits.",
           "The asymptotic complexity class of the sampling problem, by comparing one small quantum and classical run."
         ],
         "correctChoice": "Checking the method where the exact answer is already known."
@@ -1365,8 +1365,8 @@ export const CURRICULUM = {
         "play": "Say what the retraining did",
         "task": "Say what the retraining did",
         "question": "Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?",
-        "answer": "About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the two per cent it appeared to gain was a feature of that one sample.",
-        "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the two clouds, which the next batch of shots also has, and the spike is a property of four thousand particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.",
+        "answer": "About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the 2 per cent it appeared to gain was a feature of that 1 sample.",
+        "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the 2 clouds, which the next batch of shots also has, and the spike is a property of 4000 particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.",
         "holdout": {
           "axis": {
             "label": "Discriminator threshold",
@@ -1549,10 +1549,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Converged, and on what",
-      "scene": "The automatic tune-up reports success on all twelve qubits in eleven minutes. Mensah asks what, precisely, that success is a statement about.",
+      "scene": "The automatic tune-up reports success on all 12 qubits in 11 minutes. Mensah asks what, precisely, that success is a statement about.",
       "takeaway": "An optimizer can prove that it satisfied its objective function without proving that every relevant behaviour of the device is healthy.",
       "place": "Control & Readout",
-      "story": "The automatic tune-up reports success on all twelve qubits in eleven minutes. Mensah asks what, precisely, that success is a statement about.",
+      "story": "The automatic tune-up reports success on all 12 qubits in 11 minutes. Mensah asks what, precisely, that success is a statement about.",
       "game": {
         "type": "CHOICE",
         "title": "Converged, and on what",
@@ -1613,18 +1613,18 @@ export const CURRICULUM = {
         "setup": "Control & Readout",
         "play": "Separate a measured fidelity from a projected register probability",
         "task": "Separate a measured fidelity from a projected register probability",
-        "question": "Under that toy assumption, estimate the probability that all twelve readouts are classified correctly in the same shot.",
+        "question": "Under that toy assumption, estimate the probability that all 12 readouts are classified correctly in the same shot.",
         "answer": "About 0.48, as a twelve-qubit all-readouts-correct projection.",
-        "why": "\"If twelve readouts are independent and each is correct with probability 0.941, the probability that *all twelve* are correct is 0.941^12 ≈ 0.48. That is not a measured twelve-qubit circuit fidelity: only three qubits have been remeasured, the twelve qubits may have different fidelities, and readout errors can be correlated. The calculation is still useful because it shows how modest per-qubit misclassification can compound across a register — as long as the slide calls the result a projection and names the assumptions.\"\n",
+        "why": "\"If 12 readouts are independent and each is correct with probability 0.941, the probability that *all 12* are correct is 0.941^12 ≈ 0.48. That is not a measured twelve-qubit circuit fidelity: only 3 qubits have been remeasured, the 12 qubits may have different fidelities, and readout errors can be correlated. The calculation is still useful because it shows how modest per-qubit misclassification can compound across a register — as long as the slide calls the result a projection and names the assumptions.\"\n",
         "givens": [
           "Corrected readout fidelity is 0.941 per qubit",
-          "The projection assumes twelve identical, independent readouts"
+          "The projection assumes 12 identical, independent readouts"
         ],
         "relationship": "\"Toy model: P(all 12 read correctly) = (per-qubit readout fidelity)^12.\"\n",
         "calcKey": "CTRL-12"
       },
       "assumes": [
-        "for this estimate only, all twelve qubits have identical independent readout fidelity of 0.941"
+        "for this estimate only, all 12 qubits have identical independent readout fidelity of 0.941"
       ],
       "equations": [
         {
@@ -2008,7 +2008,7 @@ export const CURRICULUM = {
         "task": "Say what benchmarking measures",
         "question": "How many gates can this qubit take before half the runs fail to come back?",
         "answer": "Around 57 gates. Half the runs lost after 57 gates means about 98.8 per cent per gate, because 0.988 multiplied by itself 57 times is close to a half.",
-        "why": "Every gate in the sequence has to work for the qubit to come back, so the probabilities multiply and the curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement: the length itself says how much each gate costs, and 57 gates to lose half of them works out at a bit over one per cent each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down without changing how fast it falls, so a number read from the decay survives an offset that would ruin a number read from one sequence — which is the difference between the two figures on the board.\n",
+        "why": "Every gate in the sequence has to work for the qubit to come back, so the probabilities multiply and the curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement: the length itself says how much each gate costs, and 57 gates to lose half of them works out at a bit over 1 per cent each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down without changing how fast it falls, so a number read from the decay survives an offset that would ruin a number read from one sequence — which is the difference between the two figures on the board.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -2143,7 +2143,7 @@ export const CURRICULUM = {
         "task": "Say which number belongs beside the threshold",
         "question": "Say which number belongs beside the threshold",
         "answer": "",
-        "why": "\"For *this stated simplified model*, the 1.2 per cent randomized-benchmarking error is the intended comparison and it lies above the 1 per cent line. The 0.4 per cent direct figure is a best-case measurement of one gate under a different procedure, so using it would answer a different question. In real fault-tolerance work, even an average benchmarking error may not be enough: coherent and correlated errors can make the worst-case behaviour relevant to a code much worse than the average infidelity. The careful sentence therefore names both the metric and the model instead of declaring that the machine is simply 'above threshold'.\"\n",
+        "why": "\"For *this stated simplified model*, the 1.2 per cent randomized-benchmarking error is the intended comparison and it lies above the 1 per cent line. The 0.4 per cent direct figure is a best-case measurement of 1 gate under a different procedure, so using it would answer a different question. In real fault-tolerance work, even an average benchmarking error may not be enough: coherent and correlated errors can make the worst-case behaviour relevant to a code much worse than the average infidelity. The careful sentence therefore names both the metric and the model instead of declaring that the machine is simply 'above threshold'.\"\n",
         "rebuttals": [
           "This is the intended comparison only because the code study has defined a compatible stochastic per-gate metric; that assumption belongs in the sentence.",
           "A best-case direct gate measurement and an average sequence benchmark are different procedures and need not answer the same fault-tolerance question.",
@@ -2152,7 +2152,7 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "1.2 per cent, from randomized benchmarking, with the model assumption stated.",
-          "0.4 per cent, from one directly measured gate under favourable conditions.",
+          "0.4 per cent, from 1 directly measured gate under favourable conditions.",
           "About 0.8 per cent, the toy-model success probability of the 400-gate circuit.",
           "4 per cent readout error, a separate measurement channel."
         ],
@@ -2232,7 +2232,7 @@ export const CURRICULUM = {
         "task": "Compute the quantity",
         "question": "Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?",
         "answer": "About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.",
-        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those four values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why a hundred shots per setting can put the combination either side of two and four hundred usually does not. The bound of two belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
+        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every 1 of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of 600 usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
         "tally": {
           "settings": [
             {
@@ -2266,7 +2266,7 @@ export const CURRICULUM = {
           "formulaLabel": "CHSH statistic",
           "readoutLabel": "Correlation",
           "commit": "Report S",
-          "readyNote": "Every pair has four hundred shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself."
+          "readyNote": "Every pair has 400 shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself."
         }
       },
       "assumes": [
@@ -2320,7 +2320,7 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "The output distribution their device produced.",
-          "Nine thousand years for the best known classical algorithm.",
+          "9000 years for the best known classical algorithm.",
           "The estimated circuit fidelity.",
           "The comparison of energy used."
         ],
@@ -2559,7 +2559,7 @@ export const CURRICULUM = {
         "task": "Sort the claims by their evidence",
         "question": "Sort the claims by their evidence",
         "answer": "",
-        "why": "The training/evaluation flaw is directly reproducible in the pipeline and is independently exposed by the Delft comparison. The corrected 0.941 readout figure is a held-out measurement, but only on three qubits so far. The link between the fabrication change and the defects remains an inference from a process-window correlation until the controlled old-versus-new fabrication comparison is done. Expected behaviour under future error correction is a projection that depends on a code, a noise model and hardware performance Ridgeway has not yet reached. All four may be reasonable statements, but they ask the audience for different kinds of trust.\n",
+        "why": "The training/evaluation flaw is directly reproducible in the pipeline and is independently exposed by the Delft comparison. The corrected 0.941 readout figure is a held-out measurement, but only on 3 qubits so far. The link between the fabrication change and the defects remains an inference from a process-window correlation until the controlled old-versus-new fabrication comparison is done. Expected behaviour under future error correction is a projection that depends on a code, a noise model and hardware performance Ridgeway has not yet reached. All four may be reasonable statements, but they ask the audience for different kinds of trust.\n",
         "rebuttals": [
           "The mechanism can be reproduced directly and its consequence is independently visible in the Delft comparison.",
           "The corrected fidelity is measured on held-out data, on three qubits so far.",
@@ -2574,7 +2574,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Directly demonstrated analysis bias, supported by the pipeline audit and the independent-device discrepancy.",
-          "Measured on held-out data, but on three qubits so far rather than the full twelve.",
+          "Measured on held-out data, but on 3 qubits so far rather than the full 12.",
           "Inferred from a process-window correlation; a controlled fabrication comparison is still missing.",
           "Projected from a specified error-correction model and hardware regime the group has not yet reached."
         ],
@@ -2702,10 +2702,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What averaging buys",
-      "scene": "Each measurement takes a hundred milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
+      "scene": "Each measurement takes 100 milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
       "takeaway": "For independent measurements, random uncertainty falls only as 1/√N, so time buys precision with diminishing returns.",
       "place": "Quantum Sensing",
-      "story": "Each measurement takes a hundred milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
+      "story": "Each measurement takes 100 milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
       "game": {
         "type": "SWEEP",
         "title": "What averaging buys",
@@ -2714,7 +2714,7 @@ export const CURRICULUM = {
         "task": "Find the noise floor",
         "question": "Averaging for longer buys resolution, until it does not. How long should she average, and what stops her going further?",
         "answer": "About 35 seconds, resolving roughly 2.6 picotesla. Averaging for a minute is worse than averaging for half of one, so the extra hour of instrument time buys nothing.",
-        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of ten in resolution is cheap and the next costs a hundred times the time — the reason sensing is a patience problem rather than a precision one. Two things then fight. Averaging improves the number only while the measurements are independent, and past about half a minute the instrument itself has drifted, so later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
+        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of 10 in resolution is cheap and the next costs 100 times the time — the reason sensing is a patience problem rather than a precision 3 things then fight. Averaging improves the number only while the measurements are independent, and past about half a minute the instrument itself has drifted, so later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -2866,10 +2866,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The month when nothing moved",
-      "scene": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for eleven months. She writes it in the log with the same care as if it had not.",
+      "scene": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for 11 months. She writes it in the log with the same care as if it had not.",
       "takeaway": "A calibration that agrees with its reference is a quantitative bound on drift, not an absence of information.",
       "place": "Quantum Sensing",
-      "story": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for eleven months. She writes it in the log with the same care as if it had not.",
+      "story": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for 11 months. She writes it in the log with the same care as if it had not.",
       "game": {
         "type": "CHOICE",
         "title": "The month when nothing moved",
@@ -3202,10 +3202,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Which of the three cannot wait",
-      "scene": "Within twenty minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
+      "scene": "Within 20 minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
       "takeaway": "Urgency is a product of ongoing damage, downstream reach and time-to-containment, not simply deadline pressure.",
       "place": "Networks & Security",
-      "story": "Within twenty minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
+      "story": "Within 20 minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
       "game": {
         "type": "TRIAGE",
         "title": "Which of the three cannot wait",
@@ -3407,13 +3407,13 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.002,
     "units": "of the qubits",
     "solution": "e^(−3.3e-24 / 5.8e-25) = e^(−5.7) ≈ 0.003.",
-    "explanation": "About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly seven orders of magnitude even though the absolute population is still below one per cent."
+    "explanation": "About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly 7 orders of magnitude even though the absolute population is still below 1 per cent."
   },
   "CTRL-3": {
     "prompt": "The population completes a full Rabi cycle every 84 nanoseconds.\n",
     "question": "Choose the cycle time and the fraction of a cycle a flip takes.",
     "labels": [
-      "84 ns  (one full Rabi cycle)",
+      "84 ns  (1 full Rabi cycle)",
       "2  (a flip is half a cycle)",
       "4.61 GHz  (the qubit frequency)",
       "11 mK  (the fridge temperature)",
@@ -3437,7 +3437,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 6,
     "units": "ns",
     "solution": "t_π = 84 ÷ 2 = 42 ns.",
-    "explanation": "Forty-two nanoseconds. The qubit frequency is what you drive at rather than how long for, and the fridge temperature and the qubit count belong to other questions entirely.\n"
+    "explanation": "42 nanoseconds. The qubit frequency is what you drive at rather than how long for, and the fridge temperature and the qubit count belong to other questions entirely.\n"
   },
   "CRYO-3": {
     "prompt": "T2 is 32 microseconds and T1 is 90. The relation is 1/T2 = 1/(2·T1) + 1/T_φ, so 1/T_φ = 1/32 − 1/180 per microsecond.\n",
@@ -3470,13 +3470,13 @@ export const BALLPARK_CALCS = {
     "explanation": "About 39 microseconds in the simple exponential-rate model. That is close to the measured T2, so an additional dephasing contribution dominates over the relaxation contribution. If the measured Ramsey decay is non-exponential, one should not interpret this single number too literally.\n"
   },
   "CTRL-7": {
-    "prompt": "One gate has fidelity 0.988, and the circuit applies 400 of them in succession.\n",
+    "prompt": "1 gate has fidelity 0.988, and the circuit applies 400 of them in succession.\n",
     "question": "Choose the single-gate fidelity and the depth.",
     "labels": [
-      "0.988  (fidelity of one gate)",
+      "0.988  (fidelity of 1 gate)",
       "400  (gates in the circuit)",
       "12  (qubits used)",
-      "0.012  (error of one gate)",
+      "0.012  (error of 1 gate)",
       "1.2  (benchmarked error, per cent)"
     ],
     "values": [
@@ -3497,10 +3497,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.004,
     "units": "chance the circuit is right",
     "solution": "0.988^400 ≈ 0.008.",
-    "explanation": "About 0.8 per cent, or roughly one run in 125, in the independent-identical-error toy model. Real circuit fidelity need not equal this product when errors are coherent, correlated or gate-dependent.\n"
+    "explanation": "About 0.8 per cent, or roughly 1 run in 125, in the independent-identical-error toy model. Real circuit fidelity need not equal this product when errors are coherent, correlated or gate-dependent.\n"
   },
   "CTRL-12": {
-    "prompt": "\"Toy model: each of twelve qubits has independent readout fidelity 0.941. Estimate the probability that all twelve are read correctly.\"\n",
+    "prompt": "\"Toy model: each of 12 qubits has independent readout fidelity 0.941. Estimate the probability that all 12 are read correctly.\"\n",
     "question": "Choose the per-qubit fidelity and the number of qubits.",
     "labels": [
       "0.941  (corrected readout fidelity per qubit)",

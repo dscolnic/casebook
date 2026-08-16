@@ -4,10 +4,10 @@
 
 export const MISSIONS = [
   {
-    "title": "Eighty-eight per cent",
+    "title": "88 per cent",
     "objective": "Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.",
     "briefing": "Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.",
-    "stake": "Monday, and the reservoir is at 88 per cent after the driest summer in nine years. June Sato brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
+    "stake": "Monday, and the reservoir is at 88 per cent after the driest summer in 9 years. June Sato brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
     "takeaway": "A reading is a value; a rate is a limit, and the limit is the part that says what happens next.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Two days of not deciding",
     "objective": "Use an antiderivative to evaluate an accumulation, and say what the accumulation function's own rate is.",
     "briefing": "The release that was deferred on Monday has to be made today, and the arithmetic for it is an integral.",
-    "stake": "Thursday. Sunniva Berg asked for a release on Monday and did not get one, and the water that would have gone out at a hundred and twenty cubic metres a second now has to go out at four hundred and eighty into a river with people beside it. The schedule is written as a formula this time rather than a table, which means the volume it delivers can be evaluated exactly instead of summed. Today you use the fundamental theorem in both directions — an antiderivative to total a rate, and an accumulation to hand a rate back.",
+    "stake": "Thursday. Sunniva Berg asked for a release on Monday and did not get 1, and the water that would have gone out at 120 cubic metres a second now has to go out at 480 into a river with people beside it. The schedule is written as a formula this time rather than a table, which means the volume it delivers can be evaluated exactly instead of summed. Today you use the fundamental theorem in both directions — an antiderivative to total a rate, and an accumulation to hand a rate back.",
     "takeaway": "An antiderivative turns an accumulation into a subtraction, and an accumulation differentiates back to the rate that built it.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "Every number again",
     "objective": "Rebuild the volume from the area curve, and find which quantity the correction reaches.",
     "briefing": "The survey boat has been out, and the curve every volume on this site came through is wrong.",
-    "stake": "Wednesday, and Ilya Rasmussen has been over the reservoir with an echo sounder. The stage-storage curve was surveyed in 2003 and never resurveyed, and two decades of silt mean the surface area at any given level is smaller than the sheet says. Nothing was faked and nobody was careless. But volume is the integral of area with respect to level, so an integrand wrong by a few per cent makes every accumulation this control room has computed for a fortnight wrong in the same direction. Today you rebuild a volume out of the corrected areas, and find how far the correction travels.",
+    "stake": "Wednesday, and Ilya Rasmussen has been over the reservoir with an echo sounder. The stage-storage curve was surveyed in 2003 and never resurveyed, and 2 decades of silt mean the surface area at any given level is smaller than the sheet says. Nothing was faked and nobody was careless. But volume is the integral of area with respect to level, so an integrand wrong by a few per cent makes every accumulation this control room has computed for a fortnight wrong in the same direction. Today you rebuild a volume out of the corrected areas, and find how far the correction travels.",
     "takeaway": "An integral inherits every error in its integrand, and the only quantities it spares are the ones that never went through it.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "What the fortnight is worth",
     "objective": "Judge a fit by what it leaves over, reduce a fortnight to one rate, and say what has been established.",
     "briefing": "The water has gone and what is left is what can be defended in writing.",
-    "stake": "Monday, a fortnight on. The reservoir is at 91 per cent, the reach was warned twice and flooded neither time, and the resurvey has moved every volume on the site by eleven per cent. Zawadzka has three fits of the uplift against head and the one with the best summary number is not obviously the one to keep. Ferrand has to reduce fourteen days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over, reduce a fortnight to one rate, and say what the two weeks actually established.",
+    "stake": "Monday, a fortnight on. The reservoir is at 91 per cent, the reach was warned twice and flooded neither time, and the resurvey has moved every volume on the site by 11 per cent. Zawadzka has three fits of the uplift against head and the one with the best summary number is not obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over, reduce a fortnight to one rate, and say what the two weeks actually established.",
     "takeaway": "A model is judged by the structure it leaves behind, not by the size of what it leaves behind.",
     "stops": [
       {

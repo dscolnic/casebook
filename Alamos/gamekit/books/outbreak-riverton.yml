@@ -370,7 +370,7 @@ glossary:
       - vectors
     def: An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.
 
-# The campaign: one working day each, three stops and a callback from day 3.
+# The campaign: 1 working day each, 3 stops and a callback from day 3.
 missions:
   - title: The First Cluster
     objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
@@ -435,7 +435,7 @@ missions:
         task: Order the build so each step can be checked before the next one depends on it.
         title: Build the provisional case definition
         place: Epidemiology Operations Room
-        scene: Three hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.
+        scene: 3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.
         assumes:
           - a curve is only meaningful if every hospital counted the same thing
           - a test can be wrong by missing cases or by counting the wrong ones
@@ -728,7 +728,7 @@ missions:
   - title: Hijacked Cells
     objective: Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.
     briefing: Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.
-    stake: Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, one of them at forty times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.
+    stake: Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, 1 of them at 40 times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.
     takeaway: Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
@@ -805,14 +805,14 @@ missions:
   - title: A Test Before Morning
     objective: Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.
     briefing: Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.
-    stake: Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. Three thousand people have already been told to isolate on that run and the bulletin goes out at six. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.
+    stake: Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. 3000 people have already been told to isolate on that run and the bulletin goes out at 6. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.
     takeaway: Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Build a trustworthy amplification run
         place: Sample Processing Room
-        scene: Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.
+        scene: Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of 1 billion, which is the reason this order is argued about at all.
         takeaway: A diagnostic result is the output of a controlled process, not simply a machine reading.
         format: SEQUENCE
         rebuttals:
@@ -927,7 +927,7 @@ missions:
   - title: Why Are Some Patients Sicker?
     objective: Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.
     briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.
-    stake: Day thirteen. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.
+    stake: Day 13. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.
     takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
@@ -1053,7 +1053,7 @@ missions:
   - title: The Immune System Turns
     objective: Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.
     briefing: Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish protective immune responses from damaging dysregulation.
-    stake: Day eighteen, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants drugs that damp the immune system started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.
+    stake: Day 18, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants drugs that damp the immune system started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.
     takeaway: Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain rather than as isolated facts.
     stops:
       - group: IMM
@@ -1081,11 +1081,11 @@ missions:
         task: Which mechanism best explains the reversal in the full panel?
         title: Protective response or runaway inflammation?
         place: Intensive Care Unit
-        scene: Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.
+        scene: Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last 48 hours is on the screen, and the ward wants to know what it is treating.
         takeaway: A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.
         format: DIAGNOSIS
         rebuttals:
-          - Uncontrolled replication would show a rising pathogen signal. This one is falling, over forty-eight hours, while the patient declines.
+          - Uncontrolled replication would show a rising pathogen signal. This 1 is falling, over 48 hours, while the patient declines.
           - A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.
           - Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise.
         assumes:
@@ -1176,7 +1176,7 @@ missions:
   - title: The Hidden Transmission Route
     objective: Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.
     briefing: Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.
-    stake: Day twenty-four, and Morales gets her stage. Ward isolation has held for nine days and cases keep appearing in neighbourhoods with nobody in hospital. A field epidemiologist, Grace Oduya, has pulled a sewer sample from the north of the city that was kept by chance and tested this morning — positive four days before the first patient walked in. This stage you decide where transmission is actually happening and where to put surveillance. Oduya has three sampling teams and the city has four watersheds. The nine days of ward isolation have already cost the hospitals their elective work.
+    stake: Day 24, and Morales gets her stage. Ward isolation has held for nine days and cases keep appearing in neighbourhoods with nobody in hospital. A field epidemiologist, Grace Oduya, has pulled a sewer sample from the north of the city that was kept by chance and tested this morning — positive four days before the first patient walked in. This stage you decide where transmission is actually happening and where to put surveillance. Oduya has three sampling teams and the city has four watersheds. The nine days of ward isolation have already cost the hospitals their elective work.
     takeaway: Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.
     stops:
       - group: IMM
@@ -1218,14 +1218,14 @@ missions:
         assumes:
           - each division turns one cell into two
         question: Estimate the number of cells after eight hours.
-        why: Eight hours is 480 minutes. That is twelve doubling times. Twelve doublings is a factor of about 4,100, so 500 cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.
+        why: 8 hours is 480 minutes. That is 12 doubling times. 12 doublings is a factor of about 4,100, so 500 cells become about 2 million. The shape matters more than the number. Add 90 minutes and you add 2 more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.
         estimate:
           relationship: Final number = starting number × 2 raised to (time ÷ doubling time).
-          prompt: 500 cells, a 40-minute doubling time, eight hours to go.
+          prompt: 500 cells, a 40-minute doubling time, 8 hours to go.
           question: Estimate the number of cells after eight hours.
           labels:
             - 500 (cells at the start)
-            - 480 min (eight hours)
+            - 480 min (8 hours)
             - 40 min (doubling time)
             - 2 (cells per division)
             - 8 h (the same interval, in hours)
@@ -1239,7 +1239,7 @@ missions:
           tolerance: 400000
           units: cells
           solution: 480 ÷ 40 = 12 doublings; 2^12 ≈ 4,100; × 500 ≈ 2 million cells.
-          explanation: Twelve doublings, not twelve times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340.
+          explanation: 12 doublings, not 12 times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340.
       - group: CELL
         task: Every cell has the same genome. Why do only some of them make the receptor?
         title: The same genome, different cells
@@ -1264,7 +1264,7 @@ missions:
   - title: The Animal Connection
     objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
     briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.
-    stake: Day thirty-three. Sequences from three patients sit close to a virus found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. The wildlife vet, Mateo Castellanos, has been out there twice and says the herons are the wrong animal; the One Health lead, Arjun Singh, will not say either way until the sampling is designed properly. This stage you decide what role any animal is actually playing and design the campaign that could show it. What is being argued about is who infects whom over time, not which animal is nearby or easiest to blame.
+    stake: Day 33. Sequences from three patients sit close to a virus found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. The wildlife vet, Mateo Castellanos, has been out there twice and says the herons are the wrong animal; the One Health lead, Arjun Singh, will not say either way until the sampling is designed properly. This stage you decide what role any animal is actually playing and design the campaign that could show it. What is being argued about is who infects whom over time, not which animal is nearby or easiest to blame.
     takeaway: Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.
     stops:
       - group: FIELD
@@ -1318,10 +1318,10 @@ missions:
         order: [0, 1, 2, 3]
         why: "A positive animal is not a reservoir. What turns it into one is a design that could have found the agent somewhere else and did not, which is why the order matters: exposure patterns say where to sample, and sampling built around comparison sites is what makes a prevalence figure mean anything. Only then do prevalence and genetic relatedness across hosts say whether this species is in the transmission cycle, and only then can repeated spillover be tested rather than assumed."
       - group: POP
-        task: Allocate the twenty slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.
+        task: Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.
         title: Choose the One Health campaign
         place: Comparative Genomics Lab
-        scene: Dr. Arjun Singh, the One Health lead, has one field campaign and twenty sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.
+        scene: Dr. Arjun Singh, the 1 Health lead, has 1 field campaign and 20 sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.
         assumes:
           - a sample represents the population it was drawn from
           - a reservoir claim needs evidence that can distinguish persistence from spillback
@@ -1376,12 +1376,12 @@ missions:
               requires:
                 - deep_household
               question: How precisely can one household cluster be mapped?
-        answerText: Use the twenty slots on the candidate species at case-linked sites, the same species at comparison sites, comparison species, and a repeat time point. That plan preserves geography, species and persistence tests. Extra depth around one household is the question the fixed campaign should forgo.
+        answerText: Use the 20 slots on the candidate species at case-linked sites, the same species at comparison sites, comparison species, and a repeat time point. That plan preserves geography, species and persistence tests. Extra depth around one household is the question the fixed campaign should forgo.
         why: "A positive animal near a human case is compatible with several stories: reservoir, spillback from people, or shared exposure. The design has to create comparisons that separate those stories. Sampling the same species away from cases tests geography. Sampling other species in the same habitat tests species specificity. Returning later tests persistence. Sequencing can then compare what the field design actually found, but it cannot rescue a biased sample. Spending the campaign on one feared species near one household produces a precise result that cannot establish the population process."
   - title: The Mutation
     objective: Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.
     briefing: A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.
-    stake: Day forty-five. A variant with three changes has gone from 8 to 31 per cent of sequences in four weeks, in one district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.
+    stake: Day 45. A variant with 3 changes has gone from 8 to 31 per cent of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.
     takeaway: Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
@@ -1409,7 +1409,7 @@ missions:
         task: Which explanation best fits the frequency trend and the independent checks?
         title: Selection or sampling artifact?
         place: Evolutionary Dynamics Group
-        scene: A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.
+        scene: A variant has gone from 8 to 31 per cent of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.
         assumes:
           - a change in who gets tested changes what the tests find
         takeaway: A changing share needs competing explanations tested before it can support a claim about biological advantage.
@@ -1460,7 +1460,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Track a rising variant
         place: Regional Surveillance Hub
-        scene: The variant briefing starts in thirty minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.
+        scene: The variant briefing starts in 30 minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.
         assumes:
           - a fraction needs both a numerator and the denominator it came from
         takeaway: Evolutionary inference begins with accurate frequencies and then tests causal explanations.
@@ -1469,7 +1469,7 @@ missions:
         why: A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.
         estimate:
           relationship: A share = the count ÷ the number sequenced. Take the share in each week, then the difference.
-          prompt: In week one, 40 of 400 sequenced samples carried the variant. In week three, 180 of 600 did. The denominators are what make the two weeks comparable.
+          prompt: In week 1, 40 of 400 sequenced samples carried the variant. In week 3, 180 of 600 did. The denominators are what make the two weeks comparable.
           question: Estimate the change in variant frequency, in percentage points.
           labels:
             - 40 variant, week 1
@@ -1486,12 +1486,12 @@ missions:
           target: 20
           tolerance: 1
           units: percentage points
-          solution: "10% in week one, 30% in week three: an increase of 20 percentage points."
+          solution: "10% in week 1, 30% in week three: an increase of 20 percentage points."
           explanation: Pooling the two weeks throws away the comparison — the whole question is whether the ratio moved, and a combined numerator over a combined denominator cannot say. Each week needs its own denominator.
   - title: Treatment Failure
     objective: Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.
     briefing: A therapy that initially helped is failing in a growing subset of patients. The player must determine whether the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.
-    stake: Day sixty. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Bergström has a resistant sequence from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.
+    stake: Day 60. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Bergström has a resistant sequence from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.
     takeaway: Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1570,13 +1570,13 @@ missions:
         task: One thing before anybody's prescription changes. Which?
         title: Recover treatment effectiveness
         place: Pharmacology Unit
-        scene: Effectiveness has fallen from 82 to 51 per cent in nine weeks. Eleven failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.
+        scene: Effectiveness has fallen from 82 to 51 per cent in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.
         assumes:
           - a matched comparison is what turns a finding into evidence
         takeaway: A resistance response should combine evolutionary evidence with pharmacology and patient safety.
         format: CHOICE
         question: One thing before anybody's prescription changes. Which?
-        why: Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over nine weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.
+        why: Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.
         choices:
           - Sequence the failures alongside matched successful cases.
           - Measure drug exposure and adherence objectively.
@@ -1590,7 +1590,7 @@ missions:
   - title: Design the Intervention
     objective: Select a layered intervention portfolio and identify the evidence required before deployment.
     briefing: The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.
-    stake: Day seventy-eight. The city wants an intervention and the room is arguing as though it can only have one. The antibody everyone favours binds the exact stretch of protein that mutated in the north, which Bergström has now said three times. This stage you choose what to fund and say what evidence is needed before any of it reaches a person. The options also arrive on different timescales — one is available on Monday, one in a year — which is the whole argument for layering them rather than picking a favourite. Back a single glamorous option and the city has one point of failure against something still changing.
+    stake: Day 78. The city wants an intervention and the room is arguing as though it can only have one. The antibody everyone favours binds the exact stretch of protein that mutated in the north, which Bergström has now said three times. This stage you choose what to fund and say what evidence is needed before any of it reaches a person. The options also arrive on different timescales — one is available on Monday, one in a year — which is the whole argument for layering them rather than picking a favourite. Back a single glamorous option and the city has one point of failure against something still changing.
     takeaway: Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1710,7 +1710,7 @@ missions:
   - title: The Trial Signal
     objective: Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value or headline percentage.
     briefing: Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must distinguish a real effect from random variation and decide whether the trial should expand.
-    stake: "Day ninety-six, and the trial has reported: ten hospitalisations in the treated group against twenty in the control, out of four hundred people. Most of that benefit sits at the one site that enrolled the youngest patients, and the serious adverse events are not spread evenly either. The health minister wants a number before deciding how much to buy, and has been given one percentage she would like confirmed. This stage you read the result properly and decide whether the trial continues, expands or stops. Nobody in the room has yet said how many people twenty is out of."
+    stake: "Day 96, and the trial has reported: 10 hospitalisations in the treated group against 20 in the control, out of 400 people. Most of that benefit sits at the one site that enrolled the youngest patients, and the serious adverse events are not spread evenly either. The health minister wants a number before deciding how much to buy, and has been given one percentage she would like confirmed. This stage you read the result properly and decide whether the trial continues, expands or stops. Nobody in the room has yet said how many people 20 is out of."
     takeaway: Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
@@ -1744,7 +1744,7 @@ missions:
         format: BALLPARK
         assumes:
           - a risk is events divided by the people who could have had them
-        why: The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.
+        why: The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. 20 patients treated for 1 to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.
         question: Estimate the number of patients who must be treated for one to benefit.
         estimate:
           relationship: Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).
@@ -1766,7 +1766,7 @@ missions:
           tolerance: 1
           units: patients treated per additional benefit
           solution: Risks of 0.10 and 0.05, an absolute reduction of 0.05, so about 20.
-          explanation: The same result is a halving of risk, a five-percentage-point reduction, and one benefit per twenty treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy.
+          explanation: The same result is a halving of risk, a five-percentage-point reduction, and 1 benefit per 20 treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy.
       - group: POP
         task: The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?
         title: Continue, expand, or pause?
@@ -1791,7 +1791,7 @@ missions:
   - title: Containment or Adaptation?
     objective: Use scenarios and trigger-based policies instead of pretending one forecast is certain.
     briefing: The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation, and long-term adaptation while the biological parameters remain uncertain.
-    stake: Day a hundred and eighteen. Three districts are on visibly different paths and the council wants one policy by Friday. Ninety of the region's hundred and twenty critical-care beds are full and severe cases are arriving at about eight a day. Ortiz wants the beds protected; Morales wants the growth stopped where it is still cheap. Ortiz has the bed numbers by hour, Morales has the district growth rates, and the two documents have never been in the same room. This stage you build the arithmetic behind the decision and choose a policy that survives being wrong. The honest answer to an uncertain future is a set of triggers rather than one guess.
+    stake: Day 121 districts are on visibly different paths and the council wants 1 policy by Friday. 90 of the region's hundred and 20 critical-care beds are full and severe cases are arriving at about 8 a day. Ortiz wants the beds protected; Morales wants the growth stopped where it is still cheap. Ortiz has the bed numbers by hour, Morales has the district growth rates, and the two documents have never been in the same room. This stage you build the arithmetic behind the decision and choose a policy that survives being wrong. The honest answer to an uncertain future is a set of triggers rather than one guess.
     takeaway: Use population growth, feedback, capacity thresholds, model assumptions, scenario analysis, tradeoffs as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1828,7 +1828,7 @@ missions:
         why: A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.
         estimate:
           relationship: Time to fill = beds free ÷ arrivals per day.
-          prompt: The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about eight a day, and the average stay is around six days.
+          prompt: The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about 8 a day, and the average stay is around 6 days.
           question: Estimate the upper bound on time to capacity, assuming nobody is discharged.
           labels:
             - 30 open beds
@@ -1845,7 +1845,7 @@ missions:
           tolerance: 0.3
           units: days
           solution: 30 ÷ 8 ≈ 3.75 days, if nobody leaves.
-          explanation: Total beds is the wrong numerator, because ninety of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes.
+          explanation: Total beds is the wrong numerator, because 90 of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes.
       - group: POP
         task: Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter.
         title: Choose an adaptive policy
@@ -1898,11 +1898,11 @@ missions:
               label: Open regional surge-bed capacity
               leadHours: 24
         answerText: Set the first trigger near 80 per cent occupancy and the second near 88 per cent before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95 per cent makes the same actions operationally late.
-        why: A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, ninety of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.
+        why: A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.
   - title: The Final Briefing
     objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
     briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.
-    stake: Day a hundred and forty. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.
+    stake: Day 140. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.
     takeaway: Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.
     stops:
       - group: POP

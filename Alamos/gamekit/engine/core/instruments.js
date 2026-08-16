@@ -68,7 +68,7 @@ export const METHOD = {
   DEGENERACY: 'Two controls, one measurement. Find out how many combinations fit it equally before you commit to any of them, and bring in the second measurement when you see why you need it.',
   CHAIN: 'Force reaches the ground through a chain of transfers, and the chain is only as good as the weakest one it needs. Build the path, then name the transfer that governs it.',
   BALANCE: 'Reading a stream costs nothing. Counting it is a claim that it is part of the same quantity — so read everything, and count only what actually flows.',
-  DERIVE: 'Take the derivation one line at a time. For each line, choose the expression the previous line actually gives you, and name the rule that licenses it. Both are graded: the right line for the wrong reason is the commonest way to pass a calculus course without learning it.',
+  DERIVE: 'Take the derivation one line at a time, choosing the expression the previous line actually gives you. Where the book also offers a list of rules, name the one that licenses each step; both halves are then graded, because the right line for the wrong reason is the commonest way to pass a calculus course without learning it.',
   VERIFY: 'Lock a prediction first; it cannot be changed afterwards. Then act, and then spend what it takes to find out what actually happened. Not measuring is an answer too, and a poor one.',
   PROPAGATE: 'Each term contributes its own width times the power it is raised to. Find which one the output\'s uncertainty is really made of, then buy the measurement that shrinks it.',
   STRESS: 'The assumption has a range because nobody measured it exactly. Move it to the pessimistic end before you choose, and pick what still works there rather than what wins in the middle.',
@@ -2712,7 +2712,9 @@ const DERIVE = {
     return ask(ch, 'Work it through, one line at a time.')
       + `<div class="instPanel derivePanel">`
       + method('DERIVE')
-      + hint(d.hint ?? 'Choose the line that follows, and name the rule that gets you there.')
+      + hint(d.hint ?? ((d.rules ?? []).length
+        ? 'Choose the line that follows, and name the rule that gets you there.'
+        : 'Choose the line that follows from the one above it.'))
       + `<div class="deriveGoal"><span>Goal</span><b>${esc(d.goal ?? '')}</b></div>`
       + `<div class="deriveRail" id="deriveRail"></div>`
       + `<div class="deriveStep" id="deriveStep"></div>`
@@ -2726,6 +2728,16 @@ const DERIVE = {
     if(!panel) return;
     const steps = d.steps ?? [];
     const rules = d.rules ?? [];
+    // Naming the rule is a half of this format a book can decline.
+    //
+    // It was written on the argument that the right line for the wrong reason
+    // is the commonest way to pass a calculus course without learning it, and
+    // that holds where the candidates genuinely differ in what licenses them.
+    // It does not hold where they do not: in five of Midway's 29 steps and ten
+    // of Headwater's 33, every candidate carries the *same* rule, so the second
+    // half of the answer is a click with one possible value. An empty or absent
+    // `rules` list turns it off and the panel grades the line alone.
+    const naming = rules.length > 0;
     const rail = panel.querySelector('#deriveRail');
     const stepEl = panel.querySelector('#deriveStep');
     const take = panel.querySelector('#deriveTake');
@@ -2760,14 +2772,16 @@ const DERIVE = {
         + orderFor(st.at).map(i => `<button class="btn deriveCand${st.pick === i ? ' on' : ''}"`
           + ` data-cand="${i}" type="button"><code>${esc(s.candidates[i].text)}</code></button>`).join('')
         + `</div>`
-        + `<div class="deriveRulesHead">and the rule that licenses it</div>`
-        + `<div class="deriveRules">`
-        + rules.map(r => `<button class="btn deriveRule${st.rule === r ? ' on' : ''}"`
-          + ` data-rule="${esc(r)}" type="button">${esc(r)}</button>`).join('')
-        + `</div>`;
+        + (naming
+          ? `<div class="deriveRulesHead">and the rule that licenses it</div>`
+            + `<div class="deriveRules">`
+            + rules.map(r => `<button class="btn deriveRule${st.rule === r ? ' on' : ''}"`
+              + ` data-rule="${esc(r)}" type="button">${esc(r)}</button>`).join('')
+            + `</div>`
+          : '');
       take.textContent = st.at === steps.length - 1
         ? (d.lastStep ?? 'Take the last step') : 'Take this step';
-      take.disabled = st.pick === null || st.rule === null;
+      take.disabled = st.pick === null || (naming && st.rule === null);
       back.disabled = st.taken.length === 0;
 
       stepEl.querySelectorAll('[data-cand]').forEach(b => b.addEventListener('click', () => {
@@ -2802,7 +2816,7 @@ const DERIVE = {
       const wrong = st.taken.map((t, n) => {
         const s = steps[n];
         const lineOk = t.pick === +s.answer;
-        const ruleOk = String(t.rule) === String(s.candidates[+s.answer]?.rule ?? '');
+        const ruleOk = !naming || String(t.rule) === String(s.candidates[+s.answer]?.rule ?? '');
         return lineOk && ruleOk ? null : { n, lineOk, ruleOk };
       }).filter(Boolean);
       const ok = wrong.length === 0;
@@ -2814,25 +2828,33 @@ const DERIVE = {
   verdict(ch, r){
     const d = ch.derive ?? {};
     const steps = d.steps ?? [];
+    const naming = (d.rules ?? []).length > 0;
     const taken = r?.deriveTaken ?? [];
     const rows = steps.map((s, n) => {
       const t = taken[n];
       const key = s.candidates[+s.answer] ?? {};
       const chosen = t ? s.candidates[t.pick] ?? {} : {};
       const lineOk = t && t.pick === +s.answer;
-      const ruleOk = t && String(t.rule) === String(key.rule ?? '');
-      return row([
+      const ruleOk = !naming || (t && String(t.rule) === String(key.rule ?? ''));
+      return row(naming ? [
         `<b>${n + 1}</b>`,
         `<code>${esc(chosen.text ?? '—')}</code>`,
         `${tick(!!lineOk)} line`,
         `${esc(t?.rule ?? '—')} ${tick(!!ruleOk)}`,
+      ] : [
+        `<b>${n + 1}</b>`,
+        `<code>${esc(chosen.text ?? '—')}</code>`,
+        `${tick(!!lineOk)} line`,
       ], lineOk && ruleOk ? '' : 'bad')
         // The reason the wrong move is wrong, which is the whole teaching value
         // of a distractor. A step that fails silently teaches nothing.
-        + (lineOk ? '' : row([' ', `<em>${esc(chosen.why ?? key.why ?? '')}</em>`, ' ',
-          `<em>${esc(key.text ? `should be ${key.text}` : '')}</em>`], 'note'));
+        + (lineOk ? '' : row(naming
+          ? [' ', `<em>${esc(chosen.why ?? key.why ?? '')}</em>`, ' ',
+             `<em>${esc(key.text ? `should be ${key.text}` : '')}</em>`]
+          : [' ', `<em>${esc(chosen.why ?? key.why ?? '')}</em>`,
+             `<em>${esc(key.text ? `should be ${key.text}` : '')}</em>`], 'note'));
     }).join('');
-    return board(d.caption ?? 'Each line, and what licenses it.', rows);
+    return board(d.caption ?? (naming ? 'Each line, and what licenses it.' : 'Each line you took.'), rows);
   },
   // `facts` is handed the challenge, not the block — the dev page printed
   // "0 line(s) · 0 rules offered" for a panel with four of each.

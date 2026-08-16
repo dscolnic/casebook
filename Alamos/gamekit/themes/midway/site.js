@@ -1,81 +1,163 @@
-// site.js — the place, as data. Outdoor.
+// site.js — Corbin Park, as data. Outdoor, on the south shore of a lake.
 //
-// `engine/world/outdoorTown.js` builds everything below; nothing here is
-// geometry. Four buildings, one per group in book.yml, a couple of landmarks
-// that carry the place rather than a lesson, and a spawn point.
+// `engine/world/outdoorTown.js` builds all of it. The place is a closed
+// amusement park three weeks before it tries to reopen: seven rides, a midway
+// of boarded stalls between them, a workshop, and a lake along the north edge
+// that the flume takes its water from.
 //
-// Looking down, -Z is away from the player at spawn:
+// **The rides are the buildings.** Every area in this game is a ride, so every
+// group here is a station or a plant room at the foot of a machine — and the
+// machines themselves, which are the whole silhouette of the place, are props.
+// The coaster's lift hill and loop, the wheel, the tower and the ship are what
+// a player navigates by; the buildings under them are where the questions
+// happen. Nothing else in this repo has a skyline made of rides.
 //
-//   [ Records Office ]      [ Response Desk ]      z = -34
-//   [ Field Station  ]      [ Sample Room   ]      z =   4
-//                 ¤ spawn ¤                        z =  36
+// Looking down, -Z is away from the player at the gate:
 //
-// Two things here are load-bearing rather than decorative:
+//                    ~ ~ ~   the lake   ~ ~ ~                    z = -150
+//              [ Log Flume ]                                     z = -96
+//   [ Coaster ]                         [ Drop Tower ]           z = -44 … -60
+//              [ Bumper Cars ]                                   z = -24
+//   [ Carousel ]                        [ Pirate Ship ]          z =  -4 … 6
+//              [ Ferris Wheel ]                                  z =  22
+//   [ Workshop ]      ¤ spawn ¤      [ Arcade ]                  z =  44 … 58
+//                     [ Front Gate ]                             z =  70
 //
-//   · The spawn at (0, 36) has nothing within ten metres of it. A prop dropped
-//     over the spawn welds the player in place — the scene renders perfectly
-//     and W does nothing.
-//   · Every `group` below must be a group id in content/groups.js. A group with
-//     no building is a call the player cannot reach, and `worldParity` is the
-//     only thing that notices.
+// Three things here are load-bearing rather than decorative:
+//
+//   · The spawn at (0, 58) is inside the gate and clear for twelve metres. A
+//     prop over the spawn welds the player in place: the scene renders and W
+//     does nothing.
+//   · Every `group` below is a group id in content/groups.js — one per ride. A
+//     group with no building is a call the player cannot reach, and
+//     `worldParity` and `reachable` are what notice.
+//   · The horizon is shaped. Low wooded hills stand across the south behind the
+//     car park, the north is open water, and that asymmetry is the wayfinding:
+//     if there are trees on the skyline you are facing away from the lake.
+
+import { ranges, S, SW, SE } from '../../engine/world/horizonShape.js';
 
 const PI = Math.PI;
 
+/** A line of queue rail, which is most of the ground furniture in a park. */
+const rail = (x0, z0, x1, z1, n) => Array.from({ length: n }, (_, i) => ({
+  kind: 'post',
+  x: x0 + ((x1 - x0) * i) / (n - 1),
+  z: z0 + ((z1 - z0) * i) / (n - 1),
+  height: 1.05,
+  r: 0.045,
+  colour: 0x8a8577,
+}));
+
 export const site = {
   kind: 'outdoor',
-  name: 'Replace with the name of this place',
+  name: 'Corbin Park',
 
   terrain: {
-    size: 760, segments: 300, playerLimit: 105,
-    profile: 'flat', relief: 0.8,
-    // Darker and more saturated than looks right written down. Under a bright
-    // sky IBL with ACES tone mapping a mid albedo renders close to white.
-    ground: { base: [78, 74, 64], spread: [42, 40, 34], repeat: 14, normalRepeat: 150 },
+    size: 700, segments: 300, playerLimit: 165,   // the car parks reach z = 140
+    // A lakeside flat with a slight fall to the water. Amusement parks are built
+    // on ground somebody could pour a slab on.
+    profile: 'flat', relief: 0.5,
+    // Asphalt and worn grass, written dark: the midway is a dark surface under a
+    // bright sky, and the first pass at this came out the colour of sand.
+    ground: { base: [70, 68, 58], spread: [22, 22, 18], repeat: 18, normalRepeat: 160 },
   },
 
-  atmosphere: { turbidity: 3.4, rayleigh: 2.5, mie: 0.004, mieG: 0.78, scale: 850, stars: 900 },
+  atmosphere: { turbidity: 3.0, rayleigh: 2.4, mie: 0.004, mieG: 0.78, scale: 850, stars: 900 },
 
+  // The midway itself: one avenue from the gate to the lake, with two cross
+  // paths. Worn tarmac rather than road — `tone` takes the warm grit out of the
+  // default texture and `lift` drops it toward grey.
   paths: [
-    { cx: 0, cz: -16, w: 200, d: 9, worn: 5 },
-    { cx: 0, cz: 20,  w: 10, d: 120, worn: 6 },
+    { cx: 0, cz: -20, w: 14, d: 180, worn: 9, tone: [-12, -12, -10], lift: -46 },
+    { cx: 0, cz: 22, w: 120, d: 8, worn: 5, tone: [-12, -12, -10], lift: -46 },
+    { cx: 0, cz: -52, w: 130, d: 8, worn: 5, tone: [-12, -12, -10], lift: -46 },
+    // The service road round the back of the rides, and the car park apron.
+    { cx: -62, cz: -20, w: 8, d: 150, worn: 4, tone: [-10, -10, -8], lift: -52 },
+    // The car parks either side of the approach, and the road in off the county
+    // route. A park this size sells a hundred and six days a year and has to
+    // put eight hundred cars somewhere on each of them.
+    { cx: -56, cz: 108, w: 96, d: 64, worn: 20, tone: [-12, -12, -10], lift: -50 },
+    { cx: 56, cz: 108, w: 96, d: 64, worn: 20, tone: [-12, -12, -10], lift: -50 },
+    { cx: 0, cz: 92, w: 60, d: 30, worn: 12, tone: [-12, -12, -10], lift: -48 },
+    { cx: 0, cz: 146, w: 250, d: 12, worn: 8, tone: [-12, -12, -10], lift: -44 },
   ],
+
+  // The lake. `setWaterBed` cuts the channel, so the bed and shore are set
+  // explicitly rather than left to the 420 m river defaults.
+  water: { cx: 0, cz: -190, width: 460, depth: 150, level: -1.4, bed: 3.0, shore: 26 },
 
   buildings: [
-    { id: 'G1', group: 'G1', name: 'Field Station',
-      x: -48, z: 4, w: 22, d: 14, h: 7.0, facing: 0, colour: 0x93a29c },
-    { id: 'G2', group: 'G2', name: 'Sample Room',
-      x: 48, z: 4, w: 22, d: 14, h: 7.0, facing: 0, colour: 0x99a3ad },
-    { id: 'G3', group: 'G3', name: 'Records Office',
-      x: -40, z: -34, w: 20, d: 13, h: 6.6, facing: 0, colour: 0xa79f90 },
-    { id: 'G4', group: 'G4', name: 'Response Desk',
-      x: 42, z: -34, w: 20, d: 13, h: 6.6, facing: 0, colour: 0xa89388 },
+    // The seven rides. Each entry is the building at the foot of the machine —
+    // station, plant room or operator's booth — and the machine itself is in
+    // props.js, standing over it.
+    // Facing east, onto the midway. Facing it north put its door under the
+    // track, with the standing train across the approach — which the
+    // reachability fill caught and no other check could see.
+    { id: 'COASTER', group: 'COASTER', name: 'Coaster Station',
+      x: -46, z: -44, w: 26, d: 12, h: 5.0, facing: PI / 2, colour: 0x3f6474 },
+    { id: 'TOWER', group: 'TOWER', name: 'Drop Tower Control',
+      x: 44, z: -60, w: 14, d: 10, h: 4.4, facing: PI / 2, colour: 0x8f4536 },
+    { id: 'BUMPER', group: 'BUMPER', name: 'Bumper Car Pavilion',
+      x: 22, z: -24, w: 26, d: 18, h: 5.6, facing: PI, colour: 0x4a7059 },
+    { id: 'CAROUSEL', group: 'CAROUSEL', name: 'Carousel Drive House',
+      x: -44, z: -4, w: 14, d: 10, h: 4.2, facing: PI / 2, colour: 0x9c8144 },
+    { id: 'SHIP', group: 'SHIP', name: 'Pirate Ship Console',
+      x: 42, z: 6, w: 14, d: 10, h: 4.2, facing: -PI / 2, colour: 0x4a5f70 },
+    { id: 'WHEEL', group: 'WHEEL', name: 'Wheel Machine Room',
+      x: -18, z: 22, w: 16, d: 11, h: 4.6, facing: 0, colour: 0x60527a },
+    { id: 'FLUME', group: 'FLUME', name: 'Flume Pumphouse',
+      x: -26, z: -96, w: 20, d: 13, h: 5.2, facing: 0, colour: 0x3f6f6b },
 
-    // No group: places that carry the story and the wayfinding.
-    { id: 'GATE', name: 'Gatehouse', sub: 'Where the day starts',
-      x: -70, z: 58, w: 16, d: 11, h: 5.6, facing: PI, colour: 0x9a9078 },
+    // No group: the places that carry the park rather than a lesson.
+    { id: 'GATE', name: 'Front Gate', sub: 'Closed since October',
+      x: 0, z: 74, w: 24, d: 9, h: 4.6, facing: PI, colour: 0xa8a08c },
+    { id: 'WORKSHOP', name: 'Workshop', sub: "Brennan's bench, and eleven notebooks",
+      x: -54, z: 46, w: 20, d: 13, h: 5.4, facing: PI / 2, colour: 0x8d7f6a },
+    { id: 'ARCADE', name: 'Arcade and Stalls', sub: 'Boarded, and not on the list',
+      x: 40, z: 44, w: 24, d: 12, h: 5.0, facing: PI, colour: 0x8a5a49 },
+    { id: 'PLANT', name: 'Plant Room', sub: 'Everything on the midway runs off this board',
+      x: -60, z: -70, w: 14, d: 10, h: 4.4, facing: PI / 2, colour: 0x7d8288 },
   ],
 
-  board: { x: 9, z: 30, facing: PI, title: 'Status' },
+  board: { x: 11, z: 60, facing: PI, title: 'Reopening board' },
 
-  // Kept off the avenue (|x| < 5) so nothing narrows the main route.
+  // Queue rails, bins and benches — the ground furniture of a midway. Kept off
+  // the avenue (|x| < 8) so nothing narrows the walk from the gate to the lake.
   furniture: [
-    { kind: 'bench', x: -8, z: 22, facing: PI / 2 },
-    { kind: 'bin', x: 7, z: 20 },
-    { kind: 'post', x: 6, z: -12, height: 3.2, r: 0.11 },
-    { kind: 'post', x: -6, z: -12, height: 3.2, r: 0.11 },
+    { kind: 'bench', x: -13, z: 40, facing: PI },
+    { kind: 'bench', x: 13, z: 12, facing: PI },
+    { kind: 'bench', x: -13, z: -30, facing: 0 },
+    { kind: 'bin', x: 10, z: 40 },
+    { kind: 'bin', x: -10, z: -10 },
+    { kind: 'bin', x: 10, z: -66 },
+    ...rail(-30, -34, -30, -50, 6),
+    ...rail(30, -50, 30, -64, 6),
+    ...rail(-30, 4, -30, -6, 5),
+    ...rail(28, 14, 28, 2, 5),
+    ...rail(-9, 30, -9, 14, 6),
   ],
 
-  scrubCount: 340,
-  scrubColour: 0x5f6b45,
-  scrubBand: [26, 250],
+  // Grass coming through the asphalt and up the fences. A closed park is a
+  // vegetation problem before it is anything else, and the band starts close
+  // in because the weeds here are between the rides rather than beyond them.
+  scrubCount: 520,
+  scrubColour: 0x6b7340,
+  scrubBand: [16, 220],
 
+  // Wooded hills across the south, behind the car park; open water to the
+  // north. Nothing on the lake side of the skyline, which is how a player knows
+  // which way they are facing on a midway of identical stalls.
   horizon: [
-    { radius: 520, height: 44, colour: 0x4a5b66, haze: 0.42 },
-    { radius: 680, height: 70, colour: 0x5c6b76, haze: 0.62 },
+    { radius: 400, height: 26, colour: 0x4d5a44, haze: 0.40,
+      amp: ranges([{ at: S, width: 2.2, hi: 1.0 }, { at: SW, width: 1.0, hi: 1.2 }], 0.05) },
+    { radius: 620, height: 34, colour: 0x5c6a52, haze: 0.68,
+      amp: ranges([{ at: S, width: 2.6, hi: 1.0 }, { at: SE, width: 0.9, hi: 0.7 }], 0.04) },
   ],
 
-  // yaw 0 is -Z, the camera's default direction: this looks up the street.
-  spawn: { x: 0, z: 36, yaw: 0 },
+  // yaw 0 is -Z, the camera's default: this looks up the midway, with the wheel
+  // on the left, the ship on the right and the coaster's lift hill behind them.
+  spawn: { x: 0, z: 58, yaw: 0 },
 };
 
 export default site;

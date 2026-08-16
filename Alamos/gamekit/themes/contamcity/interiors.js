@@ -132,7 +132,7 @@ export const INTERIORS = {
   },
   "ENERGY": {
     "caption": "A slow reaction in a warm vessel is a different event from the same reaction in a cool one.",
-    "standLine": "Drum in afternoon sun, thirty degrees above the one in shade. Nobody enters the space until there is a gas-production estimate.",
+    "standLine": "Drum in afternoon sun, 30 degrees above the 1 in shade. Nobody enters the space until there is a gas-production estimate.",
     "station": {
       "kind": "vitals",
       "animated": true,

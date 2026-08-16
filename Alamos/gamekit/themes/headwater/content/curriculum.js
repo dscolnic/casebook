@@ -7,19 +7,19 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The slope between two readings",
-      "scene": "Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at six this morning, 48 at eight. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
+      "scene": "Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
       "takeaway": "An average rate of change is the slope of the line joining an interval's two endpoints.",
       "place": "Catchment & Inflow Desk",
-      "story": "Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at six this morning, 48 at eight. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
+      "story": "Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
       "game": {
         "type": "BALLPARK",
         "title": "The slope between two readings",
         "setup": "Catchment & Inflow Desk",
         "play": "Get a rate out of two readings",
         "task": "Get a rate out of two readings",
-        "question": "Estimate the average rate of change of the inflow between six and eight o'clock.",
-        "answer": "About 3.5 cubic metres a second per hour, averaged across the two hours.",
-        "why": "An average rate of change is a slope, and the two readings are the two ends of it. It says nothing about what happened between them — the same pair comes from a river that climbed steadily and from one that sat still for ninety minutes and then jumped. Shrinking the interval is the only cure, and the number that shrinking approaches, the limit of this slope as the two readings close together, is the instantaneous rate the forecast wants.\n",
+        "question": "Estimate the average rate of change of the inflow between 14 o'clock.",
+        "answer": "About 3.5 cubic metres a second per hour, averaged across the 2 hours.",
+        "why": "An average rate of change is a slope, and the two readings are the two ends of it. It says nothing about what happened between them — the same pair comes from a river that climbed steadily and from 1 that sat still for 90 minutes and then jumped. Shrinking the interval is the only cure, and the number that shrinking approaches, the limit of this slope as the two readings close together, is the instantaneous rate the forecast wants.\n",
         "givens": [
           "41 m³/s at 06:00, 48 m³/s at 08:00",
           "Two hours between the readings"
@@ -57,10 +57,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Adding up a curve nobody wrote down",
-      "scene": "Ekundayo has five readings an hour and a half apart — 48, 60, 74, 87 and 96 cubic metres a second. Sato is asking for the volume already in, and there is no equation behind any of it.",
+      "scene": "Ekundayo has 5 readings an hour and a half apart — 48, 60, 74, 87 and 96 cubic metres a second. Sato is asking for the volume already in, and there is no equation behind any of it.",
       "takeaway": "The trapezoid rule adds an unwritten curve by averaging each pair of readings, so the interior readings are counted twice as heavily as the ends.",
       "place": "Catchment & Inflow Desk",
-      "story": "Ekundayo has five readings an hour and a half apart — 48, 60, 74, 87 and 96 cubic metres a second. Sato is asking for the volume already in, and there is no equation behind any of it.",
+      "story": "Ekundayo has 5 readings an hour and a half apart — 48, 60, 74, 87 and 96 cubic metres a second. Sato is asking for the volume already in, and there is no equation behind any of it.",
       "game": {
         "type": "BALLPARK",
         "title": "Adding up a curve nobody wrote down",
@@ -68,11 +68,11 @@ export const CURRICULUM = {
         "play": "Turn a column of readings into a volume",
         "task": "Turn a column of readings into a volume",
         "question": "Estimate the volume that arrived over those six hours.",
-        "answer": "About 1.58 million cubic metres over the six hours.",
+        "answer": "About 1.58 million cubic metres over the 6 hours.",
         "why": "The fundamental theorem says the accumulated volume is the area under the flow curve. Nothing in it requires a formula, because a list of readings has an area too. The trapezoid rule averages each adjacent pair of readings. That is why every interior reading is used by two trapezia and each end reading by one. It is exact on any stretch where the flow runs in a straight line. On a rise that curves upward it reads slightly high, which is the direction to know before it goes to a committee.\n",
         "givens": [
           "Readings 48, 60, 74, 87, 96 m³/s at 1.5-hour spacing",
-          "Six hours in total, 5,400 seconds per interval"
+          "6 hours in total, 5,400 seconds per interval"
         ],
         "relationship": "Volume ≈ Δt × (½Q₀ + Q₁ + Q₂ + Q₃ + ½Q₄) — the trapezoid rule, which is every pair of readings averaged and added.\n",
         "calcKey": "INFLOW-2"
@@ -114,8 +114,8 @@ export const CURRICULUM = {
         "play": "Find where the climb stopped getting steeper",
         "task": "Find where the climb stopped getting steeper",
         "question": "Read as many hours as you need. At which reading did the climb stop getting steeper?",
-        "answer": "Ten o'clock. The flow is still climbing there and climbing more slowly than it was — the increments run 14, 16, 18, 16, 12, and the sign of their change turns between nine and ten.",
-        "why": "Every reading in this column is higher than the one before it, so the first derivative never changes sign and the flow does not peak anywhere on the screen. What changes is the second derivative: the increments grow to eighteen and then shrink. That turn is the earliest thing on a hydrograph that says the event has a top, and it arrives hours before the top does, which is the whole reason to look for it. Reading only the flow leaves nothing to say until the peak has already passed.\n",
+        "answer": "Ten o'clock. The flow is still climbing there and climbing more slowly than it was — the increments run 14, 16, 18, 16, 12, and the sign of their change turns between 19.",
+        "why": "Every reading in this column is higher than the one before it, so the first derivative never changes sign and the flow does not peak anywhere on the screen. What changes is the second derivative: the increments grow to 18 and then shrink. That turn is the earliest thing on a hydrograph that says the event has a top, and it arrives hours before the top does, which is the whole reason to look for it. Reading only the flow leaves nothing to say until the peak has already passed.\n",
         "probe": {
           "stations": [
             {
@@ -201,7 +201,7 @@ export const CURRICULUM = {
         "play": "Say what an average guarantees about the record",
         "task": "Say what an average guarantees about the record",
         "question": "What follows from the morning having averaged 73 cubic metres a second?",
-        "answer": "At some instant in the six hours it ran at exactly 73",
+        "answer": "At some instant in the 6 hours it ran at exactly 73",
         "why": "The average lies between the lowest and the highest values the flow took. A river's discharge is continuous, so it cannot get from 48 to 96 without passing through every number between. The average is therefore attained at at least one instant. That is what makes the published figure a statement about the morning rather than an artefact of arithmetic. It says nothing about when. On a rise that steepens the crossing is later than the middle of the interval, and on a record that turns over it happens twice.\n",
         "rebuttals": [
           "The midpoint is where a straight-line rate attains its average; a curving one crosses somewhere else.",
@@ -209,12 +209,12 @@ export const CURRICULUM = {
           "Continuity is what makes it attained; without it, an average really can fall in a gap."
         ],
         "choices": [
-          "At some instant in the six hours it ran at exactly 73",
-          "It ran at 73 at the midpoint of the six hours",
+          "At some instant in the 6 hours it ran at exactly 73",
+          "It ran at 73 at the midpoint of the 6 hours",
           "It ran at 73 at least twice, once climbing and once falling",
           "Nothing follows, since an average need not be attained"
         ],
-        "correctChoice": "At some instant in the six hours it ran at exactly 73"
+        "correctChoice": "At some instant in the 6 hours it ran at exactly 73"
       },
       "assumes": [
         "a gauge trace of a river is continuous, without jumps",
@@ -224,10 +224,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The reading that fits many curves",
-      "scene": "Ekundayo has one level reading six hours into the drawdown and is being asked for the drain constant. Rasmussen has a second reading from twelve hours later and has not brought it over yet.",
+      "scene": "Ekundayo has one level reading six hours into the drawdown and is being asked for the drain constant. Rasmussen has a second reading from 12 hours later and has not brought it over yet.",
       "takeaway": "A single reading fits a whole family of starting levels and drain constants, and only a second reading at a different time picks one out.",
       "place": "Catchment & Inflow Desk",
-      "story": "Ekundayo has one level reading six hours into the drawdown and is being asked for the drain constant. Rasmussen has a second reading from twelve hours later and has not brought it over yet.",
+      "story": "Ekundayo has one level reading six hours into the drawdown and is being asked for the drain constant. Rasmussen has a second reading from 12 hours later and has not brought it over yet.",
       "game": {
         "type": "DEGENERACY",
         "title": "The reading that fits many curves",
@@ -235,7 +235,7 @@ export const CURRICULUM = {
         "play": "Say what one reading leaves undetermined",
         "task": "Say what one reading leaves undetermined",
         "question": "Match the six-hour reading, then say what the drain constant actually is.",
-        "answer": "About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to say so, because either one alone is matched by a whole line of pairs.",
+        "answer": "About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to say so, because either 1 alone is matched by a whole line of pairs.",
         "why": "Integrating produced a constant, and the equation cannot supply it; only a measurement can. One reading is one equation in two unknowns, so a higher starting head paired with a faster drain reproduces it exactly, which is why the match stays perfect all along the curve. The second reading is not a repeat of the first — it is taken at a different time, so it constrains the same two unknowns in a different combination and the two lines cross once. Sliding along a locus with a perfect match is what an underdetermined problem feels like from the inside.\n",
         "degeneracy": {
           "controls": [
@@ -286,7 +286,7 @@ export const CURRICULUM = {
             }
           ],
           "second": {
-            "label": "The reading taken twelve hours later",
+            "label": "The reading taken 12 hours later",
             "apply": "Bring the eighteen-hour reading over",
             "locus": [
               {
@@ -348,10 +348,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Six centimetres, in cubic metres",
-      "scene": "Ekundayo has the rating slope at 44.5 cubic metres a second for every metre of head, and a gauge showing the head six centimetres higher than at the morning call. Sato wants it in flow, not in centimetres.",
+      "scene": "Ekundayo has the rating slope at 44.5 cubic metres a second for every metre of head, and a gauge showing the head 6 centimetres higher than at the morning call. Sato wants it in flow, not in centimetres.",
       "takeaway": "A differential is the tangent line's arithmetic — a slope times a step — and it is what turns a gauge reading into the quantity somebody cares about.",
       "place": "Catchment & Inflow Desk",
-      "story": "Ekundayo has the rating slope at 44.5 cubic metres a second for every metre of head, and a gauge showing the head six centimetres higher than at the morning call. Sato wants it in flow, not in centimetres.",
+      "story": "Ekundayo has the rating slope at 44.5 cubic metres a second for every metre of head, and a gauge showing the head 6 centimetres higher than at the morning call. Sato wants it in flow, not in centimetres.",
       "game": {
         "type": "BALLPARK",
         "title": "Six centimetres, in cubic metres",
@@ -370,7 +370,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a small change in a quantity is its rate of change multiplied by the small change in the input",
-        "six centimetres is 0.06 metres"
+        "6 centimetres is 0.06 metres"
       ],
       "equations": [
         {
@@ -425,7 +425,7 @@ export const CURRICULUM = {
         "play": "Fit the constant on days you can check",
         "task": "Fit the constant on days you can check",
         "question": "Choose the recession constant yourself, freeze it, and score it on days it has never seen.",
-        "answer": "About 0.22 a day, scoring 94 on days it has never seen. The 0.34 that scores best on the fitted week manages 88 on them, and the three points it appeared to gain were a property of that week rather than of this river.",
+        "answer": "About 0.22 a day, scoring 94 on days it has never seen. The 0.34 that scores best on the fitted week manages 88 on them, and the 3 points it appeared to gain were a property of that week rather than of this river.",
         "why": "A constant chosen on a sample is chosen partly on that sample's noise, and noise does not come back. That is why the broad shoulder holds up and the narrow spike does not — the shoulder is a property of how this catchment drains, which next week also has, and the spike is a property of seven particular days, which it does not. So a score measured where the constant was chosen is never a measurement of the constant alone, and it is wrong in the same direction every time. The cure is procedure rather than cleverness.\n",
         "holdout": {
           "axis": {
@@ -576,7 +576,7 @@ export const CURRICULUM = {
         "play": "Integrate a record that resists as written",
         "task": "Integrate a record that resists as written",
         "question": "Evaluate the total suspended load carried past the gauge in the four hours after the peak.",
-        "answer": "About 48 tonnes in the four hours after the peak — 30·ln 5, from an integrand that could not be antidifferentiated in the shape it was written in.",
+        "answer": "About 48 tonnes in the 4 hours after the peak — 30·ln 5, from an integrand that could not be antidifferentiated in the shape it was written in.",
         "why": "The integrand resists because it is a quotient with the variable in both parts. It stops resisting the moment somebody notices the top is very nearly the derivative of the bottom. Substituting turns it into one over u, whose antiderivative is a logarithm. The whole difficulty was a change of variable rather than a new technique. What has to travel with the variable is the differential and both limits. It is the limits that get left behind, and an integral evaluated at the old ends of a new variable is wrong without looking wrong.\n",
         "derive": {
           "start": "L(t) = 60t ÷ (t² + 4)",
@@ -601,7 +601,7 @@ export const CURRICULUM = {
                 {
                   "text": "u = t² + 4, du = 2t·dt, so the integral becomes 60·∫du ÷ u",
                   "rule": "substitution",
-                  "why": "60t·dt is 30·du, because du already carries the factor of two. Keeping the 60 doubles the answer, and every line after it integrates and evaluates perfectly.",
+                  "why": "60t·dt is 30·du, because du already carries the factor of 2. Keeping the 60 doubles the answer, and every line after it integrates and evaluates perfectly.",
                   "survives": true
                 },
                 {
@@ -623,7 +623,7 @@ export const CURRICULUM = {
                 {
                   "text": "30·u^(−1), evaluated from u = 4 to u = 20",
                   "rule": "antiderivative",
-                  "why": "The antiderivative of one over u is the natural logarithm, not the next power down. An exponent of −1 is the one case the power rule cannot handle."
+                  "why": "The antiderivative of one over u is the natural logarithm, not the next power down. An exponent of −1 is the 1 case the power rule cannot handle."
                 },
                 {
                   "text": "30·ln(u), evaluated from u = 4 to u = 20",
@@ -734,8 +734,8 @@ export const CURRICULUM = {
         "play": "Get a rate out of a formula, from the definition",
         "task": "Get a rate out of a formula, from the definition",
         "question": "Work the difference quotient down to an instantaneous rate, and evaluate it at four hours.",
-        "answer": "80 thousand cubic metres an hour at four hours — a limit of the difference quotient, not an average across any interval.",
-        "why": "The difference quotient is the slope of a line through two points on the curve, and its value depends on how far apart they are. Taking the limit closes that gap without ever setting it to zero, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says nothing, while its limit is one number. What comes out is a rule, 10t + 40, good at every hour of the night, and the four-hour figure is one substitution away from it.\n",
+        "answer": "80 thousand cubic metres an hour at 4 hours — a limit of the difference quotient, not an average across any interval.",
+        "why": "The difference quotient is the slope of a line through two points on the curve, and its value depends on how far apart they are. Taking the limit closes that gap without ever setting it to 0, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says nothing, while its limit is 1 number. What comes out is a rule, 10t + 40, good at every hour of the night, and the four-hour figure is 1 substitution away from it.\n",
         "derive": {
           "start": "V(t) = 5t² + 40t",
           "goal": "V'(4), from the definition rather than from a rule",
@@ -764,7 +764,7 @@ export const CURRICULUM = {
                 {
                   "text": "(5t² + 5h² + 40t + 40h − 5t² − 40t) ÷ h",
                   "rule": "expansion",
-                  "why": "(t + h)² is t² + 2th + h², and the dropped cross term 2th is the only part of the expansion that survives the limit. This divides by h cleanly and stays valid all the way down to a derivative of 40, which is wrong at every hour but one.",
+                  "why": "(t + h)² is t² + 2th + h², and the dropped cross term 2th is the only part of the expansion that survives the limit. This divides by h cleanly and stays valid all the way down to a derivative of 40, which is wrong at every hour but 1.",
                   "survives": true
                 },
                 {
@@ -785,7 +785,7 @@ export const CURRICULUM = {
                 {
                   "text": "10t + 5h + 40, which approaches 10t + 45",
                   "rule": "limit",
-                  "why": "Sending h to zero removes the whole term 5h. It does not leave the coefficient 5 standing on its own."
+                  "why": "Sending h to 0 removes the whole term 5h. It does not leave the coefficient 5 standing on its own."
                 },
                 {
                   "text": "10t + 5h + 40 for every h, so the limit does not exist",
@@ -793,7 +793,7 @@ export const CURRICULUM = {
                   "why": "This is a polynomial in h, and a polynomial has a limit everywhere. Nothing is undefined once the h in the denominator has cancelled."
                 },
                 {
-                  "text": "10t + 5h + 40, and h cannot be set to zero, so the quotient is undefined",
+                  "text": "10t + 5h + 40, and h cannot be set to 0, so the quotient is undefined",
                   "rule": "cancellation",
                   "why": "The quotient is undefined at h = 0, which is exactly why a limit is taken instead of a substitution. The observation is correct and applied to the wrong step, and it survives to the bottom of the page as a refusal to finish.",
                   "survives": true
@@ -1001,7 +1001,7 @@ export const CURRICULUM = {
         "task": "Find the day the level turns over, and prove it is a maximum",
         "question": "Find the day the level stops rising, and establish that it is a maximum rather than a minimum.",
         "answer": "Day 15, and it is a maximum — the second derivative is −0.06 at every day, so the curve is concave down everywhere and the single critical point can only be a top.",
-        "why": "Setting the derivative to zero finds where the level stands still. On its own that does not say whether it is a crest or a trough. A reservoir topping out on day 15 and one bottoming out on day 15 have the same first derivative there. The second derivative settles it with no further data. Because it is a constant here, it settles it on every day at once. A curve concave down over the whole fortnight has at most one turning point, so the day is unique as well as classified.\n",
+        "why": "Setting the derivative to zero finds where the level stands still. On its own that does not say whether it is a crest or a trough. A reservoir topping out on day 15 and 1 bottoming out on day 15 have the same first derivative there. The second derivative settles it with no further data. Because it is a constant here, it settles it on every day at once. A curve concave down over the whole fortnight has at most one turning point, so the day is unique as well as classified.\n",
         "derive": {
           "start": "h(t) = 214.6 + 0.9t − 0.03t²",
           "goal": "the day h stops rising, classified",
@@ -1021,7 +1021,7 @@ export const CURRICULUM = {
                 {
                   "text": "h'(t) = 214.6 + 0.9 − 0.06t",
                   "rule": "constant",
-                  "why": "The derivative of a constant is zero, so the 214.6 does not survive differentiation. Carried through it swamps everything else on the line."
+                  "why": "The derivative of a constant is 0, so the 214.6 does not survive differentiation. Carried through it swamps everything else on the line."
                 },
                 {
                   "text": "h'(t) = 0.9 − 0.06t",
@@ -1030,13 +1030,13 @@ export const CURRICULUM = {
                 {
                   "text": "h'(t) = 0.9 − 0.03t",
                   "rule": "power",
-                  "why": "The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates to −0.06t. Halving it doubles the day the level turns over, and every line after this one stays perfectly consistent with it.",
+                  "why": "The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates to −0.06t. Halving it doubles the day the level turns over, and every line after this 1 stays perfectly consistent with it.",
                   "survives": true
                 },
                 {
                   "text": "h'(t) = 0.9t − 0.06t",
                   "rule": "power",
-                  "why": "The term 0.9t differentiates to 0.9, with no t left. Keeping the t makes the derivative zero at t = 0 and nowhere else."
+                  "why": "The term 0.9t differentiates to 0.9, with no t left. Keeping the t makes the derivative 0 at t = 0 and nowhere else."
                 }
               ]
             },
@@ -1113,10 +1113,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "One number for six hours",
-      "scene": "Ferrand has Wednesday's six hours totalled at 1,582,200 cubic metres and a committee sheet with one line on it for the morning. He wants the steady flow that would have delivered the same water.",
+      "scene": "Ferrand has Wednesday's 6 hours totalled at 1,582,200 cubic metres and a committee sheet with 1 line on it for the morning. He wants the steady flow that would have delivered the same water.",
       "takeaway": "The average value of a rate is the accumulation divided by the length of the interval, not the average of the readings taken.",
       "place": "Storage & Level Board",
-      "story": "Ferrand has Wednesday's six hours totalled at 1,582,200 cubic metres and a committee sheet with one line on it for the morning. He wants the steady flow that would have delivered the same water.",
+      "story": "Ferrand has Wednesday's 6 hours totalled at 1,582,200 cubic metres and a committee sheet with 1 line on it for the morning. He wants the steady flow that would have delivered the same water.",
       "game": {
         "type": "BALLPARK",
         "title": "One number for six hours",
@@ -1124,7 +1124,7 @@ export const CURRICULUM = {
         "play": "Reduce the morning to one steady flow",
         "task": "Reduce the morning to one steady flow",
         "question": "Estimate the steady flow that would have delivered the same volume in the same six hours.",
-        "answer": "About 73 cubic metres a second, steady, for the same six hours.",
+        "answer": "About 73 cubic metres a second, steady, for the same 6 hours.",
         "why": "An average value is an integral divided by an interval, and the division is what turns a volume back into a flow. It is not the mean of the readings unless they happen to be evenly spaced in time, which on a gauge that reports on demand they often are not — that is the error the definition exists to prevent. What comes out is the flat line with the same area underneath it as the real hydrograph, which is exactly the object a committee sheet with one line on it is asking for.\n",
         "givens": [
           "1,582,200 m³ delivered across the morning",
@@ -1135,7 +1135,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the accumulation of a rate over an interval divided by that interval is a rate again",
-        "six hours is 21,600 seconds"
+        "6 hours is 21,600 seconds"
       ],
       "equations": [
         {
@@ -1166,7 +1166,7 @@ export const CURRICULUM = {
         "play": "Solve the drawdown equation",
         "task": "Solve the drawdown equation",
         "question": "Solve the drawdown equation for the level as a function of time.",
-        "answer": "h(t) = (√h₀ − kt/2)² — a parabola in time, reaching zero head at t = 2√h₀ ÷ k, which is a finite hour rather than an approach that never arrives.",
+        "answer": "h(t) = (√h₀ − kt/2)² — a parabola in time, reaching 0 head at t = 2√h₀ ÷ k, which is a finite hour rather than an approach that never arrives.",
         "why": "Separating the variables is the whole method. The equation ties a rate to the quantity itself, and dividing through by the square root puts every h on one side and every t on the other. Each side can then be integrated on its own. What comes out is not the exponential everybody expects from a draining tank. The square root makes it a parabola, and a parabola reaches zero. That decides an operational question rather than a mathematical one, because this outlet finishes at a stateable hour and a decaying exponential never would.\n",
         "derive": {
           "start": "dh/dt = −k·√h",
@@ -1213,7 +1213,7 @@ export const CURRICULUM = {
                 {
                   "text": "√h = −k·t + C",
                   "rule": "antiderivative",
-                  "why": "Raising −1/2 by one gives +1/2, and dividing by that new exponent multiplies by two. The missing factor of two halves every drawdown time this produces."
+                  "why": "Raising −1/2 by 1 gives +1/2, and dividing by that new exponent multiplies by 2. The missing factor of two halves every drawdown time this produces."
                 },
                 {
                   "text": "2·√h = −k·t + C",
@@ -1222,7 +1222,7 @@ export const CURRICULUM = {
                 {
                   "text": "(1/2)·√h = −k·t + C",
                   "rule": "antiderivative",
-                  "why": "Dividing by the new exponent of 1/2 means multiplying by two, not halving. The curve has exactly the right shape and every time it predicts is out by a factor of four.",
+                  "why": "Dividing by the new exponent of 1/2 means multiplying by 2, not halving. The curve has exactly the right shape and every time it predicts is out by a factor of four.",
                   "survives": true
                 },
                 {
@@ -1359,10 +1359,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "A volume out of a stack of areas",
-      "scene": "Rasmussen has the resurveyed surface areas at three levels two metres apart — 2.30, 2.45 and 2.60 square kilometres. Ferrand wants the volume held between the lowest and the highest of them.",
+      "scene": "Rasmussen has the resurveyed surface areas at 3 levels 2 metres apart — 2.30, 2.45 and 2.60 square kilometres. Ferrand wants the volume held between the lowest and the highest of them.",
       "takeaway": "A volume is an accumulation of areas up through the levels, so the area curve is the integrand and its errors are inherited whole.",
       "place": "Storage & Level Board",
-      "story": "Rasmussen has the resurveyed surface areas at three levels two metres apart — 2.30, 2.45 and 2.60 square kilometres. Ferrand wants the volume held between the lowest and the highest of them.",
+      "story": "Rasmussen has the resurveyed surface areas at 3 levels 2 metres apart — 2.30, 2.45 and 2.60 square kilometres. Ferrand wants the volume held between the lowest and the highest of them.",
       "game": {
         "type": "BALLPARK",
         "title": "A volume out of a stack of areas",
@@ -1371,7 +1371,7 @@ export const CURRICULUM = {
         "task": "Rebuild the volume from the corrected areas",
         "question": "Estimate the volume held between 210 and 214 metres on the resurveyed curve.",
         "answer": "About 9.8 million cubic metres between 210 and 214 metres.",
-        "why": "Volume is the integral of the surface area with respect to level, which is what a stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same arithmetic as stacking flows in time, with height in place of time, and it is why the resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and 2.92 for the same three levels and returns 11.0 million for this slice, which is eleven per cent of headroom the control room believed it had.\n",
+        "why": "Volume is the integral of the surface area with respect to level, which is what a stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same arithmetic as stacking flows in time, with height in place of time, and it is why the resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and 2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11 per cent of headroom the control room believed it had.\n",
         "givens": [
           "Areas 2.30, 2.45, 2.60 km² at 210, 212 and 214 m",
           "Two metres between surveyed levels"
@@ -1474,7 +1474,7 @@ export const CURRICULUM = {
                 {
                   "text": "Q^(−1)·dQ = −k·dt, giving Q^0 ÷ 0 = −k·t + C",
                   "rule": "power",
-                  "why": "The power rule fails at an exponent of −1, because raising it by one gives zero and the division is by nothing. That single exception is why the logarithm exists."
+                  "why": "The power rule fails at an exponent of −1, because raising it by 1 gives 0 and the division is by nothing. That single exception is why the logarithm exists."
                 },
                 {
                   "text": "dQ = −k·Q·dt, integrating to Q = −k·Q·t + C",
@@ -1758,22 +1758,22 @@ export const CURRICULUM = {
     },
     {
       "day": 10,
-      "title": "Fourteen days, one number",
-      "scene": "Ferrand has 47.2 million cubic metres through the site over fourteen days and one line on the annual return for it. He wants the steady flow that would have delivered the same water.",
+      "title": "14 days, 1 number",
+      "scene": "Ferrand has 47.2 million cubic metres through the site over 14 days and 1 line on the annual return for it. He wants the steady flow that would have delivered the same water.",
       "takeaway": "The same operation that reduced a morning to one flow reduces a fortnight to one, and neither is the mean of the readings.",
       "place": "Storage & Level Board",
-      "story": "Ferrand has 47.2 million cubic metres through the site over fourteen days and one line on the annual return for it. He wants the steady flow that would have delivered the same water.",
+      "story": "Ferrand has 47.2 million cubic metres through the site over 14 days and 1 line on the annual return for it. He wants the steady flow that would have delivered the same water.",
       "game": {
         "type": "BALLPARK",
-        "title": "Fourteen days, one number",
+        "title": "14 days, 1 number",
         "setup": "Storage & Level Board",
         "play": "Reduce the fortnight to one figure",
         "task": "Reduce the fortnight to one figure",
         "question": "Estimate the average inflow across the fortnight, in cubic metres a second.",
         "answer": "About 39 cubic metres a second, averaged across the fortnight.",
-        "why": "This is the day-eight arithmetic on a longer interval. Nothing about it changes with the scale. An average value is an accumulation over a length, whether that length is six hours or a fortnight. It is also the honest way to compare this flood with the record, because a peak compares two instants and an average compares two events. Forty is a wet fortnight here and not a remarkable one. That is the sentence the return needs, and the peak of 136 would never have supplied it.\n",
+        "why": "This is the day-eight arithmetic on a longer interval. Nothing about it changes with the scale. An average value is an accumulation over a length, whether that length is six hours or a fortnight. It is also the honest way to compare this flood with the record, because a peak compares two instants and an average compares two events. 40 is a wet fortnight here and not a remarkable 1. That is the sentence the return needs, and the peak of 136 would never have supplied it.\n",
         "givens": [
-          "47.2 million m³ through the site in fourteen days",
+          "47.2 million m³ through the site in 14 days",
           "The peak was 136 m³/s on the sixth day"
         ],
         "relationship": "Average value = accumulation ÷ length of interval, with the interval in the same units of time as the rate being reported.\n",
@@ -1781,7 +1781,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an average value is an accumulation divided by the length of its interval",
-        "fourteen days is 1,209,600 seconds"
+        "14 days is 1,209,600 seconds"
       ],
       "equations": [
         {
@@ -1861,7 +1861,7 @@ export const CURRICULUM = {
                 {
                   "text": "dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt",
                   "rule": "power",
-                  "why": "H^(1/2) at 2.0 m is the square root of two, about 1.41. Using 2.00 evaluates H rather than its square root."
+                  "why": "H^(1/2) at 2.0 m is the square root of 2, about 1.41. Using 2.00 evaluates H rather than its square root."
                 },
                 {
                   "text": "dQ/dt = 21.0 × 1.5 × 1.50 × dH/dt = 47.3·dH/dt",
@@ -1982,10 +1982,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The schedule as a formula",
-      "scene": "Wilkes has this afternoon's ramp written as R(t) = 120 + 60t cubic metres a second, with t in hours from two o'clock. It runs for four hours and Berg wants the volume it will deliver before it starts.",
+      "scene": "Wilkes has this afternoon's ramp written as R(t) = 120 + 60t cubic metres a second, with t in hours from 2 o'clock. It runs for four hours and Berg wants the volume it will deliver before it starts.",
       "takeaway": "The fundamental theorem evaluates an accumulation as the difference of an antiderivative at the two ends, so no sum is needed when a formula exists.",
       "place": "Gate Chamber",
-      "story": "Wilkes has this afternoon's ramp written as R(t) = 120 + 60t cubic metres a second, with t in hours from two o'clock. It runs for four hours and Berg wants the volume it will deliver before it starts.",
+      "story": "Wilkes has this afternoon's ramp written as R(t) = 120 + 60t cubic metres a second, with t in hours from 2 o'clock. It runs for four hours and Berg wants the volume it will deliver before it starts.",
       "game": {
         "type": "DERIVE",
         "title": "The schedule as a formula",
@@ -2023,7 +2023,7 @@ export const CURRICULUM = {
                 {
                   "text": "F(t) = 120 + 30t² + C",
                   "rule": "antiderivative",
-                  "why": "The constant term 120 antidifferentiates to 120t, not to 120. It looks like a tidy line and it drops four hours of base flow — about 1.7 million cubic metres — without changing anything else on the page.",
+                  "why": "The constant term 120 antidifferentiates to 120t, not to 120. It looks like a tidy line and it drops 4 hours of base flow — about 1.7 million cubic metres — without changing anything else on the page.",
                   "survives": true
                 },
                 {
@@ -2133,8 +2133,8 @@ export const CURRICULUM = {
         "play": "Follow the rate from the hills to the sill",
         "task": "Follow the rate from the hills to the sill",
         "question": "Put the transfers in the order the rate travels, then name the one that decides how much of it reaches the sill.",
-        "answer": "Runoff, inflow, storage, level, head, discharge — governed by storage into level, where dividing by 2.6 million square metres cuts the rate by six orders of magnitude.",
-        "why": "Every link on this path multiplies the rate by its own derivative, and the product is what arrives. The spillway link is the one everybody watches because its exponent makes it dramatic, but three-halves of a square root is a factor near forty and the storage-to-level link divides by a surface area of two and a half million. That single division is why a catchment can double its flow in a morning and the level move eight centimetres. It is also the link the resurvey is about to change, which is the reason it is worth naming now rather than in a week.\n",
+        "answer": "Runoff, inflow, storage, level, head, discharge — governed by storage into level, where dividing by 2.6 million square metres cuts the rate by 6 orders of magnitude.",
+        "why": "Every link on this path multiplies the rate by its own derivative, and the product is what arrives. The spillway link is the 1 everybody watches because its exponent makes it dramatic, but three-halves of a square root is a factor near 40 and the storage-to-level link divides by a surface area of 2 and a half million. That single division is why a catchment can double its flow in a morning and the level move eight centimetres. It is also the link the resurvey is about to change, which is the reason it is worth naming now rather than in a week.\n",
         "chain": {
           "links": [
             {
@@ -2276,11 +2276,11 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "d²Q/dH² = 15.75·H^(−1/2), which is never zero for H above zero",
+                  "text": "d²Q/dH² = 15.75·H^(−1/2), which is never 0 for H above 0",
                   "rule": "power"
                 },
                 {
-                  "text": "d²Q/dH² = 15.75·H^(1/2), which is never zero for H above zero",
+                  "text": "d²Q/dH² = 15.75·H^(1/2), which is never 0 for H above 0",
                   "rule": "power",
                   "why": "The power rule drops the exponent from 1/2 to −1/2. This line reaches the same conclusion by luck, and the luck runs out the moment the exponent is anything else — which is why the reason has to be right as well as the answer.",
                   "survives": true
@@ -2288,10 +2288,10 @@ export const CURRICULUM = {
                 {
                   "text": "d²Q/dH² = 31.5·H^(−1/2)",
                   "rule": "power",
-                  "why": "The exponent 1/2 comes down as a factor as well as dropping by one. Half the coefficient is missing."
+                  "why": "The exponent 1/2 comes down as a factor as well as dropping by 1. Half the coefficient is missing."
                 },
                 {
-                  "text": "d²Q/dH² is zero at H = 0, so there is a critical point in the range",
+                  "text": "d²Q/dH² is 0 at H = 0, so there is a critical point in the range",
                   "rule": "critical point",
                   "why": "H = 0 is outside this interval, which starts at half a metre. A critical point that lies outside the interval is not a candidate for a maximum on it."
                 }
@@ -2360,8 +2360,8 @@ export const CURRICULUM = {
         "play": "Decide which measurement is worth buying",
         "task": "Decide which measurement is worth buying",
         "question": "One calibration is affordable this week. Which of these is carrying the uncertainty in the discharge?",
-        "answer": "The coefficient. It sits at the first power and is known to fifteen per cent, which beats a head at the three-halves power known to four — so the gauged calibration is the slot worth spending, and the discharge is a range rather than a figure.",
-        "why": "A factor contributes its exponent multiplied by its own fractional width. The head carries the three-halves that the whole spillway is famous for, and it is gauged well enough that one and a half times four per cent is still small beside one times fifteen. Buying another head gauge therefore improves the term that was already good and barely moves the total. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable, and gives exactly the wrong answer here. The coefficient stays wide because nobody has ever calibrated this crest against a measured river.\n",
+        "answer": "The coefficient. It sits at the first power and is known to 15 per cent, which beats a head at the three-halves power known to 4 — so the gauged calibration is the slot worth spending, and the discharge is a range rather than a figure.",
+        "why": "A factor contributes its exponent multiplied by its own fractional width. The head carries the three-halves that the whole spillway is famous for, and it is gauged well enough that 1 and a half times 4 per cent is still small beside 1 times 15. Buying another head gauge therefore improves the term that was already good and barely moves the total. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable, and gives exactly the wrong answer here. The coefficient stays wide because nobody has ever calibrated this crest against a measured river.\n",
         "propagate": {
           "output": {
             "label": "Spillway discharge",
@@ -2463,10 +2463,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the gap between them added",
-      "scene": "Wilkes has six hours from eight until two where the inflow averaged 96 cubic metres a second and the release held at 62. He wants what the reservoir took on in that window.",
+      "scene": "Wilkes has 6 hours from 8 until 2 where the inflow averaged 96 cubic metres a second and the release held at 62. He wants what the reservoir took on in that window.",
       "takeaway": "The volume between two rate curves is the integral of their difference, which for two steady rates is a rectangle and nothing more.",
       "place": "Gate Chamber",
-      "story": "Wilkes has six hours from eight until two where the inflow averaged 96 cubic metres a second and the release held at 62. He wants what the reservoir took on in that window.",
+      "story": "Wilkes has 6 hours from 8 until 2 where the inflow averaged 96 cubic metres a second and the release held at 62. He wants what the reservoir took on in that window.",
       "game": {
         "type": "BALLPARK",
         "title": "What the gap between them added",
@@ -2474,8 +2474,8 @@ export const CURRICULUM = {
         "play": "Total the window where the inflow ran clear",
         "task": "Total the window where the inflow ran clear",
         "question": "Estimate the volume the reservoir gained between eight and two.",
-        "answer": "About 734,000 cubic metres gained between eight and two.",
-        "why": "Two curves and one integral: the storage gained is the area between them, which is the integral of the difference rather than the difference of two integrals worked separately — the same number, and much less arithmetic. On a window where both rates hold steady the integral collapses to a rectangle, and the only thing that can go wrong is integrating the inflow alone. That gives 2.07 million and describes a reservoir with no machines running and no gates open, which is not the one anybody is standing in.\n",
+        "answer": "About 734,000 cubic metres gained between 10.",
+        "why": "Two curves and one integral: the storage gained is the area between them, which is the integral of the difference rather than the difference of two integrals worked separately — the same number, and much less arithmetic. On a window where both rates hold steady the integral collapses to a rectangle, and the only thing that can go wrong is integrating the inflow alone. That gives 2.07 million and describes a reservoir with no machines running and no gates open, which is not the 1 anybody is standing in.\n",
         "givens": [
           "Inflow about 96 m³/s, release held at 62 m³/s",
           "The window ran six hours"
@@ -2485,7 +2485,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the storage gained over an interval is the integral of the difference of two rates",
-        "six hours is 21,600 seconds"
+        "6 hours is 21,600 seconds"
       ],
       "equations": [
         {
@@ -2626,7 +2626,7 @@ export const CURRICULUM = {
                 {
                   "text": "2U·(dU/dt) + 0.8·((dU/dt)·h + U·(dh/dt)) = 640",
                   "rule": "constant",
-                  "why": "640 is a constant, and the derivative of a constant is zero. Carrying it across unchanged makes the relation a different equation entirely."
+                  "why": "640 is a constant, and the derivative of a constant is 0. Carrying it across unchanged makes the relation a different equation entirely."
                 }
               ]
             },
@@ -2743,8 +2743,8 @@ export const CURRICULUM = {
         "play": "Find the extent that makes the moment largest",
         "task": "Find the extent that makes the moment largest",
         "question": "Estimate the uplift extent at which the overturning moment is greatest.",
-        "answer": "Four metres of uplift extent, for a moment of about 24 meganewton metres per metre.",
-        "why": "Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst case at eight metres, which is past the downstream toe and outside the wall entirely — an answer that is not merely wrong but physically impossible, and one nobody catches because the arithmetic is clean. The moment there is 24 against a true worst of 24 at four metres.\n",
+        "answer": "4 metres of uplift extent, for a moment of about 24 meganewton metres per metre.",
+        "why": "Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst case at 8 metres, which is past the downstream toe and outside the wall entirely — an answer that is not merely wrong but physically impossible, and 1 nobody catches because the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.\n",
         "givens": [
           "M(a) = 12a − 1.5a², in meganewton metres per metre of wall",
           "The base is 6.5 m from heel to toe"
@@ -2833,10 +2833,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Nothing over nothing",
-      "scene": "Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T four hours. The initial rate of arrival is that fraction divided by t, and at t = 0 both parts are zero.",
+      "scene": "Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T 4 hours. The initial rate of arrival is that fraction divided by t, and at t = 0 both parts are 0.",
       "takeaway": "A limit in the form zero over zero is not zero and not one; differentiating the top and the bottom separately is what gets a value out of it.",
       "place": "Seepage & Uplift Bay",
-      "story": "Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T four hours. The initial rate of arrival is that fraction divided by t, and at t = 0 both parts are zero.",
+      "story": "Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T 4 hours. The initial rate of arrival is that fraction divided by t, and at t = 0 both parts are 0.",
       "game": {
         "type": "DERIVE",
         "title": "Nothing over nothing",
@@ -2844,7 +2844,7 @@ export const CURRICULUM = {
         "play": "Evaluate a limit that comes out as zero over zero",
         "task": "Evaluate a limit that comes out as zero over zero",
         "question": "Evaluate the initial rate of arrival, and say what makes the method legitimate.",
-        "answer": "A quarter per hour. The limit is 1/T, so a four-hour reach begins taking a step release at twenty-five per cent an hour, however little has arrived at the first instant.",
+        "answer": "A quarter per hour. The limit is 1/T, so a four-hour reach begins taking a step release at 25 per cent an hour, however little has arrived at the first instant.",
         "why": "Zero over zero is a statement that substitution has failed, not a value. Differentiating the top and the bottom separately replaces both by the rates at which they are vanishing. The quotient settles on the ratio of those rates, which is why the answer depends on T at all. The result matters for the warning sheet. The arriving fraction is nearly nothing at the first instant. The rate at which it starts arriving is a definite quarter per hour that no reading at the start could ever show.\n",
         "derive": {
           "start": "the limit as t goes to 0 of (1 − e^(−t/T)) ÷ t",
@@ -2874,7 +2874,7 @@ export const CURRICULUM = {
                 {
                   "text": "the numerator goes to 1 and the denominator to 0, so the limit is infinite",
                   "rule": "substitution",
-                  "why": "e^(−t/T) goes to 1 at t = 0, so the numerator is 1 − 1 and goes to zero, not to one. The reading is a term out and produces a confident, wrong, infinite answer that nothing later contradicts.",
+                  "why": "e^(−t/T) goes to 1 at t = 0, so the numerator is 1 − 1 and goes to 0, not to 1. The reading is a term out and produces a confident, wrong, infinite answer that nothing later contradicts.",
                   "survives": true
                 },
                 {
@@ -2921,13 +2921,13 @@ export const CURRICULUM = {
                 {
                   "text": "T = 4 per hour",
                   "rule": "evaluation",
-                  "why": "The rate is the reciprocal of the time constant. Reported as four the arrival is sixteen times too fast, in units that read perfectly well on a warning sheet.",
+                  "why": "The rate is the reciprocal of the time constant. Reported as 4 the arrival is 16 times too fast, in units that read perfectly well on a warning sheet.",
                   "survives": true
                 },
                 {
-                  "text": "0, since the exponential still goes to zero at t = 0",
+                  "text": "0, since the exponential still goes to 0 at t = 0",
                   "rule": "evaluation",
-                  "why": "e^(−t/T) goes to one at t = 0, not to zero. It is e raised to nothing."
+                  "why": "e^(−t/T) goes to 1 at t = 0, not to 0. It is e raised to nothing."
                 }
               ]
             }
@@ -2955,7 +2955,7 @@ export const CURRICULUM = {
         "play": "Say which fit you would carry forward",
         "task": "Say which fit you would carry forward",
         "question": "Look at each field before choosing. Which of these fits would you carry into next season?",
-        "answer": "The one with the square term, at 0.26. The drift fit scores better and its residuals still change sign across the gallery, which means the drift parameter absorbed the curvature rather than removing it.",
+        "answer": "The 1 with the square term, at 0.26. The drift fit scores better and its residuals still change sign across the gallery, which means the drift parameter absorbed the curvature rather than removing it.",
         "why": "Two of these three leave residuals that are positive on one side of the wall and negative on the other. That is not scatter; it is a quantity the model does not contain, and adding a free parameter that soaks it up improves the summary number while leaving the cause exactly where it was. It will then bias every extrapolation in the same direction, quietly, because nothing about the fit looks wrong afterwards. One large residual is a bad gauge; six small ones in a pattern are a missing term.\n",
         "residual": {
           "fits": [
@@ -3099,7 +3099,7 @@ export const CURRICULUM = {
         "play": "Differentiate a product where both factors move",
         "task": "Differentiate a product where both factors move",
         "question": "Derive the rate of change of output, and evaluate it with the afternoon's numbers.",
-        "answer": "About 0.0044 kilowatts a second — roughly sixteen kilowatts an hour, entirely from the head, with the gates untouched.",
+        "answer": "About 0.0044 kilowatts a second — roughly 16 kilowatts an hour, entirely from the head, with the gates untouched.",
         "why": "A product of two changing quantities has two rates in it, and the product rule keeps them separate — one term with the flow moving and the head held, one the other way round. Today the first term is zero because nobody has touched a gate, which makes the whole rise a head effect: the machines are producing more because the reservoir is filling behind them. That is worth knowing before anybody credits the operators. Multiply the two derivatives together instead and the answer is not merely wrong, it is not power per unit time at all.\n",
         "derive": {
           "start": "P = 8.6·Q·H",
@@ -3150,7 +3150,7 @@ export const CURRICULUM = {
                 {
                   "text": "dP/dt = 8.6 × (0 × 61 + 46 × 0.000011) ≈ 0.0044 kW",
                   "rule": "constant",
-                  "why": "The arithmetic is right and the unit is not. A rate of change of power is kilowatts per second, and reported as kilowatts it reads as an output of four watts rather than a climb of sixteen kilowatts an hour.",
+                  "why": "The arithmetic is right and the unit is not. A rate of change of power is kilowatts per second, and reported as kilowatts it reads as an output of 4 watts rather than a climb of 16 kilowatts an hour.",
                   "survives": true
                 },
                 {
@@ -3253,12 +3253,12 @@ export const CURRICULUM = {
         "task": "Get one rate out of another through a fixed relation",
         "question": "Estimate how fast the machine output is rising, in kilowatts a day.",
         "answer": "About 123 kilowatts a day, entirely from the head.",
-        "why": "The output is 8.6·Q·H and the flow is not moving, so the first term of the product rule is zero and the entire rate is 8.6·Q·(dH/dt). What survives is a multiplication, and the reason to write the product rule down anyway is that today's zero is an accident of the gate settings: the moment anybody touches a gate the other term reappears and this number is wrong by more than it is right. It is also the rate that pays for the fortnight, which is why Halloran asks for it every morning.\n",
+        "why": "The output is 8.6·Q·H and the flow is not moving, so the first term of the product rule is 0 and the entire rate is 8.6·Q·(dH/dt). What survives is a multiplication, and the reason to write the product rule down anyway is that today's 0 is an accident of the gate settings: the moment anybody touches a gate the other term reappears and this number is wrong by more than it is right. It is also the rate that pays for the fortnight, which is why Halloran asks for it every morning.\n",
         "givens": [
           "Output P = 8.6·Q·H kilowatts",
           "Q steady at 46 m³/s, head rising at 0.31 m a day"
         ],
-        "relationship": "dP/dt = 8.6·((dQ/dt)·H + Q·(dH/dt)), and with dQ/dt zero the first term vanishes and only 8.6·Q·(dH/dt) is left.\n",
+        "relationship": "dP/dt = 8.6·((dQ/dt)·H + Q·(dH/dt)), and with dQ/dt 0 the first term vanishes and only 8.6·Q·(dH/dt) is left.\n",
         "calcKey": "POWER-2"
       },
       "assumes": [
@@ -3332,7 +3332,7 @@ export const CURRICULUM = {
         "task": "Find the flow that makes the most power",
         "question": "Move the flow and watch the output. Where should the machines be run tonight?",
         "answer": "About 58 cubic metres a second, for a little over 20 megawatts. Driving harder past that costs more head than the extra flow is worth, and at 90 the machines make less than half of it.",
-        "why": "Output is flow times head, and the head is itself falling with the square of the flow, so the product climbs, flattens and turns over. Differentiating 8.6Q(61 − 0.006Q²) gives 8.6(61 − 0.018Q²), which is zero near 58 — the same place the trace turns, found by calculus instead of by hunting. The shape is the lesson: near the top the curve is almost flat, so being a few cubic metres a second out costs almost nothing, while the same error low on the curve costs a great deal.\n",
+        "why": "Output is flow times head, and the head is itself falling with the square of the flow, so the product climbs, flattens and turns over. Differentiating 8.6Q(61 − 0.006Q²) gives 8.6(61 − 0.018Q²), which is 0 near 58 — the same place the trace turns, found by calculus instead of by hunting. The shape is the lesson: near the top the curve is almost flat, so being a few cubic metres a second out costs almost nothing, while the same error low on the curve costs a great deal.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -3475,10 +3475,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the tangent line promised",
-      "scene": "Anand is at 46 cubic metres a second through the machines and proposes 52. The slope of the output curve at 46 is 197 kilowatts for every extra cubic metre a second, and the tailrace traverse takes two hours of deck time.",
+      "scene": "Anand is at 46 cubic metres a second through the machines and proposes 52. The slope of the output curve at 46 is 197 kilowatts for every extra cubic metre a second, and the tailrace traverse takes 2 hours of deck time.",
       "takeaway": "A tangent-line prediction is only checked by measuring, and its error is the curvature it ignored.",
       "place": "Powerhouse",
-      "story": "Anand is at 46 cubic metres a second through the machines and proposes 52. The slope of the output curve at 46 is 197 kilowatts for every extra cubic metre a second, and the tailrace traverse takes two hours of deck time.",
+      "story": "Anand is at 46 cubic metres a second through the machines and proposes 52. The slope of the output curve at 46 is 197 kilowatts for every extra cubic metre a second, and the tailrace traverse takes 2 hours of deck time.",
       "game": {
         "type": "VERIFY",
         "title": "What the tangent line promised",
@@ -3486,7 +3486,7 @@ export const CURRICULUM = {
         "play": "Predict what the extra flow buys, then find out",
         "task": "Predict what the extra flow buys, then find out",
         "question": "Predict the gain from raising the flow, make the change, and report what it actually did.",
-        "answer": "About 919 kilowatts. The tangent line at 46 promises 1,182 — six times 197 — and the curve bends away from it, so the honest figure is a quarter lower than the prediction.",
+        "answer": "About 919 kilowatts. The tangent line at 46 promises 1,182 — 6 times 197 — and the curve bends away from it, so the honest figure is a quarter lower than the prediction.",
         "why": "A tangent line is the best straight-line description of a curve at one point. Over a small step it is excellent. Six cubic metres a second is not a small step here. The output curve is bending towards its own maximum, so every extra cubic metre buys less than the one before it. The straight line therefore runs above the truth for the whole interval. The error is not noise and does not average out. It is the second derivative, and it points the same way every time.\n",
         "verify": {
           "prediction": {
@@ -3557,7 +3557,7 @@ export const CURRICULUM = {
         "task": "Turn the constant into an hour",
         "question": "Estimate how long the recession takes to halve the flow.",
         "answer": "About 3.2 days until the flow has halved.",
-        "why": "Setting Q equal to half of Q₀ and taking logarithms cancels the starting flow entirely, so the halving time depends on the constant alone. That independence is the whole reason a recession is quoted as a constant — it says the same thing about a river at four hundred cubic metres a second and at forty, which no absolute rate of fall does. It also gives the shape of the wait: the next halving takes exactly as long as this one, so the machines wait three days for the first and three more for the second.\n",
+        "why": "Setting Q equal to half of Q₀ and taking logarithms cancels the starting flow entirely, so the halving time depends on the constant alone. That independence is the whole reason a recession is quoted as a constant — it says the same thing about a river at 400 cubic metres a second and at 40, which no absolute rate of fall does. It also gives the shape of the wait: the next halving takes exactly as long as this one, so the machines wait three days for the first and three more for the second.\n",
         "givens": [
           "Recession constant 0.22 a day",
           "The window opens once the flow is half of today's"
@@ -3567,7 +3567,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the recession solution can be rearranged for the time at a given fraction of the start",
-        "the natural logarithm of two is about 0.693"
+        "the natural logarithm of 2 is about 0.693"
       ],
       "equations": [
         {
@@ -3612,10 +3612,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The instant the gate moved",
-      "scene": "Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to two o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
+      "scene": "Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
       "takeaway": "A jump in a record is a place the calculus simply does not reach, however good the record is on both sides of it.",
       "place": "Downstream Warning Desk",
-      "story": "Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to two o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
+      "story": "Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
       "game": {
         "type": "CHOICE",
         "title": "The instant the gate moved",
@@ -3624,7 +3624,7 @@ export const CURRICULUM = {
         "task": "Say what the trace has no rate at",
         "question": "What is true of the discharge at two o'clock?",
         "answer": "The one-sided limits differ, so there is no rate of change at that instant",
-        "why": "Approaching two o'clock from the left, the discharge tends to sixty. From the right it tends to a hundred and forty-five. A derivative is the limit of a difference quotient taken across the instant. Here that quotient is a fixed jump divided by a shrinking interval, so it grows without bound. It never settles on a number. The trace has a good rate everywhere else, which is why asking for the rate of rise at two o'clock asks the record for something it does not hold.\n",
+        "why": "Approaching 2 o'clock from the left, the discharge tends to 60. From the right it tends to 145. A derivative is the limit of a difference quotient taken across the instant. Here that quotient is a fixed jump divided by a shrinking interval, so it grows without bound. It never settles on a number. The trace has a good rate everywhere else, which is why asking for the rate of rise at two o'clock asks the record for something it does not hold.\n",
         "rebuttals": [
           "A faster gauge shrinks the interval, and the quotient grows without bound rather than settling on a number.",
           "The discharge has one value at two o'clock, whichever side the log records it on. A jump is not an absence.",
@@ -3721,14 +3721,14 @@ export const CURRICULUM = {
         "setup": "Downstream Warning Desk",
         "play": "Close the reservoir's ledger for the night",
         "task": "Close the reservoir's ledger for the night",
-        "question": "Read what you need and report the total volume that arrived over the twelve hours.",
+        "question": "Read what you need and report the total volume that arrived over the 12 hours.",
         "answer": "About 2.16 million cubic metres arrived — the 1.06 that stayed, plus the 0.95 the machines passed and the 0.15 that seeped, both of which were leaving throughout.",
-        "why": "The storage change is the integral of inflow minus outflow, so recovering the inflow means integrating every outflow term back in. Two of them are easy to miss for the same reason — nothing on the panel moves when they run. The machines and the seepage are steady rates that were on for the whole twelve hours, and a steady rate integrates to rate times time without any further work. Report the 1.06 and the catchment's yield is understated by half, which is the number every forecast for the rest of the week is scaled from.\n",
+        "why": "The storage change is the integral of inflow minus outflow, so recovering the inflow means integrating every outflow term back in. Two of them are easy to miss for the same reason — nothing on the panel moves when they run. The machines and the seepage are steady rates that were on for the whole 12 hours, and a steady rate integrates to rate times time without any further work. Report the 1.06 and the catchment's yield is understated by half, which is the number every forecast for the rest of the week is scaled from.\n",
         "balance": {
           "total": {
             "amount": 2160000,
             "unit": "m³",
-            "label": "Volume that arrived over twelve hours"
+            "label": "Volume that arrived over 12 hours"
           },
           "streams": [
             {
@@ -3741,7 +3741,7 @@ export const CURRICULUM = {
               "id": "machines",
               "label": "Passed through the machines",
               "value": 950000,
-              "display": "22 m³/s for twelve hours = 950,000 m³",
+              "display": "22 m³/s for 12 hours = 950,000 m³",
               "note": "both units ran all night",
               "hidden": true
             },
@@ -3749,7 +3749,7 @@ export const CURRICULUM = {
               "id": "seepage",
               "label": "Seepage collected at the weirs",
               "value": 150000,
-              "display": "3.5 m³/s for twelve hours = 150,000 m³",
+              "display": "3.5 m³/s for 12 hours = 150,000 m³",
               "note": "measured at the sump, runs continuously",
               "hidden": true
             },
@@ -3813,10 +3813,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The release she would have made",
-      "scene": "Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running six hours. She wants the flat release with the same total, to set beside the one she asked for on the first day.",
+      "scene": "Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running 6 hours. She wants the flat release with the same total, to set beside the one she asked for on the first day.",
       "takeaway": "Reducing a schedule to one steady rate is integrating it and dividing, and the two ends only average correctly because the schedule is a straight line.",
       "place": "Downstream Warning Desk",
-      "story": "Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running six hours. She wants the flat release with the same total, to set beside the one she asked for on the first day.",
+      "story": "Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running 6 hours. She wants the flat release with the same total, to set beside the one she asked for on the first day.",
       "game": {
         "type": "DERIVE",
         "title": "The release she would have made",
@@ -3824,7 +3824,7 @@ export const CURRICULUM = {
         "play": "Derive the steady release with the same total",
         "task": "Derive the steady release with the same total",
         "question": "Derive the steady flow that delivers the same six-hour total as the ramp.",
-        "answer": "72 cubic metres a second, steady, for six hours — the same total the ramp delivers, and the mean of its ends only because the ramp is a straight line.",
+        "answer": "72 cubic metres a second, steady, for 6 hours — the same total the ramp delivers, and the mean of its ends only because the ramp is a straight line.",
         "why": "Two steps and one trap. Integrating gives the total in the mixed units the formula was written in, and dividing by the interval turns it back into a rate; that is the definition of an average value and it works for any schedule at all. What does not work for any schedule is averaging the two ends, which happens to agree here because a straight line spends as long above its midline as below. Carry that habit onto tomorrow's curved release and the published figure is wrong in the direction the curvature points.\n",
         "derive": {
           "start": "Q(t) = 48 + 8t",
@@ -3855,7 +3855,7 @@ export const CURRICULUM = {
                 {
                   "text": "[48 + 4t²] from 0 to 6 = 144",
                   "rule": "antiderivative",
-                  "why": "The constant 48 antidifferentiates to 48t. Left as 48 it takes the same value at both ends and cancels, so six hours of base flow vanish from the total."
+                  "why": "The constant 48 antidifferentiates to 48t. Left as 48 it takes the same value at both ends and cancels, so 6 hours of base flow vanish from the total."
                 },
                 {
                   "text": "Q(6) − Q(0) = 96 − 48 = 48",
@@ -3886,7 +3886,7 @@ export const CURRICULUM = {
               ]
             },
             {
-              "ask": "Say why 72 is also the mean of the two end readings.",
+              "ask": "Say why 72 is also the mean of the 2 end readings.",
               "answer": 2,
               "candidates": [
                 {
@@ -3896,7 +3896,7 @@ export const CURRICULUM = {
                   "survives": true
                 },
                 {
-                  "text": "because 48 and 96 are both whole multiples of six",
+                  "text": "because 48 and 96 are both whole multiples of 6",
                   "rule": "substitution",
                   "why": "A coincidence of these particular numbers rather than a property of the schedule. Changing the 48 to a 50 leaves the endpoint result exactly as true."
                 },
@@ -3959,8 +3959,8 @@ export const CURRICULUM = {
         "play": "Say when the outlet will have finished",
         "task": "Say when the outlet will have finished",
         "question": "Estimate how long the outlet takes to bring the head from 25 metres to 16.",
-        "answer": "About twenty hours to bring the head from 25 metres to 16.",
-        "why": "The solution rearranges to t = 2(√h₀ − √h) ÷ k, which is the whole practical value of having solved it: a curve becomes an hour somebody can act on. The square roots are also where the surprise is — the first nine metres of drawdown take twenty hours, and the next nine take twenty-six, because the head driving the outlet is falling the whole time. A warning built on the first nine metres and carried forward linearly arrives early, and being early is not free on a river with people beside it.\n",
+        "answer": "About 20 hours to bring the head from 25 metres to 16.",
+        "why": "The solution rearranges to t = 2(√h₀ − √h) ÷ k, which is the whole practical value of having solved it: a curve becomes an hour somebody can act on. The square roots are also where the surprise is — the first 9 metres of drawdown take 20 hours, and the next 9 take 26, because the head driving the outlet is falling the whole time. A warning built on the first nine metres and carried forward linearly arrives early, and being early is not free on a river with people beside it.\n",
         "givens": [
           "Head starts at 25 m, outlet shuts at 16 m",
           "Drain constant k ≈ 0.10 an hour"
@@ -4056,8 +4056,8 @@ export const CURRICULUM = {
         "play": "Write tonight's thresholds on the rate",
         "task": "Write tonight's thresholds on the rate",
         "question": "Set each stage against the rate of rise, release the board, and stand by what it does.",
-        "answer": "Every stage has to sit low enough to fire while its own lead is still in hand — the farm clearance below about 0.35 m a day, since only the first two updates arrive with the five days it needs.",
-        "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set high never fires and the stage simply does not happen. A threshold set at a number that sounds serious fires on Thursday with seventy-two hours left, which is a correct rule for an action that needed a hundred and twenty — so the rule is satisfied and the clearance is already impossible. Writing the board on the rate rather than on the level is what makes any of it reachable, because the rate crosses its threshold two days before the level crosses its own.\n",
+        "answer": "Every stage has to sit low enough to fire while its own lead is still in hand — the farm clearance below about 0.35 m a day, since only the first 2 updates arrive with the 5 days it needs.",
+        "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set high never fires and the stage simply does not happen. A threshold set at a number that sounds serious fires on Thursday with 72 hours left, which is a correct rule for an action that needed 120 — so the rule is satisfied and the clearance is already impossible. Writing the board on the rate rather than on the level is what makes any of it reachable, because the rate crosses its threshold two days before the level crosses its own.\n",
         "trigger": {
           "scale": {
             "label": "Rate the level is rising",
@@ -4157,7 +4157,7 @@ export const CURRICULUM = {
         "task": "Spend what the authority will release on what the fortnight showed was missing.",
         "question": "Spend what the authority will release on what the fortnight showed was missing.",
         "answer": "",
-        "why": "The two worth funding are the two that everything else is computed through. The area curve is the integrand of every volume and the divisor of every level forecast, so an eleven per cent error in it is an eleven per cent error in all of them at once, and eleven transects is a provisional number the room is already relying on. The coefficient is the widest term in the discharge by a long way, and improving the head gauge instead would refine the term that was already good. More gauges would improve a forecast that was not what failed, and the uplift re-fit is real work that can wait for a quiet quarter.\n",
+        "why": "The two worth funding are the two that everything else is computed through. The area curve is the integrand of every volume and the divisor of every level forecast, so an 11 per cent error in it is an 11 per cent error in all of them at once, and 11 transects is a provisional number the room is already relying on. The coefficient is the widest term in the discharge by a long way, and improving the head gauge instead would refine the term that was already good. More gauges would improve a forecast that was not what failed, and the uplift re-fit is real work that can wait for a quiet quarter.\n",
         "proposals": [
           {
             "label": "A",
@@ -4180,7 +4180,7 @@ export const CURRICULUM = {
           "A": 50,
           "B": 30
         },
-        "research": "The provisional correction to the stage-storage curve is eleven per cent at working levels\nand rests on eleven transects. A full resurvey is four weeks of boat time. Every volume and\nevery level forecast on the site divides by that curve; the uplift and the seepage do not.\nThe recession constant was fitted on a week and scored on four days it had never seen, and\nheld. The spillway coefficient is still a handbook figure carrying fifteen per cent, which\nis the widest term in the discharge and the one nobody has ever measured here. The arrival\ntimes were checked against what the reach actually saw, for the first time in nine years.\n"
+        "research": "The provisional correction to the stage-storage curve is 11 per cent at working levels\nand rests on 11 transects. A full resurvey is four weeks of boat time. Every volume and\nevery level forecast on the site divides by that curve; the uplift and the seepage do not.\nThe recession constant was fitted on a week and scored on four days it had never seen, and\nheld. The spillway coefficient is still a handbook figure carrying 15 per cent, which\nis the widest term in the discharge and the 1 nobody has ever measured here. The arrival\ntimes were checked against what the reach actually saw, for the first time in nine years.\n"
       },
       "assumes": [
         "a measurement that every other quantity is divided by is worth more than a measurement of one quantity"
@@ -4194,10 +4194,10 @@ export const BALLPARK_CALCS = {
     "prompt": "The gauge read 41 cubic metres a second at 06:00 and 48 at 08:00. An average rate of change is the change in the quantity divided by the change in the time.\n",
     "question": "Choose the later reading, the earlier reading and the length of the interval.",
     "labels": [
-      "48  (the reading at eight, cubic metres a second)",
-      "41  (the reading at six, cubic metres a second)",
-      "2  (hours between the two readings)",
-      "89  (the two readings added together)",
+      "48  (the reading at 8, cubic metres a second)",
+      "41  (the reading at 6, cubic metres a second)",
+      "2  (hours between the 2 readings)",
+      "89  (the 2 readings added together)",
       "8  (the hour the later reading was taken)"
     ],
     "values": [
@@ -4219,7 +4219,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.4,
     "units": "cubic metres a second per hour",
     "solution": "(48 − 41) ÷ 2 = 3.5 cubic metres a second per hour.",
-    "explanation": "About 3.5 cubic metres a second every hour. Carried forward six hours that is another twenty-one on the gauge, which is the whole of this morning's argument — and it is a straight-line carry, which the afternoon will show to be optimistic.\n"
+    "explanation": "About 3.5 cubic metres a second every hour. Carried forward 6 hours that is another 21 on the gauge, which is the whole of this morning's argument — and it is a straight-line carry, which the afternoon will show to be optimistic.\n"
   },
   "STORE-2": {
     "prompt": "Net inflow is 28 cubic metres a second and the surface area at this level is 2.6 square kilometres, which is 2.6 million square metres. A day is 86,400 seconds.\n",
@@ -4257,10 +4257,10 @@ export const BALLPARK_CALCS = {
     "question": "Choose the half-ends term, the interior sum and the interval in seconds.",
     "labels": [
       "72  (half of the first and last readings added)",
-      "221  (the three interior readings added)",
+      "221  (the 3 interior readings added)",
       "5400  (seconds in each interval)",
       "144  (the first and last readings added, not halved)",
-      "365  (all five readings added)"
+      "365  (all 5 readings added)"
     ],
     "values": [
       72,
@@ -4281,10 +4281,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 150000,
     "units": "cubic metres",
     "solution": "(72 + 221) × 5,400 ≈ 1.58 million cubic metres.",
-    "explanation": "About 1.58 million cubic metres in six hours. A left-endpoint sum over the same readings gives 1.40 million and a right-endpoint sum 1.66 — the trapezoid result is the average of those two, and the true area is close to it because the rise is nearly straight.\n"
+    "explanation": "About 1.58 million cubic metres in 6 hours. A left-endpoint sum over the same readings gives 1.40 million and a right-endpoint sum 1.66 — the trapezoid result is the average of those 2, and the true area is close to it because the rise is nearly straight.\n"
   },
   "POWER-2": {
-    "prompt": "Output is 8.6·Q·H kilowatts. The flow Q is steady at 46 cubic metres a second, so its rate is zero, and the head is rising at 0.31 metres a day.\n",
+    "prompt": "Output is 8.6·Q·H kilowatts. The flow Q is steady at 46 cubic metres a second, so its rate is 0, and the head is rising at 0.31 metres a day.\n",
     "question": "Choose the constant, the flow and the rate the head is rising at.",
     "labels": [
       "8.6  (the constant in front of the product)",
@@ -4315,7 +4315,7 @@ export const BALLPARK_CALCS = {
     "explanation": "About 123 kilowatts a day, from the head alone. Multiplying by the head instead of by its rate gives 24,000 and is the total output, not its rate — a mistake that reads as plausible because the units are never written down.\n"
   },
   "STRUCT-3": {
-    "prompt": "The moment is M(a) = 12a − 1.5a². Differentiating gives 12 − 3a, since the exponent 2 comes down as a factor onto the 1.5. The maximum is where that derivative is zero.\n",
+    "prompt": "The moment is M(a) = 12a − 1.5a². Differentiating gives 12 − 3a, since the exponent 2 comes down as a factor onto the 1.5. The maximum is where that derivative is 0.\n",
     "question": "Choose the constant term of the derivative and the coefficient of a in it.",
     "labels": [
       "12  (the constant term of the derivative)",
@@ -4341,17 +4341,17 @@ export const BALLPARK_CALCS = {
     "target": 4,
     "tolerance": 0.4,
     "units": "metres of uplift extent",
-    "solution": "12 ÷ 3 = 4 metres, where 12 − 3a first reaches zero.",
-    "explanation": "Four metres, giving a moment of 24 meganewton metres per metre of wall. Dividing by 1.5 instead of 3 puts it at eight metres, which is beyond the base of the dam — the answer leaves the structure, and the only thing that catches it is the factor the power rule brought down.\n"
+    "solution": "12 ÷ 3 = 4 metres, where 12 − 3a first reaches 0.",
+    "explanation": "4 metres, giving a moment of 24 meganewton metres per metre of wall. Dividing by 1.5 instead of 3 puts it at 8 metres, which is beyond the base of the dam — the answer leaves the structure, and the only thing that catches it is the factor the power rule brought down.\n"
   },
   "STORE-5": {
-    "prompt": "The morning delivered 1,582,200 cubic metres. The average value of a rate is its accumulation divided by the length of the interval, and six hours is 21,600 seconds.\n",
+    "prompt": "The morning delivered 1,582,200 cubic metres. The average value of a rate is its accumulation divided by the length of the interval, and 6 hours is 21,600 seconds.\n",
     "question": "Choose the volume and the length of the interval in seconds.",
     "labels": [
       "1582200  (volume that arrived, cubic metres)",
-      "21600  (seconds in the six hours)",
+      "21600  (seconds in the 6 hours)",
       "6  (hours in the interval)",
-      "5400  (seconds in one reading interval)",
+      "5400  (seconds in 1 reading interval)",
       "293  (the trapezoid sum of the readings)"
     ],
     "values": [
@@ -4372,7 +4372,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 4,
     "units": "cubic metres a second",
     "solution": "1,582,200 ÷ 21,600 ≈ 73 cubic metres a second.",
-    "explanation": "About 73 cubic metres a second. Dividing by the six rather than by the 21,600 seconds gives 263,700, which is not a flow at all — and it is the mistake that survives longest, because the number is large and a flood morning is expected to produce a large number.\n"
+    "explanation": "About 73 cubic metres a second. Dividing by the 6 rather than by the 21,600 seconds gives 263,700, which is not a flow at all — and it is the mistake that survives longest, because the number is large and a flood morning is expected to produce a large number.\n"
   },
   "SAFE-6": {
     "prompt": "The solution rearranges to t = 2 × (√h₀ − √h) ÷ k. The starting head is 25 metres, the target is 16, and the drain constant is 0.10 an hour.\n",
@@ -4382,7 +4382,7 @@ export const BALLPARK_CALCS = {
       "4  (the square root of the target head)",
       "0.10  (the drain constant, per hour)",
       "25  (the starting head itself, metres)",
-      "9  (the difference between the two heads, metres)"
+      "9  (the difference between the 2 heads, metres)"
     ],
     "values": [
       5,
@@ -4403,16 +4403,16 @@ export const BALLPARK_CALCS = {
     "tolerance": 2,
     "units": "hours",
     "solution": "2 × (5 − 4) ÷ 0.10 = 20 hours.",
-    "explanation": "Twenty hours. Using the heads themselves rather than their roots gives 180 hours, which is a week and a half and would be believed by anybody who had not solved the equation — the roots are the whole content of the solution.\n"
+    "explanation": "20 hours. Using the heads themselves rather than their roots gives 180 hours, which is a week and a half and would be believed by anybody who had not solved the equation — the roots are the whole content of the solution.\n"
   },
   "STORE-7": {
-    "prompt": "Resurveyed areas 2.30, 2.45 and 2.60 square kilometres, at levels two metres apart. Half of each end plus the interior gives 1.15 + 2.45 + 1.30 = 4.90 square kilometres. A square kilometre is a million square metres.\n",
+    "prompt": "Resurveyed areas 2.30, 2.45 and 2.60 square kilometres, at levels 2 metres apart. Half of each end plus the interior gives 1.15 + 2.45 + 1.30 = 4.90 square kilometres. A square kilometre is 1 million square metres.\n",
     "question": "Choose the trapezoid sum of the areas, the spacing and the conversion.",
     "labels": [
       "4.90  (half of each end plus the interior area, square kilometres)",
       "2  (metres between surveyed levels)",
       "1000000  (square metres in a square kilometre)",
-      "7.35  (all three areas added without halving the ends)",
+      "7.35  (all 3 areas added without halving the ends)",
       "4  (metres of level covered in total)"
     ],
     "values": [
@@ -4434,10 +4434,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 700000,
     "units": "cubic metres",
     "solution": "4.90 × 2 × 1,000,000 = 9.8 million cubic metres.",
-    "explanation": "About 9.8 million cubic metres in that four-metre slice. Adding all three areas without halving the ends gives 14.7 million, which counts the top and bottom surfaces as though each had two metres of water above and below it.\n"
+    "explanation": "About 9.8 million cubic metres in that four-metre slice. Adding all 3 areas without halving the ends gives 14.7 million, which counts the top and bottom surfaces as though each had 2 metres of water above and below it.\n"
   },
   "INFLOW-6": {
-    "prompt": "The rating slope at this head is 44.5 cubic metres a second per metre. The head has risen six centimetres, which is 0.06 metres.\n",
+    "prompt": "The rating slope at this head is 44.5 cubic metres a second per metre. The head has risen 6 centimetres, which is 0.06 metres.\n",
     "question": "Choose the slope and the change in head.",
     "labels": [
       "44.5  (rating slope, cubic metres a second per metre)",
@@ -4464,17 +4464,17 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "cubic metres a second",
     "solution": "44.5 × 0.06 ≈ 2.7 cubic metres a second.",
-    "explanation": "About 2.7 cubic metres a second more over the spillway. Using the six rather than the 0.06 gives 267, which is most of a flood and would be believed for the length of one phone call, because nothing about the arithmetic looks wrong.\n"
+    "explanation": "About 2.7 cubic metres a second more over the spillway. Using the 6 rather than the 0.06 gives 267, which is most of a flood and would be believed for the length of 1 phone call, because nothing about the arithmetic looks wrong.\n"
   },
   "POWER-5": {
-    "prompt": "Setting Q to half of Q₀ in Q₀·e^(−kt) gives t = ln(2) ÷ k. The natural logarithm of two is about 0.693 and the recession constant is 0.22 a day.\n",
+    "prompt": "Setting Q to half of Q₀ in Q₀·e^(−kt) gives t = ln(2) ÷ k. The natural logarithm of 2 is about 0.693 and the recession constant is 0.22 a day.\n",
     "question": "Choose the logarithm of two and the recession constant.",
     "labels": [
-      "0.693  (the natural logarithm of two)",
+      "0.693  (the natural logarithm of 2)",
       "0.22  (the recession constant, per day)",
       "2  (the factor the flow is falling by)",
       "0.5  (the fraction of the flow that is left)",
-      "4.55  (one divided by the recession constant)"
+      "4.55  (1 divided by the recession constant)"
     ],
     "values": [
       0.693,
@@ -4494,16 +4494,16 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.35,
     "units": "days",
     "solution": "0.693 ÷ 0.22 ≈ 3.2 days.",
-    "explanation": "About three days and four hours. Using the 2 instead of its logarithm gives nine days and a window booked for the wrong week — and the mistake is invisible, because nine days is also a perfectly plausible answer for a river.\n"
+    "explanation": "About three days and four hours. Using the 2 instead of its logarithm gives 9 days and a window booked for the wrong week — and the mistake is invisible, because 9 days is also a perfectly plausible answer for a river.\n"
   },
   "GATES-6": {
-    "prompt": "The inflow averaged 96 cubic metres a second and the release held at 62, for six hours. Six hours is 21,600 seconds.\n",
+    "prompt": "The inflow averaged 96 cubic metres a second and the release held at 62, for 6 hours. 6 hours is 21,600 seconds.\n",
     "question": "Choose the inflow, the release and the seconds in the window.",
     "labels": [
       "96  (average inflow, cubic metres a second)",
       "62  (release held, cubic metres a second)",
-      "21600  (seconds in the six hours)",
-      "158  (the two rates added together)",
+      "21600  (seconds in the 6 hours)",
+      "158  (the 2 rates added together)",
       "6  (hours in the window)"
     ],
     "values": [
@@ -4525,16 +4525,16 @@ export const BALLPARK_CALCS = {
     "tolerance": 70000,
     "units": "cubic metres",
     "solution": "(96 − 62) × 21,600 ≈ 734,000 cubic metres.",
-    "explanation": "About 734,000 cubic metres, which at this level is nine centimetres on the gauge. Integrating the inflow alone gives 2.07 million and three times the level rise, which is the number that gets quoted whenever the release is forgotten.\n"
+    "explanation": "About 734,000 cubic metres, which at this level is 9 centimetres on the gauge. Integrating the inflow alone gives 2.07 million and 3 times the level rise, which is the number that gets quoted whenever the release is forgotten.\n"
   },
   "STORE-10": {
-    "prompt": "The fortnight delivered 47.2 million cubic metres. An average value is the accumulation divided by the length of the interval, and fourteen days is 1,209,600 seconds.\n",
+    "prompt": "The fortnight delivered 47.2 million cubic metres. An average value is the accumulation divided by the length of the interval, and 14 days is 1,209,600 seconds.\n",
     "question": "Choose the volume and the length of the fortnight in seconds.",
     "labels": [
       "47200000  (volume through the site, cubic metres)",
-      "1209600  (seconds in fourteen days)",
+      "1209600  (seconds in 14 days)",
       "14  (days in the fortnight)",
-      "86400  (seconds in one day)",
+      "86400  (seconds in 1 day)",
       "136  (the peak inflow, cubic metres a second)"
     ],
     "values": [
@@ -4555,7 +4555,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 3,
     "units": "cubic metres a second",
     "solution": "47,200,000 ÷ 1,209,600 ≈ 39 cubic metres a second.",
-    "explanation": "About 39 cubic metres a second, against a peak of 136. Dividing by the fourteen rather than by the seconds gives 3.4 million, which is not a flow — and it is the version that reaches an annual return, because nobody checks the units on a number that large.\n"
+    "explanation": "About 39 cubic metres a second, against a peak of 136. Dividing by the 14 rather than by the seconds gives 3.4 million, which is not a flow — and it is the version that reaches an annual return, because nobody checks the units on a number that large.\n"
   }
 };
 

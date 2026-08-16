@@ -73,10 +73,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Balance is bought in blocks",
-      "scene": "Diouf pulls site 12's kit records. The site has entered ninety-four participants, forty-nine to one arm and forty-five to the other, in a sequence that never runs more than four the same way.",
+      "scene": "Diouf pulls site 12's kit records. The site has entered 94 participants, 49 to 1 arm and 45 to the other, in a sequence that never runs more than 4 the same way.",
       "takeaway": "Chance alone is unreliable in small numbers, which is why the sequence is constrained.",
       "place": "Kit Warehouse & Cold Room",
-      "story": "Diouf pulls site 12's kit records. The site has entered ninety-four participants, forty-nine to one arm and forty-five to the other, in a sequence that never runs more than four the same way.",
+      "story": "Diouf pulls site 12's kit records. The site has entered 94 participants, 49 to 1 arm and 45 to the other, in a sequence that never runs more than 4 the same way.",
       "game": {
         "type": "CHOICE",
         "title": "Balance is bought in blocks",
@@ -85,7 +85,7 @@ export const CURRICULUM = {
         "task": "Check how the assignments have landed at site 12",
         "question": "Why is the sequence built so that no run of the same arm goes past four?",
         "answer": "It keeps the arms close in size at every site",
-        "why": "Pure chance is fine over two thousand people and unreliable over ninety. A site that closes at nineteen participants could easily have thirteen on one arm and six on the other, and any difference between sites then partly becomes a difference between arms. Working in small blocks forces the counts to catch up every few entries, so the arms are balanced within each site at every point. The cost is predictability, which is why the block length varies and why nobody at the site is told what it is.\n",
+        "why": "Pure chance is fine over 2000 people and unreliable over 90. A site that closes at 19 participants could easily have 13 on 1 arm and 6 on the other, and any difference between sites then partly becomes a difference between arms. Working in small blocks forces the counts to catch up every few entries, so the arms are balanced within each site at every point. The cost is predictability, which is why the block length varies and why nobody at the site is told what it is.\n",
         "rebuttals": [
           "Equal totals across the whole trial follow from balance at each site rather than being what blocking is for.",
           "Blocking makes the sequence a little more guessable, not less; varying the block length is the fix.",
@@ -106,10 +106,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Kit that cannot be vouched for",
-      "scene": "Site 19 has already dispensed eleven boxes from the warm fridge to nine participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.",
+      "scene": "Site 19 has already dispensed 11 boxes from the warm fridge to 9 participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.",
       "takeaway": "A storage failure damages one arm's material and leaves the other untouched.",
       "place": "Kit Warehouse & Cold Room",
-      "story": "Site 19 has already dispensed eleven boxes from the warm fridge to nine participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.",
+      "story": "Site 19 has already dispensed 11 boxes from the warm fridge to 9 participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.",
       "game": {
         "type": "CHOICE",
         "title": "Kit that cannot be vouched for",
@@ -117,8 +117,8 @@ export const CURRICULUM = {
         "play": "Choose what the warm-storage excursion does to the comparison.",
         "task": "Choose what the warm-storage excursion does to the comparison.",
         "question": "What is the most important effect of the site 19 excursion on the trial comparison?",
-        "answer": "The excursion can weaken active drug without weakening the comparator. That makes the error one-sided, even though eleven boxes in a four-thousand-box trial are unlikely to move the overall estimate much.",
-        "why": "Identical boxes can hide different contents. Heat can damage active drug, while the comparator has no active material to lose. The excursion can therefore pull treated participants toward the control result. That is different from an error that affects both arms equally. Eleven boxes are unlikely to change the whole trial, but the scale of the problem is a separate question from its direction. Recording the event lets later reviewers distinguish a small one-sided fault from a repeated one.",
+        "answer": "The excursion can weaken active drug without weakening the comparator. That makes the error one-sided, even though 11 boxes in a four-thousand-box trial are unlikely to move the overall estimate much.",
+        "why": "Identical boxes can hide different contents. Heat can damage active drug, while the comparator has no active material to lose. The excursion can therefore pull treated participants toward the control result. That is different from an error that affects both arms equally. 11 boxes are unlikely to change the whole trial, but the scale of the problem is a separate question from its direction. Recording the event lets later reviewers distinguish a small one-sided fault from a repeated one.",
         "choices": [
           {
             "label": "It can weaken active drug without weakening the comparator",
@@ -133,7 +133,7 @@ export const CURRICULUM = {
             "mechanism": "Removing a site after the fact would rebalance what the excursion disturbed."
           },
           {
-            "label": "It can be ignored because only eleven boxes were involved",
+            "label": "It can be ignored because only 11 boxes were involved",
             "mechanism": "A fraction that small could not move an estimate either way."
           }
         ],
@@ -146,10 +146,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What to do about a blind that leaks",
-      "scene": "Six hundred participants are still in follow-up and the flush has not stopped happening. Diouf has been asked whether there is anything the pharmacy can do about it at this stage.",
+      "scene": "600 participants are still in follow-up and the flush has not stopped happening. Diouf has been asked whether there is anything the pharmacy can do about it at this stage.",
       "takeaway": "When a treatment cannot be hidden, protect the measurement instead of pretending the blind holds.",
       "place": "Kit Warehouse & Cold Room",
-      "story": "Six hundred participants are still in follow-up and the flush has not stopped happening. Diouf has been asked whether there is anything the pharmacy can do about it at this stage.",
+      "story": "600 participants are still in follow-up and the flush has not stopped happening. Diouf has been asked whether there is anything the pharmacy can do about it at this stage.",
       "game": {
         "type": "CHOICE",
         "title": "What to do about a blind that leaks",
@@ -158,7 +158,7 @@ export const CURRICULUM = {
         "task": "Decide what to do about the blind for everybody still enrolling",
         "question": "What is the best available fix for the remaining follow-up?",
         "answer": "Scoring by someone who never sees the early visits",
-        "why": "The blind has already failed for anybody who saw the first fortnight, and nothing recovers it for them. What can still be protected is the route from belief into the number: separate the assessor from the treating team, and the score is written by somebody with nothing to infer from. Matching the comparator's appearance is the right design and it is four years too late to introduce here. Leaving it in the notes matters — the notes are the source record — and a limitation paragraph fixes nothing while six hundred people are still being scored.\n",
+        "why": "The blind has already failed for anybody who saw the first fortnight, and nothing recovers it for them. What can still be protected is the route from belief into the number: separate the assessor from the treating team, and the score is written by somebody with nothing to infer from. Matching the comparator's appearance is the right design and it is four years too late to introduce here. Leaving it in the notes matters — the notes are the source record — and a limitation paragraph fixes nothing while 600 people are still being scored.\n",
         "rebuttals": [
           "Changing the comparator mid-trial creates two different control arms and cannot be applied backwards.",
           "The flush is a clinical finding; leaving it out of the notes damages the record and hides nothing from the treating doctor.",
@@ -181,19 +181,19 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "One outcome, named in advance",
-      "scene": "Kwame Ansah has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the four CLARION-3 is actually about.",
+      "scene": "Kwame Ansah has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
       "takeaway": "The primary endpoint is the one question the trial was built to answer; the rest are collected, not promised.",
       "place": "Adjudication Room",
-      "story": "Kwame Ansah has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the four CLARION-3 is actually about.",
+      "story": "Kwame Ansah has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
       "game": {
         "type": "CHOICE",
         "title": "One outcome, named in advance",
         "setup": "Adjudication Room",
         "play": "Separate what the trial counts from what it also collects",
         "task": "Separate what the trial counts from what it also collects",
-        "question": "Why does CLARION-3 name one of its outcomes as primary before it starts?",
+        "question": "Why does CLARION-3 name 1 of its outcomes as primary before it starts?",
         "answer": "It fixes which comparison the error budget covers",
-        "why": "A trial accepts a small chance of calling a difference real when there is none. That budget was set for one comparison. Collect twelve outcomes and read whichever comes out best, and the chance of an impressive-looking result rises with every one, because ordinary variation gets twelve opportunities instead of one. Naming the endpoint in advance is what stops the trial choosing its own question after seeing the answers. The others are still collected, still reported, and carry no such protection.\n",
+        "why": "A trial accepts a small chance of calling a difference real when there is none. That budget was set for one comparison. Collect 12 outcomes and read whichever comes out best, and the chance of an impressive-looking result rises with every 1, because ordinary variation gets 12 opportunities instead of 1. Naming the endpoint in advance is what stops the trial choosing its own question after seeing the answers. The others are still collected, still reported, and carry no such protection.\n",
         "rebuttals": [
           "Sites take every trial measurement to protocol; care is not rationed by which one is primary.",
           "Importance to participants is why an endpoint is chosen, not what naming it in advance does.",
@@ -214,10 +214,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A number can be precise and still be the wrong outcome",
-      "scene": "Kwame Ansah has four CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.",
+      "scene": "Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.",
       "takeaway": "Before trusting a number, ask both how it was made and whether it measures the outcome people actually care about.",
       "place": "Adjudication Room",
-      "story": "Kwame Ansah has four CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.",
+      "story": "Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.",
       "game": {
         "type": "PROTOCOL",
         "title": "A number can be precise and still be the wrong outcome",
@@ -258,16 +258,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Make the three-point offset move",
-      "scene": "Kwame Ansah has matched visit records from site 12 and three comparison sites. The symptom score sits about three points higher at site 12. A re-scoring console can change one feature of the setup for the same records.",
+      "scene": "Kwame Ansah has matched visit records from site 12 and 3 comparison sites. The symptom score sits about 3 points higher at site 12. A re-scoring console can change one feature of the setup for the same records.",
       "takeaway": "A suspected cause becomes persuasive when changing only that factor moves the reading and reversing it brings the effect back.",
       "place": "Adjudication Room",
-      "story": "Kwame Ansah has matched visit records from site 12 and three comparison sites. The symptom score sits about three points higher at site 12. A re-scoring console can change one feature of the setup for the same records.",
+      "story": "Kwame Ansah has matched visit records from site 12 and 3 comparison sites. The symptom score sits about 3 points higher at site 12. A re-scoring console can change one feature of the setup for the same records.",
       "game": {
         "type": "CONTROL",
         "title": "Make the three-point offset move",
         "setup": "Adjudication Room",
-        "play": "Change one feature of the re-scoring setup at a time and find which change removes site 12's offset.",
-        "task": "Change one feature of the re-scoring setup at a time and find which change removes site 12's offset.",
+        "play": "Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.",
+        "task": "Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.",
         "question": "Which single change makes the offset disappear, and does putting it back restore the offset?",
         "answer": "Changing the reader removes the offset: it falls from about 3.0 points to 0.2, a 2.8-point shift. Restoring the site reader brings it back to about 3.1, while the other changes stay inside the noise threshold.",
         "why": "A site-wide offset can come from the patients, the timing of visits or the person applying the scale. The hard endpoint already argues against a healthier site 12 population. The control test goes further. It keeps the same records and changes one candidate cause at a time. Only the reader change moves the score by far more than the background noise. When the original reader is restored, the offset returns. That reversal is much stronger evidence than a correlation between site and score.",
@@ -384,7 +384,7 @@ export const CURRICULUM = {
         "task": "Choose the explanation that fits the guessing survey and the visible flush.",
         "question": "What best explains investigators guessing the treatment arm correctly 71 per cent of the time?",
         "answer": "The visible early flush is the best explanation. It gives investigators information about assignment before they later write the symptom score. The protocol may still say blinded while the measurement process is not.",
-        "why": "Seventy-one per cent correct across 1,180 guesses is far from the 50 per cent expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.",
+        "why": "71 per cent correct across 1,180 guesses is far from the 50 per cent expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.",
         "choices": [
           {
             "label": "The visible early flush is revealing assignment",
@@ -399,7 +399,7 @@ export const CURRICULUM = {
             "mechanism": "Accurate guessing would then be a consequence of the treatment working."
           },
           {
-            "label": "Seventy-one per cent is a plausible chance fluctuation in 1,180 guesses",
+            "label": "71 per cent is a plausible chance fluctuation in 1,180 guesses",
             "mechanism": "Across 1,180 guesses, ordinary variation would put the figure near 50."
           }
         ],
@@ -412,10 +412,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Reading the same files twice",
-      "scene": "The committee has re-read four hundred files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.",
+      "scene": "The committee has re-read 400 files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.",
       "takeaway": "Consistency between two readings comes from the rule, not from memory.",
       "place": "Adjudication Room",
-      "story": "The committee has re-read four hundred files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.",
+      "story": "The committee has re-read 400 files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.",
       "game": {
         "type": "CHOICE",
         "title": "Reading the same files twice",
@@ -445,10 +445,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Nothing left in the tray",
-      "scene": "Ansah has nineteen files still under adjudication and three days. Two of the nineteen are from participants recruited in the first year and have been waiting on one missing discharge summary each.",
+      "scene": "Ansah has 19 files still under adjudication and 3 days. 2 of the 19 are from participants recruited in the first year and have been waiting on 1 missing discharge summary each.",
       "takeaway": "An unadjudicated event is invisible to the analysis, whatever the notes say.",
       "place": "Adjudication Room",
-      "story": "Ansah has nineteen files still under adjudication and three days. Two of the nineteen are from participants recruited in the first year and have been waiting on one missing discharge summary each.",
+      "story": "Ansah has 19 files still under adjudication and 3 days. 2 of the 19 are from participants recruited in the first year and have been waiting on 1 missing discharge summary each.",
       "game": {
         "type": "CHOICE",
         "title": "Nothing left in the tray",
@@ -457,7 +457,7 @@ export const CURRICULUM = {
         "task": "Decide what the committee still owes before the lock",
         "question": "Why must the committee clear its tray before the file is locked?",
         "answer": "Events without a ruling are absent from the analysis",
-        "why": "Adjudication is not paperwork after the fact; it is the step that turns something that happened into a countable event. Nineteen files sitting in a tray are nineteen events the analysis will behave as though nobody had. That is not neutral: files wait longest where the evidence is thinnest, and the thin files are not evenly spread between arms. Rulings made after the lock go into the next version, which means the interim was read on a trial that was quietly missing part of itself.\n",
+        "why": "Adjudication is not paperwork after the fact; it is the step that turns something that happened into a countable event. 19 files sitting in a tray are 19 events the analysis will behave as though nobody had. That is not neutral: files wait longest where the evidence is thinnest, and the thin files are not evenly spread between arms. Rulings made after the lock go into the next version, which means the interim was read on a trial that was quietly missing part of itself.\n",
         "rebuttals": [
           "Later rulings are entered normally; they simply arrive after this analysis has been run.",
           "The committee rules on events and never sees or determines the arm.",
@@ -490,7 +490,7 @@ export const CURRICULUM = {
         "task": "Check what the over-seventies analysis actually measured",
         "question": "What does the over-seventies result rest on?",
         "answer": "The outcome the unblinding was shown to reach",
-        "why": "Two weaknesses compound here. The finding is one of fourteen subgroup looks, so chance already has many opportunities to produce something interesting. It is also measured on the symptom score, which the guessing survey showed can inherit treatment knowledge. Older participants attend more often, creating more scored visits where a small bias can enter. The adjudicated event in the same subgroup shows nothing unusual. That contrast matters: the subgroup signal is strongest exactly where the measurement process is least protected.",
+        "why": "Two weaknesses compound here. The finding is 1 of 14 subgroup looks, so chance already has many opportunities to produce something interesting. It is also measured on the symptom score, which the guessing survey showed can inherit treatment knowledge. Older participants attend more often, creating more scored visits where a small bias can enter. The adjudicated event in the same subgroup shows nothing unusual. That contrast matters: the subgroup signal is strongest exactly where the measurement process is least protected.",
         "rebuttals": [
           "The adjudicated endpoint shows nothing unusual in this slice, which is what makes the contrast informative.",
           "No separate scale exists for older participants; the same instrument is used throughout.",
@@ -547,13 +547,13 @@ export const CURRICULUM = {
         "why": "An interim estimate is evidence, but it is not the final word. The point estimate says where the observed difference sits, and the interval shows the range still compatible with the data. More events can move both. Saying there is no effect until the target event count is reached throws away information already collected. Claiming the effect is specific to older participants imports a fragile subgroup result. Claiming the trial should have stopped ignores the stopping boundary the board actually used.",
         "rebuttals": [
           "Interim data already contain information; the final event count determines precision and the planned stopping rule, not whether the current estimate exists.",
-          "That subgroup was one of fourteen and was strongest on the outcome most exposed to the blinding failure.",
+          "That subgroup was 1 of 14 and was strongest on the outcome most exposed to the blinding failure.",
           "Statistical evidence against no effect is not identical to crossing the prespecified early-stopping boundary."
         ],
         "choices": [
           "The adjudicated endpoint currently differs by about four points, with uncertainty and further follow-up still ahead",
           "The primary endpoint cannot support any effect statement until all 380 planned events have occurred",
-          "The four-point effect is established most clearly in participants over seventy because that subgroup crossed its own line",
+          "The four-point effect is established most clearly in participants over 70 because that subgroup crossed its own line",
           "The four-point effect is already strong enough to justify stopping because the interval excludes no effect"
         ],
         "correctChoice": "The adjudicated endpoint currently differs by about four points, with uncertainty and further follow-up still ahead"
@@ -667,10 +667,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The clock that is not the analysis clock",
-      "scene": "The second admission arrived eighteen minutes ago. One patient is still on the ward, and the two sites are four hundred kilometres apart. Vogt is reachable this afternoon. The next board meeting is nineteen days away.",
+      "scene": "The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.",
       "takeaway": "A safety report does not wait for the analysis it might belong to.",
       "place": "Monitoring Board Room",
-      "story": "The second admission arrived eighteen minutes ago. One patient is still on the ward, and the two sites are four hundred kilometres apart. Vogt is reachable this afternoon. The next board meeting is nineteen days away.",
+      "story": "The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.",
       "game": {
         "type": "TRIAGE",
         "title": "The clock that is not the analysis clock",
@@ -679,7 +679,7 @@ export const CURRICULUM = {
         "task": "Decide what moves now, before the next scheduled board meeting can help.",
         "question": "What should happen to these two reports today?",
         "answer": "Both go to the board unblinded now, and recruitment continues",
-        "why": "Safety reporting and endpoint analysis run on different clocks. A serious unexpected event may matter to treatment tomorrow, so it cannot wait nineteen days for a board meeting. The site reports what happened now, with enough detail to judge urgency. Whether the event later counts toward a trial endpoint is a separate process. The same event can therefore travel down two paths at once: immediate safety reporting and later blinded adjudication. Waiting for one path to finish before starting the other loses time the safety system was built to protect.",
+        "why": "Safety reporting and endpoint analysis run on different clocks. A serious unexpected event may matter to treatment tomorrow, so it cannot wait 19 days for a board meeting. The site reports what happened now, with enough detail to judge urgency. Whether the event later counts toward a trial endpoint is a separate process. The same event can therefore travel down two paths at once: immediate safety reporting and later blinded adjudication. Waiting for one path to finish before starting the other loses time the safety system was built to protect.",
         "rebuttals": [
           "Holding a safety signal so it arrives with the efficacy result is a scheduling decision, and people are still being infused.",
           "Suspending recruitment is a decision that needs the arms, and nobody blinded can make it.",
@@ -733,10 +733,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Telling the board what it does not yet know",
-      "scene": "Vogt reads the interim pack in eleven days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.",
+      "scene": "Vogt reads the interim pack in 11 days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.",
       "takeaway": "A board cannot weigh a result whose weakness it has not been shown.",
       "place": "Monitoring Board Room",
-      "story": "Vogt reads the interim pack in eleven days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.",
+      "story": "Vogt reads the interim pack in 11 days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.",
       "game": {
         "type": "CHOICE",
         "title": "Telling the board what it does not yet know",
@@ -778,7 +778,7 @@ export const CURRICULUM = {
         "task": "Assemble the safety update the regulator has asked for",
         "question": "What must Friday's update contain to be worth reading?",
         "answer": "The update needs the four cases, the number of people exposed, and enough timing and clinical detail to understand the pattern. A case count without its denominator is not a rate.",
-        "why": "Four cases do not say how common the problem is. Four cases among forty exposed people mean something very different from four among twelve hundred. The regulator needs both the numerator and denominator, plus enough clinical detail to recognise a pattern. Causality opinions can be included, but they do not replace the counts. Efficacy results belong to the board's closed review. A recommendation about continuing also comes later, after the people responsible for that decision have the same safety evidence.",
+        "why": "Four cases do not say how common the problem is. 4 cases among 40 exposed people mean something very different from 4 among 1200. The regulator needs both the numerator and denominator, plus enough clinical detail to recognise a pattern. Causality opinions can be included, but they do not replace the counts. Efficacy results belong to the board's closed review. A recommendation about continuing also comes later, after the people responsible for that decision have the same safety evidence.",
         "rebuttals": [
           "A causality view can accompany the report, but without the exposed population the reader cannot interpret frequency.",
           "The interim efficacy result belongs to the board's protected review and is not needed to make the safety update interpretable.",
@@ -810,20 +810,20 @@ export const CURRICULUM = {
         "play": "Write what the board is told about the subgroup",
         "task": "Write what the board is told about the subgroup",
         "question": "How should the over-seventies table be presented to the board?",
-        "answer": "Beside all fourteen subgroups, on the same page",
-        "why": "A single striking slice on its own page invites the reader to treat it as the finding. The same slice as the eleventh row of fourteen invites them to count, which is the right reaction. Presenting all of them costs nothing and removes the choice of what to emphasise from whoever assembles the pack. Leaving it out is worse than either: the board is the body entitled to see everything, and a pack that filters what looks unlikely has started making the board's decision for it.\n",
+        "answer": "Beside all 14 subgroups, on the same page",
+        "why": "A single striking slice on its own page invites the reader to treat it as the finding. The same slice as the eleventh row of 14 invites them to count, which is the right reaction. Presenting all of them costs nothing and removes the choice of what to emphasise from whoever assembles the pack. Leaving it out is worse than either: the board is the body entitled to see everything, and a pack that filters what looks unlikely has started making the board's decision for it.\n",
         "rebuttals": [
           "A biological argument beside one slice makes it look chosen for its plausibility rather than found among many.",
           "Withholding a table decides for the board what it is allowed to weigh.",
           "Ordering the pack by how strong something looks is the emphasis the board is meant to supply."
         ],
         "choices": [
-          "Beside all fourteen subgroups, on the same page",
+          "Beside all 14 subgroups, on the same page",
           "On its own, with the biological argument for it",
           "Left out, since it is unlikely to be real",
           "First, because it is the strongest signal in the pack"
         ],
-        "correctChoice": "Beside all fourteen subgroups, on the same page"
+        "correctChoice": "Beside all 14 subgroups, on the same page"
       },
       "assumes": [
         "the board sees the trial's subgroup tables in closed session"
@@ -853,10 +853,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Three things the board can say",
-      "scene": "Vogt’s board meets behind a closed door in forty minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.",
+      "scene": "Vogt’s board meets behind a closed door in 40 minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.",
       "takeaway": "Each way of ending a trial buys something and gives something up.",
       "place": "Monitoring Board Room",
-      "story": "Vogt’s board meets behind a closed door in forty minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.",
+      "story": "Vogt’s board meets behind a closed door in 40 minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.",
       "game": {
         "type": "PROTOCOL",
         "title": "Three things the board can say",
@@ -946,7 +946,7 @@ export const CURRICULUM = {
         "task": "Work out what the trial is waiting for",
         "question": "Estimate how long CLARION-3 has to follow its participants to reach the events it needs.",
         "answer": "About two years of follow-up.",
-        "why": "A time-to-event trial learns from events, not from people. Two thousand participants who stay well carry almost no information about which arm is better; the comparison rests on the ones something happened to. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. How long that takes is not a decision anybody makes — it is the required events divided by the rate they arrive at, and that rate belongs to the participants rather than to the trial. A healthier-than-expected group is bad news for the schedule for exactly this reason, and it is why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
+        "why": "A time-to-event trial learns from events, not from people. 2000 participants who stay well carry almost no information about which arm is better; the comparison rests on the ones something happened to. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. How long that takes is not a decision anybody makes — it is the required events divided by the rate they arrive at, and that rate belongs to the participants rather than to the trial. A healthier-than-expected group is bad news for the schedule for exactly this reason, and it is why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
         "givens": [
           "The design requires 380 primary events",
           "About 8 events per 100 participants per year, both arms together"
@@ -1049,7 +1049,7 @@ export const CURRICULUM = {
         "play": "Work out how far through the trial really is",
         "task": "Work out how far through the trial really is",
         "question": "Estimate the fraction of CLARION-3's information that is in hand today.",
-        "answer": "About 0.65 — roughly two thirds of the information.",
+        "answer": "About 0.65 — roughly 2 thirds of the information.",
         "why": "Calendar time and information are different quantities, and only one of them decides what an interim can say. A trial three quarters of the way through its planned years may hold half its events, because the people recruited late have been followed for months rather than years and because a healthier group produces events more slowly. The boundary at each interim is set by the information fraction, not by the date, so a flattening event curve moves the meeting without moving the calendar. It is also why finishing takes longer than anyone forecasts.\n",
         "givens": [
           "The design requires 380 adjudicated events",
@@ -1189,10 +1189,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Which measurements share the leak",
-      "scene": "Feldman has four CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.",
+      "scene": "Feldman has 4 CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.",
       "takeaway": "Agreement counts as independent evidence only when the measurements do not share the same route for bias to enter.",
       "place": "Statistics & Analysis",
-      "story": "Feldman has four CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.",
+      "story": "Feldman has 4 CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.",
       "game": {
         "type": "TRACE",
         "title": "Which measurements share the leak",
@@ -1294,7 +1294,7 @@ export const CURRICULUM = {
         "play": "Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.",
         "task": "Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.",
         "question": "Estimate the NNT, then estimate the standard error of the 18.9 per cent control-arm event rate.",
-        "answer": "About 24 people treated for one event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.",
+        "answer": "About 24 people treated for 1 event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.",
         "why": "The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9 per cent rate has an SE near 1.1 percentage points. A 95 per cent margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.",
         "givens": [
           "Control arm event rate 18.9 per cent",
@@ -1304,7 +1304,7 @@ export const CURRICULUM = {
         "calcKey": "STAT-6"
       },
       "assumes": [
-        "the 2,400 participants are allocated about equally between two arms",
+        "the 2,400 participants are allocated about equally between 2 arms",
         "a proportion estimated from a sample has sampling error"
       ],
       "equations": [
@@ -1393,10 +1393,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "The subgroup that crossed",
-      "scene": "Participants over seventy show a difference that clears the line on its own. Feldman asks which of fourteen prespecified subgroups this is, and whether anybody has looked at the other thirteen yet.",
+      "scene": "Participants over 70 show a difference that clears the line on its own. Feldman asks which of 14 prespecified subgroups this is, and whether anybody has looked at the other 13 yet.",
       "takeaway": "A subgroup result is one of many results, and it has to be judged as one of many.",
       "place": "Statistics & Analysis",
-      "story": "Participants over seventy show a difference that clears the line on its own. Feldman asks which of fourteen prespecified subgroups this is, and whether anybody has looked at the other thirteen yet.",
+      "story": "Participants over 70 show a difference that clears the line on its own. Feldman asks which of 14 prespecified subgroups this is, and whether anybody has looked at the other 13 yet.",
       "game": {
         "type": "CHOICE",
         "title": "The subgroup that crossed",
@@ -1405,7 +1405,7 @@ export const CURRICULUM = {
         "task": "Say what a subgroup crossing its line is worth",
         "question": "What is the first thing to establish about the over-seventies result?",
         "answer": "How many subgroups were examined",
-        "why": "Every subgroup is another test. Test enough of them and one will look impressive whatever the drug does. Fourteen slices at the usual threshold give better than even odds that at least one clears the line by luck. So the count comes first. It decides what the result means, before anybody argues about mechanism. Group size matters. So does the direction of the other slices, and so does the biology. All three are read differently once you know whether this was the only question asked, or the fourteenth.\n",
+        "why": "Every subgroup is another test. Test enough of them and one will look impressive whatever the drug does. 14 slices at the usual threshold give better than even odds that at least 1 clears the line by luck. So the count comes first. It decides what the result means, before anybody argues about mechanism. Group size matters. So does the direction of the other slices, and so does the biology. All three are read differently once you know whether this was the only question asked, or the fourteenth.\n",
         "rebuttals": [
           "Plausibility can be constructed for almost any subgroup after the fact, which is why it is not first.",
           "Consistency across slices is genuine evidence, and it means little until the number of looks is known.",
@@ -1414,7 +1414,7 @@ export const CURRICULUM = {
         "choices": [
           "How many subgroups were examined",
           "Whether the biology makes sense in older participants",
-          "Whether the other thirteen subgroups point the same way",
+          "Whether the other 13 subgroups point the same way",
           "How large the over-seventy group is"
         ],
         "correctChoice": "How many subgroups were examined"
@@ -1466,24 +1466,24 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "How often something clears the line by luck",
-      "scene": "Fourteen prespecified subgroups, each tested at the usual five per cent. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
+      "scene": "14 prespecified subgroups, each tested at the usual 5 per cent. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
       "takeaway": "The chance of at least one false positive rises fast with the number of tests.",
       "place": "Statistics & Analysis",
-      "story": "Fourteen prespecified subgroups, each tested at the usual five per cent. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
+      "story": "14 prespecified subgroups, each tested at the usual 5 per cent. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
       "game": {
         "type": "BALLPARK",
         "title": "How often something clears the line by luck",
         "setup": "Statistics & Analysis",
-        "play": "Put a number on fourteen looks",
-        "task": "Put a number on fourteen looks",
-        "question": "Estimate the chance that at least one of fourteen subgroups clears the line by luck alone.",
+        "play": "Put a number on 14 looks",
+        "task": "Put a number on 14 looks",
+        "question": "Estimate the chance that at least 1 of 14 subgroups clears the line by luck alone.",
         "answer": "About 51 per cent — near enough a coin toss.",
-        "why": "Each test carries its own small chance of being wrong, and the chances do not stay small when they are stacked. With independent tests the probability that none misfires is 0.95 multiplied by itself once per test, so fourteen tests leave barely half the outcomes clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated, but that a room looking in fourteen places will usually find something in one of them. Real subgroups overlap and correlate, which softens the number without changing the lesson.\n",
+        "why": "Each test carries its own small chance of being wrong, and the chances do not stay small when they are stacked. With independent tests the probability that none misfires is 0.95 multiplied by itself once per test, so 14 tests leave barely half the outcomes clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated, but that a room looking in 14 places will usually find something in 1 of them. Real subgroups overlap and correlate, which softens the number without changing the lesson.\n",
         "givens": [
-          "Fourteen subgroups were prespecified",
+          "14 subgroups were prespecified",
           "Each is tested at the five per cent level"
         ],
-        "relationship": "Chance of at least one false positive = 1 − (1 − α)^m, with α the level of each test and m the number of tests.\n",
+        "relationship": "Chance of at least 1 false positive = 1 − (1 − α)^m, with α the level of each test and m the number of tests.\n",
         "calcKey": "STAT-8"
       },
       "assumes": [
@@ -1536,7 +1536,7 @@ export const CURRICULUM = {
         "choices": [
           "Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant",
           "Given the current data, the probability that the treatment truly has a benefit is 78 per cent",
-          "Seventy-eight per cent of the information needed for the final analysis has already been collected",
+          "78 per cent of the information needed for the final analysis has already been collected",
           "The current interim result has a 78 per cent chance of crossing today's stopping boundary"
         ],
         "correctChoice": "Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant"
@@ -1650,7 +1650,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "A site entered four people who did not qualify",
-          "A site took the twelve-week bloods a week late, at thirteen weeks",
+          "A site took the twelve-week bloods a week late, at 13 weeks",
           "A site filed its visit forms a fortnight late",
           "A site used a different brand of infusion pump"
         ],
@@ -1732,10 +1732,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a short screening log says",
-      "scene": "Thirty-one screening logs on one page. Most sites screen four and enter one. Site 12 screens eleven and enters nine, and its consent rate is the highest in the trial.",
+      "scene": "31 screening logs on 1 page. Most sites screen four and enter one. Site 12 screens 11 and enters 9, and its consent rate is the highest in the trial.",
       "takeaway": "Recruitment figures describe a funnel, and an empty log hides the top of it.",
       "place": "Monitors' Room",
-      "story": "Thirty-one screening logs on one page. Most sites screen four and enter one. Site 12 screens eleven and enters nine, and its consent rate is the highest in the trial.",
+      "story": "31 screening logs on 1 page. Most sites screen four and enter one. Site 12 screens 11 and enters 9, and its consent rate is the highest in the trial.",
       "game": {
         "type": "CHOICE",
         "title": "What a short screening log says",
@@ -1744,7 +1744,7 @@ export const CURRICULUM = {
         "task": "Choose the explanation that fits the whole screening log, not just the high entry rate.",
         "question": "Which explanation best fits site 12's screening log?",
         "answer": "Site 12 appears to be logging people only after an informal pre-screen. That makes the visible funnel look unusually efficient because many people who were considered never appear at its top.",
-        "why": "The high entry rate is not the strongest clue. The nearly empty reasons column is. A site that truly screened eleven people and entered nine should still record why the other two were not entered. Across a year, it should also show many people who failed before consent. If those people never reach the log, the trial cannot describe who was considered and passed over. The result is a selected group whose recruitment funnel cannot be reconstructed.",
+        "why": "The high entry rate is not the strongest clue. The nearly empty reasons column is. A site that truly screened 11 people and entered 9 should still record why the other 2 were not entered. Across a year, it should also show many people who failed before consent. If those people never reach the log, the trial cannot describe who was considered and passed over. The result is a selected group whose recruitment funnel cannot be reconstructed.",
         "choices": [
           {
             "label": "The site is screening after it has already decided",
@@ -1804,20 +1804,20 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Forty hours before the lock",
-      "scene": "Lucia Marchetti has a fortnight, thirty-one sites and forty monitoring hours she can still deploy. Four recoverable gaps compete for that time. Fourteen people who withdrew consent are locked out of the plan and cannot be contacted again.",
+      "title": "40 hours before the lock",
+      "scene": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "takeaway": "A monitoring plan is a set of questions it can answer and questions it deliberately leaves unanswered.",
       "place": "Monitors' Room",
-      "story": "Lucia Marchetti has a fortnight, thirty-one sites and forty monitoring hours she can still deploy. Four recoverable gaps compete for that time. Fourteen people who withdrew consent are locked out of the plan and cannot be contacted again.",
+      "story": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "game": {
         "type": "ALLOCATE",
-        "title": "Forty hours before the lock",
+        "title": "40 hours before the lock",
         "setup": "Monitors' Room",
         "play": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
         "task": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
         "question": "Which monitoring jobs buy the answers the interim analysis actually needs?",
-        "answer": "Fund the 48 outcome-dependent losses and recover the seven paper forms. Those two jobs cost 34 of 40 hours and protect the questions the interim must answer; neutral losses and already-complete records can wait.",
-        "why": "The dangerous gaps are not simply the largest ones. Forty-eight participants disappeared after worsening, so their missingness is tied to the outcome itself. That can bend the comparison if the losses differ by arm. Seven outcomes already exist on paper and are cheap to restore. People who moved are missing for a more neutral reason, so tracing them mainly improves precision. Rechecking complete records buys less. The allocation should protect validity first, then spend any remaining effort on precision.",
+        "answer": "Fund the 48 outcome-dependent losses and recover the 7 paper forms. Those 2 jobs cost 34 of 40 hours and protect the questions the interim must answer; neutral losses and already-complete records can wait.",
+        "why": "The dangerous gaps are not simply the largest ones. 48 participants disappeared after worsening, so their missingness is tied to the outcome itself. That can bend the comparison if the losses differ by arm. Seven outcomes already exist on paper and are cheap to restore. People who moved are missing for a more neutral reason, so tracing them mainly improves precision. Rechecking complete records buys less. The allocation should protect validity first, then spend any remaining effort on precision.",
         "allocate": {
           "pool": {
             "amount": 40,
@@ -1827,7 +1827,7 @@ export const CURRICULUM = {
           "items": [
             {
               "id": "withdrawn14",
-              "label": "Fourteen people who withdrew consent",
+              "label": "14 people who withdrew consent",
               "cost": 0,
               "protected": true
             },
@@ -1925,7 +1925,7 @@ export const CURRICULUM = {
         "task": "Decide what the nine participants are told",
         "question": "What should the nine participants be told this week?",
         "answer": "That a storage fault may have weakened some kit",
-        "why": "Two duties pull in different directions and both can be met. People are entitled to know about a fault that touched their own treatment, and telling them costs the trial nothing if the wording covers all nine equally. Saying they may have been under-treated says the drug is in the box. Saying nothing because the arms are unknown treats the blind as more important than the person, which is the inversion the whole trial is arranged to avoid. Waiting for the board is twelve more days for information that is already certain.\n",
+        "why": "Two duties pull in different directions and both can be met. People are entitled to know about a fault that touched their own treatment, and telling them costs the trial nothing if the wording covers all nine equally. Saying they may have been under-treated says the drug is in the box. Saying nothing because the arms are unknown treats the blind as more important than the person, which is the inversion the whole trial is arranged to avoid. Waiting for the board is 12 more days for information that is already certain.\n",
         "rebuttals": [
           "The link to arms is unknown, and the fault touched their treatment either way.",
           "Telling somebody they were under-treated tells them which arm they are on.",
@@ -1935,7 +1935,7 @@ export const CURRICULUM = {
           "That a storage fault may have weakened some kit",
           "Nothing, because the boxes cannot be linked to individual arms anyway",
           "That they received kit from a faulty fridge and may have been under-treated",
-          "Nothing until the board has reviewed the excursion in twelve days"
+          "Nothing until the board has reviewed the excursion in 12 days"
         ],
         "correctChoice": "That a storage fault may have weakened some kit"
       },
@@ -1945,14 +1945,14 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Three days, forty-one queries",
-      "scene": "Forty-one queries remain and the interim file locks in three working days. One concerns a primary-event date, one a duplicated visit, and thirty-nine are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
+      "title": "3 days, 41 queries",
+      "scene": "41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
       "takeaway": "Urgency belongs to the problem whose consequence becomes irreversible first, not to the problem making the most noise.",
       "place": "Monitors' Room",
-      "story": "Forty-one queries remain and the interim file locks in three working days. One concerns a primary-event date, one a duplicated visit, and thirty-nine are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
+      "story": "41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
       "game": {
         "type": "DELEGATE",
-        "title": "Three days, forty-one queries",
+        "title": "3 days, 41 queries",
         "setup": "Monitors' Room",
         "play": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
         "task": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
@@ -2023,10 +2023,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What happens to the people in it",
-      "scene": "The board has said continue. At eight Monday morning, thirty-one sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.",
+      "scene": "The board has said continue. At 8 Monday morning, 31 sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.",
       "takeaway": "Consent is maintained, not collected once.",
       "place": "Monitors' Room",
-      "story": "The board has said continue. At eight Monday morning, thirty-one sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.",
+      "story": "The board has said continue. At 8 Monday morning, 31 sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.",
       "game": {
         "type": "CHOICE",
         "title": "What happens to the people in it",
@@ -2058,10 +2058,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The plan that was in force",
-      "scene": "Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which one governs the interim in twenty days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "scene": "Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "takeaway": "A result is worth more when the plan that produced it can be dated.",
       "place": "Regulatory & Registry",
-      "story": "Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which one governs the interim in twenty days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "story": "Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "game": {
         "type": "SEQUENCE",
         "title": "The plan that was in force",
@@ -2178,8 +2178,8 @@ export const CURRICULUM = {
         "play": "Use two verification checks on the claims in the excursion record before signing it as reviewable.",
         "task": "Use two verification checks on the claims in the excursion record before signing it as reviewable.",
         "question": "Which claims most need verification before this record can support somebody else's judgement later?",
-        "answer": "Verify the exposure scope and one of the backed critical claims. The weak point is the statement that only eleven kits were exposed; it needs stock reconciliation before the record can establish the excursion's true scope.",
-        "why": "A deviation form does not become reliable because somebody signed it. The duration can be checked against the logger, and the nine recipients can be checked against dispensing records. The important weak link is scope. If more than eleven kits were in the fridge, the size of the problem changes immediately. That claim needs an inventory reconciliation, not another signature. Recording the excursion still matters even if the final effect is small, because later reviewers can only challenge a judgement when its evidence survives.",
+        "answer": "Verify the exposure scope and one of the backed critical claims. The weak point is the statement that only 11 kits were exposed; it needs stock reconciliation before the record can establish the excursion's true scope.",
+        "why": "A deviation form does not become reliable because somebody signed it. The duration can be checked against the logger, and the nine recipients can be checked against dispensing records. The important weak link is scope. If more than 11 kits were in the fridge, the size of the problem changes immediately. That claim needs an inventory reconciliation, not another signature. Recording the excursion still matters even if the final effect is small, because later reviewers can only challenge a judgement when its evidence survives.",
         "attest": {
           "claims": [
             {
@@ -2192,7 +2192,7 @@ export const CURRICULUM = {
             },
             {
               "id": "scope",
-              "label": "Only eleven kit numbers were exposed",
+              "label": "Only 11 kit numbers were exposed",
               "signedBy": "—",
               "evidence": "site inventory statement without stock reconciliation",
               "critical": true
@@ -2405,10 +2405,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One relative risk, many absolute effects",
-      "scene": "Two lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22 per cent; the other says roughly four events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22 per cent; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "takeaway": "A relative effect does not determine the absolute benefit until the baseline risk is known.",
       "place": "Regulatory & Registry",
-      "story": "Two lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22 per cent; the other says roughly four events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22 per cent; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "game": {
         "type": "DEGENERACY",
         "title": "One relative risk, many absolute effects",
@@ -2570,7 +2570,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.35,
     "units": "years",
     "solution": "2400 × 0.08 = 192 events a year, and 380 ÷ 192 ≈ 2.0 years.",
-    "explanation": "About two years of follow-up. Two thousand four hundred people at 8 events per 100 per year produce roughly 192 events a year, so the 380 the design needs take about two of them. Nobody can promise that date, because the rate is the participants' and not the trial's: at 6 events per 100 per year the same 380 events take nearly three years. It is also why the 246 events already adjudicated, rather than the calendar, is what says how far through CLARION-3 is.\n"
+    "explanation": "About two years of follow-up. 2400 people at 8 events per 100 per year produce roughly 192 events a year, so the 380 the design needs take about 2 of them. Nobody can promise that date, because the rate is the participants' and not the trial's: at 6 events per 100 per year the same 380 events take nearly 3 years. It is also why the 246 events already adjudicated, rather than the calendar, is what says how far through CLARION-3 is.\n"
   },
   "STAT-3": {
     "prompt": "CLARION-3 was designed to need 380 adjudicated events. The database holds 246 of them this morning. The information fraction is the events in hand divided by the events planned.\n",
@@ -2600,7 +2600,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.06,
     "units": "of the planned information",
     "solution": "246 ÷ 380 ≈ 0.65.",
-    "explanation": "About two thirds. By months the trial looks three quarters done — 41 of 54 — and the two numbers disagree because the amendment brought in people at lower risk. The boundary the board reads in a fortnight is set from the 0.65, not from the calendar.\n"
+    "explanation": "About two thirds. By months the trial looks 3 quarters done — 41 of 54 — and the 2 numbers disagree because the amendment brought in people at lower risk. The boundary the board reads in a fortnight is set from the 0.65, not from the calendar.\n"
   },
   "STAT-6": {
     "prompt": "The adjudicated event happened in 18.9 per cent of control and 14.7 per cent of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95 per cent margin.",
@@ -2608,7 +2608,7 @@ export const BALLPARK_CALCS = {
     "labels": [
       "0.189  (control arm event rate)",
       "0.147  (treatment arm event rate)",
-      "1200  (participants in one arm, approximately)",
+      "1200  (participants in 1 arm, approximately)",
       "1  (the numerator in NNT)",
       "0.95  (a tempting probability, but not an input to either calculation)"
     ],
@@ -2634,10 +2634,10 @@ export const BALLPARK_CALCS = {
     "explanation": "NNT is about 24. The control-arm SE is about 0.011, or 1.1 percentage points, so its 95 per cent margin is about 2.2 points. The first number describes clinical size; the second describes sampling precision. Halving that SE would require about four times the sample, not twice."
   },
   "STAT-8": {
-    "prompt": "Fourteen subgroups are each tested at a five per cent level. If nothing is really different anywhere, the chance that none of them clears the line is 0.95 raised to the fourteenth power. The chance that at least one does is one minus that.\n",
+    "prompt": "14 subgroups are each tested at 5 per cent level. If nothing is really different anywhere, the chance that none of them clears the line is 0.95 raised to the fourteenth power. The chance that at least one does is one minus that.\n",
     "question": "Choose the per-test pass rate and the number of tests.",
     "labels": [
-      "0.95  (chance one test does not misfire)",
+      "0.95  (chance 1 test does not misfire)",
       "14  (subgroups tested)",
       "0.05  (the level of each test)",
       "1  (the whole probability)",
@@ -2662,7 +2662,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.06,
     "units": "chance of at least one",
     "solution": "1 − 0.95¹⁴ = 1 − 0.49 ≈ 0.51.",
-    "explanation": "About one in two. Fourteen honest looks at a trial where the treatment does the same thing in everybody will produce at least one subgroup clearing the line about half the time, which is why the over-seventies finding is not evidence on its own.\n"
+    "explanation": "About 1 in 16 honest looks at a trial where the treatment does the same thing in everybody will produce at least 1 subgroup clearing the line about half the time, which is why the over-seventies finding is not evidence on its own.\n"
   }
 };
 

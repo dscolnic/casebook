@@ -15,7 +15,7 @@ export const ROSTER = [
         "q": "Why does Okonkwo refuse to upgrade a placard on a walk-past?",
         "a": "A rapid assessment samples what is visible from outside",
         "wrong": [
-          "Rapid assessments are only valid for the first twenty-four hours after an event",
+          "Rapid assessments are only valid for the first 24 hours after an event",
           "A placard cannot legally be changed once it has been fixed to the door",
           "Damage always shows on the outside of a building before the inside"
         ]
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Geotechnical engineer",
     "division": "GEO",
     "color": "#8e6b2f",
-    "bio": "<p><p>She wrote her thesis on the fill under this town, which nobody read at the time and four people have asked her for this week. She can tell you which streets were creek in 1910 and it turns out those are the streets with sand in them now.</p> <p>She is the one who keeps saying that the buildings are not the story, the ground is.</p></p>",
+    "bio": "<p><p>She wrote her thesis on the fill under this town, which nobody read at the time and four people have asked her for this week. She can tell you which streets were creek in 1910 and it turns out those are the streets with sand in them now.</p> <p>She is the 1 who keeps saying that the buildings are not the story, the ground is.</p></p>",
     "quiz": [
       {
         "q": "Why does Navarro care which streets were a creek a century ago?",
@@ -199,7 +199,7 @@ export const ROSTER = [
     "role": "Hospital facilities manager",
     "division": "HAZ",
     "color": "#3a9a84",
-    "bio": "<p><p>He has ninety beds, a yellow placard on his front door and no idea when either of those changes. He knows his building better than anybody assessing it, and he knows that is not the same as being able to say it is safe.</p> <p>He is not fighting the process. He is asking it to hurry, precisely.</p></p>",
+    "bio": "<p><p>He has 90 beds, a yellow placard on his front door and no idea when either of those changes. He knows his building better than anybody assessing it, and he knows that is not the same as being able to say it is safe.</p> <p>He is not fighting the process. He is asking it to hurry, precisely.</p></p>",
     "quiz": [
       {
         "q": "Why can Ives not simply declare his own building safe?",

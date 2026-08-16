@@ -65,7 +65,7 @@ export const INTERIORS = {
   },
   "TRANS": {
     "caption": "A rating is a time and a temperature, not a wall.",
-    "standLine": "One corridor above continuous rating, and a relay that will decide in forty minutes.",
+    "standLine": "1 corridor above continuous rating, and a relay that will decide in 40 minutes.",
     "station": {
       "kind": "panel",
       "title": "Corridor loading",
@@ -95,7 +95,7 @@ export const INTERIORS = {
   },
   "DIST": {
     "caption": "Restoration is measured in households and how long they waited.",
-    "standLine": "Eleven feeders out, and two of them have the clinic on them.",
+    "standLine": "11 feeders out, and 2 of them have the clinic on them.",
     "station": {
       "kind": "panel",
       "title": "Feeder status",

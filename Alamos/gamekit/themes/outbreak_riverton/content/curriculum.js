@@ -208,10 +208,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Protective response or runaway inflammation?",
-      "scene": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.",
+      "scene": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last 48 hours is on the screen, and the ward wants to know what it is treating.",
       "takeaway": "A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.",
       "place": "Intensive Care Unit",
-      "story": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.",
+      "story": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last 48 hours is on the screen, and the ward wants to know what it is treating.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Protective response or runaway inflammation?",
@@ -222,7 +222,7 @@ export const CURRICULUM = {
         "answer": "Inflammation out of control",
         "why": "Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.",
         "rebuttals": [
-          "Uncontrolled replication would show a rising pathogen signal. This one is falling, over forty-eight hours, while the patient declines.",
+          "Uncontrolled replication would show a rising pathogen signal. This 1 is falling, over 48 hours, while the patient declines.",
           "A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
           "Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise."
         ],
@@ -564,7 +564,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the number of cells after eight hours.",
         "answer": "",
-        "why": "Eight hours is 480 minutes. That is twelve doubling times. Twelve doublings is a factor of about 4,100, so 500 cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.",
+        "why": "8 hours is 480 minutes. That is 12 doubling times. 12 doublings is a factor of about 4,100, so 500 cells become about 2 million. The shape matters more than the number. Add 90 minutes and you add 2 more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.",
         "givens": [],
         "relationship": "Final number = starting number × 2 raised to (time ÷ doubling time).",
         "calcKey": "CELL-4"
@@ -817,10 +817,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Build a trustworthy amplification run",
-      "scene": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.",
+      "scene": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of 1 billion, which is the reason this order is argued about at all.",
       "takeaway": "A diagnostic result is the output of a controlled process, not simply a machine reading.",
       "place": "Sample Processing Room",
-      "story": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.",
+      "story": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of 1 billion, which is the reason this order is argued about at all.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build a trustworthy amplification run",
@@ -1220,10 +1220,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Build the provisional case definition",
-      "scene": "Three hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.",
+      "scene": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.",
       "takeaway": "Operational definitions convert vague concern into reproducible observation.",
       "place": "Epidemiology Operations Room",
-      "story": "Three hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.",
+      "story": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the provisional case definition",
@@ -1459,18 +1459,18 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Choose the One Health campaign",
-      "scene": "Dr. Arjun Singh, the One Health lead, has one field campaign and twenty sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.",
+      "scene": "Dr. Arjun Singh, the 1 Health lead, has 1 field campaign and 20 sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.",
       "takeaway": "A field design is defined by the alternative explanations it can rule out with the samples it chooses to collect.",
       "place": "Comparative Genomics Lab",
-      "story": "Dr. Arjun Singh, the One Health lead, has one field campaign and twenty sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.",
+      "story": "Dr. Arjun Singh, the 1 Health lead, has 1 field campaign and 20 sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.",
       "game": {
         "type": "ALLOCATE",
         "title": "Choose the One Health campaign",
         "setup": "Comparative Genomics Lab",
-        "play": "Allocate the twenty slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
-        "task": "Allocate the twenty slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
+        "play": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
+        "task": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
         "question": "Which sampling plan preserves the comparisons needed to test the reservoir hypothesis?",
-        "answer": "Use the twenty slots on the candidate species at case-linked sites, the same species at comparison sites, comparison species, and a repeat time point. That plan preserves geography, species and persistence tests. Extra depth around one household is the question the fixed campaign should forgo.",
+        "answer": "Use the 20 slots on the candidate species at case-linked sites, the same species at comparison sites, comparison species, and a repeat time point. That plan preserves geography, species and persistence tests. Extra depth around one household is the question the fixed campaign should forgo.",
         "why": "A positive animal near a human case is compatible with several stories: reservoir, spillback from people, or shared exposure. The design has to create comparisons that separate those stories. Sampling the same species away from cases tests geography. Sampling other species in the same habitat tests species specificity. Returning later tests persistence. Sequencing can then compare what the field design actually found, but it cannot rescue a biased sample. Spending the campaign on one feared species near one household produces a precise result that cannot establish the population process.",
         "allocate": {
           "pool": {
@@ -1581,10 +1581,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Selection or sampling artifact?",
-      "scene": "A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+      "scene": "A variant has gone from 8 to 31 per cent of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "takeaway": "A changing share needs competing explanations tested before it can support a claim about biological advantage.",
       "place": "Evolutionary Dynamics Group",
-      "story": "A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+      "story": "A variant has gone from 8 to 31 per cent of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Selection or sampling artifact?",
@@ -1664,10 +1664,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Track a rising variant",
-      "scene": "The variant briefing starts in thirty minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.",
+      "scene": "The variant briefing starts in 30 minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.",
       "takeaway": "Evolutionary inference begins with accurate frequencies and then tests causal explanations.",
       "place": "Regional Surveillance Hub",
-      "story": "The variant briefing starts in thirty minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.",
+      "story": "The variant briefing starts in 30 minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.",
       "game": {
         "type": "BALLPARK",
         "title": "Track a rising variant",
@@ -1810,10 +1810,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Recover treatment effectiveness",
-      "scene": "Effectiveness has fallen from 82 to 51 per cent in nine weeks. Eleven failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
+      "scene": "Effectiveness has fallen from 82 to 51 per cent in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
       "place": "Pharmacology Unit",
-      "story": "Effectiveness has fallen from 82 to 51 per cent in nine weeks. Eleven failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
+      "story": "Effectiveness has fallen from 82 to 51 per cent in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
       "game": {
         "type": "CHOICE",
         "title": "Recover treatment effectiveness",
@@ -1822,7 +1822,7 @@ export const CURRICULUM = {
         "task": "One thing before anybody's prescription changes. Which?",
         "question": "One thing before anybody's prescription changes. Which?",
         "answer": "Sequence the failures alongside matched successful cases.",
-        "why": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over nine weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.",
+        "why": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.",
         "rebuttals": [
           "Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.",
           "Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.",
@@ -2047,7 +2047,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the number of patients who must be treated for one to benefit.",
         "answer": "",
-        "why": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
+        "why": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. 20 patients treated for 1 to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
         "givens": [],
         "relationship": "Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).",
         "calcKey": "POP-16"
@@ -2198,7 +2198,7 @@ export const CURRICULUM = {
         "task": "Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter.",
         "question": "Which precommitted thresholds keep the response ahead of the capacity boundary?",
         "answer": "Set the first trigger near 80 per cent occupancy and the second near 88 per cent before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95 per cent makes the same actions operationally late.",
-        "why": "A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, ninety of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.",
+        "why": "A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.",
         "trigger": {
           "scale": {
             "label": "Critical-care occupancy",
@@ -2596,11 +2596,11 @@ export const BALLPARK_CALCS = {
     "explanation": "0.03 × 31 ≈ 0.93. Then 14 ÷ 0.93 ≈ 15.1, log10(15.1) ≈ 1.18, and pH ≈ 7.28. Low bicarbonate lowers pH; lower PaCO₂ partially compensates."
   },
   "CELL-4": {
-    "prompt": "500 cells, a 40-minute doubling time, eight hours to go.",
+    "prompt": "500 cells, a 40-minute doubling time, 8 hours to go.",
     "question": "Estimate the number of cells after eight hours.",
     "labels": [
       "500 (cells at the start)",
-      "480 min (eight hours)",
+      "480 min (8 hours)",
       "40 min (doubling time)",
       "2 (cells per division)",
       "8 h (the same interval, in hours)",
@@ -2627,10 +2627,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 400000,
     "units": "cells",
     "solution": "480 ÷ 40 = 12 doublings; 2^12 ≈ 4,100; × 500 ≈ 2 million cells.",
-    "explanation": "Twelve doublings, not twelve times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340."
+    "explanation": "12 doublings, not 12 times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340."
   },
   "POP-9": {
-    "prompt": "In week one, 40 of 400 sequenced samples carried the variant. In week three, 180 of 600 did. The denominators are what make the two weeks comparable.",
+    "prompt": "In week 1, 40 of 400 sequenced samples carried the variant. In week 3, 180 of 600 did. The denominators are what make the two weeks comparable.",
     "question": "Estimate the change in variant frequency, in percentage points.",
     "labels": [
       "40 variant, week 1",
@@ -2660,7 +2660,7 @@ export const BALLPARK_CALCS = {
     "target": 20,
     "tolerance": 1,
     "units": "percentage points",
-    "solution": "10% in week one, 30% in week three: an increase of 20 percentage points.",
+    "solution": "10% in week 1, 30% in week three: an increase of 20 percentage points.",
     "explanation": "Pooling the two weeks throws away the comparison — the whole question is whether the ratio moved, and a combined numerator over a combined denominator cannot say. Each week needs its own denominator."
   },
   "POP-16": {
@@ -2695,10 +2695,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 1,
     "units": "patients treated per additional benefit",
     "solution": "Risks of 0.10 and 0.05, an absolute reduction of 0.05, so about 20.",
-    "explanation": "The same result is a halving of risk, a five-percentage-point reduction, and one benefit per twenty treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy."
+    "explanation": "The same result is a halving of risk, a five-percentage-point reduction, and 1 benefit per 20 treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy."
   },
   "CLIN-7": {
-    "prompt": "The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about eight a day, and the average stay is around six days.",
+    "prompt": "The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about 8 a day, and the average stay is around 6 days.",
     "question": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
     "labels": [
       "30 open beds",
@@ -2725,7 +2725,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "days",
     "solution": "30 ÷ 8 ≈ 3.75 days, if nobody leaves.",
-    "explanation": "Total beds is the wrong numerator, because ninety of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes."
+    "explanation": "Total beds is the wrong numerator, because 90 of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes."
   }
 };
 

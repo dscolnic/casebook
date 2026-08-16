@@ -6,8 +6,8 @@ export const MISSIONS = [
   {
     "title": "What the plateau has been writing down",
     "objective": "Establish what this site records, how fast it records it, and why anybody drilled here.",
-    "briefing": "A new season opens on a core that is already two thousand metres deep.",
-    "stake": "First morning of the season, and the drill has not turned yet. The field glaciologist, Nadia Brandt, has a fortnight of stake readings and a fresh pit wall, and the chief scientist, Marit Halvorsen, wants the season's accumulation figure before the science plan is written. Today you settle what this site actually records, how much of a year the surface adds, and why the hole was put here rather than forty kilometres downslope. Get the accumulation wrong and every age below it is wrong in the same direction, quietly, for three kilometres.",
+    "briefing": "A new season opens on a core that is already 2000 metres deep.",
+    "stake": "First morning of the season, and the drill has not turned yet. The field glaciologist, Nadia Brandt, has a fortnight of stake readings and a fresh pit wall, and the chief scientist, Marit Halvorsen, wants the season's accumulation figure before the science plan is written. Today you settle what this site actually records, how much of a year the surface adds, and why the hole was put here rather than 40 kilometres downslope. Get the accumulation wrong and every age below it is wrong in the same direction, quietly, for three kilometres.",
     "takeaway": "A record is only as good as the rate at which it was written.",
     "stops": [
       {
@@ -30,7 +30,7 @@ export const MISSIONS = [
   {
     "title": "Three kilometres of one attempt",
     "objective": "Get the core to the surface and onto the line without changing what it can say.",
-    "briefing": "The brittle zone starts at 540 metres and the run sheet has three short runs on it.",
+    "briefing": "The brittle zone starts at 540 metres and the run sheet has 3 short runs on it.",
     "stake": "Second day, and the drill is going back down after a night of maintenance. Lindqvist has three short runs on the sheet from last season's brittle zone and the core line technician, Sigrid Holt, has a section that arrived without its depth mark. Today you decide how the run through the brittle ice is made, what happens to a section that cannot be placed, and what a dirty sample costs. Ice is the only instrument here that gets one reading: what breaks on the way up cannot be drilled again, and what is contaminated cannot be un-contaminated.",
     "takeaway": "Everything the core can say is decided before anybody measures anything.",
     "stops": [
@@ -52,7 +52,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Counting to two thousand",
+    "title": "Counting to 2000",
     "objective": "Establish how a year is counted, and find the depth where counting stops working.",
     "briefing": "Okonkwo needs the depth at which the layer thickness drops below what the line can resolve.",
     "stake": "Wednesday, and the chronology is the thing holding up everything else. Okonkwo has counted to 1,180 metres by eye and the layers are getting thinner every hundred metres. Halvorsen wants the season's depth–age scale by the aircraft window, and the whole comparison with the Skarv record rests on it. Today you find where counting stops being possible, decide which annual signal to count with, and put a number on how deep the firn's own clock runs. Below the depth where layers stop resolving, every age comes from a model, and a model is not a count.",
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "One aircraft, and what leaves on it",
     "objective": "Decide what is measured while the Skarv samples are still on the station.",
     "briefing": "The Skarv group's samples fly out on Thursday and cannot come back.",
-    "stake": "Thursday is the aircraft window and eleven Skarv samples are in the core store until it opens. Halvorsen has the Skarv record on one screen and this station's on the other, and they disagree by more than either group's stated uncertainty. She wants a measurement made while both cores can be run on one instrument. Okonkwo wants nothing said until the timescales are matched. Today you choose what to measure before the plane leaves, what running both on the same machine settles, and what it does not. After Thursday the comparison is between two laboratories rather than two cores.",
+    "stake": "Thursday is the aircraft window and 11 Skarv samples are in the core store until it opens. Halvorsen has the Skarv record on one screen and this station's on the other, and they disagree by more than either group's stated uncertainty. She wants a measurement made while both cores can be run on one instrument. Okonkwo wants nothing said until the timescales are matched. Today you choose what to measure before the plane leaves, what running both on the same machine settles, and what it does not. After Thursday the comparison is between two laboratories rather than two cores.",
     "takeaway": "Some comparisons are only available for as long as both things are in the same room.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "Turning a ratio into a temperature",
     "objective": "Establish what the isotope record measures and how confidently it can be stated in degrees.",
     "briefing": "The isotope profile is finished to 1,600 metres and nobody has agreed what it says in degrees.",
-    "stake": "Friday, and the isotope profile is complete to 1,600 metres. Tanabe has the numbers and Halvorsen wants them in degrees for the season summary, which means a slope, and the slope is a measurement somebody made rather than a constant. Brandt has eleven years of mast temperatures to test it against. Today you convert the profile into a temperature change, decide how tightly the conversion can be stated, and settle what the isotopes are actually a thermometer of. A slope taken on faith turns every degree in the record into somebody else's assumption.",
+    "stake": "Friday, and the isotope profile is complete to 1,600 metres. Tanabe has the numbers and Halvorsen wants them in degrees for the season summary, which means a slope, and the slope is a measurement somebody made rather than a constant. Brandt has 11 years of mast temperatures to test it against. Today you convert the profile into a temperature change, decide how tightly the conversion can be stated, and settle what the isotopes are actually a thermometer of. A slope taken on faith turns every degree in the record into somebody else's assumption.",
     "takeaway": "A proxy becomes a number through a calibration, and the calibration is part of the result.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "The night the generator stopped",
     "objective": "Work out what the core store record can still prove after a power failure.",
     "briefing": "The store was without power for six hours and the log says nothing about it.",
-    "stake": "Saturday, and the number two generator stopped at some point in the night. The core store came back at minus nineteen and the log has an entry for the whole night signed by the watch. De Vries needs the drill and the store back in a fixed order and Lindqvist wants his own list first. Aalto has been asked how much of the season's temperature record survives the scatter in it. Today you decide which signatures are worth checking, what gets restarted first, and how tightly a mean can be quoted. Ice that warmed and was signed for as cold is worse than ice that warmed.",
+    "stake": "Saturday, and the number two generator stopped at some point in the night. The core store came back at minus 19 and the log has an entry for the whole night signed by the watch. De Vries needs the drill and the store back in a fixed order and Lindqvist wants his own list first. Aalto has been asked how much of the season's temperature record survives the scatter in it. Today you decide which signatures are worth checking, what gets restarted first, and how tightly a mean can be quoted. Ice that warmed and was signed for as cold is worse than ice that warmed.",
     "takeaway": "A record is a claim about a condition, and the two can come apart in a night.",
     "stops": [
       {

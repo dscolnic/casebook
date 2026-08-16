@@ -5,7 +5,7 @@
 export const COPY = {
   "OPS": "<p>The control room. One long desk, a wall of the whole interconnection, and the only number on it that belongs to everybody.</p>",
   "GEN": "<p>The machine hall. Four sets turning in step with every other machine on the system, which is what lets one number describe all of them.</p>",
-  "TRANS": "<p>Protection and switching. The rules for an argument that will happen in eighty milliseconds with nobody present.</p>",
+  "TRANS": "<p>Protection and switching. The rules for an argument that will happen in 80 milliseconds with nobody present.</p>",
   "DIST": "<p>The depot. Where the network stops being a diagram and turns into a van, a pole and somebody's evening.</p>",
   "LOAD": "<p>Forecasting. Weather, the school holidays, and whether it gets dark before people get home.</p>",
   "METER": "<p>Standards. The question nobody wants opened during an incident: is that number the number.</p>",

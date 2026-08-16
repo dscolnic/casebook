@@ -160,7 +160,8 @@ dissipate distant endurance geometry gradient improvise intermittent moderate or
 quality reconstruct refine reliability simulation subtract timeline timestamp transition transmit
 accelerometer propel propulsion switchboard thermometer transmitter unambiguous vibration voltmeter
 rise rises rising lower lowers lowering proceed proceeds stay stays stayed run runs running way ways
-straight steeply steep ones
+straight steeply steep ones zero act acts acting get gets go goes back middle push pushes pushing
+feel feels felt along angle angles rider riders squared square
 `.trim().split(/\s+/).concat(FUNCTION_WORDS, IRREGULAR).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has

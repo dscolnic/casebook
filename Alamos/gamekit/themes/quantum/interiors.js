@@ -60,7 +60,7 @@ export const INTERIORS = {
   },
   "CTRL": {
     "caption": "Pulses in, one bit out, and everything that can go wrong between.",
-    "standLine": "Twelve qubits, tuned this morning, and a chain of amplifiers to hear them through.",
+    "standLine": "12 qubits, tuned this morning, and a chain of amplifiers to hear them through.",
     "station": {
       "kind": "panel",
       "title": "Tune-up",
@@ -150,7 +150,7 @@ export const INTERIORS = {
   },
   "NET": {
     "caption": "Sending a quantum state somewhere, and what survives the trip.",
-    "standLine": "Forty kilometres of fibre, a substation, and a contractor with a digger.",
+    "standLine": "40 kilometres of fibre, a substation, and a contractor with a digger.",
     "station": {
       "kind": "panel",
       "title": "Key link",

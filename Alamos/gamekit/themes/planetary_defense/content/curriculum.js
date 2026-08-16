@@ -52,10 +52,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Validate the discovery",
-      "scene": "Forty thousand catalogued stars, two satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
+      "scene": "40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
       "takeaway": "A discovery is useful only when another observer can test it.",
       "place": "Image Processing Lab",
-      "story": "Forty thousand catalogued stars, two satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
+      "story": "40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
       "game": {
         "type": "SEQUENCE",
         "title": "Validate the discovery",
@@ -93,10 +93,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How far did it move?",
-      "scene": "The object shifted between two frames twenty minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
+      "scene": "The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
       "takeaway": "Repeated images turn apparent motion into a measurable rate.",
       "place": "Minor-Planet Operations Desk",
-      "story": "The object shifted between two frames twenty minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
+      "story": "The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
       "game": {
         "type": "BALLPARK",
         "title": "How far did it move?",
@@ -173,10 +173,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "From angles to orbit family",
-      "scene": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.",
+      "scene": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.",
       "takeaway": "Uncertainty should be carried forward as an ensemble of physically allowed trajectories.",
       "place": "Orbit Determination Center",
-      "story": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.",
+      "story": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.",
       "game": {
         "type": "SEQUENCE",
         "title": "From angles to orbit family",
@@ -236,10 +236,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What this pass does to the next one",
-      "scene": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: eleven years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
+      "scene": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
       "takeaway": "A close approach rewrites the orbit it happens on, so safety is a claim about the returns after it.",
       "place": "Orbit Determination",
-      "story": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: eleven years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
+      "story": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
       "game": {
         "type": "CHOICE",
         "title": "What this pass does to the next one",
@@ -251,7 +251,7 @@ export const CURRICULUM = {
         "why": "A measured miss distance settles the current encounter, not every later one. Passing only a few Earth radii away lets Earth's gravity change the asteroid's speed and direction enough to alter its period and return time. Small regions of the current encounter geometry can map into much closer approaches later, so the post-encounter orbit must be propagated before declaring the object safe. A fresh arc after the pass then tests that propagated solution; neither the present miss nor the later arc should be interpreted alone.",
         "rebuttals": [
           "A measured miss settles this pass and says nothing about the orbit the encounter creates.",
-          "Albedo gives size. Size does not tell you where the object will be in eleven years.",
+          "Albedo gives size. Size does not tell you where the object will be in 11 years.",
           "A later arc is needed and is not sufficient — without carrying the orbit forward through the encounter there is nothing to compare it against."
         ],
         "choices": [
@@ -776,10 +776,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Rotation or observing artifact?",
-      "scene": "The asteroid repeats a 4.8-hour brightness cycle in two filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.",
+      "scene": "The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.",
       "takeaway": "Periodicity becomes physical evidence only after environmental and instrumental periodicities are ruled out.",
       "place": "Time-Series Photometry Network",
-      "story": "The asteroid repeats a 4.8-hour brightness cycle in two filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.",
+      "story": "The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.",
       "game": {
         "type": "CHOICE",
         "title": "Rotation or observing artifact?",
@@ -1015,7 +1015,7 @@ export const CURRICULUM = {
         "calcKey": "IMPACT-3"
       },
       "assumes": [
-        "one megaton of TNT is 4.184×10^15 joules"
+        "1 megaton of TNT is 4.184×10^15 joules"
       ],
       "equations": [
         {
@@ -1206,10 +1206,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Buy the best next observation",
-      "scene": "Four hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets two hours after dusk, and the current arc is only four hours. The same field is observable again in six nights; the press office is waiting.",
+      "scene": "4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.",
       "takeaway": "A measurement is valuable when its possible outcomes separate the decisions still in contention, not merely when it is precise.",
       "place": "Time Standards Room",
-      "story": "Four hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets two hours after dusk, and the current arc is only four hours. The same field is observable again in six nights; the press office is waiting.",
+      "story": "4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.",
       "game": {
         "type": "VALUE",
         "title": "Buy the best next observation",
@@ -1374,10 +1374,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Collapse the orbit uncertainty",
-      "scene": "The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in twelve nights, radar can see it in nine days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.",
+      "scene": "The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.",
       "takeaway": "A sharper-looking orbit is not a better orbit unless new evidence narrows the allowed family.",
       "place": "Follow-Up Scheduling Desk",
-      "story": "The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in twelve nights, radar can see it in nine days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.",
+      "story": "The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.",
       "game": {
         "type": "CHOICE",
         "title": "Collapse the orbit uncertainty",
@@ -1424,10 +1424,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Reduce the dangerous uncertainty",
-      "scene": "The nominal orbit misses by four Earth radii. Roughly one in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
+      "scene": "The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
       "takeaway": "The best observation separates the live hypotheses rather than merely adding another point.",
       "place": "Planetary Defense Coordination Office",
-      "story": "The nominal orbit misses by four Earth radii. Roughly one in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
+      "story": "The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
       "game": {
         "type": "CHOICE",
         "title": "Reduce the dangerous uncertainty",
@@ -1692,7 +1692,7 @@ export const CURRICULUM = {
         "answer": "About 1.06 × 10^18 J. Earth’s gravity raises the speed from 12 km/s far away to about 16.4 km/s at entry, making the kinetic energy about 1.87 times larger for the same mass.",
         "why": "Far from Earth the object approaches at 12 km/s, but Earth's gravity accelerates it before atmospheric entry. Combine the speeds in quadrature: v = √(12² + 11.2²) ≈ 16.4 km/s. For the same mass, kinetic energy scales as speed squared, so the energy ratio is 16.4²/12² ≈ 1.87. The entry energy is therefore about 87% larger than a calculation that uses the far-field speed directly. Gravitational focusing changes both the trajectory and the energy scale that consequence models inherit.",
         "rebuttals": [
-          "The two speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.",
+          "The 2 speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.",
           "The atmosphere decelerates the object after entry, so it cannot lower the speed at which entry begins.",
           "Energy is proportional to the square of entry speed, so the speed error propagates straight into the energy."
         ],
@@ -1891,7 +1891,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
         "question": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
         "answer": "Solar-elongation blind spot",
-        "why": "Completeness is geometric as well as instrumental, and this object was bright enough and effectively invisible at the same time. Its solar elongation was under about thirty degrees, which puts it in twilight where no ground survey can work. Everything else on the panel says the survey was healthy: the weather was clear, the detector was fine, and the predicted brightness was within reach whenever the object was in dark sky. It was found as soon as the geometry allowed, and not before.",
+        "why": "Completeness is geometric as well as instrumental, and this object was bright enough and effectively invisible at the same time. Its solar elongation was under about 30 degrees, which puts it in twilight where no ground survey can work. Everything else on the panel says the survey was healthy: the weather was clear, the detector was fine, and the predicted brightness was within reach whenever the object was in dark sky. It was found as soon as the geometry allowed, and not before.",
         "rebuttals": [
           "A survey too shallow would never reach it, and the record says its brightness was within reach whenever it was in dark sky.",
           "Bad weather blocks fields at random, and the archive is mostly clear across the period.",
@@ -2125,10 +2125,10 @@ export const CURRICULUM = {
     {
       "day": 21,
       "title": "Why a centimetre a second is enough",
-      "scene": "Post-impact tracking reports a velocity change of about two centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in a million can create a safe miss years later.",
+      "scene": "Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in 1 million can create a safe miss years later.",
       "takeaway": "A tiny nudge applied early buys a large miss later, and the currency is time.",
       "place": "Coordination Office",
-      "story": "Post-impact tracking reports a velocity change of about two centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in a million can create a safe miss years later.",
+      "story": "Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in 1 million can create a safe miss years later.",
       "game": {
         "type": "CHOICE",
         "title": "Why a centimetre a second is enough",
@@ -2505,7 +2505,7 @@ export const BALLPARK_CALCS = {
     "question": "Estimate the apparent motion in arcseconds per hour.",
     "labels": [
       "12 arcsec (measured shift)",
-      "20 min (between the two frames)",
+      "20 min (between the 2 frames)",
       "3 exposures",
       "1,200 s (the same interval, in seconds)",
       "24 h"
@@ -2558,7 +2558,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.004,
     "units": "%",
     "solution": "37/100,000 = 3.7 × 10⁻⁴, or 0.037%.",
-    "explanation": "The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. A thousand samples could not have resolved a probability this small at all."
+    "explanation": "The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. 1000 samples could not have resolved a probability this small at all."
   },
   "OPS-6": {
     "prompt": "Two objects show the same reflected brightness and one has four times the albedo of the other. Reflected flux scales with cross-sectional area times reflectivity.",
@@ -2617,7 +2617,7 @@ export const BALLPARK_CALCS = {
     "target": 7,
     "tolerance": 0.5,
     "units": "h",
-    "solution": "3.5 h between maxima, two maxima per turn, so about 7 h.",
+    "solution": "3.5 h between maxima, 2 maxima per turn, so about 7 h.",
     "explanation": "The repetition time is not the period. Multiplying rather than dividing is the whole point: a body that shows two maxima per rotation repeats twice as often as it turns, so the period is longer than the spacing, not shorter."
   },
   "OPS-11": {
@@ -2625,9 +2625,9 @@ export const BALLPARK_CALCS = {
     "question": "Estimate the diameter of the object.",
     "labels": [
       "0.10 arcsec (measured angular width)",
-      "206,265 (arcsec in one radian)",
+      "206,265 (arcsec in 1 radian)",
       "6.0e8 m (distance, from radar)",
-      "1.5e11 m (one astronomical unit)",
+      "1.5e11 m (1 astronomical unit)",
       "0.5 arcsec (the seeing that night)"
     ],
     "values": [
@@ -2679,7 +2679,7 @@ export const BALLPARK_CALCS = {
     "target": 1588000000000000000,
     "tolerance": 200000000000000000,
     "units": "J",
-    "solution": "Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly four hundred megatons.",
+    "solution": "Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly 400 megatons.",
     "explanation": "The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other."
   },
   "OPS-12": {
@@ -2718,7 +2718,7 @@ export const BALLPARK_CALCS = {
     "question": "Estimate the energy in megatons of TNT.",
     "labels": [
       "3.1e17 J (kinetic energy at entry)",
-      "4.184e15 J (one megaton of TNT)",
+      "4.184e15 J (1 megaton of TNT)",
       "1.0e6 (joules in a megajoule)",
       "15 kt (the 1945 test, for scale)"
     ],
@@ -2827,7 +2827,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 3600,
     "units": "people (expectation)",
     "solution": "9 × 10⁶ × 0.005 = 45,000 people, as an expectation.",
-    "explanation": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of a hundred."
+    "explanation": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of 100."
   }
 };
 

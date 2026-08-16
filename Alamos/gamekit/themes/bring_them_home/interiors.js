@@ -5,7 +5,7 @@
 export const INTERIORS = {
   "NAV": {
     "caption": "A state estimate that cannot predict the next observation is a number, not a position.",
-    "standLine": "Range from one station, two bearings ninety minutes apart, and a Doppler trace in a different time standard.",
+    "standLine": "Range from 1 station, 2 bearings 90 minutes apart, and a Doppler trace in a different time standard.",
     "station": {
       "kind": "panel",
       "title": "Guidance console",
@@ -80,7 +80,7 @@ export const INTERIORS = {
   },
   "COMMS": {
     "caption": "A link budget is arithmetic. Which term broke it is evidence.",
-    "standLine": "Carrier down twelve decibels and drifting, with attitude, range and antenna schedule all changed.",
+    "standLine": "Carrier down 12 decibels and drifting, with attitude, range and antenna schedule all changed.",
     "station": {
       "kind": "panel",
       "title": "Downlink",

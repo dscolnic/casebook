@@ -174,7 +174,7 @@ export const GROUPS = [
     "color": "#b0762a",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Thirty-one hospitals, and the distance between a chart and a database.",
+    "desc": "31 hospitals, and the distance between a chart and a database.",
     "defaultLeader": "marchetti",
     "budget": 70,
     "milestones": [

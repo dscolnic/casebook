@@ -123,7 +123,7 @@ export const ROSTER = [
     "role": "Networks postdoc",
     "division": "NET",
     "color": "#d35400",
-    "bio": "<p><p>Runs the fibre to a substation forty kilometres away and spends most of his time on things that are not quantum at all: splices, connectors, a contractor with a digger, and the temperature of a duct.</p> <p>He is clear that the security argument only holds if the hardware does what the protocol assumed, which is where every real attack has been.</p></p>",
+    "bio": "<p><p>Runs the fibre to a substation 40 kilometres away and spends most of his time on things that are not quantum at all: splices, connectors, a contractor with a digger, and the temperature of a duct.</p> <p>He is clear that the security argument only holds if the hardware does what the protocol assumed, which is where every real attack has been.</p></p>",
     "quiz": [
       {
         "q": "Where does Sadiq say the real attacks on a key link come from?",

@@ -110,10 +110,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The order somebody will read back to you",
-      "scene": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one clinic and one pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
+      "scene": "3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
       "takeaway": "The first crew goes where the consequence of waiting is worst, not where the count is biggest.",
       "place": "System Operations",
-      "story": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one clinic and one pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
+      "story": "3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
       "game": {
         "type": "CHOICE",
         "title": "The order somebody will read back to you",
@@ -121,7 +121,7 @@ export const CURRICULUM = {
         "play": "Decide which circuit gets the crew first",
         "task": "Decide which circuit gets the crew first",
         "question": "Which feeder should take the first crew?",
-        "answer": "The dialysis clinic feeder — 180 homes, one pole, an hour's work.",
+        "answer": "The dialysis clinic feeder — 180 homes, 1 pole, an hour's work.",
         "why": "Two things decide this, and household count is only one of them. The first is what waiting costs, and for a dialysis clinic it is measured in treatments rather than in inconvenience. The second is how long the work takes, because a one-hour job frees the crew to take the next fault the same shift. The clinic circuit is worst on the first and best on the second, so it goes first on both counts.",
         "rebuttals": [
           "The biggest count is a four-hour job, and starting it commits a crew for the whole shift.",
@@ -129,12 +129,12 @@ export const CURRICULUM = {
           "The pumping station is running on its standby supply, so it is not off, and it can wait."
         ],
         "choices": [
-          "The feeder with 4,100 households, faulted at the substation end, four hours' work.",
-          "The dialysis clinic feeder — 180 homes, one pole, an hour's work.",
+          "The feeder with 4,100 households, faulted at the substation end, 4 hours' work.",
+          "The dialysis clinic feeder — 180 homes, 1 pole, an hour's work.",
           "The feeder with 2,600 households and a fault nobody has located yet.",
           "The feeder feeding the water pumping station, already on its standby supply."
         ],
-        "correctChoice": "The dialysis clinic feeder — 180 homes, one pole, an hour's work."
+        "correctChoice": "The dialysis clinic feeder — 180 homes, 1 pole, an hour's work."
       },
       "assumes": [
         "a crew can only work one fault at a time"
@@ -237,7 +237,7 @@ export const CURRICULUM = {
         "setup": "System Operations",
         "play": "Say what the busbar meter can and cannot tell you",
         "task": "Say what the busbar meter can and cannot tell you",
-        "question": "What does the 900 A total tell you about the two circuits?",
+        "question": "What does the 900 A total tell you about the 2 circuits?",
         "answer": "The branch currents must add to 900 A. Their individual values require another relation, such as the branch impedances.",
         "why": "Charge does not build up at a junction, so current entering a node must equal current leaving it. Kirchhoff’s current law gives that conservation rule. It fixes the sum of the branch currents without telling you how the total divides. The split needs another relation, such as the branch impedances. Assuming an even split is wrong when the paths differ. Assuming each branch carries the full total confuses parallel and series circuits. One equation constrains two unknown branch currents; it does not determine both alone.",
         "rebuttals": [
@@ -246,12 +246,12 @@ export const CURRICULUM = {
           "A nonzero higher-impedance branch still carries current, so the lower-impedance path cannot take the full total by itself."
         ],
         "choices": [
-          "The two branch currents must be 450 A each because they share the same two busbars.",
-          "The two branch currents must add algebraically to 900 A, but the total alone does not give the split.",
+          "The 2 branch currents must be 450 A each because they share the same 2 busbars.",
+          "The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split.",
           "Each branch must carry 900 A because every parallel branch sees the same busbar voltage.",
-          "The lower-impedance branch must carry 900 A and the higher-impedance branch must carry zero."
+          "The lower-impedance branch must carry 900 A and the higher-impedance branch must carry 0."
         ],
-        "correctChoice": "The two branch currents must add algebraically to 900 A, but the total alone does not give the split."
+        "correctChoice": "The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split."
       },
       "assumes": [
         "charge does not accumulate at a junction"
@@ -566,8 +566,8 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "Holding the corridor inside its emergency rating rather than redispatching.",
-          "The seventeen megawatts of loss calculated for the corridor.",
-          "The order the eleven feeders were restored in.",
+          "The 17 megawatts of loss calculated for the corridor.",
+          "The order the 11 feeders were restored in.",
           "Shedding a fifth of the island to hold its frequency."
         ],
         "choices": [
@@ -639,7 +639,7 @@ export const CURRICULUM = {
       "day": 10,
       "title": "The failure that has not happened",
       "scene": "The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.",
-      "takeaway": "An N-1 check is a statement about single failures, and it says nothing about two.",
+      "takeaway": "An N-1 check is a statement about single failures, and it says nothing about 2.",
       "place": "System Operations",
       "story": "The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.",
       "game": {
@@ -743,14 +743,14 @@ export const CURRICULUM = {
     },
     {
       "day": 12,
-      "title": "The eighteen months you just bought",
+      "title": "The 18 months you just bought",
       "scene": "Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.",
       "takeaway": "Committing to a fix commits you to running the system without it until it arrives, and that has to be planned too.",
       "place": "System Operations",
       "story": "Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.",
       "game": {
         "type": "PROTOCOL",
-        "title": "The eighteen months you just bought",
+        "title": "The 18 months you just bought",
         "setup": "System Operations",
         "play": "Say what the decision commits the room to",
         "task": "Say what the decision commits the room to",
@@ -765,12 +765,12 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "The emergency rating in the operating instructions.",
-          "Roughly forty curtailment nights a winter.",
+          "Roughly 40 curtailment nights a winter.",
           "The corridor's contingency case.",
           "The corridor argument itself."
         ],
         "choices": [
-          "Has to be recalculated, because it came from the sensor that read eleven degrees low.",
+          "Has to be recalculated, because it came from the sensor that read 11 degrees low.",
           "Becomes a budgeted cost, because nothing about the corridor changes until the circuit exists.",
           "Has to be rerun at the conductor's real strength rather than its design strength.",
           "Is closed, which is what lets a shift act at 16:40 without reopening it."
@@ -782,7 +782,7 @@ export const CURRICULUM = {
           3
         ],
         "columns": [
-          "What the next eighteen months contains",
+          "What the next 18 months contains",
           "Why the decision puts it there"
         ]
       },
@@ -814,7 +814,7 @@ export const CURRICULUM = {
         "choices": [
           "Cross-checking any instrument that a decision rests on against an independent method.",
           "Holding reserve at the fortnight's elevated level all winter.",
-          "Reporting corridor loading to the control room every fifteen minutes rather than every hour.",
+          "Reporting corridor loading to the control room every 15 minutes rather than every hour.",
           "Requiring two operators to sign any load-shedding decision."
         ],
         "correctChoice": "Cross-checking any instrument that a decision rests on against an independent method."
@@ -915,10 +915,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The reason the wires are not at wall voltage",
-      "scene": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand. The room is waiting for a written instruction.",
+      "scene": "A visitor asks Haddad why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
       "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
       "place": "Generation Hall",
-      "story": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand. The room is waiting for a written instruction.",
+      "story": "A visitor asks Haddad why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
       "game": {
         "type": "CHOICE",
         "title": "The reason the wires are not at wall voltage",
@@ -1031,7 +1031,7 @@ export const CURRICULUM = {
           "A": 45,
           "C": 25
         },
-        "research": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps forty times a winter. Storage at the ridge would be about 50 MW for four hours,\nat 85 per cent round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date."
+        "research": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,\nat 85 per cent round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date."
       },
       "assumes": [
         "power has to have a path to where it is used"
@@ -1169,7 +1169,7 @@ export const CURRICULUM = {
         "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan.",
         "question": "Which evidence should be bought before the room trusts its present under-frequency timing?",
         "answer": "Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.",
-        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about forty per cent faster.",
+        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40 per cent faster.",
         "value": {
           "budget": {
             "amount": 4,
@@ -1483,10 +1483,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "How the flow splits between two paths",
-      "scene": "Nine hundred amps leave the busbar for the same destination by two routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
+      "scene": "900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
       "takeaway": "The lower-impedance path takes the larger share, in inverse proportion.",
       "place": "Transmission & Protection",
-      "story": "Nine hundred amps leave the busbar for the same destination by two routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
+      "story": "900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
       "game": {
         "type": "BALLPARK",
         "title": "How the flow splits between two paths",
@@ -1495,7 +1495,7 @@ export const CURRICULUM = {
         "task": "Estimate the current in the older circuit",
         "question": "Estimate the current flowing in the older, higher-impedance circuit.",
         "answer": "About 300 A in the older 6 Ω path and 600 A in the newer 3 Ω path.",
-        "why": "Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older one. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.",
+        "why": "Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older 1. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.",
         "givens": [
           "Total current is 900 A",
           "The older circuit is 6 Ω and the newer is 3 Ω"
@@ -1564,8 +1564,8 @@ export const CURRICULUM = {
         "setup": "Transmission & Protection",
         "play": "Say what the corrected temperature does to the rating",
         "task": "Say what the corrected temperature does to the rating",
-        "question": "Seventy-five degrees is the limit the conductor was built to. What current does that allow it to carry all day?",
-        "answer": "About 1,150 A. The corridor was carrying 1,280 A. The corrected figures put it near 89 degrees, about fourteen degrees above the continuous limit.",
+        "question": "75 degrees is the limit the conductor was built to. What current does that allow it to carry all day?",
+        "answer": "About 1,150 A. The corridor was carrying 1,280 A. The corrected figures put it near 89 degrees, about 14 degrees above the continuous limit.",
         "why": "A rating is not a fuse setting. It is a temperature translated into a current, and the translation runs through the heating. That goes as the square of the current: the last hundred amps buy far more degrees than the first hundred. The curve steepens and the rating sits where it crosses the agreed temperature. Two consequences follow. A rating is only as good as the temperature measurement behind it. That is why a drifted sensor moves a limit that looks like a fixed property of the metal.",
         "sweep": {
           "mode": "peak",
@@ -1673,7 +1673,7 @@ export const CURRICULUM = {
         "task": "Work out the corridor's loss at the higher flow",
         "question": "Estimate the power now lost as heat in the corridor.",
         "answer": "About 21 MW.",
-        "why": "The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about eleven per cent, from 1,150 A to 1,280 A. The heat rises by about twenty-four per cent, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.",
+        "why": "The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11 per cent, from 1,150 A to 1,280 A. The heat rises by about 24 per cent, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.",
         "givens": [
           "RMS current is now 1,280 A in each phase",
           "Resistance remains 4.2 Ω per phase",
@@ -1739,7 +1739,7 @@ export const CURRICULUM = {
         "task": "Commit the money before the window closes",
         "question": "Commit the money before the window closes",
         "answer": "",
-        "why": "This is not the same question as last week, because one option now expires. Reinforcement is the only choice that removes the constraint rather than working around it. Today is the last day it can be started this year — so its cost includes eighteen months of curtailment, ninety more hours of annealing. Every evening the room has to hold a corridor it has now measured as weaker than it thought.",
+        "why": "This is not the same question as last week, because one option now expires. Reinforcement is the only choice that removes the constraint rather than working around it. Today is the last day it can be started this year — so its cost includes 18 months of curtailment, 90 more hours of annealing. Every evening the room has to hold a corridor it has now measured as weaker than it thought.",
         "proposals": [
           {
             "label": "A",
@@ -1751,7 +1751,7 @@ export const CURRICULUM = {
           },
           {
             "label": "C",
-            "text": "Keep curtailing and revisit both when the next window opens in eighteen months."
+            "text": "Keep curtailing and revisit both when the next window opens in 18 months."
           },
           {
             "label": "D",
@@ -1762,7 +1762,7 @@ export const CURRICULUM = {
           "A": 55,
           "B": 25
         },
-        "research": "The outage window closes at close of business and the next is eighteen months out. The corrected\nrecord has the corridor above continuous rating for about ninety hours over three years. Storage\nwould be 50 MW for four hours and does not change a thermal rating. Curtailment on nights like\nlast Friday runs about forty nights a winter. The review Farrow would want takes three weeks."
+        "research": "The outage window closes at close of business and the next is 18 months out. The corrected\nrecord has the corridor above continuous rating for about 90 hours over 3 years. Storage\nwould be 50 MW for 4 hours and does not change a thermal rating. Curtailment on nights like\nlast Friday runs about 40 nights a winter. The review Farrow would want takes three weeks."
       },
       "assumes": [
         "an option with an expiry date is worth more than the same option without one"
@@ -2074,7 +2074,7 @@ export const CURRICULUM = {
         "task": "Estimate the loss in the loaded corridor",
         "question": "Estimate the power lost as heat in the loaded corridor.",
         "answer": "About 17 MW.",
-        "why": "Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. Ten per cent more current means about twenty-one per cent more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.",
+        "why": "Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10 per cent more current means about 21 per cent more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.",
         "givens": [
           "RMS current is 1,150 A in each phase",
           "Resistance is 4.2 Ω per phase over the corridor",
@@ -2202,10 +2202,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The peak, and how far the cold moves it",
-      "scene": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below zero, and tomorrow is minus four.",
+      "scene": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.",
       "takeaway": "A forecast is a base shape plus a sensitivity, and the sensitivity is measured rather than assumed.",
       "place": "Load & Forecasting",
-      "story": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below zero, and tomorrow is minus four.",
+      "story": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.",
       "game": {
         "type": "BALLPARK",
         "title": "The peak, and how far the cold moves it",
@@ -2217,7 +2217,7 @@ export const CURRICULUM = {
         "why": "A load curve is the same shape most days, because people do the same things at the same times. What moves it is weather, and the useful form of that is a sensitivity: how many megawatts one degree is worth on this system. Measured from this winter's own data rather than from a textbook. Base plus sensitivity times degrees gets the centre of the forecast. It does not get the width, which is what the reserve has to cover.",
         "givens": [
           "Base peak is 6,400 MW",
-          "Sensitivity is 120 MW per degree below zero",
+          "Sensitivity is 120 MW per degree below 0",
           "Tomorrow is four degrees below zero"
         ],
         "relationship": "Forecast peak = the base peak for that day and season + the demand sensitivity × the degrees below zero, with the sensitivity measured from this winter's own data.",
@@ -2255,10 +2255,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The trend with nothing wrong with it",
-      "scene": "Lindgren's forecast has tracked within thirty megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
+      "scene": "Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
       "takeaway": "One good night is not evidence about the method, because the width was never a claim about tonight.",
       "place": "Load & Forecasting",
-      "story": "Lindgren's forecast has tracked within thirty megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
+      "story": "Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
       "game": {
         "type": "PROTOCOL",
         "title": "The trend with nothing wrong with it",
@@ -2267,7 +2267,7 @@ export const CURRICULUM = {
         "task": "Read a forecast that is behaving",
         "question": "Read a forecast that is behaving",
         "answer": "",
-        "why": "A forecast is a distribution. Landing inside thirty megawatts on a mild Monday is what the middle of that distribution looks like and it tells you almost nothing. That is because mild Mondays are the days the model was best calibrated for. The evidence that matters is how it behaves on the days it was least calibrated for, which are rare by construction. So a run of good nights is not a reason to hold less reserve.",
+        "why": "A forecast is a distribution. Landing inside 30 megawatts on a mild Monday is what the middle of that distribution looks like and it tells you almost nothing. That is because mild Mondays are the days the model was best calibrated for. The evidence that matters is how it behaves on the days it was least calibrated for, which are rare by construction. So a run of good nights is not a reason to hold less reserve.",
         "rebuttals": [
           "A quiet Monday is the middle of the distribution and the easiest day the model has; it confirms very little.",
           "Cold snaps are where the model is least calibrated, so they are where the width is actually tested.",
@@ -2275,8 +2275,8 @@ export const CURRICULUM = {
           "One miss on an unusual day is a single draw, and it does not condemn the method any more than a hit vindicates it."
         ],
         "scenarios": [
-          "The forecast tracked within thirty megawatts on a mild Monday.",
-          "The forecast missed by four hundred megawatts on the coldest night of last winter.",
+          "The forecast tracked within 30 megawatts on a mild Monday.",
+          "The forecast missed by 400 megawatts on the coldest night of last winter.",
           "The forecast has been accurate for nine consecutive evenings.",
           "The forecast's stated width has held over three winters."
         ],
@@ -2341,10 +2341,10 @@ export const CURRICULUM = {
         "task": "Order the evening's moves so none of them undoes another",
         "question": "Order the evening's moves so none of them undoes another",
         "answer": "",
-        "why": "Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at eighteen hundred. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last.",
+        "why": "Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at 1800. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last.",
         "cards": [
           "Correct the forecast, so every other figure is sized against a real demand.",
-          "Bring reserve forward to cover the machine coming off at eighteen hundred.",
+          "Bring reserve forward to cover the machine coming off at 1800.",
           "Start loading the replacement plant, which needs the minutes.",
           "Reconfigure the network around the faulted feeder."
         ],
@@ -2524,7 +2524,7 @@ export const CURRICULUM = {
         "givens": [
           "Line voltage is 11,000 V and line current is 310 A",
           "Power factor is 0.95",
-          "Root three is about 1.732"
+          "Root 3 is about 1.732"
         ],
         "relationship": "Real power = √3 × the line voltage × the line current × the power factor, with the voltage measured between lines rather than to neutral.",
         "calcKey": "METER-2"
@@ -2630,7 +2630,7 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a changing magnetic field can induce voltage in a nearby coil",
-        "the bench current transformer has one primary turn and twenty secondary turns"
+        "the bench current transformer has 1 primary turn and 20 secondary turns"
       ],
       "equations": [
         {
@@ -2766,10 +2766,10 @@ export const CURRICULUM = {
         "task": "Choose the explanation that fits the sensor, infrared survey and sag estimate together.",
         "question": "Which explanation best fits all three temperature sources?",
         "answer": "The sensor has a fixed offset from the firmware update",
-        "why": "Small scatter only shows that an instrument repeats. A fixed offset can produce readings that are precise and wrong at the same time. Here two methods that do not share the corridor sensor both place the conductor about eleven degrees hotter. The firmware date also marks when the disagreement begins. Sag depends on tension as well as temperature, so it is not proof alone. Its value is that it corroborates an infrared method through different physics, which is exactly what a sensor offset cannot explain away.",
+        "why": "Small scatter only shows that an instrument repeats. A fixed offset can produce readings that are precise and wrong at the same time. Here 2 methods that do not share the corridor sensor both place the conductor about 11 degrees hotter. The firmware date also marks when the disagreement begins. Sag depends on tension as well as temperature, so it is not proof alone. Its value is that it corroborates an infrared method through different physics, which is exactly what a sensor offset cannot explain away.",
         "rebuttals": [
           "Tight scatter proves the sensor repeats itself, which is what a constant offset looks like from the inside.",
-          "A long conductor does vary along its length, and not by eleven degrees in the same direction on every survey.",
+          "A long conductor does vary along its length, and not by 11 degrees in the same direction on every survey.",
           "Sag is sensitive to tension, which makes it weak alone and useful as the second independent method."
         ],
         "choices": [
@@ -2799,19 +2799,19 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Hours over limit, added up",
-      "scene": "Farrow's corrected record has the corridor above continuous rating for about ninety hours over three years. She wants to know whether that is a maintenance note or a design problem.",
-      "takeaway": "Thermal damage integrates over time, so ninety scattered hours count as ninety hours.",
+      "scene": "Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.",
+      "takeaway": "Thermal damage integrates over time, so 90 scattered hours count as 90 hours.",
       "place": "Metering & Standards",
-      "story": "Farrow's corrected record has the corridor above continuous rating for about ninety hours over three years. She wants to know whether that is a maintenance note or a design problem.",
+      "story": "Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.",
       "game": {
         "type": "CHOICE",
         "title": "Hours over limit, added up",
         "setup": "Metering & Standards",
         "play": "Say what the corrected hours do to the conductor",
         "task": "Say what the corrected hours do to the conductor",
-        "question": "What do ninety accumulated hours above continuous rating mean for the conductor?",
+        "question": "What do 90 accumulated hours above continuous rating mean for the conductor?",
         "answer": "The aluminium has lost strength for good, and its life is shorter than designed.",
-        "why": "Annealing is not a state the metal comes back from. Above about ninety-five degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now.",
+        "why": "Annealing is not a state the metal comes back from. Above about 95 degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now.",
         "rebuttals": [
           "Cooling restores the temperature and not the strength; the loss is in the grain structure, and it is permanent.",
           "Surviving a current is not the same as being rated for it, because the damage is cumulative rather than immediate.",
@@ -2913,7 +2913,7 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "GEN-1": {
-    "prompt": "Frequency fell at 0.30 Hz per second over the first two seconds. The machines online held 25,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.",
+    "prompt": "Frequency fell at 0.30 Hz per second over the first 2 seconds. The machines online held 25,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.",
     "question": "Choose the stored energy, the rate of fall and the nominal frequency.",
     "labels": [
       "25000 MW·s  (stored kinetic energy)",
@@ -2941,7 +2941,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 45,
     "units": "MW",
     "solution": "|ΔP| = 2 × 25,000 × 0.30 ÷ 50 = 300 MW.",
-    "explanation": "About three hundred megawatts. That is a unit, not a faulty meter. The settled deviation and the generation online are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question."
+    "explanation": "About 300 megawatts. That is a unit, not a faulty meter. The settled deviation and the generation online are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question."
   },
   "LOAD-1": {
     "prompt": "The balanced corridor carries 1,150 A RMS in each phase. Each phase has 4.2 ohms of resistance over the full corridor.",
@@ -2972,10 +2972,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 1500000,
     "units": "W",
     "solution": "P_loss = 3 × 1150² × 4.2 ≈ 1.67 × 10⁷ W ≈ 17 MW.",
-    "explanation": "About seventeen megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself."
+    "explanation": "About 17 megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself."
   },
   "DIST-1": {
-    "prompt": "The feeder carries 310 A. Over four kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.",
+    "prompt": "The feeder carries 310 A. Over 4 kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.",
     "question": "Choose the current, both parts of the impedance, and the two parts of the angle.",
     "labels": [
       "310 A  (feeder current)",
@@ -3007,10 +3007,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 60,
     "units": "V",
     "solution": "ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.",
-    "explanation": "About 1.07 kV line-to-line, close to ten per cent of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."
+    "explanation": "About 1.07 kV line-to-line, close to 10 per cent of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."
   },
   "METER-2": {
-    "prompt": "The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root three is about 1.732.",
+    "prompt": "The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root 3 is about 1.732.",
     "question": "Choose root three, the line voltage, the line current and the power factor.",
     "labels": [
       "1.732  (√3)",
@@ -3044,7 +3044,7 @@ export const BALLPARK_CALCS = {
     "explanation": "About five and a half megawatts. Using three instead of root three gives nearly ten, which is a different circuit. The phase count is a real fact about the system and is not the multiplier here. Sin φ belongs to the reactive part, which is a separate question."
   },
   "LOAD-2": {
-    "prompt": "The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for four hours.",
+    "prompt": "The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for 4 hours.",
     "question": "Choose the energy out and the energy in.",
     "labels": [
       "187 MWh  (energy returned)",
@@ -3069,10 +3069,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.03,
     "units": "fraction",
     "solution": "η = 187 ÷ 220 = 0.85, or 85 per cent.",
-    "explanation": "Eighty-five per cent, so fifteen per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question."
+    "explanation": "85 per cent, so 15 per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question."
   },
   "TRANS-4": {
-    "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.",
+    "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.",
     "question": "Choose the total current, the other path's impedance and the sum of the two.",
     "labels": [
       "900 A  (total current)",
@@ -3098,7 +3098,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 40,
     "units": "A",
     "solution": "I_old = 900 × 3 ÷ (6 + 3) = 300 A.",
-    "explanation": "Three hundred amps in the old circuit and six hundred in the new one. Each path takes the other's impedance over the sum, so the low-impedance route carries twice as much. The busbar voltage is the same for both, which is why it cancels and never enters the arithmetic."
+    "explanation": "300 amps in the old circuit and 600 in the new 1. Each path takes the other's impedance over the sum, so the low-impedance route carries twice as much. The busbar voltage is the same for both, which is why it cancels and never enters the arithmetic."
   },
   "TRANS-5": {
     "prompt": "Phase voltage at the fault was 6,350 V. Total impedance of the source, transformer and cable back to it is 0.42 Ω. Normal load on the circuit is 310 A.",
@@ -3126,15 +3126,15 @@ export const BALLPARK_CALCS = {
     "tolerance": 1500,
     "units": "A",
     "solution": "I = 6,350 ÷ 0.42 ≈ 1.5 × 10⁴ A.",
-    "explanation": "About fifteen thousand amps, roughly fifty times the normal load. The load current does not limit a fault, because the fault has gone around the load. The clearing time matters for the energy released rather than for the size of the current."
+    "explanation": "About 15000 amps, roughly 50 times the normal load. The load current does not limit a fault, because the fault has gone around the load. The clearing time matters for the energy released rather than for the size of the current."
   },
   "LOAD-3": {
-    "prompt": "Base Friday peak for this week of the year is 6,400 MW. Demand sensitivity is 120 MW per degree below zero. Tomorrow's forecast is minus four degrees.",
+    "prompt": "Base Friday peak for this week of the year is 6,400 MW. Demand sensitivity is 120 MW per degree below 0. Tomorrow's forecast is minus four degrees.",
     "question": "Choose the base peak, the sensitivity and the degrees below zero.",
     "labels": [
       "6400 MW  (base peak)",
       "120 MW/°C  (demand sensitivity)",
-      "4  (degrees below zero)",
+      "4  (degrees below 0)",
       "310 MW  (reserve held)"
     ],
     "values": [
@@ -3183,7 +3183,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 80,
     "units": "MWh",
     "solution": "E = 300 × 2.5 = 750 MWh.",
-    "explanation": "Seven hundred and fifty megawatt-hours never delivered. The household count and the frequency are both central to the story and neither belongs in this calculation. One is who was affected; the other is why it happened."
+    "explanation": "750 megawatt-hours never delivered. The household count and the frequency are both central to the story and neither belongs in this calculation. One is who was affected; the other is why it happened."
   },
   "TRANS-7": {
     "prompt": "The balanced corridor now carries 1,280 A RMS in each phase. Each phase still has 4.2 ohms of resistance over the full corridor.",
@@ -3214,7 +3214,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 1800000,
     "units": "W",
     "solution": "P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.",
-    "explanation": "About twenty-one megawatts, against seventeen an hour ago. Current rose by eleven per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
+    "explanation": "About 21 megawatts, against 17 an hour ago. Current rose by 11 per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
   }
 };
 
@@ -3243,7 +3243,7 @@ export const JARGON = [
       "megawatt",
       "mw"
     ],
-    "def": "A million watts. The unit a power system is argued about in; a large generating unit is a few hundred of them.",
+    "def": "1 million watts. The unit a power system is argued about in; a large generating unit is a few hundred of them.",
     "core": true
   },
   {

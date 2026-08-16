@@ -1,8 +1,8 @@
 # instruments.yml — the Meridian Verification Office.
 #
-# THIS BOOK IS THE WORKED EXAMPLE OF THE TWELVE FORMATS IN `FORMATS.md`. One
+# THIS BOOK IS THE WORKED EXAMPLE OF THE 12 FORMATS IN `FORMATS.md`. One
 # stop each, over four days, in a place invented for the purpose: an office that
-# checks other people's measurements, so every one of the twelve is something
+# checks other people's measurements, so every 1 of the 12 is something
 # somebody there does on an ordinary Tuesday.
 #
 # It exists for the reason `tools/BOOK_TEMPLATE.md` exists — a format nobody has
@@ -195,7 +195,7 @@ glossary:
 # Do not send a day into the same area twice: normalize.js turns the repeat into
 # a person stop, which works, but the day reads better if you chose it.
 # ---------------------------------------------------------------- the days
-# Four days, twelve stops, one per format in FORMATS.md. No day visits the same
+# 4 days, 12 stops, 1 per format in FORMATS.md. No day visits the same
 # area twice, so nothing here becomes a person stop by accident.
 missions:
   - title: Three instruments, one reference
@@ -278,7 +278,7 @@ missions:
             water is going.
           total: { amount: 410, unit: L/min, label: Inflow at the hull }
           streams:
-            - { id: rise, label: Accumulation in the bilge, value: 320, display: '8 cm over 4.0 m2 in one minute = 320 L/min' }
+            - { id: rise, label: Accumulation in the bilge, value: 320, display: '8 cm over 4.0 m2 in 1 minute = 320 L/min' }
             - { id: pump, label: Drain pump discharge, value: 90, display: 90 L/min, hidden: true, note: 'running since the alarm' }
             - { id: fw, label: Fresh-water tank level, value: 0, display: 'unchanged' }
           tolerance: 25
@@ -291,7 +291,7 @@ missions:
           being removed while you were measuring has to go back into the total, and a pump that
           has been running since the alarm is easy to leave out precisely because it is not a
           reading — nothing on the panel changes when it runs. Report the 320 and the response is
-          sized for a leak two thirds of its actual rate, which decides how many pumps are worth
+          sized for a leak 2 thirds of its actual rate, which decides how many pumps are worth
           starting and, more to the point, whether starting pumps is the answer at all.
       # ---- ATTEST. Three interlocking counts: at least one critical claim
       # unbacked (or closing blind passes), no more of them than the `checks`
@@ -372,7 +372,7 @@ missions:
           options:
             - { id: repeat, label: Repeat the surface survey, cost: 2, axis: surface concentration, reveals: 'The same value again, to a tighter uncertainty.' }
             - { id: deeper, label: Third surface transect, cost: 2, axis: surface concentration, reveals: 'Consistent with the first two.' }
-            - { id: gallery, label: Lower the monitor into the gallery, cost: 3, axis: conditions where the crew will actually be, decisive: true, reveals: 'Oxygen at 17 per cent four metres down, and falling with depth.' }
+            - { id: gallery, label: Lower the monitor into the gallery, cost: 3, axis: conditions where the crew will actually be, decisive: true, reveals: 'Oxygen at 17 per cent 4 metres down, and falling with depth.' }
             - { id: archive, label: Pull the 1998 survey from the archive, cost: 1, axis: history of the site, reveals: 'The gallery was backfilled in two stages, which the plan does not show.' }
           commit: Fund it
         answerText: >-
@@ -417,14 +417,14 @@ missions:
             - { id: fan, label: Forward ventilation fan }
           truth: swb
           baseline: 74
-          # Signed: securing the pump takes the tone DOWN nineteen decibels.
+          # Signed: securing the pump takes the tone DOWN 19 decibels.
           response: -19
           noise: 1.5
           changeVerb: secured
           run: Ask sonar for the level
           commit: Name it
         answerText: >-
-          Seawater pump B. Securing it alone drops the tone nineteen decibels, and restoring it
+          Seawater pump B. Securing it alone drops the tone 19 decibels, and restoring it
           brings the line straight back — which is what separates it from the machine that
           happened to start in the same hour.
         why: >
@@ -497,9 +497,9 @@ missions:
 
   - title: What the plan cannot answer
     objective: Trace a path, spend a finite pool, and locate something from constraints that do not meet at a point.
-    briefing: The gym is cleared on paper, the crate holds twenty slots, and three stations disagree politely.
+    briefing: The gym is cleared on paper, the crate holds 20 slots, and 3 stations disagree politely.
     stake: >-
-      Thursday, and Priya Naidoo has three jobs that have to close before the report does. The gym next to the school is cleared on a rapid inspection that never traced a load path; the river programme has twenty laboratory slots and six questions that all deserve them; and the overnight event has three arrival times and one station whose clock has been drifting since the spring. Today you follow force from a roof to the ground, decide what a sampling plan is allowed not to answer, and report a location as the region it actually is.
+      Thursday, and Priya Naidoo has three jobs that have to close before the report does. The gym next to the school is cleared on a rapid inspection that never traced a load path; the river programme has 20 laboratory slots and 6 questions that all deserve them; and the overnight event has 3 arrival times and 1 station whose clock has been drifting since the spring. Today you follow force from a roof to the ground, decide what a sampling plan is allowed not to answer, and report a location as the region it actually is.
     takeaway: A finite plan is defined as much by what it forgoes as by what it covers.
     stops:
       # ---- CHAIN. The `distractor` is required and must differ from `governing`,
@@ -550,11 +550,11 @@ missions:
       # one is NOT — a board where every answer is required has removed the
       # decision the format exists to make.
       - group: G4
-        task: Spend twenty slots on a plan you can defend
-        title: What twenty bottles cannot ask
+        task: Spend 20 slots on a plan you can defend
+        title: What 20 bottles cannot ask
         place: Response Desk
         scene: >
-          A crate with twenty laboratory slots in it, the river map on the wall,
+          A crate with 20 laboratory slots in it, the river map on the wall,
           and the partition model's prediction pinned beside it. Nobody has
           written down a recommended plan.
         assumes:
@@ -563,7 +563,7 @@ missions:
         takeaway: Sampling is experimental design under a budget, and every feasible plan forgoes a question.
         format: ALLOCATE
         question: >-
-          Twenty slots. Build the plan, and know which of the four questions it leaves open.
+          20 slots. Build the plan, and know which of the four questions it leaves open.
         allocate:
           hint: >-
             Nothing here is a wrong choice on its own. What a plan cannot answer is the price of
@@ -584,8 +584,8 @@ missions:
             - { question: 'Is the concentration rising or falling?', requires: [second] }
           commit: Commit the crate
         answerText: >-
-          Any plan that keeps the intake and the QC and stays inside twenty slots is defensible —
-          and it will answer two of the remaining three questions at most. Naming which one you
+          Any plan that keeps the intake and the QC and stays inside 20 slots is defensible —
+          and it will answer 2 of the remaining 3 questions at most. Naming which one you
           left open is the answer.
         why: >
           Every line on this crate is worth sampling, which is exactly why a list of options
@@ -634,7 +634,7 @@ missions:
           commit: Report the position
         answerText: >-
           Around 24 east, 24 north, as a region several kilometres across — and only after the
-          ridge clock correction, which moves that station's ring fourteen kilometres.
+          ridge clock correction, which moves that station's ring 14 kilometres.
         why: >
           One station's arrival separation says how far the source was. It says nothing about
           direction, so on its own it leaves a whole ring. Three rings intersect, and what they
@@ -660,7 +660,7 @@ missions:
         place: Sample Room
         scene: >
           The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9
-          with nine tenths of a degree on it, and a fifth of the trajectories are
+          with 9 tenths of a degree on it, and a fifth of the trajectories are
           outside.
         assumes:
           - a state estimate is a distribution over what the measurements permit
@@ -686,7 +686,7 @@ missions:
             - { id: pass2, label: A second tracking pass, effect: narrow, amount: 0.72, cost: 4 }
           commit: Declare it ready
         answerText: >-
-          Both tracking passes. Re-centring alone leaves better than one trajectory in twenty
+          Both tracking passes. Re-centring alone leaves better than 1 trajectory in 20
           outside the corridor; narrowing the spread is the only thing that moves that number.
         why: >
           The nominal angle is the one place the vehicle is least likely to be. Re-targeting it
@@ -724,7 +724,7 @@ missions:
           intervention:
             label: The kinetic impactor
             note: 610 kg at 6.1 km/s, closing on the leading hemisphere.
-            outcome: Impact confirmed. Ejecta plume observed for nineteen minutes.
+            outcome: Impact confirmed. Ejecta plume observed for 19 minutes.
           measurement:
             label: Post-impact orbital period
             note: Three tracking passes, refit against the pre-impact solution.
@@ -735,7 +735,7 @@ missions:
             Nothing in that sequence establishes that the asteroid moved.
           commit: Report the deflection
         answerText: >-
-          Around fourteen and a half minutes — but only the post-impact tracking establishes it.
+          Around 14 and a half minutes — but only the post-impact tracking establishes it.
           A confirmed impact with no measured orbit is a confirmed impact and nothing else.
         why: >
           The spacecraft's own momentum is known to a few percent. What is not known is how much
@@ -775,23 +775,23 @@ missions:
             - { id: stage, label: Stage regional resources, leadHours: 72, owner: Calderón, action: 'move shelter and transport into the corridor' }
             - { id: evac, label: Begin staged evacuation, leadHours: 336, owner: the prefecture, action: 'open the evacuation order' }
           stream:
-            - { at: day 0, value: 0.04, hoursLeft: 528, update: 'one in 2500, eleven days of arc' }
-            - { at: day 4, value: 0.32, hoursLeft: 432, update: 'one in 310 after radar; the nominal miss moves away' }
-            - { at: day 9, value: 2.5, hoursLeft: 312, update: 'one in 40; the corridor narrows to two provinces' }
-            - { at: day 15, value: 0.011, hoursLeft: 168, update: 'one in 9000 after the fourth tracking pass' }
+            - { at: day 0, value: 0.04, hoursLeft: 528, update: '1 in 2500, 11 days of arc' }
+            - { at: day 4, value: 0.32, hoursLeft: 432, update: '1 in 310 after radar; the nominal miss moves away' }
+            - { at: day 9, value: 2.5, hoursLeft: 312, update: '1 in 40; the corridor narrows to 2 provinces' }
+            - { at: day 15, value: 0.011, hoursLeft: 168, update: '1 in 9000 after the fourth tracking pass' }
           release: Release the board
           commit: Stand by the board
         answerText: >-
           Every threshold has to sit low enough to fire while its own lead time is still available
-          — the evacuation stage below about 0.3 per cent, since it needs fourteen days and only
-          the first two updates arrive with that much left.
+          — the evacuation stage below about 0.3 per cent, since it needs 14 days and only
+          the first 2 updates arrive with that much left.
         why: >
           Two ways of getting this wrong look nothing alike and cost the same. A threshold set too
           high never fires, and the stage simply does not happen. A threshold set at a sensible
-          number fires on the day nine update with three hundred hours left, which is a correct
-          rule for an action that needed three hundred and thirty-six — so the rule is satisfied
-          and the evacuation is already impossible. The day fifteen collapse to one in nine
-          thousand does not make the day nine decision a mistake, and the board is what makes that
+          number fires on the day 9 update with 300 hours left, which is a correct
+          rule for an action that needed 336 — so the rule is satisfied
+          and the evacuation is already impossible. The day 15 collapse to 1 in 9000
+          does not make the day 9 decision a mistake, and the board is what makes that
           arguable afterwards, because it was signed before anybody knew.
 
   - title: Which number is carrying the error
@@ -838,13 +838,13 @@ missions:
           dominant: density
           commit: Report the range
         answerText: >-
-          The density. It is raised to the first power and known to forty-five per cent, which
-          outweighs a radius cubed and known to eight — so the sampling is the measurement worth
+          The density. It is raised to the first power and known to 45 per cent, which
+          outweighs a radius cubed and known to 8 — so the sampling is the measurement worth
           buying, and the energy is a range rather than a figure.
         why: >
           A term contributes its exponent multiplied by its own fractional width. The radius is
-          cubed, which is the part everybody sees, and it is known well enough that three times
-          eight per cent is still smaller than one times forty-five. Buying another radar pass
+          cubed, which is the part everybody sees, and it is known well enough that 3 times
+          8 per cent is still smaller than 1 times 45. Buying another radar pass
           therefore improves the number that was already good and moves the total almost not at
           all. What makes this worth catching is that the shortcut — rank by exponent — is
           reasonable, teachable and produces exactly the wrong answer here. The density is also
@@ -906,12 +906,12 @@ missions:
           possible at the pessimistic end of the endurance range, which is the end nobody
           measured away.
         why: >
-          At seventy-eight hours the direct excavation finishes first and looks like the obvious
-          call. The endurance was never seventy-eight hours; it was a range with seventy-eight in
+          At 78 hours the direct excavation finishes first and looks like the obvious
+          call. The endurance was never 78 hours; it was a range with 78 in
           the middle of it, and at the low end the direct option needs more containment than there
           is. What the slider shows is that three of the four options are conditional on an
           assumption holding, and the ranking everybody was reading is a ranking of what happens
-          if it does. Choosing the staged option costs thirteen hours and buys the property that
+          if it does. Choosing the staged option costs 13 hours and buys the property that
           the plan does not have to be abandoned partway.
       # ---- RESIDUAL. The lowest-RMS fit must be the wrong one and must be marked
       # `structured`, or "take the best number" is correct and nobody looks at the
@@ -1056,7 +1056,7 @@ missions:
           that cannot be undone, and everything else goes out with an owner, a first action and a
           condition that brings them back.
         why: >
-          The fire panel is the loudest thing in the building and it has been stable for twenty
+          The fire panel is the loudest thing in the building and it has been stable for 20
           minutes on a fault that is already in the log. The spill is rising and it is inside a
           bund, so what it costs is money and time rather than an option. The groundwater is the
           only condition where waiting removes a choice: over the sill, the records are gone and
@@ -1074,7 +1074,7 @@ missions:
         scene: >
           The survey trolley runs on a rail in the flooded gallery, where nothing
           slows it down. Ben Achterberg has the last operator's trace, which
-          shows the motor cut at the mark and the trolley eighteen metres past it.
+          shows the motor cut at the mark and the trolley 18 metres past it.
         assumes:
           - a body with no resisting force keeps whatever velocity it was given
           - removing a velocity takes the same impulse that produced it
@@ -1101,7 +1101,7 @@ missions:
           run: Run it
           commit: Report where it stopped
         answerText: >-
-          Braking has to start about seven and a half metres short of the mark on a six-second
+          Braking has to start about 7 and a half metres short of the mark on a six-second
           pulse — around 82 metres — because that is how far the trolley travels while the braking
           impulse is being applied.
         why: >
@@ -1119,8 +1119,8 @@ missions:
         title: More detections, the same amount of notice
         place: Sample Room
         scene: >
-          Five thousand synthetic events with known times and sizes, ready to push
-          through the monitoring network exactly as a real one would go. Kit
+          5000 synthetic events with known times and sizes, ready to push
+          through the monitoring network exactly as a real 1 would go. Kit
           Sorensen has the recovery display up and nothing on it yet.
         assumes:
           - a detection pipeline has a selection function, and it can be measured
@@ -1328,7 +1328,7 @@ missions:
                 - text: 'dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt'
                   rule: power
                   why: >-
-                    H^(1/2) at H = 2.0 is the square root of two, about 1.41. Using 2.00 evaluates
+                    H^(1/2) at H = 2.0 is the square root of 2, about 1.41. Using 2.00 evaluates
                     H rather than its square root.
                 - text: 'dQ/dt = 21.0 × 1.5 × 1.5 × dH/dt = 47.3·dH/dt'
                   rule: power

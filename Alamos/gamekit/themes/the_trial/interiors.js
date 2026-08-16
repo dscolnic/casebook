@@ -4,7 +4,7 @@
 
 export const INTERIORS = {
   "RAND": {
-    "caption": "Four thousand identical boxes in numbered order. The blind is a physical object.",
+    "caption": "4000 identical boxes in numbered order. The blind is a physical object.",
     "standLine": "Kit 2118–2129, site 19. Storage excursion under review before release.",
     "station": {
       "kind": "panel",
@@ -35,7 +35,7 @@ export const INTERIORS = {
   },
   "ENDP": {
     "caption": "Three readers, no arm, no site, and a definition agreed before the first participant.",
-    "standLine": "Nineteen files under adjudication. Two waiting on a discharge summary.",
+    "standLine": "19 files under adjudication. Two waiting on a discharge summary.",
     "station": {
       "kind": "panel",
       "title": "Adjudication queue",
@@ -124,8 +124,8 @@ export const INTERIORS = {
     }
   },
   "SITE": {
-    "caption": "Twenty-nine of thirty-one sites are fine. The work is the other two.",
-    "standLine": "Site 12 screening log, and thirty others for comparison.",
+    "caption": "29 of 31 sites are fine. The work is the other two.",
+    "standLine": "Site 12 screening log, and 30 others for comparison.",
     "station": {
       "kind": "panel",
       "title": "Site operations",
@@ -155,7 +155,7 @@ export const INTERIORS = {
   },
   "REG": {
     "caption": "The trial's promises, with the date each one was made.",
-    "standLine": "Protocol v6, registry entry updated, four amendments on file.",
+    "standLine": "Protocol v6, registry entry updated, 4 amendments on file.",
     "station": {
       "kind": "panel",
       "title": "Commitments",

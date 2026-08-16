@@ -151,7 +151,7 @@ roster:
     role: Survey Pipeline Scientist
     division: DISC
     bio: |-
-      Owns the software that decides which of the night's forty thousand detections
+      Owns the software that decides which of the night's 40000 detections
       a human being ever sees. Most of what it flags is a satellite, a cosmic ray or
       a column of hot pixels.
 
@@ -312,12 +312,12 @@ glossary:
       - solar elongation
     def: The angular separation between an object and the Sun as seen from the observer.
 
-# The campaign: one working day each, three stops and a callback from day 3.
+# The campaign: 1 working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Discovery Image
     objective: Validate a new-object candidate and preserve the measurements needed for follow-up.
     briefing: A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.
-    stake: Eleven days before the object passes Earth, the automated survey run by Aino Virtanen has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.
+    stake: 11 days before the object passes Earth, the automated survey run by Aino Virtanen has flagged a faint point that moved between 3 exposures. The same field holds 40000 catalogued stars, 2 satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.
     takeaway: Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.
     stops:
       - group: DISC
@@ -376,7 +376,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Validate the discovery
         place: Image Processing Lab
-        scene: Forty thousand catalogued stars, two satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.
+        scene: 40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.
         assumes:
           - a prediction somebody else can test is what makes a claim checkable
         takeaway: A discovery is useful only when another observer can test it.
@@ -397,7 +397,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: How far did it move?
         place: Minor-Planet Operations Desk
-        scene: The object shifted between two frames twenty minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.
+        scene: The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.
         assumes:
           - a rate is an amount divided by the time it took
         takeaway: Repeated images turn apparent motion into a measurable rate.
@@ -410,7 +410,7 @@ missions:
           question: Estimate the apparent motion in arcseconds per hour.
           labels:
             - 12 arcsec (measured shift)
-            - 20 min (between the two frames)
+            - 20 min (between the 2 frames)
             - 3 exposures
             - 1,200 s (the same interval, in seconds)
             - 24 h
@@ -507,7 +507,7 @@ missions:
         task: Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity.
         title: Buy the best next observation
         place: Time Standards Room
-        scene: Four hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets two hours after dusk, and the current arc is only four hours. The same field is observable again in six nights; the press office is waiting.
+        scene: 4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.
         assumes:
           - a short observation arc is consistent with many orbits
           - parallax can constrain distance
@@ -558,7 +558,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From angles to orbit family
         place: Orbit Determination Center
-        scene: Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.
+        scene: Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.
         takeaway: Uncertainty should be carried forward as an ensemble of physically allowed trajectories.
         format: SEQUENCE
         rebuttals:
@@ -608,7 +608,7 @@ missions:
         task: Radar has a window in nine days. What do you do with the nine nights before it?
         title: Collapse the orbit uncertainty
         place: Follow-Up Scheduling Desk
-        scene: The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in twelve nights, radar can see it in nine days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.
+        scene: The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.
         assumes:
           - an orbit narrows only when new evidence arrives
         takeaway: A sharper-looking orbit is not a better orbit unless new evidence narrows the allowed family.
@@ -628,7 +628,7 @@ missions:
   - title: The Uncertainty Corridor
     objective: Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.
     briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.
-    stake: Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the uncertainty that is actually driving the number. You get one chance to explain it.
+    stake: Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses 9 million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the uncertainty that is actually driving the number. You get one chance to explain it.
     takeaway: Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
@@ -693,12 +693,12 @@ missions:
           tolerance: 0.004
           units: "%"
           solution: 37/100,000 = 3.7 × 10⁻⁴, or 0.037%.
-          explanation: The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. A thousand samples could not have resolved a probability this small at all.
+          explanation: The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. 1000 samples could not have resolved a probability this small at all.
       - group: OPS
         task: A thin set of solutions still hits Earth. Where do you point next week?
         title: Reduce the dangerous uncertainty
         place: Planetary Defense Coordination Office
-        scene: The nominal orbit misses by four Earth radii. Roughly one in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.
+        scene: The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.
         assumes:
           - a measurement is informative where the candidate explanations disagree
         takeaway: The best observation separates the live hypotheses rather than merely adding another point.
@@ -965,14 +965,14 @@ missions:
   - title: The Spinning Target
     objective: Produce a rotation-state range suitable for imaging and deflection planning.
     briefing: Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive a period, identify aliases, and determine whether the body may be tumbling.
-    stake: Four days to the pass. The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours — and one observatory's nightly window repeats on almost the same interval, which the survey imaging lead, Linh Nguyen, noticed and nobody wanted to hear. Today you decide whether you are watching the object turn or watching your own schedule, and pin the spin state down. An intercept will be aimed using this number, years from now, at a body it can see for a few hours. Get it wrong and it arrives at the wrong face, or misses.
+    stake: Four days to the pass. The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours — and 1 observatory's nightly window repeats on almost the same interval, which the survey imaging lead, Linh Nguyen, noticed and nobody wanted to hear. Today you decide whether you are watching the object turn or watching your own schedule, and pin the spin state down. An intercept will be aimed using this number, years from now, at a body it can see for a few hours. Get it wrong and it arrives at the wrong face, or misses.
     takeaway: Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated facts.
     stops:
       - group: CHAR
         task: Which explanation fits the repeatability, comparison stars, filters, and observing geometry?
         title: Rotation or observing artifact?
         place: Time-Series Photometry Network
-        scene: The asteroid repeats a 4.8-hour brightness cycle in two filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.
+        scene: The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.
         assumes:
           - the atmosphere and the instrument have their own rhythms
         takeaway: Periodicity becomes physical evidence only after environmental and instrumental periodicities are ruled out.
@@ -1049,7 +1049,7 @@ missions:
           target: 7
           tolerance: 0.5
           units: h
-          solution: 3.5 h between maxima, two maxima per turn, so about 7 h.
+          solution: 3.5 h between maxima, 2 maxima per turn, so about 7 h.
           explanation: "The repetition time is not the period. Multiplying rather than dividing is the whole point: a body that shows two maxima per rotation repeats twice as often as it turns, so the period is longer than the spacing, not shorter."
       - group: OPS
         task: A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?
@@ -1075,7 +1075,7 @@ missions:
   - title: Radar Contact
     objective: Design a radar sequence that improves both orbit and physical characterization.
     briefing: A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and reveal shape, but only if the observation plan uses the limited signal effectively.
-    stake: The pass is tonight, and Fischer has the dish. The radar window is four hours wide, and this geometry does not return for eleven years — after the encounter that everybody is now worried about. Three of the four things the room wants can be got another way. Today you decide what radar is uniquely for and write the sequence. An orbit built from angles alone is starved of exactly what this dish can add, and it resolves detail at a scale nothing optical here can reach. Tonight the size question closes for good, or it stays open for a decade.
+    stake: The pass is tonight, and Fischer has the dish. The radar window is 4 hours wide, and this geometry does not return for 11 years — after the encounter that everybody is now worried about. Three of the four things the room wants can be got another way. Today you decide what radar is uniquely for and write the sequence. An orbit built from angles alone is starved of exactly what this dish can add, and it resolves detail at a scale nothing optical here can reach. Tonight the size question closes for good, or it stays open for a decade.
     takeaway: Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than as isolated facts.
     stops:
       - group: RADAR
@@ -1124,9 +1124,9 @@ missions:
           question: Estimate the diameter of the object.
           labels:
             - 0.10 arcsec (measured angular width)
-            - 206,265 (arcsec in one radian)
+            - 206,265 (arcsec in 1 radian)
             - 6.0e8 m (distance, from radar)
-            - 1.5e11 m (one astronomical unit)
+            - 1.5e11 m (1 astronomical unit)
             - 0.5 arcsec (the seeing that night)
           values: [0.1, 206265, 600000000, 150000000000, 0.5]
           slots: 3
@@ -1142,7 +1142,7 @@ missions:
         task: Radar has settled this pass. What has to be computed before anybody calls the object safe?
         title: What this pass does to the next one
         place: Orbit Determination
-        scene: "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: eleven years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back."
+        scene: "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back."
         assumes:
           - a planet's gravity changes the path of anything that passes close to it
         takeaway: A close approach rewrites the orbit it happens on, so safety is a claim about the returns after it.
@@ -1157,12 +1157,12 @@ missions:
         answer: Propagate the measured encounter through Earth’s gravity and test the resulting return geometry for later close approaches.
         rebuttals:
           - A measured miss settles this pass and says nothing about the orbit the encounter creates.
-          - Albedo gives size. Size does not tell you where the object will be in eleven years.
+          - Albedo gives size. Size does not tell you where the object will be in 11 years.
           - A later arc is needed and is not sufficient — without carrying the orbit forward through the encounter there is nothing to compare it against.
   - title: Impact Energy
     objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
     briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.
-    stake: "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly four hundred megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage."
+    stake: "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly 400 megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage."
     takeaway: Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
@@ -1195,7 +1195,7 @@ missions:
           target: 1588000000000000000
           tolerance: 200000000000000000
           units: J
-          solution: Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly four hundred megatons.
+          solution: Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly 400 megatons.
           explanation: The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other.
       - group: OPS
         task: Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry.
@@ -1216,7 +1216,7 @@ missions:
           - It matters only for the crater, not for the energy.
         answer: Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher.
         rebuttals:
-          - The two speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.
+          - The 2 speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.
           - The atmosphere decelerates the object after entry, so it cannot lower the speed at which entry begins.
           - Energy is proportional to the square of entry speed, so the speed error propagates straight into the energy.
         estimate:
@@ -1263,7 +1263,7 @@ missions:
   - title: Through the Atmosphere
     objective: Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.
     briefing: Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging airburst. The player must reason about drag, strength, heating, and uncertain structure.
-    stake: Two weeks after the pass, and Marta Schulz, who models impact physics, has three groups modelling the same object from the same data. One has it reaching the ground, one has it coming apart thirty kilometres up, one is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Strength is the property we can least measure from here, and the one that decides what people are told to do.
+    stake: Two weeks after the pass, and Marta Schulz, who models impact physics, has three groups modelling the same object from the same data. 1 has it reaching the ground, 1 has it coming apart 30 kilometres up, 1 is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Strength is the property we can least measure from here, and the one that decides what people are told to do.
     takeaway: Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
@@ -1272,7 +1272,7 @@ missions:
         place: Entry and Consequences Lab
         scene: The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.
         assumes:
-          - one megaton of TNT is 4.184×10^15 joules
+          - 1 megaton of TNT is 4.184×10^15 joules
         takeaway: A quantity is only communicable once it is in the units the decision is made in.
         format: BALLPARK
         question: Estimate the energy in megatons of TNT.
@@ -1283,7 +1283,7 @@ missions:
           question: Estimate the energy in megatons of TNT.
           labels:
             - 3.1e17 J (kinetic energy at entry)
-            - 4.184e15 J (one megaton of TNT)
+            - 4.184e15 J (1 megaton of TNT)
             - 1.0e6 (joules in a megajoule)
             - 15 kt (the 1945 test, for scale)
           values: [310000000000000000, 4184000000000000, 1000000, 15]
@@ -1372,7 +1372,7 @@ missions:
   - title: What Have We Failed to See?
     objective: Design a survey strategy that improves detection and accurately reports what remains unseen.
     briefing: The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.
-    stake: A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Anything approaching from the direction of the Sun cannot be seen from the ground at all.
+    stake: A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found 11 days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. 11 days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Anything approaching from the direction of the Sun cannot be seen from the ground at all.
     takeaway: Use selection effects, survey completeness, limiting magnitude, how often the survey looks, population inference as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -1385,7 +1385,7 @@ missions:
         takeaway: Survey completeness is geometric as well as instrumental; an object can be bright enough yet effectively hidden by the Sun.
         format: CHOICE
         question: Which explanation fits the pre-discovery geometry and how the survey was running at the time?
-        why: "Completeness is geometric as well as instrumental, and this object was bright enough and effectively invisible at the same time. Its solar elongation was under about thirty degrees, which puts it in twilight where no ground survey can work. Everything else on the panel says the survey was healthy: the weather was clear, the detector was fine, and the predicted brightness was within reach whenever the object was in dark sky. It was found as soon as the geometry allowed, and not before."
+        why: "Completeness is geometric as well as instrumental, and this object was bright enough and effectively invisible at the same time. Its solar elongation was under about 30 degrees, which puts it in twilight where no ground survey can work. Everything else on the panel says the survey was healthy: the weather was clear, the detector was fine, and the predicted brightness was within reach whenever the object was in dark sky. It was found as soon as the geometry allowed, and not before."
         rebuttals:
           - A survey too shallow would never reach it, and the record says its brightness was within reach whenever it was in dark sky.
           - Bad weather blocks fields at random, and the archive is mostly clear across the period.
@@ -1606,7 +1606,7 @@ missions:
   - title: Design the Intercept
     objective: Select an intercept architecture with enough margin to reach and accurately target the asteroid.
     briefing: The mission must launch within a narrow window and encounter a rotating, irregular target with limited communications delay. The player must integrate orbital mechanics, navigation, power, and autonomy.
-    stake: Nine months after the pass, and Garcia has to sign the architecture. The launch window is nineteen days wide and the composition result that would say what you are aiming at comes back eight days after it closes. Today you find which subsystem is really setting the limit and decide where to spend margin. This is the decision the whole campaign turns on, because lead time is the only resource that cannot be bought back. Miss this window and there is no second attempt and no cheaper version — only telling people where to stand in seven years.
+    stake: Nine months after the pass, and Garcia has to sign the architecture. The launch window is 19 days wide and the composition result that would say what you are aiming at comes back 8 days after it closes. Today you find which subsystem is really setting the limit and decide where to spend margin. This is the decision the whole campaign turns on, because lead time is the only resource that cannot be bought back. Miss this window and there is no second attempt and no cheaper version — only telling people where to stand in seven years.
     takeaway: Use launch windows, relative motion, guidance, power, communications delay as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -1671,7 +1671,7 @@ missions:
         task: The measured deflection is only about two centimetres a second. Why can that be enough years before encounter?
         title: Why a centimetre a second is enough
         place: Coordination Office
-        scene: Post-impact tracking reports a velocity change of about two centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in a million can create a safe miss years later.
+        scene: Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in 1 million can create a safe miss years later.
         assumes:
           - an object in orbit is moving at tens of kilometres a second
         takeaway: A tiny nudge applied early buys a large miss later, and the currency is time.
@@ -1691,7 +1691,7 @@ missions:
   - title: Evacuate or Wait?
     objective: Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.
     briefing: The impact corridor crosses populated regions, but the probability is still changing. The player must connect scientific uncertainty to staged civil decisions and avoid both complacency and panic.
-    stake: Three years in. The impactor launched two years ago and reaches the asteroid in eleven days, five years before the encounter. The probability has moved twice this month, both times downward, and Ellery's draft evacuation plan has been seen by two regional governments who are being asked to fund it now — and this time Rossi is the one who is right, because what she would spend is trust she cannot get back. Today you match what gets done to what is actually known. Stockpiles and plans are cheap and reversible. Moving nine million people is neither, and it kills people directly. Both mistakes here have a body count, and only one of them would ever be reported as yours.
+    stake: Three years in. The impactor launched 2 years ago and reaches the asteroid in 11 days, 5 years before the encounter. The probability has moved twice this month, both times downward, and Ellery's draft evacuation plan has been seen by two regional governments who are being asked to fund it now — and this time Rossi is the one who is right, because what she would spend is trust she cannot get back. Today you match what gets done to what is actually known. Stockpiles and plans are cheap and reversible. Moving 9 million people is neither, and it kills people directly. Both mistakes here have a body count, and only one of them would ever be reported as yours.
     takeaway: Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -1753,7 +1753,7 @@ missions:
           tolerance: 3600
           units: people (expectation)
           solution: 9 × 10⁶ × 0.005 = 45,000 people, as an expectation.
-          explanation: "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of a hundred."
+          explanation: "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of 100."
       - group: OPS
         task: Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.
         title: Prepare without panic
@@ -1814,7 +1814,7 @@ missions:
   - title: The Final Defense Review
     objective: Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.
     briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.
-    stake: Eight years after the discovery, and the encounter is next week. The impactor struck five years ago; tracking since then puts the object about two Earth radii out, and some five thousand kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next one is up there now, unfound, and the survey line that caught this one expires in eleven months.
+    stake: Eight years after the discovery, and the encounter is next week. The impactor struck 5 years ago; tracking since then puts the object about 2 Earth radii out, and some 5000 kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next 1 is up there now, unfound, and the survey line that caught this 1 expires in 11 months.
     takeaway: Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -1961,7 +1961,7 @@ interiors:
           status: low
   RADAR:
     caption: Four hours of dish time collapse an orbit that a month of imaging cannot.
-    standLine: A window four hours wide that does not open again for eleven years.
+    standLine: A window 4 hours wide that does not open again for 11 years.
     station:
       kind: vitals
       title: Delay-Doppler

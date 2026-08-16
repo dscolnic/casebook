@@ -251,10 +251,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Torque from a thruster",
-      "scene": "A 200 N thruster fires at right angles, three metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
+      "scene": "A 200 N thruster fires at right angles, 3 metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
       "takeaway": "Force location matters as much as force magnitude in rotational control.",
       "place": "Guidance Console",
-      "story": "A 200 N thruster fires at right angles, three metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
+      "story": "A 200 N thruster fires at right angles, 3 metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
       "game": {
         "type": "BALLPARK",
         "title": "Torque from a thruster",
@@ -419,10 +419,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Combine independent uncertainties",
-      "scene": "The navigation board carries two position errors. One is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.",
+      "scene": "The navigation board carries two position errors. 1 is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.",
       "takeaway": "Independent orthogonal uncertainties combine in quadrature.",
       "place": "Navigation Covariance Room",
-      "story": "The navigation board carries two position errors. One is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.",
+      "story": "The navigation board carries two position errors. 1 is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.",
       "game": {
         "type": "BALLPARK",
         "title": "Combine independent uncertainties",
@@ -431,7 +431,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the combined two-dimensional uncertainty.",
         "answer": "",
-        "why": "Independent errors along perpendicular directions combine in quadrature. Square each width, add the squares, and take the square root. Six and eight kilometres therefore combine to 10 kilometres. The result is larger than either contribution but smaller than their simple sum. That distinction matters operationally. Adding them directly exaggerates the uncertainty and can motivate an unnecessary burn. Treating the larger term alone understates the uncertainty and can hide a corridor problem. The combination rule preserves the geometry of independent errors.",
+        "why": "Independent errors along perpendicular directions combine in quadrature. Square each width, add the squares, and take the square root. 14 kilometres therefore combine to 10 kilometres. The result is larger than either contribution but smaller than their simple sum. That distinction matters operationally. Adding them directly exaggerates the uncertainty and can motivate an unnecessary burn. Treating the larger term alone understates the uncertainty and can hide a corridor problem. The combination rule preserves the geometry of independent errors.",
         "givens": [],
         "relationship": "Independent errors along perpendicular axes add in quadrature: the root of the sum of the squares.",
         "calcKey": "NAV-8"
@@ -646,7 +646,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the heating power at the connection.",
         "answer": "",
-        "why": "Resistive heating is current squared times resistance, so the current term dominates. The same connector at half the current would give off a quarter of the power. The resistance sounds like nothing written down. The wattage it makes at this current is what decides whether the junction runs warm or starts a fire. Twenty watts is nothing spread over a radiator. It is a great deal in one connector, in a sealed cabin, with no air moving over it.",
+        "why": "Resistive heating is current squared times resistance, so the current term dominates. The same connector at half the current would give off a quarter of the power. The resistance sounds like nothing written down. The wattage it makes at this current is what decides whether the junction runs warm or starts a fire. 20 watts is nothing spread over a radiator. It is a great deal in one connector, in a sealed cabin, with no air moving over it.",
         "givens": [],
         "relationship": "Power dissipated = current² × resistance.",
         "calcKey": "ELEC-3"
@@ -731,7 +731,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the temperature drop over three hours.",
         "answer": "",
-        "why": "A lumped estimate treats the cabin and everything in it as one thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up.",
+        "why": "A lumped estimate treats the cabin and everything in it as 1 thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up.",
         "givens": [],
         "relationship": "Temperature drop = energy lost ÷ heat capacity. Energy lost = power × time.",
         "calcKey": "THERM-2"
@@ -818,10 +818,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "CO2 production scale",
-      "scene": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
+      "scene": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
       "takeaway": "Source rate sets the minimum removal requirement.",
       "place": "Cabin Air Console",
-      "story": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
+      "story": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
       "game": {
         "type": "BALLPARK",
         "title": "CO2 production scale",
@@ -830,7 +830,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the carbon dioxide produced in six hours.",
         "answer": "",
-        "why": "Source rate sets the minimum removal rate. Three people at 20 litres per hour each produce 60 litres per hour together. Over six hours that becomes 360 litres. A scrubber that removes carbon dioxide more slowly than the crew produces it cannot hold the concentration steady. It only slows the rise. The estimate does not need high precision. It needs to tell the workshop whether the improvised system is large enough to matter and how much capacity it must provide.",
+        "why": "Source rate sets the minimum removal rate. 3 people at 20 litres per hour each produce 60 litres per hour together. Over 6 hours that becomes 360 litres. A scrubber that removes carbon dioxide more slowly than the crew produces it cannot hold the concentration steady. It only slows the rise. The estimate does not need high precision. It needs to tell the workshop whether the improvised system is large enough to matter and how much capacity it must provide.",
         "givens": [],
         "relationship": "Total = rate per person × number of people × time.",
         "calcKey": "THERM-4"
@@ -854,7 +854,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the kinetic energy to be dissipated.",
         "answer": "",
-        "why": "Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about forty percent nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.",
+        "why": "Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about 40 percent nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.",
         "givens": [],
         "relationship": "Kinetic energy = ½ × mass × speed².",
         "calcKey": "THERM-5"
@@ -941,10 +941,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why did the signal fade?",
-      "scene": "Voice and telemetry are down about 12 decibels at two ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.",
+      "scene": "Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.",
       "takeaway": "A reversible one-variable test can separate a causal fault from conditions that merely occur at the same time.",
       "place": "Deep-Space Antenna",
-      "story": "Voice and telemetry are down about 12 decibels at two ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.",
+      "story": "Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.",
       "game": {
         "type": "CONTROL",
         "title": "Why did the signal fade?",
@@ -1201,10 +1201,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Recover the weak link",
-      "scene": "The carrier is down twelve decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
+      "scene": "The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
       "takeaway": "Communication recovery joins wave physics, control, and estimation.",
       "place": "Spacecraft Attitude Console",
-      "story": "The carrier is down twelve decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
+      "story": "The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
       "game": {
         "type": "SEQUENCE",
         "title": "Recover the weak link",
@@ -1579,10 +1579,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Execute a manual attitude maneuver",
-      "scene": "The guidance platform is off. The crew must turn the spacecraft ninety degrees using two opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.",
+      "scene": "The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.",
       "takeaway": "In undamped rotation, stopping the torque does not stop the motion; braking must begin before the target.",
       "place": "Crew Procedures Room",
-      "story": "The guidance platform is off. The crew must turn the spacecraft ninety degrees using two opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.",
+      "story": "The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.",
       "game": {
         "type": "FLY",
         "title": "Execute a manual attitude maneuver",
@@ -1725,10 +1725,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Shed load without losing the mission",
-      "scene": "Forty-one amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.",
+      "scene": "41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.",
       "takeaway": "A finite energy budget is a set of tradeoffs between load rate, runtime, and the mission conditions each load protects.",
       "place": "Mission Planning Desk",
-      "story": "Forty-one amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.",
+      "story": "41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.",
       "game": {
         "type": "ALLOCATE",
         "title": "Shed load without losing the mission",
@@ -2056,10 +2056,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Reading the trace instead of the number",
-      "scene": "The plot board has ninety minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
+      "scene": "The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
       "takeaway": "A graph carries rate and change of rate, neither of which is visible in the latest reading.",
       "place": "Flight Director console",
-      "story": "The plot board has ninety minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
+      "story": "The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
       "game": {
         "type": "PROTOCOL",
         "title": "Reading the trace instead of the number",
@@ -2653,10 +2653,10 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Disposition final readiness",
-      "scene": "Eleven minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.",
+      "scene": "11 minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.",
       "takeaway": "A signed readiness claim is a record of what someone believes; critical physical states still need evidence proportional to their consequence.",
       "place": "Integrated Flight Room",
-      "story": "Eleven minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.",
+      "story": "11 minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.",
       "game": {
         "type": "ATTEST",
         "title": "Disposition final readiness",
@@ -2711,10 +2711,10 @@ export const CURRICULUM = {
     {
       "day": 21,
       "title": "Execute the final physical chain",
-      "scene": "Everything now depends on the next eleven minutes, including four minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.",
+      "scene": "Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.",
       "takeaway": "Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts.",
       "place": "Crew Capsule",
-      "story": "Everything now depends on the next eleven minutes, including four minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.",
+      "story": "Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.",
       "game": {
         "type": "SEQUENCE",
         "title": "Execute the final physical chain",
@@ -2783,7 +2783,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Force times time is impulse; impulse divided by mass is the velocity change. Surface gravity has no bearing on a vehicle in free flight, and specific impulse would tell you what the burn costs in propellant rather than what it achieves."
   },
   "NAV-5": {
-    "prompt": "A 200 N thruster fires at right angles, three metres from the centre of mass.",
+    "prompt": "A 200 N thruster fires at right angles, 3 metres from the centre of mass.",
     "question": "Estimate the torque about the centre of mass.",
     "labels": [
       "3 m (lever arm to the centre of mass)",
@@ -2873,13 +2873,13 @@ export const BALLPARK_CALCS = {
     "explanation": "The bus voltage is the wrong term: the power lost in a series joint depends on the current through it and the voltage across it, not the voltage of the system it sits in. Current enters squared, so the same joint at 10 A would dissipate a quarter as much."
   },
   "THERM-2": {
-    "prompt": "With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.",
+    "prompt": "With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as 1 thermal mass of about 12 million joules per kelvin.",
     "question": "Estimate the temperature drop over three hours.",
     "labels": [
       "1,000 W (net heat loss)",
-      "10,800 s (three hours)",
+      "10,800 s (3 hours)",
       "12e6 J/K (heat capacity)",
-      "3 h (three hours, in hours)",
+      "3 h (3 hours, in hours)",
       "4 °C (present cabin temperature)"
     ],
     "values": [
@@ -2904,7 +2904,7 @@ export const BALLPARK_CALCS = {
     "explanation": "A watt is a joule per second, so the time has to be in seconds or the answer is out by 3,600. That is the arithmetic slip this problem exists to catch."
   },
   "THERM-4": {
-    "prompt": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.",
+    "prompt": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next 6 hours.",
     "question": "Estimate the carbon dioxide produced in six hours.",
     "labels": [
       "3 people",
@@ -2931,7 +2931,7 @@ export const BALLPARK_CALCS = {
     "target": 360,
     "tolerance": 25,
     "units": "L",
-    "solution": "3 × 20 × 6 = 360 L over the six hours.",
+    "solution": "3 × 20 × 6 = 360 L over the 6 hours.",
     "explanation": "A rate per person per hour needs a head count and an interval, and both have to match the question asked. A daily mass figure describes the same crew and cannot be multiplied into this one without a density and a different arithmetic."
   },
   "COMMS-2": {
@@ -2962,7 +2962,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.015,
     "units": "m",
     "solution": "λ = c/f = 0.15 m.",
-    "explanation": "A factor of a thousand in the frequency is a factor of a thousand in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation."
+    "explanation": "A factor of 1000 in the frequency is a factor of 1000 in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation."
   },
   "NAV-6": {
     "prompt": "A residual acceleration of 0.004 m/s² acts for 90 s with the engine off.",
@@ -2970,7 +2970,7 @@ export const BALLPARK_CALCS = {
     "labels": [
       "0.004 m/s² (residual acceleration)",
       "90 s (unpowered coast)",
-      "0.5 (the one half in the relationship)",
+      "0.5 (the 1 half in the relationship)",
       "9.81 m/s² (surface gravity, for scale)"
     ],
     "values": [
@@ -3054,12 +3054,12 @@ export const BALLPARK_CALCS = {
     "explanation": "Only inertia and stiffness set the natural frequency — heavier is slower, stiffer is faster. The wheel speed is what might drive this mode, which is the next question and not this one."
   },
   "NAV-8": {
-    "prompt": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.",
+    "prompt": "2 independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.",
     "question": "Estimate the combined two-dimensional uncertainty.",
     "labels": [
       "6 km (one-sigma, first axis)",
       "8 km (one-sigma, second axis)",
-      "14 km (the two added)",
+      "14 km (the 2 added)",
       "7 km (their average)",
       "2 (number of axes)"
     ],
@@ -3081,7 +3081,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.5,
     "units": "km",
     "solution": "√(6² + 8²) = 10 km.",
-    "explanation": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by forty per cent here."
+    "explanation": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by 40 per cent here."
   }
 };
 

@@ -149,7 +149,7 @@ export const ROSTER = [
     "role": "Infection",
     "division": "DEF",
     "color": "#2c3e50",
-    "bio": "<p>Dr. Okafor works on germs and immunity. Her whole job comes down to two questions: how does this germ move between people, and how do we stand in its way?</p><p>Germs travel in a few ordinary ways — on hands, in droplets from a cough, and on surfaces people touch afterwards. That is why hand-washing is the most powerful thing in the building. Soap does not poison germs; it breaks up the greasy coat around many of them and lets running water carry the whole lot away down the drain. Twenty seconds is about how long that takes.</p><p>The immune system is her other subject. White blood cells learn the shape of a germ they have met before, so the second time it arrives they recognise it and start fighting immediately instead of taking days to work out what it is. That memory is exactly what a vaccine gives, without the illness.</p>",
+    "bio": "<p>Dr. Okafor works on germs and immunity. Her whole job comes down to two questions: how does this germ move between people, and how do we stand in its way?</p><p>Germs travel in a few ordinary ways — on hands, in droplets from a cough, and on surfaces people touch afterwards. That is why hand-washing is the most powerful thing in the building. Soap does not poison germs; it breaks up the greasy coat around many of them and lets running water carry the whole lot away down the drain. 20 seconds is about how long that takes.</p><p>The immune system is her other subject. White blood cells learn the shape of a germ they have met before, so the second time it arrives they recognise it and start fighting immediately instead of taking days to work out what it is. That memory is exactly what a vaccine gives, without the illness.</p>",
     "quiz": [
       {
         "q": "How does soap help against germs?",
@@ -319,7 +319,7 @@ export const ROSTER = [
     "role": "Patient",
     "division": "NUTR",
     "color": "#7f8c8d",
-    "bio": "<p>Chloe has type 1 diabetes and has been managing it for three years. She is here for a routine review, and she can explain the whole thing faster than most adults.</p><p>Sugar from food travels in the blood, but it cannot get into the cells that need to burn it without a key called insulin. Chloe’s body has stopped making that key, so the sugar stays in the blood instead of getting used — which is why she can feel tired and thirsty while the fuel is right there.</p><p>She checks her blood sugar with a small meter and gives herself insulin to match what she eats. The part she wants people to know is that it is arithmetic, not fragility: she plays football, goes on school trips, and simply does a calculation first.</p>",
+    "bio": "<p>Chloe has type 1 diabetes and has been managing it for 3 years. She is here for a routine review, and she can explain the whole thing faster than most adults.</p><p>Sugar from food travels in the blood, but it cannot get into the cells that need to burn it without a key called insulin. Chloe’s body has stopped making that key, so the sugar stays in the blood instead of getting used — which is why she can feel tired and thirsty while the fuel is right there.</p><p>She checks her blood sugar with a small meter and gives herself insulin to match what she eats. The part she wants people to know is that it is arithmetic, not fragility: she plays football, goes on school trips, and simply does a calculation first.</p>",
     "quiz": [
       {
         "q": "Why does sugar build up in Chloe’s blood?",
@@ -604,7 +604,7 @@ export const ROSTER = [
     "role": "Patient",
     "division": "BRAIN",
     "color": "#7f8c8d",
-    "bio": "<p>Mae is staying overnight for a sleep study, with soft sensors stuck to her head and a band around her chest. She was worried she would never fall asleep with all of it on. Almost everybody does.</p><p>The head sensors pick up the brain’s electrical activity, which is what an EEG measures. Sleep is not one flat state: brain activity moves through stages in cycles of roughly ninety minutes, from light sleep to deep sleep and into the dreaming stage, and the pattern of those cycles is what the team are recording.</p><p>The chest band tracks her breathing and a finger clip tracks her oxygen at the same time, so the record shows what her breathing was doing at each stage — something that cannot be seen at all while someone is awake.</p>",
+    "bio": "<p>Mae is staying overnight for a sleep study, with soft sensors stuck to her head and a band around her chest. She was worried she would never fall asleep with all of it on. Almost everybody does.</p><p>The head sensors pick up the brain’s electrical activity, which is what an EEG measures. Sleep is not one flat state: brain activity moves through stages in cycles of roughly 90 minutes, from light sleep to deep sleep and into the dreaming stage, and the pattern of those cycles is what the team are recording.</p><p>The chest band tracks her breathing and a finger clip tracks her oxygen at the same time, so the record shows what her breathing was doing at each stage — something that cannot be seen at all while someone is awake.</p>",
     "quiz": [
       {
         "q": "What do the sensors on Mae’s head record?",

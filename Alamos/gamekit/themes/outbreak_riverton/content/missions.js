@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Hijacked Cells",
     "objective": "Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.",
     "briefing": "Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.",
-    "stake": "Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, one of them at forty times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.",
+    "stake": "Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, 1 of them at 40 times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.",
     "takeaway": "Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "A Test Before Morning",
     "objective": "Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.",
     "briefing": "Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.",
-    "stake": "Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. Three thousand people have already been told to isolate on that run and the bulletin goes out at six. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.",
+    "stake": "Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. 3000 people have already been told to isolate on that run and the bulletin goes out at 6. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.",
     "takeaway": "Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "Why Are Some Patients Sicker?",
     "objective": "Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.",
     "briefing": "Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.",
-    "stake": "Day thirteen. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.",
+    "stake": "Day 13. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.",
     "takeaway": "Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The Immune System Turns",
     "objective": "Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.",
     "briefing": "Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish protective immune responses from damaging dysregulation.",
-    "stake": "Day eighteen, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants drugs that damp the immune system started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.",
+    "stake": "Day 18, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants drugs that damp the immune system started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.",
     "takeaway": "Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "The Hidden Transmission Route",
     "objective": "Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.",
     "briefing": "Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.",
-    "stake": "Day twenty-four, and Morales gets her stage. Ward isolation has held for nine days and cases keep appearing in neighbourhoods with nobody in hospital. A field epidemiologist, Grace Oduya, has pulled a sewer sample from the north of the city that was kept by chance and tested this morning — positive four days before the first patient walked in. This stage you decide where transmission is actually happening and where to put surveillance. Oduya has three sampling teams and the city has four watersheds. The nine days of ward isolation have already cost the hospitals their elective work.",
+    "stake": "Day 24, and Morales gets her stage. Ward isolation has held for nine days and cases keep appearing in neighbourhoods with nobody in hospital. A field epidemiologist, Grace Oduya, has pulled a sewer sample from the north of the city that was kept by chance and tested this morning — positive four days before the first patient walked in. This stage you decide where transmission is actually happening and where to put surveillance. Oduya has three sampling teams and the city has four watersheds. The nine days of ward isolation have already cost the hospitals their elective work.",
     "takeaway": "Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "The Animal Connection",
     "objective": "Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.",
     "briefing": "Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.",
-    "stake": "Day thirty-three. Sequences from three patients sit close to a virus found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. The wildlife vet, Mateo Castellanos, has been out there twice and says the herons are the wrong animal; the One Health lead, Arjun Singh, will not say either way until the sampling is designed properly. This stage you decide what role any animal is actually playing and design the campaign that could show it. What is being argued about is who infects whom over time, not which animal is nearby or easiest to blame.",
+    "stake": "Day 33. Sequences from three patients sit close to a virus found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. The wildlife vet, Mateo Castellanos, has been out there twice and says the herons are the wrong animal; the One Health lead, Arjun Singh, will not say either way until the sampling is designed properly. This stage you decide what role any animal is actually playing and design the campaign that could show it. What is being argued about is who infects whom over time, not which animal is nearby or easiest to blame.",
     "takeaway": "Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 6,
-        "task": "Allocate the twenty slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact."
+        "task": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact."
       }
     ]
   },
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "The Mutation",
     "objective": "Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.",
     "briefing": "A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.",
-    "stake": "Day forty-five. A variant with three changes has gone from 8 to 31 per cent of sequences in four weeks, in one district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.",
+    "stake": "Day 45. A variant with 3 changes has gone from 8 to 31 per cent of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.",
     "takeaway": "Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "Treatment Failure",
     "objective": "Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.",
     "briefing": "A therapy that initially helped is failing in a growing subset of patients. The player must determine whether the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.",
-    "stake": "Day sixty. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Bergström has a resistant sequence from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.",
+    "stake": "Day 60. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Bergström has a resistant sequence from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.",
     "takeaway": "Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "Design the Intervention",
     "objective": "Select a layered intervention portfolio and identify the evidence required before deployment.",
     "briefing": "The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.",
-    "stake": "Day seventy-eight. The city wants an intervention and the room is arguing as though it can only have one. The antibody everyone favours binds the exact stretch of protein that mutated in the north, which Bergström has now said three times. This stage you choose what to fund and say what evidence is needed before any of it reaches a person. The options also arrive on different timescales — one is available on Monday, one in a year — which is the whole argument for layering them rather than picking a favourite. Back a single glamorous option and the city has one point of failure against something still changing.",
+    "stake": "Day 78. The city wants an intervention and the room is arguing as though it can only have one. The antibody everyone favours binds the exact stretch of protein that mutated in the north, which Bergström has now said three times. This stage you choose what to fund and say what evidence is needed before any of it reaches a person. The options also arrive on different timescales — one is available on Monday, one in a year — which is the whole argument for layering them rather than picking a favourite. Back a single glamorous option and the city has one point of failure against something still changing.",
     "takeaway": "Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "The Trial Signal",
     "objective": "Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value or headline percentage.",
     "briefing": "Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must distinguish a real effect from random variation and decide whether the trial should expand.",
-    "stake": "Day ninety-six, and the trial has reported: ten hospitalisations in the treated group against twenty in the control, out of four hundred people. Most of that benefit sits at the one site that enrolled the youngest patients, and the serious adverse events are not spread evenly either. The health minister wants a number before deciding how much to buy, and has been given one percentage she would like confirmed. This stage you read the result properly and decide whether the trial continues, expands or stops. Nobody in the room has yet said how many people twenty is out of.",
+    "stake": "Day 96, and the trial has reported: 10 hospitalisations in the treated group against 20 in the control, out of 400 people. Most of that benefit sits at the one site that enrolled the youngest patients, and the serious adverse events are not spread evenly either. The health minister wants a number before deciding how much to buy, and has been given one percentage she would like confirmed. This stage you read the result properly and decide whether the trial continues, expands or stops. Nobody in the room has yet said how many people 20 is out of.",
     "takeaway": "Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "Containment or Adaptation?",
     "objective": "Use scenarios and trigger-based policies instead of pretending one forecast is certain.",
     "briefing": "The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation, and long-term adaptation while the biological parameters remain uncertain.",
-    "stake": "Day a hundred and eighteen. Three districts are on visibly different paths and the council wants one policy by Friday. Ninety of the region's hundred and twenty critical-care beds are full and severe cases are arriving at about eight a day. Ortiz wants the beds protected; Morales wants the growth stopped where it is still cheap. Ortiz has the bed numbers by hour, Morales has the district growth rates, and the two documents have never been in the same room. This stage you build the arithmetic behind the decision and choose a policy that survives being wrong. The honest answer to an uncertain future is a set of triggers rather than one guess.",
+    "stake": "Day 121 districts are on visibly different paths and the council wants 1 policy by Friday. 90 of the region's hundred and 20 critical-care beds are full and severe cases are arriving at about 8 a day. Ortiz wants the beds protected; Morales wants the growth stopped where it is still cheap. Ortiz has the bed numbers by hour, Morales has the district growth rates, and the two documents have never been in the same room. This stage you build the arithmetic behind the decision and choose a policy that survives being wrong. The honest answer to an uncertain future is a set of triggers rather than one guess.",
     "takeaway": "Use population growth, feedback, capacity thresholds, model assumptions, scenario analysis, tradeoffs as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "The Final Briefing",
     "objective": "Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.",
     "briefing": "The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.",
-    "stake": "Day a hundred and forty. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.",
+    "stake": "Day 140. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.",
     "takeaway": "Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.",
     "stops": [
       {

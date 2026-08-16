@@ -64,7 +64,7 @@ roster:
     division: DATA
     bio: |
       Runs the season, which mostly means deciding what the season is allowed to
-      claim. She has spent eleven years on this plateau and reads a record the
+      claim. She has spent 11 years on this plateau and reads a record the
       way an auditor reads a ledger: not for what it says, for what it would
       take to make it say something else.
 
@@ -96,7 +96,7 @@ roster:
       them on one. Announcing a difference between two timescales is announcing
       something about the timescales.
 
-      Her limit is that counting has an end. Below about two thousand metres the
+      Her limit is that counting has an end. Below about 2000 metres the
       layers are thinner than anything she can resolve, and from there the ages
       come from a flow model she did not build and cannot check.
     quiz:
@@ -111,12 +111,12 @@ roster:
     role: Drill Engineer
     division: DRILL
     bio: |
-      Twenty-two seasons on deep drills, and he can tell from the winch load
-      what the hole is doing eight hundred metres down. The drill is a
+      22 seasons on deep drills, and he can tell from the winch load
+      what the hole is doing 800 metres down. The drill is a
       three-tonne instrument that gets one attempt per run.
 
       He runs the brittle zone slowly and refuses to be hurried through it. Ice
-      between five hundred and twelve hundred metres holds bubbles at pressures
+      between 51200 metres holds bubbles at pressures
       the surface cannot support, and a core brought up fast comes up as gravel.
 
       His limit is that he cannot see anything. Everything he knows about the
@@ -133,7 +133,7 @@ roster:
     role: Isotope Chemist
     division: COLD
     bio: |
-      Runs the cold laboratory at minus twenty-five, where every sample is
+      Runs the cold laboratory at minus 25, where every sample is
       melted exactly once and everything that touches it has been accounted for
       first. She measures ratios that differ in the fourth decimal place.
 
@@ -245,8 +245,8 @@ roster:
     role: Gas Laboratory Technician
     division: GAS
     bio: |
-      Runs the extraction line, which is a vacuum system with fourteen fittings
-      and a rule about every one of them. He tests the line against a standard
+      Runs the extraction line, which is a vacuum system with 14 fittings
+      and a rule about every 1 of them. He tests the line against a standard
       gas before any sample is cut.
     quiz:
       - q: Why does Menon run a standard gas through the line before cutting a sample?
@@ -254,7 +254,7 @@ roster:
         wrong:
           - The line has to be brought to the same temperature as the sample
           - Standard gas removes water vapour left over from the previous run
-          - It confirms that the line's fourteen pressure gauges agree with each other first
+          - It confirms that the line's 14 pressure gauges agree with each other first
   - id: devries
     name: Anneke de Vries
     role: Camp Manager
@@ -307,7 +307,7 @@ glossary:
     def: The layer of snow between the surface and solid ice, still open enough for air to move through it.
   - name: Close-off depth
     aliases: [close-off, closes off, closed off]
-    def: The depth where firn stops letting air through, sixty to a hundred metres down, and the trapped air becomes separate bubbles.
+    def: The depth where firn stops letting air through, 60 to 100 metres down, and the trapped air becomes separate bubbles.
   - name: Delta age
     aliases: [Δage, gas age, ice age difference]
     def: The difference between the age of a bubble's air and the age of the ice around it, because the air kept moving until close-off.
@@ -358,13 +358,13 @@ missions:
   # ------------------------------------------------------------------ day 1
   - title: What the plateau has been writing down
     objective: Establish what this site records, how fast it records it, and why anybody drilled here.
-    briefing: A new season opens on a core that is already two thousand metres deep.
+    briefing: A new season opens on a core that is already 2000 metres deep.
     stake: >-
       First morning of the season, and the drill has not turned yet. The field glaciologist, Nadia
       Brandt, has a fortnight of stake readings and a fresh pit wall, and the chief scientist, Marit
       Halvorsen, wants the season's accumulation figure before the science plan is written. Today
       you settle what this site actually records, how much of a year the surface adds, and why the
-      hole was put here rather than forty kilometres downslope. Get the accumulation wrong and
+      hole was put here rather than 40 kilometres downslope. Get the accumulation wrong and
       every age below it is wrong in the same direction, quietly, for three kilometres.
     takeaway: A record is only as good as the rate at which it was written.
     stops:
@@ -385,7 +385,7 @@ missions:
           Snow and ice are the same material at different densities, so a thickness of snow is not a
           thickness of record. Multiplying the layer by the ratio of the two densities converts it
           to the ice it will become once the air is squeezed out, which is the only form in which
-          two sites can be compared. Vestri gets about twelve centimetres a year in ice equivalent.
+          two sites can be compared. Vestri gets about 12 centimetres a year in ice equivalent.
           A coastal site gets a metre, and that difference decides everything downstream: how far
           back the core reaches, how thin the layers get, and how much older the ice is than its own
           trapped air.
@@ -415,8 +415,8 @@ missions:
         place: Drill Trench
         scene: >-
           The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with
-          three abandoned sites on it, all of them on slopes. Vestri Dome is the high point for two
-          hundred kilometres.
+          3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200
+          kilometres.
         assumes:
           - ice spreads outwards from the high points of an ice sheet
         takeaway: A core is a column of what fell above it only where the ice has not travelled sideways.
@@ -479,7 +479,7 @@ missions:
   # ------------------------------------------------------------------ day 2
   - title: Three kilometres of one attempt
     objective: Get the core to the surface and onto the line without changing what it can say.
-    briefing: The brittle zone starts at 540 metres and the run sheet has three short runs on it.
+    briefing: The brittle zone starts at 540 metres and the run sheet has 3 short runs on it.
     stake: >-
       Second day, and the drill is going back down after a night of maintenance. Lindqvist has three
       short runs on the sheet from last season's brittle zone and the core line technician, Sigrid
@@ -509,7 +509,7 @@ missions:
           - Cut and distribute only after the section has stopped cracking
         order: [0, 1, 2, 3, 4]
         why: >-
-          Between about five hundred and twelve hundred metres the bubbles are at pressures the
+          Between about 51200 metres the bubbles are at pressures the
           surface cannot support, and the ice around them fractures as it is brought up. Each step
           buys the next one: a slow lift reduces the shock, resting the core at hole temperature
           lets the pressure equalise gradually, logging the breaks fixes what depth each fragment
@@ -542,7 +542,7 @@ missions:
           matters is that the uncertainty travels with the sample, because the danger is not the
           gap — it is somebody downstream who never hears about it.
         rebuttals:
-          - Four metres is thirty years at this site, which is larger than most of the features the isotopes are used to find
+          - 4 metres is 30 years at this site, which is larger than most of the features the isotopes are used to find
           - Discarding it throws away measurements that never needed a depth in the first place
           - Assigning a most likely depth writes a guess into the record in the same handwriting as the measurements
       - group: COLD
@@ -582,7 +582,7 @@ missions:
           work: what identifies the source is not the loud number but which of the quiet ones stayed
           quiet.
   # ------------------------------------------------------------------ day 3
-  - title: Counting to two thousand
+  - title: Counting to 2000
     objective: Establish how a year is counted, and find the depth where counting stops working.
     briefing: Okonkwo needs the depth at which the layer thickness drops below what the line can resolve.
     stake: >-
@@ -636,8 +636,8 @@ missions:
           commit: Mark the end of the counted record
         why: >-
           Ice spreads outwards under its own weight, so every layer is stretched thinner as it
-          sinks, and the thinning compounds with depth. At Vestri the surface lays down about twelve
-          centimetres a year in ice equivalent; two kilometres down the same year is a few
+          sinks, and the thinning compounds with depth. At Vestri the surface lays down about 12
+          centimetres a year in ice equivalent; 2 kilometres down the same year is a few
           millimetres. Where the layers close to within the resolution of the measurement, the
           count stops — not because the years are gone, but because two of them can no longer be
           told apart. Everything deeper is dated by a flow model anchored to whatever dated events
@@ -647,13 +647,13 @@ missions:
         title: Which year marker survives the depth
         place: Cold Laboratory
         scene: >-
-          The isotope chemist, Yuki Tanabe, has four annual signals measured on the same stretch of
-          core at 1,400 metres, where a year is about twenty-six millimetres thick.
+          The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of
+          core at 1,400 metres, where a year is about 26 millimetres thick.
         assumes:
           - water molecules can move through the connected air spaces in firn
         takeaway: A signal is only useful for counting while it is still sharper than the layer it marks.
         format: CHOICE
-        question: At 1,400 metres, which signal is still able to separate one year from the next?
+        question: At 1,400 metres, which signal is still able to separate 1 year from the next?
         answerText: The chemistry — sodium and dust — because those travel in the ice as particles and solutes rather than as water molecules, so firn diffusion never smoothed them.
         choices:
           - Sodium and dust, which never moved through the firn
@@ -716,7 +716,7 @@ missions:
     objective: Decide what is measured while the Skarv samples are still on the station.
     briefing: The Skarv group's samples fly out on Thursday and cannot come back.
     stake: >-
-      Thursday is the aircraft window and eleven Skarv samples are in the core store until it
+      Thursday is the aircraft window and 11 Skarv samples are in the core store until it
       opens. Halvorsen has the Skarv record on one screen and this station's on the other, and they
       disagree by more than either group's stated uncertainty. She wants a measurement made while
       both cores can be run on one instrument. Okonkwo wants nothing said until the timescales are
@@ -730,7 +730,7 @@ missions:
         title: What is worth measuring before Thursday
         place: Science Module
         scene: >-
-          Eleven Skarv samples, one working day, and the isotope line can take four of them.
+          11 Skarv samples, 1 working day, and the isotope line can take 4 of them.
           The data manager, Jonas Aalto, has the two records side by side and the difference between
           them on a third screen.
         assumes:
@@ -785,7 +785,7 @@ missions:
         title: The same water, twice
         place: Cold Laboratory
         scene: >-
-          Tanabe has both groups' working standards on the bench and thirty minutes of instrument
+          Tanabe has both groups' working standards on the bench and 30 minutes of instrument
           time. Skarv reports its values against its own standard, calibrated in a different
           laboratory four years ago.
         assumes:
@@ -854,7 +854,7 @@ missions:
     stake: >-
       Friday, and the isotope profile is complete to 1,600 metres. Tanabe has the numbers and
       Halvorsen wants them in degrees for the season summary, which means a slope, and the slope is
-      a measurement somebody made rather than a constant. Brandt has eleven years of mast
+      a measurement somebody made rather than a constant. Brandt has 11 years of mast
       temperatures to test it against. Today you convert the profile into a temperature change,
       decide how tightly the conversion can be stated, and settle what the isotopes are actually a
       thermometer of. A slope taken on faith turns every degree in the record into somebody else's
@@ -900,7 +900,7 @@ missions:
           tolerance: 0.3
           units: °C colder
           solution: 1.8 ÷ 0.67 = 2.7 °C.
-          explanation: The deuterium slope belongs to a different isotope of a different element, and using it here would give an answer eleven times too small.
+          explanation: The deuterium slope belongs to a different isotope of a different element, and using it here would give an answer 11 times too small.
       - group: FIELD
         task: State the cooling with its uncertainty
         title: How firmly the cooling can be stated
@@ -933,10 +933,10 @@ missions:
               label: Apply the revised source-region correction to the slope
               effect: shift
               amount: 0.15
-              note: Moves the central estimate, on the same eleven years
+              note: Moves the central estimate, on the same 11 years
           commit: State the cooling
         why: >-
-          The reconstruction is a distribution, not a number: the slope was fitted to eleven years
+          The reconstruction is a distribution, not a number: the slope was fitted to 11 years
           of overlap and it carries the scatter of that fit. A claim that the interval was more than
           two degrees colder is a claim about where the whole distribution sits, so it is cleared by
           making the distribution narrower rather than by moving its middle. More overlap years is
@@ -1135,8 +1135,8 @@ missions:
         answerText: About −35 per mil. The sample holds 3.5 per cent less heavy oxygen than ocean water, which is what a polar site looks like.
         why: >-
           Isotope ratios differ from one another in the fourth decimal place, so nobody reports them
-          as ratios. The convention is to divide the sample's ratio by the ratio of one agreed
-          water, subtract one so that the standard itself reads zero, and multiply by a thousand so
+          as ratios. The convention is to divide the sample's ratio by the ratio of 1 agreed
+          water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so
           the numbers are convenient. What comes out is a difference in parts per thousand, always
           negative for polar snow because every stage of the journey from the ocean has already
           removed some of the heavy isotope. The scale is a comparison, and it only means anything
@@ -1246,13 +1246,13 @@ missions:
           - volcanic glass carries the chemical composition of the volcano that erupted it
         takeaway: A horizon is identified by what is in it, not by the date it would be convenient for it to have.
         format: DIAGNOSIS
-        headline: A sulphate spike at 1,642 m, with glass shards, and two candidate eruptions within a century of each other.
+        headline: A sulphate spike at 1,642 m, with glass shards, and 2 candidate eruptions within a century of each other.
         readings:
           - { zone: Sulphate, label: Peak height, value: 8× background, status: alarm }
           - { zone: Glass shards, label: Composition, value: 'high-potassium, matches the northern candidate', status: alarm }
           - { zone: Layer count, label: Age at this depth, value: 'stopped 460 m above', status: low }
           - { zone: Flow model, label: Modelled age, value: 'within 90 years of both candidates', status: normal }
-          - { zone: Replicate core, label: Same spike, value: 'present, 1.1 m shallower', status: normal, note: 'the two holes are 400 m apart' }
+          - { zone: Replicate core, label: Same spike, value: 'present, 1.1 m shallower', status: normal, note: 'the 2 holes are 400 m apart' }
         choices:
           - label: The northern eruption, identified by the shard chemistry
             mechanism: Glass composition is specific to a volcano and does not depend on the timescale.
@@ -1266,10 +1266,10 @@ missions:
         why: >-
           The shard chemistry is the only reading here that is independent of the timescale, and it
           is the one that discriminates: glass composition is a fingerprint of a particular magma
-          and a particular volcano. The modelled age cannot choose between two candidates ninety
+          and a particular volcano. The modelled age cannot choose between 2 candidates 90
           years apart because its own uncertainty is larger than that gap. Sea-salt sulphate does
           not arrive with volcanic glass. And waiting for the layer count is waiting for something
-          that stopped four hundred and sixty metres higher, which is the reason a dated horizon
+          that stopped 460 metres higher, which is the reason a dated horizon
           matters here at all.
       - group: GAS
         task: Say what the tie point does for the gas
@@ -1347,23 +1347,23 @@ missions:
     stops:
       - group: DRILL
         task: Work out how thin a year is down there
-        title: A year at two thousand four hundred metres
+        title: A year at 2400 metres
         place: Drill Trench
         scene: >-
           The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is
-          about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.
+          about 0.119 metres of ice equivalent, and Lindqvist wants to know what 1 is now.
         assumes:
           - ice spreads outwards under its own weight, stretching the layers below
         takeaway: Thinning is why a deep core holds so much time in so little ice.
         format: BALLPARK
-        question: Estimate the thickness of one annual layer at 2,400 metres.
-        answerText: About 0.024 metres — a fifth of a surface year, squeezed into twenty-four millimetres.
+        question: Estimate the thickness of 1 annual layer at 2,400 metres.
+        answerText: About 0.024 metres — a fifth of a surface year, squeezed into 24 millimetres.
         why: >-
           Ice flows outwards from the dome, and to keep going it has to stretch, so each layer
           thins as the weight above it grows. The simplest model treats the vertical strain as
           uniform, which makes a layer's thickness fall in proportion to the distance left to the
           bed: at four-fifths of the way down, a layer is one-fifth of what it was. That is what
-          packs a hundred thousand years into the bottom kilometre, and it is also why the count
+          packs 100000 years into the bottom kilometre, and it is also why the count
           stops and the dating starts depending on a model.
         estimate:
           prompt: The ice is 3,010 metres thick and the sample is from 2,400 metres. A year at the surface is 0.119 metres of ice equivalent.
@@ -1396,7 +1396,7 @@ missions:
         takeaway: A term's contribution is its own width multiplied by the power it is raised to, and the largest power is not always the largest contribution.
         format: PROPAGATE
         question: Which measurement should the remaining time buy?
-        answerText: The past accumulation rate. Its thirty per cent uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.
+        answerText: The past accumulation rate. Its 30 per cent uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.
         propagate:
           hint: >-
             Each term contributes its own fractional width times the power it is raised to. The bar
@@ -1417,8 +1417,8 @@ missions:
         why: >-
           A term enters the result raised to some power, and its contribution to the width of the
           answer is that power multiplied by its own fractional uncertainty. The grain diameter is
-          cubed, which makes it look like the term to fix, but it is known to five per cent, so it
-          contributes fifteen. The accumulation rate enters once and is known to thirty, so it
+          cubed, which makes it look like the term to fix, but it is known to 5 per cent, so it
+          contributes 15. The accumulation rate enters once and is known to 30, so it
           contributes twice as much on its own. Ranking by exponent is a reasonable habit and it
           picks the wrong measurement here.
       - group: CORE
@@ -1571,7 +1571,7 @@ missions:
         rebuttals:
           - A slope of one per mil per degree is not this site's slope, and using it changes the answer by half
           - Scatter on a single measurement is much smaller than this difference, which is why it was noticed
-          - Multiplying by the slope instead of dividing by it gives a number about five times too large
+          - Multiplying by the slope instead of dividing by it gives a number about 5 times too large
   # ------------------------------------------------------------------ day 11
   - title: The offset that was not climate
     objective: Test whether the age difference accounts for the disagreement before it is called one.
@@ -1610,7 +1610,7 @@ missions:
           intervention:
             label: Re-plot both gas records on their own gas timescales
             note: Each site's age difference applied to its own record, from its own firn density and accumulation.
-            outcome: Both curves move. This station's moves by four hundred and fifty years, Skarv's by a hundred and ten.
+            outcome: Both curves move. This station's moves by 450 years, Skarv's by 110.
           measurement:
             label: The remaining difference, measured at the tephra horizon
             note: The one depth in both cores whose date came from a volcano rather than a model.
@@ -1737,7 +1737,7 @@ missions:
             - { id: logging, label: Run the borehole temperature log to the bottom, cost: 3 }
           answers:
             - { question: 'Does the deep section reach ice older than the counted record can reach?', requires: [deepen], required: true }
-            - { question: 'Is the tephra horizon present in a second hole four hundred metres away?', requires: [replicate], required: true }
+            - { question: 'Is the tephra horizon present in a second hole 400 metres away?', requires: [replicate], required: true }
             - { question: 'What is the firn air profile this season?', requires: [firn] }
             - { question: 'What is the present-day temperature profile of the ice?', requires: [logging] }
           commit: Commit the drilling plan
@@ -1754,7 +1754,7 @@ missions:
         place: Snow Study Hut
         scene: >-
           Brandt has 48 stakes read this morning. One near the hut has gained a centimetre since the
-          last reading. Eleven others across the array have lost about the same.
+          last reading. 11 others across the array have lost about the same.
         assumes:
           - wind moves snow across a surface after it has fallen
         takeaway: A measurement of a surface that moves has to be made in enough places to catch what moved.
@@ -1772,18 +1772,18 @@ missions:
           fortnight, so any single stake is measuring snowfall and redistribution added together
           and cannot separate them. The array can: snow moved from one place to another cancels
           when the whole array is summed, and what is left is what actually arrived. That is why
-          forty-eight stakes are read rather than one, and why the accumulation figure is a season's
+          48 stakes are read rather than 1, and why the accumulation figure is a season's
           arithmetic rather than a reading.
         rebuttals:
           - Sheltering is a real effect and would have to be established across several fortnights, not one
           - A fortnight's snowfall is what the whole array establishes, since drift cancels only in the sum
-          - Eleven stakes losing snow is what redistribution looks like, and does not point at one disturbed stake
+          - 11 stakes losing snow is what redistribution looks like, and does not point at 1 disturbed stake
       - group: COLD
         task: Fix the order of a run
         title: The order a run is made in
         place: Cold Laboratory
         scene: >-
-          Cruz has sixteen samples to run and the instrument warmed up. Tanabe's rule is that a run
+          Cruz has 16 samples to run and the instrument warmed up. Tanabe's rule is that a run
           has to be able to say afterwards whether it can be trusted.
         assumes:
           - an instrument's response can move slowly during a long run
@@ -1809,7 +1809,7 @@ missions:
     briefing: The store was without power for six hours and the log says nothing about it.
     stake: >-
       Saturday, and the number two generator stopped at some point in the night. The core store came
-      back at minus nineteen and the log has an entry for the whole night signed by the watch. De
+      back at minus 19 and the log has an entry for the whole night signed by the watch. De
       Vries needs the drill and the store back in a fixed order and Lindqvist wants his own list
       first. Aalto has been asked how much of the season's temperature record survives the scatter
       in it. Today you decide which signatures are worth checking, what gets restarted first, and
@@ -1845,7 +1845,7 @@ missions:
           commit: Verify the two
         why: >-
           A signature says that somebody believed something when they signed, and the store reading
-          of minus nineteen says the belief was wrong for at least part of the night. Two of these
+          of minus 19 says the belief was wrong for at least part of the night. Two of these
           claims are both critical and carried by nothing but the signature — the store and the gas
           samples — and both decide whether measurements made on that ice can be defended. The mast
           is critical and already carries its own continuous record; the drill tank has an
@@ -1862,15 +1862,15 @@ missions:
         takeaway: Restart in the order of what is still being lost, not in the order of who asked.
         format: TRIAGE
         question: What is restarted first?
-        answerText: The core store. It is the only one of the four still losing something irreversibly, and every hour above minus twenty costs gas measurements that cannot be made again.
+        answerText: The core store. It is the only 1 of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.
         choices:
           - The core store refrigeration, which is still warming
           - The drill, so the day's run is not lost
-          - The chemistry line, so the sixteen queued samples can be run
+          - The chemistry line, so the 16 queued samples can be run
           - The satellite link, so the season report can be sent
         answer: The core store refrigeration, which is still warming
         why: >-
-          Three of these are waiting and one is deteriorating. Ice above minus twenty starts losing
+          Three of these are waiting and one is deteriorating. Ice above minus 20 starts losing
           gas from the bubbles near its cut faces, and that loss cannot be undone or measured
           around; every hour is more of the core that can no longer answer a gas question. A lost
           drilling day is a day, the queued samples are as good tomorrow as today, and a report sent
@@ -1884,7 +1884,7 @@ missions:
         title: How much of it is noise
         place: Science Module
         scene: >-
-          Aalto has thirty years of reconstructed annual temperature from the top of the core. The
+          Aalto has 30 years of reconstructed annual temperature from the top of the core. The
           year-to-year scatter is 1.4 degrees and the summary wants a mean for the period.
         assumes:
           - averaging independent years reduces the scatter of the average, not of the years
@@ -1895,12 +1895,12 @@ missions:
         why: >-
           Individual years scatter because weather scatters, and averaging does not remove that
           scatter — it reduces the uncertainty of the average, and only as the square root of the
-          number of years. Thirty years of a record with 1.4 degrees of year-to-year variation give
+          number of years. 30 years of a record with 1.4 degrees of year-to-year variation give
           a mean known to about a quarter of a degree. Two such means half a degree apart are two
           standard errors apart, which is where a claim of difference starts becoming defensible and
-          not before. Doubling the precision would take a hundred and twenty years.
+          not before. Doubling the precision would take 120 years.
         estimate:
-          prompt: The reconstructed annual temperatures scatter by 1.4 degrees, and the period is thirty years long.
+          prompt: The reconstructed annual temperatures scatter by 1.4 degrees, and the period is 30 years long.
           question: Estimate the standard error of the thirty-year mean.
           relationship: SE = s ÷ √n — the year-to-year scatter, divided by the square root of how many years were averaged.
           labels:
@@ -2069,7 +2069,7 @@ missions:
         answerText: The one that names the cooling, the period, the uncertainty and the fact that the deep dating rests on a flow model.
         choices:
           - A cooling of about 2.7 degrees, modelled below the counted section
-          - A cooling of two point seven degrees, established by two independent records
+          - A cooling of 2.7 degrees, established by 2 independent records
           - A cooling of about three degrees, consistent with the Skarv site
           - The largest cooling yet recorded at this latitude, pending the deep section
         answer: A cooling of about 2.7 degrees, modelled below the counted section
@@ -2105,7 +2105,7 @@ missions:
           - Carbon dioxide of 190 parts per million in the cold interval
         choices:
           - Measured directly at the surface, and checkable against next season's stakes
-          - Measured, then converted through a slope fitted to eleven years of overlap
+          - Measured, then converted through a slope fitted to 11 years of overlap
           - Counted as far as the layers allowed, and modelled below that
           - Measured on air that is well mixed, at a depth whose own age is modelled
         mapping: [0, 1, 2, 3]
@@ -2144,7 +2144,7 @@ missions:
         estimate:
           prompt: The firn diffusion length at this site is 0.08 metres, and a year at the surface is 0.119 metres of ice equivalent.
           question: Estimate the shortest event the isotope record could still resolve.
-          relationship: shortest event = 2σ ÷ λ — twice the diffusion length, divided by the thickness of one annual layer.
+          relationship: shortest event = 2σ ÷ λ — twice the diffusion length, divided by the thickness of 1 annual layer.
           labels:
             - 0.08 m  (diffusion length)
             - 2  (the factor below which a feature is lost)
@@ -2159,7 +2159,7 @@ missions:
           tolerance: 0.2
           units: years
           solution: 2 × 0.08 ÷ 0.119 = 1.34 years.
-          explanation: Using the deep layer thickness instead would answer a different question — the resolution at 2,400 metres, which is nearly seven years.
+          explanation: Using the deep layer thickness instead would answer a different question — the resolution at 2,400 metres, which is nearly 7 years.
 
 # What is inside each room the player walks into.
 interiors:
@@ -2187,7 +2187,7 @@ interiors:
         - { label: Breaks in this run, value: '3', status: high }
   COLD:
     caption: Every sample is melted once, and everything that touched it is written down first.
-    standLine: Sixteen samples queued. Blank clean, opening standard within 0.03 per mil.
+    standLine: 16 samples queued. Blank clean, opening standard within 0.03 per mil.
     station:
       kind: panel
       title: Isotope line
@@ -2197,7 +2197,7 @@ interiors:
         - { label: Blank, value: at the usual level, status: normal }
         - { label: Samples queued, value: '16', status: high }
   GAS:
-    caption: Air that stopped moving four hundred and fifty years after the snow around it fell.
+    caption: Air that stopped moving 450 years after the snow around it fell.
     standLine: Extraction vessel loaded, 1,642 m. Line tested against standard gas at 0740.
     station:
       kind: panel
@@ -2209,7 +2209,7 @@ interiors:
         - { label: Age difference applied, value: '458 yr', status: high }
   FIELD:
     caption: The only part of this record anybody can still watch being made.
-    standLine: Forty-eight stakes, read this morning. Pit wall photographed to 1.4 m.
+    standLine: 48 stakes, read this morning. Pit wall photographed to 1.4 m.
     station:
       kind: panel
       title: Mast and stake array
@@ -2233,7 +2233,7 @@ interiors:
 copy:
   DRILL: <p>The drill trench, roofed and dug into the snow, with the tower over the hole and the winch drum turning slowly. Everything here is one attempt.</p>
   CORE: <p>The core line: a long lit bench where every metre is measured, logged and cut in the order it came out of the ground.</p>
-  COLD: <p>The cold laboratory at minus twenty-five, where samples are melted exactly once and nobody stays longer than an hour.</p>
-  GAS: <p>The gas laboratory, a vacuum line with fourteen fittings and a rule about each one. What comes off the ice here is old air.</p>
+  COLD: <p>The cold laboratory at minus 25, where samples are melted exactly once and nobody stays longer than an hour.</p>
+  GAS: <p>The gas laboratory, a vacuum line with 14 fittings and a rule about each 1. What comes off the ice here is old air.</p>
   FIELD: <p>The snow study hut, and the mast and stake array beyond it. The only measurements on this station that can be checked against the thing they measure.</p>
   DATA: <p>The science module: screens, the season's records, and the argument about what they support.</p>

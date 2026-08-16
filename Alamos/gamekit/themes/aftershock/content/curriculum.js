@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The same event, recorded twice",
-      "scene": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, eleven hundred metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
+      "scene": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
       "takeaway": "A record describes one place, so two records of one earthquake can disagree and both be right.",
       "place": "Seismic Network",
-      "story": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, eleven hundred metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
+      "story": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
       "game": {
         "type": "CHOICE",
         "title": "The same event, recorded twice",
@@ -18,12 +18,12 @@ export const CURRICULUM = {
         "play": "Compare the two records from one earthquake",
         "task": "Compare the two records from one earthquake",
         "question": "What does the difference between the two records mean?",
-        "answer": "The Flats record is about three times the rock-site amplitude in the strongest band, so A_soft/A_rock ≈ 3 there. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.",
-        "why": "Soft ground can amplify and lengthen shaking in a particular period band. Here the two records give A_soft/A_rock ≈ 3 for the strongest motion. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.",
+        "answer": "The Flats record is about 3 times the rock-site amplitude in the strongest band, so A_soft/A_rock ≈ 3 there. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.",
+        "why": "Soft ground can amplify and lengthen shaking in a particular period band. Here the 2 records give A_soft/A_rock ≈ 3 for the strongest motion. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.",
         "rebuttals": [
           "Both instruments checked out against a second sensor this morning; the difference is real.",
-          "Eleven hundred metres is nothing against a source twenty kilometres away, so distance cannot explain a factor of three.",
-          "Both records cover the same ninety seconds, and the aftershocks are on separate traces."
+          "1100 metres is nothing against a source 20 kilometres away, so distance cannot explain a factor of 3.",
+          "Both records cover the same 90 seconds, and the aftershocks are on separate traces."
         ],
         "choices": [
           "One of the two instruments is faulty and its record should be discarded.",
@@ -93,7 +93,7 @@ export const CURRICULUM = {
           "The S minus P interval is 13 seconds",
           "Distance is about 8 km for each second of that gap"
         ],
-        "relationship": "Distance = the S-minus-P interval × 8 km per second, because the two waves left together and travel at different speeds.",
+        "relationship": "Distance = the S-minus-P interval × 8 km per second, because the 2 waves left together and travel at different speeds.",
         "calcKey": "SEIS-2"
       },
       "assumes": [
@@ -137,7 +137,7 @@ export const CURRICULUM = {
         "task": "Check what the hospital actually experienced",
         "question": "What can the 0.31 g basement record legitimately add to the assessment?",
         "answer": "That this building saw a little less than it was designed for.",
-        "why": "The basement instrument removes major uncertainty about the motion at this site: peak base acceleration was 0.31 g. Comparing that with the 0.35 g design input is useful context, but a code design value is not a tripwire below which damage is impossible. Structural demand also depends on frequency content, duration, ductility, detailing and component response. The record therefore shows that base acceleration was not obviously beyond the nominal design input, while the plant-room restraint and observed-condition inspection remain separate questions.",
+        "why": "The basement record takes the biggest unknown off the table: the ground under this building peaked at 0.31 g. The design input was 0.35 g. That is worth knowing, and it is not a line below which nothing breaks. What a building actually feels depends as well on which frequencies arrived, how long the shaking went on, and how the frame and its parts are put together. So the record says the motion here was not obviously past what the building was designed for. It says nothing about the plant-room restraint, and nothing about what the inspection found.",
         "rebuttals": [
           "Staying below a design value makes damage less likely, and does not prove there is none.",
           "One record from one earthquake is not grounds to revise a design standard.",
@@ -268,7 +268,7 @@ export const CURRICULUM = {
           "A": 55,
           "D": 20
         },
-        "research": "Every parapet on the Parade came down and no wall behind one did. Tying back costs about\n£8,000 a building with scaffolding already standing, and about £25,000 without. The\nrecurrence interval on this fault is roughly 140 years and the last event was 6 days ago.\nThe grant scheme opens in eleven months and is oversubscribed in its first week each year."
+        "research": "Every parapet on the Parade came down and no wall behind one did. Tying back costs about\n£8,000 a building with scaffolding already standing, and about £25,000 without. The\nrecurrence interval on this fault is roughly 140 years and the last event was 6 days ago.\nThe grant scheme opens in 11 months and is oversubscribed in its first week each year."
       },
       "assumes": [
         "a hazard that has occurred will occur again"
@@ -310,7 +310,7 @@ export const CURRICULUM = {
         "task": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
         "question": "Which conclusions actually inherit the bad reference, and which remain supported by independent evidence?",
         "answer": "Revise the Flats amplitude ratio and any planning factor copied from it. With the vault itself amplified by about 1.6, a threefold Flats-to-vault ratio becomes roughly 4.8 relative to competent rock. Keep the hospital 0.31 g, the network M_w 6.8 and the Marina Court diagnosis; their evidence chains do not use the vault.",
-        "why": "A ratio inherits errors from both its numerator and denominator. The Flats-to-vault value near three therefore changes when the vault is found to amplify by about 1.6. The corrected competent-rock ratio is roughly 3 × 1.6 = 4.8. Any planning factor copied from that ratio shares the same reference dependency. By contrast, the hospital basement accelerograph, the network moment magnitude and Marina Court's survey evidence do not use the vault. Dependency tracing limits the correction to the conclusions that actually share the bad reference.",
+        "why": "A ratio inherits errors from both its numerator and denominator. The Flats-to-vault value near 3 therefore changes when the vault is found to amplify by about 1.6. The corrected competent-rock ratio is roughly 3 × 1.6 = 4.8. Any planning factor copied from that ratio shares the same reference dependency. By contrast, the hospital basement accelerograph, the network moment magnitude and Marina Court's survey evidence do not use the vault. Dependency tracing limits the correction to the conclusions that actually share the bad reference.",
         "trace": {
           "channels": [
             {
@@ -467,10 +467,10 @@ export const CURRICULUM = {
         "task": "Sort the findings by their evidence",
         "question": "Sort the findings by their evidence",
         "answer": "",
-        "why": "The four claims deserve different labels because their evidence chains differ. The vault siting error is directly documented and independently checked against competent rock. The hospital's 0.31 g is a direct measurement for one location and one event. Marina Court's mechanism is a strong inference from survey, ejecta and geotechnical behaviour rather than a direct observation beneath the raft. Future Flats amplification is conditional on corrected site-response evidence and the frequency content of a future earthquake. Stating those limits makes the report more useful, not weaker.",
+        "why": "The four claims deserve different labels because their evidence chains differ. The vault siting error is directly documented and independently checked against competent rock. The hospital's 0.31 g is a direct measurement for 1 location and 1 event. Marina Court's mechanism is a strong inference from survey, ejecta and geotechnical behaviour rather than a direct observation beneath the raft. Future Flats amplification is conditional on corrected site-response evidence and the frequency content of a future earthquake. Stating those limits makes the report more useful, not weaker.",
         "rebuttals": [
-          "The vault error has a 1998 trench log and five days of side-by-side recording behind it.",
-          "The hospital's 0.31 g came from an instrument in its own basement, for one event.",
+          "The vault error has a 1998 trench log and 5 days of side-by-side recording behind it.",
+          "The hospital's 0.31 g came from an instrument in its own basement, for 1 event.",
           "Marina Court's cause is sound geotechnics on a survey, with no borehole under the raft.",
           "The future behaviour of the fill is a projection, and it is the weakest claim in the report."
         ],
@@ -481,7 +481,7 @@ export const CURRICULUM = {
           "The Flats will amplify by about five in a future earthquake."
         ],
         "choices": [
-          "Established. A 1998 trench log and five days of side-by-side records.",
+          "Established. A 1998 trench log and 5 days of side-by-side records.",
           "Measured, once, at one building, for one event.",
           "Inferred. Good geotechnics on a survey, with no borehole under the raft.",
           "Projected. The weakest claim in the report, and the one the plan clause rests on."
@@ -542,10 +542,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Where the first day of assessment goes",
-      "scene": "Six assessors are free for one day. Four hundred displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
+      "scene": "Six assessors are free for one day. 400 displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
       "takeaway": "A finite inspection team should be spent on the questions whose answers can still change what happens today.",
       "place": "Structural Assessment",
-      "story": "Six assessors are free for one day. Four hundred displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
+      "story": "Six assessors are free for one day. 400 displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
       "game": {
         "type": "ALLOCATE",
         "title": "Where the first day of assessment goes",
@@ -627,10 +627,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Six minutes outside a building",
-      "scene": "Whitcombe's form has eleven boxes and a place for the colour. He filled four hundred of them in two days, and he has kept a second list of everything he did not look at.",
+      "scene": "Whitcombe's form has 11 boxes and a place for the colour. He filled 400 of them in 2 days, and he has kept a second list of everything he did not look at.",
       "takeaway": "A rapid assessment is triage: it records observed hazards and access limits, not a complete structural evaluation.",
       "place": "Structural Assessment",
-      "story": "Whitcombe's form has eleven boxes and a place for the colour. He filled four hundred of them in two days, and he has kept a second list of everything he did not look at.",
+      "story": "Whitcombe's form has 11 boxes and a place for the colour. He filled 400 of them in 2 days, and he has kept a second list of everything he did not look at.",
       "game": {
         "type": "CASEBOOK",
         "title": "Six minutes outside a building",
@@ -852,10 +852,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The part nobody has seen",
-      "scene": "Ninety patients remain on the ground floor while two upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
+      "scene": "90 patients remain on the ground floor while 2 upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
       "takeaway": "A signed or checked record is useful only to the extent that it is backed by observation of the condition it claims.",
       "place": "Structural Assessment",
-      "story": "Ninety patients remain on the ground floor while two upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
+      "story": "90 patients remain on the ground floor while 2 upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
       "game": {
         "type": "ATTEST",
         "title": "The part nobody has seen",
@@ -910,19 +910,19 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Damaged, and waiting to be asked again",
-      "scene": "Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
+      "scene": "Okonkwo has 11 buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
       "takeaway": "Damage lowers the capacity, so the same aftershock that was survivable last week may not be this week.",
       "place": "Structural Assessment",
-      "story": "Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
+      "story": "Okonkwo has 11 buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
       "game": {
         "type": "CHOICE",
         "title": "Damaged, and waiting to be asked again",
         "setup": "Structural Assessment",
         "play": "Say what the falling rate means for a cracked building",
         "task": "Say what the falling rate means for a cracked building",
-        "question": "Why does a falling aftershock rate still leave these eleven buildings urgent?",
+        "question": "Why does a falling aftershock rate still leave these 11 buildings urgent?",
         "answer": "Because their capacity has fallen, so a smaller aftershock is now enough.",
-        "why": "The hazard is declining, but the buildings are not the same buildings they were before the mainshock. Cracked shear walls may have lost capacity, so a smaller aftershock can now produce additional distress. That does not mean every magnitude-5 event will damage them or that the exact remaining capacity is known. It means the acceptable demand has changed. The eleven buildings therefore stay urgent because the sequence still supplies repeated loading while their structural reserve is reduced and has not yet been restored.",
+        "why": "The hazard is declining, but the buildings are not the same buildings they were before the mainshock. Cracked shear walls may have lost capacity, so a smaller aftershock can now produce additional distress. That does not mean every magnitude-5 event will damage them or that the exact remaining capacity is known. It means the acceptable demand has changed. The 11 buildings therefore stay urgent because the sequence still supplies repeated loading while their structural reserve is reduced and has not yet been restored.",
         "rebuttals": [
           "Rates do fluctuate, but the case here does not depend on the rate rising.",
           "An aftershock is not inherently worse than a mainshock; what changed is the building.",
@@ -1132,10 +1132,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "A smaller shake against a weaker building",
-      "scene": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. Eleven buildings have been shored since Friday, and two of them have new cracking this afternoon.",
+      "scene": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. 11 buildings have been shored since Friday, and 2 of them have new cracking this afternoon.",
       "takeaway": "New cracking during a smaller aftershock is evidence that residual capacity or detailing deserves escalation; it is not a complete diagnosis by itself.",
       "place": "Structural Assessment",
-      "story": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. Eleven buildings have been shored since Friday, and two of them have new cracking this afternoon.",
+      "story": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. 11 buildings have been shored since Friday, and 2 of them have new cracking this afternoon.",
       "game": {
         "type": "CHOICE",
         "title": "A smaller shake against a weaker building",
@@ -1278,13 +1278,13 @@ export const CURRICULUM = {
           "Hydraulic fill is dropped through water, so it settles loose and stays saturated.",
           "The granite bench is neither loose nor saturated, so its behaviour under shaking is nothing like the fill.",
           "The old creek line is where the loosest wettest material sits, which is why the fans follow it.",
-          "Age matters because ground gains strength as it consolidates, and eighty years is young."
+          "Age matters because ground gains strength as it consolidates, and 80 years is young."
         ],
         "scenarios": [
           "Hydraulic fill, pumped in from a dredger in the 1940s.",
           "The granite bench under Upper Town.",
           "The line of the 1892 tidal creek.",
-          "Ground that has been in place for ten thousand years."
+          "Ground that has been in place for 10000 years."
         ],
         "choices": [
           "Loose and saturated, so shaking can pack it and the water pressure rises.",
@@ -1374,10 +1374,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The raft is fine and the building is not",
-      "scene": "Navarro's survey: the raft is intact, level within itself, and rotated. One side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
+      "scene": "Navarro's survey: the raft is intact, level within itself, and rotated. 1 side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
       "takeaway": "A structure can fail without anything in the structure breaking.",
       "place": "Geotechnical",
-      "story": "Navarro's survey: the raft is intact, level within itself, and rotated. One side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
+      "story": "Navarro's survey: the raft is intact, level within itself, and rotated. 1 side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
       "game": {
         "type": "CHOICE",
         "title": "The raft is fine and the building is not",
@@ -1390,7 +1390,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "A yielded frame shows distortion within itself, and this one is plumb to a tenth of a degree.",
           "A construction fault would have been visible for years and would not come with fresh ejecta.",
-          "A single directional pulse does not settle one edge by 340 mm and lift the other."
+          "A single directional pulse does not settle 1 edge by 340 mm and lift the other."
         ],
         "choices": [
           {
@@ -1884,8 +1884,8 @@ export const CURRICULUM = {
         "play": "Compare the measured anchor capacity with the estimated earthquake demand",
         "task": "Compare the measured anchor capacity with the estimated earthquake demand",
         "question": "Estimate the observed capacity-to-demand ratio for the two tested anchors.",
-        "answer": "About 0.8 — below one.",
-        "why": "The two tests average 25.5 kN against an assessed demand of 31 kN, giving an observed capacity-to-demand ratio of about 0.82. That identifies a problem: these specimens did not demonstrate capacity above the estimated demand. Calling 0.82 a formal factor of safety would overstate what two tests establish, because design checks include variability, failure mode and resistance factors. The practical conclusion is simpler: restrict the gym, obtain representative testing and design a repair before the connection is relied on again.",
+        "answer": "About 0.8 — below 1.",
+        "why": "Two anchors were pulled. They averaged 25.5 kN against a demand of 31 kN, so what was measured is about 0.82 of what the wall asks of them. The anchors are short. But 0.82 is not a factor of safety, and calling it one claims far more than two pulls can carry: a real check also has to hold the scatter between anchors, the way the joint lets go when it lets go, and the margins the code puts on both. None of that has to be settled to act. Restrict the gym, test enough anchors to mean something, and design the repair.",
         "givens": [
           "The anchors tested at a mean of 25.5 kN",
           "The assessed demand on each is 31 kN"
@@ -1922,10 +1922,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A number, with a method attached",
-      "scene": "Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
+      "scene": "4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
       "takeaway": "Core tests characterize sampled concrete; they do not certify the residual capacity of the cracked columns.",
       "place": "Materials & Testing",
-      "story": "Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
+      "story": "4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
       "game": {
         "type": "CHOICE",
         "title": "A number, with a method attached",
@@ -1934,7 +1934,7 @@ export const CURRICULUM = {
         "task": "Get a strength from a damaged column",
         "question": "What is the strongest claim these four core results support?",
         "answer": "That the concrete meets the strength the design assumed, which is one input and not the answer.",
-        "why": "The four cores are 28, 31, 24 and 30 MPa, centred near the specified 25 MPa strength. That argues against grossly weak concrete as the main explanation. Stress is σ = F/A and strain is ε = ΔL/L. A core test does not reconstruct the in-place force, strain, reinforcement or confinement of the damaged column. Member capacity therefore remains a separate question. The cores narrow the diagnosis; they do not prove every column met its design strength or retained its original capacity.",
+        "why": "The 4 cores are 28, 31, 24 and 30 MPa, centred near the specified 25 MPa strength. That argues against grossly weak concrete as the main explanation. Stress is σ = F/A and strain is ε = ΔL/L. A core test does not reconstruct the in-place force, strain, reinforcement or confinement of the damaged column. Member capacity therefore remains a separate question. The cores narrow the diagnosis; they do not prove every column met its design strength or retained its original capacity.",
         "rebuttals": [
           "Cracking is a structural observation; a core says nothing about it either way.",
           "One building's concrete exceeding its specification says nothing about whether the design was conservative.",
@@ -2291,20 +2291,20 @@ export const CURRICULUM = {
         "play": "Decide which buildings get looked at again",
         "task": "Decide which buildings get looked at again",
         "question": "Which building gets the detailed evaluation first?",
-        "answer": "The hospital, yellow, occupied by ninety patients, with an unopened plant room.",
-        "why": "A second inspection is valuable when the first one left an important condition unseen and the consequence of being wrong is high. The hospital is worst on both counts. Ninety patients are inside, and the unresolved plant room is exactly the item preventing a clearer placard. The red warehouse is empty and already restricted, so another visit changes little today. The two green buildings have lower consequence. Their owners still deserve answers, but that can begin with communication rather than a scarce engineer-day.",
+        "answer": "The hospital, yellow, occupied by 90 patients, with an unopened plant room.",
+        "why": "A second inspection is valuable when the first one left an important condition unseen and the consequence of being wrong is high. The hospital is worst on both counts. 90 patients are inside, and the unresolved plant room is exactly the item preventing a clearer placard. The red warehouse is empty and already restricted, so another visit changes little today. The two green buildings have lower consequence. Their owners still deserve answers, but that can begin with communication rather than a scarce engineer-day.",
         "rebuttals": [
           "A cracked front step is a non-structural defect on a low-consequence building.",
           "The warehouse is empty and red; a second look changes nothing about who is at risk today.",
           "An anxious owner deserves an explanation, which is a different resource from an engineer's day."
         ],
         "choices": [
-          "The hospital, yellow, occupied by ninety patients, with an unopened plant room.",
+          "The hospital, yellow, occupied by 90 patients, with an unopened plant room.",
           "A green two-storey shop with a cracked front step.",
           "A red warehouse, empty, on the port, with an obvious lean.",
           "A green house whose owner is anxious and has called four times."
         ],
-        "correctChoice": "The hospital, yellow, occupied by ninety patients, with an unopened plant room."
+        "correctChoice": "The hospital, yellow, occupied by 90 patients, with an unopened plant room."
       },
       "assumes": [
         "a second inspection is a scarce thing to spend"
@@ -2394,21 +2394,21 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The rate, falling",
-      "scene": "Day one had 96 events above magnitude 3. Day two had 52, day three 41, day four 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
+      "scene": "Day 1 had 96 events above magnitude 3. Day 2 had 52, day 3 41, day 4 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
       "takeaway": "A simple Omori-style decay gives a central rate estimate; the real forecast also needs uncertainty around that curve.",
       "place": "Hazard & Forecasting",
-      "story": "Day one had 96 events above magnitude 3. Day two had 52, day three 41, day four 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
+      "story": "Day 1 had 96 events above magnitude 3. Day 2 had 52, day 3 41, day 4 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
       "game": {
         "type": "BALLPARK",
         "title": "The rate, falling",
         "setup": "Hazard & Forecasting",
         "play": "Fit the decay and say what it predicts",
         "task": "Fit the decay and say what it predicts",
-        "question": "Estimate the number of magnitude 3+ aftershocks on day eight.",
+        "question": "Estimate the number of magnitude 3+ aftershocks on day 8.",
         "answer": "About 13.",
-        "why": "A simple Omori-style model writes the aftershock rate as n(t) = K/(c+t)^p. When p is near one and c is small after the first day, doubling elapsed time roughly halves the central rate. Day four had 26 magnitude-3-plus events, so day eight gives about 26 × 4/8 = 13. Real sequences scatter around that curve, and K, c and p are fitted with uncertainty. Thirteen is therefore an expected rate, not a quota or a scheduled event.",
+        "why": "A simple Omori-style model writes the aftershock rate as n(t) = K/(c+t)^p. When p is near one and c is small after the first day, doubling elapsed time roughly halves the central rate. Day 4 had 26 magnitude-3-plus events, so day 8 gives about 26 × 4/8 = 13. Real sequences scatter around that curve, and K, c and p are fitted with uncertainty. 13 is therefore an expected rate, not a quota or a scheduled event.",
         "givens": [
-          "Day four had 26 events above magnitude 3",
+          "Day 4 had 26 events above magnitude 3",
           "Day eight is twice as far from the mainshock"
         ],
         "relationship": "Rate ≈ K ÷ elapsed time, so doubling the time since the mainshock roughly halves the number of events per day.",
@@ -2577,7 +2577,7 @@ export const CURRICULUM = {
         "task": "State the forecast as a range",
         "question": "Why does the forecast go in as a range rather than a single number?",
         "answer": "Because what people have to plan against is the upper end, and a single number deletes it.",
-        "why": "Nobody staffs an emergency to the average week. They staff it to a week that is worse than average, and how much worse is exactly what the range says. A single number tells a planner nothing about how far the sequence might run above it, so the planner invents a margin — usually badly, usually too small. The range is also the honest part: it says which part of the behaviour is well constrained by four hundred recorded events and which is not.",
+        "why": "Nobody staffs an emergency to the average week. They staff it to a week that is worse than average, and how much worse is exactly what the range says. A single number tells a planner nothing about how far the sequence might run above it, so the planner invents a margin — usually badly, usually too small. The range is also the honest part: it says which part of the behaviour is well constrained by 400 recorded events and which is not.",
         "rebuttals": [
           "Caution is not the reason; the range is a quantity the staffing calculation needs as an input.",
           "The model's quality is what the range states, which is the opposite of hiding it.",
@@ -2640,10 +2640,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "A notice somebody acts on",
-      "scene": "Adeyemi has two hundred words and an audience that has heard two numbers and a rumour about a bigger one coming. She wants to know what the notice has to contain.",
+      "scene": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.",
       "takeaway": "A notice earns its place by changing what somebody does, and everything else in it competes with that.",
       "place": "Public Safety",
-      "story": "Adeyemi has two hundred words and an audience that has heard two numbers and a rumour about a bigger one coming. She wants to know what the notice has to contain.",
+      "story": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.",
       "game": {
         "type": "SEQUENCE",
         "title": "A notice somebody acts on",
@@ -2748,10 +2748,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What knocking it down would fix",
-      "scene": "Halvorsen wants Marina Court demolished this week. Delacroix has twelve neighbouring buildings on the same reclaimed ground and five investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
+      "scene": "Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "takeaway": "The best next measurement is the one that can change the decision you still have to make, not the one that studies the most visible damage.",
       "place": "Public Safety",
-      "story": "Halvorsen wants Marina Court demolished this week. Delacroix has twelve neighbouring buildings on the same reclaimed ground and five investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
+      "story": "Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "game": {
         "type": "VALUE",
         "title": "What knocking it down would fix",
@@ -2808,14 +2808,14 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Four hundred children on Monday",
-      "scene": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
+      "title": "400 children on Monday",
+      "scene": "400 children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
       "takeaway": "The useful question is which parts can be occupied, not whether the site is open or shut.",
       "place": "Public Safety",
-      "story": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
+      "story": "400 children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
       "game": {
         "type": "CHOICE",
-        "title": "Four hundred children on Monday",
+        "title": "400 children on Monday",
         "setup": "Public Safety",
         "play": "Say what happens to term",
         "task": "Say what happens to term",
@@ -2863,10 +2863,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Part of a building, for part of a purpose",
-      "scene": "Monday's public meeting has two hundred residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
+      "scene": "Monday's public meeting has 200 residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
       "takeaway": "Restricted use is a real option between open and shut, and it has to name what the restriction is protecting against.",
       "place": "Public Safety",
-      "story": "Monday's public meeting has two hundred residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
+      "story": "Monday's public meeting has 200 residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
       "game": {
         "type": "SEQUENCE",
         "title": "Part of a building, for part of a purpose",
@@ -2955,10 +2955,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "The meeting",
-      "scene": "Two hundred people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
+      "scene": "200 people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
       "takeaway": "Say what was found, what it means and what the process missed, in that order, and commit to the part you control.",
       "place": "Public Safety",
-      "story": "Two hundred people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
+      "story": "200 people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
       "game": {
         "type": "SEQUENCE",
         "title": "The meeting",
@@ -3105,7 +3105,7 @@ export const CURRICULUM = {
         "why": "The engineering evidence can define the ground hazard and the performance a treatment programme should demonstrate. It cannot decide who pays or how quickly households must comply. A requirement without financing can stall rebuilding. No requirement can reproduce the same vulnerability. A workable policy therefore states where the rule applies and names a measurable geotechnical acceptance target. It also provides funding or phasing and a review process as new site data arrive. That separates the technical standard from the political choices needed to implement it.",
         "rebuttals": [
           "With the clause, the ground improves street by street over about a decade as sites are rebuilt.",
-          "With the clause, four hundred households meet a cost they have not budgeted for, so it needs a scheme beside it.",
+          "With the clause, 400 households meet a cost they have not budgeted for, so it needs a scheme beside it.",
           "Without it, rebuilding is fast and cheap, and the fill is unchanged when the next earthquake comes.",
           "Either way the decision is fixed for five years, which is why it is argued tonight rather than next spring."
         ],
@@ -3186,10 +3186,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 12,
     "units": "km",
     "solution": "d = (32 − 19) × 8 = 104 km.",
-    "explanation": "About a hundred kilometres to the source. The magnitude and the depth are both real numbers about this earthquake and neither belongs in this calculation — one is how big it was, the other is how deep, and this is how far."
+    "explanation": "About 100 kilometres to the source. The magnitude and the depth are both real numbers about this earthquake and neither belongs in this calculation — one is how big it was, the other is how deep, and this is how far."
   },
   "MAT-1": {
-    "prompt": "The two anchors tested at 24 kN and 27 kN. The assessed demand on each anchor from this earthquake is 31 kN.",
+    "prompt": "The 2 anchors tested at 24 kN and 27 kN. The assessed demand on each anchor from this earthquake is 31 kN.",
     "question": "Choose the tested capacity and the demand.",
     "labels": [
       "25.5 kN  (mean tested capacity)",
@@ -3216,15 +3216,15 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.12,
     "units": "(ratio)",
     "solution": "Observed ratio = 25.5 ÷ 31 ≈ 0.82.",
-    "explanation": "About 0.82, below one. This is an observed ratio from two specimens, not by itself a formal code factor of safety; variability and design resistance factors still matter."
+    "explanation": "About 0.82, below 1. This is an observed ratio from two specimens, not by itself a formal code factor of safety; variability and design resistance factors still matter."
   },
   "HAZ-4": {
-    "prompt": "Day four had 26 events above magnitude 3, and the rate falls roughly as one over elapsed time. Day eight is twice as far from the mainshock as day four.",
+    "prompt": "Day 4 had 26 events above magnitude 3, and the rate falls roughly as 1 over elapsed time. Day eight is twice as far from the mainshock as day four.",
     "question": "Choose the day-four count and the ratio of the two times.",
     "labels": [
-      "26  (events on day four)",
-      "2  (day eight is twice as far out)",
-      "96  (events on day one)",
+      "26  (events on day 4)",
+      "2  (day 8 is twice as far out)",
+      "96  (events on day 1)",
       "6.8  (the mainshock magnitude)",
       "210  (total events so far)"
     ],
@@ -3245,8 +3245,8 @@ export const BALLPARK_CALCS = {
     "target": 13,
     "tolerance": 4,
     "units": "events",
-    "solution": "n ≈ 26 ÷ 2 ≈ 13 events on day eight.",
-    "explanation": "About thirteen. The day-one count and the running total describe the sequence so far, and the magnitude is the size of the mainshock rather than anything about the rate."
+    "solution": "n ≈ 26 ÷ 2 ≈ 13 events on day 8.",
+    "explanation": "About 13. The day-one count and the running total describe the sequence so far, and the magnitude is the size of the mainshock rather than anything about the rate."
   },
   "MAT-5": {
     "prompt": "The trial panel tested at 4 MPa cone resistance before treatment and 11 MPa after.",
@@ -3304,7 +3304,7 @@ export const JARGON = [
     "aliases": [
       "magnitudes"
     ],
-    "def": "A single number for the size of an earthquake, on a scale where each unit is about thirty-two times the energy.",
+    "def": "A single number for the size of an earthquake, on a scale where each unit is about 32 times the energy.",
     "core": true
   },
   {

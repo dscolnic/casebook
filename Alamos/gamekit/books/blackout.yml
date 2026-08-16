@@ -73,7 +73,7 @@ roster:
     role: Shift Supervisor, System Operations
     division: OPS
     bio: |
-      Twenty-two years on the desk, eleven of them on nights. She runs the room
+      22 years on the desk, 11 of them on nights. She runs the room
       the way a bridge is run: nobody touches a control without saying out loud
       what they expect to happen, and then whether it did.
 
@@ -104,8 +104,8 @@ roster:
       power source second. The stored rotational energy is what buys the seconds
       in which anybody gets to make a decision.
 
-      Her limit is ramp rate. A machine that can supply four hundred megawatts
-      cannot supply them in the ninety seconds after a trip, and no amount of
+      Her limit is ramp rate. A machine that can supply 400 megawatts
+      cannot supply them in the 90 seconds after a trip, and no amount of
       wanting changes the thermal gradient in a steam drum.
     quiz:
       - q: Why does Haddad describe a generator as a flywheel first?
@@ -128,7 +128,7 @@ roster:
     bio: |
       Sets the relays, which means he designs the conditions under which the
       network is allowed to give up on part of itself. He describes the job as
-      writing the rules for an argument that will happen in eighty milliseconds
+      writing the rules for an argument that will happen in 80 milliseconds
       with nobody present.
 
       A relay that never trips is not a cautious relay, it is a relay that lets a
@@ -306,7 +306,7 @@ glossary:
     def: The total power being drawn from the system at a given moment.
   - name: Megawatt
     aliases: [megawatt, mw]
-    def: A million watts. The unit a power system is argued about in; a large generating unit is a few
+    def: 1 million watts. The unit a power system is argued about in; a large generating unit is a few
       hundred of them.
   - name: SCADA
     aliases: [scada]
@@ -410,7 +410,7 @@ missions:
         why: Immediately after a generator trip, governor and reserve actions have not yet changed the power balance. Stored kinetic energy supplies the shortfall for the first moments, so frequency moves. With stored kinetic energy E_k, nominal frequency f₀ and measured rate df/dt, the imbalance is ΔP = 2E_k|df/dt|/f₀. Using 25,000 MW·s, 50 Hz and 0.30 Hz/s gives about 300 MW. This estimate is most useful before slower controls begin reshaping the trace.
         estimate:
           prompt: |-
-            Frequency fell at 0.30 Hz per second over the first two seconds. The machines online held 25,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.
+            Frequency fell at 0.30 Hz per second over the first 2 seconds. The machines online held 25,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.
           question: Choose the stored energy, the rate of fall and the nominal frequency.
           labels:
             - 25000 MW·s  (stored kinetic energy)
@@ -428,7 +428,7 @@ missions:
           units: MW
           solution: "|ΔP| = 2 × 25,000 × 0.30 ÷ 50 = 300 MW."
           explanation: |-
-            About three hundred megawatts. That is a unit, not a faulty meter. The settled deviation and the generation online are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question.
+            About 300 megawatts. That is a unit, not a faulty meter. The settled deviation and the generation online are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question.
           givens:
             - Stored kinetic energy online is 25,000 MW·s
             - Initial rate of fall is 0.30 Hz per second
@@ -500,8 +500,8 @@ missions:
     stake: >-
       Wednesday, and the replacement generation is coming from the wrong side of the system, which means it
       is arriving down two circuits instead of three. Piotr Novak has a corridor sitting above its
-      continuous rating and a relay that will take the decision away from the room in about forty minutes
-      if nobody else does. The forty minutes comes off a thermal record June Farrow has not verified, and she
+      continuous rating and a relay that will take the decision away from the room in about 40 minutes
+      if nobody else does. The 40 minutes comes off a thermal record June Farrow has not verified, and she
       says so. Thabo Dube is in the yard waiting for a switching instruction. Today you rate
       the line honestly, work out where the flow goes if it trips, and decide whether to move generation
       or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes
@@ -587,7 +587,7 @@ missions:
         format: BALLPARK
         question: Estimate the power lost as heat in the loaded corridor.
         answerText: About 17 MW.
-        why: Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. Ten per cent more current means about twenty-one per cent more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.
+        why: Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10 per cent more current means about 21 per cent more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.
         estimate:
           prompt: The balanced corridor carries 1,150 A RMS in each phase. Each phase has 4.2 ohms of resistance over the full corridor.
           question: Choose the current, the resistance and the number of phases.
@@ -607,7 +607,7 @@ missions:
           units: W
           solution: P_loss = 3 × 1150² × 4.2 ≈ 1.67 × 10⁷ W ≈ 17 MW.
           explanation: |-
-            About seventeen megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself.
+            About 17 megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself.
           givens:
             - RMS current is 1,150 A in each phase
             - Resistance is 4.2 Ω per phase over the corridor
@@ -637,11 +637,11 @@ missions:
           - The relay and emergency rating are coordinated; the danger is the next circuit exceeding its own limit after the first corridor is lost.
   - title: The last few kilometres
     objective: Get customers back on in an order that can be defended afterwards.
-    briefing: Eleven feeders are still dead and the crews can only be in one place at a time.
+    briefing: 11 feeders are still dead and the crews can only be in 1 place at a time.
     stake: >-
-      Thursday, and the transmission side is steady, but eleven distribution feeders are still dead. Chinelo
-      Obi has three crews and fourteen thousand households in the dark. One of her circuits carries a
-      dialysis clinic. Another carries a thousand homes. Ewa Kowalczyk is at the first fault already, and it
+      Thursday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo
+      Obi has 3 crews and 14000 households in the dark. One of her circuits carries a
+      dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk is at the first fault already, and it
       is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the
       current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is
       somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.
@@ -661,7 +661,7 @@ missions:
         why: A real feeder has both resistance and reactance. Current through those terms produces a voltage drop whose size depends on the load phase angle. The resistive part follows the in-phase current. The reactive part follows the out-of-phase current. For a balanced three-phase feeder expressed with line-to-line voltage, the result carries a factor of root three. That factor matters here because 11 kV is a line-to-line rating. Reactive support can raise the far-end voltage by reducing the reactive part of the drop.
         estimate:
           prompt: |-
-            The feeder carries 310 A. Over four kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.
+            The feeder carries 310 A. Over 4 kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.
           question: Choose the current, both parts of the impedance, and the two parts of the angle.
           labels:
             - 310 A  (feeder current)
@@ -679,7 +679,7 @@ missions:
           tolerance: 60
           units: V
           solution: ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.
-          explanation: About 1.07 kV line-to-line, close to ten per cent of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula.
+          explanation: About 1.07 kV line-to-line, close to 10 per cent of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula.
           givens:
             - Feeder current is 310 A
             - Resistance is 1.8 Ω and reactance is 0.9 Ω
@@ -718,7 +718,7 @@ missions:
         task: Decide which circuit gets the crew first
         title: The order somebody will read back to you
         place: System Operations
-        scene: Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one clinic and one pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.
+        scene: 3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.
         assumes:
           - a crew can only work one fault at a time
         takeaway: The first crew goes where the consequence of waiting is worst, not where the count is biggest.
@@ -726,11 +726,11 @@ missions:
         question: Which feeder should take the first crew?
         why: Two things decide this, and household count is only one of them. The first is what waiting costs, and for a dialysis clinic it is measured in treatments rather than in inconvenience. The second is how long the work takes, because a one-hour job frees the crew to take the next fault the same shift. The clinic circuit is worst on the first and best on the second, so it goes first on both counts.
         choices:
-          - The feeder with 4,100 households, faulted at the substation end, four hours' work.
-          - The dialysis clinic feeder — 180 homes, one pole, an hour's work.
+          - The feeder with 4,100 households, faulted at the substation end, 4 hours' work.
+          - The dialysis clinic feeder — 180 homes, 1 pole, an hour's work.
           - The feeder with 2,600 households and a fault nobody has located yet.
           - The feeder feeding the water pumping station, already on its standby supply.
-        answer: The dialysis clinic feeder — 180 homes, one pole, an hour's work.
+        answer: The dialysis clinic feeder — 180 homes, 1 pole, an hour's work.
         rebuttals:
           - The biggest count is a four-hour job, and starting it commits a crew for the whole shift.
           - A fault nobody has located cannot be given a duration, so it cannot be scheduled against the others.
@@ -763,7 +763,7 @@ missions:
         why: The tempting mistake is to multiply by three because there are three phases. The factor is root three instead. Line voltage is measured between two phases, not from one phase to neutral. Those voltage definitions differ by root three, so the line-quantity power formula carries that factor. Power factor then selects the in-phase current that produces real power. Using three instead of root three overstates the answer enough to change the report.
         estimate:
           prompt: |-
-            The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root three is about 1.732.
+            The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root 3 is about 1.732.
           question: Choose root three, the line voltage, the line current and the power factor.
           labels:
             - 1.732  (√3)
@@ -786,7 +786,7 @@ missions:
           givens:
             - Line voltage is 11,000 V and line current is 310 A
             - Power factor is 0.95
-            - Root three is about 1.732
+            - Root 3 is about 1.732
           relationship: |-
             Real power = √3 × the line voltage × the line current × the power factor, with the voltage measured between lines rather than to neutral.
       - group: GEN
@@ -854,7 +854,7 @@ missions:
         why: "Everything that moves energy in and out loses a share of it, in the converter, in the chemistry and in keeping itself cool. Round-trip efficiency is the plain ratio of what came out to what went in, over a whole cycle. It is the only figure that tells you what the store is worth as reserve. A power rating is a different claim: it says how fast, not how much. Duration is a third one again."
         estimate:
           prompt: |-
-            The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for four hours.
+            The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for 4 hours.
           question: Choose the energy out and the energy in.
           labels:
             - 187 MWh  (energy returned)
@@ -871,7 +871,7 @@ missions:
           units: fraction
           solution: η = 187 ÷ 220 = 0.85, or 85 per cent.
           explanation: |-
-            Eighty-five per cent, so fifteen per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question.
+            85 per cent, so 15 per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question.
           givens:
             - Energy in was 220 MWh
             - Energy returned was 187 MWh
@@ -880,7 +880,7 @@ missions:
         task: Work out what the voltage step-up does to current and line loss.
         title: The reason the wires are not at wall voltage
         place: Generation Hall
-        scene: A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand. The room is waiting for a written instruction.
+        scene: A visitor asks Haddad why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.
         assumes:
           - a transformer changes voltage in proportion to its turns
         takeaway: The same power can be delivered in more than one way, and the ways are not equally wasteful.
@@ -957,17 +957,17 @@ missions:
         task: Estimate the current in the older circuit
         title: How the flow splits between two paths
         place: Transmission & Protection
-        scene: Nine hundred amps leave the busbar for the same destination by two routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.
+        scene: 900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.
         assumes:
           - two paths between the same two points carry the same voltage across them
         takeaway: The lower-impedance path takes the larger share, in inverse proportion.
         format: BALLPARK
         question: Estimate the current flowing in the older, higher-impedance circuit.
         answerText: About 300 A in the older 6 Ω path and 600 A in the newer 3 Ω path.
-        why: Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older one. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.
+        why: Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older 1. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.
         estimate:
           prompt: |-
-            The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.
+            The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.
           question: Choose the total current, the other path's impedance and the sum of the two.
           labels:
             - 900 A  (total current)
@@ -984,7 +984,7 @@ missions:
           units: A
           solution: I_old = 900 × 3 ÷ (6 + 3) = 300 A.
           explanation: |-
-            Three hundred amps in the old circuit and six hundred in the new one. Each path takes the other's impedance over the sum, so the low-impedance route carries twice as much. The busbar voltage is the same for both, which is why it cancels and never enters the arithmetic.
+            300 amps in the old circuit and 600 in the new 1. Each path takes the other's impedance over the sum, so the low-impedance route carries twice as much. The busbar voltage is the same for both, which is why it cancels and never enters the arithmetic.
           givens:
             - Total current is 900 A
             - The older circuit is 6 Ω and the newer is 3 Ω
@@ -999,15 +999,15 @@ missions:
           - charge does not accumulate at a junction
         takeaway: A conservation law bounds the parts of a system without identifying any of them.
         format: CHOICE
-        question: What does the 900 A total tell you about the two circuits?
+        question: What does the 900 A total tell you about the 2 circuits?
         answerText: The branch currents must add to 900 A. Their individual values require another relation, such as the branch impedances.
         why: Charge does not build up at a junction, so current entering a node must equal current leaving it. Kirchhoff’s current law gives that conservation rule. It fixes the sum of the branch currents without telling you how the total divides. The split needs another relation, such as the branch impedances. Assuming an even split is wrong when the paths differ. Assuming each branch carries the full total confuses parallel and series circuits. One equation constrains two unknown branch currents; it does not determine both alone.
         choices:
-          - The two branch currents must be 450 A each because they share the same two busbars.
-          - The two branch currents must add algebraically to 900 A, but the total alone does not give the split.
+          - The 2 branch currents must be 450 A each because they share the same 2 busbars.
+          - The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split.
           - Each branch must carry 900 A because every parallel branch sees the same busbar voltage.
-          - The lower-impedance branch must carry 900 A and the higher-impedance branch must carry zero.
-        answer: The two branch currents must add algebraically to 900 A, but the total alone does not give the split.
+          - The lower-impedance branch must carry 900 A and the higher-impedance branch must carry 0.
+        answer: The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split.
         rebuttals:
           - Equal voltage does not imply equal current unless the branch impedances are equal.
           - Parallel branches share voltage, not current; the node law constrains only the sum of the branch currents.
@@ -1041,7 +1041,7 @@ missions:
           - The combined impedance falls, so the total current rises.
           - The combined impedance rises, so the current falls everywhere in the loop.
         mapping: [0, 1, 2, 3]
-  - title: Eighty milliseconds
+  - title: 80 milliseconds
     objective: Establish what a fault does before anybody can respond to it.
     briefing: A cable failed at the substation and the protection cleared it before the alarm reached the room.
     stake: >-
@@ -1085,7 +1085,7 @@ missions:
           units: A
           solution: I = 6,350 ÷ 0.42 ≈ 1.5 × 10⁴ A.
           explanation: |-
-            About fifteen thousand amps, roughly fifty times the normal load. The load current does not limit a fault, because the fault has gone around the load. The clearing time matters for the energy released rather than for the size of the current.
+            About 15000 amps, roughly 50 times the normal load. The load current does not limit a fault, because the fault has gone around the load. The clearing time matters for the energy released rather than for the size of the current.
           givens:
             - Phase voltage is 6,350 V
             - Impedance back to the source is 0.42 Ω
@@ -1098,7 +1098,7 @@ missions:
         scene: June Farrow, the metering engineer, has a protected low-voltage current-transformer test loop beside the yard diagram. The bench shows primary current, secondary current and a movable core. She wants a cause, not a remembered definition.
         assumes:
           - a changing magnetic field can induce voltage in a nearby coil
-          - the bench current transformer has one primary turn and twenty secondary turns
+          - the bench current transformer has 1 primary turn and 20 secondary turns
         takeaway: A current transformer responds to changing magnetic flux; a steady primary current produces no sustained secondary signal.
         format: CONTROL
         question: Which change makes the secondary current disappear, and does the signal return when that change is reversed?
@@ -1160,7 +1160,7 @@ missions:
         title: The peak, and how far the cold moves it
         place: Load & Forecasting
         scene: |-
-          The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below zero, and tomorrow is minus four.
+          The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.
         assumes:
           - demand rises as the temperature falls, roughly in step
         takeaway: A forecast is a base shape plus a sensitivity, and the sensitivity is measured rather than assumed.
@@ -1170,12 +1170,12 @@ missions:
         why: "A load curve is the same shape most days, because people do the same things at the same times. What moves it is weather, and the useful form of that is a sensitivity: how many megawatts one degree is worth on this system. Measured from this winter's own data rather than from a textbook. Base plus sensitivity times degrees gets the centre of the forecast. It does not get the width, which is what the reserve has to cover."
         estimate:
           prompt: |-
-            Base Friday peak for this week of the year is 6,400 MW. Demand sensitivity is 120 MW per degree below zero. Tomorrow's forecast is minus four degrees.
+            Base Friday peak for this week of the year is 6,400 MW. Demand sensitivity is 120 MW per degree below 0. Tomorrow's forecast is minus four degrees.
           question: Choose the base peak, the sensitivity and the degrees below zero.
           labels:
             - 6400 MW  (base peak)
             - 120 MW/°C  (demand sensitivity)
-            - 4  (degrees below zero)
+            - 4  (degrees below 0)
             - 310 MW  (reserve held)
           values: [6400, 120, 4, 310]
           slots: 3
@@ -1190,7 +1190,7 @@ missions:
             About 6,900 megawatts at the centre of the forecast. The reserve is what covers the width around that centre, so it is a separate decision and not part of this sum. Add it in here and you have double-counted the thing the reserve exists for.
           givens:
             - Base peak is 6,400 MW
-            - Sensitivity is 120 MW per degree below zero
+            - Sensitivity is 120 MW per degree below 0
             - Tomorrow is four degrees below zero
           relationship: |-
             Forecast peak = the base peak for that day and season + the demand sensitivity × the degrees below zero, with the sensitivity measured from this winter's own data.
@@ -1248,7 +1248,7 @@ missions:
           C: 25
         evidence: |-
           The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like
-          this occur perhaps forty times a winter. Storage at the ridge would be about 50 MW for four hours,
+          this occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,
           at 85 per cent round trip. The corridor's second circuit has been on the reinforcement list for
           two years without a date.
   - title: The system splits
@@ -1418,7 +1418,7 @@ missions:
           units: MWh
           solution: E = 300 × 2.5 = 750 MWh.
           explanation: |-
-            Seven hundred and fifty megawatt-hours never delivered. The household count and the frequency are both central to the story and neither belongs in this calculation. One is who was affected; the other is why it happened.
+            750 megawatt-hours never delivered. The household count and the frequency are both central to the story and neither belongs in this calculation. One is who was affected; the other is why it happened.
           givens:
             - Demand at collapse was about 300 MW
             - Restoration is expected to take about 2.5 hours
@@ -1507,13 +1507,13 @@ missions:
           - A cold-load limit, because everything that was cut off comes back on at once.
           - A matching limit, because frequency, voltage and angle must agree before the breaker closes.
         mapping: [0, 1, 2, 3]
-  - title: Six hours, not forty minutes
+  - title: 6 hours, not 40 minutes
     objective: Re-read the week from a record nobody had checked.
     briefing: Farrow has traced the corridor's thermal record, and the number the room worked from was wrong.
     stake: >-
       Sunday, and June Farrow has finished tracing the corridor's thermal history. The emergency rating that
-      bought the room forty minutes a week ago was calculated from a sensor that had been reading eleven
-      degrees low since a firmware update in the spring. The corridor was not forty minutes from its limit.
+      bought the room 40 minutes a week ago was calculated from a sensor that had been reading 11
+      degrees low since a firmware update in the spring. The corridor was not 40 minutes from its limit.
       It had been above continuous rating for six hours, and it had been there twice before. Dolores Reyes
       has to decide what that does to every decision taken since. Today you work out what a drifted sensor
       does to a rating, decide which of the week's conclusions still stand, and say what you would have done
@@ -1530,7 +1530,7 @@ missions:
         takeaway: Precision is repeatability; accuracy is being right. A drifted sensor has the first and not the second.
         format: CHOICE
         question: Which explanation best fits all three temperature sources?
-        why: Small scatter only shows that an instrument repeats. A fixed offset can produce readings that are precise and wrong at the same time. Here two methods that do not share the corridor sensor both place the conductor about eleven degrees hotter. The firmware date also marks when the disagreement begins. Sag depends on tension as well as temperature, so it is not proof alone. Its value is that it corroborates an infrared method through different physics, which is exactly what a sensor offset cannot explain away.
+        why: Small scatter only shows that an instrument repeats. A fixed offset can produce readings that are precise and wrong at the same time. Here 2 methods that do not share the corridor sensor both place the conductor about 11 degrees hotter. The firmware date also marks when the disagreement begins. Sag depends on tension as well as temperature, so it is not proof alone. Its value is that it corroborates an infrared method through different physics, which is exactly what a sensor offset cannot explain away.
         headline: The corridor's own sensor disagrees with two independent measurements of the same week.
         readings:
           - zone: Conductor sensor
@@ -1562,7 +1562,7 @@ missions:
         answer: The sensor has a fixed offset from the firmware update
         rebuttals:
           - Tight scatter proves the sensor repeats itself, which is what a constant offset looks like from the inside.
-          - A long conductor does vary along its length, and not by eleven degrees in the same direction on every survey.
+          - A long conductor does vary along its length, and not by 11 degrees in the same direction on every survey.
           - Sag is sensitive to tension, which makes it weak alone and useful as the second independent method.
       - group: TRANS
         task: Say what the corrected temperature does to the rating
@@ -1574,8 +1574,8 @@ missions:
           - resistive heating rises faster than the current that causes it
         takeaway: A rating is a temperature expressed as a current, so a wrong temperature makes the current limit meaningless.
         format: SWEEP
-        question: Seventy-five degrees is the limit the conductor was built to. What current does that allow it to carry all day?
-        answerText: About 1,150 A. The corridor was carrying 1,280 A. The corrected figures put it near 89 degrees, about fourteen degrees above the continuous limit.
+        question: 75 degrees is the limit the conductor was built to. What current does that allow it to carry all day?
+        answerText: About 1,150 A. The corridor was carrying 1,280 A. The corrected figures put it near 89 degrees, about 14 degrees above the continuous limit.
         why: "A rating is not a fuse setting. It is a temperature translated into a current, and the translation runs through the heating. That goes as the square of the current: the last hundred amps buy far more degrees than the first hundred. The curve steepens and the rating sits where it crosses the agreed temperature. Two consequences follow. A rating is only as good as the temperature measurement behind it. That is why a drifted sensor moves a limit that looks like a fixed property of the metal."
         sweep:
           axis:
@@ -1627,8 +1627,8 @@ missions:
           - What the bad number does to it
         scenarios:
           - Holding the corridor inside its emergency rating rather than redispatching.
-          - The seventeen megawatts of loss calculated for the corridor.
-          - The order the eleven feeders were restored in.
+          - The 17 megawatts of loss calculated for the corridor.
+          - The order the 11 feeders were restored in.
           - Shedding a fifth of the island to hold its frequency.
         choices:
           - Falls. It rested on the duration, and the duration was wrong.
@@ -1640,7 +1640,7 @@ missions:
     objective: Run an ordinary evening, and notice what ordinary is now resting on.
     briefing: The forecast holds, every circuit is inside limits, and nothing needs deciding.
     stake: >-
-      Monday, and it is a quiet shift. The forecast is holding to within thirty megawatts, every corridor is
+      Monday, and it is a quiet shift. The forecast is holding to within 30 megawatts, every corridor is
       comfortably inside rating, the ridge is producing steadily, and there is nothing on the board that
       needs a decision. Aaron Whitlock has the log open with almost nothing in it. Dolores Reyes uses these
       evenings to walk the room and ask what everybody is assuming, because a quiet shift is the only time
@@ -1656,7 +1656,7 @@ missions:
         scene: The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.
         assumes:
           - a system is required to survive any one credible failure
-        takeaway: An N-1 check is a statement about single failures, and it says nothing about two.
+        takeaway: An N-1 check is a statement about single failures, and it says nothing about 2.
         format: CHOICE
         question: What does a clean contingency check tell you tonight?
         answerText: A clean N-1 check says each listed single failure leaves the modeled system inside limits. It says nothing about failure probability or simultaneous failures.
@@ -1675,12 +1675,12 @@ missions:
         task: Read a forecast that is behaving
         title: The trend with nothing wrong with it
         place: Load & Forecasting
-        scene: Lindgren's forecast has tracked within thirty megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.
+        scene: Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.
         assumes:
           - a forecast can be right by luck as easily as by skill on any one day
         takeaway: One good night is not evidence about the method, because the width was never a claim about tonight.
         format: PROTOCOL
-        why: A forecast is a distribution. Landing inside thirty megawatts on a mild Monday is what the middle of that distribution looks like and it tells you almost nothing. That is because mild Mondays are the days the model was best calibrated for. The evidence that matters is how it behaves on the days it was least calibrated for, which are rare by construction. So a run of good nights is not a reason to hold less reserve.
+        why: A forecast is a distribution. Landing inside 30 megawatts on a mild Monday is what the middle of that distribution looks like and it tells you almost nothing. That is because mild Mondays are the days the model was best calibrated for. The evidence that matters is how it behaves on the days it was least calibrated for, which are rare by construction. So a run of good nights is not a reason to hold less reserve.
         rebuttals:
           - A quiet Monday is the middle of the distribution and the easiest day the model has; it confirms very little.
           - Cold snaps are where the model is least calibrated, so they are where the width is actually tested.
@@ -1690,8 +1690,8 @@ missions:
           - The observation
           - What it is evidence about
         scenarios:
-          - The forecast tracked within thirty megawatts on a mild Monday.
-          - The forecast missed by four hundred megawatts on the coldest night of last winter.
+          - The forecast tracked within 30 megawatts on a mild Monday.
+          - The forecast missed by 400 megawatts on the coldest night of last winter.
           - The forecast has been accurate for nine consecutive evenings.
           - The forecast's stated width has held over three winters.
         choices:
@@ -1742,16 +1742,16 @@ missions:
               decisive: false
               reveals: The seasonal width remains well calibrated; this does not restore missing synchronous kinetic energy.
         answerText: Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.
-        why: Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about forty per cent faster.
+        why: Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40 per cent faster.
   - title: Three things at once
     objective: Rank three simultaneous problems, and hold the reasoning while they interfere.
     briefing: A fault, a forecast miss and a plant coming off at the same hour, and one room.
     stake: >-
-      Thursday, 16:40, and three things arrive together. A cable fault has taken a feeder with 3,300
-      households on it. Ravi Lindgren's forecast is running two hundred megawatts under actual and still
-      climbing. And the gas machine that has carried the evening peak all week has to come off at eighteen
-      hundred for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores
-      Reyes has one control room, one crew on shift and about eighty minutes. Today you decide what gets
+      Thursday, 16:40, and 3 things arrive together. A cable fault has taken a feeder with 3,300
+      households on it. Ravi Lindgren's forecast is running 200 megawatts under actual and still
+      climbing. And the gas machine that has carried the evening peak all week has to come off at 1800
+      for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores
+      Reyes has 1 control room, 1 crew on shift and about 80 minutes. Today you decide what gets
       attention first, work out what the corridor is costing at the higher flow, and put the evening's moves
       in an order that does not undo itself. None of these is new. All three at once is.
     takeaway: Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.
@@ -1823,7 +1823,7 @@ missions:
         format: BALLPARK
         question: Estimate the power now lost as heat in the corridor.
         answerText: About 21 MW.
-        why: The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about eleven per cent, from 1,150 A to 1,280 A. The heat rises by about twenty-four per cent, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.
+        why: The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11 per cent, from 1,150 A to 1,280 A. The heat rises by about 24 per cent, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.
         estimate:
           prompt: The balanced corridor now carries 1,280 A RMS in each phase. Each phase still has 4.2 ohms of resistance over the full corridor.
           question: Choose the current, the resistance and the number of phases.
@@ -1843,7 +1843,7 @@ missions:
           units: W
           solution: P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.
           explanation: |-
-            About twenty-one megawatts, against seventeen an hour ago. Current rose by eleven per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss.
+            About 21 megawatts, against 17 an hour ago. Current rose by 11 per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss.
           givens:
             - RMS current is now 1,280 A in each phase
             - Resistance remains 4.2 Ω per phase
@@ -1859,10 +1859,10 @@ missions:
           - some actions change the value of the actions that follow them
         takeaway: Do the moves that improve your information first and the moves you cannot undo last.
         format: SEQUENCE
-        why: Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at eighteen hundred. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last.
+        why: Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at 1800. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last.
         cards:
           - Correct the forecast, so every other figure is sized against a real demand.
-          - Bring reserve forward to cover the machine coming off at eighteen hundred.
+          - Bring reserve forward to cover the machine coming off at 1800.
           - Start loading the replacement plant, which needs the minutes.
           - Reconfigure the network around the faulted feeder.
         order: [0, 1, 2, 3]
@@ -1871,12 +1871,12 @@ missions:
     briefing: The reinforcement decision from last week has a date on it, and the date is today.
     stake: >-
       Monday, and the corridor decision comes back for the last time. The outage window that would let a
-      second circuit be strung this year closes at close of business, and if it closes the next one is
-      eighteen months out. June Farrow has the corrected thermal record, which says the corridor has spent
+      second circuit be strung this year closes at close of business, and if it closes the next 1 is
+      18 months out. June Farrow has the corrected thermal record, which says the corridor has spent
       more hours over limit than anybody thought. Amira Haddad has a storage quote that expires with the
       window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected
       record does to the corridor's remaining life, decide what the money buys, and say what the decision
-      commits the system to for the next eighteen months. Last week this was a preference. This morning it
+      commits the system to for the next 18 months. Last week this was a preference. This morning it
       is the last morning.
     takeaway: A reversible decision is a cheap one, and the moment it stops being reversible is the moment it needs the whole argument.
     stops:
@@ -1885,13 +1885,13 @@ missions:
         title: Hours over limit, added up
         place: Metering & Standards
         scene: |-
-          Farrow's corrected record has the corridor above continuous rating for about ninety hours over three years. She wants to know whether that is a maintenance note or a design problem.
+          Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.
         assumes:
           - time spent above a thermal limit accumulates rather than resetting
-        takeaway: Thermal damage integrates over time, so ninety scattered hours count as ninety hours.
+        takeaway: Thermal damage integrates over time, so 90 scattered hours count as 90 hours.
         format: CHOICE
-        question: What do ninety accumulated hours above continuous rating mean for the conductor?
-        why: Annealing is not a state the metal comes back from. Above about ninety-five degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now.
+        question: What do 90 accumulated hours above continuous rating mean for the conductor?
+        why: Annealing is not a state the metal comes back from. Above about 95 degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now.
         choices:
           - Nothing, because the conductor cooled fully between every one of those periods.
           - The aluminium has lost strength for good, and its life is shorter than designed.
@@ -1911,27 +1911,27 @@ missions:
           - an option with an expiry date is worth more than the same option without one
         takeaway: When one path closes today, its value includes everything the eighteen-month delay would cost.
         format: SCIENCETANK
-        why: This is not the same question as last week, because one option now expires. Reinforcement is the only choice that removes the constraint rather than working around it. Today is the last day it can be started this year — so its cost includes eighteen months of curtailment, ninety more hours of annealing. Every evening the room has to hold a corridor it has now measured as weaker than it thought.
+        why: This is not the same question as last week, because one option now expires. Reinforcement is the only choice that removes the constraint rather than working around it. Today is the last day it can be started this year — so its cost includes 18 months of curtailment, 90 more hours of annealing. Every evening the room has to hold a corridor it has now measured as weaker than it thought.
         proposals:
           - label: A
             text: Commit the outage window today and string the second circuit this year.
           - label: B
             text: Buy the ridge storage on the expiring quote and put reinforcement to the spring.
           - label: C
-            text: Keep curtailing and revisit both when the next window opens in eighteen months.
+            text: Keep curtailing and revisit both when the next window opens in 18 months.
           - label: D
             text: Hold the budget until the corrected thermal record has been independently reviewed.
         recommended:
           A: 55
           B: 25
         evidence: |-
-          The outage window closes at close of business and the next is eighteen months out. The corrected
-          record has the corridor above continuous rating for about ninety hours over three years. Storage
-          would be 50 MW for four hours and does not change a thermal rating. Curtailment on nights like
-          last Friday runs about forty nights a winter. The review Farrow would want takes three weeks.
+          The outage window closes at close of business and the next is 18 months out. The corrected
+          record has the corridor above continuous rating for about 90 hours over 3 years. Storage
+          would be 50 MW for 4 hours and does not change a thermal rating. Curtailment on nights like
+          last Friday runs about 40 nights a winter. The review Farrow would want takes three weeks.
       - group: OPS
         task: Say what the decision commits the room to
-        title: The eighteen months you just bought
+        title: The 18 months you just bought
         place: System Operations
         scene: Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.
         assumes:
@@ -1945,15 +1945,15 @@ missions:
           - The contingency case has to be rerun at the corridor's real strength rather than its design strength.
           - The argument is settled, which is what lets a shift act quickly without reopening the decision.
         columns:
-          - What the next eighteen months contains
+          - What the next 18 months contains
           - Why the decision puts it there
         scenarios:
           - The emergency rating in the operating instructions.
-          - Roughly forty curtailment nights a winter.
+          - Roughly 40 curtailment nights a winter.
           - The corridor's contingency case.
           - The corridor argument itself.
         choices:
-          - Has to be recalculated, because it came from the sensor that read eleven degrees low.
+          - Has to be recalculated, because it came from the sensor that read 11 degrees low.
           - Becomes a budgeted cost, because nothing about the corridor changes until the circuit exists.
           - Has to be rerun at the conductor's real strength rather than its design strength.
           - Is closed, which is what lets a shift act at 16:40 without reopening it.
@@ -2051,7 +2051,7 @@ missions:
         choices:
           - Cross-checking any instrument that a decision rests on against an independent method.
           - Holding reserve at the fortnight's elevated level all winter.
-          - Reporting corridor loading to the control room every fifteen minutes rather than every hour.
+          - Reporting corridor loading to the control room every 15 minutes rather than every hour.
           - Requiring two operators to sign any load-shedding decision.
         answer: Cross-checking any instrument that a decision rests on against an independent method.
         rebuttals:
@@ -2087,7 +2087,7 @@ interiors:
         - { label: Governor droop, value: 4 per cent, status: normal }
   TRANS:
     caption: A rating is a time and a temperature, not a wall.
-    standLine: One corridor above continuous rating, and a relay that will decide in forty minutes.
+    standLine: 1 corridor above continuous rating, and a relay that will decide in 40 minutes.
     station:
       kind: panel
       title: Corridor loading
@@ -2098,7 +2098,7 @@ interiors:
         - { label: Conductor temperature, value: 78 °C, status: high }
   DIST:
     caption: Restoration is measured in households and how long they waited.
-    standLine: Eleven feeders out, and two of them have the clinic on them.
+    standLine: 11 feeders out, and 2 of them have the clinic on them.
     station:
       kind: panel
       title: Feeder status
@@ -2137,7 +2137,7 @@ interiors:
 copy:
   OPS: <p>The control room. One long desk, a wall of the whole interconnection, and the only number on it that belongs to everybody.</p>
   GEN: <p>The machine hall. Four sets turning in step with every other machine on the system, which is what lets one number describe all of them.</p>
-  TRANS: <p>Protection and switching. The rules for an argument that will happen in eighty milliseconds with nobody present.</p>
+  TRANS: <p>Protection and switching. The rules for an argument that will happen in 80 milliseconds with nobody present.</p>
   DIST: <p>The depot. Where the network stops being a diagram and turns into a van, a pole and somebody's evening.</p>
   LOAD: <p>Forecasting. Weather, the school holidays, and whether it gets dark before people get home.</p>
   METER: <p>Standards. The question nobody wants opened during an incident: is that number the number.</p>

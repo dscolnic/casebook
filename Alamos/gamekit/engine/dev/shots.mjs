@@ -90,7 +90,16 @@ async function viewsFor(dir){
   if(existsSync(own)){
     const mod = await import(pathToFileURL(own).href);
     const list = mod.VIEWS ?? mod.default ?? [];
-    if(list.length) return list.map(v => ({ note: 'from the theme', ...v }));
+    // A theme writes `yaw: 90` and means ninety degrees. The engine's own views
+    // are built in radians, so a theme file was being read as 90 radians —
+    // which is 5.13 after wrapping, about 294°, and every hand-placed viewpoint
+    // in three games was aimed somewhere nobody chose. It went unnoticed because
+    // a flat plateau and an ice sheet look much the same on any bearing, and it
+    // was found the first time a viewpoint was aimed at something as specific as
+    // a roller-coaster loop. Nobody writes 90 radians on purpose, so anything
+    // past a full turn is taken as degrees.
+    const asRadians = (y) => (Math.abs(y ?? 0) > Math.PI * 2 ? ((y ?? 0) * Math.PI) / 180 : (y ?? 0));
+    if(list.length) return list.map(v => ({ note: 'from the theme', ...v, yaw: asRadians(v.yaw) }));
   }
 
   const planPath = resolve(dir, 'plan.js');

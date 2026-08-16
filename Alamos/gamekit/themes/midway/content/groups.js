@@ -10,7 +10,7 @@ export const GROUPS = [
     "color": "#c0392b",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Free fall down forty-two metres, and a brake that has to take it back in nine.",
+    "desc": "Free fall down 42 metres, and a brake that has to take it back in 9.",
     "defaultLeader": "vey",
     "budget": 70,
     "milestones": [
@@ -51,7 +51,7 @@ export const GROUPS = [
     "color": "#2f7fa8",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "One lift hill, one drop, one loop, and whatever friction has taken since 1974.",
+    "desc": "1 lift hill, 1 drop, 1 loop, and whatever friction has taken since 1974.",
     "defaultLeader": "marsh",
     "budget": 70,
     "milestones": [
@@ -133,7 +133,7 @@ export const GROUPS = [
     "color": "#7a4fa3",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Twenty-eight metres of steel that has to balance before it turns.",
+    "desc": "28 metres of steel that has to balance before it turns.",
     "defaultLeader": "raman",
     "budget": 70,
     "milestones": [
@@ -174,7 +174,7 @@ export const GROUPS = [
     "color": "#3f9e6b",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "A hundred collisions an hour, and every one of them is the same equation.",
+    "desc": "100 collisions an hour, and every 1 of them is the same equation.",
     "defaultLeader": "chen",
     "budget": 70,
     "milestones": [
@@ -215,7 +215,7 @@ export const GROUPS = [
     "color": "#4a6d8c",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "A pendulum with sixty people on it, and a period that does not care how many.",
+    "desc": "A pendulum with 60 people on it, and a period that does not care how many.",
     "defaultLeader": "idowu",
     "budget": 70,
     "milestones": [

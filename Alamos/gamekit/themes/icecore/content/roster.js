@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Chief Scientist",
     "division": "DATA",
     "color": "#5b6a72",
-    "bio": "<p>Runs the season, which mostly means deciding what the season is allowed to claim. She has spent eleven years on this plateau and reads a record the way an auditor reads a ledger: not for what it says, for what it would take to make it say something else.</p><p>Her position on the Skarv disagreement is that a result held back is a result somebody else makes for you. The assessment that will quote both records closes in March, and a silence in March is a decision.</p><p>Her limit is the same as her strength. She is fastest at deciding what a number means, and the fastest reading of a number is the one that assumes the other people measured it the way she would have.</p>",
+    "bio": "<p>Runs the season, which mostly means deciding what the season is allowed to claim. She has spent 11 years on this plateau and reads a record the way an auditor reads a ledger: not for what it says, for what it would take to make it say something else.</p><p>Her position on the Skarv disagreement is that a result held back is a result somebody else makes for you. The assessment that will quote both records closes in March, and a silence in March is a decision.</p><p>Her limit is the same as her strength. She is fastest at deciding what a number means, and the fastest reading of a number is the one that assumes the other people measured it the way she would have.</p>",
     "quiz": [
       {
         "q": "Why does Halvorsen treat staying quiet until next season as a decision rather than a delay?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Chronology Lead",
     "division": "CORE",
     "color": "#7a4fa3",
-    "bio": "<p>Owns the depth–age scale, which is the sentence every other result in the station ends with. She counts layers, ties them to dated ash, and writes down how wrong each stretch could be.</p><p>Her position on Skarv is not caution for its own sake. Two records cannot disagree until they are on one clock, and she has not finished putting them on one. Announcing a difference between two timescales is announcing something about the timescales.</p><p>Her limit is that counting has an end. Below about two thousand metres the layers are thinner than anything she can resolve, and from there the ages come from a flow model she did not build and cannot check.</p>",
+    "bio": "<p>Owns the depth–age scale, which is the sentence every other result in the station ends with. She counts layers, ties them to dated ash, and writes down how wrong each stretch could be.</p><p>Her position on Skarv is not caution for its own sake. Two records cannot disagree until they are on one clock, and she has not finished putting them on one. Announcing a difference between two timescales is announcing something about the timescales.</p><p>Her limit is that counting has an end. Below about 2000 metres the layers are thinner than anything she can resolve, and from there the ages come from a flow model she did not build and cannot check.</p>",
     "quiz": [
       {
         "q": "Why will Okonkwo not call the difference between the two records a disagreement yet?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Drill Engineer",
     "division": "DRILL",
     "color": "#2f6f9f",
-    "bio": "<p>Twenty-two seasons on deep drills, and he can tell from the winch load what the hole is doing eight hundred metres down. The drill is a three-tonne instrument that gets one attempt per run.</p><p>He runs the brittle zone slowly and refuses to be hurried through it. Ice between five hundred and twelve hundred metres holds bubbles at pressures the surface cannot support, and a core brought up fast comes up as gravel.</p><p>His limit is that he cannot see anything. Everything he knows about the hole arrives as tension on a cable and the temperature of returning fluid.</p>",
+    "bio": "<p>22 seasons on deep drills, and he can tell from the winch load what the hole is doing 800 metres down. The drill is a three-tonne instrument that gets one attempt per run.</p><p>He runs the brittle zone slowly and refuses to be hurried through it. Ice between 51200 metres holds bubbles at pressures the surface cannot support, and a core brought up fast comes up as gravel.</p><p>His limit is that he cannot see anything. Everything he knows about the hole arrives as tension on a cable and the temperature of returning fluid.</p>",
     "quiz": [
       {
         "q": "Why does Lindqvist slow the winch through the brittle zone?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Isotope Chemist",
     "division": "COLD",
     "color": "#1f7a6b",
-    "bio": "<p>Runs the cold laboratory at minus twenty-five, where every sample is melted exactly once and everything that touches it has been accounted for first. She measures ratios that differ in the fourth decimal place.</p><p>She runs a standard between every eighth sample, which everybody agrees with in principle and resents in practice, because the instrument drifts and drift is invisible from inside a run.</p><p>Her limit is that she measures water, not weather. Turning a ratio into a temperature needs a slope, and the slope is somebody's measurement of a relationship that has not held perfectly for the whole record.</p>",
+    "bio": "<p>Runs the cold laboratory at minus 25, where every sample is melted exactly once and everything that touches it has been accounted for first. She measures ratios that differ in the fourth decimal place.</p><p>She runs a standard between every eighth sample, which everybody agrees with in principle and resents in practice, because the instrument drifts and drift is invisible from inside a run.</p><p>Her limit is that she measures water, not weather. Turning a ratio into a temperature needs a slope, and the slope is somebody's measurement of a relationship that has not held perfectly for the whole record.</p>",
     "quiz": [
       {
         "q": "Why does Tanabe run a standard between every eighth sample?",
@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Gas Laboratory Technician",
     "division": "GAS",
     "color": "#b3462f",
-    "bio": "<p>Runs the extraction line, which is a vacuum system with fourteen fittings and a rule about every one of them. He tests the line against a standard gas before any sample is cut.</p>",
+    "bio": "<p>Runs the extraction line, which is a vacuum system with 14 fittings and a rule about every 1 of them. He tests the line against a standard gas before any sample is cut.</p>",
     "quiz": [
       {
         "q": "Why does Menon run a standard gas through the line before cutting a sample?",
@@ -188,7 +188,7 @@ export const ROSTER = [
         "wrong": [
           "The line has to be brought to the same temperature as the sample",
           "Standard gas removes water vapour left over from the previous run",
-          "It confirms that the line's fourteen pressure gauges agree with each other first"
+          "It confirms that the line's 14 pressure gauges agree with each other first"
         ]
       }
     ]

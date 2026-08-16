@@ -4,7 +4,7 @@
 
 export const INTERIORS = {
   "INFLOW": {
-    "caption": "Eleven rain gauges, four river gauges, and a snowline nobody can measure well.",
+    "caption": "11 rain gauges, 4 river gauges, and a snowline nobody can measure well.",
     "standLine": "Ashfell gauge, fifteen-minute readings. Rising since 03:40.",
     "station": {
       "kind": "panel",
@@ -154,7 +154,7 @@ export const INTERIORS = {
     }
   },
   "SAFE": {
-    "caption": "Eleven villages, two caravan sites, a school, and a road that floods before anything else.",
+    "caption": "11 villages, 2 caravan sites, a school, and a road that floods before anything else.",
     "standLine": "Reach list, with arrival times from a release at the dam.",
     "station": {
       "kind": "panel",

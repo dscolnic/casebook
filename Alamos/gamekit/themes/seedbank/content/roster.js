@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Seed Physiologist",
     "division": "VAULT",
     "color": "#2f5d52",
-    "bio": "<p>Answers one question for a living: how long will this live? A seed in the vault is not inert. It is respiring, slowly, and everything he controls — the drying room, the moisture content, the minus eighteen — is aimed at making that slower.</p><p>He germinates a sample of every accession on a schedule and plots the curve. When it drops below eighty-five per cent the accession has to be grown out, which is the moment the argument between the vault and the field starts again.</p><p>His limit is that a germination test costs seed. Every measurement of how alive a collection is takes a little of it away.</p>",
+    "bio": "<p>Answers one question for a living: how long will this live? A seed in the vault is not inert. It is respiring, slowly, and everything he controls — the drying room, the moisture content, the minus 18 — is aimed at making that slower.</p><p>He germinates a sample of every accession on a schedule and plots the curve. When it drops below 85 per cent the accession has to be grown out, which is the moment the argument between the vault and the field starts again.</p><p>His limit is that a germination test costs seed. Every measurement of how alive a collection is takes a little of it away.</p>",
     "quiz": [
       {
         "q": "Why does Mbaye dry seed before it goes into the vault?",
@@ -123,7 +123,7 @@ export const ROSTER = [
     "role": "Agronomist",
     "division": "DRY",
     "color": "#b3462f",
-    "bio": "<p>Follows the carbon. Every gram of grain in the drying hall was atmospheric carbon dioxide in June, and the difference between a good line and a bad one is mostly what it did with the light and the water it was given.</p><p>He measures the boring things nobody publishes — canopy cover, days to flowering, water use — because they are what explain a yield rather than report it. A line that yields well and cannot say why is a line nobody can breed from.</p><p>His limit is that a field is not a chamber. Everything he measures is confounded with the weather, which is why he keeps eleven years of it.</p>",
+    "bio": "<p>Follows the carbon. Every gram of grain in the drying hall was atmospheric carbon dioxide in June, and the difference between a good line and a bad one is mostly what it did with the light and the water it was given.</p><p>He measures the boring things nobody publishes — canopy cover, days to flowering, water use — because they are what explain a yield rather than report it. A line that yields well and cannot say why is a line nobody can breed from.</p><p>His limit is that a field is not a chamber. Everything he measures is confounded with the weather, which is why he keeps 11 years of it.</p>",
     "quiz": [
       {
         "q": "Why does Toft measure canopy cover and flowering date alongside yield?",
@@ -142,7 +142,7 @@ export const ROSTER = [
     "role": "Genebank Technician",
     "division": "VAULT",
     "color": "#2f5d52",
-    "bio": "<p>Packs, labels, counts and finds. Every accession that leaves the vault and every one that comes back goes through their hands, and the number on the packet is the only thing tying a seed to everything known about it.</p><p>They are quietly the most careful person on site. A mislabelled packet is not a small error: it is a plant whose passport belongs to something else, and it can be twenty years before anybody notices.</p><p>Their limit is that they can only record what the field tells them. A plot harvested into the wrong bag arrives here already wrong.</p>",
+    "bio": "<p>Packs, labels, counts and finds. Every accession that leaves the vault and every one that comes back goes through their hands, and the number on the packet is the only thing tying a seed to everything known about it.</p><p>They are quietly the most careful person on site. A mislabelled packet is not a small error: it is a plant whose passport belongs to something else, and it can be 20 years before anybody notices.</p><p>Their limit is that they can only record what the field tells them. A plot harvested into the wrong bag arrives here already wrong.</p>",
     "quiz": [
       {
         "q": "Why does Ashworth treat a packet number as the important part?",

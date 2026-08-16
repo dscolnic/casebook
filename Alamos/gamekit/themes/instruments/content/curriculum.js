@@ -97,7 +97,7 @@ export const CURRICULUM = {
         "play": "Make the tone follow one machine",
         "task": "Make the tone follow one machine",
         "question": "Four candidates, one tone. Establish which machine is producing it and prove it.",
-        "answer": "Seawater pump B. Securing it alone drops the tone nineteen decibels, and restoring it brings the line straight back — which is what separates it from the machine that happened to start in the same hour.",
+        "answer": "Seawater pump B. Securing it alone drops the tone 19 decibels, and restoring it brings the line straight back — which is what separates it from the machine that happened to start in the same hour.",
         "why": "Four things changed in one hour, so the log alone cannot name a cause; it can only name candidates. Securing several at once makes the display quieter and settles nothing, because a quieter display is consistent with any of them being responsible. One variable at a time gives a candidate, and restoring it is what turns the candidate into a cause: a coincidence does not come back on demand. The reversal also costs almost nothing here, which is worth noticing — the reason it gets skipped is not expense, it is that by then the answer already feels known.\n",
         "control": {
           "observable": {
@@ -156,7 +156,7 @@ export const CURRICULUM = {
         "play": "Report where it was, not how far",
         "task": "Report where it was, not how far",
         "question": "Switch the stations in, decide what to do about the ridge clock, and report the position.",
-        "answer": "Around 24 east, 24 north, as a region several kilometres across — and only after the ridge clock correction, which moves that station's ring fourteen kilometres.",
+        "answer": "Around 24 east, 24 north, as a region several kilometres across — and only after the ridge clock correction, which moves that station's ring 14 kilometres.",
         "why": "One station's arrival separation says how far the source was. It says nothing about direction, so on its own it leaves a whole ring. Three rings intersect, and what they intersect in is an area, not a point. Reporting a coordinate claims a precision the arrival times do not support, and somebody downstream will treat it as certain. The clock matters because the calculation runs on times, not on waveforms. A station biased by six tenths of a second draws its ring in the wrong place. Its own record looks perfectly normal, and the intersection moves with it.\n",
         "triangulate": {
           "stations": [
@@ -220,8 +220,8 @@ export const CURRICULUM = {
         "play": "Decide which measurement is worth buying",
         "task": "Decide which measurement is worth buying",
         "question": "One measurement is affordable. Which of these is carrying the uncertainty in the energy?",
-        "answer": "The density. It is raised to the first power and known to forty-five per cent, which outweighs a radius cubed and known to eight — so the sampling is the measurement worth buying, and the energy is a range rather than a figure.",
-        "why": "A term contributes its exponent multiplied by its own fractional width. The radius is cubed, which is the part everybody sees, and it is known well enough that three times eight per cent is still smaller than one times forty-five. Buying another radar pass therefore improves the number that was already good and moves the total almost not at all. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable and produces exactly the wrong answer here. The density is also the term nobody can measure directly from orbit, which is why it stays wide.\n",
+        "answer": "The density. It is raised to the first power and known to 45 per cent, which outweighs a radius cubed and known to 8 — so the sampling is the measurement worth buying, and the energy is a range rather than a figure.",
+        "why": "A term contributes its exponent multiplied by its own fractional width. The radius is cubed, which is the part everybody sees, and it is known well enough that 3 times 8 per cent is still smaller than 1 times 45. Buying another radar pass therefore improves the number that was already good and moves the total almost not at all. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable and produces exactly the wrong answer here. The density is also the term nobody can measure directly from orbit, which is why it stays wide.\n",
         "propagate": {
           "output": {
             "label": "Impact energy",
@@ -287,10 +287,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "You stopped driving. You did not stop",
-      "scene": "The survey trolley runs on a rail in the flooded gallery, where nothing slows it down. Ben Achterberg has the last operator's trace, which shows the motor cut at the mark and the trolley eighteen metres past it.",
+      "scene": "The survey trolley runs on a rail in the flooded gallery, where nothing slows it down. Ben Achterberg has the last operator's trace, which shows the motor cut at the mark and the trolley 18 metres past it.",
       "takeaway": "With nothing to damp it, the braking impulse has to begin before the target, by exactly as far as the acceleration carried it.",
       "place": "Field Station",
-      "story": "The survey trolley runs on a rail in the flooded gallery, where nothing slows it down. Ben Achterberg has the last operator's trace, which shows the motor cut at the mark and the trolley eighteen metres past it.",
+      "story": "The survey trolley runs on a rail in the flooded gallery, where nothing slows it down. Ben Achterberg has the last operator's trace, which shows the motor cut at the mark and the trolley 18 metres past it.",
       "game": {
         "type": "FLY",
         "title": "You stopped driving. You did not stop",
@@ -298,7 +298,7 @@ export const CURRICULUM = {
         "play": "Stop the trolley where you meant to",
         "task": "Stop the trolley where you meant to",
         "question": "Set the pulse and the distance at which braking starts, then run it and see where it stops.",
-        "answer": "Braking has to start about seven and a half metres short of the mark on a six-second pulse — around 82 metres — because that is how far the trolley travels while the braking impulse is being applied.",
+        "answer": "Braking has to start about 7 and a half metres short of the mark on a six-second pulse — around 82 metres — because that is how far the trolley travels while the braking impulse is being applied.",
         "why": "The trolley leaves the acceleration with a speed, and on a rail in still water there is nothing to take that speed away except an equal impulse in the other direction. So the braking has to start early, and by a specific amount: the distance covered while the brake is working, which is set by the same pulse that produced the speed. Cutting the drive at the mark is not braking at all — it only stops adding speed, and the trolley carries the speed it already has. A longer pulse gets there sooner and needs a longer brake and more of the budget, which is the trade the two controls actually make.\n",
         "fly": {
           "state": {
@@ -400,7 +400,7 @@ export const CURRICULUM = {
                 {
                   "text": "dQ/dt = 21.0 × 1.5 × 2.00 × dH/dt = 63.0·dH/dt",
                   "rule": "power",
-                  "why": "H^(1/2) at H = 2.0 is the square root of two, about 1.41. Using 2.00 evaluates H rather than its square root."
+                  "why": "H^(1/2) at H = 2.0 is the square root of 2, about 1.41. Using 2.00 evaluates H rather than its square root."
                 },
                 {
                   "text": "dQ/dt = 21.0 × 1.5 × 1.5 × dH/dt = 47.3·dH/dt",
@@ -446,7 +446,7 @@ export const CURRICULUM = {
         "task": "Account for the whole flow, not the part that shows",
         "question": "Read what you need and report the total inflow at the hull.",
         "answer": "About 410 litres a minute — the 320 that accumulated plus the 90 the pump had already discharged during the same minute.",
-        "why": "The level in the bilge is not the leak; it is what got past the pump. Anything already being removed while you were measuring has to go back into the total, and a pump that has been running since the alarm is easy to leave out precisely because it is not a reading — nothing on the panel changes when it runs. Report the 320 and the response is sized for a leak two thirds of its actual rate, which decides how many pumps are worth starting and, more to the point, whether starting pumps is the answer at all.\n",
+        "why": "The level in the bilge is not the leak; it is what got past the pump. Anything already being removed while you were measuring has to go back into the total, and a pump that has been running since the alarm is easy to leave out precisely because it is not a reading — nothing on the panel changes when it runs. Report the 320 and the response is sized for a leak 2 thirds of its actual rate, which decides how many pumps are worth starting and, more to the point, whether starting pumps is the answer at all.\n",
         "balance": {
           "total": {
             "amount": 410,
@@ -458,7 +458,7 @@ export const CURRICULUM = {
               "id": "rise",
               "label": "Accumulation in the bilge",
               "value": 320,
-              "display": "8 cm over 4.0 m2 in one minute = 320 L/min"
+              "display": "8 cm over 4.0 m2 in 1 minute = 320 L/min"
             },
             {
               "id": "pump",
@@ -591,10 +591,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Moving the dot and moving the cloud",
-      "scene": "The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9 with nine tenths of a degree on it, and a fifth of the trajectories are outside.",
+      "scene": "The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9 with 9 tenths of a degree on it, and a fifth of the trajectories are outside.",
       "takeaway": "Re-centring moves the whole distribution; only new information makes it narrower.",
       "place": "Sample Room",
-      "story": "The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9 with nine tenths of a degree on it, and a fifth of the trajectories are outside.",
+      "story": "The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9 with 9 tenths of a degree on it, and a fifth of the trajectories are outside.",
       "game": {
         "type": "CLOUD",
         "title": "Moving the dot and moving the cloud",
@@ -602,7 +602,7 @@ export const CURRICULUM = {
         "play": "Get the distribution inside the corridor",
         "task": "Get the distribution inside the corridor",
         "question": "Bring the entry solution inside the corridor, and say when it is ready.",
-        "answer": "Both tracking passes. Re-centring alone leaves better than one trajectory in twenty outside the corridor; narrowing the spread is the only thing that moves that number.",
+        "answer": "Both tracking passes. Re-centring alone leaves better than 1 trajectory in 20 outside the corridor; narrowing the spread is the only thing that moves that number.",
         "why": "The nominal angle is the one place the vehicle is least likely to be. Re-targeting it slides the whole distribution across without changing its width. The fraction outside the corridor barely moves; the trajectories that were long become shallow instead. What is being asked is not where to aim but how much the measurements permit, and only new tracking reduces that. It costs hours the day would rather spend elsewhere. That is the real decision, because the corridor is a survivability limit and does not negotiate.\n",
         "cloud": {
           "bounds": {
@@ -670,7 +670,7 @@ export const CURRICULUM = {
         "task": "Choose the option that survives the assumption moving",
         "question": "Move the endurance through its range, then choose the option you would commit to.",
         "answer": "The staged excavation. It is not the fastest at the nominal and it is the only one still possible at the pessimistic end of the endurance range, which is the end nobody measured away.",
-        "why": "At seventy-eight hours the direct excavation finishes first and looks like the obvious call. The endurance was never seventy-eight hours; it was a range with seventy-eight in the middle of it, and at the low end the direct option needs more containment than there is. What the slider shows is that three of the four options are conditional on an assumption holding, and the ranking everybody was reading is a ranking of what happens if it does. Choosing the staged option costs thirteen hours and buys the property that the plan does not have to be abandoned partway.\n",
+        "why": "At 78 hours the direct excavation finishes first and looks like the obvious call. The endurance was never 78 hours; it was a range with 78 in the middle of it, and at the low end the direct option needs more containment than there is. What the slider shows is that three of the four options are conditional on an assumption holding, and the ranking everybody was reading is a ranking of what happens if it does. Choosing the staged option costs 13 hours and buys the property that the plan does not have to be abandoned partway.\n",
         "stress": {
           "candidates": [
             {
@@ -757,10 +757,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "More detections, the same amount of notice",
-      "scene": "Five thousand synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real one would go. Kit Sorensen has the recovery display up and nothing on it yet.",
+      "scene": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real 1 would go. Kit Sorensen has the recovery display up and nothing on it yet.",
       "takeaway": "Injecting a population whose truth you know measures the pipeline rather than the world, and what never comes back is not absent.",
       "place": "Sample Room",
-      "story": "Five thousand synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real one would go. Kit Sorensen has the recovery display up and nothing on it yet.",
+      "story": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real 1 would go. Kit Sorensen has the recovery display up and nothing on it yet.",
       "game": {
         "type": "INJECT",
         "title": "More detections, the same amount of notice",
@@ -1003,7 +1003,7 @@ export const CURRICULUM = {
         "play": "Find out what the impact actually did",
         "task": "Find out what the impact actually did",
         "question": "Predict the period change, commit the impact, and report what happened.",
-        "answer": "Around fourteen and a half minutes — but only the post-impact tracking establishes it. A confirmed impact with no measured orbit is a confirmed impact and nothing else.",
+        "answer": "Around 14 and a half minutes — but only the post-impact tracking establishes it. A confirmed impact with no measured orbit is a confirmed impact and nothing else.",
         "why": "The spacecraft's own momentum is known to a few percent. What is not known is how much more the ejecta carried away, and quoting that as a single number rather than the factor of several it actually is turns an honest uncertainty into a false prediction. Both halves of the error are ordinary; the failure that is specific to this decision is finishing without measuring. Confirmation of impact is confirmation of an event, not of an effect, and if the tracking budget goes on refining the pre-impact orbit there is nothing left to compare it against — the campaign then produces a photograph instead of a result.\n",
         "verify": {
           "prediction": {
@@ -1021,7 +1021,7 @@ export const CURRICULUM = {
           "intervention": {
             "label": "The kinetic impactor",
             "note": "610 kg at 6.1 km/s, closing on the leading hemisphere.",
-            "outcome": "Impact confirmed. Ejecta plume observed for nineteen minutes."
+            "outcome": "Impact confirmed. Ejecta plume observed for 19 minutes."
           },
           "measurement": {
             "label": "Post-impact orbital period",
@@ -1298,7 +1298,7 @@ export const CURRICULUM = {
               "label": "Lower the monitor into the gallery",
               "cost": 3,
               "axis": "conditions where the crew will actually be",
-              "reveals": "Oxygen at 17 per cent four metres down, and falling with depth.",
+              "reveals": "Oxygen at 17 per cent 4 metres down, and falling with depth.",
               "decisive": true
             },
             {
@@ -1320,19 +1320,19 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "What twenty bottles cannot ask",
-      "scene": "A crate with twenty laboratory slots in it, the river map on the wall, and the partition model's prediction pinned beside it. Nobody has written down a recommended plan.",
+      "title": "What 20 bottles cannot ask",
+      "scene": "A crate with 20 laboratory slots in it, the river map on the wall, and the partition model's prediction pinned beside it. Nobody has written down a recommended plan.",
       "takeaway": "Sampling is experimental design under a budget, and every feasible plan forgoes a question.",
       "place": "Response Desk",
-      "story": "A crate with twenty laboratory slots in it, the river map on the wall, and the partition model's prediction pinned beside it. Nobody has written down a recommended plan.",
+      "story": "A crate with 20 laboratory slots in it, the river map on the wall, and the partition model's prediction pinned beside it. Nobody has written down a recommended plan.",
       "game": {
         "type": "ALLOCATE",
-        "title": "What twenty bottles cannot ask",
+        "title": "What 20 bottles cannot ask",
         "setup": "Response Desk",
-        "play": "Spend twenty slots on a plan you can defend",
-        "task": "Spend twenty slots on a plan you can defend",
-        "question": "Twenty slots. Build the plan, and know which of the four questions it leaves open.",
-        "answer": "Any plan that keeps the intake and the QC and stays inside twenty slots is defensible — and it will answer two of the remaining three questions at most. Naming which one you left open is the answer.",
+        "play": "Spend 20 slots on a plan you can defend",
+        "task": "Spend 20 slots on a plan you can defend",
+        "question": "20 slots. Build the plan, and know which of the four questions it leaves open.",
+        "answer": "Any plan that keeps the intake and the QC and stays inside 20 slots is defensible — and it will answer 2 of the remaining 3 questions at most. Naming which one you left open is the answer.",
         "why": "Every line on this crate is worth sampling, which is exactly why a list of options cannot teach the decision: read one at a time they are all justified. A finite inventory makes the trade concrete — the sediment cores and the second time point together cost more than what is left after the protected slots, so a plan that asks whether the concentration is rising cannot also ask whether there is a reservoir underneath it. The error worth avoiding is not choosing badly. It is finishing the programme without having noticed that a question was silently dropped, and reporting reassurance built on the phase nobody sampled.\n",
         "allocate": {
           "pool": {
@@ -1432,8 +1432,8 @@ export const CURRICULUM = {
         "play": "Write the thresholds before tonight's update",
         "task": "Write the thresholds before tonight's update",
         "question": "Set each stage's threshold, release the board, and stand by what it does.",
-        "answer": "Every threshold has to sit low enough to fire while its own lead time is still available — the evacuation stage below about 0.3 per cent, since it needs fourteen days and only the first two updates arrive with that much left.",
-        "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set too high never fires, and the stage simply does not happen. A threshold set at a sensible number fires on the day nine update with three hundred hours left, which is a correct rule for an action that needed three hundred and thirty-six — so the rule is satisfied and the evacuation is already impossible. The day fifteen collapse to one in nine thousand does not make the day nine decision a mistake, and the board is what makes that arguable afterwards, because it was signed before anybody knew.\n",
+        "answer": "Every threshold has to sit low enough to fire while its own lead time is still available — the evacuation stage below about 0.3 per cent, since it needs 14 days and only the first 2 updates arrive with that much left.",
+        "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set too high never fires, and the stage simply does not happen. A threshold set at a sensible number fires on the day 9 update with 300 hours left, which is a correct rule for an action that needed 336 — so the rule is satisfied and the evacuation is already impossible. The day 15 collapse to 1 in 9000 does not make the day 9 decision a mistake, and the board is what makes that arguable afterwards, because it was signed before anybody knew.\n",
         "trigger": {
           "scale": {
             "label": "Impact probability",
@@ -1468,25 +1468,25 @@ export const CURRICULUM = {
           "stream": [
             {
               "at": "day 0",
-              "update": "one in 2500, eleven days of arc",
+              "update": "1 in 2500, 11 days of arc",
               "value": 0.04,
               "hoursLeft": 528
             },
             {
               "at": "day 4",
-              "update": "one in 310 after radar; the nominal miss moves away",
+              "update": "1 in 310 after radar; the nominal miss moves away",
               "value": 0.32,
               "hoursLeft": 432
             },
             {
               "at": "day 9",
-              "update": "one in 40; the corridor narrows to two provinces",
+              "update": "1 in 40; the corridor narrows to 2 provinces",
               "value": 2.5,
               "hoursLeft": 312
             },
             {
               "at": "day 15",
-              "update": "one in 9000 after the fourth tracking pass",
+              "update": "1 in 9000 after the fourth tracking pass",
               "value": 0.011,
               "hoursLeft": 168
             }
@@ -1516,7 +1516,7 @@ export const CURRICULUM = {
         "task": "Take one condition and hand over the rest",
         "question": "Which do you change first, and who has the others?",
         "answer": "Take the groundwater yourself. It is the only one whose margin is closing on something that cannot be undone, and everything else goes out with an owner, a first action and a condition that brings them back.",
-        "why": "The fire panel is the loudest thing in the building and it has been stable for twenty minutes on a fault that is already in the log. The spill is rising and it is inside a bund, so what it costs is money and time rather than an option. The groundwater is the only condition where waiting removes a choice: over the sill, the records are gone and no amount of later effort brings them back. That is what puts it first — not the rate, not the noise, but a margin closing on something irreversible. Everything else can be somebody else's if they are told when to come back.\n",
+        "why": "The fire panel is the loudest thing in the building and it has been stable for 20 minutes on a fault that is already in the log. The spill is rising and it is inside a bund, so what it costs is money and time rather than an option. The groundwater is the only condition where waiting removes a choice: over the sill, the records are gone and no amount of later effort brings them back. That is what puts it first — not the rate, not the noise, but a margin closing on something irreversible. Everything else can be somebody else's if they are told when to come back.\n",
         "delegate": {
           "team": [
             {

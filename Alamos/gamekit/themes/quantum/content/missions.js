@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Finding a qubit that will not answer",
     "objective": "Locate a transition and turn a drive into a pulse that flips it.",
     "briefing": "The chip is cold again and one qubit is not where the design says it should be.",
-    "stake": "Friday, the fridge is at 11 millikelvin and eleven of the twelve qubits are where they were last month. The twelfth is not answering anywhere near its design frequency, and Kofi Mensah has spent the morning sweeping. Sara Lindqvist thinks the junction on that one came out of a run she has been suspicious of since the spring. Priya Raghavan needs twelve working qubits for the circuit she has promised the review. Today you find the transition by sweeping for it, turn the drive into a pulse that flips the qubit reliably, and decide whether this chip is the one to spend the fortnight on.",
+    "stake": "Friday, the fridge is at 11 millikelvin and 11 of the 12 qubits are where they were last month. The twelfth is not answering anywhere near its design frequency, and Kofi Mensah has spent the morning sweeping. Sara Lindqvist thinks the junction on that one came out of a run she has been suspicious of since the spring. Priya Raghavan needs 12 working qubits for the circuit she has promised the review. Today you find the transition by sweeping for it, turn the drive into a pulse that flips the qubit reliably, and decide whether this chip is the one to spend the fortnight on.",
     "takeaway": "A qubit is not at the frequency you designed; it is at the frequency it answers to, and finding that is the first measurement.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Two clocks, and the one that runs out first",
     "objective": "Separate energy leaving the qubit from phase being scrambled.",
     "briefing": "T1 is respectable and T2 is a third of what it should be, on every qubit at once.",
-    "stake": "Monday, and the coherence numbers are lopsided. Anders Holm has the relaxation time on every qubit sitting about where he wants it and the coherence time at a fraction of that, on all twelve within a few per cent — and a qubit's coherence can never exceed twice its relaxation time, so whatever is doing this is scrambling phase without taking any energy at all. Ijeoma Okafor says the fridge is quiet and has a fortnight of logs to show it. Ren Nakamura suspects the flux line. Priya Raghavan needs to know which of these numbers goes in the review and what it means for the circuit she has promised. Today you read both times off the traces yourself, work out what a poor coherence time against a good relaxation time is telling you, and decide where the noise is getting in.",
+    "stake": "Monday, and the coherence numbers are lopsided. Anders Holm has the relaxation time on every qubit sitting about where he wants it and the coherence time at a fraction of that, on all 12 within a few per cent — and a qubit's coherence can never exceed twice its relaxation time, so whatever is doing this is scrambling phase without taking any energy at all. Ijeoma Okafor says the fridge is quiet and has a fortnight of logs to show it. Ren Nakamura suspects the flux line. Priya Raghavan needs to know which of these numbers goes in the review and what it means for the circuit she has promised. Today you read both times off the traces yourself, work out what a poor coherence time against a good relaxation time is telling you, and decide where the noise is getting in.",
     "takeaway": "Relaxation and dephasing remove different parts of quantum information, so the ratio of T1 to T2 is diagnostic.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "One bit out",
     "objective": "Understand what a readout actually decides, and how confident it is entitled to be.",
     "briefing": "The readout says 96 per cent fidelity. Nakamura says that number is doing a lot of work.",
-    "stake": "Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96 per cent, and Ren Nakamura points out that it is the product of three separate things — how well the resonator separates the two states, how much noise the amplifier chain adds, and where somebody drew the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline figure for the review. Today you work out what the readout chain does to a signal, what a discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.",
+    "stake": "Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96 per cent, and Ren Nakamura points out that it is the product of 3 separate things — how well the resonator separates the 2 states, how much noise the amplifier chain adds, and where somebody drew the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline figure for the review. Today you work out what the readout chain does to a signal, what a discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.",
     "takeaway": "A readout fidelity belongs to the entire measurement chain: qubit-state-dependent signal, loss, amplification, noise and classification.",
     "stops": [
       {
@@ -126,8 +126,8 @@ export const MISSIONS = [
   {
     "title": "A defect with a date on it",
     "objective": "Trace a fault in a device back to the process that made it.",
-    "briefing": "The weak response near 4.55 GHz turns up on three chips, all from the same six weeks.",
-    "stake": "Thursday, and Sara Lindqvist has been through the drawer. The weak absorption sitting 60 megahertz below the twelfth qubit appears on three chips, and all three came from wafers processed in a six-week window last spring — the same window in which the oxidation step was changed to raise yield. Kofi Mensah has watched a qubit lose energy every time its frequency drifts into that feature. Priya Raghavan has to decide whether this goes in the review as a known cause or as an open question. Today you work out what the feature is, what it does to a qubit that sits near it, and what the process change bought and cost.",
+    "briefing": "The weak response near 4.55 GHz turns up on 3 chips, all from the same 6 weeks.",
+    "stake": "Thursday, and Sara Lindqvist has been through the drawer. The weak absorption sitting 60 megahertz below the twelfth qubit appears on 3 chips, and all 3 came from wafers processed in a six-week window last spring — the same window in which the oxidation step was changed to raise yield. Kofi Mensah has watched a qubit lose energy every time its frequency drifts into that feature. Priya Raghavan has to decide whether this goes in the review as a known cause or as an open question. Today you work out what the feature is, what it does to a qubit that sits near it, and what the process change bought and cost.",
     "takeaway": "A defect in a material shows up months later in somebody else's measurement, which is why the record of what was made when is worth keeping.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The instrument somebody else depends on",
     "objective": "Meet the part of this field that already works, and the discipline that comes with it.",
     "briefing": "The magnetometer has to be recalibrated by two, because a hospital is using its numbers.",
-    "stake": "Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields a hundred million times weaker than the Earth's, a hospital across the city uses those numbers in a study that has been running for three years, and the calibration is due at two o'clock whatever else is happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review slides, has been told to come back at three. Today you work out where a sensor's precision limit comes from, what averaging can and cannot buy, and why a number that leaves the building carries obligations that a number in a slide does not.",
+    "stake": "Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields 100 million times weaker than the Earth's, a hospital across the city uses those numbers in a study that has been running for 3 years, and the calibration is due at 2 o'clock whatever else is happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review slides, has been told to come back at three. Today you work out where a sensor's precision limit comes from, what averaging can and cannot buy, and why a number that leaves the building carries obligations that a number in a slide does not.",
     "takeaway": "Quantum sensing becomes useful outside the lab only when sensitivity, calibration, drift and uncertainty are treated as one system.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "How wrong is it, and how would you know",
     "objective": "Measure the machine's error in a way that does not measure your own readout.",
     "briefing": "Two error numbers, both honest, differing by a factor of three.",
-    "stake": "Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4 per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and they answer different questions; Priya Raghavan says the review will only print one of them. Dasha Petrova wants whichever number is comparable with the threshold, because below that line adding qubits helps and above it they do not. Today you work out what randomised benchmarking actually measures, why a long sequence gives a different answer from a short one, and which number belongs in a sentence about error correction.",
+    "stake": "Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4 per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and they answer different questions; Priya Raghavan says the review will only print 1 of them. Dasha Petrova wants whichever number is comparable with the threshold, because below that line adding qubits helps and above it they do not. Today you work out what randomised benchmarking actually measures, why a long sequence gives a different answer from a short one, and which number belongs in a sentence about error correction.",
     "takeaway": "Different benchmarking procedures can produce different error numbers because they average over different operations and respond differently to preparation and measurement errors.",
     "stops": [
       {
@@ -222,8 +222,8 @@ export const MISSIONS = [
   {
     "title": "Reading a claim as a claim",
     "objective": "Work out what an advantage result asserts, and what would falsify it.",
-    "briefing": "A competing group's paper says a classical computer would need nine thousand years. That is a claim about a classical computer.",
-    "stake": "\"Wednesday, and the paper everybody has been arguing about is on the table. A group has run a sampling circuit on a 67-qubit device and estimates that reproducing its output with the best classical methods they analysed would take about nine thousand years. Priya Raghavan wants Ridgeway's response ready for the review. Anders Holm points out that the headline joins several different claims: what the quantum device measured, how its fidelity was inferred, and how difficult the task is for specified classical algorithms and hardware. Today you separate those claims, ask what kind of evidence supports each one, and decide what a twelve-qubit laboratory can contribute without pretending to adjudicate a sixty-seven-qubit experiment.\"",
+    "briefing": "A competing group's paper says a classical computer would need 9000 years. That is a claim about a classical computer.",
+    "stake": "\"Wednesday, and the paper everybody has been arguing about is on the table. A group has run a sampling circuit on a 67-qubit device and estimates that reproducing its output with the best classical methods they analysed would take about 9000 years. Priya Raghavan wants Ridgeway's response ready for the review. Anders Holm points out that the headline joins several different claims: what the quantum device measured, how its fidelity was inferred, and how difficult the task is for specified classical algorithms and hardware. Today you separate those claims, ask what kind of evidence supports each one, and decide what a twelve-qubit laboratory can contribute without pretending to adjudicate a sixty-seven-qubit experiment.\"",
     "takeaway": "A computational-advantage claim combines experimental evidence with a moving statement about classical algorithms, hardware and assumptions.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three demands on one group in one afternoon.",
     "briefing": "A fibre cut, a clock drifting, and a review deadline, all inside an hour.",
-    "stake": "Monday, 15:20, and three things arrive together. A contractor with a digger has cut the fibre to the substation, which ends Yusuf Sadiq's key run mid-session. Grace Whitfield's clock comparison has come back 4 × 10⁻¹⁵ off, which is ten times its usual scatter and would put every frequency in the building slightly wrong. And the review pack is due at five, with the corrected fidelity numbers still being rerun. Priya Raghavan has one group, one afternoon, and has asked for an order rather than a discussion. Today you decide what gets attention first, work out what a cut link does to a key already exchanged, and say what a drifting reference does to everything measured against it.",
+    "stake": "Monday, 15:20, and 3 things arrive together. A contractor with a digger has cut the fibre to the substation, which ends Yusuf Sadiq's key run mid-session. Grace Whitfield's clock comparison has come back 4 × 10⁻¹⁵ off, which is 10 times its usual scatter and would put every frequency in the building slightly wrong. And the review pack is due at five, with the corrected fidelity numbers still being rerun. Priya Raghavan has one group, one afternoon, and has asked for an order rather than a discussion. Today you decide what gets attention first, work out what a cut link does to a key already exchanged, and say what a drifting reference does to everything measured against it.",
     "takeaway": "Triage depends on whether a problem is still propagating, what decisions it contaminates, and how quickly it can be bounded.",
     "stops": [
       {

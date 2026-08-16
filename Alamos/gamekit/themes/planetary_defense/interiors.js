@@ -80,7 +80,7 @@ export const INTERIORS = {
   },
   "RADAR": {
     "caption": "Four hours of dish time collapse an orbit that a month of imaging cannot.",
-    "standLine": "A window four hours wide that does not open again for eleven years.",
+    "standLine": "A window 4 hours wide that does not open again for 11 years.",
     "station": {
       "kind": "vitals",
       "title": "Delay-Doppler",

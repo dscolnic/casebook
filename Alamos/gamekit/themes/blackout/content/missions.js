@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the line can carry",
     "objective": "Decide which circuit takes the flow once one path is gone.",
     "briefing": "With the unit off, the flow has redistributed and one corridor is running warm.",
-    "stake": "Wednesday, and the replacement generation is coming from the wrong side of the system, which means it is arriving down two circuits instead of three. Piotr Novak has a corridor sitting above its continuous rating and a relay that will take the decision away from the room in about forty minutes if nobody else does. The forty minutes comes off a thermal record June Farrow has not verified, and she says so. Thabo Dube is in the yard waiting for a switching instruction. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move generation or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes two cold ones.",
+    "stake": "Wednesday, and the replacement generation is coming from the wrong side of the system, which means it is arriving down two circuits instead of three. Piotr Novak has a corridor sitting above its continuous rating and a relay that will take the decision away from the room in about 40 minutes if nobody else does. The 40 minutes comes off a thermal record June Farrow has not verified, and she says so. Thabo Dube is in the yard waiting for a switching instruction. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move generation or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes two cold ones.",
     "takeaway": "A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.",
     "stops": [
       {
@@ -54,8 +54,8 @@ export const MISSIONS = [
   {
     "title": "The last few kilometres",
     "objective": "Get customers back on in an order that can be defended afterwards.",
-    "briefing": "Eleven feeders are still dead and the crews can only be in one place at a time.",
-    "stake": "Thursday, and the transmission side is steady, but eleven distribution feeders are still dead. Chinelo Obi has three crews and fourteen thousand households in the dark. One of her circuits carries a dialysis clinic. Another carries a thousand homes. Ewa Kowalczyk is at the first fault already, and it is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
+    "briefing": "11 feeders are still dead and the crews can only be in 1 place at a time.",
+    "stake": "Thursday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo Obi has 3 crews and 14000 households in the dark. One of her circuits carries a dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk is at the first fault already, and it is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
     "takeaway": "Restoration is a series of choices about people, made with instruments that only see the substation.",
     "stops": [
       {
@@ -148,7 +148,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Eighty milliseconds",
+    "title": "80 milliseconds",
     "objective": "Establish what a fault does before anybody can respond to it.",
     "briefing": "A cable failed at the substation and the protection cleared it before the alarm reached the room.",
     "stake": "Wednesday, and a cable failed inside the substation at 13:40. The protection cleared it in under a tenth of a second, which is the whole story: nobody in the control room saw the fault, they saw the aftermath. Piotr Novak needs the fault current worked out before he will sign the switchgear back into service. June Farrow wants to know how a current transformer produces a reading from a wire it never touches. Ewa Kowalczyk has a crew standing at a gate and a rule about earthing that they are quietly impatient with. Today you size the fault, explain the instrument, and decide who may approach.",
@@ -244,10 +244,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Six hours, not forty minutes",
+    "title": "6 hours, not 40 minutes",
     "objective": "Re-read the week from a record nobody had checked.",
     "briefing": "Farrow has traced the corridor's thermal record, and the number the room worked from was wrong.",
-    "stake": "Sunday, and June Farrow has finished tracing the corridor's thermal history. The emergency rating that bought the room forty minutes a week ago was calculated from a sensor that had been reading eleven degrees low since a firmware update in the spring. The corridor was not forty minutes from its limit. It had been above continuous rating for six hours, and it had been there twice before. Dolores Reyes has to decide what that does to every decision taken since. Today you work out what a drifted sensor does to a rating, decide which of the week's conclusions still stand, and say what you would have done differently. Nothing in the week was reasoned badly. It was reasoned from a number.",
+    "stake": "Sunday, and June Farrow has finished tracing the corridor's thermal history. The emergency rating that bought the room 40 minutes a week ago was calculated from a sensor that had been reading 11 degrees low since a firmware update in the spring. The corridor was not 40 minutes from its limit. It had been above continuous rating for six hours, and it had been there twice before. Dolores Reyes has to decide what that does to every decision taken since. Today you work out what a drifted sensor does to a rating, decide which of the week's conclusions still stand, and say what you would have done differently. Nothing in the week was reasoned badly. It was reasoned from a number.",
     "takeaway": "A conclusion is only as good as the measurement under it, and a drifted instrument leaves the reasoning intact and the answer wrong.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "A shift where nothing happens",
     "objective": "Run an ordinary evening, and notice what ordinary is now resting on.",
     "briefing": "The forecast holds, every circuit is inside limits, and nothing needs deciding.",
-    "stake": "Monday, and it is a quiet shift. The forecast is holding to within thirty megawatts, every corridor is comfortably inside rating, the ridge is producing steadily, and there is nothing on the board that needs a decision. Aaron Whitlock has the log open with almost nothing in it. Dolores Reyes uses these evenings to walk the room and ask what everybody is assuming, because a quiet shift is the only time anybody has to. Today you check what the system would do if one thing went, read a trend that is behaving, and say which of tonight's comforts is actually a measurement and which is a habit. Nothing will go wrong tonight. Nothing went wrong the Monday before last, either.",
+    "stake": "Monday, and it is a quiet shift. The forecast is holding to within 30 megawatts, every corridor is comfortably inside rating, the ridge is producing steadily, and there is nothing on the board that needs a decision. Aaron Whitlock has the log open with almost nothing in it. Dolores Reyes uses these evenings to walk the room and ask what everybody is assuming, because a quiet shift is the only time anybody has to. Today you check what the system would do if one thing went, read a trend that is behaving, and say which of tonight's comforts is actually a measurement and which is a habit. Nothing will go wrong tonight. Nothing went wrong the Monday before last, either.",
     "takeaway": "A quiet system is a set of assumptions nobody is currently being forced to check.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three simultaneous problems, and hold the reasoning while they interfere.",
     "briefing": "A fault, a forecast miss and a plant coming off at the same hour, and one room.",
-    "stake": "Thursday, 16:40, and three things arrive together. A cable fault has taken a feeder with 3,300 households on it. Ravi Lindgren's forecast is running two hundred megawatts under actual and still climbing. And the gas machine that has carried the evening peak all week has to come off at eighteen hundred for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores Reyes has one control room, one crew on shift and about eighty minutes. Today you decide what gets attention first, work out what the corridor is costing at the higher flow, and put the evening's moves in an order that does not undo itself. None of these is new. All three at once is.",
+    "stake": "Thursday, 16:40, and 3 things arrive together. A cable fault has taken a feeder with 3,300 households on it. Ravi Lindgren's forecast is running 200 megawatts under actual and still climbing. And the gas machine that has carried the evening peak all week has to come off at 1800 for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores Reyes has 1 control room, 1 crew on shift and about 80 minutes. Today you decide what gets attention first, work out what the corridor is costing at the higher flow, and put the evening's moves in an order that does not undo itself. None of these is new. All three at once is.",
     "takeaway": "Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "The last morning it can be changed",
     "objective": "Commit the corridor to a course, knowing the window closes today.",
     "briefing": "The reinforcement decision from last week has a date on it, and the date is today.",
-    "stake": "Monday, and the corridor decision comes back for the last time. The outage window that would let a second circuit be strung this year closes at close of business, and if it closes the next one is eighteen months out. June Farrow has the corrected thermal record, which says the corridor has spent more hours over limit than anybody thought. Amira Haddad has a storage quote that expires with the window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected record does to the corridor's remaining life, decide what the money buys, and say what the decision commits the system to for the next eighteen months. Last week this was a preference. This morning it is the last morning.",
+    "stake": "Monday, and the corridor decision comes back for the last time. The outage window that would let a second circuit be strung this year closes at close of business, and if it closes the next 1 is 18 months out. June Farrow has the corrected thermal record, which says the corridor has spent more hours over limit than anybody thought. Amira Haddad has a storage quote that expires with the window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected record does to the corridor's remaining life, decide what the money buys, and say what the decision commits the system to for the next 18 months. Last week this was a preference. This morning it is the last morning.",
     "takeaway": "A reversible decision is a cheap one, and the moment it stops being reversible is the moment it needs the whole argument.",
     "stops": [
       {

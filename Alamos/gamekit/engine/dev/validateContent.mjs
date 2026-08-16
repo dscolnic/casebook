@@ -12,6 +12,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { themeDir as resolveTheme } from './registry.mjs';
 import { ordinary, norm, TECHY } from '../../tools/common-words.mjs';
+import { fleschKincaid } from '../../tools/readability.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const themeName = process.argv[2];
@@ -680,20 +681,9 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
 //
 // The grade the theme declares is the target. Two grades above it is a hard
 // ceiling and fails; anything between is reported so it can be brought down.
-const SYL = (w) => {
-  w = w.toLowerCase().replace(/[^a-z]/g, '');
-  if(w.length <= 3) return 1;
-  w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '');
-  return (w.match(/[aeiouy]{1,2}/g) || ['x']).length;
-};
-function fleschKincaid(text){
-  const t = String(text ?? '').trim();
-  const words = t.split(/\s+/).filter(Boolean);
-  if(words.length < 25) return null;   // too short for the formula to mean anything
-  const sentences = (t.match(/[.!?]+/g) || []).length || 1;
-  const syllables = words.reduce((n, w) => n + SYL(w), 0);
-  return 0.39 * (words.length / sentences) + 11.8 * (syllables / words.length) - 15.59;
-}
+// The formula is `tools/readability.js` now — engine/dev/missionCards.mjs
+// measures the same prose, and two copies of it is how two answers to the same
+// question start being reported.
 
 
 // Every scene and every verdict, against the audience the theme declares.

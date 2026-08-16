@@ -205,7 +205,7 @@ roster:
 
       On 2 December 1942 his team achieved the first self-sustaining chain reaction in Chicago Pile-1 beneath Stagg Field, with Leona Woods operating the boron-trifluoride counters that confirmed criticality. At Los Alamos he led F Division, advised on critical mass, designed the water-tank “Fermi method” for yield estimation, and during Trinity famously dropped shredded paper to estimate the blast wave at roughly 10 kilotons. He lectured almost every young theorist on the mesa and was known for back-of-the-envelope estimates that cut through complexity.
 
-      Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains one of the most cited experimental-theoretical physicists of the twentieth century.
+      Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains 1 of the most cited experimental-theoretical physicists of the twentieth century.
     quiz:
       - q: How did Fermi estimate the Trinity yield where he stood?
         a: He dropped shredded paper and watched how far it blew
@@ -403,7 +403,7 @@ roster:
 
       Despite personal invitations, she refused to join the Manhattan Project, stating “I will have nothing to do with a bomb.” From Sweden she followed the Los Alamos work with anguish, corresponding with Hahn about moral responsibility while recognizing that fission had made weapons inevitable. She was excluded from the 1944 Nobel Prize awarded to Hahn, a lasting controversy over credit for fission.
 
-      Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as one of the most significant physicists denied a Nobel for her central discovery.
+      Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as 1 of the most significant physicists denied a Nobel for her central discovery.
     quiz:
       - q: What did Meitner do when the Manhattan Project invited her personally?
         a: She refused, and never worked on the weapon programme
@@ -473,7 +473,7 @@ roster:
     bio: |-
       <b>Klaus Fuchs (1911–1988)</b> was a German émigré theoretical physicist who fled Nazism in 1933, earned a doctorate in Bristol, and joined the British Mission. Interned as an enemy alien in 1940, he was recruited to Tube Alloys and then to Los Alamos in 1943 via Rudolf Peierls, where his calculations on implosion were rated excellent.
 
-      From February 1944 he passed detailed core design, initiator, lens and Trinity data to the Soviet Union via courier Harry Gold, meeting in Santa Fe. The information, including the Fuchs–Peierls method and plutonium pit dimensions, accelerated the Soviet Joe-1 test by an estimated year. He continued at Harwell after the war until decrypted Venona traffic exposed him; he confessed in January 1950 and served nine years in Wakefield Prison.
+      From February 1944 he passed detailed core design, initiator, lens and Trinity data to the Soviet Union via courier Harry Gold, meeting in Santa Fe. The information, including the Fuchs–Peierls method and plutonium pit dimensions, accelerated the Soviet Joe-1 test by an estimated year. He continued at Harwell after the war until decrypted Venona traffic exposed him; he confessed in January 1950 and served 9 years in Wakefield Prison.
 
       He returned to East Germany in 1959, led the Rossendorf research center, and received state honors. His case prompted the creation of the Q clearance system, stricter compartmentalization, and a lasting crisis of trust between scientists and security at Los Alamos.
     quiz:
@@ -498,7 +498,7 @@ roster:
       - q: How did Hall’s case end, unlike Fuchs’s?
         a: He was identified through Venona and never prosecuted
         wrong:
-          - He confessed in 1950 and served nine years in an English prison
+          - He confessed in 1950 and served 9 years in an English prison
           - He was never identified by any investigation, then or afterwards
           - He was tried alongside the Rosenbergs in 1951 and acquitted
   - id: greenglass
@@ -525,7 +525,7 @@ roster:
     division: P
     color: "#5a4a4a"
     bio: |-
-      <b>Joan Hinton (1921–2010)</b> was an American physicist who earned her degree at Bennington and Wisconsin, working under Elmer Hutchison. She joined the Metallurgical Laboratory in Chicago, where she worked on Enrico Fermi’s pile and on the gaseous diffusion problem, and then was invited to Los Alamos at age 22 as one of the youngest women in Experimental Physics.
+      <b>Joan Hinton (1921–2010)</b> was an American physicist who earned her degree at Bennington and Wisconsin, working under Elmer Hutchison. She joined the Metallurgical Laboratory in Chicago, where she worked on Enrico Fermi’s pile and on the gaseous diffusion problem, and then was invited to Los Alamos at age 22 as 1 of the youngest women in Experimental Physics.
 
       At Los Alamos she worked on reactor construction and on the Trinity cloud-tracking team, calibrating detectors that measured the radioactive plume. She witnessed the July 1945 test and was deeply unsettled by the August uses. She refused the post-war secrecy oath required for Bikini Atoll tests and left Los Alamos in 1946, disillusioned with weapons work.
 
@@ -1162,7 +1162,7 @@ glossary:
   - name: MeV
     aliases:
       - mev
-    def: Mega-electron-volt, a unit of energy equal to one million electron-volts and commonly used for nuclear processes.
+    def: Mega-electron-volt, a unit of energy equal to 1 million electron-volts and commonly used for nuclear processes.
   - name: Moderator
     aliases:
       - moderator
@@ -1516,12 +1516,12 @@ glossary:
       - environmental control
     def: Tracking, containing, treating, and monitoring unwanted radioactive or chemical material so it does not spread to workers or the environment.
 
-# The campaign: one working day each, three stops and a callback from day 3.
+# The campaign: 1 working day each, 3 stops and a callback from day 3.
 missions:
   - title: Read the atomic world
     objective: Build a shared language for nuclei, isotopes, and detector signals before any team begins advanced work.
     briefing: Project Y cannot coordinate five divisions until everyone describes matter in the same way. Begin with the nucleus, connect isotope notation to chemical identity, and finish by seeing how radiation becomes a measurable electrical signal.
-    stake: "April 1943, and the site is three weeks old. Five divisions, one mesa, and three different ways of writing the same nucleus on three different blackboards. The laboratory director, J. Robert Oppenheimer, has scheduled a colloquium every week for exactly this reason: nothing here can be coordinated until everybody describes matter the same way. Today you settle three things. What a nuclide symbol actually specifies. Why two isotopes of an element act alike in a beaker and differently in a counter. And how radiation becomes a number an instrument can report. Every measurement made here for the next two years rests on these three."
+    stake: "April 1943, and the site is 3 weeks old. Five divisions, one mesa, and three different ways of writing the same nucleus on three different blackboards. The laboratory director, J. Robert Oppenheimer, has scheduled a colloquium every week for exactly this reason: nothing here can be coordinated until everybody describes matter the same way. Today you settle three things. What a nuclide symbol actually specifies. Why two isotopes of an element act alike in a beaker and differently in a counter. And how radiation becomes a number an instrument can report. Every measurement made here for the next two years rests on these three."
     takeaway: A nucleus is defined by its proton and neutron counts; experiments turn nuclear events into signals that can be counted.
     stops:
       - group: T
@@ -1624,11 +1624,11 @@ missions:
         takeaway: Tiny changes in mass correspond to large nuclear energies.
         format: BALLPARK
         answerText: About 1.5×10^3 MeV total, or about 7.5 MeV per nucleon.
-        why: A bound nucleus weighs less than the loose protons and neutrons that went into it. That missing mass is the binding energy holding it together. The conversion factor is the speed of light squared. So a mass difference far too small to weigh becomes an energy larger than any chemical reaction can produce. Work in atomic mass units and one unit is about 931 MeV. That is what turns a defect of eight thousandths of a unit per nucleon into more than a thousand MeV for the whole nucleus.
+        why: A bound nucleus weighs less than the loose protons and neutrons that went into it. That missing mass is the binding energy holding it together. The conversion factor is the speed of light squared. So a mass difference far too small to weigh becomes an energy larger than any chemical reaction can produce. Work in atomic mass units and 1 unit is about 931 MeV. That is what turns a defect of 8 thousandths of a unit per nucleon into more than 1000 MeV for the whole nucleus.
         call: Estimate binding energy
         setup: A medium-heavy nucleus has about 200 nucleons and a mass defect of about 0.008 atomic mass units per nucleon.
         estimate:
-          prompt: A medium-heavy nucleus has about 200 nucleons, with a mass defect of roughly 0.008 atomic mass units per nucleon. One atomic mass unit is worth about 931 MeV. Estimate both the binding energy per nucleon and the total binding energy.
+          prompt: A medium-heavy nucleus has about 200 nucleons, with a mass defect of roughly 0.008 atomic mass units per nucleon. 1 atomic mass unit is worth about 931 MeV. Estimate both the binding energy per nucleon and the total binding energy.
           question: Choose the mass defect per nucleon, the nucleon count, and the mass-to-energy conversion; compute B/A first and then B.
           labels:
             - 0.008 u/nucleon
@@ -1745,7 +1745,7 @@ missions:
   - title: Follow radioactivity through the laboratory
     objective: Treat decay as a quantitative process that must survive chemistry and background measurement.
     briefing: A radioactive sample changes while it is being prepared and measured. Follow the same evidence chain from the decay law, through tracer chemistry, to a defensible background measurement.
-    stake: July 1943, and three groups have reported yields that cannot all be right. Seaborg's chemistry says one thing, and Woods's counters another. The sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Today you handle decay as arithmetic, follow an element through a separation, and measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that, which is why hers is the count the others are being checked against. Without a background count taken first, the number on its own means very little.
+    stake: July 1943, and 3 groups have reported yields that cannot all be right. Seaborg's chemistry says one thing, and Woods's counters another. The sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Today you handle decay as arithmetic, follow an element through a separation, and measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that, which is why hers is the count the others are being checked against. Without a background count taken first, the number on its own means very little.
     takeaway: A count rate is not automatically a decay rate; time dependence, chemical recovery, and background all matter.
     stops:
       - group: T
@@ -1757,11 +1757,11 @@ missions:
         takeaway: Half-life fixes both how a population falls with time and, through the decay constant, its activity at any moment.
         format: BALLPARK
         answerText: About 1,250 nuclei remain. With λ = ln2/(2 h) ≈ 9.6×10^-5 s^-1, the activity is A = λN ≈ 0.12 decays/s, or 0.12 Bq.
-        why: "Decay is random for one nucleus and predictable for a large population. Six hours is three two-hour half-lives, so 10,000 nuclei fall to one eighth, or about 1,250. Half-life also fixes the decay constant: λ = ln2/t½. For a two-hour half-life, λ is about 9.6×10⁻⁵ s⁻¹. Activity is then A = λN, so the remaining sample produces about 0.12 decays each second. Population and count rate are linked by the same decay law."
+        why: "Decay is random for one nucleus and predictable for a large population. 6 hours is 3 two-hour half-lives, so 10,000 nuclei fall to 1 eighth, or about 1,250. Half-life also fixes the decay constant: λ = ln2/t½. For a two-hour half-life, λ is about 9.6×10⁻⁵ s⁻¹. Activity is then A = λN, so the remaining sample produces about 0.12 decays each second. Population and count rate are linked by the same decay law."
         call: Model radioactive decay
         setup: A tracer with a 2-hour half-life starts at 10,000 nuclei and is left for a 6-hour shift.
         estimate:
-          prompt: A tracer starts with 10,000 nuclei, has a two-hour half-life, and sits for six hours. Estimate how many nuclei remain. Then use λ = ln2/t½ and A = λN to estimate the activity.
+          prompt: A tracer starts with 10,000 nuclei, has a two-hour half-life, and sits for 6 hours. Estimate how many nuclei remain. Then use λ = ln2/t½ and A = λN to estimate the activity.
           question: Choose the starting population, the number of half-lives, and the half-life needed to find λ.
           labels:
             - 10,000 nuclei
@@ -1780,7 +1780,7 @@ missions:
           explanation: Six hours is three half-lives, so one eighth of the original population remains. The same half-life gives the decay constant, which turns the surviving population into an expected decay rate.
           givens:
             - Each half-life leaves one-half of the previous amount
-            - A 6-hour wait is three 2-hour half-lives
+            - A 6-hour wait is 3 2-hour half-lives
           relationship: First λ = ln2/t½. Then N(t) = N₀e^(−λt), and activity is A = λN.
       - group: CM
         call: Use a radiochemical tracer
@@ -1861,8 +1861,8 @@ missions:
           - a cross section is expressed as an area
         takeaway: Number density turns a microscopic cross section into an interaction probability per length, which sets both mean free path and exponential attenuation.
         format: BALLPARK
-        answerText: Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after one mean free path I/I₀ = e^-1 ≈ 0.37.
-        why: "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After one mean free path, x = 1/Σ, so the exponent is minus one and about 37 percent of an uncollided beam remains. One parameter connects all three ideas."
+        answerText: Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after 1 mean free path I/I₀ = e^-1 ≈ 0.37.
+        why: "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37 percent of an uncollided beam remains. One parameter connects all three ideas."
         call: Interpret a cross section
         setup: A solid has number density n = 10^22 cm^-3, and the cross section is 1 barn = 10^-24 cm^2.
         estimate:
@@ -1890,13 +1890,13 @@ missions:
       - group: P
         task: Estimate the fractional statistical uncertainty.
         title: Poisson counting statistics
-        scene: A run has finished with four hundred net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.
+        scene: A run has finished with 400 net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.
         assumes:
           - radioactive decays arrive at random
         takeaway: Four times as many counts are needed to cut statistical uncertainty in half.
         format: BALLPARK
         answerText: About 5%.
-        why: "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. Four hundred counts gives five percent. To cut that in half, to 2.5 percent, you need four times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively."
+        why: "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. 400 counts gives 5 percent. To cut that in half, to 2.5 percent, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively."
         call: Use Poisson statistics
         setup: A run records 400 net counts with negligible background uncertainty.
         estimate:
@@ -1916,7 +1916,7 @@ missions:
           tolerance: 0.006
           units: fraction
           solution: 1/√400 ≈ 0.05, or 5%.
-          explanation: "400 counts gives 5%. The scaling is what matters for planning: uncertainty falls as 1/√N, so halving it to 2.5% takes 1,600 counts — four times the run. Precision bought by counting longer gets expensive fast, which is why detector efficiency and background suppression are worth as much as extra hours."
+          explanation: "400 counts gives 5%. The scaling is what matters for planning: uncertainty falls as 1/√N, so halving it to 2.5% takes 1,600 counts — 4 times the run. Precision bought by counting longer gets expensive fast, which is why detector efficiency and background suppression are worth as much as extra hours."
           givens:
             - Poisson fluctuation is about sqrt(N)
             - Fractional uncertainty is sqrt(N)/N
@@ -1960,13 +1960,13 @@ missions:
               unitNote: This is a fraction of measured activity, not a fraction of the original material input.
           tolerance: 0.5
         answerText: Count the vessel-wall loss. Recorded outputs account for 93.9% of the input; adding the 5.8% found on the walls gives 99.7%, which closes the 100% input within rounding.
-        why: The input is one hundred percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.
+        why: The input is 100 percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.
         call: Verify yield and purity
         setup: You are reconciling a separation batch whose numbers do not close.
   - title: Track neutrons through matter
     objective: Connect moderation, neutron detection, and the historical reason plutonium forced a different design path.
     briefing: Neutrons change energy, direction, and detectability as they move through matter. Use that foundation to understand why the plutonium program could not simply copy the first architecture.
-    stake: April 1944, and the first reactor plutonium has arrived on the mesa. It is not the material the gun design was built around, and Bethe has spent a week with the counting data saying so quietly. His numbers have been on Oppenheimer's desk since Tuesday and nothing has been decided. Today you follow what happens to neutrons as they move through matter. You work out how to detect something with no charge. And you face what this material means for the second design path. The gun programme has a year of work in it, and eleven people who do not know yet.
+    stake: April 1944, and the first reactor plutonium has arrived on the mesa. It is not the material the gun design was built around, and Bethe has spent a week with the counting data saying so quietly. His numbers have been on Oppenheimer's desk since Tuesday and nothing has been decided. Today you follow what happens to neutrons as they move through matter. You work out how to detect something with no charge. And you face what this material means for the second design path. The gun programme has a year of work in it, and 11 people who do not know yet.
     takeaway: Neutron behavior links microscopic interactions to system-level design choices.
     stops:
       - group: T
@@ -2110,15 +2110,15 @@ missions:
       - group: T
         task: Estimate the neutrons expected during the slow assembly, then compare with the fast one.
         title: Spontaneous fission and neutron backgrounds
-        scene: A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. Two assembly schemes are on the table, and one takes a thousand times longer than the other.
+        scene: A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.
         assumes:
           - some heavy nuclei split without being hit by anything
         takeaway: The same background source term is negligible or decisive depending on how long the system is exposed to it.
         format: BALLPARK
-        answerText: About 10 neutrons for the slow assembly, against about 0.01 for the fast one.
-        why: A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees a thousand times as many chances as one lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.
+        answerText: About 10 neutrons for the slow assembly, against about 0.01 for the fast 1.
+        why: A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees 1000 times as many chances as 1 lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.
         call: Understand spontaneous-fission backgrounds
-        setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.
+        setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast 1 takes about 10^-6 s.
         estimate:
           prompt: A sample emits spontaneous-fission neutrons at about 10⁴ per second, and a slow mechanical assembly takes about 10⁻³ s to complete. Estimate how many neutrons are expected during the assembly window.
           question: Choose the spontaneous-fission rate and the assembly time.
@@ -2136,7 +2136,7 @@ missions:
           tolerance: 1.5
           units: neutrons
           solution: 10⁴ s⁻¹ × 10⁻³ s ≈ 10 neutrons.
-          explanation: "Ten neutrons during assembly is not a risk of starting early, it is a certainty: the chain begins well before the pieces are together. Put the fast assembly time in instead and the same source gives 10⁻² neutrons — roughly a one-in-a-hundred chance. Nothing about the material changed; only the length of time it spent vulnerable did. That single factor of a thousand in assembly speed is the whole argument for abandoning the slow route."
+          explanation: "Ten neutrons during assembly is not a risk of starting early, it is a certainty: the chain begins well before the pieces are together. Put the fast assembly time in instead and the same source gives 10⁻² neutrons — roughly a one-in-a-hundred chance. Nothing about the material changed; only the length of time it spent vulnerable did. That single factor of 1000 in assembly speed is the whole argument for abandoning the slow route."
           givens:
             - Expected events = rate x exposure time
             - Slow assembly window = 10^-3 s
@@ -2288,7 +2288,7 @@ missions:
           - a half-life is the time for half of a sample to decay
         takeaway: Exponential decay is counted in half-lives, and logarithms are how you get the number of them.
         format: BALLPARK
-        why: "Every half-life halves the count rate, so the elapsed time is the number of halvings times the half-life. Eight thousand to five hundred is a factor of sixteen, and sixteen is two to the fourth: four half-lives, or 48 hours. Written as a logarithm it is log base two of the ratio, which is what a semi-log plot shows as a straight line. The useful habit is to work in ratios rather than differences — the difference of 7,500 counts means nothing on its own."
+        why: "Every half-life halves the count rate, so the elapsed time is the number of halvings times the half-life. 8000 to 500 is a factor of 32 is 2 to the fourth: 4 half-lives, or 48 hours. Written as a logarithm it is log base two of the ratio, which is what a semi-log plot shows as a straight line. The useful habit is to work in ratios rather than differences — the difference of 7,500 counts means nothing on its own."
         estimate:
           prompt: A sample read 8,000 counts a minute when it was first measured and reads 500 today. The half-life on the chart is 12 hours.
           question: Estimate the elapsed time since the first count.
@@ -2310,7 +2310,7 @@ missions:
           solution: 8,000 ÷ 500 = 16. log2(16) = 4 half-lives. Times 12 hours is 48 hours.
           explanation: Work in ratios, not differences. The rate falls by a constant factor each half-life.
           relationship: Elapsed time = half-life × log2(first rate ÷ present rate).
-        answerText: 8,000 to 500 is a factor of 16, which is four half-lives, so about 48 hours.
+        answerText: 8,000 to 500 is a factor of 16, which is 4 half-lives, so about 48 hours.
       - group: P
         task: Change one part of the timing chain at a time. Compare the arrival-time spread after each substitution, then restore the live path to confirm which change actually removes the jitter.
         title: Find where timing jitter enters
@@ -2322,7 +2322,7 @@ missions:
         format: CONTROL
         question: Which part of the live timing path is responsible for the broad arrival-time spread?
         control:
-          hint: Run one substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.
+          hint: Run 1 substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.
           baseline: 14
           noise: 1
           tolerance: 2
@@ -2355,7 +2355,7 @@ missions:
         call: Translate simultaneity into engineering
         setup: Two timing channels on the bench differ only in signal-cable path length.
         estimate:
-          prompt: Two signal paths differ in length by 0.4 m, and signals travel at 2×10⁸ m/s in the cable. Estimate the timing difference in nanoseconds.
+          prompt: 2 signal paths differ in length by 0.4 m, and signals travel at 2×10⁸ m/s in the cable. Estimate the timing difference in nanoseconds.
           question: Choose the path mismatch, the signal speed, and the seconds-to-nanoseconds conversion.
           labels:
             - 0.4 m path mismatch
@@ -2374,7 +2374,7 @@ missions:
           explanation: "0.4 m of extra cable is 2 ns of delay. That is the number that turns \"fire together\" into an inspectable requirement: nobody measures simultaneity directly on a rack, but anyone can measure cable. Signals move at about two-thirds the speed of light in cable, so roughly every 20 cm costs a nanosecond — a rule worth carrying to the bench."
           givens:
             - Signal speed in cable = 2.0 x 10^8 m/s
-            - Two cable paths differ by 0.40 m
+            - 2 cable paths differ by 0.40 m
             - Delay difference = path difference / signal speed
           relationship: Delay = path mismatch ÷ signal speed. Multiply by 10⁹ to turn seconds into nanoseconds.
   - title: Build evidence with real materials
@@ -2427,7 +2427,7 @@ missions:
         takeaway: Exposure time sets a direct spatial-blur limit for rapidly moving objects.
         format: BALLPARK
         answerText: 0.5 mm.
-        why: "Anything moving during the exposure travels a real distance, and that distance becomes motion blur: speed times exposure time. Five hundred metres per second across one microsecond is half a millimetre. That is a resolution limit even if the optics are perfect. Exposure time, viewing angle, penetration, and timing all decide what an image can establish. Blur is especially useful because it is calculable before the shot, so the diagnostic can be designed around the feature size rather than judged afterwards."
+        why: "Anything moving during the exposure travels a real distance, and that distance becomes motion blur: speed times exposure time. 500 metres per second across 1 microsecond is half a millimetre. That is a resolution limit even if the optics are perfect. Exposure time, viewing angle, penetration, and timing all decide what an image can establish. Blur is especially useful because it is calculable before the shot, so the diagnostic can be designed around the feature size rather than judged afterwards."
         call: Apply high-speed imaging and radiography
         setup: An object moves at 500 m/s during a 1 microsecond exposure.
         estimate:
@@ -2468,9 +2468,9 @@ missions:
         answerText: About 4 mm.
         why: "Several clocks run at once. Neutron generations multiply on one. The material compresses on another. The assembly begins to blow itself apart on a third. The device works only if multiplication outruns disassembly. These processes differ by many powers of ten, so no single calculation or experiment can hold all of them. The interfaces between them are where it gets hard. This is one: a timing disagreement becomes a geometric error at the speed the wave travels. Half a microsecond is millimetres of asymmetry."
         call: Compare competing timescales
-        setup: A shock front crosses a test fixture at about 8 x 10^3 m/s. Two initiation channels fire 0.5 microseconds apart.
+        setup: A shock front crosses a test fixture at about 8 x 10^3 m/s. 2 initiation channels fire 0.5 microseconds apart.
         estimate:
-          prompt: A shock front crosses the assembly at about 8×10³ m/s. Two initiation channels fire 0.5 microseconds (5×10⁻⁷ s) apart. Estimate how far ahead the early side’s front runs by the time the late one starts, in millimetres.
+          prompt: A shock front crosses the assembly at about 8×10³ m/s. 2 initiation channels fire 0.5 microseconds (5×10⁻⁷ s) apart. Estimate how far ahead the early side’s front runs by the time the late one starts, in millimetres.
           question: Choose the wave speed, the channel spread, and the metres-to-millimetres conversion.
           labels:
             - 8×10³ m/s wave speed
@@ -2486,7 +2486,7 @@ missions:
           tolerance: 0.5
           units: mm
           solution: 8×10³ m/s × 5×10⁻⁷ s × 1,000 mm/m ≈ 4 mm.
-          explanation: Half a microsecond of disagreement puts one side of the front 4 mm ahead of the other — a visible dent in a convergence that was supposed to be spherical. The timing requirement is written in nanoseconds not because that is what the electronics can manage, but because that is how far the physics moves while the channels argue. Every timing contribution combined later gets judged against this millimetre-scale yardstick.
+          explanation: Half a microsecond of disagreement puts 1 side of the front 4 mm ahead of the other — a visible dent in a convergence that was supposed to be spherical. The timing requirement is written in nanoseconds not because that is what the electronics can manage, but because that is how far the physics moves while the channels argue. Every timing contribution combined later gets judged against this millimetre-scale yardstick.
           givens:
             - Wave speed = 8 x 10^3 m/s
             - Channel spread = 0.5 microseconds = 5 x 10^-7 s
@@ -2495,7 +2495,7 @@ missions:
       - group: E
         task: Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.
         title: What evidence qualifies a lot?
-        scene: The detonator programme has competing requests and one hundred points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.
+        scene: The detonator programme has competing requests and 100 points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.
         assumes:
           - a sample can estimate the spread of a production population
           - a component test is more diagnostic than an integrated test when the component itself is the question
@@ -2536,7 +2536,7 @@ missions:
         answerText: Spend the test budget sampling several lots and measuring the timing spread of each. That evidence directly tests the population being accepted.
         why: A single excellent unit can be repeatable and still say nothing about the next units off the line. Lot acceptance is a population claim. The evidence therefore has to sample the population and measure the spread of the quantity that matters. Dimensional inspection checks conformance to a drawing, not timing performance. A full-system test mixes too many causes together. Sampling several lots gives a distribution, exposes tails, and directly answers the decision the programme must make.
         call: Qualify detonator lots
-        setup: The detonator program has three competing requests for its next 100 credits.
+        setup: The detonator program has 3 competing requests for its next 100 credits.
       - group: X
         task: Estimate sigma_total.
         title: Synchronizing many channels
@@ -2548,9 +2548,9 @@ missions:
         answerText: sigma_total = sqrt(29), about 5.4 ns.
         why: "The physical system contributes some delay, cable lengths contribute more, a trigger threshold shifts the moment a pulse is registered, and the recording instrument adds its own. Los Alamos handles this by building a timing budget: every contribution named, measured and combined. Independent contributions add in quadrature — squared, summed, square-rooted — so the largest term dominates and several smaller ones still raise the total. Two, three and four nanoseconds do not make nine; they make about five and a half."
         call: Synchronize many channels
-        setup: Three independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.
+        setup: 3 independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.
         estimate:
-          prompt: Three independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.
+          prompt: 3 independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.
           question: Choose the three component uncertainties to combine in quadrature.
           labels:
             - 2 ns trigger
@@ -2566,7 +2566,7 @@ missions:
           tolerance: 0.3
           units: ns
           solution: √(2² + 3² + 4²) = √29 ≈ 5.4 ns.
-          explanation: "Quadrature gives 5.4 ns, well under the 9 ns a straight sum predicts, because independent errors do not all peak together — and the 4 ns recorder term alone carries more than half the total variance, so it is the one worth attacking first. Then check the answer against what the front does with that time: at 8×10³ m/s, 5.4 ns is about 0.04 mm of lead. Comfortably inside a millimetre-scale symmetry limit, which a half-microsecond spread would not be."
+          explanation: "Quadrature gives 5.4 ns, well under the 9 ns a straight sum predicts, because independent errors do not all peak together — and the 4 ns recorder term alone carries more than half the total variance, so it is the 1 worth attacking first. Then check the answer against what the front does with that time: at 8×10³ m/s, 5.4 ns is about 0.04 mm of lead. Comfortably inside a millimetre-scale symmetry limit, which a half-microsecond spread would not be."
           givens:
             - Independent uncertainties combine in quadrature
             - sigma_total = sqrt(2^2 + 3^2 + 4^2) ns
@@ -2587,11 +2587,11 @@ missions:
         takeaway: Adding independent uncertainties linearly is usually too pessimistic; ignoring correlation can be too optimistic.
         format: BALLPARK
         answerText: About 10%.
-        why: "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. Eight percent and six percent make ten, not fourteen. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent."
+        why: "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. 8 percent and 6 percent make 10, not 14. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent."
         call: Carry independent uncertainties through
         setup: A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.
         estimate:
-          prompt: A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the two are independent. Estimate the combined uncertainty.
+          prompt: A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the 2 are independent. Estimate the combined uncertainty.
           question: Choose the two component uncertainties to combine in quadrature.
           labels:
             - 8%
@@ -2655,7 +2655,7 @@ missions:
       - group: CM
         task: Estimate the conservative lower bound of the measurement.
         title: Acceptance criteria
-        scene: A property has to be at least a hundred units and the measurement reads a hundred and two, plus or minus three. Material this scarce cannot be scrapped casually, or accepted on hope.
+        scene: A property has to be at least 100 units and the measurement reads 102, plus or minus 3. Material this scarce cannot be scrapped casually, or accepted on hope.
         assumes:
           - a measurement has a range, not just a value
         takeaway: Acceptance criteria need explicit rules for uncertainty and borderline results.
@@ -2790,7 +2790,7 @@ missions:
   - title: Treat Trinity as an experiment
     objective: Define what the integrated test must answer, align field engineering with diagnostics, and validate predictions against independent evidence.
     briefing: A dramatic event is not automatically a useful experiment. Specify the questions in advance, build the field system around the evidence needs, cover the failure modes with diagnostics, and establish how predictions will be judged.
-    stake: July 1945, and there is one shot with weather closing in. Groves wants the date held; Bethe wants the questions written down before anybody drives to the tower — and this time it is Groves who has to give way, because a test whose questions are decided afterwards answers none of them. Today you state those questions in advance. You build the field arrangements around the measurements, rather than the other way round. And you cover the ways the instruments themselves can fail. There is no second attempt to design around.
+    stake: July 1945, and there is 1 shot with weather closing in. Groves wants the date held; Bethe wants the questions written down before anybody drives to the tower — and this time it is Groves who has to give way, because a test whose questions are decided afterwards answers none of them. Today you state those questions in advance. You build the field arrangements around the measurements, rather than the other way round. And you cover the ways the instruments themselves can fail. There is no second attempt to design around.
     takeaway: A decisive test requires predeclared questions, independent diagnostics, and a comparison between predicted and observed outcomes.
     stops:
       - group: X
@@ -2902,12 +2902,12 @@ missions:
         task: Estimate the offset in units of the measurement uncertainty, then state the strongest justified conclusion.
         title: Compare a prediction band with an observation
         setup: A classroom model predicts an observable between 15 and 25 units; the measurement reads 21 units with an uncertainty of +/-2.
-        scene: A model predicts an observable between fifteen and twenty-five units. The measurement reads twenty-one, plus or minus two. The temptation after Trinity is to read one comparison as a verdict on everything.
+        scene: A model predicts an observable between 40 units. The measurement reads 21, plus or minus 2. The temptation after Trinity is to read one comparison as a verdict on everything.
         assumes:
           - a wide prediction is easy to agree with
         takeaway: Evidence should update a model claim by claim, not by declaring total victory.
         format: BALLPARK
-        why: The gap between an observation and a prediction is measured in units of the measurement's own uncertainty. Take the difference and divide by that uncertainty. Half a sigma from the middle of the band is consistent. But consistency with a band this wide is weak evidence, because fifteen to twenty-five would have accommodated almost anything. Agreement supports the part of the model that produced the band, and no more. One agreeing diagnostic can sit beside others that disagree, and those still need explaining.
+        why: The gap between an observation and a prediction is measured in units of the measurement's own uncertainty. Take the difference and divide by that uncertainty. Half a sigma from the middle of the band is consistent. But consistency with a band this wide is weak evidence, because 15 to 25 would have accommodated almost anything. Agreement supports the part of the model that produced the band, and no more. One agreeing diagnostic can sit beside others that disagree, and those still need explaining.
         estimate:
           prompt: A model predicts an observable between 15 and 25 units, so its midpoint is 20. The measurement reads 21 units with an uncertainty of ±2. Estimate the offset in units of the measurement uncertainty.
           question: Choose the observed value, the band midpoint, and the measurement uncertainty.
@@ -2941,7 +2941,7 @@ missions:
         takeaway: Isotopes of one element have nearly the same electron structure, so practical enrichment must exploit a tiny isotope-dependent physical difference.
         format: CHOICE
         answerText: Ordinary chemistry offers almost no selectivity because the isotopes have nearly identical electron structures. Enrichment has to exploit a small isotope-dependent physical difference, especially mass.
-        why: Chemical behaviour is controlled mainly by electrons, and the two uranium isotopes have the same electron count and almost the same electronic structure. Their ordinary chemical reactions are therefore nearly identical. The useful contrast is the small mass difference, about one part in 235, which can be exploited by processes that respond to mass or mass-to-charge ratio. The tiny size of that contrast is why isotope enrichment requires repeated separation stages rather than one ordinary chemical reaction.
+        why: Chemical behaviour is controlled mainly by electrons, and the two uranium isotopes have the same electron count and almost the same electronic structure. Their ordinary chemical reactions are therefore nearly identical. The useful contrast is the small mass difference, about 1 part in 235, which can be exploited by processes that respond to mass or mass-to-charge ratio. The tiny size of that contrast is why isotope enrichment requires repeated separation stages rather than one ordinary chemical reaction.
         call: Identify the usable isotope contrast
         rebuttals:
           - The limitation is not mainly reaction speed or handling. The electronic structures that drive ordinary chemistry are almost the same.
@@ -2950,7 +2950,7 @@ missions:
         choices:
           - Their electron structures are nearly identical, so ordinary chemical reactions provide almost no selectivity; enrichment instead exploits a small isotope-dependent physical difference.
           - Their chemical reaction rates differ enough for separation, but the difference is too slow to be useful only because uranium compounds are difficult to handle.
-          - Their densities differ by about one part in 235, so settling or filtration is the natural route but requires extremely long columns.
+          - Their densities differ by about 1 part in 235, so settling or filtration is the natural route but requires extremely long columns.
           - Their radioactivities differ, so radiation detectors can sort individual atoms even though the chemistry itself cannot.
         answer: Their electron structures are nearly identical, so ordinary chemical reactions provide almost no selectivity; enrichment instead exploits a small isotope-dependent physical difference.
       - group: T
@@ -3024,7 +3024,7 @@ missions:
   - title: Complete the evidence chain—and confront responsibility
     objective: Close the technical reviews while recognizing that scientific completion does not settle the human and political consequences.
     briefing: The final mission asks each scientific line to state what it knows, what remains uncertain, and what follows from the work. Complete the theory, diagnostic, and materials dossiers, then address the responsibilities scientists debated after Trinity.
-    stake: August 1945. The technical questions are closing and the other ones are not. Today you decide what each line of work is entitled to claim — what it knows, what is still uncertain, how strongly each claim is held — and then the same people have to say what follows from having done the work at all. The second part has no method. Leo Szilard, who wrote the letter that started the programme, circulated a petition in July with a hundred and fifty-five signatures on it. Oppenheimer spent the rest of his life being asked. The scientists who were here disagreed about this in public for decades, and never about the physics, which they all agreed on.
+    stake: August 1945. The technical questions are closing and the other ones are not. Today you decide what each line of work is entitled to claim — what it knows, what is still uncertain, how strongly each claim is held — and then the same people have to say what follows from having done the work at all. The second part has no method. Leo Szilard, who wrote the letter that started the programme, circulated a petition in July with 155 signatures on it. Oppenheimer spent the rest of his life being asked. The scientists who were here disagreed about this in public for decades, and never about the physics, which they all agreed on.
     takeaway: Technical readiness and historical responsibility are different judgments; a complete curriculum must examine both.
     stops:
       - group: T
@@ -3116,7 +3116,7 @@ missions:
         answerText: Spend the 100 credits on records that link each batch's process conditions to its measured composition, structure, and properties. That creates an evidence chain future staff can use to explain variation.
         why: Another measurement can describe one batch more precisely, but it does not explain why the next batch differs. A process-to-properties record connects what was done to what the material became. That relationship can be tested across batches and used later to diagnose a change in structure or performance. Extra composition checks, tighter remeasurement, and higher throughput all have value, but none creates that causal record. The durable capability is the evidence chain linking process history to measured properties.
         call: Complete the materials dossier
-        setup: The division has one final 100-credit improvement budget.
+        setup: The division has 1 final 100-credit improvement budget.
       - group: X
         task: Which statement best separates the laboratory's technical responsibility from the political decision that follows?
         title: Scientific responsibility after Trinity
@@ -3233,7 +3233,7 @@ lessons:
     format: BALLPARK
     why: 1000 x 0.95^2 is about 903.
     estimate:
-      prompt: A system starts with 1,000 neutrons and is slightly subcritical at k = 0.95. Estimate the population two generations later.
+      prompt: A system starts with 1,000 neutrons and is slightly subcritical at k = 0.95. Estimate the population 2 generations later.
       question: Choose the initial population, the multiplication factor, and the generation count.
       labels:
         - 1,000 neutrons
@@ -3251,8 +3251,8 @@ lessons:
       solution: 1,000 × 0.95² ≈ 900 neutrons.
       explanation: A system described as only slightly subcritical should have k just below one, so the population declines gently over a few generations.
       givens:
-        - After one generation N1=k N0
-        - After two generations N2=k^2 N0
+        - After 1 generation N1=k N0
+        - After 2 generations N2=k^2 N0
       relationship: After n generations, the population = the starting number × kⁿ.
     answerText: About 900 neutrons.
   - group: T
@@ -3271,7 +3271,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Identify which neutron populations are present -> Assign each population its characteristic delay or lifetime -> Weight each contribution by its fraction -> Combine them to predict the system response)
   - group: T
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Criticality safety as a systems concept
     setup: A laboratory has 100 credits to reduce uncertainty in routine handling of fissile materials.
     scene: A system can become dangerous long before anyone intends to build a weapon if enough fissile material, reflection, moderation, or favorable geometry brings k close to one. Criticality safety treats those factors as a connected system rather than relying on a single rule. At Los Alamos, scientists must study chain reactions while also designing handling arrangements that prevent an accidental self-sustaining reaction.
@@ -3298,7 +3298,7 @@ lessons:
     format: BALLPARK
     why: The energy per event is tiny macroscopically but enormous per atom.
     estimate:
-      prompt: One fission releases about 200 MeV, and 1 MeV is 1.6×10⁻¹³ joule. Estimate the energy of a single fission in joules.
+      prompt: 1 fission releases about 200 MeV, and 1 MeV is 1.6×10⁻¹³ joule. Estimate the energy of a single fission in joules.
       question: Choose the energy per fission and the MeV-to-joule conversion.
       labels:
         - 200 MeV
@@ -3314,7 +3314,7 @@ lessons:
       tolerance: 5e-12
       units: J
       solution: 200 MeV × 1.6×10⁻¹³ J/MeV ≈ 3.2×10⁻¹¹ J.
-      explanation: A fission releases a few hundred MeV. One MeV is about 1.6×10⁻¹³ joule.
+      explanation: A fission releases a few hundred MeV. 1 MeV is about 1.6×10⁻¹³ joule.
       givens:
         - Energy per event = 200 x 1.60 x 10^-13 J
       relationship: Energy in joules = energy in MeV × the number of joules in one MeV.
@@ -3358,7 +3358,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Describe the neutron flux as a function of energy -> Use an energy-dependent cross section -> Multiply flux and cross section within each energy range -> Integrate or sum over the spectrum)
   - group: T
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Resonances and thresholds
     setup: Only one of three measurement campaigns can be fully supported.
     scene: Some nuclear reactions become especially likely at resonance energies, while others require a threshold energy before they can occur at all. These features make reaction rates sensitive to the neutron spectrum and material composition. Los Alamos needs to know where such sharp changes occur because a small shift in energy can alter whether neutrons multiply, scatter, or disappear.
@@ -3438,7 +3438,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Sample a free path from the attenuation law -> Move the particle to the sampled interaction point -> Sample the interaction type and outgoing state -> Update tallies and continue or terminate the history)
   - group: T
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Sensitivity analysis
     setup: A model depends on three uncertain inputs.
     scene: Sensitivity analysis changes one input at a time to see which uncertain quantity most strongly changes the prediction. A parameter can be poorly known yet unimportant, or precisely known yet crucial. With limited wartime time and equipment, the bomb program needs sensitivity studies to decide which measurements or calculations will most reduce risk.
@@ -3672,7 +3672,7 @@ lessons:
       tolerance: 1
       units: "%"
       solution: (1 − 2,000×10⁻⁵)×100 ≈ 98%.
-      explanation: R tau is 0.02 here, so the linear correction is trustworthy and the detector is live 98% of the time. Ten times the rate would put R tau at 0.2, where the first-order form breaks down and the full nonparalyzable expression is needed — the formula carries its own validity limit.
+      explanation: R tau is 0.02 here, so the linear correction is trustworthy and the detector is live 98% of the time. 10 times the rate would put R tau at 0.2, where the first-order form breaks down and the full nonparalyzable expression is needed — the formula carries its own validity limit.
       givens:
         - Live fraction is about 1 - R tau while R tau stays small
       relationship: Live fraction = 1 − (event rate × dead time per event). Multiply by 100 for a percentage.
@@ -3710,13 +3710,13 @@ lessons:
   - group: P
     task: Estimate the accidental coincidence rate.
     title: Coincidence measurements
-    setup: Two independent detectors count at 100/s and 200/s with a 1 microsecond coincidence window.
+    setup: 2 independent detectors count at 100/s and 200/s with a 1 microsecond coincidence window.
     scene: Coincidence measurements ask whether two detectors recorded events within the same short time window. True coincidences can reveal that signals came from one physical event, while random coincidences occur by chance. The bomb program uses coincidence logic to reject background and to connect different measurements to the same rapidly changing experiment.
     takeaway: Coincidence is powerful only when the accidental rate is quantified.
     format: BALLPARK
     why: 100 x 200 x 10^-6 = 0.02/s.
     estimate:
-      prompt: Two detectors count independently at 100 s⁻¹ and 200 s⁻¹ through a 1-microsecond (10⁻⁶ s) coincidence window. Estimate the accidental coincidence rate.
+      prompt: 2 detectors count independently at 100 s⁻¹ and 200 s⁻¹ through a 1-microsecond (10⁻⁶ s) coincidence window. Estimate the accidental coincidence rate.
       question: Choose the two rates and the coincidence window.
       labels:
         - 100 s⁻¹
@@ -3762,7 +3762,7 @@ lessons:
       tolerance: 2500000
       units: m/s
       solution: 3 m ÷ 10⁻⁷ s ≈ 3×10⁷ m/s.
-      explanation: A few meters traversed in about one hundred nanoseconds corresponds to a few times ten million meters per second.
+      explanation: A few meters traversed in about 100 nanoseconds corresponds to a few times 10 million meters per second.
       givens:
         - Speed = distance/time
       relationship: Speed = distance ÷ time.
@@ -3821,7 +3821,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Irradiate the sample under a characterized flux -> Allow a defined cooling interval -> Count the induced radiation with calibrated efficiency -> Correct for production and decay to infer the target quantity)
   - group: P
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Signal-to-noise optimization
     setup: A weak line sits on substantial background.
     scene: Signal-to-noise optimization is not simply making the signal larger; it is improving the ability to distinguish the desired effect from random fluctuations and systematic backgrounds. Shielding, geometry, timing windows, and detector choice can all help. With limited test opportunities, Los Alamos must design diagnostics that answer a clear question rather than merely produces impressive traces.
@@ -3879,7 +3879,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Confirm the shift with a stable reference source -> Check temperature, bias, and electronics logs -> Recalibrate or correct the gain model -> Verify the correction on independent reference data)
   - group: P
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Redundancy and common-mode failure
     setup: The current system relies on two detectors sharing the same clock and amplifier design.
     scene: Redundant instruments help only when they do not share the same hidden failure. Two channels using one clock, one power supply, or one analysis assumption can agree and still be wrong. The bomb program therefore seeks independent diagnostics based on different physical principles so agreement carries real evidential weight.
@@ -4012,7 +4012,7 @@ lessons:
     format: BALLPARK
     why: 4/(4+1)=0.8.
     estimate:
-      prompt: A solute has a distribution ratio of 4 between the organic and aqueous phases, and the two phase volumes are equal. Estimate the percentage extracted in one stage.
+      prompt: A solute has a distribution ratio of 4 between the organic and aqueous phases, and the 2 phase volumes are equal. Estimate the percentage extracted in one stage.
       question: Choose the distribution ratio and the phase-volume ratio.
       labels:
         - 4 distribution ratio
@@ -4028,7 +4028,7 @@ lessons:
       tolerance: 3
       units: "%"
       solution: 4 ÷ (4+1) × 100 ≈ 80%.
-      explanation: One stage at D = 4 leaves a fifth of the solute behind. A second identical stage would leave a fifth of that again, which is why extraction is run as a series of stages rather than pushed to completion in one.
+      explanation: 1 stage at D = 4 leaves a fifth of the solute behind. A second identical stage would leave a fifth of that again, which is why extraction is run as a series of stages rather than pushed to completion in one.
       givens:
         - Fraction in organic phase = D/(D+1) for equal volumes
       relationship: Fraction extracted = D ÷ (D + phase-volume ratio), as a percentage.
@@ -4087,7 +4087,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: Prevent airborne material from escaping -> Negative pressure with filtered exhaust. Air leaks inward rather than outward, so even a breach moves contamination the safe way.; Prevent oxygen or moisture reaction -> An inert atmosphere. Removes the reactant instead of containing the product.; Move items without opening the main enclosure -> A transfer lock or bag-out port. Holds the pressure boundary during transfer, which is when confinement is most often lost.; Detect loss of confinement -> Pressure indicators and contamination monitors. Confinement can fail silently, so the boundary needs an instrument watching it.
   - group: CM
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Corrosion and compatibility
     setup: A new process fluid contacts several metals and seals.
     scene: Corrosion is a chemical or electrochemical reaction that changes a material at its surface. A metal may attack another metal, react with moisture, or form brittle products that weaken an interface. Because bomb components must fit and remain reliable during storage and transport, Los Alamos needs compatibility tests for every material combination and environment.
@@ -4211,7 +4211,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Processing changes grain size or defect density -> Dislocation motion becomes easier or harder -> Yield behavior changes -> Mechanical testing verifies the effect)
   - group: CM
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Heat treatment
     setup: A material shows inconsistent hardness after fabrication.
     scene: Heat treatment changes a material’s microscopic structure by controlling temperature and time, then cooling at a chosen rate. The same composition can become harder, softer, stronger, or more brittle depending on that history. The bomb program needs controlled coupons and records rather than arbitrary heating because reproducible properties are essential for assembly and shock response.
@@ -4359,9 +4359,9 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 2 -> 3 -> 4 -> 5 (Characterize the waste and hazards -> Segregate incompatible or different regulatory categories -> Minimize, treat, or stabilize through an approved process -> Label, store, and document transfer or disposal)
   - group: CM
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Batch variability
-    setup: Three interventions compete for 100 credits.
+    setup: 3 interventions compete for 100 credits.
     scene: Two batches produced by the same written process can differ because temperature, composition, mixing, timing, or equipment drifts. Final inspection may find the difference but does not reveal its cause. Los Alamos needs process measurements and designed experiments to learn which variables controlled material properties and to make production reproducible.
     takeaway: Quality improves fastest when variation is traced to controllable process variables.
     format: SCIENCETANK
@@ -4454,9 +4454,9 @@ lessons:
         - Total mass = 400 kg
         - Distance from the light module = separation x heavy mass / total mass
       relationship: Centre of mass from the light module = separation × heavy mass ÷ total mass.
-    answerText: About 1.13 m from the light module, three-quarters of the way toward the heavy one.
+    answerText: About 1.13 m from the light module, three-quarters of the way toward the heavy 1.
   - group: E
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Integrate Fat Man with the Silverplate B-29
     setup: The air-integration team can fund only the most decision-relevant work this month.
     scene: The Silverplate B-29 is modified to carry and release the unusually shaped Fat Man weapon. Aircraft structure, bomb-bay clearances, electrical connections, crew procedures, and flight performance all become part of the weapon system. A design that works on a laboratory stand will still fail as a weapon if it cannot be loaded, carried, armed, and released reliably from the aircraft.
@@ -4569,7 +4569,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: A segment arrives without a readable lot identifier. -> Quarantine and restore traceability; Two interface drawings specify different reference surfaces. -> Resolve the configuration conflict before assembly; A fitted assembly shows a gap outside the approved inspection limit. -> Stop and disposition the nonconformance; A technician proposes rotating a segment to make it fit without an approved change. -> Reject the unapproved field modification
   - group: E
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Select high-explosive materials for a wave-shaping system
     setup: Choose a safe research portfolio; no formulations or processing recipes are provided.
     scene: An explosive lens uses materials with different detonation speeds and shaped boundaries to bend an outward detonation wave into a converging one. Engineers must choose materials not only for speed but also for stability, manufacturability, compatibility, and reproducibility. The best theoretical pair will be useless if production cannot hold its properties consistently from segment to segment.
@@ -4605,13 +4605,13 @@ lessons:
   - group: E
     task: Estimate the largest allowed path mismatch, then state the engineering response.
     title: Cable routing and signal integrity
-    setup: An inert test rack must hold two signal paths matched to within 2 ns; signal speed in the cable is 2.0 x 10^8 m/s. These are classroom values.
+    setup: An inert test rack must hold 2 signal paths matched to within 2 ns; signal speed in the cable is 2.0 x 10^8 m/s. These are classroom values.
     scene: A fast electrical pulse can be distorted by cable length, impedance mismatch, poor connections, or electromagnetic interference. If channels receive different pulse shapes or arrival times, detonators may not act together. Fat Man engineers therefore controlled cable routing, connector identity, shielding, and calibration as carefully as the explosive components themselves.
     takeaway: Seemingly passive hardware can carry critical timing information.
     format: BALLPARK
     why: Cable geometry can become part of the timing system.
     estimate:
-      prompt: A test rack must hold two signal paths matched to within 2 ns (2×10⁻⁹ s), and signals travel at 2×10⁸ m/s in the cable. Estimate the largest path mismatch that still meets the requirement, in centimetres.
+      prompt: A test rack must hold 2 signal paths matched to within 2 ns (2×10⁻⁹ s), and signals travel at 2×10⁸ m/s in the cable. Estimate the largest path mismatch that still meets the requirement, in centimetres.
       question: Choose the timing tolerance, the signal speed, and the metres-to-centimetres conversion.
       labels:
         - 2×10⁻⁹ s tolerance
@@ -4658,7 +4658,7 @@ lessons:
     format: BALLPARK
     why: A fixture must control the assembly-level stack, not merely each individual component.
     estimate:
-      prompt: A fixture stacks three independently machined interfaces, each held to ±0.15 mm, and worst-case absolute limits add. Estimate the worst-case stack.
+      prompt: A fixture stacks 3 independently machined interfaces, each held to ±0.15 mm, and worst-case absolute limits add. Estimate the worst-case stack.
       question: Choose the per-interface tolerance and the number of interfaces.
       labels:
         - 0.15 mm/interface
@@ -4676,7 +4676,7 @@ lessons:
       solution: 0.15 mm × 3 ≈ 0.45 mm.
       explanation: Worst-case tolerance stack-up adds aligned limits directly, unlike statistical root-sum-square combination.
       givens:
-        - Three independent worst-case placement limits are each +/-0.15 mm
+        - 3 independent worst-case placement limits are each +/-0.15 mm
         - Worst-case absolute limits add
         - Statistical root-sum-square may be smaller but requires justified independence
       relationship: Worst-case stack-up = tolerance per interface × the number of interfaces.
@@ -4705,7 +4705,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: Which production batch supplied this component? -> The lot traveler, which follows a part from raw stock and carries a stamp for every processing step it saw; Was the approved geometry verified before assembly? -> The inspection report, which lists what was actually measured against the drawing and by whom; Which exact configuration produced the test result? -> The as-built record, which names the individual parts and drawing revisions that went into the unit that was fired; What happened to a component that failed inspection? -> The nonconformance and disposition record, which says on whose authority a rejected part was scrapped, reworked, or used as it stood
   - group: E
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Environmental qualification of Fat Man subsystems
     setup: The qualification team must distribute its next 100 credits.
     scene: Fat Man subsystems must survive transportation, vibration, temperature changes, humidity, and aircraft operation before they enter service. Environmental qualification exposes hardware to representative conditions and then checks whether performance changes. A component that works only in a quiet laboratory cannot be considered ready for Tinian or a combat mission.
@@ -4726,13 +4726,13 @@ lessons:
   - group: E
     task: Estimate total reliability.
     title: Reliability of a series firing chain
-    setup: A generic chain has four required subsystems, each with independent reliability 0.98 for one mission.
+    setup: A generic chain has 4 required subsystems, each with independent reliability 0.98 for 1 mission.
     scene: In a series firing chain, every required link must work for the final command to pass, so the reliability of the complete chain can be lower than the reliability of any one part. Adding more necessary components can reduce total success probability unless each is exceptionally reliable. Engineers use this logic to identify weak links and decide where redundancy or redesign matters most.
     takeaway: System reliability cannot be inferred from the best component.
     format: BALLPARK
     why: Every required element creates another opportunity for failure, even when each appears highly reliable.
     estimate:
-      prompt: A firing chain needs four subsystems in series, each with independent reliability 0.98. Estimate the reliability of the whole chain.
+      prompt: A firing chain needs 4 subsystems in series, each with independent reliability 0.98. Estimate the reliability of the whole chain.
       question: Choose the per-subsystem reliability and the subsystem count.
       labels:
         - 0.98 per subsystem
@@ -4779,7 +4779,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: An arming indicator disagrees with the physical safe-state check. -> A safety-critical ambiguity. The true state is unknown, so stop and verify independently instead of trusting either indication.; One initiation channel fails continuity before release. -> A mission-function failure. The system is safe but will not work, so hold, find the break, and repair before release.; A diagnostic recorder is not synchronized, but the device remains safe. -> An evidence loss. Nothing is unsafe and nothing will fail, but the test may no longer answer the question it was built to answer.; A casing access panel is delayed but can be replaced before the mission window. -> A recoverable schedule problem. No safety or function consequence, so handle it through configuration control rather than escalation.
   - group: E
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Common-mode failure in simultaneous initiation
     setup: Choose the most valuable reliability investment.
     scene: Redundancy does not protect a system when several channels share the same power supply, clock, connector design, or manufacturing defect. That shared vulnerability is a common-mode failure. Since Fat Man relies on many simultaneous initiation channels, engineers must look for one fault capable of making all channels late, weak, or silent together.
@@ -4813,7 +4813,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 1 -> 2 -> 3 -> 4 (Document the anomaly and identify every affected interface and test result. -> Review the proposed correction with owners from all affected divisions. -> Approve one controlling revision and update drawings, travelers, trainers, and spares. -> Retest the changed functions and preserve the evidence linking old and new configurations.)
   - group: E
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: The Jumbo contingency decision
     setup: The Trinity team must decide where to invest as confidence in implosion rises.
     scene: Jumbo is a massive steel vessel considered as a way to contain scarce plutonium if the Trinity high explosives fail to produce a nuclear explosion. Using it might protect material, but it can interfere with diagnostics and create new hazards. The decision forces engineers to compare uncertain failure risk with the scientific value of an unobstructed full-scale test.
@@ -4878,7 +4878,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: Specialized components and records must arrive securely and in known condition -> Controlled shipment with a signed transfer at every hand-off, so identity and handling history survive the journey intact; A modified B-29 requires depot-level support without exposing the program broadly -> A dedicated Silverplate maintenance unit, cleared and self-contained, so heavy work needs no explanation to an outside depot; Final assembly and checks must occur near the mission base under strict control -> Purpose-built buildings on the island and step-by-step procedures, so the last work happens beside the aircraft and still leaves a record; Scientific personnel must interpret anomalies without the full Los Alamos organization present -> Embed a Los Alamos technical team with authority to interpret anomalies and approve or stop field work
   - group: E
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Final Fat Man engineering readiness review
     setup: The board must decide how to allocate its final review effort.
     scene: The final engineering review asks whether Fat Man can be assembled, carried, armed, released, and initiated in the exact configuration supported by tests. It combines hardware reliability, records, crew training, aircraft interfaces, and unresolved risks. A successful physics concept is only one part of declaring the complete weapon ready.
@@ -4928,7 +4928,7 @@ lessons:
       relationship: Density = mass ÷ volume, and volume goes as radius³. At fixed mass, the density ratio = 1 ÷ (radius ratio)³.
     answerText: rho_f/rho_i = 1/(0.90)^3 approximately 1.37.
   - group: X
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Invest in multipoint initiation evidence
     setup: The implosion group has 100 credits for initiation research.
     scene: Multipoint initiation requires many detonators, cables, and firing channels to act together, but testing every possible failure is impossible. The team must invest in evidence that separates detonator variation from cable delay, firing-unit error, and measurement error. That knowledge determines whether the implosion program is improving the physical system or merely improving one instrument.
@@ -5123,7 +5123,7 @@ lessons:
     order: [0, 1, 2, 3]
     answerText: 1 -> 2 -> 3 -> 4 (Define which hydrodynamic behavior the surrogate must reproduce and which it cannot. -> Assemble the authorized mock configuration with full traceability. -> Conduct the instrumented shot and preserve timing, radiographic, and physical records. -> Compare observations with models, inspect recovered evidence when possible, and update the next test.)
   - group: X
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Control jets and hydrodynamic instabilities
     setup: The group has 100 credits after radiography reveals a narrow high-velocity feature near an interface.
     scene: A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.
@@ -5180,7 +5180,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: A complicated internal geometry amplifies manufacturing and assembly uncertainty -> Reduce internal geometric complexity so fewer manufactured interfaces can introduce asymmetry; Theoretical calculations need a more tractable starting configuration -> Begin from a solid sphere rather than a shell, so the equations have one boundary to follow instead of several; Hydrodynamic tests must map more directly onto the proposed final design -> Shoot the development trials in the geometry the weapon will actually use, so model and measurement compare like with like; The program needs one configuration to freeze for Trinity and Fat Man -> Establish one integration baseline that can be frozen for Trinity and the Fat Man weapon
   - group: X
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Freeze the implosion architecture
     setup: The laboratory has 100 credits and only months before Trinity.
     scene: Freezing the implosion architecture means selecting one controlled arrangement of lenses, initiation, core geometry, surrounding layers, and interfaces for final qualification. Without a baseline, each successful test might describe a different system. The freeze allows Trinity evidence to support the actual Fat Man configuration rather than a moving target.
@@ -5198,7 +5198,7 @@ lessons:
       B: 75
     answerText: "Recommended: 75 to B mainline development, 15 to independent challenge, 10 to targeted backup studies."
   - group: X
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Design the Trinity diagnostic portfolio
     setup: The test director has 100 diagnostic credits.
     scene: Because no instrument is guaranteed to survive or stay within range at Trinity, the diagnostic plan uses several independent methods for timing, radiation, blast, photography, and energy release. Redundancy across different physical principles makes the result interpretable even if one channel fails. The team must choose breadth of evidence over dependence on one expected ‘best’ measurement.
@@ -5214,7 +5214,7 @@ lessons:
         text: Maximize dramatic photography even if quantitative channels are underfunded.
     recommended:
       B: 85
-    answerText: "Recommended: 85 to B, 10 to photography as one documented channel, 5 in reserve."
+    answerText: "Recommended: 85 to B, 10 to photography as 1 documented channel, 5 in reserve."
   - group: X
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Trinity countdown and decision gates
@@ -5269,7 +5269,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     answerText: A rapidly expanding high-temperature region drives a pressure wave -> Blast. Mechanical overpressure moving at roughly the speed of sound, so it arrives after the light does; Electromagnetic radiation carries intense heat outward -> Thermal radiation. Arrives first at light speed, and is stopped by anything opaque between source and target; Neutrons and gamma rays released in the first instants -> Prompt ionizing radiation. Delivered within moments and only near the event, because air attenuates it strongly; Fission products and activated material can be transported and deposited after the event -> Residual radiation and fallout. The one channel that persists for days to years and can be carried far downwind
   - group: X
-    task: Allocate 100 research credits across the three proposals. You may hold credits in reserve, but explain the decision criterion.
+    task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Final Fat Man implosion synthesis
     setup: The final review has 100 curriculum credits to preserve the most important lessons.
     scene: Fat Man brings together plutonium measurements, rapid compression, explosive lenses, synchronized initiation, neutron multiplication, diagnostics, aircraft engineering, and field operations. Its history cannot be understood as one clever device; it is a tightly linked scientific and institutional system. A final synthesis must connect how the bomb works with how it is tested, deployed, and used.
@@ -5287,7 +5287,7 @@ lessons:
       A: 35
       B: 35
       C: 30
-    answerText: "Recommended: about 35 to A, 35 to B, and 30 to C; nearby balanced allocations are acceptable if the learner explicitly connects the three chains."
+    answerText: "Recommended: about 35 to A, 35 to B, and 30 to C; nearby balanced allocations are acceptable if the learner explicitly connects the 3 chains."
 
 # Diagnosis panels shared by several lessons, expanded at load by normalize.js.
 packs:
@@ -5411,7 +5411,7 @@ packs:
       realsample: It explains the high gross rate, and it would be the convenient answer. But the excess is still there with the sample off the stage — 131 counts/min against a 95 baseline. Whatever is counting is not on the stage.
       roombg: "It explains an excess that survives removing the sample. It fails twice: the second detector in the same room reads normal, and the excess follows the instrument to a clean room instead of staying behind."
       noisefloor: "It fits the two loud findings exactly — a persisting excess that extra lead does not touch. It dies on the high-voltage test: with the bias off, the counter records nothing at all, so the pulses are real ionization, not electronics."
-      statfluke: Ten repeats agree within 3%. Chance spread does not reproduce ten times, and it cannot survive removing the sample.
+      statfluke: 10 repeats agree within 3%. Chance spread does not reproduce ten times, and it cannot survive removing the sample.
     resolve:
       title: The instrument is counting itself
       paras:
@@ -5550,7 +5550,7 @@ packs:
         - The target adsorbed onto vessel walls and transfer lines. It never entered a measured stream, which is exactly why the balance could not find it — the accounting covers liquids in and liquids out, and this material is on a surface.
         - Note that every quality figure on this batch is good. Purity is 91%, the standard checks out, the product weighs what the assay says it should, and the discarded phase is clean. A batch can pass every test it is given and still have lost a twentieth of the material to a route nobody measured.
       why:
-        loud: "The two headline findings are a 6.1% gap and 5.8% of the input recovered from vessel walls. Neither alone identifies the cause: a gap fits three different candidates, and hot glassware fits both adsorption and co-precipitation."
+        loud: "The 2 headline findings are a 6.1% gap and 5.8% of the input recovered from vessel walls. Neither alone identifies the cause: a gap fits three different candidates, and hot glassware fits both adsorption and co-precipitation."
         quiet: Together they close it, and the quiet readings confirm the mechanism rather than merely permitting it. The clean raffinate rules out an unfinished separation, the reference source rules out the counter, and the agreeing gravimetric rules out extra material coming down with the product.
       chain:
         - Target plates onto glass and transfer-line surfaces
@@ -5675,7 +5675,7 @@ packs:
       moderation: "It is a real mechanism and it produces exactly the pile-up of small pulses seen here — this is the rival worth taking seriously. It fails the cadmium test: a field slowed enough to lose two-thirds of the counts would collapse when cadmium is inserted, and the change measured is under 5%."
       absorption: It explains a shortfall in arrivals. But the activation foil records the predicted activity, so the neutrons are reaching the detector face. Nothing removed them from the path.
       geometry: Always worth suspecting when a prediction and a measurement disagree by a factor of three. The rate follows inverse-square within 4%, so the geometry matches the drawing it was predicted from.
-      normalvar: Five runs agree within 4%, tighter than the Poisson scatter. A factor-of-three deficit that reproduces is not variation.
+      normalvar: 5 runs agree within 4%, tighter than the Poisson scatter. A factor-of-three deficit that reproduces is not variation.
     resolve:
       title: The neutrons arrived and were not counted
       paras:
@@ -5747,7 +5747,7 @@ packs:
       impurity:
         name: Trace element assay
         zone: assay
-        observed: one trace element at 9x its usual level
+        observed: 1 trace element at 9x its usual level
         reference: at or below usual levels
         purpose: Elements too dilute to appear in the major assay. Small amounts can shift phase boundaries or concentrate locally during freezing.
       repolish:
@@ -5833,7 +5833,7 @@ packs:
         - The casting is harder than specification and the diagram appears to be violated
       take: A phase diagram describes one composition. Verify you still have that composition before doubting the map.
     logic:
-      - - Two phases, hardness 31% high
+      - - 2 phases, hardness 31% high
         - the structure is real — four mechanisms remain
       - - Trace element 9x usual level
         - narrows to contamination or segregation
@@ -5846,7 +5846,7 @@ packs:
     level: L3
     title: Eight channels that will not agree
     role: You are finding out why a timing array disagrees with itself.
-    hook: Eight channels watching one event report arrival times spread over 14 ns when the array is specified to 4. An independent clock cross-check came back clean, so the reference itself is sound. The spread is in the array.
+    hook: 8 channels watching 1 event report arrival times spread over 14 ns when the array is specified to 4. An independent clock cross-check came back clean, so the reference itself is sound. The spread is in the array.
     riddle: Every channel sees the same event. What is different about what each one reports?
     salient:
       - spread
@@ -5960,7 +5960,7 @@ packs:
     reasons:
       clockoffset: It is the first thing to check on a shared-reference array, and it would explain a large spread. The independent cross-check agrees within 0.3 ns, so the reference is sound — and a common offset would cancel in channel-to-channel differences anyway rather than creating them.
       timewalk: The strongest rival. It survives both headline findings and it broadens the per-channel distribution exactly as observed. It requires recorded time to track pulse height, and there is no correlation between them at all.
-      cabledelay: It explains a large spread with a sound reference, and it is easy to check. Cable lengths match within 5 cm, injected test pulses align across all channels, and the disagreement is scattered rather than isolated to one channel — a cable fault moves one channel, not eight.
+      cabledelay: It explains a large spread with a sound reference, and it is easy to check. Cable lengths match within 5 cm, injected test pulses align across all channels, and the disagreement is scattered rather than isolated to 1 channel — a cable fault moves 1 channel, not 8.
       withinspec: The array is specified to 4 ns and is delivering 14. Calling that acceptable would mean abandoning the specification rather than meeting it.
     resolve:
       title: Noise at the threshold, not a delay
@@ -5968,7 +5968,7 @@ packs:
         - Random noise on the signal is moving the instant each pulse crosses the discriminator threshold. Every channel is affected, none is biased, and the result is a symmetric scatter about the true arrival time — which is why the mean is still right and only the width has grown.
         - "The distinction matters for what you do next. A fixed error can be measured once and subtracted. Jitter cannot: it must be reduced at the source by improving signal-to-noise, shaping the pulse, or replacing threshold discrimination with a method that does not depend on where a noisy edge crosses a fixed level."
       why:
-        loud: A 14 ns spread with a clean reference cross-check leaves three live candidates — time walk, cable delay, and jitter. The loud readings establish that the disagreement is real and was introduced downstream of the reference, and there they stop.
+        loud: A 14 ns spread with a clean reference cross-check leaves 3 live candidates — time walk, cable delay, and jitter. The loud readings establish that the disagreement is real and was introduced downstream of the reference, and there they stop.
         quiet: Two quiet readings in different parts of the chain finish it. No correlation between apparent time and pulse height eliminates time walk, the one rival that otherwise fits every observation. Matched cable lengths, backed by injected test pulses aligning across all channels, eliminate a path-length fault. What survives is a random error, and the broad per-channel width confirms it.
       chain:
         - Noise rides on the signal into the discriminator
@@ -6100,7 +6100,7 @@ packs:
         - Cutting heat during machining transformed a thin surface layer into something harder and more brittle than the material underneath. That skin cracked at a load the bulk material could carry, and once a sharp crack existed it ran into sound metal and took the part with it.
         - Every acceptance check this part faced was passed. The material certificate was valid, the dimensions were in tolerance, and the load was within qualification. The property that failed — surface condition after machining — was not on the inspection list, and no dimensional measurement would ever have found it.
       why:
-        loud: "The two headline findings are a surface 44% harder than the bulk and a crack that started at the machined surface. Neither settles it alone: elevated surface hardness also fits a bulk-brittle material, and a surface origin also fits fatigue and handling damage."
+        loud: "The 2 headline findings are a surface 44% harder than the bulk and a crack that started at the machined surface. Neither settles it alone: elevated surface hardness also fits a bulk-brittle material, and a surface origin also fits fatigue and handling damage."
         quiet: Together they leave one answer, and the quiet readings close off the alternatives. No permanent deformation rules out plain overload, a single steady application rules out fatigue, and in-tolerance dimensions rule out geometry as the stress concentrator.
       chain:
         - Machining heat transforms and hardens a thin surface layer
@@ -6165,7 +6165,7 @@ packs:
       channelcross:
         name: Agreement between independent channels
         zone: timing
-        observed: three channels agree within 1%
+        observed: 3 channels agree within 1%
         reference: agree within 2%
         purpose: Whether separate instruments tell the same story. Agreement across independent channels makes an instrumentation fault very hard to sustain.
       scaling:
@@ -6246,7 +6246,7 @@ packs:
     reasons:
       surrogate: "The rival that has to be taken most seriously, because it is the standard reason a mockup result does not transfer, and it survives both headline findings. Two readings defeat it: the surrogate certificate matches the real material within 1% on the property in question, and the size of the discrepancy does not scale with the density ratio the way a substitution artifact would."
       fixture: It explains a late arrival, and fixtures do corrupt trials this way. The recovered hardware is intact, the fixture witness marks are clean, and the radiograph shows the designed geometry rather than a constrained one.
-      instrument: Worth suspecting whenever a single number disagrees with a model. Three independent channels agree within 1% and the second shot reproduces within 1%. An instrumentation fault that reproduces identically across independent channels and repeat trials is not an instrumentation fault.
+      instrument: Worth suspecting whenever a single number disagrees with a model. 3 independent channels agree within 1% and the second shot reproduces within 1%. An instrumentation fault that reproduces identically across independent channels and repeat trials is not an instrumentation fault.
       withintol: The trial was specified to 2% and returned 8%, reproducibly. Widening the tolerance after the fact to contain the result is how a test stops being able to fail.
     resolve:
       title: The trial is right and the model is incomplete
@@ -6254,7 +6254,7 @@ packs:
         - Every way the mockup could have lied has been checked and cleared. The surrogate reproduces the property under test, the fixture did not touch the assembly, the geometry was as designed, and three independent channels agree across two shots. What remains is that the assembly really does behave this way and the prediction is missing a mechanism.
         - This is the outcome a mockup programme exists to make possible, and it is only available because the trial was built so that its own failure modes could be ruled out. Without the material certificate, the witness marks, the channel redundancy, and the repeat shot, an 8% discrepancy is an argument. With them it is a finding.
       why:
-        loud: "A reproducible 8% late arrival with the designed geometry confirmed leaves three candidates: a surrogate artifact, an instrumentation fault, or a real effect. Correct geometry is what makes the discrepancy interesting rather than trivial, but it cannot say which of the three is responsible."
+        loud: "A reproducible 8% late arrival with the designed geometry confirmed leaves 3 candidates: a surrogate artifact, an instrumentation fault, or a real effect. Correct geometry is what makes the discrepancy interesting rather than trivial, but it cannot say which of the three is responsible."
         quiet: Two quiet readings from different departments settle it. The materials certificate, backed by the discrepancy not scaling with the density ratio, eliminates the surrogate. Independent channel agreement, backed by the repeat shot, eliminates the instruments. Ruling out the mockup is what licenses believing it.
       chain:
         - A mechanism absent from the model affects the assembly
@@ -6550,11 +6550,11 @@ packs:
     reasons:
       synclost: A lost fiducial is a real way for a channel to disagree without being wrong about amplitude. This one's fiducial is present and clean, and a timing misalignment would not explain a gain check 38% low or a drifting baseline.
       fieldofview: A channel that cannot see a region should not be treated as evidence about it, so the check is the right one to make. The coverage map shows this channel covering the region in question, and like the fiducial explanation it accounts for nothing on the calibration side.
-      agreement: The three so-called healthy channels disagree with each other by 9% against a 3% specification, and the recovered witness plate is clearly asymmetric. There is a disagreement, and it is not an artifact of uncertainty.
+      agreement: The 3 so-called healthy channels disagree with each other by 9% against a 3% specification, and the recovered witness plate is clearly asymmetric. There is a disagreement, and it is not an artifact of uncertainty.
     resolve:
       title: A real asymmetry and a broken channel, at the same time
       paras:
-        - Two things are true at once. The event genuinely was asymmetric — the three surviving channels disagree with each other by 9%, and the recovered witness plate, which owes nothing to any electronic channel, is clearly asymmetric. And separately, the fourth channel really has lost gain, with a pulser check 38% low and a drifting pre-shot baseline.
+        - Two things are true at once. The event genuinely was asymmetric — the 3 surviving channels disagree with each other by 9%, and the recovered witness plate, which owes nothing to any electronic channel, is clearly asymmetric. And separately, the fourth channel really has lost gain, with a pulser check 38% low and a drifting pre-shot baseline.
         - "The proposal on the table was to discard the fourth channel and report the other three. That would have been half right and wholly misleading: the channel is faulty, but the disagreement it was blamed for is real and survives its removal. Discarding it would have produced three mutually inconsistent records reported as a consistent result."
         - This is what integrated diagnostic coverage is for. A single faulty channel is recoverable. A faulty channel that happens to sit where a real effect is visible is only recoverable if there is independent evidence — here, the mutual disagreement among the others and a piece of recovered hardware.
       why:
@@ -6583,7 +6583,7 @@ specialRequests:
     title: Criticality safety interlocks for the chemistry wing
     division: CM
     paragraphs:
-      - Joan Hinton, who works on critical assembly diagnostics, has flagged that the chemistry wing where plutonium solutions are handled still relies on a single administrative limit for mass and geometry. One mislabeled beaker or an extra transfer could bring fissile material close to a critical configuration. A $2 interlock — a second independent mass accounting check plus a neutron counter at the doorway — would give a layered safety case instead of trusting one person’s arithmetic.
+      - Joan Hinton, who works on critical assembly diagnostics, has flagged that the chemistry wing where plutonium solutions are handled still relies on a single administrative limit for mass and geometry. One mislabeled beaker or an extra transfer could bring fissile material close to a critical configuration. A $2 interlock — a second independent mass accounting check plus a neutron counter at the doorway — would give a layered safety case instead of trusting 1 person’s arithmetic.
       - This is not just a science question. The technicians are mostly young women on 12-hour shifts, sharing thin-walled hutments, and a criticality accident would be a health and community catastrophe before it ever affected the weapon program. Hinton argues that spending now preserves both accurate chemistry yields and the lives of the people who live two blocks from the lab. As director you can approve the $2 from the $20 reserve, or defer and accept 12–24h of added risk while the lab operates on a single barrier.
   6:
     personId: hornig
@@ -6607,7 +6607,7 @@ specialRequests:
     title: Theater and PX film for morale and timing calibration
     division: X
     paragraphs:
-      - Norris Bradbury, who will soon oversee assembly, requests $3 to keep Theater No. 2 running three nights a week and to buy high-speed film for the P-Division imaging group that shares the same projection budget. The cultural argument and the science argument coincide. The theater is the only building where the entire mesa can hear the same colloquium — Bethe on implosion was given there in February — and where mixed crews discuss misalignments without rank. Without it, X-Division lens crews and E-Division ordnance drift into separate vocabularies.
+      - Norris Bradbury, who will soon oversee assembly, requests $3 to keep Theater No. 2 running 3 nights a week and to buy high-speed film for the P-Division imaging group that shares the same projection budget. The cultural argument and the science argument coincide. The theater is the only building where the entire mesa can hear the same colloquium — Bethe on implosion was given there in February — and where mixed crews discuss misalignments without rank. Without it, X-Division lens crews and E-Division ordnance drift into separate vocabularies.
       - For health, the same film stock is also used to radiograph inert lens assemblies; without a steady supply, crews will test with fewer views and miss asymmetry that later shows up as jetting. At 2,200 m, with censored mail and no road out without a pass, morale directly governs precision. Funding both uses of the film sustains the shared language you built in Mission 1; deferring saves $3 but adds 12–24h as teams re-establish common timing baselines.
   15:
     personId: kitty

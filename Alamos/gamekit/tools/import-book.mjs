@@ -986,17 +986,25 @@ function gameFor(s, at, group, day){
         'a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel'
         + ' can say where it is going without printing where it ends up');
       need(steps.length >= 2, 'a derivation of one line is not a derivation');
-      need(rules.length >= 3,
-        'a derivation needs at least three named rules to choose from — offering only the two that'
-        + ' are plausible here answers the second half of every step');
+      // Naming the rule is optional, but half-offering it is not: a list of one
+      // or two rules answers the second half of every step by elimination, so
+      // it is three or none. None means the panel grades the line alone.
+      need(rules.length === 0 || rules.length >= 3,
+        'a derivation offers at least three named rules or none at all — one or two rules to choose'
+        + ' from answers the second half of every step by elimination. Drop `rules` entirely to grade'
+        + ' the line by itself');
       steps.forEach((st, i) => {
         const cands = st.candidates ?? [];
         const n = `step ${i + 1}`;
         need(String(st.ask ?? '').trim(), `${n} needs an \`ask\` — what this line is doing`);
         need(cands.length >= 3, `${n} needs at least three candidates`);
-        need(cands.every(c => String(c.text ?? '').trim() && String(c.rule ?? '').trim()),
-          `every candidate in ${n} needs \`text\` and the \`rule\` it claims`);
-        need(cands.every(c => rules.includes(String(c.rule))),
+        need(cands.every(c => String(c.text ?? '').trim())
+          && (!rules.length || cands.every(c => String(c.rule ?? '').trim())),
+          `every candidate in ${n} needs \`text\`, and the \`rule\` it claims wherever rules are offered`);
+        // Only when the player is being asked to name one. A book that has
+        // switched the naming half off keeps its per-candidate `rule` values —
+        // they cost nothing, and they are what switching it back on needs.
+        need(!rules.length || cands.every(c => rules.includes(String(c.rule))),
           `${n} has a candidate claiming a rule that is not in \`rules\` — the player could never`
           + ' pick it, so that candidate can never be scored right');
         const key = +st.answer;

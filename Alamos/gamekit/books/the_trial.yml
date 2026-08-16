@@ -1,4 +1,4 @@
-# The Trial — CLARION-3, and the three weeks before the second interim.
+# The Trial — CLARION-3, and the 3 weeks before the second interim.
 #
 # Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/the_trial/plan.js;
 # the arc it follows is in ../GAME_IDEAS.md under "The Trial".
@@ -46,7 +46,7 @@ groups:
     code: SITE
     name: Site Operations
     color: '#b0762a'
-    desc: Thirty-one hospitals, and the distance between a chart and a database.
+    desc: 31 hospitals, and the distance between a chart and a database.
     defaultLeader: marchetti
     milestones: [Visit the site, Verify the source, Close the query, Ready to hand over]
   - id: REG
@@ -63,10 +63,10 @@ roster:
     role: Trial Chair
     division: SITE
     bio: |
-      Chairs CLARION-3, and saw the first eleven participants himself before the
+      Chairs CLARION-3, and saw the first 11 participants himself before the
       trial had a coordinating centre. He counts the trial in people rather than
-      in months: two thousand four hundred, half of them on whichever arm turns
-      out to be the worse one.
+      in months: 2400, half of them on whichever arm turns
+      out to be the worse 1.
 
       His argument with the statistics room is the same one every week. A trial
       that runs a year longer is a year of somebody getting the treatment that
@@ -153,7 +153,7 @@ roster:
     role: Trial Pharmacist
     division: RAND
     bio: |
-      Runs the kit warehouse, where the blind is not an idea but four thousand
+      Runs the kit warehouse, where the blind is not an idea but 4000
       identical boxes in numbered order. She packs, labels, ships and counts them
       back, and she can tell you where any one of them is.
 
@@ -220,7 +220,7 @@ roster:
     division: SITE
     bio: |
       Drives to sites and reads the hospital notes against what the site typed
-      into the database. Twenty-nine of the thirty-one are fine. She spends her
+      into the database. 29 of the 31 are fine. She spends her
       time on the two, and on working out why they are the two.
 
       She has learned that most mismatches are not dishonesty but a form filled
@@ -272,7 +272,7 @@ roster:
       wrong about does not show up in his own numbers at all.
 
       His limit is that a site cannot see itself. Everything unusual about site
-      12 is only visible next to the other thirty.
+      12 is only visible next to the other 30.
     quiz:
       - q: Why can site 12's recruiting speed only be judged from outside the site?
         a: Its own practice looks ordinary with nothing to compare against
@@ -287,7 +287,7 @@ roster:
     bio: |
       Sits on the steering committee because somebody in the room has to have
       been the person the trial is about. She had the condition CLARION-3 is
-      studying and was in a different trial nine years ago.
+      studying and was in a different trial 9 years ago.
 
       She reads every draft of the participant information and sends back the
       sentences that mean nothing. Her standing question about any result is what
@@ -395,8 +395,8 @@ missions:
     objective: Establish what CLARION-3 promised before it had any data.
     briefing: Three weeks to the second interim, and the board pack starts today.
     stake: >-
-      Monday, and the second interim analysis is twenty-one days away. CLARION-3 has randomised
-      2,400 people across thirty-one hospitals, and in three weeks Professor Vogt's board will read
+      Monday, and the second interim analysis is 21 days away. CLARION-3 has randomised
+      2,400 people across 31 hospitals, and in 3 weeks Professor Vogt's board will read
       the trial by arm and say whether it carries on. Yemi Balogun wants that meeting to end the
       trial; Miriam Feldman wants it to end nothing that was not written down in advance. Today you
       go back through what the trial committed to before the first participant — the assignment, the
@@ -440,13 +440,13 @@ missions:
         place: Adjudication Room
         scene: >
           Kwame Ansah has four measurements from the same participant on his screen and a definition
-          agreed four years ago. A journalist has asked the sponsor which of the four CLARION-3 is
+          agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is
           actually about.
         assumes:
           - a trial collects more than one measurement from each participant
         takeaway: The primary endpoint is the one question the trial was built to answer; the rest are collected, not promised.
         format: CHOICE
-        question: Why does CLARION-3 name one of its outcomes as primary before it starts?
+        question: Why does CLARION-3 name 1 of its outcomes as primary before it starts?
         choices:
           - It fixes which comparison the error budget covers
           - It tells sites which measurement to take most carefully at every visit
@@ -455,9 +455,9 @@ missions:
         answer: It fixes which comparison the error budget covers
         why: >
           A trial accepts a small chance of calling a difference real when there is none. That budget
-          was set for one comparison. Collect twelve outcomes and read whichever comes out best, and
-          the chance of an impressive-looking result rises with every one, because ordinary variation
-          gets twelve opportunities instead of one. Naming the endpoint in advance is what stops the
+          was set for one comparison. Collect 12 outcomes and read whichever comes out best, and
+          the chance of an impressive-looking result rises with every 1, because ordinary variation
+          gets 12 opportunities instead of 1. Naming the endpoint in advance is what stops the
           trial choosing its own question after seeing the answers. The others are still collected,
           still reported, and carry no such protection.
         rebuttals:
@@ -479,7 +479,7 @@ missions:
         format: BALLPARK
         question: Estimate how long CLARION-3 has to follow its participants to reach the events it needs.
         why: >
-          A time-to-event trial learns from events, not from people. Two thousand participants who
+          A time-to-event trial learns from events, not from people. 2000 participants who
           stay well carry almost no information about which arm is better; the comparison rests on
           the ones something happened to. So the design fixes a number of events, and recruitment
           and follow-up run until that number arrives. How long that takes is not a decision anybody
@@ -509,10 +509,10 @@ missions:
           units: years
           solution: 2400 × 0.08 = 192 events a year, and 380 ÷ 192 ≈ 2.0 years.
           explanation: >
-            About two years of follow-up. Two thousand four hundred people at 8 events per 100 per
-            year produce roughly 192 events a year, so the 380 the design needs take about two of
+            About two years of follow-up. 2400 people at 8 events per 100 per
+            year produce roughly 192 events a year, so the 380 the design needs take about 2 of
             them. Nobody can promise that date, because the rate is the participants' and not the
-            trial's: at 6 events per 100 per year the same 380 events take nearly three years. It is
+            trial's: at 6 events per 100 per year the same 380 events take nearly 3 years. It is
             also why the 246 events already adjudicated, rather than the calendar, is what says how
             far through CLARION-3 is.
           givens:
@@ -527,10 +527,10 @@ missions:
     objective: Find out where a number is made before deciding what it is worth.
     briefing: Two outcomes, two ways of measuring, and only one of them has a committee.
     stake: >-
-      Tuesday. Twenty days to the interim, and the board pack has two outcomes in it rather than
-      one. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also
+      Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than
+      1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also
       carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the
-      first and says so at every meeting; Nuno Iriarte at site 12 thinks the second is the one that
+      first and says so at every meeting; Nuno Iriarte at site 12 thinks the second is the 1 that
       matters to patients, and Maggie Doyle agrees with him. Today you work out where each number is
       actually made, and what each is worth when the two arms are compared — because in three weeks
       they will be on the same page.
@@ -540,7 +540,7 @@ missions:
         task: Match each measurement to the weakness that can bend what it means.
         title: A number can be precise and still be the wrong outcome
         place: Adjudication Room
-        scene: Kwame Ansah has four CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.
+        scene: Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.
         assumes:
           - a measurement can be precise without being clinically important
           - a surrogate outcome is a measure used to stand in for a clinical outcome
@@ -575,7 +575,7 @@ missions:
         question: Which of these most threatens the comparison CLARION-3 is making?
         choices:
           - A site entered four people who did not qualify
-          - A site took the twelve-week bloods a week late, at thirteen weeks
+          - A site took the twelve-week bloods a week late, at 13 weeks
           - A site filed its visit forms a fortnight late
           - A site used a different brand of infusion pump
         answer: A site entered four people who did not qualify
@@ -596,7 +596,7 @@ missions:
         place: Regulatory & Registry
         scene: >
           Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which
-          one governs the interim in twenty days, and the sponsor's lawyer wants to know how anybody
+          1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody
           could prove it.
         assumes:
           - a trial's plan can be amended while it is running
@@ -622,10 +622,10 @@ missions:
     objective: Decide what has to be reported today rather than at the next meeting.
     briefing: Two sites have sent the same kind of event in the same fortnight.
     stake: >-
-      Wednesday morning, nineteen days out. Sites 4 and 19 have each reported a participant admitted
-      with the same unusual liver picture, eleven days apart, and neither report says which arm the
-      participant was on because neither site knows. Feldman's instinct is that two is a number you
-      see in a trial this size and that the board meets in nineteen days anyway. Balogun wants it in
+      Wednesday morning, 19 days out. Sites 4 and 19 have each reported a participant admitted
+      with the same unusual liver picture, 11 days apart, and neither report says which arm the
+      participant was on because neither site knows. Feldman's instinct is that 2 is a number you
+      see in a trial this size and that the board meets in 19 days anyway. Balogun wants it in
       front of Vogt this week. Today you decide what is reported, to whom, and how fast — and what
       the trial is entitled to do while it waits.
     takeaway: Safety reporting runs on a different clock from the analysis.
@@ -634,13 +634,13 @@ missions:
         task: Decide what moves now, before the next scheduled board meeting can help.
         title: The clock that is not the analysis clock
         place: Monitoring Board Room
-        scene: The second admission arrived eighteen minutes ago. One patient is still on the ward, and the two sites are four hundred kilometres apart. Vogt is reachable this afternoon. The next board meeting is nineteen days away.
+        scene: The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.
         assumes:
           - serious harm during a trial is reported whether or not the drug is thought to have caused it
         takeaway: A safety report does not wait for the analysis it might belong to.
         format: TRIAGE
         question: What should happen to these two reports today?
-        why: "Safety reporting and endpoint analysis run on different clocks. A serious unexpected event may matter to treatment tomorrow, so it cannot wait nineteen days for a board meeting. The site reports what happened now, with enough detail to judge urgency. Whether the event later counts toward a trial endpoint is a separate process. The same event can therefore travel down two paths at once: immediate safety reporting and later blinded adjudication. Waiting for one path to finish before starting the other loses time the safety system was built to protect."
+        why: "Safety reporting and endpoint analysis run on different clocks. A serious unexpected event may matter to treatment tomorrow, so it cannot wait 19 days for a board meeting. The site reports what happened now, with enough detail to judge urgency. Whether the event later counts toward a trial endpoint is a separate process. The same event can therefore travel down two paths at once: immediate safety reporting and later blinded adjudication. Waiting for one path to finish before starting the other loses time the safety system was built to protect."
         choices:
           - Both go to the board unblinded now, and recruitment continues
           - Both wait for the interim pack so the board sees them beside the efficacy result
@@ -738,7 +738,7 @@ missions:
     objective: Establish what looking early costs and who is allowed to do it.
     briefing: Somebody senior would like a peek at the numbers before the board sees them.
     stake: >-
-      Thursday, eighteen days out. The sponsor's medical director has asked, in writing, for a
+      Thursday, 18 days out. The sponsor's medical director has asked, in writing, for a
       pooled summary of the primary endpoint by arm before the board meets, on the grounds that the
       liver reports have made everybody nervous. Feldman has said no twice and been asked to explain
       why in a way that does not sound like obstruction. Alina Petrescu, who is the only person who
@@ -827,9 +827,9 @@ missions:
     objective: Work out why site 12 recruits twice as fast as anyone else.
     briefing: One site's screening log is shorter than every other site's.
     stake: >-
-      Friday, seventeen days out. Site 12 has randomised more than twice its expected share and Nuno
+      Friday, 17 days out. Site 12 has randomised more than twice its expected share and Nuno
       Iriarte has been thanked publicly for it twice. Marchetti has now put his screening log beside
-      the other thirty and found that where most sites screen four people to enter one, site 12
+      the other 30 and found that where most sites screen 4 people to enter 1, site 12
       enters almost everyone it sees. Balogun reads that as a site that has organised itself well.
       Today you work out which of those readings the log actually supports, and what it would mean
       for the trial if the fast site is also entering a different kind of participant from everybody
@@ -840,15 +840,15 @@ missions:
         task: Choose the explanation that fits the whole screening log, not just the high entry rate.
         title: What a short screening log says
         place: Monitors' Room
-        scene: Thirty-one screening logs on one page. Most sites screen four and enter one. Site 12 screens eleven and enters nine, and its consent rate is the highest in the trial.
+        scene: 31 screening logs on 1 page. Most sites screen four and enter one. Site 12 screens 11 and enters 9, and its consent rate is the highest in the trial.
         assumes:
           - sites record everybody they assess as well as everybody they enter
         takeaway: Recruitment figures describe a funnel, and an empty log hides the top of it.
         format: CHOICE
         question: Which explanation best fits site 12's screening log?
         answerText: Site 12 appears to be logging people only after an informal pre-screen. That makes the visible funnel look unusually efficient because many people who were considered never appear at its top.
-        why: The high entry rate is not the strongest clue. The nearly empty reasons column is. A site that truly screened eleven people and entered nine should still record why the other two were not entered. Across a year, it should also show many people who failed before consent. If those people never reach the log, the trial cannot describe who was considered and passed over. The result is a selected group whose recruitment funnel cannot be reconstructed.
-        headline: Site 12 enters nine of every eleven people it logs as screened. Most sites enter about one in four.
+        why: The high entry rate is not the strongest clue. The nearly empty reasons column is. A site that truly screened 11 people and entered 9 should still record why the other 2 were not entered. Across a year, it should also show many people who failed before consent. If those people never reach the log, the trial cannot describe who was considered and passed over. The result is a selected group whose recruitment funnel cannot be reconstructed.
+        headline: Site 12 enters 9 of every 11 people it logs as screened. Most sites enter about one in four.
         readings:
           - zone: Site 12 funnel
             label: Screened to entered
@@ -886,8 +886,8 @@ missions:
         title: Balance is bought in blocks
         place: Kit Warehouse & Cold Room
         scene: >
-          Diouf pulls site 12's kit records. The site has entered ninety-four participants, forty-nine
-          to one arm and forty-five to the other, in a sequence that never runs more than four the
+          Diouf pulls site 12's kit records. The site has entered 94 participants, 49
+          to 1 arm and 45 to the other, in a sequence that never runs more than 4 the
           same way.
         assumes:
           - assignment is by chance, in a sequence prepared before the trial opened
@@ -901,8 +901,8 @@ missions:
           - It spreads the drug's supply evenly across the shipping schedule
         answer: It keeps the arms close in size at every site
         why: >
-          Pure chance is fine over two thousand people and unreliable over ninety. A site that closes
-          at nineteen participants could easily have thirteen on one arm and six on the other, and
+          Pure chance is fine over 2000 people and unreliable over 90. A site that closes
+          at 19 participants could easily have 13 on 1 arm and 6 on the other, and
           any difference between sites then partly becomes a difference between arms. Working in
           small blocks forces the counts to catch up every few entries, so the arms are balanced
           within each site at every point. The cost is predictability, which is why the block length
@@ -912,10 +912,10 @@ missions:
           - Blocking makes the sequence a little more guessable, not less; varying the block length is the fix.
           - Supply is planned from recruitment forecasts and does not drive the allocation sequence.
       - group: ENDP
-        task: Change one feature of the re-scoring setup at a time and find which change removes site 12's offset.
+        task: Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.
         title: Make the three-point offset move
         place: Adjudication Room
-        scene: Kwame Ansah has matched visit records from site 12 and three comparison sites. The symptom score sits about three points higher at site 12. A re-scoring console can change one feature of the setup for the same records.
+        scene: Kwame Ansah has matched visit records from site 12 and 3 comparison sites. The symptom score sits about 3 points higher at site 12. A re-scoring console can change one feature of the setup for the same records.
         assumes:
           - a systematic offset is a repeated shift rather than random scatter
           - a control test changes one factor while holding the rest fixed
@@ -948,12 +948,12 @@ missions:
     objective: Find out what widening the entry criteria has done to the trial.
     briefing: Recruitment recovered. The event rate did not.
     stake: >-
-      Monday, fourteen days out. The amendment signed eight months ago to keep recruitment on
+      Monday, 14 days out. The amendment signed eight months ago to keep recruitment on
       schedule widened two entry criteria, and it worked: the trial filled. The data manager, Tobias
       Renner, has now plotted events against months and the curve has flattened since. Feldman thinks the trial is further
       from its answer than the calendar says; Balogun signed the amendment and says the alternative
       was a trial that never finished at all. Today you work out how much information CLARION-3
-      actually holds, what the flattening does to the interim in a fortnight, and whether the two
+      actually holds, what the flattening does to the interim in a fortnight, and whether the 2
       of them are disagreeing about anything real.
     takeaway: A trial's progress is measured in events, and a decision made a year ago can slow them.
     stops:
@@ -1000,7 +1000,7 @@ missions:
           units: of the planned information
           solution: 246 ÷ 380 ≈ 0.65.
           explanation: >
-            About two thirds. By months the trial looks three quarters done — 41 of 54 — and the two
+            About two thirds. By months the trial looks 3 quarters done — 41 of 54 — and the 2
             numbers disagree because the amendment brought in people at lower risk. The boundary the
             board reads in a fortnight is set from the 0.65, not from the calendar.
           givens:
@@ -1010,7 +1010,7 @@ missions:
             Information fraction = events observed ÷ events planned, and it sets the boundary: the
             number of looks at an unadjusted 0.05 would cost 1 − 0.95² ≈ 0.10, so alpha spent stays
             inside 0.05.
-        answerText: About 0.65 — roughly two thirds of the information.
+        answerText: About 0.65 — roughly 2 thirds of the information.
       - group: SITE
         task: Work out who the amendment brought in
         title: Who a wider door lets in
@@ -1068,15 +1068,15 @@ missions:
   # ---------------------------------------------------------------- day 7
   - title: Who is missing
     objective: Decide what to do about the participants the trial has lost track of.
-    briefing: Ninety-one people have no outcome recorded, and they are not a random ninety-one.
+    briefing: 91 people have no outcome recorded, and they are not a random 91.
     stake: >-
-      Tuesday, thirteen days out. Renner's reconciliation says ninety-one participants have no
+      Tuesday, 13 days out. Renner's reconciliation says 91 participants have no
       twelve-month outcome: some moved, some withdrew, some stopped answering the phone. Ansah
-      cannot adjudicate what nobody wrote down, and forty-eight of the ninety-one stopped attending
+      cannot adjudicate what nobody wrote down, and 48 of the 91 stopped attending
       in the weeks after a worsening episode was recorded in their notes. Doyle has asked, at the
       steering committee, what the trial intends to say about people it lost, and whether the answer
       changes depending on which arm they were on. Today you decide how the missing are handled in
-      the analysis the board reads in thirteen days, what the sites should spend a fortnight
+      the analysis the board reads in 13 days, what the sites should spend a fortnight
       chasing, and what CLARION-3 can honestly claim about the people it cannot find.
     takeaway: What you do about missing outcomes is a decision, and it has to be made before you see them.
     stops:
@@ -1136,9 +1136,9 @@ missions:
           - Keeping everybody does preserve power, and power is not why the balance argument decides it.
       - group: SITE
         task: Allocate the monitoring time so the required questions can still be answered before the file is frozen.
-        title: Forty hours before the lock
+        title: 40 hours before the lock
         place: Monitors' Room
-        scene: Lucia Marchetti has a fortnight, thirty-one sites and forty monitoring hours she can still deploy. Four recoverable gaps compete for that time. Fourteen people who withdrew consent are locked out of the plan and cannot be contacted again.
+        scene: Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.
         assumes:
           - missing outcomes are most dangerous when the reason for missingness is tied to the outcome
           - withdrawal of consent prevents further contact
@@ -1152,7 +1152,7 @@ missions:
           items:
             - cost: 0
               id: withdrawn14
-              label: Fourteen people who withdrew consent
+              label: 14 people who withdrew consent
               reason: No further contact is permitted.
               protected: true
             - id: worsening48
@@ -1185,14 +1185,14 @@ missions:
               required: false
               question: Repeat checks on records already complete
           hint: The live panel shows which analysis questions your selected jobs can answer. You do not have enough hours to buy every job.
-        answerText: Fund the 48 outcome-dependent losses and recover the seven paper forms. Those two jobs cost 34 of 40 hours and protect the questions the interim must answer; neutral losses and already-complete records can wait.
-        why: The dangerous gaps are not simply the largest ones. Forty-eight participants disappeared after worsening, so their missingness is tied to the outcome itself. That can bend the comparison if the losses differ by arm. Seven outcomes already exist on paper and are cheap to restore. People who moved are missing for a more neutral reason, so tracing them mainly improves precision. Rechecking complete records buys less. The allocation should protect validity first, then spend any remaining effort on precision.
+        answerText: Fund the 48 outcome-dependent losses and recover the 7 paper forms. Those 2 jobs cost 34 of 40 hours and protect the questions the interim must answer; neutral losses and already-complete records can wait.
+        why: The dangerous gaps are not simply the largest ones. 48 participants disappeared after worsening, so their missingness is tied to the outcome itself. That can bend the comparison if the losses differ by arm. Seven outcomes already exist on paper and are cheap to restore. People who moved are missing for a more neutral reason, so tracing them mainly improves precision. Rechecking complete records buys less. The allocation should protect validity first, then spend any remaining effort on precision.
   # ---------------------------------------------------------------- day 8
   - title: The cold room
     objective: Work out which kit is compromised and what that obliges the trial to do.
     briefing: A freezer alarm at one site was silenced for two days in July.
     stake: >-
-      Wednesday, twelve days out. Site 19's fridge logger shows forty-one hours above the storage
+      Wednesday, 12 days out. Site 19's fridge logger shows 41 hours above the storage
       range in July, and the alarm was acknowledged twice and never escalated. Farida Diouf has the
       kit numbers that were in that fridge and can say exactly who received them. What she cannot
       say, and will not find out, is which of those boxes held the drug. Today you decide what the
@@ -1204,15 +1204,15 @@ missions:
         task: Choose what the warm-storage excursion does to the comparison.
         title: Kit that cannot be vouched for
         place: Kit Warehouse & Cold Room
-        scene: Site 19 has already dispensed eleven boxes from the warm fridge to nine participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.
+        scene: Site 19 has already dispensed 11 boxes from the warm fridge to 9 participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.
         assumes:
           - both arms receive kit that looks identical
         takeaway: A storage failure damages one arm's material and leaves the other untouched.
         format: CHOICE
         question: What is the most important effect of the site 19 excursion on the trial comparison?
-        answerText: The excursion can weaken active drug without weakening the comparator. That makes the error one-sided, even though eleven boxes in a four-thousand-box trial are unlikely to move the overall estimate much.
-        why: Identical boxes can hide different contents. Heat can damage active drug, while the comparator has no active material to lose. The excursion can therefore pull treated participants toward the control result. That is different from an error that affects both arms equally. Eleven boxes are unlikely to change the whole trial, but the scale of the problem is a separate question from its direction. Recording the event lets later reviewers distinguish a small one-sided fault from a repeated one.
-        headline: Eleven boxes spent forty-one hours above range at site 19. Nine participants received one of them.
+        answerText: The excursion can weaken active drug without weakening the comparator. That makes the error one-sided, even though 11 boxes in a four-thousand-box trial are unlikely to move the overall estimate much.
+        why: Identical boxes can hide different contents. Heat can damage active drug, while the comparator has no active material to lose. The excursion can therefore pull treated participants toward the control result. That is different from an error that affects both arms equally. 11 boxes are unlikely to change the whole trial, but the scale of the problem is a separate question from its direction. Recording the event lets later reviewers distinguish a small one-sided fault from a repeated one.
+        headline: 11 boxes spent 41 hours above range at site 19. Nine participants received one of them.
         readings:
           - zone: Logger
             label: Hours above range
@@ -1242,7 +1242,7 @@ missions:
             mechanism: Identical packaging would spread any harm across the arms evenly.
           - label: It invalidates every participant enrolled at site 19
             mechanism: Removing a site after the fact would rebalance what the excursion disturbed.
-          - label: It can be ignored because only eleven boxes were involved
+          - label: It can be ignored because only 11 boxes were involved
             mechanism: A fraction that small could not move an estimate either way.
         answer: It can weaken active drug without weakening the comparator
       - group: SITE
@@ -1261,7 +1261,7 @@ missions:
           - That a storage fault may have weakened some kit
           - Nothing, because the boxes cannot be linked to individual arms anyway
           - That they received kit from a faulty fridge and may have been under-treated
-          - Nothing until the board has reviewed the excursion in twelve days
+          - Nothing until the board has reviewed the excursion in 12 days
         answer: That a storage fault may have weakened some kit
         why: >
           Two duties pull in different directions and both can be met. People are entitled to know
@@ -1269,7 +1269,7 @@ missions:
           if the wording covers all nine equally. Saying they may have been under-treated says the
           drug is in the box. Saying nothing because the arms are unknown treats the blind as more
           important than the person, which is the inversion the whole trial is arranged to avoid.
-          Waiting for the board is twelve more days for information that is already certain.
+          Waiting for the board is 12 more days for information that is already certain.
         rebuttals:
           - The link to arms is unknown, and the fault touched their treatment either way.
           - Telling somebody they were under-treated tells them which arm they are on.
@@ -1294,7 +1294,7 @@ missions:
               backed: true
               evidence: continuous temperature logger trace
             - id: scope
-              label: Only eleven kit numbers were exposed
+              label: Only 11 kit numbers were exposed
               critical: true
               backed: false
               evidence: site inventory statement without stock reconciliation
@@ -1309,14 +1309,14 @@ missions:
               backed: true
               evidence: current logger reading
           hint: A check opens the evidence behind one signed claim. Spend the two checks where a wrong claim would most change the size or meaning of the excursion.
-        answerText: Verify the exposure scope and one of the backed critical claims. The weak point is the statement that only eleven kits were exposed; it needs stock reconciliation before the record can establish the excursion's true scope.
-        why: A deviation form does not become reliable because somebody signed it. The duration can be checked against the logger, and the nine recipients can be checked against dispensing records. The important weak link is scope. If more than eleven kits were in the fridge, the size of the problem changes immediately. That claim needs an inventory reconciliation, not another signature. Recording the excursion still matters even if the final effect is small, because later reviewers can only challenge a judgement when its evidence survives.
+        answerText: Verify the exposure scope and one of the backed critical claims. The weak point is the statement that only 11 kits were exposed; it needs stock reconciliation before the record can establish the excursion's true scope.
+        why: A deviation form does not become reliable because somebody signed it. The duration can be checked against the logger, and the nine recipients can be checked against dispensing records. The important weak link is scope. If more than 11 kits were in the fridge, the size of the problem changes immediately. That claim needs an inventory reconciliation, not another signature. Recording the excursion still matters even if the final effect is small, because later reviewers can only challenge a judgement when its evidence survives.
   # ---------------------------------------------------------------- day 9
   - title: What the guessing survey found
     objective: Find out whether the people scoring the outcome knew which arm they were scoring.
     briefing: Investigators were asked to guess. They were right far more often than chance.
     stake: >-
-      Thursday, eleven days out, and a routine questionnaire has come back wrong. At the last
+      Thursday, 11 days out, and a routine questionnaire has come back wrong. At the last
       annual visit every investigator was asked to guess which arm each of their participants was
       on. Across 1,180 guesses they were right 71 per cent of the time. Ansah's committee, who see
       no arms at all, are unaffected; the symptom score written by the treating doctor is another
@@ -1336,7 +1336,7 @@ missions:
         format: CHOICE
         question: What best explains investigators guessing the treatment arm correctly 71 per cent of the time?
         answerText: The visible early flush is the best explanation. It gives investigators information about assignment before they later write the symptom score. The protocol may still say blinded while the measurement process is not.
-        why: Seventy-one per cent correct across 1,180 guesses is far from the 50 per cent expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.
+        why: 71 per cent correct across 1,180 guesses is far from the 50 per cent expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.
         headline: Investigators guessed correctly 71 per cent of the time. Chance would be 50 per cent. First-fortnight logs show a visible flush concentrated in one arm.
         readings:
           - zone: Investigator guesses
@@ -1367,14 +1367,14 @@ missions:
             mechanism: A leak would raise guessing accuracy without any clinical signal to go on.
           - label: Investigators are inferring assignment from dramatic clinical improvement
             mechanism: Accurate guessing would then be a consequence of the treatment working.
-          - label: Seventy-one per cent is a plausible chance fluctuation in 1,180 guesses
+          - label: 71 per cent is a plausible chance fluctuation in 1,180 guesses
             mechanism: Across 1,180 guesses, ordinary variation would put the figure near 50.
         answer: The visible early flush is revealing assignment
       - group: STAT
         task: Open each measurement's dependencies, keep the ones that do not inherit the blinding leak, and name the shared source.
         title: Which measurements share the leak
         place: Statistics & Analysis
-        scene: Feldman has four CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.
+        scene: Feldman has 4 CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.
         assumes:
           - the visible flush can reveal treatment assignment
           - adjudication removes the arm and site before the committee rules
@@ -1430,7 +1430,7 @@ missions:
         task: Decide what has to enter tonight’s pack before the board sees the interim results.
         title: Telling the board what it does not yet know
         place: Monitoring Board Room
-        scene: Vogt reads the interim pack in eleven days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.
+        scene: Vogt reads the interim pack in 11 days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.
         assumes:
           - the board decides whether the trial continues
         takeaway: A board cannot weigh a result whose weakness it has not been shown.
@@ -1466,7 +1466,7 @@ missions:
         title: Reading the same files twice
         place: Adjudication Room
         scene: |-
-          The committee has re-read four hundred files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.
+          The committee has re-read 400 files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.
         assumes:
           - the adjudication committee never sees the arm
         takeaway: Consistency between two readings comes from the rule, not from memory.
@@ -1489,12 +1489,12 @@ missions:
         place: Statistics & Analysis
         scene: The press office has lifted “4.2 percentage points” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on the result.
         assumes:
-          - the 2,400 participants are allocated about equally between two arms
+          - the 2,400 participants are allocated about equally between 2 arms
           - a proportion estimated from a sample has sampling error
         takeaway: Effect size says how large the difference is; standard error says how much the estimate would move across repeated samples.
         format: BALLPARK
         question: Estimate the NNT, then estimate the standard error of the 18.9 per cent control-arm event rate.
-        answerText: About 24 people treated for one event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.
+        answerText: About 24 people treated for 1 event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.
         why: The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9 per cent rate has an SE near 1.1 percentage points. A 95 per cent margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.
         estimate:
           prompt: The adjudicated event happened in 18.9 per cent of control and 14.7 per cent of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95 per cent margin.
@@ -1502,7 +1502,7 @@ missions:
           labels:
             - 0.189  (control arm event rate)
             - 0.147  (treatment arm event rate)
-            - 1200  (participants in one arm, approximately)
+            - 1200  (participants in 1 arm, approximately)
             - 1  (the numerator in NNT)
             - 0.95  (a tempting probability, but not an input to either calculation)
           values: [0.189, 0.147, 0.78, 1, 0.042]
@@ -1524,7 +1524,7 @@ missions:
         title: What to do about a blind that leaks
         place: Kit Warehouse & Cold Room
         scene: >
-          Six hundred participants are still in follow-up and the flush has not stopped happening.
+          600 participants are still in follow-up and the flush has not stopped happening.
           Diouf has been asked whether there is anything the pharmacy can do about it at this stage.
         assumes:
           - the drug produces an early visible effect that the comparator does not
@@ -1543,7 +1543,7 @@ missions:
           separate the assessor from the treating team, and the score is written by somebody with
           nothing to infer from. Matching the comparator's appearance is the right design and it is
           four years too late to introduce here. Leaving it in the notes matters — the notes are the
-          source record — and a limitation paragraph fixes nothing while six hundred people are
+          source record — and a limitation paragraph fixes nothing while 600 people are
           still being scored.
         rebuttals:
           - Changing the comparator mid-trial creates two different control arms and cannot be applied backwards.
@@ -1555,12 +1555,12 @@ missions:
     objective: Close the file that the board will read.
     briefing: Nothing has gone wrong. The cut is on Thursday.
     stake: >-
-      Monday, six days out, and nothing is wrong. Queries are down to forty-one, the sites have sent
-      what they owe, and Renner's reconciliation balanced on the first run for the first time in two
+      Monday, six days out, and nothing is wrong. Queries are down to 41, the sites have sent
+      what they owe, and Renner's reconciliation balanced on the first run for the first time in 2
       years. Umeh has the lock plan on the wall with Thursday circled. Vogt reads the pack on the
       following Tuesday and Petrescu is the only person who will have seen it before then. Today you
       close the file: decide what still has to be true before the data can be frozen, what a locked
-      database actually promises, and which of the forty-one open queries has to be answered before
+      database actually promises, and which of the 41 open queries has to be answered before
       Thursday rather than after it.
     takeaway: A locked file is a promise about a moment, not about perfection.
     stops:
@@ -1587,9 +1587,9 @@ missions:
           - Collection continues after the lock, which is why the next analysis has a different cut.
       - group: SITE
         task: Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.
-        title: Three days, forty-one queries
+        title: 3 days, 41 queries
         place: Monitors' Room
-        scene: Forty-one queries remain and the interim file locks in three working days. One concerns a primary-event date, one a duplicated visit, and thirty-nine are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
+        scene: 41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
         assumes:
           - an event outside the cut is absent from this interim analysis
           - delegation needs an owner, a first action and a condition for returning the problem
@@ -1648,8 +1648,8 @@ missions:
         title: Nothing left in the tray
         place: Adjudication Room
         scene: >
-          Ansah has nineteen files still under adjudication and three days. Two of the nineteen are
-          from participants recruited in the first year and have been waiting on one missing
+          Ansah has 19 files still under adjudication and 3 days. 2 of the 19 are
+          from participants recruited in the first year and have been waiting on 1 missing
           discharge summary each.
         assumes:
           - an event is only counted once the committee has ruled on it
@@ -1664,7 +1664,7 @@ missions:
         answer: Events without a ruling are absent from the analysis
         why: >
           Adjudication is not paperwork after the fact; it is the step that turns something that
-          happened into a countable event. Nineteen files sitting in a tray are nineteen events the
+          happened into a countable event. 19 files sitting in a tray are 19 events the
           analysis will behave as though nobody had. That is not neutral: files wait longest where
           the evidence is thinnest, and the thin files are not evenly spread between arms. Rulings
           made after the lock go into the next version, which means the interim was read on a trial
@@ -1679,8 +1679,8 @@ missions:
     objective: Rank what the board is told when everything arrives on the same morning.
     briefing: A subgroup has crossed its line, a rival has published, and the regulator has written.
     stake: >-
-      Tuesday, five days out, and three things landed before nine. Petrescu's closed tables show one
-      subgroup — participants over seventy — crossing the boundary on its own. A group in Lyon has
+      Tuesday, five days out, and three things landed before nine. Petrescu's closed tables show 1
+      subgroup — participants over 70 — crossing the boundary on its own. A group in Lyon has
       published a smaller trial of a related drug with a strong result. And the regulator has asked
       for the liver cases from day three as a formal safety update, due Friday. Balogun has read the
       Lyon paper twice and wants the board told about all three together. Today you decide what goes
@@ -1692,9 +1692,9 @@ missions:
         title: The subgroup that crossed
         place: Statistics & Analysis
         scene: >
-          Participants over seventy show a difference that clears the line on its own. Feldman asks
-          which of fourteen prespecified subgroups this is, and whether anybody has looked at the
-          other thirteen yet.
+          Participants over 70 show a difference that clears the line on its own. Feldman asks
+          which of 14 prespecified subgroups this is, and whether anybody has looked at the
+          other 13 yet.
         assumes:
           - a subgroup is a slice of the participants analysed on its own
         takeaway: A subgroup result is one of many results, and it has to be judged as one of many.
@@ -1703,13 +1703,13 @@ missions:
         choices:
           - How many subgroups were examined
           - Whether the biology makes sense in older participants
-          - Whether the other thirteen subgroups point the same way
+          - Whether the other 13 subgroups point the same way
           - How large the over-seventy group is
         answer: How many subgroups were examined
         why: >
           Every subgroup is another test. Test enough of them and one will look impressive whatever
-          the drug does. Fourteen slices at the usual threshold give better than even odds that at
-          least one clears the line by luck. So the count comes first. It decides what the result
+          the drug does. 14 slices at the usual threshold give better than even odds that at
+          least 1 clears the line by luck. So the count comes first. It decides what the result
           means, before anybody argues about mechanism. Group size matters. So does the direction of
           the other slices, and so does the biology. All three are read differently once you know
           whether this was the only question asked, or the fourteenth.
@@ -1729,7 +1729,7 @@ missions:
         format: CHOICE
         question: What must Friday's update contain to be worth reading?
         answerText: The update needs the four cases, the number of people exposed, and enough timing and clinical detail to understand the pattern. A case count without its denominator is not a rate.
-        why: Four cases do not say how common the problem is. Four cases among forty exposed people mean something very different from four among twelve hundred. The regulator needs both the numerator and denominator, plus enough clinical detail to recognise a pattern. Causality opinions can be included, but they do not replace the counts. Efficacy results belong to the board's closed review. A recommendation about continuing also comes later, after the people responsible for that decision have the same safety evidence.
+        why: Four cases do not say how common the problem is. 4 cases among 40 exposed people mean something very different from 4 among 1200. The regulator needs both the numerator and denominator, plus enough clinical detail to recognise a pattern. Causality opinions can be included, but they do not replace the counts. Efficacy results belong to the board's closed review. A recommendation about continuing also comes later, after the people responsible for that decision have the same safety evidence.
         choices:
           - The four cases, the exposed population, and the timing and clinical pattern
           - The four cases, the board's current causality judgement, and no exposure denominator
@@ -1791,48 +1791,48 @@ missions:
         answerText: Read the endpoint definition, event count and confidence interval first, then the randomisation methods if time remains. Those tell you whether Lyon is both comparable and credible enough to change what the board weighs; the analysis plan itself stays unchanged.
         why: A striking outside result is neither ignored nor copied into the current trial. First ask whether it measured the same kind of outcome, on enough events, with uncertainty narrow enough to matter. Then ask whether its randomisation protected the comparison. Those features determine how much the paper should change the board's uncertainty. A plausible mechanism or an impressive subgroup can support interpretation, but they cannot rescue an incomparable endpoint. The result belongs in the board's discussion, while CLARION-3's registered analysis remains fixed.
   # ---------------------------------------------------------------- day 13
-  - title: One of fourteen
+  - title: 1 of 14
     objective: Work out what the over-seventies result would have cost if it had been believed.
     briefing: Feldman has the list of every subgroup the plan named.
     stake: >-
-      Wednesday, four days out. The prespecified subgroup list has fourteen entries on it, and the
-      over-seventies are the eleventh. Feldman has spent the morning showing what fourteen looks
+      Wednesday, four days out. The prespecified subgroup list has 14 entries on it, and the
+      over-seventies are the eleventh. Feldman has spent the morning showing what 14 looks
       like: with that many slices, one of them clearing the usual line is close to expected even
       when the treatment does the same thing in everybody. Balogun, who has argued all fortnight for
-      acting sooner, agrees before she has finished. Today you put a number on how often fourteen
+      acting sooner, agrees before she has finished. Today you put a number on how often 14
       independent looks throw up a false positive, and decide what the board is told about the
       over-seventies as a result.
-    takeaway: A result that would be surprising once is unremarkable in fourteen attempts.
+    takeaway: A result that would be surprising once is unremarkable in 14 attempts.
     stops:
       - group: STAT
-        task: Put a number on fourteen looks
+        task: Put a number on 14 looks
         title: How often something clears the line by luck
         place: Statistics & Analysis
         scene: >
-          Fourteen prespecified subgroups, each tested at the usual five per cent. Feldman writes
+          14 prespecified subgroups, each tested at the usual 5 per cent. Feldman writes
           the arithmetic on the board and asks what the chance is that at least one clears the line
           with no real difference anywhere.
         assumes:
           - each test has a five per cent chance of a false positive on its own
         takeaway: The chance of at least one false positive rises fast with the number of tests.
         format: BALLPARK
-        question: Estimate the chance that at least one of fourteen subgroups clears the line by luck alone.
+        question: Estimate the chance that at least 1 of 14 subgroups clears the line by luck alone.
         why: >
           Each test carries its own small chance of being wrong, and the chances do not stay small
           when they are stacked. With independent tests the probability that none misfires is 0.95
-          multiplied by itself once per test, so fourteen tests leave barely half the outcomes
+          multiplied by itself once per test, so 14 tests leave barely half the outcomes
           clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated,
-          but that a room looking in fourteen places will usually find something in one of them.
+          but that a room looking in 14 places will usually find something in 1 of them.
           Real subgroups overlap and correlate, which softens the number without changing the
           lesson.
         estimate:
           prompt: >
-            Fourteen subgroups are each tested at a five per cent level. If nothing is really
+            14 subgroups are each tested at 5 per cent level. If nothing is really
             different anywhere, the chance that none of them clears the line is 0.95 raised to the
             fourteenth power. The chance that at least one does is one minus that.
           question: Choose the per-test pass rate and the number of tests.
           labels:
-            - 0.95  (chance one test does not misfire)
+            - 0.95  (chance 1 test does not misfire)
             - 14  (subgroups tested)
             - 0.05  (the level of each test)
             - 1  (the whole probability)
@@ -1847,14 +1847,14 @@ missions:
           units: chance of at least one
           solution: 1 − 0.95¹⁴ = 1 − 0.49 ≈ 0.51.
           explanation: >
-            About one in two. Fourteen honest looks at a trial where the treatment does the same
-            thing in everybody will produce at least one subgroup clearing the line about half the
+            About 1 in 16 honest looks at a trial where the treatment does the same
+            thing in everybody will produce at least 1 subgroup clearing the line about half the
             time, which is why the over-seventies finding is not evidence on its own.
           givens:
-            - Fourteen subgroups were prespecified
+            - 14 subgroups were prespecified
             - Each is tested at the five per cent level
           relationship: >
-            Chance of at least one false positive = 1 − (1 − α)^m, with α the level of each test and
+            Chance of at least 1 false positive = 1 − (1 − α)^m, with α the level of each test and
             m the number of tests.
         answerText: About 51 per cent — near enough a coin toss.
       - group: ENDP
@@ -1868,7 +1868,7 @@ missions:
         takeaway: A subgroup finding inherits every weakness of the outcome it was measured with.
         format: CHOICE
         question: What does the over-seventies result rest on?
-        why: "Two weaknesses compound here. The finding is one of fourteen subgroup looks, so chance already has many opportunities to produce something interesting. It is also measured on the symptom score, which the guessing survey showed can inherit treatment knowledge. Older participants attend more often, creating more scored visits where a small bias can enter. The adjudicated event in the same subgroup shows nothing unusual. That contrast matters: the subgroup signal is strongest exactly where the measurement process is least protected."
+        why: "Two weaknesses compound here. The finding is 1 of 14 subgroup looks, so chance already has many opportunities to produce something interesting. It is also measured on the symptom score, which the guessing survey showed can inherit treatment knowledge. Older participants attend more often, creating more scored visits where a small bias can enter. The adjudicated event in the same subgroup shows nothing unusual. That contrast matters: the subgroup signal is strongest exactly where the measurement process is least protected."
         choices:
           - The outcome the unblinding was shown to reach
           - The adjudicated endpoint, in a smaller group
@@ -1892,14 +1892,14 @@ missions:
         format: CHOICE
         question: How should the over-seventies table be presented to the board?
         choices:
-          - Beside all fourteen subgroups, on the same page
+          - Beside all 14 subgroups, on the same page
           - On its own, with the biological argument for it
           - Left out, since it is unlikely to be real
           - First, because it is the strongest signal in the pack
-        answer: Beside all fourteen subgroups, on the same page
+        answer: Beside all 14 subgroups, on the same page
         why: >
           A single striking slice on its own page invites the reader to treat it as the finding. The
-          same slice as the eleventh row of fourteen invites them to count, which is the right
+          same slice as the eleventh row of 14 invites them to count, which is the right
           reaction. Presenting all of them costs nothing and removes the choice of what to
           emphasise from whoever assembles the pack. Leaving it out is worse than either: the board
           is the body entitled to see everything, and a pack that filters what looks unlikely has
@@ -1927,7 +1927,7 @@ missions:
         task: Match each recommendation to what the board gives up by making it.
         title: Three things the board can say
         place: Monitoring Board Room
-        scene: Vogt’s board meets behind a closed door in forty minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.
+        scene: Vogt’s board meets behind a closed door in 40 minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.
         assumes:
           - a monitoring board recommends and the sponsor decides
         takeaway: Each way of ending a trial buys something and gives something up.
@@ -1963,7 +1963,7 @@ missions:
         choices:
           - Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant
           - Given the current data, the probability that the treatment truly has a benefit is 78 per cent
-          - Seventy-eight per cent of the information needed for the final analysis has already been collected
+          - 78 per cent of the information needed for the final analysis has already been collected
           - The current interim result has a 78 per cent chance of crossing today's stopping boundary
         answer: Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant
         rebuttals:
@@ -1998,14 +1998,14 @@ missions:
       communications team has written a different one, using the same numbers. Doyle wants to know
       which of the two would help somebody decide on a Tuesday afternoon. Today you settle how the
       result is stated, what the trial is entitled to claim about its endpoint, and what happens
-      now to the two thousand four hundred people still in it.
+      now to the 2400 people still in it.
     takeaway: The last decision in a trial is what to say, and the numbers do not settle it.
     stops:
       - group: REG
         task: Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.
         title: One relative risk, many absolute effects
         place: Regulatory & Registry
-        scene: Two lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22 per cent; the other says roughly four events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
+        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22 per cent; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
         assumes:
           - relative risk is treatment risk divided by control risk
           - absolute risk reduction is control risk minus treatment risk
@@ -2071,18 +2071,18 @@ missions:
         choices:
           - The adjudicated endpoint currently differs by about four points, with uncertainty and further follow-up still ahead
           - The primary endpoint cannot support any effect statement until all 380 planned events have occurred
-          - The four-point effect is established most clearly in participants over seventy because that subgroup crossed its own line
+          - The four-point effect is established most clearly in participants over 70 because that subgroup crossed its own line
           - The four-point effect is already strong enough to justify stopping because the interval excludes no effect
         answer: The adjudicated endpoint currently differs by about four points, with uncertainty and further follow-up still ahead
         rebuttals:
           - Interim data already contain information; the final event count determines precision and the planned stopping rule, not whether the current estimate exists.
-          - That subgroup was one of fourteen and was strongest on the outcome most exposed to the blinding failure.
+          - That subgroup was 1 of 14 and was strongest on the outcome most exposed to the blinding failure.
           - Statistical evidence against no effect is not identical to crossing the prespecified early-stopping boundary.
       - group: SITE
         task: Write the rule for what sites tell participants after the board says continue.
         title: What happens to the people in it
         place: Monitors' Room
-        scene: The board has said continue. At eight Monday morning, thirty-one sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.
+        scene: The board has said continue. At 8 Monday morning, 31 sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.
         assumes:
           - participants continue treatment and follow-up until the trial ends
         takeaway: Consent is maintained, not collected once.
@@ -2102,7 +2102,7 @@ missions:
 # ---------------------------------------------------------------- the rooms
 interiors:
   RAND:
-    caption: Four thousand identical boxes in numbered order. The blind is a physical object.
+    caption: 4000 identical boxes in numbered order. The blind is a physical object.
     standLine: Kit 2118–2129, site 19. Storage excursion under review before release.
     station:
       kind: panel
@@ -2114,7 +2114,7 @@ interiors:
         - { label: Code breaks this trial, value: 2, status: normal }
   ENDP:
     caption: Three readers, no arm, no site, and a definition agreed before the first participant.
-    standLine: Nineteen files under adjudication. Two waiting on a discharge summary.
+    standLine: 19 files under adjudication. Two waiting on a discharge summary.
     station:
       kind: panel
       title: Adjudication queue
@@ -2146,8 +2146,8 @@ interiors:
         - { label: Information fraction, value: 0.65, status: high }
         - { label: Boundary at this look, value: p < 0.0122, status: normal }
   SITE:
-    caption: Twenty-nine of thirty-one sites are fine. The work is the other two.
-    standLine: Site 12 screening log, and thirty others for comparison.
+    caption: 29 of 31 sites are fine. The work is the other two.
+    standLine: Site 12 screening log, and 30 others for comparison.
     station:
       kind: panel
       title: Site operations
@@ -2158,7 +2158,7 @@ interiors:
         - { label: Deviations logged this month, value: 17, status: normal }
   REG:
     caption: The trial's promises, with the date each one was made.
-    standLine: Protocol v6, registry entry updated, four amendments on file.
+    standLine: Protocol v6, registry entry updated, 4 amendments on file.
     station:
       kind: panel
       title: Commitments
@@ -2169,11 +2169,11 @@ interiors:
         - { label: Safety update due, value: Friday, status: alarm }
 
 copy:
-  RAND: <p>The kit warehouse and the cold room. Four thousand boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>
+  RAND: <p>The kit warehouse and the cold room. 4000 boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>
   ENDP: <p>The adjudication room. Two reading screens back to back, files with the arm and the site stripped out, and a definition on the wall that has not changed in four years.</p>
-  SAFE: <p>The monitoring board room. A table for nine, a closed-session sign, and the only meeting in this building that sees CLARION-3 by arm.</p>
+  SAFE: <p>The monitoring board room. A table for 9, a closed-session sign, and the only meeting in this building that sees CLARION-3 by arm.</p>
   STAT: <p>The statistics room. The analysis plan, the boundary for each look, and every version of both with the date it took effect.</p>
-  SITE: <p>The monitors&rsquo; room. Banker&rsquo;s boxes of couriered source documents, a verification table, and a queue of queries waiting on thirty-one hospitals.</p>
+  SITE: <p>The monitors&rsquo; room. Banker&rsquo;s boxes of couriered source documents, a verification table, and a queue of queries waiting on 31 hospitals.</p>
   REG: <p>Regulatory and registry. What the trial promised, when it promised it, and what it still owes the people it reports to.</p>
   SCREEN: <p>Screening and consent. Two chairs, a table and an eligibility checklist &mdash; where somebody becomes a participant, or does not.</p>
   INFUSE: <p>The infusion bay. Six chairs, drip stands, a wall clock, and bags nobody in the room can tell apart.</p>

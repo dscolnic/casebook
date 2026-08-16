@@ -92,7 +92,16 @@ const INSTRUMENT_GRADEABLE = (kind, ch) => {
                                 && (b.stops ?? []).some(x => String(x.id) === String(b.resumeAt));
     // Every step needs candidates and an answer that indexes into them, or the
     // panel renders lines nobody can be right about.
-    case 'DERIVE':      return (b.steps ?? []).length >= 2 && (b.rules ?? []).length >= 3
+    //
+    // `rules` is THREE OR NONE, which is the importer's rule and has to be this
+    // one too. A derivation may switch the naming half off and grade the line by
+    // itself — one or two rules to choose from would answer the second half of
+    // every step by elimination, so the format offers three or nothing. Demanding
+    // three here failed every derivation that had legitimately chosen none, which
+    // is all ten of Midway's: the game imported clean, played fine, and the smoke
+    // test called it ungradeable.
+    case 'DERIVE':      return (b.steps ?? []).length >= 2
+                                && ((b.rules ?? []).length === 0 || (b.rules ?? []).length >= 3)
                                 && (b.steps ?? []).every(st => (st.candidates ?? []).length >= 3
                                      && Number.isInteger(+st.answer)
                                      && +st.answer < (st.candidates ?? []).length);

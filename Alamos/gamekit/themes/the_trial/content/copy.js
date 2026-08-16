@@ -3,11 +3,11 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "RAND": "<p>The kit warehouse and the cold room. Four thousand boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>",
+  "RAND": "<p>The kit warehouse and the cold room. 4000 boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>",
   "ENDP": "<p>The adjudication room. Two reading screens back to back, files with the arm and the site stripped out, and a definition on the wall that has not changed in four years.</p>",
-  "SAFE": "<p>The monitoring board room. A table for nine, a closed-session sign, and the only meeting in this building that sees CLARION-3 by arm.</p>",
+  "SAFE": "<p>The monitoring board room. A table for 9, a closed-session sign, and the only meeting in this building that sees CLARION-3 by arm.</p>",
   "STAT": "<p>The statistics room. The analysis plan, the boundary for each look, and every version of both with the date it took effect.</p>",
-  "SITE": "<p>The monitors&rsquo; room. Banker&rsquo;s boxes of couriered source documents, a verification table, and a queue of queries waiting on thirty-one hospitals.</p>",
+  "SITE": "<p>The monitors&rsquo; room. Banker&rsquo;s boxes of couriered source documents, a verification table, and a queue of queries waiting on 31 hospitals.</p>",
   "REG": "<p>Regulatory and registry. What the trial promised, when it promised it, and what it still owes the people it reports to.</p>",
   "SCREEN": "<p>Screening and consent. Two chairs, a table and an eligibility checklist &mdash; where somebody becomes a participant, or does not.</p>",
   "INFUSE": "<p>The infusion bay. Six chairs, drip stands, a wall clock, and bags nobody in the room can tell apart.</p>",

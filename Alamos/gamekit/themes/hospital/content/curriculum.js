@@ -405,14 +405,14 @@ export const CURRICULUM = {
     },
     {
       "day": 10,
-      "title": "Six Patients, One First Room — Review 2",
+      "title": "6 Patients, 1 First Room — Review 2",
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
-        "title": "Six Patients, One First Room — Review 2",
+        "title": "6 Patients, 1 First Room — Review 2",
         "setup": "Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage",
         "play": "Who should go to the first available room?",
         "task": "Who should go to the first available room?",
@@ -705,14 +705,14 @@ export const CURRICULUM = {
     },
     {
       "day": 16,
-      "title": "Six Patients, One First Room — Review 3",
+      "title": "6 Patients, 1 First Room — Review 3",
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
-        "title": "Six Patients, One First Room — Review 3",
+        "title": "6 Patients, 1 First Room — Review 3",
         "setup": "Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage",
         "play": "Who should go to the first available room?",
         "task": "Who should go to the first available room?",
@@ -1005,14 +1005,14 @@ export const CURRICULUM = {
     },
     {
       "day": 22,
-      "title": "Six Patients, One First Room — Review 4",
+      "title": "6 Patients, 1 First Room — Review 4",
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
-        "title": "Six Patients, One First Room — Review 4",
+        "title": "6 Patients, 1 First Room — Review 4",
         "setup": "Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage",
         "play": "Who should go to the first available room?",
         "task": "Who should go to the first available room?",
@@ -1277,7 +1277,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "Doctors often turn short counts into one-minute estimates.",
       "place": "",
-      "story": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. Nurses count in short blocks because it is faster. People also breathe differently when they know you are watching. Fifteen seconds is one quarter of a minute. This is math practice only. The care team decides what numbers mean.",
+      "story": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. Nurses count in short blocks because it is faster. People also breathe differently when they know you are watching. 15 seconds is 1 quarter of a minute. This is math practice only. The care team decides what numbers mean.",
       "game": {
         "type": "BALLPARK",
         "title": "Count the Breaths",
@@ -1286,37 +1286,21 @@ export const CURRICULUM = {
         "task": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "question": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "answer": "20",
-        "why": "One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
+        "why": "1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
         "rebuttals": [
-          "A. 10 — 10 would be only two groups of 5.",
-          "B. 15 — 15 would be three groups of 5.",
+          "A. 10 — 10 would be only 2 groups of 5.",
+          "B. 15 — 15 would be 3 groups of 5.",
           "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths."
         ],
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
       ],
       "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
-          "computed": true
-        },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
@@ -1374,7 +1358,7 @@ export const CURRICULUM = {
       "scene": "Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "A pulse is a clue that the heart is beating and moving blood.",
       "place": "",
-      "story": "Jordan just climbed the stairs. Now he is resting. The therapist counts 18 beats in 15 seconds. Each heartbeat pushes blood along. That push makes a little bump you can feel. Counting it needs only fingers and a clock. It is one of the oldest checks in medicine. Fifteen seconds is a quarter of a minute.",
+      "story": "Jordan just climbed the stairs. Now he is resting. The therapist counts 18 beats in 15 seconds. Each heartbeat pushes blood along. That push makes a little bump you can feel. Counting it needs only fingers and a clock. It is one of the oldest checks in medicine. 15 seconds is a quarter of a minute.",
       "game": {
         "type": "BALLPARK",
         "title": "Pulse Math",
@@ -1383,7 +1367,7 @@ export const CURRICULUM = {
         "task": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "question": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "answer": "72",
-        "why": "One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
+        "why": "1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
         "rebuttals": [
           "A. 36 — 36 is only 18 × 2.",
           "B. 54 — 54 is 18 × 3.",
@@ -1392,7 +1376,7 @@ export const CURRICULUM = {
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
@@ -1468,14 +1452,14 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Follow One Breath — Review 2",
+      "title": "Follow 1 Breath — Review 2",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow One Breath — Review 2",
+        "title": "Follow 1 Breath — Review 2",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -1564,37 +1548,21 @@ export const CURRICULUM = {
         "task": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "question": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "answer": "20",
-        "why": "One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
+        "why": "1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
         "rebuttals": [
-          "A. 10 — 10 would be only two groups of 5.",
-          "B. 15 — 15 would be three groups of 5.",
+          "A. 10 — 10 would be only 2 groups of 5.",
+          "B. 15 — 15 would be 3 groups of 5.",
           "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths."
         ],
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
       ],
       "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
-          "computed": true
-        },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
@@ -1661,7 +1629,7 @@ export const CURRICULUM = {
         "task": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "question": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "answer": "72",
-        "why": "One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
+        "why": "1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
         "rebuttals": [
           "A. 36 — 36 is only 18 × 2.",
           "B. 54 — 54 is 18 × 3.",
@@ -1670,7 +1638,7 @@ export const CURRICULUM = {
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
@@ -1746,14 +1714,14 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "Follow One Breath — Review 3",
+      "title": "Follow 1 Breath — Review 3",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow One Breath — Review 3",
+        "title": "Follow 1 Breath — Review 3",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -1842,37 +1810,21 @@ export const CURRICULUM = {
         "task": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "question": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "answer": "20",
-        "why": "One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
+        "why": "1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
         "rebuttals": [
-          "A. 10 — 10 would be only two groups of 5.",
-          "B. 15 — 15 would be three groups of 5.",
+          "A. 10 — 10 would be only 2 groups of 5.",
+          "B. 15 — 15 would be 3 groups of 5.",
           "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths."
         ],
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
       ],
       "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
-          "computed": true
-        },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
@@ -1939,7 +1891,7 @@ export const CURRICULUM = {
         "task": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "question": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "answer": "72",
-        "why": "One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
+        "why": "1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
         "rebuttals": [
           "A. 36 — 36 is only 18 × 2.",
           "B. 54 — 54 is 18 × 3.",
@@ -1948,7 +1900,7 @@ export const CURRICULUM = {
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
@@ -2024,14 +1976,14 @@ export const CURRICULUM = {
     },
     {
       "day": 19,
-      "title": "Follow One Breath — Review 4",
+      "title": "Follow 1 Breath — Review 4",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow One Breath — Review 4",
+        "title": "Follow 1 Breath — Review 4",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -2120,37 +2072,21 @@ export const CURRICULUM = {
         "task": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "question": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
         "answer": "20",
-        "why": "One minute has four 15-second parts. So 5 breaths in 15 seconds is 5 four times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
+        "why": "1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
         "rebuttals": [
-          "A. 10 — 10 would be only two groups of 5.",
-          "B. 15 — 15 would be three groups of 5.",
+          "A. 10 — 10 would be only 2 groups of 5.",
+          "B. 15 — 15 would be 3 groups of 5.",
           "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths."
         ],
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
       ],
       "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
-          "computed": true
-        },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
@@ -2217,7 +2153,7 @@ export const CURRICULUM = {
         "task": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "question": "18 beats in 15 seconds is about how many beats in 60 seconds?",
         "answer": "72",
-        "why": "One minute has four 15-second parts. So 18 beats in 15 seconds is 18 four times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
+        "why": "1 minute has 4 15-second parts. So 18 beats in 15 seconds is 18 4 times, which is 72. Each beat is one push of blood. You can feel that push with two fingers and a clock. It is one of the oldest checks in medicine.",
         "rebuttals": [
           "A. 36 — 36 is only 18 × 2.",
           "B. 54 — 54 is 18 × 3.",
@@ -2226,7 +2162,7 @@ export const CURRICULUM = {
         "givens": [
           "Use the numbers shown"
         ],
-        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in fifteen seconds × 4."
+        "relationship": "A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4."
       },
       "assumes": [
         "a minute has 60 seconds"
@@ -2302,14 +2238,14 @@ export const CURRICULUM = {
     },
     {
       "day": 25,
-      "title": "Follow One Breath — Review 5",
+      "title": "Follow 1 Breath — Review 5",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow One Breath — Review 5",
+        "title": "Follow 1 Breath — Review 5",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -2484,9 +2420,9 @@ export const CURRICULUM = {
         "answer": "6",
         "why": "Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.",
         "rebuttals": [
-          "A. 4 — 4 leaves out two of the cups.",
-          "B. 5 — 5 is one cup too few.",
-          "D. 7 — 7 is one cup too many."
+          "A. 4 — 4 leaves out 2 of the cups.",
+          "B. 5 — 5 is 1 cup too few.",
+          "D. 7 — 7 is 1 cup too many."
         ],
         "givens": [
           "Use the numbers shown"
@@ -2633,14 +2569,14 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "Three Jobs, Three Organs — Review 2",
+      "title": "3 Jobs, 3 Organs — Review 2",
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
-        "title": "Three Jobs, Three Organs — Review 2",
+        "title": "3 Jobs, 3 Organs — Review 2",
         "setup": "Sam, Nia, and Owen  •  Pediatric Exam Room",
         "play": "Which matching set is correct?",
         "task": "Which matching set is correct?",
@@ -2731,9 +2667,9 @@ export const CURRICULUM = {
         "answer": "6",
         "why": "Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.",
         "rebuttals": [
-          "A. 4 — 4 leaves out two of the cups.",
-          "B. 5 — 5 is one cup too few.",
-          "D. 7 — 7 is one cup too many."
+          "A. 4 — 4 leaves out 2 of the cups.",
+          "B. 5 — 5 is 1 cup too few.",
+          "D. 7 — 7 is 1 cup too many."
         ],
         "givens": [
           "Use the numbers shown"
@@ -2863,14 +2799,14 @@ export const CURRICULUM = {
     },
     {
       "day": 15,
-      "title": "Three Jobs, Three Organs — Review 3",
+      "title": "3 Jobs, 3 Organs — Review 3",
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
-        "title": "Three Jobs, Three Organs — Review 3",
+        "title": "3 Jobs, 3 Organs — Review 3",
         "setup": "Sam, Nia, and Owen  •  Pediatric Exam Room",
         "play": "Which matching set is correct?",
         "task": "Which matching set is correct?",
@@ -2961,9 +2897,9 @@ export const CURRICULUM = {
         "answer": "6",
         "why": "Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.",
         "rebuttals": [
-          "A. 4 — 4 leaves out two of the cups.",
-          "B. 5 — 5 is one cup too few.",
-          "D. 7 — 7 is one cup too many."
+          "A. 4 — 4 leaves out 2 of the cups.",
+          "B. 5 — 5 is 1 cup too few.",
+          "D. 7 — 7 is 1 cup too many."
         ],
         "givens": [
           "Use the numbers shown"
@@ -3093,14 +3029,14 @@ export const CURRICULUM = {
     },
     {
       "day": 21,
-      "title": "Three Jobs, Three Organs — Review 4",
+      "title": "3 Jobs, 3 Organs — Review 4",
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
-        "title": "Three Jobs, Three Organs — Review 4",
+        "title": "3 Jobs, 3 Organs — Review 4",
         "setup": "Sam, Nia, and Owen  •  Pediatric Exam Room",
         "play": "Which matching set is correct?",
         "task": "Which matching set is correct?",
@@ -3191,9 +3127,9 @@ export const CURRICULUM = {
         "answer": "6",
         "why": "Six cups went in. About eight cups went out. That leaves her two cups short. The body loses water all day, even when you are still. So you count what goes in against what goes out. One number on its own does not tell you much.",
         "rebuttals": [
-          "A. 4 — 4 leaves out two of the cups.",
-          "B. 5 — 5 is one cup too few.",
-          "D. 7 — 7 is one cup too many."
+          "A. 4 — 4 leaves out 2 of the cups.",
+          "B. 5 — 5 is 1 cup too few.",
+          "D. 7 — 7 is 1 cup too many."
         ],
         "givens": [
           "Use the numbers shown"
@@ -3509,10 +3445,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Therapy Sets",
-      "scene": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. Fifteen is harder. Groups of the same size are what multiplying is for.",
+      "scene": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. 15 is harder. Groups of the same size are what multiplying is for.",
       "takeaway": "Repeated sets are groups, so multiplication helps count them quickly.",
       "place": "",
-      "story": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. Fifteen is harder. Groups of the same size are what multiplying is for.",
+      "story": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. 15 is harder. Groups of the same size are what multiplying is for.",
       "game": {
         "type": "BALLPARK",
         "title": "Therapy Sets",
@@ -3521,10 +3457,10 @@ export const CURRICULUM = {
         "task": "How many leg lifts are in 3 sets of 5?",
         "question": "How many leg lifts are in 3 sets of 5?",
         "answer": "15",
-        "why": "There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
+        "why": "There are 3 sets, and each set has 5 lifts. So it is 5 3 times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
         "rebuttals": [
           "A. 8 — 8 comes from adding 3 + 5.",
-          "B. 10 — 10 is only two groups of 5.",
+          "B. 10 — 10 is only 2 groups of 5.",
           "D. 35 — 35 joins the digits instead of multiplying."
         ],
         "givens": [
@@ -3849,10 +3785,10 @@ export const CURRICULUM = {
         "task": "How many leg lifts are in 3 sets of 5?",
         "question": "How many leg lifts are in 3 sets of 5?",
         "answer": "15",
-        "why": "There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
+        "why": "There are 3 sets, and each set has 5 lifts. So it is 5 3 times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
         "rebuttals": [
           "A. 8 — 8 comes from adding 3 + 5.",
-          "B. 10 — 10 is only two groups of 5.",
+          "B. 10 — 10 is only 2 groups of 5.",
           "D. 35 — 35 joins the digits instead of multiplying."
         ],
         "givens": [
@@ -4177,10 +4113,10 @@ export const CURRICULUM = {
         "task": "How many leg lifts are in 3 sets of 5?",
         "question": "How many leg lifts are in 3 sets of 5?",
         "answer": "15",
-        "why": "There are 3 sets, and each set has 5 lifts. So it is 5 three times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
+        "why": "There are 3 sets, and each set has 5 lifts. So it is 5 3 times, which is 15. This is why therapy is counted in sets. Counting the total helps the team see if it is getting easier or harder from one day to the next.",
         "rebuttals": [
           "A. 8 — 8 comes from adding 3 + 5.",
-          "B. 10 — 10 is only two groups of 5.",
+          "B. 10 — 10 is only 2 groups of 5.",
           "D. 35 — 35 joins the digits instead of multiplying."
         ],
         "givens": [
@@ -4230,10 +4166,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The Body's Slow Messages",
-      "scene": "Theo is eleven and has grown four centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
+      "scene": "Theo is 11 and has grown 4 centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
       "takeaway": "The body sends slow chemical messages, and some of them tell the body to grow.",
       "place": "Brain and Senses Room",
-      "story": "Theo is eleven and has grown four centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
+      "story": "Theo is 11 and has grown 4 centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
       "game": {
         "type": "CHOICE",
         "title": "The Body's Slow Messages",
@@ -5390,10 +5326,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Temperature Difference",
-      "scene": "A chart shows two numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
+      "scene": "A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
       "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
       "place": "",
-      "story": "A chart shows two temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are three hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
+      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
       "game": {
         "type": "BALLPARK",
         "title": "Temperature Difference",
@@ -5402,10 +5338,10 @@ export const CURRICULUM = {
         "task": "How fast is her temperature rising, in degrees per hour?",
         "question": "How fast is her temperature rising, in degrees per hour?",
         "answer": "3°F",
-        "why": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in ten minutes would be a much bigger worry.",
+        "why": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in 10 minutes would be a much bigger worry.",
         "rebuttals": [
-          "A. 1°F — 101 is three, not one, above 98.",
-          "B. 2°F — 101 is three, not two, above 98.",
+          "A. 1°F — 101 is 3, not 1, above 98.",
+          "B. 2°F — 101 is 3, not 2, above 98.",
           "D. 199°F — 199 comes from adding, but the question asks for the difference."
         ],
         "givens": [
@@ -5869,10 +5805,10 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Temperature Difference — Review 2",
-      "scene": "A chart shows two numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
+      "scene": "A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
       "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
       "place": "",
-      "story": "A chart shows two temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are three hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
+      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
       "game": {
         "type": "BALLPARK",
         "title": "Temperature Difference — Review 2",
@@ -5881,10 +5817,10 @@ export const CURRICULUM = {
         "task": "How fast is her temperature rising, in degrees per hour?",
         "question": "How fast is her temperature rising, in degrees per hour?",
         "answer": "3°F",
-        "why": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in ten minutes would be a much bigger worry.",
+        "why": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in 10 minutes would be a much bigger worry.",
         "rebuttals": [
-          "A. 1°F — 101 is three, not one, above 98.",
-          "B. 2°F — 101 is three, not two, above 98.",
+          "A. 1°F — 101 is 3, not 1, above 98.",
+          "B. 2°F — 101 is 3, not 2, above 98.",
           "D. 199°F — 199 comes from adding, but the question asks for the difference."
         ],
         "givens": [

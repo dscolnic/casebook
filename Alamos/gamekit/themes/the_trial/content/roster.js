@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Trial Chair",
     "division": "SITE",
     "color": "#b0762a",
-    "bio": "<p>Chairs CLARION-3, and saw the first eleven participants himself before the trial had a coordinating centre. He counts the trial in people rather than in months: two thousand four hundred, half of them on whichever arm turns out to be the worse one.</p><p>His argument with the statistics room is the same one every week. A trial that runs a year longer is a year of somebody getting the treatment that loses, and that cost is real even when nobody can put an interval on it.</p><p>His limit is that he wants the answer, which is exactly the state of mind a stopping rule is written to protect a trial from.</p>",
+    "bio": "<p>Chairs CLARION-3, and saw the first 11 participants himself before the trial had a coordinating centre. He counts the trial in people rather than in months: 2400, half of them on whichever arm turns out to be the worse 1.</p><p>His argument with the statistics room is the same one every week. A trial that runs a year longer is a year of somebody getting the treatment that loses, and that cost is real even when nobody can put an interval on it.</p><p>His limit is that he wants the answer, which is exactly the state of mind a stopping rule is written to protect a trial from.</p>",
     "quiz": [
       {
         "q": "Why does Balogun treat a year of extra recruitment as a cost rather than as caution?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Trial Pharmacist",
     "division": "RAND",
     "color": "#3f6f8f",
-    "bio": "<p>Runs the kit warehouse, where the blind is not an idea but four thousand identical boxes in numbered order. She packs, labels, ships and counts them back, and she can tell you where any one of them is.</p><p>Every box carries a code-break envelope that has never been opened. Two have been opened in four years, both at three in the morning, both for a patient in front of a doctor who needed to know.</p><p>Her limit is the cold room. Kit that has been warm is kit she cannot vouch for, and vouching is the whole job.</p>",
+    "bio": "<p>Runs the kit warehouse, where the blind is not an idea but 4000 identical boxes in numbered order. She packs, labels, ships and counts them back, and she can tell you where any one of them is.</p><p>Every box carries a code-break envelope that has never been opened. Two have been opened in four years, both at three in the morning, both for a patient in front of a doctor who needed to know.</p><p>Her limit is the cold room. Kit that has been warm is kit she cannot vouch for, and vouching is the whole job.</p>",
     "quiz": [
       {
         "q": "Why does Diouf treat the numbering of the boxes as part of the science?",
@@ -142,7 +142,7 @@ export const ROSTER = [
     "role": "Lead Monitor",
     "division": "SITE",
     "color": "#b0762a",
-    "bio": "<p>Drives to sites and reads the hospital notes against what the site typed into the database. Twenty-nine of the thirty-one are fine. She spends her time on the two, and on working out why they are the two.</p><p>She has learned that most mismatches are not dishonesty but a form filled in on Friday from memory, and that the fix is usually a rota rather than a warning letter.</p><p>Her limit is that she samples. Nobody verifies every field of every participant, so what she can say is about the site rather than the record.</p>",
+    "bio": "<p>Drives to sites and reads the hospital notes against what the site typed into the database. 29 of the 31 are fine. She spends her time on the two, and on working out why they are the two.</p><p>She has learned that most mismatches are not dishonesty but a form filled in on Friday from memory, and that the fix is usually a rota rather than a warning letter.</p><p>Her limit is that she samples. Nobody verifies every field of every participant, so what she can say is about the site rather than the record.</p>",
     "quiz": [
       {
         "q": "Why does Marchetti check the hospital notes rather than the trial's own forms?",
@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Principal Investigator, Site 12",
     "division": "SITE",
     "color": "#b0762a",
-    "bio": "<p>Runs the fastest-recruiting site in CLARION-3 and is proud of it. Site 12 has enrolled more than twice its share, and his screening log is the shortest in the trial.</p><p>He believes the trial is good for his patients and that the eligibility criteria are conservative. He is at least half right, and the half he is wrong about does not show up in his own numbers at all.</p><p>His limit is that a site cannot see itself. Everything unusual about site 12 is only visible next to the other thirty.</p>",
+    "bio": "<p>Runs the fastest-recruiting site in CLARION-3 and is proud of it. Site 12 has enrolled more than twice its share, and his screening log is the shortest in the trial.</p><p>He believes the trial is good for his patients and that the eligibility criteria are conservative. He is at least half right, and the half he is wrong about does not show up in his own numbers at all.</p><p>His limit is that a site cannot see itself. Everything unusual about site 12 is only visible next to the other 30.</p>",
     "quiz": [
       {
         "q": "Why can site 12's recruiting speed only be judged from outside the site?",
@@ -199,7 +199,7 @@ export const ROSTER = [
     "role": "Participant Representative",
     "division": "SAFE",
     "color": "#b3462f",
-    "bio": "<p>Sits on the steering committee because somebody in the room has to have been the person the trial is about. She had the condition CLARION-3 is studying and was in a different trial nine years ago.</p><p>She reads every draft of the participant information and sends back the sentences that mean nothing. Her standing question about any result is what it would tell somebody deciding on a Tuesday afternoon whether to take it.</p><p>Her limit is that she is one person's experience, which she says more often than anyone else does.</p>",
+    "bio": "<p>Sits on the steering committee because somebody in the room has to have been the person the trial is about. She had the condition CLARION-3 is studying and was in a different trial 9 years ago.</p><p>She reads every draft of the participant information and sends back the sentences that mean nothing. Her standing question about any result is what it would tell somebody deciding on a Tuesday afternoon whether to take it.</p><p>Her limit is that she is one person's experience, which she says more often than anyone else does.</p>",
     "quiz": [
       {
         "q": "What is Doyle's standing test for how a result should be reported?",

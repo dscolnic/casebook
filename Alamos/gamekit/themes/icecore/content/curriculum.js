@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the hole is on the dome",
-      "scene": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with three abandoned sites on it, all of them on slopes. Vestri Dome is the high point for two hundred kilometres.",
+      "scene": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with 3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200 kilometres.",
       "takeaway": "A core is a column of what fell above it only where the ice has not travelled sideways.",
       "place": "Drill Trench",
-      "story": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with three abandoned sites on it, all of them on slopes. Vestri Dome is the high point for two hundred kilometres.",
+      "story": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with 3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200 kilometres.",
       "game": {
         "type": "CHOICE",
         "title": "Why the hole is on the dome",
@@ -52,7 +52,7 @@ export const CURRICULUM = {
         "task": "Bring a brittle section up whole",
         "question": "Bring a brittle section up whole",
         "answer": "",
-        "why": "Between about five hundred and twelve hundred metres the bubbles are at pressures the surface cannot support, and the ice around them fractures as it is brought up. Each step buys the next one: a slow lift reduces the shock, resting the core at hole temperature lets the pressure equalise gradually, logging the breaks fixes what depth each fragment came from before anything moves, and storing it for weeks lets it finish cracking. Cutting first destroys the depth information and cuts a section that is still moving.",
+        "why": "Between about 51200 metres the bubbles are at pressures the surface cannot support, and the ice around them fractures as it is brought up. Each step buys the next one: a slow lift reduces the shock, resting the core at hole temperature lets the pressure equalise gradually, logging the breaks fixes what depth each fragment came from before anything moves, and storing it for weeks lets it finish cracking. Cutting first destroys the depth information and cuts a section that is still moving.",
         "cards": [
           "Slow the winch through the depth band where bubbles are at their highest pressure",
           "Let the section rest in the trench at drill-hole temperature before it is handled",
@@ -160,20 +160,20 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "A year at two thousand four hundred metres",
-      "scene": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.",
+      "title": "A year at 2400 metres",
+      "scene": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what 1 is now.",
       "takeaway": "Thinning is why a deep core holds so much time in so little ice.",
       "place": "Drill Trench",
-      "story": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.",
+      "story": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what 1 is now.",
       "game": {
         "type": "BALLPARK",
-        "title": "A year at two thousand four hundred metres",
+        "title": "A year at 2400 metres",
         "setup": "Drill Trench",
         "play": "Work out how thin a year is down there",
         "task": "Work out how thin a year is down there",
-        "question": "Estimate the thickness of one annual layer at 2,400 metres.",
-        "answer": "About 0.024 metres — a fifth of a surface year, squeezed into twenty-four millimetres.",
-        "why": "Ice flows outwards from the dome, and to keep going it has to stretch, so each layer thins as the weight above it grows. The simplest model treats the vertical strain as uniform, which makes a layer's thickness fall in proportion to the distance left to the bed: at four-fifths of the way down, a layer is one-fifth of what it was. That is what packs a hundred thousand years into the bottom kilometre, and it is also why the count stops and the dating starts depending on a model.",
+        "question": "Estimate the thickness of 1 annual layer at 2,400 metres.",
+        "answer": "About 0.024 metres — a fifth of a surface year, squeezed into 24 millimetres.",
+        "why": "Ice flows outwards from the dome, and to keep going it has to stretch, so each layer thins as the weight above it grows. The simplest model treats the vertical strain as uniform, which makes a layer's thickness fall in proportion to the distance left to the bed: at four-fifths of the way down, a layer is one-fifth of what it was. That is what packs 100000 years into the bottom kilometre, and it is also why the count stops and the dating starts depending on a model.",
         "givens": [],
         "relationship": "λ(z) = λ₀ × (H − z) ÷ H — the layer's original thickness, scaled by how much of the ice sheet is left below it.",
         "calcKey": "DRILL-4"
@@ -310,7 +310,7 @@ export const CURRICULUM = {
               "required": true
             },
             {
-              "question": "Is the tephra horizon present in a second hole four hundred metres away?",
+              "question": "Is the tephra horizon present in a second hole 400 metres away?",
               "requires": [
                 "replicate"
               ],
@@ -376,8 +376,8 @@ export const CURRICULUM = {
         "play": "Put the restart in order",
         "task": "Put the restart in order",
         "question": "What is restarted first?",
-        "answer": "The core store. It is the only one of the four still losing something irreversibly, and every hour above minus twenty costs gas measurements that cannot be made again.",
-        "why": "Three of these are waiting and one is deteriorating. Ice above minus twenty starts losing gas from the bubbles near its cut faces, and that loss cannot be undone or measured around; every hour is more of the core that can no longer answer a gas question. A lost drilling day is a day, the queued samples are as good tomorrow as today, and a report sent six hours late is a report sent. Order by what is still being lost.",
+        "answer": "The core store. It is the only 1 of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.",
+        "why": "Three of these are waiting and one is deteriorating. Ice above minus 20 starts losing gas from the bubbles near its cut faces, and that loss cannot be undone or measured around; every hour is more of the core that can no longer answer a gas question. A lost drilling day is a day, the queued samples are as good tomorrow as today, and a report sent six hours late is a report sent. Order by what is still being lost.",
         "rebuttals": [
           "A drilling day is recoverable, and the drill is not losing anything while it stands idle",
           "Queued samples are in the store; if the store is warm they are the thing being lost, not the queue",
@@ -386,7 +386,7 @@ export const CURRICULUM = {
         "choices": [
           "The core store refrigeration, which is still warming",
           "The drill, so the day's run is not lost",
-          "The chemistry line, so the sixteen queued samples can be run",
+          "The chemistry line, so the 16 queued samples can be run",
           "The satellite link, so the season report can be sent"
         ],
         "correctChoice": "The core store refrigeration, which is still warming"
@@ -462,7 +462,7 @@ export const CURRICULUM = {
         "answer": "Work that does not need a precise depth — density, crystal fabric, drill performance — with the four-metre uncertainty recorded against it.",
         "why": "A depth is what converts a measurement into a statement about a year. Four metres here is thirty-odd years, so an isotope value from this section cannot be placed in the record and would sit in it as a point with no time. It is still perfectly good ice for anything the depth does not enter: density, crystal fabric, how the drill is performing. The rule that matters is that the uncertainty travels with the sample, because the danger is not the gap — it is somebody downstream who never hears about it.",
         "rebuttals": [
-          "Four metres is thirty years at this site, which is larger than most of the features the isotopes are used to find",
+          "4 metres is 30 years at this site, which is larger than most of the features the isotopes are used to find",
           "Discarding it throws away measurements that never needed a depth in the first place",
           "Assigning a most likely depth writes a guess into the record in the same handwriting as the measurements"
         ],
@@ -493,7 +493,7 @@ export const CURRICULUM = {
         "task": "Find where the layers stop being countable",
         "question": "The line resolves bands three millimetres apart and no closer. At what depth does the annual layer thickness fall to that limit?",
         "answer": "About 2,180 metres. Below that the bands are closer together than the line can separate, and the ages have to come from the flow model.",
-        "why": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks, and the thinning compounds with depth. At Vestri the surface lays down about twelve centimetres a year in ice equivalent; two kilometres down the same year is a few millimetres. Where the layers close to within the resolution of the measurement, the count stops — not because the years are gone, but because two of them can no longer be told apart. Everything deeper is dated by a flow model anchored to whatever dated events can still be found.",
+        "why": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks, and the thinning compounds with depth. At Vestri the surface lays down about 12 centimetres a year in ice equivalent; 2 kilometres down the same year is a few millimetres. Where the layers close to within the resolution of the measurement, the count stops — not because the years are gone, but because two of them can no longer be told apart. Everything deeper is dated by a flow model anchored to whatever dated events can still be found.",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -906,8 +906,8 @@ export const CURRICULUM = {
         "task": "Identify the horizon",
         "question": "Identify the horizon",
         "answer": "The northern eruption, identified by the shard chemistry",
-        "why": "The shard chemistry is the only reading here that is independent of the timescale, and it is the one that discriminates: glass composition is a fingerprint of a particular magma and a particular volcano. The modelled age cannot choose between two candidates ninety years apart because its own uncertainty is larger than that gap. Sea-salt sulphate does not arrive with volcanic glass. And waiting for the layer count is waiting for something that stopped four hundred and sixty metres higher, which is the reason a dated horizon matters here at all.",
-        "headline": "A sulphate spike at 1,642 m, with glass shards, and two candidate eruptions within a century of each other.",
+        "why": "The shard chemistry is the only reading here that is independent of the timescale, and it is the one that discriminates: glass composition is a fingerprint of a particular magma and a particular volcano. The modelled age cannot choose between 2 candidates 90 years apart because its own uncertainty is larger than that gap. Sea-salt sulphate does not arrive with volcanic glass. And waiting for the layer count is waiting for something that stopped 460 metres higher, which is the reason a dated horizon matters here at all.",
+        "headline": "A sulphate spike at 1,642 m, with glass shards, and 2 candidate eruptions within a century of each other.",
         "readings": [
           {
             "zone": "Sulphate",
@@ -938,7 +938,7 @@ export const CURRICULUM = {
             "label": "Same spike",
             "value": "present, 1.1 m shallower",
             "status": "normal",
-            "note": "the two holes are 400 m apart"
+            "note": "the 2 holes are 400 m apart"
           }
         ],
         "choices": [
@@ -1243,17 +1243,17 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which year marker survives the depth",
-      "scene": "The isotope chemist, Yuki Tanabe, has four annual signals measured on the same stretch of core at 1,400 metres, where a year is about twenty-six millimetres thick.",
+      "scene": "The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of core at 1,400 metres, where a year is about 26 millimetres thick.",
       "takeaway": "A signal is only useful for counting while it is still sharper than the layer it marks.",
       "place": "Cold Laboratory",
-      "story": "The isotope chemist, Yuki Tanabe, has four annual signals measured on the same stretch of core at 1,400 metres, where a year is about twenty-six millimetres thick.",
+      "story": "The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of core at 1,400 metres, where a year is about 26 millimetres thick.",
       "game": {
         "type": "CHOICE",
         "title": "Which year marker survives the depth",
         "setup": "Cold Laboratory",
         "play": "Choose the signal to count with",
         "task": "Choose the signal to count with",
-        "question": "At 1,400 metres, which signal is still able to separate one year from the next?",
+        "question": "At 1,400 metres, which signal is still able to separate 1 year from the next?",
         "answer": "The chemistry — sodium and dust — because those travel in the ice as particles and solutes rather than as water molecules, so firn diffusion never smoothed them.",
         "why": "Water molecules move through the open pores of the firn for decades. That movement smooths the isotope record. Anything thinner than about twice the diffusion length is averaged away, and at this site that removes the yearly signal long before 1,400 metres. Sodium arrives as sea salt. Dust arrives as mineral grains. Neither travels through the pore space, so their yearly structure survives as far down as the measurement can read it. Visible layering fades once the bubbles are gone, and conductivity marks eruptions.",
         "rebuttals": [
@@ -1276,10 +1276,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The same water, twice",
-      "scene": "Tanabe has both groups' working standards on the bench and thirty minutes of instrument time. Skarv reports its values against its own standard, calibrated in a different laboratory four years ago.",
+      "scene": "Tanabe has both groups' working standards on the bench and 30 minutes of instrument time. Skarv reports its values against its own standard, calibrated in a different laboratory four years ago.",
       "takeaway": "A ratio reported against two different references is two different numbers about the same water.",
       "place": "Cold Laboratory",
-      "story": "Tanabe has both groups' working standards on the bench and thirty minutes of instrument time. Skarv reports its values against its own standard, calibrated in a different laboratory four years ago.",
+      "story": "Tanabe has both groups' working standards on the bench and 30 minutes of instrument time. Skarv reports its values against its own standard, calibrated in a different laboratory four years ago.",
       "game": {
         "type": "CHOICE",
         "title": "The same water, twice",
@@ -1387,7 +1387,7 @@ export const CURRICULUM = {
         "task": "Report a ratio the way everyone else does",
         "question": "Estimate the isotope value of this sample in parts per thousand.",
         "answer": "About −35 per mil. The sample holds 3.5 per cent less heavy oxygen than ocean water, which is what a polar site looks like.",
-        "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of one agreed water, subtract one so that the standard itself reads zero, and multiply by a thousand so the numbers are convenient. What comes out is a difference in parts per thousand, always negative for polar snow because every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
+        "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of 1 agreed water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so the numbers are convenient. What comes out is a difference in parts per thousand, always negative for polar snow because every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
         "givens": [],
         "relationship": "δ¹⁸O = (R_sample ÷ R_standard − 1) × 1000 — the sample's heavy-to-light ratio against ocean water's, in parts per thousand.",
         "calcKey": "COLD-5"
@@ -1437,7 +1437,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "A slope of one per mil per degree is not this site's slope, and using it changes the answer by half",
           "Scatter on a single measurement is much smaller than this difference, which is why it was noticed",
-          "Multiplying by the slope instead of dividing by it gives a number about five times too large"
+          "Multiplying by the slope instead of dividing by it gives a number about 5 times too large"
         ],
         "choices": [
           "About three quarters of a degree — a quarter of the reported cooling",
@@ -1494,10 +1494,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "The order a run is made in",
-      "scene": "Cruz has sixteen samples to run and the instrument warmed up. Tanabe's rule is that a run has to be able to say afterwards whether it can be trusted.",
+      "scene": "Cruz has 16 samples to run and the instrument warmed up. Tanabe's rule is that a run has to be able to say afterwards whether it can be trusted.",
       "takeaway": "A run is designed so that it can be checked afterwards, not so that it finishes soonest.",
       "place": "Cold Laboratory",
-      "story": "Cruz has sixteen samples to run and the instrument warmed up. Tanabe's rule is that a run has to be able to say afterwards whether it can be trusted.",
+      "story": "Cruz has 16 samples to run and the instrument warmed up. Tanabe's rule is that a run has to be able to say afterwards whether it can be trusted.",
       "game": {
         "type": "SEQUENCE",
         "title": "The order a run is made in",
@@ -1541,7 +1541,7 @@ export const CURRICULUM = {
         "task": "Check what is worth checking",
         "question": "Which two claims should the two hours verify?",
         "answer": "The store temperature and the gas samples. Both are critical, both are signed with nothing behind them, and both would invalidate measurements if they are wrong.",
-        "why": "A signature says that somebody believed something when they signed, and the store reading of minus nineteen says the belief was wrong for at least part of the night. Two of these claims are both critical and carried by nothing but the signature — the store and the gas samples — and both decide whether measurements made on that ice can be defended. The mast is critical and already carries its own continuous record; the drill tank has an independent logger. The food and the fuel matter to the camp and not to the science.",
+        "why": "A signature says that somebody believed something when they signed, and the store reading of minus 19 says the belief was wrong for at least part of the night. Two of these claims are both critical and carried by nothing but the signature — the store and the gas samples — and both decide whether measurements made on that ice can be defended. The mast is critical and already carries its own continuous record; the drill tank has an independent logger. The food and the fuel matter to the camp and not to the science.",
         "attest": {
           "claims": [
             {
@@ -1613,7 +1613,7 @@ export const CURRICULUM = {
         "answer": "About 1.3 years at the surface, and longer at every depth below it as the layers thin.",
         "why": "Water molecules diffuse through the connected pores of the firn for as long as those pores are open, which averages each layer with its neighbours. The scale of that averaging is the diffusion length, and anything thinner than about twice it is smoothed away past recovery. Dividing that limit by the annual layer thickness gives the answer in years. At the surface this site can just about hold a single year; deeper, where the layers have thinned, the same diffusion length covers many years and the annual signal is gone for good.",
         "givens": [],
-        "relationship": "shortest event = 2σ ÷ λ — twice the diffusion length, divided by the thickness of one annual layer.",
+        "relationship": "shortest event = 2σ ÷ λ — twice the diffusion length, divided by the thickness of 1 annual layer.",
         "calcKey": "COLD-9"
       },
       "assumes": [
@@ -2076,7 +2076,7 @@ export const CURRICULUM = {
           "intervention": {
             "label": "Re-plot both gas records on their own gas timescales",
             "note": "Each site's age difference applied to its own record, from its own firn density and accumulation.",
-            "outcome": "Both curves move. This station's moves by four hundred and fifty years, Skarv's by a hundred and ten."
+            "outcome": "Both curves move. This station's moves by 450 years, Skarv's by 110."
           },
           "measurement": {
             "label": "The remaining difference, measured at the tephra horizon",
@@ -2258,7 +2258,7 @@ export const CURRICULUM = {
         "task": "Turn a fortnight of snow into a year of record",
         "question": "Estimate this year's accumulation in ice equivalent.",
         "answer": "About 0.12 metres of ice equivalent — a third of the snow thickness, because the snow is a third as dense.",
-        "why": "Snow and ice are the same material at different densities, so a thickness of snow is not a thickness of record. Multiplying the layer by the ratio of the two densities converts it to the ice it will become once the air is squeezed out, which is the only form in which two sites can be compared. Vestri gets about twelve centimetres a year in ice equivalent. A coastal site gets a metre, and that difference decides everything downstream: how far back the core reaches, how thin the layers get, and how much older the ice is than its own trapped air.",
+        "why": "Snow and ice are the same material at different densities, so a thickness of snow is not a thickness of record. Multiplying the layer by the ratio of the two densities converts it to the ice it will become once the air is squeezed out, which is the only form in which two sites can be compared. Vestri gets about 12 centimetres a year in ice equivalent. A coastal site gets a metre, and that difference decides everything downstream: how far back the core reaches, how thin the layers get, and how much older the ice is than its own trapped air.",
         "givens": [],
         "relationship": "b = λ × ρ_snow ÷ ρ_ice — the snow layer λ scaled by the ratio of its own density to the density of solid ice.",
         "calcKey": "FIELD-1"
@@ -2377,7 +2377,7 @@ export const CURRICULUM = {
         "task": "State the cooling with its uncertainty",
         "question": "Which work would let the summary state that the interval was more than two degrees colder?",
         "answer": "Extending the overlap with the mast record. It narrows the calibration spread, which is what the claim needs; re-centring the slope moves the estimate without making it any surer.",
-        "why": "The reconstruction is a distribution, not a number: the slope was fitted to eleven years of overlap and it carries the scatter of that fit. A claim that the interval was more than two degrees colder is a claim about where the whole distribution sits, so it is cleared by making the distribution narrower rather than by moving its middle. More overlap years is the only action here that adds information; the source-region correction changes the central value and leaves the spread exactly as wide as it was.",
+        "why": "The reconstruction is a distribution, not a number: the slope was fitted to 11 years of overlap and it carries the scatter of that fit. A claim that the interval was more than two degrees colder is a claim about where the whole distribution sits, so it is cleared by making the distribution narrower rather than by moving its middle. More overlap years is the only action here that adds information; the source-region correction changes the central value and leaves the spread exactly as wide as it was.",
         "cloud": {
           "bounds": {
             "min": 2,
@@ -2496,10 +2496,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The stake that gained a centimetre",
-      "scene": "Brandt has 48 stakes read this morning. One near the hut has gained a centimetre since the last reading. Eleven others across the array have lost about the same.",
+      "scene": "Brandt has 48 stakes read this morning. One near the hut has gained a centimetre since the last reading. 11 others across the array have lost about the same.",
       "takeaway": "A measurement of a surface that moves has to be made in enough places to catch what moved.",
       "place": "Snow Study Hut",
-      "story": "Brandt has 48 stakes read this morning. One near the hut has gained a centimetre since the last reading. Eleven others across the array have lost about the same.",
+      "story": "Brandt has 48 stakes read this morning. One near the hut has gained a centimetre since the last reading. 11 others across the array have lost about the same.",
       "game": {
         "type": "CHOICE",
         "title": "The stake that gained a centimetre",
@@ -2508,11 +2508,11 @@ export const CURRICULUM = {
         "task": "Say what one stake is worth",
         "question": "What does the gain at that one stake establish?",
         "answer": "Almost nothing on its own. Snow moves sideways in wind, so a gain in one place and losses elsewhere is redistribution until the whole array is added up.",
-        "why": "Wind on this plateau moves far more snow horizontally than falls out of the sky in a fortnight, so any single stake is measuring snowfall and redistribution added together and cannot separate them. The array can: snow moved from one place to another cancels when the whole array is summed, and what is left is what actually arrived. That is why forty-eight stakes are read rather than one, and why the accumulation figure is a season's arithmetic rather than a reading.",
+        "why": "Wind on this plateau moves far more snow horizontally than falls out of the sky in a fortnight, so any single stake is measuring snowfall and redistribution added together and cannot separate them. The array can: snow moved from one place to another cancels when the whole array is summed, and what is left is what actually arrived. That is why 48 stakes are read rather than 1, and why the accumulation figure is a season's arithmetic rather than a reading.",
         "rebuttals": [
           "Sheltering is a real effect and would have to be established across several fortnights, not one",
           "A fortnight's snowfall is what the whole array establishes, since drift cancels only in the sum",
-          "Eleven stakes losing snow is what redistribution looks like, and does not point at one disturbed stake"
+          "11 stakes losing snow is what redistribution looks like, and does not point at 1 disturbed stake"
         ],
         "choices": [
           "Little on its own; the whole array separates snowfall from drift",
@@ -2580,7 +2580,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Measured directly at the surface, and checkable against next season's stakes",
-          "Measured, then converted through a slope fitted to eleven years of overlap",
+          "Measured, then converted through a slope fitted to 11 years of overlap",
           "Counted as far as the layers allowed, and modelled below that",
           "Measured on air that is well mixed, at a depth whose own age is modelled"
         ],
@@ -2672,10 +2672,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What is worth measuring before Thursday",
-      "scene": "Eleven Skarv samples, one working day, and the isotope line can take four of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
+      "scene": "11 Skarv samples, 1 working day, and the isotope line can take 4 of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
       "takeaway": "A measurement is worth its cost when the decision changes depending on how it comes out.",
       "place": "Science Module",
-      "story": "Eleven Skarv samples, one working day, and the isotope line can take four of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
+      "story": "11 Skarv samples, 1 working day, and the isotope line can take 4 of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
       "game": {
         "type": "VALUE",
         "title": "What is worth measuring before Thursday",
@@ -2872,8 +2872,8 @@ export const CURRICULUM = {
         "play": "Find the uncertainty worth reducing",
         "task": "Find the uncertainty worth reducing",
         "question": "Which measurement should the remaining time buy?",
-        "answer": "The past accumulation rate. Its thirty per cent uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.",
-        "why": "A term enters the result raised to some power, and its contribution to the width of the answer is that power multiplied by its own fractional uncertainty. The grain diameter is cubed, which makes it look like the term to fix, but it is known to five per cent, so it contributes fifteen. The accumulation rate enters once and is known to thirty, so it contributes twice as much on its own. Ranking by exponent is a reasonable habit and it picks the wrong measurement here.",
+        "answer": "The past accumulation rate. Its 30 per cent uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.",
+        "why": "A term enters the result raised to some power, and its contribution to the width of the answer is that power multiplied by its own fractional uncertainty. The grain diameter is cubed, which makes it look like the term to fix, but it is known to 5 per cent, so it contributes 15. The accumulation rate enters once and is known to 30, so it contributes twice as much on its own. Ranking by exponent is a reasonable habit and it picks the wrong measurement here.",
         "propagate": {
           "output": {
             "label": "Dust flux during the cold interval",
@@ -3144,10 +3144,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "How much of it is noise",
-      "scene": "Aalto has thirty years of reconstructed annual temperature from the top of the core. The year-to-year scatter is 1.4 degrees and the summary wants a mean for the period.",
+      "scene": "Aalto has 30 years of reconstructed annual temperature from the top of the core. The year-to-year scatter is 1.4 degrees and the summary wants a mean for the period.",
       "takeaway": "An average is only as tight as the scatter divided by the root of how many years went into it.",
       "place": "Science Module",
-      "story": "Aalto has thirty years of reconstructed annual temperature from the top of the core. The year-to-year scatter is 1.4 degrees and the summary wants a mean for the period.",
+      "story": "Aalto has 30 years of reconstructed annual temperature from the top of the core. The year-to-year scatter is 1.4 degrees and the summary wants a mean for the period.",
       "game": {
         "type": "BALLPARK",
         "title": "How much of it is noise",
@@ -3156,7 +3156,7 @@ export const CURRICULUM = {
         "task": "Say how tightly the mean can be quoted",
         "question": "Estimate the standard error of the thirty-year mean.",
         "answer": "About 0.26 degrees. A difference between two such means smaller than half a degree is not a difference at all.",
-        "why": "Individual years scatter because weather scatters, and averaging does not remove that scatter — it reduces the uncertainty of the average, and only as the square root of the number of years. Thirty years of a record with 1.4 degrees of year-to-year variation give a mean known to about a quarter of a degree. Two such means half a degree apart are two standard errors apart, which is where a claim of difference starts becoming defensible and not before. Doubling the precision would take a hundred and twenty years.",
+        "why": "Individual years scatter because weather scatters, and averaging does not remove that scatter — it reduces the uncertainty of the average, and only as the square root of the number of years. 30 years of a record with 1.4 degrees of year-to-year variation give a mean known to about a quarter of a degree. Two such means half a degree apart are two standard errors apart, which is where a claim of difference starts becoming defensible and not before. Doubling the precision would take 120 years.",
         "givens": [],
         "relationship": "SE = s ÷ √n — the year-to-year scatter, divided by the square root of how many years were averaged.",
         "calcKey": "DATA-7"
@@ -3366,7 +3366,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "A cooling of about 2.7 degrees, modelled below the counted section",
-          "A cooling of two point seven degrees, established by two independent records",
+          "A cooling of 2.7 degrees, established by 2 independent records",
           "A cooling of about three degrees, consistent with the Skarv site",
           "The largest cooling yet recorded at this latitude, pending the deep section"
         ],
@@ -3465,7 +3465,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "°C colder",
     "solution": "1.8 ÷ 0.67 = 2.7 °C.",
-    "explanation": "The deuterium slope belongs to a different isotope of a different element, and using it here would give an answer eleven times too small."
+    "explanation": "The deuterium slope belongs to a different isotope of a different element, and using it here would give an answer 11 times too small."
   },
   "GAS-2": {
     "prompt": "Close-off is at 88 metres, the firn above it averages 0.62 of the density of solid ice, and the site accumulates 0.119 metres of ice equivalent a year.",
@@ -3612,7 +3612,7 @@ export const BALLPARK_CALCS = {
     "explanation": "The half-life is the same clock in different units and belongs in a different form of the equation; using it here gives an age a third too short."
   },
   "DATA-7": {
-    "prompt": "The reconstructed annual temperatures scatter by 1.4 degrees, and the period is thirty years long.",
+    "prompt": "The reconstructed annual temperatures scatter by 1.4 degrees, and the period is 30 years long.",
     "question": "Estimate the standard error of the thirty-year mean.",
     "labels": [
       "1.4 °C  (year-to-year scatter)",
@@ -3666,7 +3666,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.2,
     "units": "years",
     "solution": "2 × 0.08 ÷ 0.119 = 1.34 years.",
-    "explanation": "Using the deep layer thickness instead would answer a different question — the resolution at 2,400 metres, which is nearly seven years."
+    "explanation": "Using the deep layer thickness instead would answer a different question — the resolution at 2,400 metres, which is nearly 7 years."
   }
 };
 
@@ -3728,7 +3728,7 @@ export const JARGON = [
       "closes off",
       "closed off"
     ],
-    "def": "The depth where firn stops letting air through, sixty to a hundred metres down, and the trapped air becomes separate bubbles."
+    "def": "The depth where firn stops letting air through, 60 to 100 metres down, and the trapped air becomes separate bubbles."
   },
   {
     "name": "Delta age",
