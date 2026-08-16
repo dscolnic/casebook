@@ -27,6 +27,20 @@ export const TERRAIN_DEFAULTS = {
   basin: -40,              // where the ground sits between the summits
   relief: 1.0,             // vertical scale of the surface undulation
   mesa: { rimRadius: 122, rimWobble: [6, 4, 2], dropDepth: 62, dropRun: 52, farRise: 230 },
+  // 'gorge' only: a valley with a dam across it. Heights are metres above the
+  // valley floor at the toe, which is where the powerhouse stands.
+  gorge: {
+    crestY: 96,            // the top of the wall, and the walk along it
+    damHalfDepth: 7,       // half the crest's own width, upstream to downstream
+    gorgeHalfWidth: 96,    // how far the notch runs before the rock climbs
+    abutmentHeight: 132,   // how high the rock gets outside the notch
+    abutmentRun: 150,      // and how far it takes to get there
+    bedFoot: 34,           // reservoir bed at the foot of the upstream face
+    bedFar: 8,             // and out in the middle of the pool
+    bedRun: 300,
+    toeY: 0,               // the valley floor below the dam
+    faceRun: 120,          // how far the downstream face runs out to it
+  },
   ground: {
     // Kept a stop darker and more saturated than it looks on the canvas: under
     // a strong sun with ACES tone mapping a pale albedo blows out to sand.
@@ -158,6 +172,49 @@ function rangeHeight(x, z){
 }
 
 /**
+ * The macro landform for 'gorge': a valley with a dam wall across it.
+ *
+ * Written because a game about a reservoir whose reservoir you never see is the
+ * wrong build, and because a dam wall made of props is a wall the player walks
+ * through — the ground has exactly one source of truth here, so the dam has to
+ * *be* terrain if the crest is to be walkable.
+ *
+ * The cross-section, going downstream (+z):
+ *
+ *   z < -damHalf     the reservoir bed, dropping away under the water
+ *   |z| < damHalf    the wall: a flat crest at `crestY` across the gorge
+ *   z > damHalf      the downstream face, then the valley floor at the toe
+ *
+ * and across the gorge (x), the ground climbs steeply into the abutments
+ * outside `gorgeHalfWidth`, which is what stops the player walking round the
+ * end of the dam and what makes the wall read as jammed into a notch in rock.
+ */
+function gorgeHeight(x, z){
+  const g = CFG.gorge;
+  const half = g.damHalfDepth;
+  // The abutments: rock rising on both sides of the notch.
+  const out = Math.max(0, Math.abs(x) - g.gorgeHalfWidth);
+  const wall = out <= 0 ? 0
+    : g.abutmentHeight * Math.min(1, Math.pow(out / g.abutmentRun, 0.85));
+
+  let base;
+  if(z <= -half){
+    // Upstream: the bed falls away from the foot of the wall.
+    const t = Math.min(1, (-z - half) / g.bedRun);
+    base = g.bedFoot + (g.bedFar - g.bedFoot) * (t * t * (3 - 2 * t));
+  } else if(z >= half){
+    // Downstream: the face, then the valley floor at the toe.
+    const t = Math.min(1, (z - half) / g.faceRun);
+    const eased = 1 - Math.pow(1 - t, 2.2);
+    base = g.crestY + (g.toeY - g.crestY) * eased;
+  } else {
+    base = g.crestY;
+  }
+  // Inside the notch the wall dominates; on the abutments the rock does.
+  return Math.max(base, wall > 0 ? Math.min(wall, g.abutmentHeight) : base);
+}
+
+/**
  * A surface rupture: a straight line across the map with the ground on one side
  * standing higher than the other.
  *
@@ -211,13 +268,25 @@ function surfaceHeight(x, z){
   // 'range' folds the scarp into its own pad grading, so it must not be added
   // twice: a bench cut on the upthrown side has to level at the height it
   // actually stands at.
-  return CFG.profile === 'range' ? baseSurfaceHeight(x, z) : baseSurfaceHeight(x, z) + scarpLift(x, z);
+  return (CFG.profile === 'range' || CFG.profile === 'gorge')
+    ? baseSurfaceHeight(x, z) : baseSurfaceHeight(x, z) + scarpLift(x, z);
 }
 
 function baseSurfaceHeight(x, z){
   // 'range' grades the *whole* height into a pad, not just the surface noise:
   // a bench cut into a mountainside has to be level, and damping the ripple on
   // a 1-in-3 slope leaves a building standing on a hill.
+  if(CFG.profile === 'gorge'){
+    // Same pad treatment as 'range': a bench cut into a steep place has to be
+    // level, and damping only the ripple leaves a building standing on a slope.
+    const raw = (px, pz) => gorgeHeight(px, pz)
+      + surfaceNoise(px, pz) * (onPath(px, pz, 3) ? 0.05 : 0.35);
+    const pad = nearestPad(x, z);
+    const here = raw(x, z);
+    if(!pad || pad.w <= 0) return here;
+    const level = raw(pad.cx, pad.cz);
+    return here + (level - here) * pad.w;
+  }
   if(CFG.profile === 'range'){
     const raw = (px, pz) => rangeHeight(px, pz) + scarpLift(px, pz)
       + surfaceNoise(px, pz) * (onPath(px, pz, 3) ? 0.08 : 1);
@@ -334,16 +403,28 @@ export function buildTerrain(scene){
  * track meets the ground the way a graded path does instead of looking like a
  * sheet laid on top of it.
  */
-function pathTexture(dark, acrossAxis){
+/**
+ * The surface of a route.
+ *
+ * `tone` is the per-channel offset that makes it grit: red highest, blue
+ * lowest, which is soil and gravel everywhere. A site whose ground is snow
+ * needs the offsets the other way round, and a material tint cannot do it —
+ * multiplying a warm texture by a cold colour scales the warmth, it does not
+ * remove it. So the tone goes into the texture, and every existing site keeps
+ * the default it was drawn with.
+ */
+function pathTexture(dark, acrossAxis, tone = [0, -6, -20], lift = 0){
   return canvasTex(1024, (g, s) => {
     const img = g.createImageData(s, s), d = img.data;
     for(let y = 0; y < s; y++){
       for(let x = 0; x < s; x++){
         const u = x / s * 6, v = y / s * 6;
         const n = fbm(u * 1.6, v * 1.6, 3) * 0.6 + vnoise(u * 30, v * 30) * 0.4;
-        const base = dark ? 84 : 112;
+        const base = (dark ? 84 : 112) + lift;
         const i = (y * s + x) * 4;
-        d[i] = base + n * 44; d[i + 1] = base - 6 + n * 40; d[i + 2] = base - 20 + n * 32;
+        d[i] = base + tone[0] + n * 44;
+        d[i + 1] = base + tone[1] + n * 40;
+        d[i + 2] = base + tone[2] + n * 32;
         const t = (acrossAxis === 'y' ? y : x) / s;
         const edge = Math.min(t, 1 - t) * 2;
         const ragged = 0.16 + vnoise(u * 9, v * 9) * 0.18;
@@ -366,6 +447,14 @@ export function buildPaths(scene, paths){
   const tex = {
     shoulderX: pathTexture(false, 'x'), shoulderY: pathTexture(false, 'y'),
     wornX: pathTexture(true, 'x'), wornY: pathTexture(true, 'y'),
+  };
+  // A path may bring its own surface. Built per path rather than once, because
+  // only a site that asks pays for the extra canvases.
+  const surfaceFor = (p, worn, long) => {
+    if(!p.tone && !p.lift) return long
+      ? (worn ? tex.wornX : tex.shoulderX)
+      : (worn ? tex.wornY : tex.shoulderY);
+    return pathTexture(worn, long ? 'x' : 'y', p.tone, p.lift ?? 0);
   };
   paths.forEach((p, idx) => {
     const long = p.d > p.w;
@@ -395,6 +484,11 @@ export function buildPaths(scene, paths){
       g.computeVertexNormals();
       const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({
         map: t.map, roughness: rough, metalness: 0,
+        // The path texture is grit: warm, and right for a road. A site whose
+        // ground is not soil needs it tinted rather than replaced — a groomed
+        // snow route drawn in the default colours is a brown road across an ice
+        // sheet, which no check can see and every screenshot shows.
+        color: p.colour ?? 0xffffff,
         transparent: true, depthWrite: false,
         polygonOffset: true, polygonOffsetFactor: -2,
       }));
@@ -405,11 +499,11 @@ export function buildPaths(scene, paths){
       scene.add(m);
       return m;
     };
-    const st = (long ? tex.shoulderX : tex.shoulderY).clone(); st.needsUpdate = true;
+    const st = surfaceFor(p, false, long).clone(); st.needsUpdate = true;
     st.repeat.set(long ? 1 : Math.max(2, p.w / 26), long ? Math.max(2, p.d / 26) : 1);
     surface({ map: st }, 0.97, 0.05 + idx * 0.004, 1 + idx * 2);
     if(p.worn){
-      const wt = (long ? tex.wornX : tex.wornY).clone(); wt.needsUpdate = true;
+      const wt = surfaceFor(p, true, long).clone(); wt.needsUpdate = true;
       wt.repeat.set(long ? 1 : Math.max(2, p.w / 22), long ? Math.max(2, p.d / 22) : 1);
       surface({ map: wt, worn: true }, 0.88, 0.075 + idx * 0.004, 2 + idx * 2);
     }
