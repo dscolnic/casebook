@@ -122,7 +122,10 @@
                0 2px 0 0 color-mix(in srgb, var(--accent) 35%, transparent) inset;
   }
   .card:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-  .card--unbuilt{opacity:.62; cursor:default; pointer-events:none}
+  /* Not `pointer-events:none` on the whole card — an unbuilt game still has a
+     syllabus, and killing pointers on the card kills the button that shows it.
+     There is simply no link element to press. */
+  .card--unbuilt{opacity:.62}
 
   .shot{position:relative; aspect-ratio:16/9; background:#080a0e; overflow:hidden}
   .shot img{
@@ -180,18 +183,50 @@
   /* The situation, in the game's own opening words. This is the card — what has
      happened and whose problem it is — where it used to be a line about the
      architecture. */
-  .meta{
-    margin:auto 0 0; display:flex; flex-wrap:wrap; gap:6px;
-    font:11.5px/1 var(--mono); color:var(--faint);
-  }
-  /* Concepts wrap onto as many lines as they need. These are phrases, not
-     labels, so the single-line ellipsis the metadata chips used would cut most
-     of them in half — and half a concept teaches nothing. */
-  .meta span{
-    border:1px solid var(--line); border-radius:6px; padding:5px 7px;
-    line-height:1.35; white-space:normal;
-  }
   .drama{margin:0; color:var(--dim); font-size:14.5px; line-height:1.5}
+
+  /* The whole card is the link, but there is a button inside it — and a button
+     inside an anchor is neither valid nor clickable. So the link is its own
+     empty element stretched over the card, and anything that needs its own
+     click sits above it on z-index 2.
+     It has to be a direct child of .card: `inset:0` resolves against the
+     nearest *positioned* ancestor, and .shot is position:relative, so an
+     anchor placed in there covers the screenshot and nothing else. */
+  .card{position:relative}
+  .card__link{position:absolute; inset:0; z-index:1; border-radius:var(--radius)}
+
+  .cardfoot{margin:auto 0 0; padding-top:12px; display:flex; align-items:center;
+            justify-content:space-between; gap:12px}
+  .cardfoot .progress{flex:1; min-width:0}
+  /* The concepts mark: three nodes and the lines between them. Above the card's
+     click layer, or pressing it would start the game instead. */
+  .conceptsBtn{
+    position:relative; z-index:2; flex:none;
+    width:38px; height:38px; display:grid; place-items:center; cursor:pointer;
+    border:1px solid var(--line); border-radius:50%; background:#10141c;
+    color:var(--dim); padding:0;
+    transition:color .16s, border-color .16s, background .16s, transform .16s;
+  }
+  .conceptsBtn:hover{color:var(--ink); border-color:color-mix(in srgb, var(--accent) 60%, var(--line));
+                     transform:translateY(-1px)}
+  .conceptsBtn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .conceptsBtn svg{width:20px; height:20px; display:block}
+  .conceptsBtn[aria-expanded="true"]{background:var(--accent); border-color:var(--accent); color:#0d0f13}
+
+  .concepts{margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--line);
+            position:relative; z-index:2}
+  .concepts[hidden]{display:none}
+  .concepts p{margin:0 0 8px; font:600 11px/1 var(--mono); letter-spacing:.12em;
+              text-transform:uppercase; color:var(--faint)}
+  .concepts ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px}
+  /* Phrases, not labels — so they wrap rather than truncate. Half a concept
+     teaches nothing. */
+  .concepts li{
+    font-size:12.5px; line-height:1.4; color:var(--dim);
+    padding-left:15px; position:relative;
+  }
+  .concepts li::before{content:''; position:absolute; left:0; top:.5em;
+    width:5px; height:5px; border-radius:50%; background:var(--accent)}
   .progress{margin:0; font:500 12px/1.45 inherit; color:var(--accent)}
   .progress__bar{display:block; height:3px; margin-top:6px; border-radius:2px;
     background:var(--line); overflow:hidden}
@@ -209,7 +244,7 @@
   <header>
     <div class="mast">
       <p class="kicker">First Person Learning · mission-based STEM games</p>
-      <h1>Walk in, work it out, <em>save the day.</em></h1>
+      <h1>Explore the world; <em>save the day.</em></h1>
       <p class="lede">Designed by a Duke University astrophysics professor, a series of
         STEM games with immersive worlds. Save the day by understanding the material.</p>
     </div>
@@ -319,14 +354,23 @@ function progressOf(g){
   };
 }
 
-function cardHTML(g){
+// Three nodes and the lines between them — what a syllabus looks like when it is
+// not a list. Inline, because the page must draw with no network beyond its own
+// origin and a sprite sheet for one mark is not worth a request.
+const CONCEPTS_MARK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+  <circle cx="6" cy="7.5" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12.5" cy="17.5" r="2.3"/>
+  <path d="M7.6 9.3 11 15.4M16.4 8 13.8 15.3M8.3 7 15.7 6.2"/></svg>`;
+
+function cardHTML(g, i){
   const p = progressOf(g);
   const built = g.built !== false;
-  const tag = built ? 'a' : 'div';
-  const href = built ? ` href="./${esc(g.id)}/index.html"` : '';
+  const panel = `concepts-${i}`;
   return `
-  <${tag} class="card${built ? '' : ' card--unbuilt'}${p && !p.done ? ' card--started' : ''}"${href}
+  <div class="card${built ? '' : ' card--unbuilt'}${p && !p.done ? ' card--started' : ''}"
      style="--accent:${esc(g.accent)}">
+    ${built ? `<a class="card__link" href="./${esc(g.id)}/index.html"
+                  aria-label="Play ${esc(g.title)}"></a>` : ''}
     <div class="shot">
       ${g.hero ? `<img src="${esc(g.hero)}" alt="" loading="lazy">`
                : `<div class="shot__none" aria-hidden="true"><span>no snapshot yet</span></div>`}
@@ -340,14 +384,35 @@ function cardHTML(g){
     <div class="body">
       <p class="course">${esc(g.course)}</p>
       <p class="drama">${esc(g.drama || g.place)}</p>
-      ${g.concepts?.length ? `<p class="meta">${
-        g.concepts.map(c => `<span>${esc(c)}</span>`).join('')
-      }</p>` : ''}
-      ${p ? `<p class="progress">${esc(p.text)}
-               <span class="progress__bar"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
+      <div class="cardfoot">
+        ${g.concepts?.length ? `<button class="conceptsBtn" type="button"
+            aria-expanded="false" aria-controls="${panel}"
+            title="What this one teaches" aria-label="What this one teaches">${CONCEPTS_MARK}</button>` : ''}
+        ${p ? `<p class="progress">${esc(p.text)}
+                 <span class="progress__bar"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
+      </div>
+      ${g.concepts?.length ? `<div class="concepts" id="${panel}" hidden>
+        <p>What this one teaches</p>
+        <ul>${g.concepts.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+      </div>` : ''}
     </div>
-  </${tag}>`;
+  </div>`;
 }
+
+// One listener on the grid rather than one per card: the grid is rewritten on
+// every filter change, and per-card listeners would have to be rebound each time.
+document.getElementById('grid').addEventListener('click', (e) => {
+  const btn = e.target.closest('.conceptsBtn');
+  if(!btn) return;
+  // The card's own click layer sits underneath this button, but the event still
+  // bubbles up through it — without this, opening the list starts the game.
+  e.preventDefault();
+  e.stopPropagation();
+  const panel = document.getElementById(btn.getAttribute('aria-controls'));
+  const open = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!open));
+  if(panel) panel.hidden = open;
+});
 
 function render(){
   const shown = games.filter(g => inLevel(g) && (field === 'All' || g.field === field));
