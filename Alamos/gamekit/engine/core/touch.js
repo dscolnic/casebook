@@ -82,11 +82,13 @@ export function initTouch({ camera, moveState } = {}){
       <button id="tbDrop" class="touchBtn small" type="button" hidden>Descend</button>
       <button id="tbRun" class="touchBtn small" type="button">Run</button>
       <button id="tbUse" class="touchBtn big" type="button">Use</button>
-    </div>
-    <div id="touchTools">
-      <button id="tbMap" class="touchBtn small" type="button">Map</button>
-      <button id="tbTab" class="touchBtn small" type="button">Summary</button>
     </div>`;
+  // No Map or Summary button here. Map is already in #hudTools, top right, and
+  // that survives every breakpoint — a second one bottom left was two controls
+  // for one thing. Summary was worse: it pressed Tab, and `projecty:toggletab`
+  // is dispatched by player.js and listened for by nothing at all, in any game.
+  // The stats board opens by walking to a `board` interactable and using it,
+  // which the Use button already does.
   document.body.appendChild(layer);
   document.body.classList.add('touch');
 
@@ -209,8 +211,6 @@ export function initTouch({ camera, moveState } = {}){
   };
 
   btn('tbUse', () => tapKey('KeyE'));
-  btn('tbMap', () => tapKey('KeyM'));
-  btn('tbTab', () => tapKey('Tab'));
 
   // Run is a toggle, not a hold. Holding it costs a third thumb, and the two
   // the player has are already on the stick and the look zone.
