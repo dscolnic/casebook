@@ -1,0 +1,573 @@
+{
+ "theme": "redsand",
+ "book": "books/redsand.yml",
+ "course": "AP Chemistry, the second half: kinetics, equilibrium, electrochemistry, thermodynamics and phase behaviour",
+ "curriculum": [
+  "Stoichiometry as a feed rate: turning a production target into kilograms in",
+  "The Sabatier reaction: what this plant actually makes and from what",
+  "Equilibrium as a balance still running both ways",
+  "The equilibrium constant, and that temperature is what moves it",
+  "The reaction quotient, and reading direction off the comparison",
+  "Le Châtelier: pressure, temperature and taking a product away",
+  "Exothermic and endothermic, and heat as something on one side of the equation",
+  "Per-pass conversion against overall conversion, and what a recycle loop buys",
+  "Rate constants, and how steeply they climb with temperature",
+  "Activation energy and the fraction of collisions that clear it",
+  "What a catalyst does, and the two things it cannot do",
+  "Residence time: conversion needs a rate and a contact",
+  "Sintering: losing surface to heat",
+  "Poisoning, and why a poisoned bed dies from the inlet end",
+  "Selectivity: two reactions competing for one feed",
+  "Oxidation and reduction as a transfer of electrons",
+  "Electrolysis: driving a reaction that will not run on its own",
+  "Faraday's law: charge is moles, exactly",
+  "Overpotential: the voltage above the minimum, and where it goes",
+  "Current efficiency: the gap between charge passed and product collected",
+  "Free energy: enthalpy against entropy, and which way a change runs",
+  "The temperature at which a spontaneous reaction stops being one",
+  "An energy ledger: what a station spends and what it collects",
+  "Phase changes, and that every substance has its own temperature for one",
+  "Intermolecular forces, and why they set a boiling point",
+  "Deposition: gas straight to solid, with no liquid in between",
+  "Vapour pressure, and reading a cryogenic tank by it",
+  "Boil-off: heat into a boiling liquid is a mass, not a temperature",
+  "Solutions: what dissolves out of frozen ground, and what each solute fouls",
+  "Freezing point depression, and that the particle count is what counts",
+  "Ion exchange and breakthrough: a capacity, not a percentage",
+  "Attenuation through dust, and why it is multiplicative",
+  "What an assay is for, and what a specification is a list of"
+ ],
+ "equations": [
+  {
+   "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
+   "about": "the reaction the whole plant is built around",
+   "symbols": [
+    [
+     "CO₂",
+     "carbon dioxide, taken from the atmosphere at six millibars"
+    ],
+    [
+     "H₂",
+     "hydrogen, made by splitting water"
+    ],
+    [
+     "CH₄",
+     "methane, the fuel"
+    ],
+    [
+     "ΔH",
+     "the heat given out per mole of methane made"
+    ]
+   ]
+  },
+  {
+   "e": "ΔG = ΔH − TΔS",
+   "about": "which way a change runs, and what it costs to make it run the other way",
+   "symbols": [
+    [
+     "ΔG",
+     "the free-energy change; negative means it can run on its own"
+    ],
+    [
+     "ΔH",
+     "the heat given out or taken in at constant pressure"
+    ],
+    [
+     "T",
+     "the absolute temperature, in kelvin"
+    ],
+    [
+     "ΔS",
+     "the entropy change — how much more or less spread out the matter ends up"
+    ]
+   ]
+  },
+  {
+   "e": "Q compared with K",
+   "about": "reading which way a mixture will move from what is in it now",
+   "symbols": [
+    [
+     "Q",
+     "the reaction quotient, worked out from the amounts present at this moment"
+    ],
+    [
+     "K",
+     "the equilibrium constant, the value that same expression takes at balance"
+    ]
+   ],
+   "needs": [
+    "ΔG = ΔH − TΔS"
+   ]
+  },
+  {
+   "e": "residence time = V / Q",
+   "about": "how long the reaction is given to happen in",
+   "symbols": [
+    [
+     "V",
+     "the volume of the packed catalyst bed"
+    ],
+    [
+     "Q",
+     "the volume of gas passing through it each minute, at reactor conditions"
+    ]
+   ]
+  },
+  {
+   "e": "m = (I t / nF) × M",
+   "about": "Faraday's law: charge into kilograms",
+   "symbols": [
+    [
+     "I",
+     "the current, in amps"
+    ],
+    [
+     "t",
+     "the time it flows for, in seconds"
+    ],
+    [
+     "n",
+     "the electrons needed per molecule of product — two for hydrogen"
+    ],
+    [
+     "F",
+     "Faraday's constant, 96,485 coulombs per mole of electrons"
+    ],
+    [
+     "M",
+     "the molar mass of the product"
+    ]
+   ]
+  },
+  {
+   "e": "ΔTf = i × Kf × m",
+   "about": "how far dissolved salt drops a freezing point",
+   "symbols": [
+    [
+     "ΔTf",
+     "the drop in freezing point, in kelvin"
+    ],
+    [
+     "i",
+     "the particles each formula unit gives on dissolving — three for magnesium perchlorate"
+    ],
+    [
+     "Kf",
+     "the freezing-point constant of the solvent, 1.86 for water"
+    ],
+    [
+     "m",
+     "the molality: moles dissolved per kilogram of water"
+    ]
+   ]
+  },
+  {
+   "e": "boil-off = Q t / ΔHvap",
+   "about": "heat into a cryogenic tank, paid in kilograms",
+   "symbols": [
+    [
+     "Q",
+     "the heat reaching the liquid, in watts"
+    ],
+    [
+     "t",
+     "the time it reaches it for, in seconds"
+    ],
+    [
+     "ΔHvap",
+     "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
+    ]
+   ]
+  },
+  {
+   "e": "I = I₀ e^(−τ)",
+   "about": "what a dusty sky leaves of a beam",
+   "symbols": [
+    [
+     "I",
+     "the beam reaching the ground"
+    ],
+    [
+     "I₀",
+     "the beam above the dust"
+    ],
+    [
+     "τ",
+     "the optical depth — how much dust stands in the way"
+    ]
+   ]
+  },
+  {
+   "e": "mass ratio = ν × M_ox / M_fuel",
+   "about": "a balanced equation turned into what a tank has to hold",
+   "symbols": [
+    [
+     "ν",
+     "the moles of oxidiser per mole of fuel from the balanced equation — two for methane"
+    ],
+    [
+     "M_ox",
+     "the molar mass of the oxidiser, 32 for oxygen"
+    ],
+    [
+     "M_fuel",
+     "the molar mass of the fuel, 16 for methane"
+    ]
+   ],
+   "needs": [
+    "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole"
+   ]
+  }
+ ],
+ "audienceGrade": null,
+ "subject": "Propellant Lead · Arcadia Rise",
+ "groups": [
+  {
+   "id": "KINET",
+   "name": "Catalyst Bay",
+   "desc": "How fast the reaction goes, what the catalyst does, and what stops it working."
+  },
+  {
+   "id": "EQUIL",
+   "name": "Reactor Hall",
+   "desc": "How much methane a pass can give, and what moves that limit."
+  },
+  {
+   "id": "PHASE",
+   "name": "Cold End",
+   "desc": "Where a gas becomes a liquid, what holds it there, and what it costs."
+  },
+  {
+   "id": "ELEC",
+   "name": "Electrolysis Hall",
+   "desc": "Splitting water and carbon dioxide with electricity, and what the current buys."
+  },
+  {
+   "id": "GIBBS",
+   "name": "Plant Control",
+   "desc": "Which way a reaction runs on its own, and what has to be paid for."
+  },
+  {
+   "id": "SOIL",
+   "name": "Water Plant",
+   "desc": "Getting water out of frozen ground, and the ions that come with it."
+  }
+ ],
+ "stops": [
+  {
+   "id": "redsand.m01.s1",
+   "day": 1,
+   "group": "EQUIL",
+   "format": "PROTOCOL",
+   "title": "What the loop settles at"
+  },
+  {
+   "id": "redsand.m01.s2",
+   "day": 1,
+   "group": "KINET",
+   "format": "CHOICE",
+   "title": "Rate is not yield"
+  },
+  {
+   "id": "redsand.m01.s3",
+   "day": 1,
+   "group": "PHASE",
+   "format": "CHOICE",
+   "title": "What freezes before methane condenses"
+  },
+  {
+   "id": "redsand.m02.s1",
+   "day": 2,
+   "group": "KINET",
+   "format": "BALLPARK",
+   "title": "How long a molecule stays in the bed"
+  },
+  {
+   "id": "redsand.m02.s2",
+   "day": 2,
+   "group": "ELEC",
+   "format": "PROTOCOL",
+   "title": "Which electrode does which job"
+  },
+  {
+   "id": "redsand.m02.s3",
+   "day": 2,
+   "group": "GIBBS",
+   "format": "CHOICE",
+   "title": "What has to be paid for"
+  },
+  {
+   "id": "redsand.m03.s1",
+   "day": 3,
+   "group": "PHASE",
+   "format": "DIAGNOSIS",
+   "title": "Reading a blockage from outside the pipe"
+  },
+  {
+   "id": "redsand.m03.s2",
+   "day": 3,
+   "group": "EQUIL",
+   "format": "CHOICE",
+   "title": "Why the hotter pass gave less"
+  },
+  {
+   "id": "redsand.m03.s3",
+   "day": 3,
+   "group": "SOIL",
+   "format": "SEQUENCE",
+   "title": "Getting water out of frozen ground"
+  },
+  {
+   "id": "redsand.m04.s1",
+   "day": 4,
+   "group": "EQUIL",
+   "format": "BALLPARK",
+   "title": "How much gas the bed has to be fed"
+  },
+  {
+   "id": "redsand.m04.s2",
+   "day": 4,
+   "group": "ELEC",
+   "format": "CHOICE",
+   "title": "Charge is not product"
+  },
+  {
+   "id": "redsand.m04.s3",
+   "day": 4,
+   "group": "SOIL",
+   "format": "PROTOCOL",
+   "title": "What comes with the water"
+  },
+  {
+   "id": "redsand.m05.s1",
+   "day": 5,
+   "group": "GIBBS",
+   "format": "BALLPARK",
+   "title": "The temperature the reaction stops wanting to run"
+  },
+  {
+   "id": "redsand.m05.s2",
+   "day": 5,
+   "group": "KINET",
+   "format": "CHOICE",
+   "title": "What a catalyst cannot do"
+  },
+  {
+   "id": "redsand.m05.s3",
+   "day": 5,
+   "group": "PHASE",
+   "format": "SEQUENCE",
+   "title": "The order the cold end has to work in"
+  },
+  {
+   "id": "redsand.m06.s1",
+   "day": 6,
+   "group": "SOIL",
+   "format": "BALLPARK",
+   "title": "The tank that will not freeze"
+  },
+  {
+   "id": "redsand.m06.s2",
+   "day": 6,
+   "group": "ELEC",
+   "format": "CHOICE",
+   "title": "What the extra volt is doing"
+  },
+  {
+   "id": "redsand.m06.s3",
+   "day": 6,
+   "group": "EQUIL",
+   "format": "CHOICE",
+   "title": "Which way it is running now"
+  },
+  {
+   "id": "redsand.m07.s1",
+   "day": 7,
+   "group": "PHASE",
+   "format": "BALLPARK",
+   "title": "What the tank farm loses standing still"
+  },
+  {
+   "id": "redsand.m07.s2",
+   "day": 7,
+   "group": "GIBBS",
+   "format": "CHOICE",
+   "title": "The reaction that likes being hot"
+  },
+  {
+   "id": "redsand.m07.s3",
+   "day": 7,
+   "group": "KINET",
+   "format": "DIAGNOSIS",
+   "title": "Reading a bed by where its heat is"
+  },
+  {
+   "id": "redsand.m08.s1",
+   "day": 8,
+   "group": "ELEC",
+   "format": "BALLPARK",
+   "title": "From amps to kilograms"
+  },
+  {
+   "id": "redsand.m08.s2",
+   "day": 8,
+   "group": "EQUIL",
+   "format": "CASEBOOK",
+   "title": "Four lines off the assay bench"
+  },
+  {
+   "id": "redsand.m08.s3",
+   "day": 8,
+   "group": "SOIL",
+   "format": "CHOICE",
+   "title": "The bed that gives no warning"
+  },
+  {
+   "id": "redsand.m09.s1",
+   "day": 9,
+   "group": "KINET",
+   "format": "DIAGNOSIS",
+   "title": "One line off the spent charge"
+  },
+  {
+   "id": "redsand.m09.s2",
+   "day": 9,
+   "group": "SOIL",
+   "format": "CHOICE",
+   "title": "The trace nobody read"
+  },
+  {
+   "id": "redsand.m09.s3",
+   "day": 9,
+   "group": "EQUIL",
+   "format": "CHOICE",
+   "title": "Which limit the reactor was against"
+  },
+  {
+   "id": "redsand.m10.s1",
+   "day": 10,
+   "group": "KINET",
+   "format": "SEQUENCE",
+   "title": "Bringing a charge into service"
+  },
+  {
+   "id": "redsand.m10.s2",
+   "day": 10,
+   "group": "ELEC",
+   "format": "SCIENCETANK",
+   "title": "One improvement, four candidates"
+  },
+  {
+   "id": "redsand.m10.s3",
+   "day": 10,
+   "group": "PHASE",
+   "format": "CHOICE",
+   "title": "The tank pressure that is not a leak"
+  },
+  {
+   "id": "redsand.m11.s1",
+   "day": 11,
+   "group": "GIBBS",
+   "format": "BALLPARK",
+   "title": "The bill for a kilogram of hydrogen"
+  },
+  {
+   "id": "redsand.m11.s2",
+   "day": 11,
+   "group": "PHASE",
+   "format": "CHOICE",
+   "title": "The space left at the top"
+  },
+  {
+   "id": "redsand.m11.s3",
+   "day": 11,
+   "group": "EQUIL",
+   "format": "CHOICE",
+   "title": "Where the carbon actually goes"
+  },
+  {
+   "id": "redsand.m12.s1",
+   "day": 12,
+   "group": "ELEC",
+   "format": "BALLPARK",
+   "title": "What the dust leaves of the sun"
+  },
+  {
+   "id": "redsand.m12.s2",
+   "day": 12,
+   "group": "GIBBS",
+   "format": "ALLOCATE",
+   "title": "What the station stops doing"
+  },
+  {
+   "id": "redsand.m12.s3",
+   "day": 12,
+   "group": "SOIL",
+   "format": "CHOICE",
+   "title": "Running the plant with no digging"
+  },
+  {
+   "id": "redsand.m13.s1",
+   "day": 13,
+   "group": "PHASE",
+   "format": "DIAGNOSIS",
+   "title": "The heat that arrived with the dust"
+  },
+  {
+   "id": "redsand.m13.s2",
+   "day": 13,
+   "group": "KINET",
+   "format": "CHOICE",
+   "title": "Comparing two charges honestly"
+  },
+  {
+   "id": "redsand.m13.s3",
+   "day": 13,
+   "group": "GIBBS",
+   "format": "CHOICE",
+   "title": "Which of the three cannot wait"
+  },
+  {
+   "id": "redsand.m14.s1",
+   "day": 14,
+   "group": "EQUIL",
+   "format": "CASEBOOK",
+   "title": "The line that fails"
+  },
+  {
+   "id": "redsand.m14.s2",
+   "day": 14,
+   "group": "PHASE",
+   "format": "BALLPARK",
+   "title": "How much oxygen a tonne of methane needs"
+  },
+  {
+   "id": "redsand.m14.s3",
+   "day": 14,
+   "group": "ELEC",
+   "format": "CHOICE",
+   "title": "What limits the current"
+  },
+  {
+   "id": "redsand.m15.s1",
+   "day": 15,
+   "group": "GIBBS",
+   "format": "SCIENCETANK",
+   "title": "What to leave running"
+  },
+  {
+   "id": "redsand.m15.s2",
+   "day": 15,
+   "group": "SOIL",
+   "format": "SEQUENCE",
+   "title": "The rule that survives the crew"
+  },
+  {
+   "id": "redsand.m15.s3",
+   "day": 15,
+   "group": "KINET",
+   "format": "CHOICE",
+   "title": "The honest claim about the bed"
+  }
+ ]
+}

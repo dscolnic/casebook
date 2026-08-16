@@ -603,6 +603,62 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it."
+        },
+        {
+          "e": "t = events observed / events planned",
+          "c": "information fraction — how far through an event-driven trial is",
+          "v": [
+            [
+              "t",
+              "information fraction, between 0 and 1"
+            ],
+            [
+              "events observed",
+              "how many primary endpoint events have been adjudicated so far"
+            ],
+            [
+              "events planned",
+              "the event count the trial was powered on"
+            ]
+          ],
+          "s": "A trial powered on events is measured in events and not in months, so its progress is the share of the planned events already in hand — and that share is what decides when an interim look is due.",
+          "card": false
+        },
+        {
+          "e": "P(at least one false positive) = 1 − (1 − α)^k",
+          "c": "multiplicity — what testing k things costs",
+          "v": [
+            [
+              "α",
+              "the error rate allowed for a single test, usually 0.05"
+            ],
+            [
+              "k",
+              "how many independent tests were run"
+            ],
+            [
+              "P",
+              "chance that at least one of them clears the line by luck alone"
+            ]
+          ],
+          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
+          "card": false
+        },
+        {
+          "e": "Σ α_spent ≤ α",
+          "c": "alpha spending — a budget for error that does not refill",
+          "v": [
+            [
+              "α_spent",
+              "the error rate consumed by each look at the endpoint"
+            ],
+            [
+              "α",
+              "the total error rate the whole trial is allowed, fixed in advance"
+            ]
+          ],
+          "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend.",
+          "card": false
         }
       ]
     }
@@ -879,7 +935,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "A trial ends at a number of events",
       "scene": "Balogun wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
-      "takeaway": "A trial powered on events finishes when the events arrive, which is not a date.",
+      "takeaway": "A trial that waits for events finishes when the events arrive, which is not a date.",
       "place": "Statistics & Analysis",
       "story": "Balogun wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
       "game": {
@@ -888,42 +944,43 @@ export const CURRICULUM = {
         "setup": "Statistics & Analysis",
         "play": "Work out what the trial is waiting for",
         "task": "Work out what the trial is waiting for",
-        "question": "Estimate how many events CLARION-3 needs before it can answer its question.",
-        "answer": "About 380 events.",
-        "why": "A time-to-event trial learns from events, not from people. Two thousand participants who stay well carry almost no information about which arm is better; the comparison rests on the ones something happened to. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. It is why nobody can promise a completion date, why a healthier-than-expected group is bad news for the schedule, and why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
+        "question": "Estimate how long CLARION-3 has to follow its participants to reach the events it needs.",
+        "answer": "About two years of follow-up.",
+        "why": "A time-to-event trial learns from events, not from people. Two thousand participants who stay well carry almost no information about which arm is better; the comparison rests on the ones something happened to. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. How long that takes is not a decision anybody makes — it is the required events divided by the rate they arrive at, and that rate belongs to the participants rather than to the trial. A healthier-than-expected group is bad news for the schedule for exactly this reason, and it is why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
         "givens": [
-          "The trial is powered for a hazard ratio of 0.75",
-          "At 5 per cent two-sided and 80 per cent power, (z + z)² is 7.85"
+          "The design requires 380 primary events",
+          "About 8 events per 100 participants per year, both arms together"
         ],
-        "relationship": "Required events ≈ 4(z + z)² ÷ (ln HR)², with z the two normal cut-offs for the error rate and the power, and HR the hazard ratio the trial is built to detect.\n",
+        "relationship": "Years of follow-up ≈ events required ÷ (participants × events per participant per year).\n",
         "calcKey": "STAT-1"
       },
       "assumes": [
-        "the trial compares how often an event happens in two arms"
+        "the trial compares how often an event happens in two arms",
+        "events accumulate over time, at some rate per participant per year"
       ],
       "equations": [
         {
-          "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
-          "c": "how many events a trial has to see to answer its question",
+          "e": "t ≈ E / (N × r)",
+          "c": "how long a trial waits for the events it was built on",
           "v": [
             [
-              "events",
-              "primary endpoint events required, not participants"
+              "t",
+              "years of follow-up needed"
             ],
             [
-              "z_{α/2}",
-              "the false-positive tolerance, 1.96 at five per cent"
+              "E",
+              "primary endpoint events the design requires"
             ],
             [
-              "z_β",
-              "the false-negative tolerance, 0.84 at eighty per cent power"
+              "N",
+              "participants randomised"
             ],
             [
-              "HR",
-              "the hazard ratio the trial is powered to detect"
+              "r",
+              "events per participant per year, both arms together"
             ]
           ],
-          "s": "The number of events needed rises steeply as the effect being looked for gets smaller, which is why a trial hunting a modest benefit needs thousands of people and a trial hunting a large one does not.",
+          "s": "A trial that waits for events cannot promise a date, because the rate belongs to the participants: the same event target takes half again as long in a group that turns out healthier than the design assumed.",
           "computed": true
         }
       ]
@@ -959,6 +1016,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a trial accepts a small chance of calling a difference real when there is none"
+      ],
+      "equations": [
+        {
+          "e": "Σ α_spent ≤ α",
+          "c": "alpha spending — a budget for error that does not refill",
+          "v": [
+            [
+              "α_spent",
+              "the error rate consumed by each look at the endpoint"
+            ],
+            [
+              "α",
+              "the total error rate the whole trial is allowed, fixed in advance"
+            ]
+          ],
+          "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend."
+        }
       ]
     },
     {
@@ -981,7 +1055,7 @@ export const CURRICULUM = {
           "The design requires 380 adjudicated events",
           "246 have been adjudicated so far"
         ],
-        "relationship": "Information fraction = events observed ÷ events planned, and it is what fixes how hard an interim boundary has to be.\n",
+        "relationship": "Information fraction = events observed ÷ events planned, and it sets the boundary: the number of looks at an unadjusted 0.05 would cost 1 − 0.95² ≈ 0.10, so alpha spent stays inside 0.05.\n",
         "calcKey": "STAT-3"
       },
       "assumes": [
@@ -1009,20 +1083,48 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "Σ α_spent ≤ α",
-          "c": "alpha spending — a budget for error that does not refill",
+          "e": "P(at least one false positive) = 1 − (1 − α)^k",
+          "c": "multiplicity — what testing k things costs",
           "v": [
             [
-              "α_spent",
-              "the error rate consumed by each look at the endpoint"
+              "α",
+              "the error rate allowed for a single test, usually 0.05"
             ],
             [
-              "α",
-              "the total error rate the whole trial is allowed, fixed in advance"
+              "k",
+              "how many independent tests were run"
+            ],
+            [
+              "P",
+              "chance that at least one of them clears the line by luck alone"
             ]
           ],
-          "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend.",
+          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
           "computed": true
+        },
+        {
+          "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
+          "c": "how many events a trial has to see to answer its question",
+          "v": [
+            [
+              "events",
+              "primary endpoint events required, not participants"
+            ],
+            [
+              "z_{α/2}",
+              "the false-positive tolerance, 1.96 at five per cent"
+            ],
+            [
+              "z_β",
+              "the false-negative tolerance, 0.84 at eighty per cent power"
+            ],
+            [
+              "HR",
+              "the hazard ratio the trial is powered to detect"
+            ]
+          ],
+          "s": "The number of events needed rises steeply as the effect being looked for gets smaller, which is why a trial hunting a modest benefit needs thousands of people and a trial hunting a large one does not.",
+          "card": false
         }
       ]
     },
@@ -1241,6 +1343,50 @@ export const CURRICULUM = {
           ],
           "s": "One divided by the absolute risk reduction says how many people have to be given the drug for one of them to benefit — a two per cent reduction means fifty people treated per event avoided.",
           "computed": true
+        },
+        {
+          "e": "CI ≈ estimate ± 1.96 × SE",
+          "c": "a confidence interval, and what its width says",
+          "v": [
+            [
+              "CI",
+              "the interval the result is reported as, rather than a single number"
+            ],
+            [
+              "estimate",
+              "the point estimate the trial measured"
+            ],
+            [
+              "SE",
+              "standard error of that estimate"
+            ],
+            [
+              "1.96",
+              "the multiplier that makes it a 95 per cent interval"
+            ]
+          ],
+          "s": "The interval is the point estimate plus and minus about two standard errors, and its width — not its centre — is what says how much is still unknown.",
+          "card": false
+        },
+        {
+          "e": "SE = √( p(1 − p) / n )",
+          "c": "why precision improves only as the square root of the sample",
+          "v": [
+            [
+              "SE",
+              "standard error of a measured proportion"
+            ],
+            [
+              "p",
+              "the proportion itself"
+            ],
+            [
+              "n",
+              "number of people it was measured on"
+            ]
+          ],
+          "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it.",
+          "card": false
         }
       ]
     },
@@ -1295,6 +1441,25 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it."
+        },
+        {
+          "e": "P(at least one false positive) = 1 − (1 − α)^k",
+          "c": "multiplicity — what testing k things costs",
+          "v": [
+            [
+              "α",
+              "the error rate allowed for a single test, usually 0.05"
+            ],
+            [
+              "k",
+              "how many independent tests were run"
+            ],
+            [
+              "P",
+              "chance that at least one of them clears the line by luck alone"
+            ]
+          ],
+          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there."
         }
       ]
     },
@@ -1413,6 +1578,50 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend."
+        },
+        {
+          "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
+          "c": "how many events a trial has to see to answer its question",
+          "v": [
+            [
+              "events",
+              "primary endpoint events required, not participants"
+            ],
+            [
+              "z_{α/2}",
+              "the false-positive tolerance, 1.96 at five per cent"
+            ],
+            [
+              "z_β",
+              "the false-negative tolerance, 0.84 at eighty per cent power"
+            ],
+            [
+              "HR",
+              "the hazard ratio the trial is powered to detect"
+            ]
+          ],
+          "s": "The number of events needed rises steeply as the effect being looked for gets smaller, which is why a trial hunting a modest benefit needs thousands of people and a trial hunting a large one does not.",
+          "card": false
+        },
+        {
+          "e": "conditional power = P(significant at the end | data so far)",
+          "c": "what a futility forecast is, and what it is not",
+          "v": [
+            [
+              "conditional power",
+              "chance the trial reaches significance if it runs to completion"
+            ],
+            [
+              "data so far",
+              "everything observed up to the interim look"
+            ],
+            [
+              "assumption",
+              "the effect size the remainder is assumed to run at — usually the one originally planned"
+            ]
+          ],
+          "s": "Conditional power forecasts what the study would probably do, given how it has gone so far; it is a statement about the trial finishing, not about whether the treatment works.",
+          "card": false
         }
       ]
     }
@@ -2138,6 +2347,25 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The interval is the point estimate plus and minus about two standard errors, and its width — not its centre — is what says how much is still unknown."
+        },
+        {
+          "e": "P(at least one false positive) = 1 − (1 − α)^k",
+          "c": "multiplicity — what testing k things costs",
+          "v": [
+            [
+              "α",
+              "the error rate allowed for a single test, usually 0.05"
+            ],
+            [
+              "k",
+              "how many independent tests were run"
+            ],
+            [
+              "P",
+              "chance that at least one of them clears the line by luck alone"
+            ]
+          ],
+          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there."
         }
       ]
     },
@@ -2314,35 +2542,35 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "STAT-1": {
-    "prompt": "CLARION-3 is powered to detect a hazard ratio of 0.75 with a two-sided 5 per cent test and 80 per cent power. For a 1:1 allocation the required events are 4(z + z)² divided by the square of the log hazard ratio.\n",
-    "question": "Choose the constant, the z term and the log hazard ratio squared.",
+    "prompt": "CLARION-3 was designed to need 380 primary events. It has randomised 2,400 people, and across both arms together about 8 events occur per 100 participants per year — that is 0.08 events per participant per year.\n",
+    "question": "Choose the events required, the number randomised and the event rate.",
     "labels": [
-      "4  (the constant for equal allocation)",
-      "7.85  ((z + z)² at 5 per cent two-sided and 80 per cent power)",
-      "0.0828  (the square of ln 0.75)",
+      "380  (primary events the design requires)",
       "2400  (participants randomised)",
-      "0.75  (the hazard ratio itself)"
+      "0.08  (events per participant per year, both arms)",
+      "246  (events adjudicated so far)",
+      "31  (hospitals recruiting)"
     ],
     "values": [
-      4,
-      7.85,
-      0.0828,
+      380,
       2400,
-      0.75
+      0.08,
+      246,
+      31
     ],
     "slots": 3,
-    "template": "{0} × {1} ÷ {2}",
-    "formula": "a*b/c",
+    "template": "{0} ÷ ({1} × {2})",
+    "formula": "a/(b*c)",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 379,
-    "tolerance": 45,
-    "units": "events",
-    "solution": "4 × 7.85 ÷ 0.0828 ≈ 379 events.",
-    "explanation": "About 380 events. CLARION-3 has 246 of them, which is why the second interim is where it is: the board reads the trial at roughly two thirds of the information it will ever have.\n"
+    "target": 1.98,
+    "tolerance": 0.35,
+    "units": "years",
+    "solution": "2400 × 0.08 = 192 events a year, and 380 ÷ 192 ≈ 2.0 years.",
+    "explanation": "About two years of follow-up. Two thousand four hundred people at 8 events per 100 per year produce roughly 192 events a year, so the 380 the design needs take about two of them. Nobody can promise that date, because the rate is the participants' and not the trial's: at 6 events per 100 per year the same 380 events take nearly three years. It is also why the 246 events already adjudicated, rather than the calendar, is what says how far through CLARION-3 is.\n"
   },
   "STAT-3": {
     "prompt": "CLARION-3 was designed to need 380 adjudicated events. The database holds 246 of them this morning. The information fraction is the events in hand divided by the events planned.\n",

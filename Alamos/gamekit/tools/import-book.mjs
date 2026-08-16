@@ -27,7 +27,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { themeDir } from '../engine/dev/registry.mjs';
-import { claimedWords, claimsPhrase, EQUATIONS } from './syllabus.js';
+import { claimedWords, claimsPhrase, deriveWork, EQUATIONS } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
@@ -168,6 +168,9 @@ function equationsFor(s, game, assumes){
     // converting day 9's estimate to a TALLY quietly demoted CHSH to decoration.
     game.tally?.formula, game.tally?.formulaLabel,
     ...(game.tally?.settings ?? []).map(x => x.label),
+    // And a DERIVE is arithmetic all the way down — the lines the player chose and
+    // the rule each one is licensed by. `deriveWork` takes the correct branch only.
+    ...deriveWork(game),
     ...(game.givens ?? [])]);
   const text = flat([s.title, s.scene, s.story, s.takeaway, game.question, game.task, game.why,
     game.headline, game.setup, game.prompt, game.explanation, game.answer,
@@ -322,8 +325,12 @@ missions.forEach((m, mi) => {
       // Computed first, then whatever order the book put them in.
       kept.sort((a, b) => (b.computed ? 1 : 0) - (a.computed ? 1 : 0));
       if(kept.length > 2){ capped += kept.length - 2; }
-      const final = kept.slice(0, 2);
-      if(final.length) l.equations = final; else delete l.equations;
+      // Past the second one, `card: false` rather than gone. Four formulas on one
+      // card is a card nobody reads, but a stop that computes three has computed
+      // three, and deleting the third told `equationOrder` that Blackout's RMS
+      // convention arrives eleven days after the question that already used it.
+      kept.forEach((eq, i) => { if(i >= 2) eq.card = false; });
+      if(kept.length) l.equations = kept; else delete l.equations;
     });
   }
   if(dropped || capped){

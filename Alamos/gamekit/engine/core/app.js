@@ -624,7 +624,7 @@ export function createDay({
    * question that wants it, rather than assumed by it.
    */
   function equationsHTML(m){
-    const eqs = (m.equations ?? []).filter(x => x?.e);
+    const eqs = (m.equations ?? []).filter(x => x?.e && x.card !== false);
     if(!eqs.length) return '';
     // Every symbol is named with its unit, and one sentence says what the
     // equation asserts. Printing `df/dt = (P_gen − P_load) / 2H` beside the

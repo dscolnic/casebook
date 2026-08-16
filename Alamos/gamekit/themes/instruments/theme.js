@@ -71,8 +71,12 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Say what the player is, where they are, and what happens if the work is not done. '
-    + 'This paragraph is the only place the game explains itself.',
+    'This is the format harness rather than a game. Four days hold one stop of every question '
+    + 'format the engine can draw, so that a panel can be opened, answered right, answered wrong '
+    + 'and looked at, without playing a campaign to the day that happens to hold it. You are '
+    + 'whoever is checking that they all still work after a change to the engine. Nothing here '
+    + 'teaches a course, and every one of the twenty-eight is authored in the same book format a '
+    + 'real game uses.',
   ],
 
   look: {

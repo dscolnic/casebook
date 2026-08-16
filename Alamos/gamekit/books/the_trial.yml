@@ -474,47 +474,53 @@ missions:
           it himself.
         assumes:
           - the trial compares how often an event happens in two arms
-        takeaway: A trial powered on events finishes when the events arrive, which is not a date.
+          - events accumulate over time, at some rate per participant per year
+        takeaway: A trial that waits for events finishes when the events arrive, which is not a date.
         format: BALLPARK
-        question: Estimate how many events CLARION-3 needs before it can answer its question.
+        question: Estimate how long CLARION-3 has to follow its participants to reach the events it needs.
         why: >
           A time-to-event trial learns from events, not from people. Two thousand participants who
           stay well carry almost no information about which arm is better; the comparison rests on
           the ones something happened to. So the design fixes a number of events, and recruitment
-          and follow-up run until that number arrives. It is why nobody can promise a completion
-          date, why a healthier-than-expected group is bad news for the schedule, and why the
-          interim looks are placed at fractions of the events rather than at fractions of the years.
+          and follow-up run until that number arrives. How long that takes is not a decision anybody
+          makes — it is the required events divided by the rate they arrive at, and that rate belongs
+          to the participants rather than to the trial. A healthier-than-expected group is bad news
+          for the schedule for exactly this reason, and it is why the interim looks are placed at
+          fractions of the events rather than at fractions of the years.
         estimate:
           prompt: >
-            CLARION-3 is powered to detect a hazard ratio of 0.75 with a two-sided 5 per cent test
-            and 80 per cent power. For a 1:1 allocation the required events are 4(z + z)² divided by
-            the square of the log hazard ratio.
-          question: Choose the constant, the z term and the log hazard ratio squared.
+            CLARION-3 was designed to need 380 primary events. It has randomised 2,400 people, and
+            across both arms together about 8 events occur per 100 participants per year — that is
+            0.08 events per participant per year.
+          question: Choose the events required, the number randomised and the event rate.
           labels:
-            - 4  (the constant for equal allocation)
-            - 7.85  ((z + z)² at 5 per cent two-sided and 80 per cent power)
-            - 0.0828  (the square of ln 0.75)
+            - 380  (primary events the design requires)
             - 2400  (participants randomised)
-            - 0.75  (the hazard ratio itself)
-          values: [4, 7.85, 0.0828, 2400, 0.75]
+            - 0.08  (events per participant per year, both arms)
+            - 246  (events adjudicated so far)
+            - 31  (hospitals recruiting)
+          values: [380, 2400, 0.08, 246, 31]
           slots: 3
-          template: '{0} × {1} ÷ {2}'
-          formula: a*b/c
+          template: '{0} ÷ ({1} × {2})'
+          formula: a/(b*c)
           correct: [0, 1, 2]
-          target: 379
-          tolerance: 45
-          units: events
-          solution: 4 × 7.85 ÷ 0.0828 ≈ 379 events.
+          target: 1.98
+          tolerance: 0.35
+          units: years
+          solution: 2400 × 0.08 = 192 events a year, and 380 ÷ 192 ≈ 2.0 years.
           explanation: >
-            About 380 events. CLARION-3 has 246 of them, which is why the second interim is where it
-            is: the board reads the trial at roughly two thirds of the information it will ever have.
+            About two years of follow-up. Two thousand four hundred people at 8 events per 100 per
+            year produce roughly 192 events a year, so the 380 the design needs take about two of
+            them. Nobody can promise that date, because the rate is the participants' and not the
+            trial's: at 6 events per 100 per year the same 380 events take nearly three years. It is
+            also why the 246 events already adjudicated, rather than the calendar, is what says how
+            far through CLARION-3 is.
           givens:
-            - The trial is powered for a hazard ratio of 0.75
-            - At 5 per cent two-sided and 80 per cent power, (z + z)² is 7.85
+            - The design requires 380 primary events
+            - About 8 events per 100 participants per year, both arms together
           relationship: >
-            Required events ≈ 4(z + z)² ÷ (ln HR)², with z the two normal cut-offs for the error
-            rate and the power, and HR the hazard ratio the trial is built to detect.
-        answerText: About 380 events.
+            Years of follow-up ≈ events required ÷ (participants × events per participant per year).
+        answerText: About two years of follow-up.
 
   # ---------------------------------------------------------------- day 2
   - title: Who measures, and how
@@ -1001,8 +1007,9 @@ missions:
             - The design requires 380 adjudicated events
             - 246 have been adjudicated so far
           relationship: >
-            Information fraction = events observed ÷ events planned, and it is what fixes how hard
-            an interim boundary has to be.
+            Information fraction = events observed ÷ events planned, and it sets the boundary: the
+            number of looks at an unadjusted 0.05 would cost 1 − 0.95² ≈ 0.10, so alpha spent stays
+            inside 0.05.
         answerText: About 0.65 — roughly two thirds of the information.
       - group: SITE
         task: Work out who the amendment brought in

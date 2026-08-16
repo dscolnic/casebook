@@ -227,6 +227,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does."
+        },
+        {
+          "e": "age(z) = Σ Δz / λ(z)",
+          "c": "building a depth–age scale by adding up layers",
+          "v": [
+            [
+              "age(z)",
+              "the age of the ice at depth z, in years before present"
+            ],
+            [
+              "Δz",
+              "a depth interval"
+            ],
+            [
+              "λ(z)",
+              "the annual layer thickness through that interval"
+            ]
+          ],
+          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "card": false
         }
       ]
     },
@@ -689,6 +709,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does."
+        },
+        {
+          "e": "age(z) = Σ Δz / λ(z)",
+          "c": "building a depth–age scale by adding up layers",
+          "v": [
+            [
+              "age(z)",
+              "the age of the ice at depth z, in years before present"
+            ],
+            [
+              "Δz",
+              "a depth interval"
+            ],
+            [
+              "λ(z)",
+              "the annual layer thickness through that interval"
+            ]
+          ],
+          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "card": false
         }
       ]
     },
@@ -770,6 +810,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
+        },
+        {
+          "e": "age(z) = Σ Δz / λ(z)",
+          "c": "building a depth–age scale by adding up layers",
+          "v": [
+            [
+              "age(z)",
+              "the age of the ice at depth z, in years before present"
+            ],
+            [
+              "Δz",
+              "a depth interval"
+            ],
+            [
+              "λ(z)",
+              "the annual layer thickness through that interval"
+            ]
+          ],
+          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "card": false
         }
       ]
     },
@@ -1595,6 +1655,54 @@ export const CURRICULUM = {
           ],
           "s": "Water molecules migrate through the firn before the ice closes, smoothing the isotope record — so a single warm summer can be present in the ice and unrecoverable from it.",
           "computed": true
+        },
+        {
+          "e": "b = λ × ρ_snow / ρ_ice",
+          "c": "accumulation, converted to ice equivalent",
+          "v": [
+            [
+              "b",
+              "accumulation in metres of ice equivalent per year"
+            ],
+            [
+              "λ",
+              "the measured thickness of one annual layer"
+            ],
+            [
+              "ρ_snow",
+              "the density of the snow as it fell"
+            ],
+            [
+              "ρ_ice",
+              "the density of solid ice, about 917 kg per cubic metre"
+            ]
+          ],
+          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become.",
+          "card": false
+        },
+        {
+          "e": "Δage ≈ z_close × ρ̄ / b",
+          "c": "why the gas in a bubble is younger than the ice around it",
+          "v": [
+            [
+              "Δage",
+              "gas age minus ice age, in years"
+            ],
+            [
+              "z_close",
+              "the close-off depth, where the pores seal — 60 to 100 m"
+            ],
+            [
+              "ρ̄",
+              "the mean density of the firn above that depth, relative to ice"
+            ],
+            [
+              "b",
+              "accumulation in ice equivalent per year"
+            ]
+          ],
+          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes.",
+          "card": false
         }
       ]
     }
@@ -1844,6 +1952,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
+        },
+        {
+          "e": "age(z) = Σ Δz / λ(z)",
+          "c": "building a depth–age scale by adding up layers",
+          "v": [
+            [
+              "age(z)",
+              "the age of the ice at depth z, in years before present"
+            ],
+            [
+              "Δz",
+              "a depth interval"
+            ],
+            [
+              "λ(z)",
+              "the annual layer thickness through that interval"
+            ]
+          ],
+          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "card": false
         }
       ]
     },
@@ -2009,6 +2137,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
+        },
+        {
+          "e": "age(z) = Σ Δz / λ(z)",
+          "c": "building a depth–age scale by adding up layers",
+          "v": [
+            [
+              "age(z)",
+              "the age of the ice at depth z, in years before present"
+            ],
+            [
+              "Δz",
+              "a depth interval"
+            ],
+            [
+              "λ(z)",
+              "the annual layer thickness through that interval"
+            ]
+          ],
+          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "card": false
         }
       ]
     },
@@ -2190,6 +2338,27 @@ export const CURRICULUM = {
           ],
           "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does.",
           "computed": true
+        },
+        {
+          "e": "age(z) = Σ Δz / λ(z)",
+          "c": "building a depth–age scale by adding up layers",
+          "v": [
+            [
+              "age(z)",
+              "the age of the ice at depth z, in years before present"
+            ],
+            [
+              "Δz",
+              "a depth interval"
+            ],
+            [
+              "λ(z)",
+              "the annual layer thickness through that interval"
+            ]
+          ],
+          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -2471,6 +2640,30 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
+        },
+        {
+          "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
+          "c": "turning a gas concentration into an energy imbalance",
+          "v": [
+            [
+              "ΔF",
+              "radiative forcing, in watts per square metre"
+            ],
+            [
+              "C",
+              "the carbon dioxide concentration now, in ppm"
+            ],
+            [
+              "C₀",
+              "the concentration it is being compared with"
+            ],
+            [
+              "5.35",
+              "the empirical coefficient for carbon dioxide"
+            ]
+          ],
+          "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget.",
+          "card": false
         }
       ]
     }

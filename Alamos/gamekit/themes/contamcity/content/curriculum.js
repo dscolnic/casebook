@@ -1632,13 +1632,33 @@ export const CURRICULUM = {
           "10.0 mL sample diluted to 100.0 mL",
           "Measured diluted concentration = 2.5 mg/L"
         ],
-        "relationship": "C_original V_sample = C_diluted V_final, where every C is a concentration and every V a volume.",
+        "relationship": "The concentration of the solution is the amount dissolved divided by the volume holding it, so amount = C × V. Diluting adds solvent and not solute, which leaves C_original V_sample = C_diluted V_final.",
         "calcKey": "QUANT-1"
       },
       "assumes": [
         "diluting a sample lowers its concentration by a known factor"
       ],
       "equations": [
+        {
+          "e": "c = n / V",
+          "c": "molarity as moles per unit volume",
+          "v": [
+            [
+              "c",
+              "concentration, in moles per litre"
+            ],
+            [
+              "n",
+              "moles of solute"
+            ],
+            [
+              "V",
+              "volume of solution, in litres"
+            ]
+          ],
+          "s": "Concentration is how many moles are dissolved in each litre of solution.",
+          "computed": true
+        },
         {
           "e": "C₁V₁ = C₂V₂",
           "c": "dilution, and carrying a dilution factor back",

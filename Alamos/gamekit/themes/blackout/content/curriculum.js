@@ -402,6 +402,29 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "P = IV, and P = I²R",
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
+        },
+        {
           "e": "df/dt = (P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
           "v": [
@@ -923,6 +946,29 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "P = IV, and P = I²R",
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
+        },
+        {
           "e": "N₁/N₂ = V₁/V₂",
           "c": "the transformer ratio, and why transmission is at high voltage",
           "v": [
@@ -991,6 +1037,29 @@ export const CURRICULUM = {
         "power has to have a path to where it is used"
       ],
       "equations": [
+        {
+          "e": "P = IV, and P = I²R",
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
+        },
         {
           "e": "η = E_out / E_in",
           "c": "round-trip efficiency of storage",
@@ -1772,6 +1841,34 @@ export const CURRICULUM = {
           ],
           "s": "Equipment is sized for the current it carries, which includes reactive power that does no work.",
           "computed": true
+        },
+        {
+          "e": "ΔV ≈ I(R cos φ + X sin φ)",
+          "c": "voltage drop along a line, and why reactive power moves it",
+          "v": [
+            [
+              "ΔV",
+              "voltage drop along the line, in volts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "R",
+              "line resistance, in ohms"
+            ],
+            [
+              "X",
+              "line reactance, in ohms"
+            ],
+            [
+              "cos φ / sin φ",
+              "the power factor terms"
+            ]
+          ],
+          "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage.",
+          "card": false
         }
       ]
     },
@@ -1983,7 +2080,7 @@ export const CURRICULUM = {
           "Resistance is 4.2 Ω per phase over the corridor",
           "There are three phases"
         ],
-        "relationship": "Total three-phase loss = 3 × I_rms² × R_phase. The current is an RMS value and the resistance is per phase.",
+        "relationship": "Line loss = 3 × I_rms² × R_phase, the electrical power P = I²R paid once per phase. The current is RMS, the resistance per phase.",
         "calcKey": "LOAD-1"
       },
       "assumes": [
@@ -2011,6 +2108,30 @@ export const CURRICULUM = {
           "computed": true
         },
         {
+          "e": "P = IV, and P = I²R",
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current.",
+          "computed": true
+        },
+        {
           "e": "V_rms = V_peak / √2",
           "c": "why an AC quantity needs saying which one you mean",
           "v": [
@@ -2024,7 +2145,8 @@ export const CURRICULUM = {
             ]
           ],
           "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant.",
-          "computed": true
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -2103,6 +2225,31 @@ export const CURRICULUM = {
       },
       "assumes": [
         "demand rises as the temperature falls, roughly in step"
+      ],
+      "equations": [
+        {
+          "e": "P = IV, and P = I²R",
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
+        }
       ]
     },
     {

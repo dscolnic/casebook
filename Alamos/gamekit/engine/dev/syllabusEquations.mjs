@@ -15,7 +15,7 @@
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
-import { EQUATIONS, equationCoverage } from '../../tools/syllabus.js';
+import { deriveWork, EQUATIONS, equationCoverage } from '../../tools/syllabus.js';
 
 const unnamed = [];
 const args = process.argv.slice(2);
@@ -56,7 +56,10 @@ for(const themeName of wanted){
         title: l.title ?? '',
         // Only the arithmetic: the relationship as authored, the template the
         // player fills, and the worked solution.
-        formula: ' ' + [ch.relationship, ch.template, ch.solution, ...(ch.givens ?? [])]
+        formula: ' ' + [ch.relationship, ch.template, ch.solution,
+          // A DERIVE has neither a relationship nor a solution, and is arithmetic
+          // from top to bottom. Same rule as the importer's, from the same helper.
+          ...deriveWork(ch), ...(ch.givens ?? [])]
           .filter(Boolean).join('  ').toLowerCase() + ' ',
         text: ' ' + [l.title, l.scene, l.takeaway, ch.question, ch.task, ch.why, ch.headline,
           ch.setup, ch.prompt, ch.explanation, ch.answer,

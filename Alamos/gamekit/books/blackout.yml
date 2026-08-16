@@ -612,7 +612,7 @@ missions:
             - RMS current is 1,150 A in each phase
             - Resistance is 4.2 Ω per phase over the corridor
             - There are three phases
-          relationship: Total three-phase loss = 3 × I_rms² × R_phase. The current is an RMS value and the resistance is per phase.
+          relationship: Line loss = 3 × I_rms² × R_phase, the electrical power P = I²R paid once per phase. The current is RMS, the resistance per phase.
       - group: OPS
         task: Choose what to do about the warm corridor
         title: The contingency you are actually protecting against

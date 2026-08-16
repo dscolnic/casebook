@@ -29,6 +29,7 @@ that recurs and is settled differently at different times.
 | Riverton | Reyes: reopen the intake · Nakamura: defend the number | Reyes on day 6, Nakamura on day 45 |
 | Outbreak | Morales: the population · Ortiz: the patient in front of her | Ortiz on stage 7, Morales on stage 8 |
 | Project Y | Groves: the schedule · Bethe: what can be trusted on paper | Groves in autumn 1944, Bethe in March 1945 |
+| Red Sand | Sundqvist: the window does not move, run the bed hotter · Herrera: a hotter bed hands back less methane and the batch still has to meet a specification | Sundqvist on sol 292, Herrera on sol 293 — and on sol 299 the assay says both were arguing about a variable that was not doing the damage |
 | Hospital Heroes | *(none — see below)* | |
 
 **If one side is always right, the player learns a slogan.** "Always wait for
@@ -87,12 +88,29 @@ dayNoun: 'Shift',   // Bring Them Home, Hospital Heroes
 dayNoun: 'Watch',   // Deep Watch
 dayNoun: 'Phase',   // Planetary Defense — eight years in fifteen sittings
 dayNoun: 'Stage',   // Outbreak, Project Y
+dayNoun: 'Sol',     // Red Sand — a Martian day, 39 minutes longer than this one
 // omitted -> 'Day' — right only when a mission really is one day
 ```
 
 It reaches the plan card title, the continuity line, the turn-in button
 ("Finish this watch and move on" rather than "Go to sleep"), the day-over card
 and the campaign log.
+
+## 4b. The opening card is required, and it has four beats
+
+`opening` in the manifest, ONE paragraph of 70–180 words: what has happened and
+to whom · the job as authority ("You are the …, which means …") · the clock or
+the argument, with somebody from the roster in it · what it costs, in people,
+**last**. Enforced by `checkStory.mjs`, including the case nobody had looked for
+— Project Y and Hospital Heroes had no opening at all and rendered a blank title
+screen for as long as they existed.
+
+The failure worth naming is the **inventory opening**: a paragraph of true facts
+about the place, with nobody in it, ending on a specification. Red Sand opened
+with nine modules, eighteen hundred square metres of panel and a vehicle four
+hundred metres away, and never said that six people do not leave for another
+twenty-six months if the tank is not filled. Full worked before-and-after in
+`NEW_GAME.md` § 5.
 
 ## 5. The card briefs; it does not hint
 

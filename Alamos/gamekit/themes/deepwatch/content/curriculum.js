@@ -363,6 +363,30 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound."
+        },
+        {
+          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
+          "c": "Snell's law — why sound bends at a layer",
+          "v": [
+            [
+              "θ₁",
+              "angle in the first layer"
+            ],
+            [
+              "v₁",
+              "sound speed in that layer"
+            ],
+            [
+              "θ₂",
+              "angle in the second layer"
+            ],
+            [
+              "v₂",
+              "sound speed there"
+            ]
+          ],
+          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone.",
+          "card": false
         }
       ]
     },
@@ -1158,7 +1182,7 @@ export const CURRICULUM = {
         "answer": "About 0.91 MPa gauge, roughly nine atmospheres above surface pressure.",
         "why": "Hydrostatic pressure is p = ρgh. Use seawater density 1025 kg/m³, g = 9.81 m/s², and h = 90 m. The gauge pressure is about 905,000 pascals, or 0.91 megapascals. That is roughly nine atmospheres above surface pressure. Add the atmosphere already present, and the absolute pressure outside the hull is about ten atmospheres. This is why a small opening at depth can drive a large inflow and why the hull isolation matters more than adding another pump.",
         "givens": [],
-        "relationship": "p = ρgh",
+        "relationship": "Hydrostatic pressure at depth is p = ρgh.",
         "calcKey": "DC-3"
       },
       "assumes": [
@@ -1186,7 +1210,8 @@ export const CURRICULUM = {
               "depth, in metres"
             ]
           ],
-          "s": "Pressure rises steadily with depth, which is why the same hole floods faster the deeper you go."
+          "s": "Pressure rises steadily with depth, which is why the same hole floods faster the deeper you go.",
+          "computed": true
         }
       ]
     },

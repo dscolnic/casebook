@@ -1183,7 +1183,7 @@ missions:
         answerText: About 0.91 MPa gauge, roughly nine atmospheres above surface pressure.
         why: Hydrostatic pressure is p = ρgh. Use seawater density 1025 kg/m³, g = 9.81 m/s², and h = 90 m. The gauge pressure is about 905,000 pascals, or 0.91 megapascals. That is roughly nine atmospheres above surface pressure. Add the atmosphere already present, and the absolute pressure outside the hull is about ten atmospheres. This is why a small opening at depth can drive a large inflow and why the hull isolation matters more than adding another pump.
         estimate:
-          relationship: p = ρgh
+          relationship: Hydrostatic pressure at depth is p = ρgh.
           prompt: The fitting is 90 m deep in seawater of density 1025 kg/m³. Use g = 9.81 m/s².
           question: Estimate the gauge pressure at the fitting.
           labels:

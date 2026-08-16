@@ -43,7 +43,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
-import { SYLLABUS, EQUATIONS } from './syllabus.js';
+import { deriveWork, SYLLABUS, EQUATIONS } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const root = resolve(here, '..');
@@ -215,7 +215,11 @@ function exportTheme(theme){
           .filter(Boolean).join(' ');
         return (eq.k ?? []).some(k => phraseHit(hay, k));
       }).map(eq => {
-        const worked = [s.estimate?.relationship, s.estimate?.template, s.estimate?.solution]
+        // The same bundle the importer calls arithmetic: an estimate's own lines,
+        // and a DERIVE's steps, which are arithmetic from top to bottom and carried
+        // none of it before — twelve of Headwater's stops read as computing nothing.
+        const worked = [s.estimate?.relationship, s.estimate?.template, s.estimate?.solution,
+          ...(s.estimate?.givens ?? []), ...deriveWork(s)]
           .filter(Boolean).join(' ');
         const computed = (eq.k ?? []).some(k => phraseHit(worked, k));
         return { e: eq.e, about: eq.c, uses: computed ? 'computed' : 'mentioned only' };
@@ -268,7 +272,11 @@ function exportTheme(theme){
     // tools/syllabus.js and are the claim the content is measured against.
     course: syl.course ?? null,
     curriculum: (syl.concepts ?? []).map(c => c.c),
-    equations: (EQUATIONS[theme] ?? []).map(e => ({ e: e.e, about: e.c, symbols: e.v ?? '' })),
+    // `needs` rides along because the sheet is where an equation gets moved from
+    // mentioned to computed, and moving one in front of what it is derived from is
+    // the failure `equationOrder.mjs` exists to catch.
+    equations: (EQUATIONS[theme] ?? []).map(e => ({ e: e.e, about: e.c, symbols: e.v ?? '',
+      ...(e.needs?.length ? { needs: e.needs } : {}) })),
     // The reading level the game is written for, which the brief asks every
     // rewritten passage to stay inside. No book declares it — `audience` lives
     // in the theme's own manifest — so reading only the book left this null for

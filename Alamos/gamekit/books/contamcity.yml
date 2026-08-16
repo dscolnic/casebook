@@ -1703,7 +1703,7 @@ missions:
           givens:
             - 10.0 mL sample diluted to 100.0 mL
             - Measured diluted concentration = 2.5 mg/L
-          relationship: C_original V_sample = C_diluted V_final, where every C is a concentration and every V a volume.
+          relationship: The concentration of the solution is the amount dissolved divided by the volume holding it, so amount = C × V. Diluting adds solvent and not solute, which leaves C_original V_sample = C_diluted V_final.
         answerText: C_original = 2.5×100/10 = 25 mg/L.
       - group: QUANT
         task: Predict the result of a 1:1 dilution, make the dilution, then verify it with an in-range measurement before reporting the original concentration.

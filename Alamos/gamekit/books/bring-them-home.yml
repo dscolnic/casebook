@@ -533,7 +533,7 @@ missions:
         question: Estimate the change in speed.
         why: Force divided by mass gives an acceleration of 0.20 metres per second squared. Over 20 seconds, that produces a 4 metre-per-second change in speed. The same result comes from impulse divided by mass. Four metres per second looks tiny beside an orbital speed measured in kilometres per second. Applied days before arrival, however, it shifts the encounter by hundreds of kilometres. A late correction must produce the same positional change in far less time, so it costs much more.
         estimate:
-          relationship: Impulse = force × time. Velocity change = impulse ÷ mass.
+          relationship: Net force ÷ mass is the acceleration. Thrust is steady, so at constant acceleration the velocity change is acceleration × burn time.
           prompt: A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.
           question: Estimate the change in speed.
           labels:

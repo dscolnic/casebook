@@ -154,6 +154,53 @@ what selects the layout.
 `checkStory.mjs` and `checkNames.mjs` enforce most of this. The parts they
 cannot see are the parts to read out loud.
 
+### The opening card, and the four beats it has to hit
+
+`opening` in the manifest is the first thing anybody reads and the only card with
+no day behind it to make it concrete. **One paragraph, 70–180 words** (55 at a
+primary audience), in this order:
+
+1. **What has happened, or is about to, and to whom.** A situation, with a clock
+   on it where there is one — *"The transfer window opens on sol 486 and does not
+   open again for twenty-six months."*
+2. **The job, as authority.** "You are the …, **which means** …" — the clause
+   that says what the player's signature is on. `checkStory` fails a card with no
+   `you are / you have / you lead / you run / you direct / you command` in it.
+3. **The clock or the argument**, with somebody from the roster in it. A named
+   pair who disagree is worth more than a paragraph of atmosphere; a card that
+   carries a deadline instead gets a note rather than a failure.
+4. **What it costs, in people, last.** The closing sentence is the one that has
+   to land, and `checkStory` fails one with no number, no clock and nobody in it.
+
+**The failure this was all swept for is the inventory opening.** Red Sand's first
+version read: *"Arcadia Rise is a propellant plant on a plain in the northern
+hemisphere of Mars: nine modules buried to the eaves in regolith, eighteen
+hundred square metres of solar panel, and an ascent vehicle standing on a pad
+four hundred metres past the last of them…"* — every fact true, nobody in it, and
+a specification for a closing line (*"the plant has run below its rated output
+every sol since the spring"*). It tells a reader the dimensions of the place and
+nothing about why anybody should care, because the thing at stake — six people do
+not leave for another twenty-six months — was never in the paragraph. The rewrite
+keeps every one of those numbers and puts them behind the window that does not
+move; it ends *"Six people go home on whatever the two of them can be got to
+agree to make."*
+
+Three more rules the sweep produced, all gated:
+
+- **No mechanics.** No order of stops, no clock, no prices, no controls, no scope
+  disclaimer. All of it was removed from every game once already, and Deep Watch
+  still had *"Problems carry on while you think about them"* until this pass.
+- **One paragraph.** The second one has always turned out to be mechanics or an
+  apology for the game.
+- **A card can exist.** `opening` is optional in the manifest, and Project Y and
+  Hospital Heroes rendered an **empty title card** for as long as they had
+  existed, because nothing looked. `checkStory` looks now.
+
+Read the shipped set before writing a new one: Bring Them Home is the model
+(*"The crew can hear every word said on the loop"*), and Aftershock — four
+hundred households in halls, a yellow placard on the hospital door — is the
+model for putting the cost in people.
+
 **The day card** — what the player reads before the countdown starts, in this
 order, composed by `createDay()` in `engine/core/app.js`:
 
@@ -468,6 +515,99 @@ deals with one also carries it as a button beside the term chips. A day that onl
 *mentions* an equation gets it too, and that is the case this exists for: a
 question that computes one already shows its relationship in the estimate panel,
 while a question that only reasons around one never showed the algebra at all.
+
+### Fundamental first — `needs`, and `equationOrder.mjs`
+
+**A hard equation early is fine. A derived equation before the one it comes out
+of is not.** Blackout opens on the swing equation, which is the heaviest relation
+in that course, and that is the right first question because it is the situation
+the game is about. What was wrong in eight of the fifteen games was different:
+impulse asked on day 3 with `F = ma` never computed anywhere, the chain rule on
+day 2 with the power rule not until day 7, apparent power on day 3 with `P = IV`
+on day 10. The player can do the arithmetic in that order. What they cannot do is
+see where the relation came from, so the stop teaches a formula instead of a
+mechanism.
+
+The dependency is authored, in `tools/syllabus.js`, beside the equation it
+belongs to:
+
+```js
+{ e: 'J = FΔt = Δp', c: 'impulse as the change in momentum',
+  needs: ['F = ma'], … }
+```
+
+It names the other equation by its own `e` string rather than by position, so the
+list can be reordered without silently repointing every edge, and
+`equationOrder.mjs` — inside `npm run check` — fails the game if anything is
+computed before what it needs.
+
+**`needs` is derivation, not difficulty and not the usual teaching order.** Write
+an edge when doing X means using Y's result or Y rearranged. Do not write one for
+two equations that are siblings out of the same method (`dh/dt = −k√h` and
+`dQ/dt = −kQ` are both separation of variables; neither is derived from the
+other), or for a definition whose inputs merely have to come from somewhere
+(`FoS = capacity / demand` is not derived from base shear — base shear is one way
+to obtain the denominator). The list's order is the order a course usually goes
+in, which is a weaker claim and deliberately not what is enforced.
+
+**Only a question that computes settles the debt**, and the formats that can
+compute are the ones with arithmetic in their data: an estimate's `relationship`,
+`template`, `solution` and `givens`, a TALLY's combination, and a DERIVE's own
+lines and the rule each is licensed by. A CHOICE cannot compute anything. So a
+course that teaches its foundation only through multiple choice will fail this
+check on everything built on that foundation, and the fix is a stop that gets a
+number out of it — not a reworded card.
+
+Three things this will cost you a round trip on if you do not know them:
+
+* **Say the equation in the words the course uses, inside the `relationship`.**
+  Six of the eight failures were the matcher reading a symbol-only line: `p = ρgh`
+  matched none of `hydrostatic`, `pressure at depth`; `Σ = nσ` matched none of
+  `macroscopic cross section`. The relationship is what the player reads too, so
+  naming the relation is a straight improvement in both directions.
+* **Keep a `relationship` under about thirty words.** It is printed *verbatim* as
+  a primer line on the day's plan card, and `checkStory` fails a primer line over
+  thirty-four. Every one of the three story failures in this pass was a
+  relationship that had grown a clause.
+* **A stop may print two equations and compute more than two.** The third and
+  later are kept in the data with `card: false` — the cap is about how much fits
+  on a card, and deleting them once told `equationOrder` that Blackout's RMS
+  convention arrived eleven days after the question that had already used it.
+
+And expect the same second pass over `k` that the section above warns about: a
+keyword loose enough to match anything credits a stop with an equation it never
+touches. `three-phase` matched every conductor, loss and feeder in Blackout; what
+is particular to that equation is that it takes *line* quantities, so that is what
+the list says now.
+
+### What the conversion brief knows that this section does not
+
+`books/interactions/CONVERSION_BRIEF.md` is written for somebody editing a
+finished game, and five rounds of it have been run. Most of its §4b is about the
+handover format, but these are authoring rules and they apply just as much on the
+way in — writing them right the first time is cheaper than having them returned:
+
+* **Every threshold, target, tolerance and pass mark has to work at both ends** —
+  the cheap move falls short, the full set of right moves clears. This is the trap
+  the importer checks, and it is the difference between an instrument that teaches
+  and one that renders.
+* **Nothing on the panel may give the answer away before the player acts** — not
+  a note, not a hint, not a label. A note that identifies a row's nature is the
+  decision the stop exists to make.
+* **A note is what a person at the scene would say**, never where the number came
+  from. Authoring provenance reaches the player verbatim.
+* **The keyed answer must not repeat the prompt's own words**, which is the ECHO
+  probe, and must not be visibly longer than the alternatives, which is
+  `answerShape`.
+* **Nobody appears without being introduced.** A name that turns up first in a
+  rebuttal reads as a continuity error, and the roster is where people start.
+* **Reading level is sentence length far more than vocabulary.** A `why` two
+  grades over the manifest is rejected outright, and the subject's own words —
+  "spontaneous fission" — are not the lever.
+* **Never write what the player does *not* do.** Scope disclaimers read as
+  apologies for the game.
+* **At most one instrument a day, two at the very most.** Three operated panels
+  in a day is exhausting and it crowds out the screens that carry the story.
 
 ## 7. Check, look, print
 

@@ -289,3 +289,44 @@ Day fourteen is the last reversible moment — eight slots in the crossing block
 which fix what the programme works on until 2033 — and day fifteen is what can
 honestly be said to a board: a third of the twice-regenerated material, not a
 third of the collection, and a gain with the season and the site attached to it.
+
+---
+
+## Red Sand — *two people arguing correctly about the wrong variable*
+
+A propellant plant on Arcadia Planitia has to put six point six tonnes of
+methane and twenty-three of oxygen into an ascent vehicle before a transfer
+window that does not move, and on sol 291 it is making about eleven kilograms a
+sol against the thirteen point eight the arithmetic needs. The plant production
+lead, Ingrid Sundqvist, wants the reactor bed forty degrees hotter tonight; the
+reactor and yield lead, Tomás Herrera, says a hotter bed hands back less methane
+on every pass and the propellant still has to meet a specification somebody
+signs. Sundqvist is right on sol 292, when the bed turns out to have been
+running far below the temperature it was designed for and the recycle loop
+absorbs the yield it costs. Herrera is right on sol 293, when the hotter run puts
+more water into the product stream, the water freezes inside a heat exchanger at
+273 K, and the whole sol's production stands in a pipe at twelve bar.
+
+The middle of the campaign is the plant teaching the argument its own limits: an
+arithmetic ceiling on heating the bed, at the temperature the free-energy change
+turns positive; a second reaction that gains as the first one loses and puts
+carbon monoxide in a product nobody was assaying for; and a hot spot that walks
+thirty centimetres down the catalyst bed in nine sols while everybody reads it as
+heat damage. On sol 299 the spent charge comes back from the assay bench with
+chlorine on its first twenty millimetres and nickel particles the same size as
+fresh, which rules heat out entirely — and the conductivity trace on the water
+plant's polishing column, printed every sol since the station opened and read by
+nobody, steps up at sol 261 and stays there. The bed was poisoned by the feed
+water for thirty-eight sols. Both sides of a fortnight's argument had been
+correct about a variable that was not the one doing the damage.
+
+What follows is a station with one spare catalyst charge and no second one on the
+planet: commissioning it properly rather than quickly, a sol when every number
+agrees and nobody trusts it, a regional dust storm that leaves the array at a
+fifth of the direct beam and forces a shed order, and three faults arriving
+together of which exactly one is spending propellant while it waits. Sol 304 is
+the last reversible moment — a batch four hundred and ten kilograms of methane
+that is inside every specification line but one, and loading is one way. Sol 305
+is the handover: what is known, how well it is known, and what was never
+established at all, written for a crew who arrive three hundred sols after
+everybody who worked it has gone home.

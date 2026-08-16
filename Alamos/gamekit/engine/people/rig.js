@@ -44,6 +44,21 @@ export const G = {
   eye:   new THREE.SphereGeometry(0.017, 8, 6),
   nose:  new THREE.BoxGeometry(0.026, 0.042, 0.032),
   mouth: new THREE.BoxGeometry(0.046, 0.010, 0.013),
+  // Protective equipment. A hood is a second head, a visor is a shell segment
+  // across the front of it — three.js measures phi from +X toward +Z, so
+  // phiStart = π/2 - half puts the middle of the segment on +Z, which is the
+  // face — and a mask is a box over the nose and mouth.
+  hood:   new THREE.SphereGeometry(0.132, 14, 12),
+  visor:  new THREE.SphereGeometry(0.138, 14, 10, Math.PI / 2 - 0.62, 1.24, 0.72, 0.86),
+  mask:   new THREE.BoxGeometry(0.125, 0.085, 0.035),
+  filter: new THREE.CylinderGeometry(0.036, 0.036, 0.055, 8),
+  vent:   new THREE.BoxGeometry(0.10, 0.06, 0.05),
+  // A life-support pack, worn on the back. `accessory` could draw one, but only
+  // on the articulated rig: the crowd never passes that opt and the merged
+  // extras never see it, so a named person would carry air and the twenty
+  // people around them would not.
+  pack:   new THREE.BoxGeometry(0.30, 0.40, 0.17),
+  hose:   new THREE.BoxGeometry(0.045, 0.24, 0.045),
 };
 
 /**
@@ -79,6 +94,63 @@ export function faceTints(look){
     skin: dark(look.skin, 0.94),
     mouth: dark(look.skin, 0.62),
   };
+}
+
+/**
+ * Protective equipment, in body-local space — the same list for the articulated
+ * rig and for the merged extras, so a crowd in PPE is a crowd in PPE at both
+ * tiers. An outfit asks for it by carrying the colour:
+ *
+ *   hood    a suit hood over the whole head. Hides hair and cap; a hood with
+ *           hair sticking through it is the first thing anybody notices.
+ *   visor   a face shield across the front — a shell segment, not a plane, so
+ *           it reads as curved from three-quarters on.
+ *   mask    over nose and mouth. `filter` adds the canister that turns a
+ *           surgical mask into a respirator.
+ *   pack    a life-support pack on the back, with hoses over the shoulders.
+ *           A hood and a pack together are a pressure suit, which is what
+ *           anybody outdoors on Mars is wearing and the reason Red Sand has no
+ *           dome over it.
+ *
+ * The head sits at y = 1.63 with its own (1, 1.26, 1.06) scale, so everything
+ * here is sized against that and not against the bare sphere.
+ */
+export function ppeParts(outfit){
+  const parts = [];
+  if(!outfit) return parts;
+  if(outfit.hood){
+    parts.push({ geo: 'hood', hex: outfit.hood, rough: 0.86,
+      pos: [0, 1.638, 0], scale: [1.12, 1.30, 1.14] });
+    // The suit closes at the shoulders, not at the chin: a collar ring is what
+    // stops a hood reading as a helmet resting on somebody's neck.
+    parts.push({ geo: 'collar', hex: outfit.hood, rough: 0.88,
+      pos: [0, 1.475, 0], scale: [1.0, 1.1, 1.6] });
+  }
+  if(outfit.visor){
+    parts.push({ geo: 'visor', hex: outfit.visor, rough: 0.18,
+      pos: [0, 1.645, 0.004], scale: [1.06, 1.10, 1.12] });
+  }
+  if(outfit.pack){
+    parts.push({ geo: 'pack', hex: outfit.pack, rough: 0.72,
+      pos: [0, 1.22, -0.165], scale: [1, 1, 1] });
+    // Two hoses over the shoulders into the hood, which is what says the pack
+    // is breathing apparatus rather than a rucksack.
+    for(const side of [-1, 1]){
+      parts.push({ geo: 'hose', hex: outfit.pack, rough: 0.8,
+        pos: [side * 0.12, 1.42, -0.05], scale: [1, 1, 1] });
+    }
+  }
+  if(outfit.mask){
+    parts.push({ geo: 'mask', hex: outfit.mask, rough: 0.9,
+      pos: [0, 1.588, 0.112], scale: [1, 1, 1] });
+    if(outfit.filter){
+      parts.push({ geo: 'filter', hex: outfit.filter, rough: 0.7,
+        pos: [0.052, 1.575, 0.145], scale: [1, 1, 1], rotX: Math.PI / 2 });
+      parts.push({ geo: 'vent', hex: outfit.filter, rough: 0.7,
+        pos: [-0.052, 1.578, 0.132], scale: [1, 1, 1] });
+    }
+  }
+  return parts;
 }
 
 /**
@@ -209,7 +281,19 @@ export function buildBody(look, opts = {}){
   }
   head.add(face);
 
-  if(look.cap){
+  const ppe = ppeParts(look.outfit);
+  for(const p of ppe){
+    const m = new THREE.Mesh(G[p.geo], bodyMat(p.hex, p.rough));
+    m.position.set(p.pos[0], p.pos[1], p.pos[2]);
+    m.scale.set(p.scale[0], p.scale[1], p.scale[2]);
+    if(p.rotX) m.rotation.x = p.rotX;
+    m.castShadow = true;
+    group.add(m);
+  }
+
+  if(look.outfit.hood){
+    // Nothing on top of a hood.
+  } else if(look.cap){
     const cap = new THREE.Mesh(G.cap, bodyMat(look.outfit.top, 0.92));
     cap.position.y = 1.685; cap.scale.set(1.08, 1.05, 1.08);
     group.add(cap);
@@ -286,7 +370,18 @@ export function buildExtraBody(look){
       push(G.head, sleeveMat, { x: ax, y: 0.80, z: 0 }, { x: 0.42, y: 0.42, z: 0.42 });
     }
   }
-  if(look.cap) push(G.cap, bodyMat(look.outfit.top, 0.92), { x: 0, y: 1.685, z: 0 }, { x: 1.08, y: 1.05, z: 1.08 });
+  // The same PPE the articulated rig wears, merged in. An extra in shirtsleeves
+  // standing beside a named person in a suit is the crowd giving the game away.
+  for(const p of ppeParts(look.outfit)){
+    const g = G[p.geo].clone();
+    if(p.rotX) g.rotateX(p.rotX);
+    g.scale(p.scale[0], p.scale[1], p.scale[2]);
+    g.translate(p.pos[0], p.pos[1], p.pos[2]);
+    geos.push(g); mats.push(bodyMat(p.hex, p.rough));
+  }
+
+  if(look.outfit.hood){ /* nothing goes on top of a hood */ }
+  else if(look.cap) push(G.cap, bodyMat(look.outfit.top, 0.92), { x: 0, y: 1.685, z: 0 }, { x: 1.08, y: 1.05, z: 1.08 });
   else if(look.hairStyle) push(G.cap, bodyMat(look.hair, 0.98), { x: 0, y: 1.66, z: 0 }, { x: 1.04, y: 1, z: 1.06 });
 
   const upper = new THREE.Mesh(BufferGeometryUtils.mergeGeometries(geos, true), mats);

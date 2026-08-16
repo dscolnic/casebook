@@ -123,6 +123,32 @@ only ever mentioned, that is a strong candidate for either a rewritten estimate
 that actually works it through, or an instrument built around it. Say which
 equations you moved from mentioned to computed.
 
+**And check what it is built on before you move it.** Each equation in the
+manifest may carry a `needs` list — the other equations it is *derived from*.
+A hard equation early is fine; a derived one before its base is not, and the
+repository fails a game for it. Eight of fifteen games failed the first time this
+was run: impulse asked on day 3 with `F = ma` computed nowhere, the chain rule on
+day 2 with the power rule not until day 7, apparent power on day 3 with `P = IV`
+on day 10. So when you convert or rewrite a stop, two questions:
+
+* Does this stop now compute something whose base the game only ever *mentions*?
+  Then the base needs a stop of its own that gets a number out of it, and that
+  stop has to come no later. Say so in the prose summary if you cannot fit it.
+* Does the base appear only in multiple-choice stops? Those cannot compute
+  anything, by definition — a `CHOICE` has no relationship, template or worked
+  solution. A base taught only through `CHOICE` is a base the course never
+  teaches. This is the single most common shape of the failure.
+
+What counts as computing: the estimate's `relationship`, `template`, `solution`
+and `givens`, a `TALLY`'s combination, and a `DERIVE`'s own lines and the rule
+each is licensed by. Two practical consequences when you write a `relationship`:
+
+* **Name the relation in the words the course uses**, not in symbols alone.
+  `p = ρgh` on its own read as prose about nothing; "Hydrostatic pressure at depth
+  is p = ρgh" reads as the equation to the audit and to the player at once.
+* **Keep it under about thirty words.** The `relationship` is printed verbatim on
+  the day's plan card, and a primer line over thirty-four words is rejected.
+
 ## 3. The decision
 
 For each stop, one of three verdicts.

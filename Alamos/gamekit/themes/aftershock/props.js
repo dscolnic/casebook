@@ -212,41 +212,104 @@ function rng(seed){
 }
 
 /**
+ * The canvas a ground crack is painted on: a line that wanders the length of
+ * the strip and throws off a branch or two, with a pale spalled edge under it.
+ */
+function groundCrackCanvas(seed){
+  const c = document.createElement('canvas');
+  c.width = 1024; c.height = 256;
+  const g = c.getContext('2d');
+  const rand = rng(seed);
+  g.clearRect(0, 0, 1024, 256);
+  g.scale(2, 2);   // authored at 512 x 128, drawn at twice that, so the line is crisp
+  const walk = (next, x0, y0, steps, seg, wide, colour, drift) => {
+    g.strokeStyle = colour; g.lineWidth = wide; g.lineCap = 'round'; g.lineJoin = 'round';
+    g.beginPath(); g.moveTo(x0, y0);
+    let px = x0, py = y0, a = 0;
+    const pts = [];
+    for(let i = 0; i < steps; i++){
+      a += (next() - 0.5) * drift;
+      a = Math.max(-1.0, Math.min(1.0, a));
+      px += Math.cos(a) * seg; py += Math.sin(a) * seg;
+      py = Math.max(14, Math.min(114, py));
+      g.lineTo(px, py);
+      pts.push({ x: px, y: py, a });
+    }
+    g.stroke();
+    return pts;
+  };
+  const y0 = 40 + rand() * 48, steps = 26, seg = 512 / 26;
+  // Spall first, then the crack over it, both from the same seed so they follow
+  // the same path — the pale edge is the ground broken away beside the opening,
+  // and it is what makes the crack read at all. The first pass drew a dark line
+  // on dark asphalt at dusk and the whole network was invisible on screen.
+  g.globalAlpha = 0.8;
+  walk(rng(seed), 0, y0 + 3, steps, seg, 17, '#a89d8a', 0.75);
+  g.globalAlpha = 1;
+  const pts = walk(rng(seed), 0, y0, steps, seg, 7.5, '#17130f', 0.75);
+  // Branches: a crack network is what makes a street read as shaken rather than
+  // as cut. Two per strip, off points along the run.
+  for(const i of [Math.floor(steps * 0.3), Math.floor(steps * 0.7)]){
+    const p = pts[i];
+    if(!p) continue;
+    const b = rng(seed * 31 + i);
+    g.strokeStyle = '#17130f'; g.lineWidth = 4.4; g.beginPath(); g.moveTo(p.x, p.y);
+    let bx = p.x, by = p.y, ba = p.a + (rand() < 0.5 ? 1 : -1) * 1.0;
+    for(let k = 0; k < 5; k++){
+      ba += (b() - 0.5) * 0.8;
+      bx += Math.cos(ba) * seg * 0.7; by += Math.sin(ba) * seg * 0.7;
+      g.lineTo(bx, by);
+    }
+    g.stroke();
+  }
+  return c;
+}
+
+/**
  * A crack in the ground that wanders, branches and carries a lip.
  *
  * The straight-line `fissure` above is the diagram version, and it is right
  * where the point being made is the measurement. This is the one for everywhere
- * else: real ground cracking changes direction every couple of metres, and a
- * straight dark line reads as paint on a road.
+ * else — and it is a *texture*, after the first attempt built it out of boxes:
+ * two meshes every three metres came to about fourteen hundred extra meshes
+ * across the town, which froze the renderer outright in headless Chrome and
+ * shipped a game that would not take a screenshot. A crack is a line a
+ * centimetre wide, and the only way to build that out of boxes is to make it
+ * half a metre wide, which is a painted stripe.
  *
- * `groundAt` is the theme's height function, sampled per segment, because a
- * crack drawn at one height crosses the scarp and floats.
+ * The strip is cut into three so it follows the ground rather than floating off
+ * a slope, and a couple of solid lips go on for relief, because a decal alone
+ * has no edge to catch the low sun.
  */
-function crackRun(scene, groundAt, { x, z, ang = 0, len = 26, width = 0.5, seed = 1, depth = 1 }){
+function crackRun(scene, groundAt, { x, z, ang = 0, len = 26, width = 6, seed = 1 }){
   const rand = rng(seed);
-  const dark = MATERIALS.paintedSteel(0x27231e);
-  const lip = MATERIALS.paintedSteel(0x8f8677);
-  const step = 3.0;
-  let px = x, pz = z, a = ang;
-  for(let d = 0; d < len; d += step){
-    a += (rand() - 0.5) * 0.55;
-    const w = width * (0.45 + rand() * 1.1);
-    const mx = px + Math.sin(a) * step / 2, mz = pz + Math.cos(a) * step / 2;
-    const gy = groundAt(mx, mz);
-    box(scene, w, 0.16, step * 1.08, mx, gy + 0.05, mz, dark, a);
-    // One side of a crack is almost always proud of the other. Alternating which
-    // side is what makes it read as ground rather than as a trench.
-    const s = rand() < 0.5 ? 1 : -1;
-    const ox = Math.cos(a) * w * 0.8 * s, oz = -Math.sin(a) * w * 0.8 * s;
-    box(scene, w * 0.7, 0.06 + rand() * 0.16, step * 1.02,
-      mx + ox, gy + 0.06, mz + oz, lip, a + (rand() - 0.5) * 0.2);
-    // Branches, once. A crack network is what makes a street look shaken; a
-    // second generation of branches is a hundred more boxes nobody can see.
-    if(depth > 0 && rand() < 0.22){
-      crackRun(scene, groundAt, { x: mx, z: mz, ang: a + (rand() < 0.5 ? 1 : -1) * (0.6 + rand() * 0.5),
-        len: len * 0.4, width: width * 0.6, seed: seed * 7 + d, depth: 0 });
-    }
-    px += Math.sin(a) * step; pz += Math.cos(a) * step;
+  const tex = new THREE.CanvasTexture(groundCrackCanvas(seed));
+  const parts = 3, span = len / parts;
+  for(let i = 0; i < parts; i++){
+    const d = (i + 0.5) * span - len / 2;
+    const px = x + Math.sin(ang) * d, pz = z + Math.cos(ang) * d;
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(span, width),
+      new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 1, metalness: 0,
+        depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4 }));
+    // The strip is cut across its own length, so each part shows its own third
+    // of the canvas and the crack still runs continuously through all three.
+    m.material.map = tex.clone();
+    m.material.map.repeat.set(1 / parts, 1);
+    m.material.map.offset.set(i / parts, 0);
+    m.material.map.needsUpdate = true;
+    m.rotation.x = -Math.PI / 2;
+    m.rotation.z = -ang;
+    m.position.set(px, groundAt(px, pz) + 0.05, pz);
+    scene.add(m);
+  }
+  // Two lips of thrown-up ground along the run. One side of a crack is almost
+  // always proud of the other, and that is the part the sun catches.
+  for(let i = 0; i < 2; i++){
+    const d = (rand() - 0.5) * len * 0.7;
+    const px = x + Math.sin(ang) * d + Math.cos(ang) * (rand() - 0.5) * 1.2;
+    const pz = z + Math.cos(ang) * d - Math.sin(ang) * (rand() - 0.5) * 1.2;
+    box(scene, 0.5 + rand() * 0.5, 0.08 + rand() * 0.14, span * 0.7,
+      px, groundAt(px, pz) + 0.06, pz, MATERIALS.paintedSteel(0x8f8677), ang + (rand() - 0.5) * 0.3);
   }
 }
 
@@ -376,10 +439,14 @@ function crackCanvas(seed, lines){
     const a0 = (y0 < 128 ? 0.6 : -0.6) + (rand() - 0.5) * 1.4;
     const seg = 14 + rand() * 10, steps = 7 + Math.floor(rand() * 6);
     const path = seed * 13 + i;
-    g.globalAlpha = 0.5;
-    walk(rng(path), x0 + 2, y0 + 2, a0, seg, steps, 5, '#cfc6b4');
+    // The spall is what carries the crack on screen. A 3 cm dark line on a dark
+    // wall at dusk is invisible at any distance a player looks at a building
+    // from, and the first pass shipped exactly that: forty-four crack panels
+    // hung on eleven buildings, and not one of them showed in a screenshot.
+    g.globalAlpha = 0.8;
+    walk(rng(path), x0 + 2, y0 + 2, a0, seg, steps, 8, '#d2c8b2');
     g.globalAlpha = 1;
-    const tail = walk(rng(path), x0, y0, a0, seg, steps, 2.6, '#241f1a');
+    const tail = walk(rng(path), x0, y0, a0, seg, steps, 3.6, '#17130f');
     // One branch off the tail, which is what a crack does at a lintel.
     if(rand() < 0.7){
       walk(rng(seed * 29 + i), tail.x, tail.y,
@@ -455,8 +522,8 @@ function sinkhole(scene, groundAt, { x, z, r = 4, seed = 5, ponded = false }){
   if(ponded) disc(r * 0.3, 0x2d3a3a, 0.035);
   // The rim: slabs of road surface tipped in, which is the whole read at eye
   // height. Without them a hole is a dark circle painted on the ground.
-  for(let i = 0; i < 14; i++){
-    const t = i / 14 * Math.PI * 2 + rand() * 0.2;
+  for(let i = 0; i < 10; i++){
+    const t = i / 10 * Math.PI * 2 + rand() * 0.2;
     const rr = r * (0.86 + rand() * 0.22);
     const sx = x + Math.cos(t) * rr, sz = z + Math.sin(t) * rr;
     const g = new THREE.Group();
@@ -467,7 +534,7 @@ function sinkhole(scene, groundAt, { x, z, r = 4, seed = 5, ponded = false }){
     scene.add(g);
   }
   // Rebar and a severed service pipe, hanging over the edge.
-  for(let i = 0; i < 5; i++){
+  for(let i = 0; i < 3; i++){
     const t = rand() * 6.28, rr = r * 0.8;
     const bx = x + Math.cos(t) * rr, bz = z + Math.sin(t) * rr;
     box(scene, 0.05, 0.05, 1.4 + rand(), bx, y + 0.4, bz, MATERIALS.steel(), t);
@@ -1014,21 +1081,21 @@ export function decorate(scene, ctx){
       const t = i / 17;
       const cx = -170 + t * 300, cz = -34 + Math.sin(i * 1.7) * 46;
       crackRun(scene, y, { x: cx, z: cz, ang: 1.2 + Math.sin(i * 2.1) * 0.9,
-        len: 16 + (i % 4) * 9, width: 0.34 + (i % 3) * 0.12, seed: 101 + i * 7 });
+        len: 16 + (i % 4) * 9, width: 4.5 + (i % 3) * 1.5, seed: 101 + i * 7 });
     }
     // The Flats, where the fill spread toward the water: cracks open roughly
     // parallel to the shore, which is what lateral spreading leaves behind.
     for(let i = 0; i < 22; i++){
       const cx = -150 + i * 14, cz = 74 + Math.sin(i * 0.9) * 34;
       crackRun(scene, y, { x: cx, z: cz, ang: 1.57 + Math.sin(i * 1.3) * 0.35,
-        len: 22 + (i % 5) * 8, width: 0.45 + (i % 4) * 0.16, seed: 401 + i * 11 });
+        len: 22 + (i % 5) * 8, width: 5.5 + (i % 4) * 1.4, seed: 401 + i * 11 });
     }
     // And through the streets themselves, across the kerb lines.
     for(const [cx, cz, a] of [
       [-40, 44, 0.2], [22, 44, 2.9], [-70, 52, 1.1], [58, 50, 1.9],
       [-12, 116, 0.4], [40, 122, 2.6], [-92, 88, 1.4], [86, 104, 0.7],
       [-64, -18, 2.2], [30, -22, 0.9], [-30, -78, 1.8], [56, -44, 2.4],
-    ]) crackRun(scene, y, { x: cx, z: cz, ang: a, len: 30, width: 0.5, seed: cx * 3 + cz });
+    ]) crackRun(scene, y, { x: cx, z: cz, ang: a, len: 30, width: 6, seed: cx * 3 + cz });
 
     // The buildings crack too, and worse on the fill than on the granite.
     crackFacades(scene, y);

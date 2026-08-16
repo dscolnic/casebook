@@ -58,8 +58,12 @@ export default {
     // and any mission stop naming them is unreachable. Validated.
     spawn: ROSTER.length,
     // Background people. A narrow place needs far fewer: on the submarine more
-    // than eight and the player cannot get down the passage.
-    extras: 18,
+    // than eight and the player cannot get down the passage. This one needs
+    // many — an outbreak response is crowded, and eighteen people spread over a
+    // campus this size read as a quiet afternoon. They stand where `site.js`
+    // `crowdSpots` says: triage queues, the swab line, the decon tunnel, the
+    // gate. Extras are the cheap merged rig, four meshes each.
+    extras: 48,
   },
 
   // What is inside each room the player walks into, from book.yml. Rooms are
@@ -77,9 +81,13 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Three hospitals in one river city reported the same unusual illness within a day of each other, and '
-    + 'ambulances are still arriving. You are the scientific response director: you decide what gets '
-    + 'measured, and the city acts on what you find.',
+    'Three hospitals in one river city reported the same unusual illness inside a day of each '
+    + 'other, and the ambulances are still arriving. Seven patients, four days, and the same four '
+    + 'symptoms in every one of them. You are the scientific response director, which means what '
+    + 'gets measured is your decision and the city acts on whatever comes back. Sofia Morales will '
+    + 'not yet say whether seven is a lot, because nobody has written down what a normal week in '
+    + 'this city looks like. An outbreak is only stoppable while it is still small, and this one '
+    + 'has been running for four days.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

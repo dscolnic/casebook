@@ -460,7 +460,9 @@ export function primeEquations(missions = [], curriculum = {}, changes = []){
     const rows = [];
     for(const l of lessons){
       for(const eq of l.equations ?? []){
-        if(!eq?.e || seen.has(eq.e)) continue;
+        // `card: false` is the third and later equation on a stop that computes
+        // several. It stays in the data for the checks and off the cards.
+        if(!eq?.e || eq.card === false || seen.has(eq.e)) continue;
         seen.add(eq.e);
         // v and s come through with it: the card that prints an equation is the
         // card that has to name its symbols, and dropping them here is what left
@@ -743,8 +745,10 @@ export function shapeMissions(missions = [], curriculum = {}, changes = []){
       });
       kept.sort((a, b) => (b.computed ? 1 : 0) - (a.computed ? 1 : 0));
       if(kept.length > 2) capped += kept.length - 2;
-      const final = kept.slice(0, 2);
-      if(final.length) l.equations = final; else delete l.equations;
+      // `card: false` past the second, not dropped — the cap is about how much fits
+      // on a card, and the checks downstream ask what the question actually used.
+      kept.forEach((eq, i) => { eq.card = i < 2; });
+      if(kept.length) l.equations = kept; else delete l.equations;
     });
   }
   if(dropped || capped){

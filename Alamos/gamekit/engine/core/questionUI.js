@@ -1555,7 +1555,7 @@ function askContextHTML(lesson){
  * never shown.
  */
 function equationRow(lesson){
-  const eqs = (lesson?.equations ?? []).filter(x => x?.e);
+  const eqs = (lesson?.equations ?? []).filter(x => x?.e && x.card !== false);
   if(!eqs.length) return '';
   // What the equation is for rides on the button rather than being looked up: the
   // lesson is not in scope where the chips are bound, and one attribute is a

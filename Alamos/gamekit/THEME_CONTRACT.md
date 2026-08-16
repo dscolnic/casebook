@@ -60,8 +60,10 @@ export default {
   interiors: INTERIORS,
   interiorStyle: 'lab',
 
-  // The title card, in the theme's own words. Two or three paragraphs.
-  opening: ['…', '…'],
+  // The title card, in the theme's own words. ONE paragraph, 70–180 words, and
+  // required — `checkStory` fails a manifest without one, because two games
+  // shipped an empty title screen. NEW_GAME.md § 5 has the four beats it holds.
+  opening: ['…'],
 
   look: {
     fov: 66, near: 0.1, far: 900,        // far must clear the sky dome outdoors

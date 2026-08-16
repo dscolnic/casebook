@@ -108,6 +108,36 @@ export const site = {
     { kind: 'post', x: -6, z: -66, height: 3.0, r: 0.1 },
   ],
 
+  // Where the anonymous crowd stands, over and above the paths the engine
+  // works out for itself. A response is people, and on a campus they are not on
+  // the roads — they are queueing at a triage tent, waiting to be swabbed,
+  // doffing at the end of the decon tunnel, or standing at the gate being
+  // screened. `weight` asks for more than one at a spot; the crowd jitters each
+  // by a few metres and nudges anybody who lands in a wall.
+  //
+  // Nothing within ten metres of the spawn at (0, 44): a person placed over the
+  // spawn welds the player in place.
+  crowdSpots: [
+    { x: -11.5, z: 24, weight: 4 },   // red triage, walking wounded side
+    { x: 11.5, z: 24, weight: 4 },    // yellow triage
+    { x: 22, z: 6, weight: 3 },       // green tent, east of the spine
+    { x: 0, z: 17, weight: 2 },       // the queue into the decon tunnel
+    { x: 0, z: -1, weight: 2 },       // doffing, at the far end of it
+    { x: -17, z: -54, weight: 4 },    // the swab line, north court
+    { x: 17, z: -54, weight: 4 },
+    { x: 26, z: 50, weight: 2 },      // container labs
+    { x: -24, z: 38, weight: 2 },     // the ambulance apron, both bays
+    { x: 24, z: 36, weight: 2 },
+    { x: -30, z: 11, weight: 2 },     // clinical wing doors
+    { x: 30, z: 11, weight: 2 },      // cell biology doors
+    { x: 0, z: -4, weight: 2 },       // operations
+    { x: -28, z: -36, weight: 2 },    // immunology
+    { x: 28, z: -36, weight: 2 },     // molecular diagnostics
+    { x: 0, z: -66, weight: 2 },      // gate screening, inside
+    { x: 6, z: -80, weight: 2 },      // outside the gate: press, relatives
+    { x: -14, z: -120, weight: 1 },   // the long track north
+  ],
+
   // Almost none on the campus; it starts once you are through the gate and on
   // the track to the field station.
   scrubCount: 240,

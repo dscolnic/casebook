@@ -189,6 +189,27 @@ export const CURRICULUM = {
           ],
           "s": "The decay constant and the half-life are the same fact written two ways.",
           "computed": true
+        },
+        {
+          "e": "A = λN",
+          "c": "activity from a decay constant and a population",
+          "v": [
+            [
+              "A",
+              "activity, in decays per second"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "N",
+              "how many nuclei are present"
+            ]
+          ],
+          "s": "How radioactive something is depends on both how unstable it is and how much of it there is.",
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -212,13 +233,33 @@ export const CURRICULUM = {
           "Sigma = n sigma",
           "Mean free path = 1/Sigma"
         ],
-        "relationship": "Σ = nσ; mean free path = 1/Σ; attenuation is I/I₀ = e^-Σx.",
+        "relationship": "The macroscopic cross section is Σ = nσ, the number density times the microscopic cross section; mean free path = 1/Σ; attenuation is I/I₀ = e^-Σx.",
         "calcKey": "T-4"
       },
       "assumes": [
         "a cross section is expressed as an area"
       ],
       "equations": [
+        {
+          "e": "Σ = nσ",
+          "c": "macroscopic cross section from number density",
+          "v": [
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "n",
+              "nuclei per cubic centimetre"
+            ],
+            [
+              "σ",
+              "microscopic cross section, the target area of one nucleus"
+            ]
+          ],
+          "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely.",
+          "computed": true
+        },
         {
           "e": "mfp = 1 / Σ",
           "c": "mean free path as the inverse of interaction per length",
@@ -257,7 +298,8 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness.",
-          "computed": true
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -1439,27 +1481,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "radiation deposits energy in whatever it passes through"
-      ],
-      "equations": [
-        {
-          "e": "Σ = nσ",
-          "c": "macroscopic cross section from number density",
-          "v": [
-            [
-              "Σ",
-              "macroscopic cross section, in per centimetre"
-            ],
-            [
-              "n",
-              "nuclei per cubic centimetre"
-            ],
-            [
-              "σ",
-              "microscopic cross section, the target area of one nucleus"
-            ]
-          ],
-          "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely."
-        }
       ]
     },
     {

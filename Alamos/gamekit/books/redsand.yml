@@ -1,0 +1,2449 @@
+# redsand.yml — Red Sand: the propellant plant at Arcadia Rise.
+#
+# AP Chemistry, taught through the back half of the course that The Contaminated
+# City leaves alone: kinetics, equilibrium, electrochemistry, entropy and free
+# energy, phase behaviour and intermolecular forces, and the solution chemistry
+# of a brine nobody on Earth has to drink.
+#
+# The place is a propellant plant on Arcadia Planitia making methane and oxygen
+# out of the atmosphere and the ground, against a transfer window that does not
+# move. Format is tools/BOOK_TEMPLATE.md; import with
+#
+#   node tools/import-book.mjs books/redsand.yml redsand --verify
+
+theme:
+  id: redsand
+  title: Red Sand
+  subtitle: Propellant Lead · Arcadia Rise
+
+# ---------------------------------------------------------------- the areas
+# Six areas, chosen as the six units of the course this game exists to teach.
+# The argument the campaign turns on runs between two of them: Catalyst Bay
+# wants rate and Reactor Hall wants yield, and they are both right on a
+# named sol.
+groups:
+  - id: KINET
+    code: KINET
+    name: Catalyst Bay
+    color: '#d19a2b'
+    desc: How fast the reaction goes, what the catalyst does, and what stops it working.
+    defaultLeader: sundqvist
+    milestones:
+      - Establish what the bed is doing now
+      - Separate rate from yield
+      - Find what is taking the activity away
+      - Qualify a charge somebody else can trust
+  - id: EQUIL
+    code: EQUIL
+    name: Reactor Hall
+    color: '#c05a33'
+    desc: How much methane a pass can give, and what moves that limit.
+    defaultLeader: herrera
+    milestones:
+      - State the balance the loop settles at
+      - Move it on purpose rather than by accident
+      - Close the carbon ledger across the loop
+      - Certify a batch against the flight specification
+  - id: PHASE
+    code: PHASE
+    name: Cold End
+    color: '#4a86b8'
+    desc: Where a gas becomes a liquid, what holds it there, and what it costs.
+    defaultLeader: cho
+    milestones:
+      - Establish what condenses where
+      - Keep the water and the carbon dioxide out of the cold line
+      - Account for every kilogram that boils off
+      - Hand a loaded tank to the vehicle
+  - id: ELEC
+    code: ELEC
+    name: Electrolysis Hall
+    color: '#3f9e8c'
+    desc: Splitting water and carbon dioxide with electricity, and what the current buys.
+    defaultLeader: achebe
+    milestones:
+      - Name the half-reactions at each electrode
+      - Turn charge into kilograms
+      - Find where the current goes when it makes nothing
+      - Run the stack inside its thermal limit
+  - id: GIBBS
+    code: GIBBS
+    name: Plant Control
+    color: '#8d6bb5'
+    desc: Which way a reaction runs on its own, and what has to be paid for.
+    defaultLeader: demir
+    milestones:
+      - Sort the driven steps from the spontaneous ones
+      - Put an energy number on each of them
+      - Close the sol's ledger against the array
+      - Decide what the station stops doing
+  - id: SOIL
+    code: SOIL
+    name: Water Plant
+    color: '#9a8352'
+    desc: Getting water out of frozen ground, and the ions that come with it.
+    defaultLeader: abiola
+    milestones:
+      - Get water out of the ground and keep it
+      - Identify what is dissolved in it
+      - Take out what the plant downstream cannot survive
+      - Leave a rule the next crew can follow
+
+# ------------------------------------------------------------------ the cast
+# Thirteen people, at least two per area. Sundqvist and Herrera are the argument;
+# everybody else has a position they will defend and a limit they admit to.
+roster:
+  - id: sundqvist
+    name: Ingrid Sundqvist
+    role: Plant Production Lead
+    division: KINET
+    bio: |
+      Runs the plant against a calendar. Her case is arithmetic: the tank has to
+      hold twenty-nine tonnes on the sol the window opens, and a plant running
+      below its rated output on any sol is a plant that has already lost that
+      sol's kilograms.
+
+      She reads the reactor as a rate problem. Heat the bed, move more gas
+      through it, recycle whatever comes out unconverted, and the loop makes up
+      in passes what it gives away per pass. Twice she has been right about that
+      when everybody else was being careful.
+
+      Her limit is that a kilogram made off-specification is not a kilogram. She
+      knows it, argues with it, and has never once loaded a batch she was told
+      not to.
+    quiz:
+      - q: Why does Sundqvist treat a slow sol as a loss she cannot get back?
+        a: The window is fixed, so a sol's shortfall has to be carried by the sols left
+        wrong:
+          - The catalyst charge ages on a schedule set by its manufacturer
+          - The plant's rated output is the figure the whole mission was planned and costed against
+          - A slow sol forces the reactor to be purged and started again cold
+  - id: herrera
+    name: Tomás Herrera
+    role: Reactor and Yield Lead
+    division: EQUIL
+    bio: |
+      Owns the reactor loop and the specification the propellant has to meet. He
+      thinks of the reaction as a balance rather than a process: at a given
+      temperature and pressure there is an amount of methane the mixture will
+      settle at, and no amount of urgency moves it.
+
+      What he watches is the gap between what went in as carbon and what came out
+      as product. A loop that cannot account for its own carbon is a loop making
+      something nobody has named yet, and he has found carbon monoxide that way
+      twice.
+
+      His limit is that the balance says nothing about how long it takes to get
+      there. A reactor can be at the right conditions and still be far too slow,
+      and he needs Catalyst Bay to tell him which he is looking at.
+    quiz:
+      - q: What is Herrera actually testing when he compares carbon in against carbon out?
+        a: Whether the loop is making a product nobody has listed
+        wrong:
+          - Whether the flow meters on the inlet and outlet still agree
+          - Whether the reactor has reached the temperature the schedule asks for
+          - Whether the catalyst charge has any working life left in it
+  - id: cho
+    name: Mei-Ling Cho
+    role: Cryogenics Engineer
+    division: PHASE
+    bio: |
+      Keeps the cold end, which is the part of the plant that turns a gas nobody
+      can store into a liquid the vehicle can fly. Her working rule is that
+      everything in the stream has a temperature at which it stops being a gas,
+      and they are not the same temperature.
+
+      That is also the whole of her trouble. Water freezes long before methane
+      condenses, and carbon dioxide becomes a solid at a temperature the cold
+      line passes through on its way down. Either of them will close a pipe from
+      the inside with nothing showing outside it.
+
+      Her limit is that she cannot see in. What she has is a pressure, a
+      temperature and a flow, and a plug looks very like a valve nobody opened.
+    quiz:
+      - q: Why does Cho insist the stream is dried before it reaches her equipment?
+        a: Water turns solid well above the temperature methane needs to condense
+        wrong:
+          - Water and methane form a mixture that will not separate again
+          - Damp gas corrodes the heat exchanger over a season of running at temperature
+          - Water carries dissolved chloride into the storage tank
+  - id: achebe
+    name: Rosalind Achebe
+    role: Power and Electrolysis Engineer
+    division: ELEC
+    bio: |
+      Runs the stacks and the array that feeds them. Everything she does converts
+      electrical charge into moles, and the conversion is exact: a known current
+      for a known time is a known number of molecules, if every electron did the
+      job it was sent to do.
+
+      Her interest is the gap between that and what the plant actually collects.
+      Some of the current crosses the cell without splitting anything, some of the
+      voltage above the thermodynamic minimum turns into heat, and both show up as
+      hydrogen that was paid for and never arrived.
+
+      Her limit is the array. Her stacks can take more current than the field can
+      supply on most sols, so the number she works to is not an electrochemical
+      one at all.
+    quiz:
+      - q: Why does Achebe distrust a hydrogen figure calculated from the current alone?
+        a: Some of the charge crosses the cell without splitting any water
+        wrong:
+          - The current meter drifts warm over the course of a working sol
+          - Faraday's constant depends on the temperature of the electrolyte
+          - Hydrogen leaks out of the collection line faster than it is made
+  - id: demir
+    name: Yusuf Demir
+    role: Life Support Officer
+    division: GIBBS
+    bio: |
+      Responsible for the air, the water and the heat the crew lives in, all of
+      which come off the same array as the propellant. He is the person who has to
+      say out loud that a plant running flat out is a habitat running cold.
+
+      He thinks in free energy rather than in kilowatt-hours, which sounds like
+      pedantry until a decision turns on it. Some of what the station does happens
+      on its own and needs only to be allowed; the rest has to be paid for, and
+      the bill is set by chemistry rather than by engineering.
+
+      His limit is that he is arguing for a margin against a deadline, which is
+      the argument that loses. He has lost it four times this season and kept the
+      minutes each time.
+    quiz:
+      - q: Why does Demir separate the station's loads into driven and spontaneous?
+        a: The driven ones have a bill fixed by chemistry that no design can avoid
+        wrong:
+          - Spontaneous processes can be scheduled for the night side of the sol
+          - Driven processes are the ones the crew can operate by hand if needed
+          - The two kinds are metered on separate circuits from the array
+  - id: abiola
+    name: Femi Abiola
+    role: Regolith and Water Lead
+    division: SOIL
+    bio: |
+      Gets water out of frozen ground, which on this plain means ice cemented
+      through the soil rather than ice in a sheet. His plant warms a sealed load,
+      catches the vapour and condenses it, and what he collects is not water so
+      much as a solution of whatever the ground had in it.
+
+      Most of that is salt of one kind or another, and one of them is perchlorate,
+      which is common here, dissolves readily, and lowers the freezing point of
+      the brine far enough that it stays liquid at temperatures no fresh water
+      would survive.
+
+      His limit is the polishing column. It holds a finite number of ions, it
+      gives no warning as it fills, and the sol it is full the water leaving it is
+      as dirty as the water going in.
+    quiz:
+      - q: Why does Abiola describe his product as a solution rather than as water?
+        a: Warming the ground dissolves whatever salt was cemented in with the ice
+        wrong:
+          - The condenser plate leaves a film of oil in every batch
+          - Vapour collected under vacuum carries fine dust across to the condenser plate
+          - Water made from ice is chemically different from surface water
+  - id: stern
+    name: Dana Stern
+    role: Analytical Chemist
+    division: EQUIL
+    bio: |
+      Runs the assay bench, where every claim the plant makes about its own
+      product is either confirmed or quietly withdrawn. Two instruments and a set
+      of standards, and a rule that a number without a standard behind it is an
+      opinion with a decimal point.
+
+      She is the reason the loop's carbon monoxide was found. It was not on
+      anybody's list, so nobody was looking for it, and it sat in the product
+      stream for eleven sols reading as inert.
+
+      Her limit is that she measures what she is asked to measure. An assay is a
+      question, and a contaminant nobody asks about is a contaminant that passes.
+    quiz:
+      - q: How did carbon monoxide sit in the product stream for eleven sols?
+        a: The assay reported the compounds it was asked for, and that was not one
+        wrong:
+          - The chromatograph could not resolve it from the methane peak
+          - Carbon monoxide forms inside the sample bottle in the hours after it is filled
+          - Its concentration stayed below the instrument's detection limit
+  - id: kaur
+    name: Ravneet Kaur
+    role: Catalysis Engineer
+    division: KINET
+    bio: |
+      Looks after the catalyst charges: nickel on an alumina support, in a bed the
+      size of a kitchen bin, doing the only job in the plant that nothing else can
+      do. She can tell a great deal from where along the bed the heat is.
+
+      A fresh charge does its work in the first few centimetres and the hot spot
+      sits there. As the front of the bed loses activity the hot spot walks
+      downstream, and the sol it reaches the far end there is no bed left to lose.
+
+      Her limit is that the walk looks the same whatever is causing it. Heat and
+      poison both take the front of the bed first, and the difference is visible
+      in the spent charge rather than in the plant.
+    quiz:
+      - q: What does Kaur read from the position of the hot spot in the bed?
+        a: How much of the bed has already stopped doing any work
+        wrong:
+          - Whether the reactor is running above its design temperature
+          - How much gas is passing through the bed each minute
+          - Whether the charge was packed evenly when it was loaded
+  - id: moreau
+    name: Élodie Moreau
+    role: Cryogenic Fluids Technician
+    division: PHASE
+    bio: |
+      Works the transfer lines and the tank farm. Everything she moves is a
+      cryogenic liquid sitting at its own boiling point, which means any heat that
+      reaches it leaves as vapour rather than as a temperature rise.
+
+      She keeps the boil-off log, one line per sol, and she can tell a heat leak
+      from a bad gauge by whether the loss changes when the tank is topped up.
+
+      Her limit is the vent. Propellant that boils off can be recondensed if there
+      is power to do it, and vented if there is not, and the second is a decision
+      somebody makes at four in the morning.
+    quiz:
+      - q: Why does a heat leak into a cryogenic tank show up as vapour rather than as warming?
+        a: A boiling liquid holds its temperature and takes the heat as evaporation
+        wrong:
+          - The tank's insulation keeps the liquid at the temperature it was filled at
+          - Vapour rises to the top of the tank and carries the heat with it
+          - The gauge measures pressure, so warming is invisible to it
+  - id: petrov
+    name: Iosif Petrov
+    role: Array Technician
+    division: ELEC
+    bio: |
+      Maintains eighteen hundred square metres of photovoltaic panel on an open
+      plain in a place with weather. Dust settles on every one of them at a rate
+      he has measured, and a swept panel is worth a measurable fraction more than
+      an unswept one for about twenty sols.
+
+      His argument with the plant is about when to sweep. Sweeping costs power and
+      crew time, and a storm undoes it, so the decision is a forecast rather than
+      a schedule.
+
+      His limit is that he cannot make the sun brighter. On a bad sol the array
+      delivers what the sky lets through, and everything downstream is a choice
+      about what to switch off.
+    quiz:
+      - q: Why is Petrov's sweeping schedule a forecast rather than a routine?
+        a: A storm arriving soon after a sweep wastes the power the sweep cost
+        wrong:
+          - Panels can be damaged if they are swept more than once a season
+          - Dust settles at a rate that changes with the time of year
+          - Crew time for sweeping is allocated by the station commander
+  - id: wells
+    name: Marion Wells
+    role: Station Commander
+    division: GIBBS
+    bio: |
+      Commands the station, which in practice means she owns the energy budget and
+      the arguments about it. Everything on this plain runs off one array, and she
+      is the person who decides whether the next kilowatt-hour goes into the tank
+      or into the habitat.
+
+      She has one standing question for any proposal: what happens if we are wrong
+      about it, and can we undo it. Work that can be undone she will approve on
+      thin evidence. Work that cannot she will hold up for a sol.
+
+      Her limit is that holding things up is itself a decision, and the calendar
+      charges for it at the same rate.
+    quiz:
+      - q: What does Wells ask before approving something proposed on thin evidence?
+        a: Whether the station can undo it if the evidence turns out wrong
+        wrong:
+          - Whether the work can be completed within a single working sol
+          - Whether the proposal has been costed against the energy budget
+          - Whether two members of the crew agree with the reasoning
+  - id: nakagawa
+    name: Sora Nakagawa
+    role: Drill and Excavation Operator
+    division: SOIL
+    bio: |
+      Cuts the ice-bearing ground the water plant runs on. The ice here is not a
+      layer to be found but a cement through the soil, so what the machine brings
+      up is a load of frozen dirt with a water content that changes across ten
+      metres of ground.
+
+      He samples every load before it goes to the hopper, because the difference
+      between eight per cent water and three per cent is the difference between a
+      shift that meets its number and one that does not.
+
+      His limit is depth. Below about two metres the machine is slower than the
+      plant can use, and the shallow ground near the station has already been cut.
+    quiz:
+      - q: Why does Nakagawa sample each load before it reaches the hopper?
+        a: Water content varies across the ground, so the load's yield is not known
+        wrong:
+          - Samples are required by the station's excavation permit
+          - A hopper cannot be opened again once a load has been sealed and warmed through
+          - Dust in the load has to be measured before it enters the plant
+  - id: bhatt
+    name: Anaya Bhatt
+    role: Ascent Vehicle Systems Engineer
+    division: PHASE
+    bio: |
+      Owns the vehicle the whole plant exists to fill. Her tanks take the
+      propellant, her specification says what may go into them, and she is the
+      last signature before a batch is loaded.
+
+      She is unsentimental about the plant's difficulties. The engine sees a
+      mixture, not a season of work, and water in the methane freezes in a valve
+      at a temperature the valve reaches every time it is used.
+
+      Her limit is that she cannot test what she is being handed. There is one
+      vehicle, it is not fired until it launches, and everything she knows about
+      the propellant in it comes from an assay somebody else ran.
+    quiz:
+      - q: Why does Bhatt hold the specification hard on a trace contaminant?
+        a: Nothing loaded into the vehicle can be taken out or tested by firing
+        wrong:
+          - The specification was written by the vehicle's manufacturer
+          - Trace contaminants concentrate in the tank as the propellant around them boils away
+          - An assay cannot measure a contaminant below a few parts per million
+
+glossary:
+  - name: Sabatier reaction
+    aliases: [sabatier, the assembly reaction]
+    def: Carbon dioxide and hydrogen combining over a catalyst to give methane and water. It gives out heat.
+  - name: Catalyst
+    aliases: [catalytic, catalyse, catalyses, catalysed]
+    def: A material that speeds a reaction up by offering an easier path, and is not used up doing it.
+  - name: Activation energy
+    aliases: [activation barrier, energy barrier]
+    def: The energy hill a reaction has to get over. A catalyst lowers it; heating helps more molecules clear it.
+  - name: Rate law
+    aliases: [rate equation, order of reaction, reaction order]
+    def: How the speed of a reaction depends on the amounts present. Found by experiment, not from the equation.
+  - name: Rate constant
+    aliases: [rate coefficient]
+    def: The number in a rate law that carries the temperature dependence. It rises steeply as the bed is heated.
+  - name: Residence time
+    aliases: [contact time, space velocity]
+    def: How long gas spends inside the catalyst bed. Volume of the bed divided by the flow through it.
+  - name: Poisoning
+    aliases: [poisoned, poison, deactivation, deactivating]
+    def: A substance in the feed binding to the catalyst's active sites and stopping them working.
+  - name: Sintering
+    aliases: [sinter, sintered]
+    def: Heat making the small metal particles of a catalyst merge into larger ones, so less surface is left to work on.
+  - name: Equilibrium
+    aliases: [at equilibrium, equilibrium position]
+    def: The state a reaction settles at, where the forward and reverse changes proceed at matching rates.
+  - name: Equilibrium constant
+    aliases: [equilibrium constant K, the constant K, K]
+    def: The fixed ratio of products to reactants a reaction settles at, at one temperature. Changing the temperature changes it.
+  - name: Reaction quotient
+    aliases: [reaction quotient Q, Q]
+    def: The same ratio worked out from what is in the vessel right now. Comparing it with K says which way the reaction will run.
+  - name: Le Châtelier's principle
+    aliases: [le chatelier, le châtelier]
+    def: Disturb a system at equilibrium and it shifts in the direction that partly undoes the disturbance.
+  - name: Partial pressure
+    aliases: [partial pressures]
+    def: The pressure one gas in a mixture would exert alone. The pressures of the parts add up to the total.
+  - name: Yield
+    aliases: [conversion, per-pass yield, single-pass conversion]
+    def: How much of what went in came out as the product you wanted, on one pass through the reactor.
+  - name: Recycle loop
+    aliases: [recycle, recycled, recycling]
+    def: Sending the unreacted gas back to the reactor inlet, so a poor conversion per pass can still give a good overall one.
+  - name: Enthalpy change
+    aliases: [enthalpy, heat of reaction, ΔH]
+    def: The heat a reaction gives out or takes in at constant pressure. Negative means heat comes out.
+  - name: Entropy
+    aliases: [entropy change, ΔS]
+    def: A measure of how spread out the energy and the matter are. Making fewer gas molecules lowers it.
+  - name: Gibbs free energy
+    aliases: [free energy, gibbs, ΔG]
+    def: The combination of enthalpy and entropy that decides direction. Negative means the change can run on its own.
+  - name: Spontaneous
+    aliases: [spontaneity, runs on its own]
+    def: Able to proceed without being driven from outside. It says nothing about how fast.
+  - name: Electrolysis
+    aliases: [electrolyse, electrolyser, electrolytic, electrolysed]
+    def: Using an electric current to drive a reaction that would not run on its own, such as splitting water.
+  - name: Half-reaction
+    aliases: [half reaction, half-reactions, half equations]
+    def: One side of an electron transfer written on its own — what is oxidised at one electrode, what is reduced at the other.
+  - name: Oxidation
+    aliases: [oxidised, oxidise]
+    def: Loss of electrons. It happens at the anode.
+  - name: Reduction
+    aliases: [reduced, reduce]
+    def: Gain of electrons. It happens at the cathode.
+  - name: Faraday's constant
+    aliases: [faraday constant, faraday's law, faraday's laws]
+    def: The charge carried by one mole of electrons, about 96,485 coulombs. It converts current and time into moles.
+  - name: Overpotential
+    aliases: [overvoltage, excess voltage]
+    def: The voltage a cell needs above the thermodynamic minimum to run at a useful rate. It leaves as heat.
+  - name: Current efficiency
+    aliases: [faradaic efficiency, coulombic efficiency]
+    def: The fraction of the charge passed that actually made the product you wanted.
+  - name: Vapour pressure
+    aliases: [vapor pressure, saturation pressure]
+    def: The pressure of the gas standing above its own liquid. It rises steeply with temperature.
+  - name: Boiling point
+    aliases: [condensation temperature, condenses at]
+    def: The temperature at which vapour pressure reaches the surrounding pressure, so the liquid boils.
+  - name: Intermolecular forces
+    aliases: [intermolecular force, dispersion forces, london forces, hydrogen bonding]
+    def: The attractions between whole molecules. Stronger attractions mean a higher boiling point.
+  - name: Deposition
+    aliases: [deposit, deposits, freezing out, freeze out]
+    def: A gas turning straight into a solid without passing through a liquid. Carbon dioxide does it readily.
+  - name: Triple point
+    aliases: [triple-point]
+    def: The one temperature and pressure at which solid, liquid and gas all sit together.
+  - name: Boil-off
+    aliases: [boiloff, boil off]
+    def: Cryogenic liquid lost as vapour when heat reaches the tank. The liquid stays at its boiling point and evaporates instead of warming.
+  - name: Cryogenic
+    aliases: [cryogen, cryogenics]
+    def: Cold enough that ordinary gases are liquids. Methane and oxygen are stored that way.
+  - name: Perchlorate
+    aliases: [perchlorates, perchlorate salt]
+    def: A salt of chlorine and oxygen, common in this ground, very soluble, and the source of the chloride in the water.
+  - name: Chloride
+    aliases: [chloride ion, chlorides]
+    def: The ion left when a chlorine-bearing salt dissolves. It sticks to a nickel catalyst and does not come off.
+  - name: Sulphate
+    aliases: [sulfate, sulphate ion]
+    def: A dissolved ion of sulphur and oxygen. It comes out of solution as hard scale on a hot surface.
+  - name: Brine
+    aliases: [brines, salt solution]
+    def: Water with a great deal of salt dissolved in it. It stays liquid far below the freezing point of fresh water.
+  - name: Freezing point depression
+    aliases: [depression of the freezing point, colligative]
+    def: Dissolved particles lowering the temperature at which a solution freezes. How many particles matters, not which.
+  - name: Molality
+    aliases: [molal, moles per kilogram]
+    def: Moles of dissolved substance per kilogram of solvent. Used where temperature changes make volumes unreliable.
+  - name: Ion exchange
+    aliases: [ion-exchange, polishing column, polishing bed]
+    def: A packed bed that swaps unwanted ions out of water for harmless ones. It holds a fixed number and no more.
+  - name: Breakthrough
+    aliases: [breaks through, broken through]
+    def: The moment a packed bed is full, after which what goes in comes straight out again.
+  - name: Optical depth
+    aliases: [opacity, dust opacity, tau]
+    def: How much dust stands between the sun and the ground. Each unit cuts the direct beam by a further factor.
+  - name: Sol
+    aliases: [sols]
+    def: One Martian day, 24 hours 39 minutes — about 88,800 seconds.
+  - name: Mixture ratio
+    aliases: [oxidiser-to-fuel ratio, o/f ratio]
+    def: The mass of oxidiser burned per unit mass of fuel. It decides what fraction of the tank is oxygen.
+  - name: Specification
+    aliases: [spec, flight specification]
+    def: The written limits a batch has to meet before it may be loaded into the vehicle.
+
+# ---------------------------------------------------------------- the sols
+# Fifteen working sols, sol 291 to sol 305 of a 550-sol surface stay. The window
+# opens on sol 486 and does not move. Each sol visits three different areas; the
+# engine adds a callback from sol 3 onward.
+missions:
+  # ---------------------------------------------------------------- sol 291
+  - title: Two thousand seven hundred kilograms short
+    objective: Establish what the plant is actually limited by before anybody changes a set point.
+    briefing: The tank reconciliation was read at breakfast and the plant does not reach the number.
+    stake: >-
+      Sol 291, and the reconciliation of the ascent vehicle's tanks was read out at breakfast this
+      morning. Three point nine tonnes of methane are aboard and six point six have to be aboard by
+      the sol the transfer window opens, a hundred and ninety-five sols from now, and the plant's
+      present output does not reach it. Ingrid Sundqvist, the plant production lead, wants the
+      reactor set point raised forty degrees tonight. Tomás Herrera, who owns the reactor loop and
+      the specification the propellant has to meet, says a hotter bed gives back less methane on
+      every pass. Today you walk the loop end to end and decide what is holding the output down.
+      Whatever the plant misses this fortnight is carried by the sols that are left, and there are
+      a hundred and ninety-five of those.
+    takeaway: A plant has a speed and a ceiling, and they are not the same limit.
+    stops:
+      - group: EQUIL
+        task: Match each change to the loop with what it does to the methane at equilibrium.
+        title: What the loop settles at
+        place: Reactor Hall
+        scene: The loading projection is still 2,700 kilograms short. Herrera has stopped accepting slogans like ‘run it hotter.’ Four proposed changes are on the reactor board. He wants each effect agreed before anyone touches the loop.
+        assumes:
+          - a reaction at equilibrium is still running in both directions
+          - pressure and temperature are the two settings on a gas-phase reactor
+        takeaway: Pressure, temperature, product removal and an inert gas do not disturb an equilibrium in the same way.
+        format: PROTOCOL
+        why: "Each of these is the same principle applied to a different quantity. Pressure counts gas molecules, and five go in where three come out, so squeezing the loop favours the smaller side. Temperature is different in kind: heat is one of the products here, so the equilibrium constant itself falls as the bed is heated. Condensing the water changes the ratio without touching the constant. Argon raises the total pressure and no partial pressure, so the mixture never notices that it is there."
+        scenarios:
+          - The loop pressure is raised from eight bar to twelve.
+          - The bed is run forty degrees hotter at the same pressure.
+          - Product water is condensed out before the gas returns to the inlet.
+          - Argon builds up in the loop, raising the total pressure at fixed volume.
+        choices:
+          - "More methane: the forward direction ends with fewer gas molecules than it starts with."
+          - "Less methane: the assembly gives out heat, and supplying more heat pushes it back."
+          - "More methane: taking an output away leaves the mixture short of the ratio it settles at."
+          - "No change: nothing taking part in the reaction has had its own partial pressure altered."
+        mapping: [0, 1, 2, 3]
+      - group: KINET
+        task: Say what forty degrees actually buys
+        title: Rate is not yield
+        place: Catalyst Bay
+        scene: Sundqvist wants the bed at 320 °C tonight, up from 280. Ravneet Kaur, the catalysis engineer, has the temperature profile and the production projection side by side. One setting may rescue the schedule or deepen the shortfall.
+        assumes:
+          - heating a reaction makes it go faster
+          - an exothermic reaction gives out heat as it proceeds
+        takeaway: Temperature can increase reaction rate while decreasing the equilibrium yield of an exothermic reaction.
+        format: CHOICE
+        question: The bed is run forty degrees hotter at the same pressure and the same flow. What happens?
+        why: Temperature moves two different quantities in opposite directions. The rate constant rises because more collisions can clear the activation barrier. That is a kinetic effect. For this exothermic reaction, the equilibrium constant falls as temperature rises. That is a thermodynamic effect. A hotter bed can therefore reach a lower methane ceiling more quickly. Whether the trade helps depends on recycle, residence time and how much unreacted feed the loop can send around again.
+        choices:
+          - The bed turns gas over faster, and the methane a single pass can give falls a little.
+          - Both the speed and the amount at equilibrium rise together, since heat helps a reaction along.
+          - The speed is unchanged and the yield rises, since the catalyst is what sets the pace.
+          - Neither moves much, since loop pressure is what fixes the speed and the amount alike.
+        answer: The bed turns gas over faster, and the methane a single pass can give falls a little.
+        rebuttals:
+          - Heat helps the rate and hinders the balance, and treating the two as one quantity is the mistake this reactor keeps making.
+          - A catalyst changes how quickly the balance is reached and leaves the balance itself where it was.
+          - Pressure does move this equilibrium, and it is not what sets the rate constant.
+      - group: PHASE
+        task: Say why the stream is cleaned before it is cooled
+        title: What freezes before methane condenses
+        place: Cold End
+        scene: |-
+          The cold line takes the product stream from ten degrees down to a hundred and fifteen kelvin in one run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.
+        assumes:
+          - a substance leaves the gas phase at a temperature that depends on the pressure
+          - liquid methane needs about 112 K at loop pressure
+        takeaway: A cold line is a series of temperatures, and every substance in the stream leaves the gas at its own one.
+        format: CHOICE
+        question: Why does the stream pass a drier and a carbon dioxide trap before it reaches the cold line?
+        why: Every substance in the stream leaves the gas phase at its own temperature. Water freezes near 273 K. Carbon dioxide can deposit directly as a solid near 195 K at these pressures. Methane remains gaseous until the stream is much colder, near its condensation temperature. If water and carbon dioxide are not removed first, both can become solids on exchanger surfaces. A growing solid layer narrows the passage and can mimic a valve or refrigeration fault from outside the pipe.
+        choices:
+          - Water and carbon dioxide turn solid at temperatures the line passes through on its way down.
+          - Water and carbon dioxide dissolve into the liquid methane and cannot be separated afterwards.
+          - Both gases carry heat into the cold end and raise the load on the refrigerator.
+          - The drier and the trap are what raise the pressure the cold line needs to work at.
+        answer: Water and carbon dioxide turn solid at temperatures the line passes through on its way down.
+        rebuttals:
+          - Neither one gets as far as the liquid methane; both are solid on the wall well before that.
+          - The heat they carry is real and small, and it is not what closes the line.
+          - Both fittings take a small pressure drop rather than adding pressure.
+  # ---------------------------------------------------------------- sol 292
+  - title: Run it hotter
+    objective: Find what else the same power could be doing, now that the bed is where it should have been.
+    briefing: The hot run made its number overnight, and the argument has moved to the electrolysis hall.
+    stake: >-
+      Sol 292, and the bed went to three hundred and twenty degrees overnight on Sundqvist's
+      authority. It made eleven point four kilograms of methane against nine point seven the sol
+      before, and the recycle loop took back most of what the hotter pass gave away. Sundqvist is
+      right this sol, and what she is right about is narrow: the bed had been running far below the
+      temperature it was designed for, and a loop that recycles can afford a poor pass. Today you
+      go to the electrolysis hall and settle what a stack actually converts, since hydrogen is the
+      other half of every kilogram of methane. The heating hour the plant borrowed to do it came
+      off Yusuf Demir's habitat margin, and the life support officer has said so in the log.
+    takeaway: A loop that recycles can afford a poor pass, and a plant with no hydrogen cannot afford anything.
+    stops:
+      - group: KINET
+        task: Work out how long the gas is in contact with the catalyst
+        title: How long a molecule stays in the bed
+        place: Catalyst Bay
+        scene: |-
+          Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds three hundred and forty litres of packed catalyst and the loop is passing eighty-five litres a minute through it.
+        assumes:
+          - a flow quoted in litres a minute is a volume passing each minute
+          - gas volumes depend on the pressure and temperature they are quoted at
+        takeaway: Conversion depends on how fast the reaction runs and on how long it is allowed to run for.
+        format: BALLPARK
+        question: Estimate how long a molecule of gas spends inside the bed.
+        why: Residence time is the contact the reaction gets. A rate constant says how quickly reaction occurs at the stated conditions. Residence time says how long the gas remains with the catalyst. Conversion depends on both. Raising throughput by pushing more gas through the same bed shortens that contact. The plant can therefore increase flow while lowering conversion in one move. Rate and residence time must be judged together before a higher production setting is accepted.
+        estimate:
+          prompt: The bed holds 340 litres of packed catalyst, and the loop passes 85 litres a minute through it at reactor conditions.
+          question: Estimate how long a molecule of gas spends inside the bed.
+          labels:
+            - 340 L  (volume of the packed bed)
+            - 85 L/min  (flow through the bed at reactor conditions)
+            - 12 bar  (loop pressure)
+            - 593 K  (bed temperature)
+            - 4  (moles of hydrogen per mole of carbon dioxide)
+          values: [340, 85, 12, 593, 4]
+          slots: 2
+          template: "{0} ÷ {1}"
+          formula: a/b
+          correct: [0, 1]
+          target: 4
+          tolerance: 0.4
+          units: minutes
+          solution: t = 340 L ÷ 85 L/min = 4.0 minutes.
+          explanation: Contact time is the bed's volume divided by the flow through it. The pressure and the temperature are already inside that flow figure, which is quoted at reactor conditions.
+          relationship: Residence time = the volume of the packed bed ÷ the gas flow through it each minute, with both measured at the reactor's own pressure and temperature.
+      - group: ELEC
+        task: Match each part of the cell to what it does.
+        title: Which electrode does which job
+        place: Electrolysis Hall
+        scene: |-
+          The hall runs two kinds of cell: one splits water, the other splits carbon dioxide at eight hundred degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.
+        assumes:
+          - oxidation is loss of electrons and reduction is gain of electrons
+          - a current is a flow of charge
+        takeaway: The two halves of one electron transfer can be run in separate places if something carries an ion between them.
+        format: PROTOCOL
+        why: Electrolysis separates the two halves of one electron-transfer reaction. Electrons enter at the cathode, where reduction occurs. Electrons leave at the anode, where oxidation occurs. The solid electrolyte carries ions between those regions without carrying electrons through the same path. That separation keeps oxygen away from the fuel-side product. Current measures how quickly charge is delivered through the external circuit. Faraday’s law then connects the total charge passed to the maximum amount of product the cell can make.
+        scenarios:
+          - The cathode, where the supply pushes electrons into the stream.
+          - The anode, where electrons are pulled back out.
+          - The solid electrolyte between them.
+          - The setting on the power supply.
+        choices:
+          - "Reduction: carbon dioxide takes up electrons here and leaves an oxide ion behind."
+          - "Oxidation: oxide ions give up electrons here and depart as oxygen gas."
+          - It carries oxide ions across and refuses to carry electrons, so the circuit runs through the wire.
+          - It fixes how many moles a sol the cell can make, since charge and moles are proportional.
+        mapping: [0, 1, 2, 3]
+      - group: GIBBS
+        task: State which of the plant's steps have a bill
+        title: What has to be paid for
+        place: Plant Control
+        scene: Demir has the sol’s energy ledger open on the desk. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.
+        assumes:
+          - some reactions give out heat and others take it in
+          - electrical energy can be counted in kilowatt-hours
+        takeaway: Whether a change runs on its own and how fast it goes are two separate questions, and one of them has a bill.
+        format: CHOICE
+        question: Why does splitting water need a power supply while the methane assembly does not?
+        why: "Direction is set by the free-energy change, which weighs the heat given out against the change in how spread out the matter is. Assembling methane from carbon dioxide and hydrogen gives out a great deal of heat and runs downhill. Splitting water is that same reaction backwards: it takes the energy in, and no arrangement of equipment gets out of paying it. Electricity is how the plant pays. A catalyst can make a downhill change fast, and cannot make an uphill change run."
+        choices:
+          - Splitting water raises the free energy of what comes out, and that has to be supplied.
+          - Splitting water is the slower of the two, and a slow reaction needs power to keep it going.
+          - Water is a liquid, and turning a liquid into two gases is what the electricity pays for.
+          - The assembly has a catalyst, and a catalyst supplies the energy a reaction would need.
+        answer: Splitting water raises the free energy of what comes out, and that has to be supplied.
+        rebuttals:
+          - Speed and direction are different properties, and a fast uphill reaction still has to be driven.
+          - Boiling the water would cost far less than splitting it, and the plant is not boiling anything.
+          - A catalyst opens an easier path and puts no energy in; it leaves the free-energy change exactly where it was.
+  # ---------------------------------------------------------------- sol 293
+  - title: The line that stopped passing gas
+    objective: Find what closed the cold line, and what the hot run has to do with it.
+    briefing: The cold end stopped delivering liquid three hours into the hot run.
+    stake: >-
+      Sol 293, and the cold end stopped delivering liquid three hours after the hot run began. The
+      loop is still making methane and none of it is reaching a tank, so the sol's production is
+      standing in a pipe at twelve bar. Cho has a flow that fell away over three hours rather than
+      stopping at once, which she says rules out most of the simple explanations. Herrera is right
+      this sol: the hotter bed put more water into the product stream, and the water went somewhere.
+      Today you find where it went, work out why the hot pass gave back less methane, and follow
+      the water back up the plant to the ground it came out of. Nothing else runs while the cold end
+      is blocked.
+    takeaway: A plant is a chain, and the fastest step decides nothing on its own.
+    stops:
+      - group: PHASE
+        task: Find the one explanation the quiet readings allow
+        title: Reading a blockage from outside the pipe
+        place: Cold End
+        scene: >
+          Five readings are up on the cold end panel. Two of them are alarming, three are entirely
+          ordinary, and Cho says the ordinary ones are the reason most of the obvious answers do
+          not survive.
+        assumes:
+          - a refrigerator that has reached its set point is doing its job
+          - water freezes at a far higher temperature than methane condenses at
+        takeaway: The readings that are normal are what rule an explanation out.
+        format: DIAGNOSIS
+        headline: The cold line stopped passing gas over three hours, with the refrigerator at temperature.
+        task: Which explanation fits every reading, not the loudest one?
+        readings:
+          - { zone: Cold line, label: Flow, value: fell to zero over 3 h, status: alarm }
+          - { zone: Cold head, label: Temperature, value: 114 K, status: normal, note: at its set point }
+          - { zone: Drier outlet, label: Water content, value: 900 ppm, status: alarm }
+          - { zone: Vacuum jacket, label: Pressure, value: steady, status: normal, note: rules out a jacket leak }
+          - { zone: Upstream, label: Loop pressure, value: rising, status: high }
+        choices:
+          - { label: Water past the drier is freezing in the exchanger, mechanism: 'The line cools through 273 K long before it gets anywhere near methane.' }
+          - { label: The refrigerator has lost capacity since the hot run began, mechanism: 'A cold head short of temperature passes gas where it should deliver liquid.' }
+          - { label: The vacuum jacket has failed, mechanism: 'Heat leaking in warms the line and stops it condensing anything.' }
+          - { label: A valve on the cold line was left shut, mechanism: 'A closed valve blocks the flow with everything else reading normally.' }
+        answer: Water past the drier is freezing in the exchanger
+        why: >-
+          The quiet readings do the work. A cold head sitting at its set point has not lost capacity,
+          and a steady jacket pressure is a jacket that has not failed. That leaves a blockage, and
+          the shape of the flow trace says which kind: a shut valve stops the flow in a second, while
+          ice builds up over hours and takes the flow down with it. The drier outlet at 900 ppm names
+          the material. Upstream pressure rising against a growing plug completes it.
+      - group: EQUIL
+        task: Separate the thermodynamic temperature effect from the flow change in the hot run.
+        title: Why the hotter pass gave less
+        place: Reactor Hall
+        scene: The hot run’s assay is on Herrera’s desk. Conversion per pass fell from 71% to 64% while throughput rose. He wants the reason written down before anyone argues for another temperature increase.
+        assumes:
+          - the equilibrium constant is fixed at a given temperature
+          - the Sabatier reaction gives out heat
+        takeaway: Heating an exothermic reaction lowers its equilibrium product yield, while the observed reactor conversion can also depend on kinetics and residence time.
+        format: CHOICE
+        question: What happened to the equilibrium methane ceiling when temperature rose, even though the observed conversion may also reflect shorter residence time?
+        why: "The hot run changed two things at once: temperature rose and throughput increased. Those changes should not be collapsed into one explanation. Thermodynamically, the higher temperature lowers the equilibrium constant for this exothermic reaction and therefore lowers the methane ceiling. Kinetically, the hotter catalyst reacts faster, while the higher flow shortens residence time. The observed 64% conversion can contain both effects. A later controlled flow test can separate them by changing residence time while holding temperature and pressure fixed."
+        choices:
+          - The equilibrium methane ceiling is lower at the higher temperature, even though the rate constant is larger.
+          - The equilibrium ceiling is higher because hotter molecules collide more often and reach products more easily.
+          - Temperature leaves equilibrium unchanged; only the shorter residence time can lower conversion.
+          - The catalyst changes the equilibrium constant when it becomes hotter, so the balance follows catalyst activity.
+        answer: The equilibrium methane ceiling is lower at the higher temperature, even though the rate constant is larger.
+        rebuttals:
+          - Collision frequency and activation energy affect rate, not the direction in which an exothermic equilibrium shifts with temperature.
+          - Residence time can affect the measured conversion, but the equilibrium constant also changes with temperature.
+          - A catalyst changes how fast equilibrium is reached and does not set the equilibrium constant.
+      - group: SOIL
+        task: Order the steps the water plant runs in.
+        title: Getting water out of frozen ground
+        place: Water Plant
+        scene: Femi Abiola, the regolith and water lead, has the plant’s four steps written on cards. The morning crew disagreed about where the extra water appeared. He wants the cards restored to process order.
+        assumes:
+          - warming ice-bearing soil releases water as vapour at low pressure
+          - dissolved salts stay behind when water evaporates
+        takeaway: Every step in the water plant fixes something the step after it cannot survive.
+        format: SEQUENCE
+        why: The order is set by what each step needs from the one above it. Ice that melts in the bucket runs into the ground and is lost, so the load stays frozen until it is inside something sealed. Vapour has to be captured where it is released or it goes into the atmosphere at six millibars. Condensing gives liquid water, and only liquid water can be run through an ion-exchange bed. Take the steps out of order and each one has nothing to work on.
+        cards:
+          - Cut ice-bearing ground and keep the load below its melting point on the way in.
+          - Warm a sealed hopper so the water leaves the soil as vapour with nowhere else to go.
+          - Condense that vapour on a chilled plate and drain it into a holding tank.
+          - Strip chloride out on the polishing column at the outlet of the holding tank.
+        order: [0, 1, 2, 3]
+  # ---------------------------------------------------------------- sol 294
+  - title: The loop that pays for itself
+    objective: Size the feed the plant needs, and find where the current is going.
+    briefing: With the cold line clear, the question is whether the feed can keep up with the bed.
+    stake: >-
+      Sol 294. The exchanger was warmed out overnight and the cold end took liquid again at six
+      hours, which leaves the plant with the question it had two sols ago and better information
+      about it. Herrera's loop can convert two thirds of a pass and recycle the rest; what it
+      cannot do is make methane out of carbon dioxide it has not been given, or hydrogen the stacks
+      have not made. Today you size the feed the bed needs at the new rate, find out why Achebe's
+      stacks return less hydrogen than the current says they should, and look at what the water
+      carries with it. Abiola has been asking for a second polishing column since sol 240 and has
+      not been given one.
+    takeaway: A plant is limited by whichever feed runs out first, and it will not be the same one every sol.
+    stops:
+      - group: EQUIL
+        task: Size the carbon dioxide the bed needs each sol
+        title: How much gas the bed has to be fed
+        place: Reactor Hall
+        scene: |-
+          The plant has to average thirteen point eight kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.
+        assumes:
+          - one mole of carbon dioxide yields one mole of methane in this reaction
+          - a molar mass converts moles to kilograms
+        takeaway: Stoichiometry turns a production target into a feed rate, and the feed rate is what the intake has to meet.
+        format: BALLPARK
+        question: Estimate the carbon dioxide the reactor must be fed each sol.
+        why: Stoichiometry is mole bookkeeping. The balanced reaction sends one carbon atom from each carbon-dioxide molecule into one methane molecule. Mass adds one conversion step. Carbon dioxide has a molar mass of 44 g/mol, while methane is 16 g/mol. Each kilogram of methane therefore needs 44/16 kilograms of carbon dioxide. The intake compressors must gather that feed from a very thin atmosphere. The required compressor work scales directly with the production target the plant promises to meet.
+        estimate:
+          prompt: The plant must average 13.8 kg of methane a sol. One mole of carbon dioxide gives one mole of methane.
+          question: Estimate the carbon dioxide the reactor must be fed each sol.
+          labels:
+            - 13.8 kg  (methane needed each sol)
+            - 44.0 g/mol  (molar mass of carbon dioxide)
+            - 16.0 g/mol  (molar mass of methane)
+            - 4  (moles of hydrogen per mole of carbon dioxide)
+            - 2  (moles of water made per mole of methane)
+          values: [13.8, 44, 16, 4, 2]
+          slots: 3
+          template: "{0} × {1} ÷ {2}"
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 37.9
+          tolerance: 2
+          units: kg per sol
+          solution: 13.8 kg × 44.0 ÷ 16.0 = 37.9 kg of carbon dioxide a sol.
+          explanation: Equal moles of the two gases, so the mass ratio is the ratio of the molar masses. The hydrogen and the water are elsewhere in the ledger.
+          relationship: Feed mass = product mass × molar mass of the feed ÷ molar mass of the product, since CO₂ + 4H₂ → CH₄ + 2H₂O consumes one carbon dioxide for each methane.
+      - group: ELEC
+        task: Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.
+        title: Where eight per cent of the charge went
+        place: Electrolysis Hall
+        scene: The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.
+        assumes:
+          - Faraday’s law converts charge into a theoretical amount of product
+          - current efficiency is collected product divided by theoretical product from charge
+        takeaway: Faraday’s law fixes the theoretical product from charge; current efficiency measures how much of that charge reached the intended reaction.
+        format: BALANCE
+        question: What term closes the charge ledger, and what does that term measure about the cell?
+        balance:
+          total:
+            amount: 594
+            unit: g H₂-equivalent
+            label: Product allowed by measured charge
+          streams:
+            - id: collected
+              label: Hydrogen collected at the separator
+              value: 546
+              display: 546 g
+            - id: line_inventory
+              label: Change in hydrogen held in the collection line
+              value: 0
+              display: No change
+            - id: measured_vent
+              label: Measured hydrogen vent loss
+              value: 0
+              display: No loss detected
+            - id: nonproductive
+              label: Charge not recovered as collected H₂
+              value: 48
+              display: 48 g-equivalent
+              hidden: true
+          tolerance: 3
+          hint: All rows are written in hydrogen-equivalent grams. Count the measured product and any real downstream storage or loss before deciding what must be assigned to the cell itself.
+        answerText: The ledger is short by about 48 g of hydrogen-equivalent charge. The cell collected 546/594 ≈ 92% of the Faraday-law maximum, so its current efficiency is about 92%.
+        why: Current times time gives charge, and Faraday’s law converts that charge into a theoretical hydrogen mass. For this run the charge corresponds to about 594 grams. Only 546 grams were collected, while line inventory and measured vent loss were unchanged. The missing 48 grams are therefore not a hidden hydrogen store. They are hydrogen-equivalent charge that crossed by other electrochemical paths or recombined before collection. The ratio 546/594 is about 92%, which is the current efficiency for this run.
+      - group: SOIL
+        task: Match each dissolved species to what it does downstream.
+        title: What comes with the water
+        place: Water Plant
+        scene: |-
+          The holding tank's analysis is on Abiola's bench: four dissolved species, none of them water. Each one has somewhere downstream that it matters, and the plant has one polishing column between them and everything else.
+        assumes:
+          - salts dissolve into ions in water
+          - an electrolysis cell and a catalyst bed both have surfaces that can be fouled
+        takeaway: Water from the ground is a solution, and every solute has an address downstream.
+        format: PROTOCOL
+        why: A dissolved species matters because of the surface or process it reaches downstream. Chloride is dangerous here because it can bind strongly to nickel catalyst sites. Sulphate can contribute to scale on hot surfaces. Fine particles create a mechanical fouling problem. Dissolved carbon dioxide is different because the plant already handles carbon dioxide as a process species. The polishing train should therefore be designed around consequences, not around the idea that every impurity is equally harmful.
+        scenarios:
+          - Chloride ion, from dissolved perchlorate salt.
+          - Sulphate ion, at four grams a litre.
+          - Suspended fines, too small for the filter.
+          - Dissolved carbon dioxide, from the condenser headspace.
+        choices:
+          - Binds to the nickel surface of the catalyst and takes those sites out of use.
+          - Comes out of solution as scale on the hot faces of the electrolysis cell.
+          - Packs into the drier and raises the pressure drop across it sol by sol.
+          - Adds acidity and nothing else; the reactor is fed the same gas anyway.
+        mapping: [0, 1, 2, 3]
+  # ---------------------------------------------------------------- sol 295
+  - title: The ceiling on running hotter
+    objective: Put a number on how far the temperature argument can be taken.
+    briefing: Sundqvist has asked for another forty degrees, and this time the question has an arithmetic answer.
+    stake: >-
+      Sol 295, and Sundqvist has asked for another forty degrees on the bed, four sols after the
+      first forty worked. Kaur will not sign for it: the last charge she pulled had grown its metal
+      particles, and a bed that has sintered does not come back. Demir wants to know where the heat
+      is coming from, since the reactor gives out heat and the habitat is short of it. Today you put
+      an arithmetic ceiling on the temperature argument, decide what a catalyst can and cannot
+      change about it, and follow the product stream into the cold end. The number you produce
+      settles a fortnight of argument in either direction, and Wells has said she will act on it
+      the same evening.
+    takeaway: An argument that has an arithmetic answer should not be settled by seniority.
+    stops:
+      - group: GIBBS
+        task: Work out the free-energy change at the bed's temperature
+        title: The temperature the reaction stops wanting to run
+        place: Plant Control
+        scene: Demir has thermodynamic data for the Sabatier reaction on the desk. The sheet lists its enthalpy and entropy changes per mole of methane. He wants ΔG evaluated at the present bed temperature.
+        assumes:
+          - free energy combines the heat of a reaction with its entropy change
+          - a negative free-energy change means the reaction can run on its own
+        takeaway: With fixed tabulated ΔH and ΔS, ΔG = ΔH − TΔS predicts the temperature where spontaneity changes sign.
+        format: BALLPARK
+        question: Estimate the free-energy change for the reaction at the bed's temperature.
+        why: The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still strongly negative. Using the same tabulated ΔH and ΔS gives a zero crossing near 960 K. Real thermodynamic values vary somewhat with temperature, so 960 K is a course-model threshold rather than an exact plant limit.
+        estimate:
+          prompt: For this reaction the enthalpy change is −165,000 J per mole and the entropy change is −172 J per mole per kelvin. The bed is at 593 K.
+          question: Estimate the free-energy change for the reaction at the bed's temperature.
+          labels:
+            - −165000 J/mol  (enthalpy change)
+            - 593 K  (bed temperature)
+            - −172 J/mol/K  (entropy change)
+            - 8.314 J/mol/K  (the gas constant)
+            - 298 K  (room temperature)
+          values: [-165000, 593, -172, 8.314, 298]
+          slots: 3
+          template: "{0} − {1} × {2}"
+          formula: a - b*c
+          correct: [0, 1, 2]
+          target: -63004
+          tolerance: 3000
+          units: J per mole
+          solution: ΔG = −165,000 − (593 × −172) = −63,000 J per mole.
+          explanation: Both terms are negative, and they pull opposite ways once the temperature multiplies the second. The gas constant and room temperature belong to other calculations.
+          relationship: ΔG = ΔH − TΔS, with ΔG the free-energy change, ΔH the heat given out at constant pressure, T the absolute temperature in kelvin and ΔS the entropy change of the reaction.
+      - group: KINET
+        task: Say what the catalyst is and is not doing
+        title: What a catalyst cannot do
+        place: Catalyst Bay
+        scene: >
+          Kaur has two charges on the bench: the spent one from sol 288 and a fresh one still in its
+          sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass
+          can give.
+        assumes:
+          - a catalyst offers a reaction an easier path
+          - equilibrium is where the forward and reverse rates match
+        takeaway: A catalyst changes how long the balance takes to arrive and leaves the balance where it was.
+        format: CHOICE
+        question: A better catalyst is fitted at the same temperature and pressure. What changes?
+        choices:
+          - Equilibrium arrives sooner, and the methane the mixture settles at is the same.
+          - More methane at equilibrium, since the easier path favours the forward direction.
+          - Neither the speed nor the amount changes, since the bed is already at equilibrium.
+          - Less heat is released per mole, since the reaction now takes an easier route to get there.
+        answer: Equilibrium arrives sooner, and the methane the mixture settles at is the same.
+        why: >-
+          A catalyst lowers the activation barrier, and it lowers it by the same amount in both
+          directions. Forward and reverse both speed up, their ratio is untouched, and that ratio is
+          the equilibrium constant. Nor does the catalyst change how much heat the reaction gives
+          out: enthalpy depends on what the molecules are, not on the road taken between them. So a
+          better catalyst buys time, which in a plant with a fixed number of sols is worth a great
+          deal — and it buys no yield at all.
+        rebuttals:
+          - An easier path is easier in both directions at once, which is why the ratio between them does not move.
+          - The bed leaves short of equilibrium at this flow, which is exactly why the speed matters.
+          - Enthalpy is fixed by the starting materials and the products, whatever route joins them.
+      - group: PHASE
+        task: Order the stages of the cold end, warmest to coldest.
+        title: The order the cold end has to work in
+        place: Cold End
+        scene: |-
+          Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. Two of the four exist because of what happened on sol 293.
+        assumes:
+          - a substance condenses at a temperature that rises with pressure
+          - carbon dioxide turns to solid near 195 K at these pressures
+        takeaway: Cleaning a stream is cheapest at the warmest temperature that will do it.
+        format: SEQUENCE
+        why: The stream is cleaned as temperature falls. Each stage sits at a temperature where it can remove one unwanted species before that species harms a colder stage. Compression raises condensation temperatures and can reduce refrigeration demand. Water is removed before it can freeze in the exchanger. Carbon dioxide is trapped at a warmer stage where deposited solid can be managed. Only the cleaned remainder goes to the methane-condensation stage near 112 K. Driving contaminated gas colder wastes energy and creates blockage risk.
+        cards:
+          - Compress the dry product gas, so everything below condenses at a higher temperature.
+          - Hold the stream at 250 K over a desiccant bed to take the water out as vapour.
+          - Chill to 190 K across the trap, where carbon dioxide leaves as a solid.
+          - Take the remainder to 112 K, where methane runs as a liquid into the tank.
+        order: [0, 1, 2, 3]
+  # ---------------------------------------------------------------- sol 296
+  - title: Water is the whole plant
+    objective: Find the feed that actually caps the plant, and what it costs to clean.
+    briefing: The bed is fine and the stacks are fine, and the plant made eleven kilograms again.
+    stake: >-
+      Sol 296, and for the third sol running the plant has made about eleven kilograms with a bed
+      that could do more. Sora Nakagawa, who cuts the ground the water comes from, has been working
+      poorer ice for a week: eight per cent water by mass in the spring, four and a half this
+      morning, and the machine cannot go deeper fast enough to make it up. Abiola's holding tank is
+      brine rather than water, and it stays liquid at temperatures that ought to have frozen it
+      solid. Today you find out how salty that has to be to behave that way, what the stacks do
+      with the voltage above the minimum, and which way the loop is running right now. Everything
+      downstream is waiting on one tank.
+    takeaway: The step that limits a plant is not the step anybody is arguing about.
+    stops:
+      - group: SOIL
+        task: Work out how much salt the brine is carrying
+        title: The tank that will not freeze
+        place: Water Plant
+        scene: |-
+          The holding tank sat at minus forty overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.
+        assumes:
+          - a dissolved salt separates into ions in water
+          - the freezing point of pure water is 273 K
+        takeaway: In the ideal colligative model, freezing-point depression scales with the number of dissolved particles, not their chemical identity.
+        format: BALLPARK
+        question: Estimate how far this brine's freezing point falls below that of pure water.
+        why: Dissolved particles lower the chemical potential of liquid water and make freezing occur at a lower temperature. In the ideal colligative model, the size of that shift depends on the number of dissolved particles. Magnesium perchlorate contributes three ions per formula unit, so the van ’t Hoff factor is three in the course calculation. At 8 molal the solution is extremely concentrated, so real ion interactions make the ideal 45 K estimate only a rough magnitude. The calculation still shows why this brine remains liquid far below 0 °C.
+        estimate:
+          prompt: The tank holds magnesium perchlorate at 8.0 moles per kilogram of water. Each formula unit gives one magnesium ion and two perchlorate ions.
+          question: Estimate how far this brine's freezing point falls below that of pure water.
+          labels:
+            - 3  (particles released per formula unit)
+            - 1.86 K kg/mol  (freezing-point constant of water)
+            - 8.0 mol/kg  (molality of the brine)
+            - 0.51 K kg/mol  (boiling-point constant of water)
+            - 223 g/mol  (molar mass of magnesium perchlorate)
+          values: [3, 1.86, 8, 0.51, 223]
+          slots: 3
+          template: "{0} × {1} × {2}"
+          formula: a*b*c
+          correct: [0, 1, 2]
+          target: 44.6
+          tolerance: 3
+          units: K
+          solution: ΔTf = 3 × 1.86 × 8.0 ≈ 45 K below the freezing point of pure water.
+          explanation: The particle count is what matters, so a salt giving three ions counts three times. The boiling-point constant and the molar mass belong to other questions.
+          relationship: "ΔTf = i × Kf × m: the freezing point drops by the particle count i times the water constant Kf times the molality m."
+      - group: ELEC
+        task: Account for the voltage above the thermodynamic minimum
+        title: What the extra volt is doing
+        place: Electrolysis Hall
+        scene: |-
+          The water stack needs 1.23 volts a cell in principle and Achebe runs it at 1.75. The difference is half a kilowatt across the stack, and Demir wants to know whether that energy ends up in the hydrogen.
+        assumes:
+          - a cell has a minimum voltage set by the thermodynamics of the reaction
+          - electrical power is current times voltage
+        takeaway: A cell run fast costs more per mole than a cell run slowly, and the difference leaves as heat.
+        format: CHOICE
+        question: Where does the energy from the extra half-volt a cell end up?
+        why: The thermodynamic minimum voltage pays for the free-energy increase of splitting water. Any voltage above that minimum is overpotential. It is the extra cost of driving useful current through real electrodes and electrolyte. Part of that cost comes from electrical resistance. Part comes from slow electrode steps that need additional driving force. The extra electrical energy ends up mainly as heat in the stack. Hydrogen made at 1.75 V is chemically the same product as hydrogen made closer to the reversible voltage.
+        choices:
+          - It leaves the stack as heat, and the hydrogen carries the same energy either way.
+          - It is stored in the hydrogen, which comes out at a higher energy than at 1.23 volts.
+          - It is spent making the reaction go, since below that voltage no water would split.
+          - It goes into warming the water feed, which raises the amount each coulomb can split.
+        answer: It leaves the stack as heat, and the hydrogen carries the same energy either way.
+        rebuttals:
+          - Hydrogen is hydrogen, and the energy stored in it depends on the molecule rather than on the cell that made it.
+          - Below 1.23 volts the reaction genuinely stops, and that first 1.23 is not the half-volt in question.
+          - Some of the heat does warm the feed, and warming water does not change what a coulomb can split.
+      - group: EQUIL
+        task: Calculate the reaction quotient from the snapshot and compare it with the equilibrium constant.
+        title: Compute which way it runs
+        place: Reactor Hall
+        scene: Herrera freezes the 09:40 gas-analyser screen before the loop has settled. Four partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.
+        assumes:
+          - for CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² / [PCO₂(PH₂)⁴]
+          - Kp is 0.14 at this bed temperature
+        takeaway: Q < K drives the reaction forward, Q > K drives it backward, and Q = K is equilibrium.
+        format: BALLPARK
+        question: Estimate Q from the four partial pressures. Is the mixture driven forward or backward?
+        answerText: Q ≈ 0.016, which is well below K = 0.14. The net reaction therefore runs forward and makes more methane and water.
+        why: The reaction quotient uses the same pressure expression as the equilibrium constant, but it uses the mixture that exists right now. Here Q is about 0.016 while K is 0.14. The mixture therefore has too little product relative to equilibrium, so the forward reaction is favoured until Q rises to K. The comparison predicts direction, not speed. A poor catalyst could take a long time to close the gap. Temperature can change K itself; the catalyst cannot.
+        choices:
+          - Making methane, and it will go on doing so until the two figures meet.
+          - Consuming methane, since a low quotient means the products are in excess.
+          - Nothing at all, since a mixture with a low quotient is already at its balance.
+          - Making methane faster than the catalyst can support, which is why the quotient is low.
+        answer: Making methane, and it will go on doing so until the two figures meet.
+        rebuttals:
+          - A low quotient means the products are scarce rather than in excess, which is the opposite reading of the same number.
+          - At equilibrium the two expressions are equal, and these two differ by a factor of nine.
+          - The catalyst sets how quickly the gap closes and has no say in which side of the balance the mixture sits on.
+        estimate:
+          prompt: "At 593 K: PCH₄ = 1.0 bar, PH₂O = 0.50 bar, PCO₂ = 1.0 bar, PH₂ = 2.0 bar, and Kp = 0.14."
+          question: Choose the four partial pressures needed to calculate Qp, then compare the result with Kp.
+          relationship: For CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² ÷ [PCO₂(PH₂)⁴]. Compare Qp with Kp to get the net direction.
+          explanation: Qp ≈ 0.016 and Kp = 0.14. Because Qp is smaller, the mixture moves toward products. Total loop pressure is not substituted separately into Qp.
+          solution: Qp = 1.0 × (0.50)² ÷ [1.0 × (2.0)⁴] = 0.0156 < 0.14, so the net direction is forward.
+          givens:
+            - PCH₄ = 1.0 bar
+            - PH₂O = 0.50 bar
+            - PCO₂ = 1.0 bar
+            - PH₂ = 2.0 bar
+            - Kp = 0.14 at 593 K
+          labels:
+            - 1.0  (methane partial pressure)
+            - 0.50  (water partial pressure)
+            - 1.0  (carbon-dioxide partial pressure)
+            - 2.0  (hydrogen partial pressure)
+            - 0.14  (equilibrium constant Kp)
+            - 12  (total loop pressure, bar)
+          values: [1, 0.5, 1, 2, 0.14, 12]
+          correct: [0, 1, 2, 3]
+          slots: 4
+          template: "{0} × {1}² ÷ ({2} × {3}⁴)"
+          formula: a*b*b/(c*Math.pow(d,4))
+          target: 0.015625
+          tolerance: 0.002
+          units: Qp
+  # ---------------------------------------------------------------- sol 297
+  - title: The bed walks downstream
+    objective: Find out what is happening inside a bed nobody can see into.
+    briefing: The reactor's hot spot has moved thirty centimetres down the bed in nine sols.
+    stake: >-
+      Sol 297, and Kaur brought in nine sols of temperature profiles this morning with the hot spot
+      moved thirty centimetres down the bed. Output is falling about two per cent a sol against a
+      feed that has not changed, and the assay bench has begun reporting carbon monoxide in the
+      product where there was none in the spring. Élodie Moreau, who works the transfer lines, has a
+      boil-off log that has gone up as well, which may be the same problem or a different one. Today
+      you decide what the bed is telling you, work out why a hot reactor makes a gas nobody asked
+      for, and put a number on what the tank farm loses standing still. Kaur says the profile means
+      the front of the bed is dead; Sundqvist says a bed that hot is doing what hot beds do.
+    takeaway: A measurement taken every sol becomes evidence when somebody lays nine of them side by side.
+    stops:
+      - group: PHASE
+        task: Put a number on what the tank loses each sol
+        title: What the tank farm loses standing still
+        place: Cold End
+        scene: |-
+          Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about thirty watts through, and she wants that expressed in kilograms rather than in watts.
+        assumes:
+          - a boiling liquid takes in heat without rising in temperature
+          - a sol is about 88,800 seconds long
+        takeaway: Heat reaching a cryogenic tank is paid for in kilograms rather than in degrees.
+        format: BALLPARK
+        question: Estimate the oxygen the tank loses to boil-off each sol.
+        why: A cryogenic liquid sits near its boiling point. Heat that enters is therefore spent mainly on vaporising liquid rather than raising its temperature. The required energy per kilogram is the latent heat of vaporisation. That turns an insulation leak directly into a propellant-loss rate. Thirty watts sounds small, but it acts every second of the sol. Over 88,800 seconds it boils away about 12.5 kg of oxygen. Repeated across many sols, a modest heat leak becomes a major production loss.
+        estimate:
+          prompt: About 30 watts of heat reaches the liquid oxygen tank. Vaporising liquid oxygen takes 213,000 joules per kilogram.
+          question: Estimate the oxygen the tank loses to boil-off each sol.
+          labels:
+            - 30 W  (heat reaching the liquid)
+            - 88800 s  (seconds in a sol)
+            - 213000 J/kg  (heat needed to vaporise liquid oxygen)
+            - 90 K  (boiling point of oxygen)
+            - 32 g/mol  (molar mass of oxygen)
+          values: [30, 88800, 213000, 90, 32]
+          slots: 3
+          template: "{0} × {1} ÷ {2}"
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 12.5
+          tolerance: 1.5
+          units: kg per sol
+          solution: 30 W × 88,800 s ÷ 213,000 J/kg ≈ 12.5 kg a sol.
+          explanation: Power times time is energy, and energy divided by the heat of vaporisation is a mass. The boiling point and the molar mass do not enter it.
+          relationship: Boil-off mass = the heat reaching the tank × the time it reaches it for ÷ the energy needed to vaporise one kilogram.
+      - group: GIBBS
+        task: Explain the gas nobody asked for
+        title: The reaction that likes being hot
+        place: Plant Control
+        scene: Dana Stern, the analytical chemist, has carbon monoxide rising in the assay each time the reactor set point is raised. Methane falls by almost the same carbon amount. Kaur has the two candidate reactions on the board and wants the temperature effect explained.
+        assumes:
+          - free energy combines an enthalpy term with a temperature times an entropy term
+          - a reaction that takes in heat has a positive enthalpy change
+        takeaway: Temperature can change selectivity because competing reactions can have different thermodynamic responses to heating.
+        format: CHOICE
+        question: Why does the hotter bed make relatively more carbon monoxide?
+        why: "Competing reactions must be considered separately. The Sabatier reaction is exothermic, so heating shifts its equilibrium toward reactants. The carbon-monoxide-forming side reaction is endothermic, so heating shifts its equilibrium toward products. Both reactions may also become faster as temperature rises. The important point is selectivity: the two equilibrium constants do not move in the same direction. A temperature set point therefore changes not only total conversion, but also how the carbon feed is divided among products."
+        choices:
+          - Heating favours the reaction that takes heat in and pushes the other back.
+          - Carbon monoxide forms faster than methane does, so a bed running faster makes more of it.
+          - The catalyst changes what it makes once it is above three hundred degrees.
+          - Carbon monoxide is the more stable product, and heat lets the mixture reach it.
+        answer: Heating favours the reaction that takes heat in and pushes the other back.
+        rebuttals:
+          - Both reactions do speed up with temperature, and speed alone would leave the proportions where they were.
+          - The catalyst offers both paths at every temperature, and it is the two balances that move.
+          - Stability is not one ranking; which product is favoured depends on the temperature being asked about.
+      - group: KINET
+        task: Say what the moving hot spot means
+        title: Reading a bed by where its heat is
+        place: Catalyst Bay
+        scene: >
+          Nine sols of profiles are pinned along the wall in order. The hot spot starts four
+          centimetres into the bed on the first and sits at thirty-four on the last, with about the
+          same peak temperature on every one.
+        assumes:
+          - a reaction gives out its heat where it is happening
+          - a bed can lose activity in one part and keep it in another
+        takeaway: Where a bed is hot is where it is still working.
+        format: DIAGNOSIS
+        headline: The hot spot has walked thirty centimetres down the bed in nine sols, at an unchanged peak temperature.
+        task: Which explanation fits every reading?
+        readings:
+          - { zone: Bed profile, label: Hot spot position, value: 4 cm to 34 cm in 9 sols, status: alarm }
+          - { zone: Bed profile, label: Peak temperature, value: unchanged, status: normal }
+          - { zone: Reactor, label: Pressure drop across the bed, value: unchanged, status: normal, note: rules out packing and fouling }
+          - { zone: Feed, label: Composition and flow, value: unchanged, status: normal }
+          - { zone: Product, label: Conversion, value: down 2% a sol, status: alarm }
+        choices:
+          - { label: The front of the bed has stopped working, mechanism: 'Dead catalyst passes gas unchanged, so the heat appears wherever live catalyst begins.' }
+          - { label: The gas is finding a channel through the packing, mechanism: 'A channel lets feed past without contacting the catalyst at all.' }
+          - { label: The feed has changed and the bed is responding to it, mechanism: 'A leaner feed reacts further into the bed before it gives out heat.' }
+          - { label: The thermocouples have drifted along their sheath since the last service, mechanism: 'A sensor problem can move a profile with nothing happening in the bed.' }
+        answer: The front of the bed has stopped working
+        why: >-
+          An unchanged peak temperature is the reading that decides it: wherever the reaction is
+          happening it is going as hard as ever, so the catalyst that still works has not been
+          weakened. What has changed is how much of the bed is doing it. Unchanged pressure drop
+          rules out packing and fouling; unchanged feed rules out the third explanation. A bed dies
+          from the inlet end, since that is where the feed is strongest, and conversion falls as the
+          working length shrinks.
+
+  # ---------------------------------------------------------------- sol 298
+  - title: The assay bench
+    objective: Turn current into kilograms, and find out what is actually in the product.
+    briefing: Stern has run a full assay on the product stream for the first time since the spring.
+    stake: >-
+      Sol 298, and Dana Stern, the analytical chemist, has run the first full product assay since
+      the spring rather than the two-line check the plant has been living on. Four numbers came off
+      it, and one is a compound nobody had been asking about, which means it has been in the stream
+      for as long as nobody asked. Achebe wants her stack's output stated in kilograms rather than
+      in amps for the same reason. Today you convert a sol of current into a mass of hydrogen, read
+      the assay for what each line implies about the loop, and look at how the polishing column
+      behaves as it fills. Anaya Bhatt, the ascent vehicle systems engineer, has asked for all three
+      before she countersigns another batch into her tanks.
+    takeaway: A measurement nobody asks for is a measurement that arrives later at full size.
+    stops:
+      - group: ELEC
+        task: Turn a sol of current into kilograms of hydrogen
+        title: From amps to kilograms
+        place: Electrolysis Hall
+        scene: |-
+          One cell in the water stack carried six hundred and forty amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.
+        assumes:
+          - one mole of electrons carries 96,485 coulombs
+          - splitting water to hydrogen takes two electrons per molecule
+        takeaway: Charge and moles are one measurement in two units, once the electrons per molecule are known.
+        format: BALLPARK
+        question: Estimate the hydrogen one cell should produce over a sol.
+        why: Faraday’s law is charge bookkeeping. Current multiplied by time gives total charge. Dividing by the charge required per mole gives moles of hydrogen. Multiplying by hydrogen’s molar mass gives the product mass. Voltage does not enter this amount calculation; voltage controls the energy cost. The result is a theoretical maximum because it assumes every electron contributes to the intended electrode reaction. Comparing this number with collected hydrogen later gives the current efficiency of the real cell.
+        estimate:
+          prompt: The cell carried 640 amps for 88,800 seconds. Making one mole of hydrogen takes two moles of electrons, which is 192,970 coulombs.
+          question: Estimate the hydrogen one cell should produce over a sol.
+          labels:
+            - 640 A  (current through the cell)
+            - 88800 s  (seconds in a sol)
+            - 192970 C/mol  (charge needed for one mole of hydrogen)
+            - 2.016 g/mol  (molar mass of hydrogen)
+            - 1.75 V  (cell voltage)
+          values: [640, 88800, 192970, 2.016, 1.75]
+          slots: 4
+          template: "{0} × {1} ÷ {2} × {3}"
+          formula: a*b/c*d
+          correct: [0, 1, 2, 3]
+          target: 594
+          tolerance: 40
+          units: g per sol
+          solution: 640 A × 88,800 s ÷ 192,970 C/mol × 2.016 g/mol ≈ 594 g.
+          explanation: Current times time is charge, charge divided by the charge per mole is moles, and moles times the molar mass is grams. The voltage decides the energy bill rather than the amount.
+          relationship: Mass = current × time ÷ the charge needed for one mole of product × the molar mass of that product.
+      - group: EQUIL
+        task: Match each assay line to what it says about the loop.
+        title: Four lines off the assay bench
+        place: Reactor Hall
+        scene: Stern's assay of the product stream has four lines on it. Herrera wants each one matched to what it implies about the loop before anybody argues about a set point again.
+        assumes:
+          - the loop returns unreacted gas to the reactor inlet
+          - the product stream is dried before it is cooled
+        takeaway: An assay is a statement about the process, not only about the bottle it came from.
+        format: PROTOCOL
+        why: Every line in an assay belongs to a part of the plant. The methane figure is the headline and the least informative. Carbon monoxide is not a contaminant that blew in; it is evidence of a second reaction on the same bed. Unreacted hydrogen is expected in a loop that recycles and would be alarming in one that did not. Water past the drier is a maintenance item that becomes an emergency two hundred metres downstream, at 273 K in the exchanger.
+        scenarios:
+          - Methane at 96.4 per cent of the dry stream.
+          - Carbon monoxide at 0.9 per cent.
+          - Hydrogen at 2.1 per cent.
+          - Water at 400 parts per million after the drier.
+        choices:
+          - The plant is doing its main job, and the arguments all live in the few per cent left over.
+          - A second reaction is running on the same catalyst and taking feed away from the first.
+          - Unreacted feed is going round again, which is the recycle working as it was designed to.
+          - The desiccant is passing some through, and the cold end is where that arrives.
+        mapping: [0, 1, 2, 3]
+      - group: SOIL
+        task: Say what a full polishing column does
+        title: The bed that warns only at the outlet
+        place: Water Plant
+        scene: |-
+          The polishing column is a packed bed of ion-exchange resin with a fixed number of sites in it. Abiola has been asked how the plant would know the column was full, and he says the honest answer is that it would not.
+        assumes:
+          - an ion-exchange bed swaps unwanted ions for harmless ones
+          - a packed bed holds a finite number of ions
+        takeaway: A bed with a capacity has two states, and there is no announcement between them.
+        format: CHOICE
+        question: What happens at the outlet as the exchange front reaches the end of the bed?
+        answerText: The outlet stays low until the loading front approaches it, then rises toward the inlet concentration. That breakthrough curve is the warning the plant must monitor.
+        why: An ion-exchange bed has a finite number of exchange sites. A loading front moves through the resin as those sites fill. The outlet can stay very clean for most of the run, then rise quickly when that front reaches the end. The transition is called breakthrough. It is not perfectly instantaneous, and the exact curve depends on flow and mass transfer. The practical warning is therefore an outlet measurement. Monitoring conductivity often enough lets the plant act before the effluent reaches the inlet concentration.
+        choices:
+          - It rises toward the inlet concentration as the exchange front reaches the outlet.
+          - It rises steadily from the day fresh resin is installed because every captured ion weakens the whole bed equally.
+          - It becomes cleaner just before exhaustion because a heavily loaded resin binds incoming ions more strongly.
+          - It remains at a fixed fraction of the inlet concentration throughout the bed’s life.
+        answer: It rises toward the inlet concentration as the exchange front reaches the outlet.
+        rebuttals:
+          - Most of the bed can load while the outlet stays low; the rise comes when the loading front approaches the outlet.
+          - A loaded site has less capacity for the next ion, not more.
+          - A capacity-limited bed does not remove one fixed percentage for its whole life.
+  # ---------------------------------------------------------------- sol 299
+  - title: What the spent charge was carrying
+    objective: Find out what has been taking the bed apart, and for how long.
+    briefing: The spent catalyst charge came back from the assay bench this morning.
+    stake: >-
+      Sol 299, and the spent charge Kaur pulled on sol 288 came back from Stern's bench an hour ago.
+      It had sat in a sealed can for eleven sols, because nobody thought a dead catalyst would say
+      anything a temperature profile had not. The result is one line long and it changes what the
+      last fortnight was about. Abiola's outlet conductivity trace has been printed every sol since
+      the plant started and nobody has had a reason to read it. Today you work out what killed the
+      bed, when it started, and what the loop's poor conversion has really been telling everybody.
+      Sundqvist and Herrera have argued about a set point for eight sols, and eleven sols of
+      production are gone while they did.
+    takeaway: Two people can argue correctly for a fortnight about the wrong variable.
+    stops:
+      - group: KINET
+        task: Which explanation fits every finding?
+        title: One line off the spent charge
+        place: Catalyst Bay
+        scene: "The spent charge was assayed in three sections: the first twenty millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation."
+        assumes:
+          - a catalyst can lose activity by heat or by a substance binding to it
+          - heat makes small metal particles merge into larger ones
+        takeaway: Two causes with one symptom are told apart in the material rather than in the plant readings.
+        format: CHOICE
+        why: "One material observation settles the main dispute: the nickel particles are still the same size as fresh material. That argues against heat-driven sintering. Trace carbon also makes heavy coking unlikely. A uniformly defective charge should be weak throughout its length, but the outlet section remains active. The remaining pattern fits something arriving with the feed and binding first near the inlet. That mechanism also explains why the active hot zone moved downstream as more of the front section lost usable surface."
+        headline: The spent charge is dead at the inlet end and lively at the outlet, and the reason is in the material.
+        readings:
+          - zone: Inlet 20 mm
+            label: Chlorine on the surface
+            value: 1.9 per cent by mass
+            status: alarm
+          - zone: Inlet 20 mm
+            label: Nickel particle size
+            value: unchanged from fresh
+            status: normal
+            note: rules out heat damage
+          - zone: Inlet 20 mm
+            label: Carbon deposit
+            value: trace
+            status: normal
+          - zone: Outlet end
+            label: Chlorine on the surface
+            value: not detected
+            status: normal
+          - zone: Feed water
+            label: Outlet conductivity
+            value: up sixfold since sol 261
+            status: alarm
+        choices:
+          - label: Something in the feed is binding to the nickel
+            mechanism: A poison arrives with the feed, so it lands on the first catalyst it meets.
+          - label: The bed has been run too hot and the metal has coarsened
+            mechanism: Heat merges small metal particles into larger ones with less surface.
+          - label: Carbon is laying down on the surface and covering it
+            mechanism: Coke builds up on a catalyst working with carbon-bearing gas.
+          - label: The charge was already faulty when it was loaded into the reactor
+            mechanism: A bad batch never had the activity the plant assumed it had.
+        answer: Something in the feed is binding to the nickel
+      - group: SOIL
+        task: Date the change in the water
+        title: The trace nobody read
+        place: Water Plant
+        scene: |-
+          The conductivity of the water leaving the polishing column is logged every sol. The trace runs flat for two hundred and sixty sols, steps up over about four, and runs flat and high from there to this morning.
+        assumes:
+          - conductivity rises with the ions dissolved in water
+          - an exchange bed holds a fixed number of ions
+        takeaway: A step in a record is a date, and a date turns a fault into a history.
+        format: CHOICE
+        question: What does the shape of that trace say?
+        why: The shape of the record carries the history. A fresh exchange bed keeps the outlet conductivity low while unused sites remain. As the loading front reaches the outlet, conductivity rises toward the inlet value and then stays high. That is the breakthrough signature. A saltier feed would also appear in the inlet record, but the inlet stays flat. A sensor reset would produce a much sharper discontinuity. The trace therefore dates breakthrough to about sol 261 and shows prolonged operation after it.
+        choices:
+          - The column filled around sol 261 and has passed the feed straight through since.
+          - The feed water got saltier at sol 261 and has stayed that way since.
+          - The conductivity sensor was reset against a standard at sol 261 and reads high now.
+          - The column has been leaking around its seal at a steady rate since it was fitted.
+        answer: The column filled around sol 261 and has passed the feed straight through since.
+        rebuttals:
+          - The inlet trace is flat across the whole period, so the water arriving at the column has not changed.
+          - Resetting a sensor moves a trace within a single sol, and this step took four of them.
+          - A steady leak gives a raised, sloping trace from the beginning rather than a flat run and a step.
+      - group: EQUIL
+        task: Hold temperature and pressure fixed, change one operating variable, reverse it, and determine whether the reactor is rate-limited.
+        title: Change the time, not the ceiling
+        place: Reactor Hall
+        scene: Herrera and Sundqvist have argued for a fortnight about whether the hot reactor is at equilibrium or simply short of reaction time. Stern gives them one controlled run before the production schedule resumes.
+        assumes:
+          - equilibrium is a ceiling that depends on temperature and pressure
+          - conversion also depends on how long the gas spends in the bed
+        takeaway: Changing residence time at fixed temperature and pressure changes kinetic approach to equilibrium without moving the equilibrium ceiling.
+        format: CONTROL
+        question: Which controlled change separates a kinetic limit from an equilibrium limit, and does conversion follow it on reversal?
+        control:
+          hint: Change one setting from the baseline, run the assay, then restore it. A useful test changes residence time without moving the equilibrium constant.
+          noise: 0.7
+          baseline: 64
+          observable:
+            label: Reading
+            unit: "% conversion"
+          response: 5
+          truth: flow
+          variables:
+            - id: flow
+              label: Gas flow
+            - id: temperature
+              label: Bed temperature
+            - id: pressure
+              label: Loop pressure
+        answerText: Flow is the separating variable. Halving it at fixed temperature and pressure raises conversion from 64% to 69%, and restoring the flow returns it to 64%, showing a rate-limited shortfall.
+        why: Equilibrium at fixed temperature and pressure does not depend on how quickly gas crosses the bed. Kinetics does. Halving the flow doubles residence time while leaving the equilibrium composition unchanged. In this controlled run, conversion rises well beyond repeat scatter and returns when the original flow is restored. That means the reactor had been leaving before the mixture reached its equilibrium ceiling. Changing temperature or pressure would not answer the same question because each would move the equilibrium as well as the reaction rate.
+  # ---------------------------------------------------------------- sol 300
+  - title: A new charge and a rule for the water
+    objective: Get a bed back into service and decide what stops this happening again.
+    briefing: There is one spare catalyst charge on the station and no second one coming.
+    stake: >-
+      Sol 300. The last spare catalyst charge came out of stores this morning and there is no second
+      one on this planet, so whatever is done with it is done once. Kaur wants it qualified properly
+      before it carries production; Sundqvist wants it making methane by the afternoon, and this
+      time Marion Wells, who commands the station, has come down on Kaur's side. Achebe has parts
+      enough for one improvement to the water and power loop and a list of four. Today you set the
+      order the charge is brought into service, decide what the spare parts are spent on, and settle
+      whether the methane tank's rising pressure is a leak or a temperature. Everything the plant
+      does for the next hundred and eighty sols runs through a bed commissioned this afternoon.
+    takeaway: A part with no replacement is commissioned by procedure rather than by enthusiasm.
+    stops:
+      - group: KINET
+        task: Order the four operations for bringing the charge into service.
+        title: Bringing a charge into service
+        place: Catalyst Bay
+        scene: |-
+          The fresh charge arrives as nickel oxide on alumina, which is not a catalyst yet. Kaur has four operations written out and wants them in an order she can hand to a technician at three in the morning.
+        assumes:
+          - nickel oxide has to be reduced to nickel metal before it is active
+          - hydrogen at temperature will reduce a metal oxide
+        takeaway: A part that cannot be replaced is proved at low rate before it is trusted at full rate.
+        format: SEQUENCE
+        why: Each operation makes the next one possible or safer. Nitrogen purge removes oxygen before hot hydrogen enters the reactor. Reduction must then convert nickel oxide into active nickel metal. A low-flow light-off test checks whether the new charge is active before full production feed is committed. Only after that should the plant run a matched comparison against a known good charge. The comparison creates a quantitative baseline for the next crew instead of leaving them only a verbal impression of performance.
+        cards:
+          - Purge the reactor with nitrogen until no oxygen remains in it.
+          - Pass dilute hydrogen at 350 °C to reduce the nickel oxide to nickel metal.
+          - Run a light-off check at a tenth of production flow to confirm activity.
+          - Match conditions to the sol-270 run and compare conversion against that charge.
+        order: [0, 1, 2, 3]
+      - group: ELEC
+        task: Fund the change that would most alter what the plant does next.
+        title: One improvement, four candidates
+        place: Electrolysis Hall
+        scene: The station has parts and crew time for one improvement. One catalyst charge is already lost, and there is no spare after the new one. Achebe puts four candidates on the board before anyone starts cutting pipe.
+        assumes:
+          - the polishing column gives no warning as it fills
+          - the plant has no spare catalyst charge after this one
+        takeaway: The work worth doing first is the work that would have caught the fault nobody caught.
+        format: SCIENCETANK
+        answerText: Fit the conductivity monitor and alarm on reactor feed water. It turns the measurement that already existed into an action before unpolished water reaches the catalyst.
+        why: The failure was not that the plant lacked a measurement. Conductivity was recorded every sol. The failure was that no rule turned the measurement into an action. A feed-water alarm would have made the breakthrough visible while the catalyst could still be protected. A second polishing column adds capacity but still needs a trigger for changeover. Extra array power does not address the fault, and the catalyst already has several temperature probes. The highest-leverage change closes the gap between an existing signal and an irreversible consequence.
+        proposals:
+          - label: A
+            text: Plumb a second polishing column behind the first, so the lead bed can be changed at breakthrough.
+          - label: B
+            text: Fit a conductivity monitor with an alarm on the reactor feed water.
+          - label: C
+            text: Add a fourth panel string to the array to raise the power available.
+          - label: D
+            text: Install a second temperature probe in the catalyst bed.
+        recommended:
+          A: 45
+          B: 35
+        evidence: |-
+          The plant ran for thirty-eight sols on water no column was polishing, and lost a catalyst
+          charge to it. The conductivity was logged the whole time and read by nobody. The array has
+          not been the limit on any sol this season, and there are four probes in the bed already.
+      - group: PHASE
+        task: Decide whether a rising pressure is a leak
+        title: The tank pressure that is not a leak
+        place: Cold End
+        scene: |-
+          The methane tank has climbed about 0.3 bar a sol for four sols. The mass in the tank is unchanged across the same four sols, and Moreau is being asked whether to vent it.
+        assumes:
+          - a liquid in a closed tank sits under the pressure of its own vapour
+          - vapour pressure rises steeply with temperature
+        takeaway: Pressure in a cryogenic tank is a reading of temperature until the mass says otherwise.
+        format: CHOICE
+        question: The pressure is rising and the mass is not falling. What is happening?
+        why: A tank holding liquid and vapour together sits near the vapour pressure set by its temperature. Pressure is therefore a sensitive thermometer while both phases remain present. Here the mass has stayed constant for four sols, so a significant leak or sustained venting is not supported by the inventory. The rising pressure instead points to warming. The response is to find the added heat — insulation, a conducting valve or a refrigeration problem — rather than venting propellant merely because the pressure rose.
+        choices:
+          - The contents are warming, and the vapour pressure is following the temperature up.
+          - Gas is escaping through a leak even though the measured tank mass is unchanged.
+          - The liquid is boiling away fast enough to raise pressure without changing the tank inventory.
+          - The gauge must have drifted because pressure cannot change at constant mass.
+        answer: The contents are warming, and the vapour pressure is following the temperature up.
+        rebuttals:
+          - A leak large enough to explain the pressure trend should also appear as a mass loss; the inventory is flat.
+          - Sustained boil-off or venting changes the liquid inventory unless the vapour is retained, and the pressure rise still requires warming.
+          - Constant mass does not imply constant pressure when temperature changes.
+  # ---------------------------------------------------------------- sol 301
+  - title: The sol everything agreed
+    objective: Close the plant's own books while there is nothing to firefight.
+    briefing: The new charge ran to specification for a full sol and nobody quite believes it.
+    stake: >-
+      Sol 301, and for the first time since the spring the plant has run a full twenty-four hours
+      without anybody being called out. The new charge is holding conversion at seventy-one per
+      cent, the polishing column is fresh, and the sol's production came in at fourteen point one
+      kilograms against a target of thirteen point eight. Wells has asked for the quiet sol to be
+      spent on arithmetic rather than on improvements, which is not a popular instruction. Today you
+      close the energy ledger against what the array actually delivered, settle how full a
+      cryogenic tank may be filled, and follow the carbon through a full pass of the loop. Herrera's
+      view is that a plant nobody understands on a good sol is a plant nobody can fix on a bad one.
+    takeaway: The sol to check the books is the sol when nothing is going wrong.
+    stops:
+      - group: GIBBS
+        task: Put a number on what the hydrogen costs
+        title: The bill for a kilogram of hydrogen
+        place: Plant Control
+        scene: Demir is closing the sol’s energy ledger. The stacks made 6.9 kg of hydrogen. He wants their electrical energy use written beside the array output before he signs the sheet.
+        assumes:
+          - electrical energy can be counted in kilowatt-hours
+          - a stack costs more energy per kilogram than the hydrogen itself carries
+        takeaway: What a product costs to make and what it stores are two different numbers, and the gap is the price of running at a rate.
+        format: BALLPARK
+        question: Estimate the electrical energy the stacks spent making hydrogen this sol.
+        why: A kilogram of hydrogen has two useful energy numbers. One is the chemical energy stored in the hydrogen itself. The other is the electrical energy this stack spends to make that kilogram. The second is larger because real cells operate above the reversible voltage. That difference becomes heat and other losses in the electrolysis system. Here the stack uses about 55 kWh/kg while hydrogen stores about 39.4 kWh/kg. Using the stored-energy number as the production cost would understate the electrical bill substantially.
+        estimate:
+          prompt: The stacks made 6.9 kg of hydrogen. At the voltage they run, this stack spends about 55 kWh for each kilogram it makes.
+          question: Estimate the electrical energy the stacks spent making hydrogen this sol.
+          labels:
+            - 6.9 kg  (hydrogen made this sol)
+            - 55 kWh/kg  (energy this stack spends per kilogram)
+            - 39.4 kWh/kg  (energy stored in a kilogram of hydrogen)
+            - 1.75 V  (cell voltage)
+            - 88800 s  (seconds in a sol)
+          values: [6.9, 55, 39.4, 1.75, 88800]
+          slots: 2
+          template: "{0} × {1}"
+          formula: a*b
+          correct: [0, 1]
+          target: 379.5
+          tolerance: 25
+          units: kWh
+          solution: 6.9 kg × 55 kWh/kg ≈ 380 kWh.
+          explanation: The energy a stack spends is not the energy the hydrogen holds. Using the stored figure instead gives 272 kWh and understates the bill by a quarter.
+          relationship: Energy spent = the mass of hydrogen made × the energy this stack spends to make one kilogram of it.
+      - group: PHASE
+        task: Say how full a cryogenic tank may be filled
+        title: The space left at the top
+        place: Cold End
+        scene: |-
+          Bhatt's loading procedure stops the methane tank at ninety-five per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.
+        assumes:
+          - a liquid at its boiling point turns to vapour when heat reaches it
+          - a closed vessel has a pressure it is rated to
+        takeaway: A cryogenic tank is designed around what happens to it between filling and use.
+        format: CHOICE
+        question: Why is the flight tank filled to ninety-five per cent rather than full?
+        why: A cryogenic tank always contains some vapour because heat continues to enter. The gas space above the liquid is the ullage. It gives newly formed vapour room before pressure reaches the relief setting. Filling the tank completely with liquid removes that buffer. Heating then causes liquid expansion and vapour formation to drive pressure upward quickly. The relief system must vent material to protect the tank. Leaving planned ullage therefore prevents a small heat input from immediately becoming a propellant-loss event before the vehicle uses the fuel.
+        choices:
+          - Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.
+          - Liquid methane expands as it cools further in the tank and would split a full one.
+          - A full tank cannot be measured, since the gauge floats on the liquid surface.
+          - The pump cannot draw from a tank with no gas above the liquid to push it out.
+        answer: Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.
+        rebuttals:
+          - Liquid methane in a tank sits at its boiling point and is not cooling further.
+          - The gauge on this tank reads by pressure and temperature and does not need a surface to float on.
+          - The pump is fed by pressure from the tank's own vapour, and five per cent is not what makes that possible.
+      - group: EQUIL
+        task: Close the 100-mole carbon ledger for one pass, then decide which carbon is lost and which is recycled.
+        title: Close the carbon pass
+        place: Reactor Hall
+        scene: "Herrera pins one pass of the carbon assay to the board: 100 moles of carbon dioxide entered. Methane and carbon monoxide are measured at the outlet, and the recycle meter records the unreacted return stream."
+        assumes:
+          - the recycle loop returns unreacted gas to the inlet
+          - every carbon atom entering the bed leaves it in something
+        takeaway: Per-pass conversion counts what reacts now; overall conversion counts what is eventually recovered after unreacted feed is recycled.
+        format: BALANCE
+        question: Where are all 100 carbon moles after one pass, and what does that imply for overall methane yield after repeated recycle?
+        balance:
+          total:
+            amount: 100
+            unit: mol C
+            label: Carbon entering one reactor pass
+          streams:
+            - id: methane
+              label: Carbon leaving as methane
+              value: 64
+              display: 64 mol C
+            - id: carbon_monoxide
+              label: Carbon leaving as carbon monoxide
+              value: 2
+              display: 2 mol C
+            - id: bed_inventory
+              label: Change in carbon held in the bed
+              value: 0
+              display: No accumulation
+            - id: recycle
+              label: Unreacted carbon dioxide returned to the inlet
+              value: 34
+              display: 34 mol C
+              hidden: true
+          tolerance: 0.5
+          hint: Close the one-pass carbon ledger first. Only after every carbon mole is accounted for should you decide which terms are losses from the plant and which return for another pass.
+        answerText: The pass closes as 64 CH₄ + 2 CO + 34 recycled CO₂ = 100 carbon moles. Recycle makes the overall methane fraction approach about 64/(64+2) ≈ 97%, not 64%.
+        why: "A one-pass conversion of 64% does not mean 36% of the feed is lost. The carbon ledger shows 64 moles leaving as methane, two as carbon monoxide and 34 returning as unreacted carbon dioxide. The recycle term is therefore inventory, not waste. If the same selectivity holds over repeated passes, the returned carbon keeps getting another chance. The ultimate split approaches the ratio of the irreversible products: 64/(64+2), or about 97% methane, with about 3% ending as carbon monoxide."
+  # ---------------------------------------------------------------- sol 302
+  - title: Forty per cent of the sun
+    objective: Decide what the station stops doing when the power halves.
+    briefing: A regional dust storm arrived overnight and the array is delivering less than half.
+    stake: >-
+      Sol 302. A regional storm crossed the station overnight and the sky this morning is the
+      colour of the ground. Iosif Petrov, the array technician, has the field delivering four
+      hundred and thirty kilowatt-hours against two thousand on a clear sol, and nobody can say
+      whether that lasts two sols or twenty. Everything on this plain runs off that array: the
+      stacks, the refrigerators, the drill, and the habitat that Demir keeps at nineteen degrees.
+      Today you work out how much light is actually reaching the panels, decide in what order the
+      loads are shed, and settle what the water plant does while the drill is stopped. Wells will
+      sign whatever order you set, and she has said she will not revisit it before the storm clears.
+    takeaway: A power cut on a plain with one array is a decision about what the station stops doing.
+    stops:
+      - group: ELEC
+        task: Work out how much sunlight is reaching the panels
+        title: What the dust leaves of the sun
+        place: Electrolysis Hall
+        scene: |-
+          Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver four hundred and ninety watts to each square metre of panel.
+        assumes:
+          - each unit of optical depth cuts a beam by a further factor
+          - a beam is attenuated as an exponential of the depth it passes through
+        takeaway: Dust does not dim a beam in proportion; it multiplies it down, so each unit of depth costs more than the last.
+        format: BALLPARK
+        question: Estimate the direct beam reaching a panel through this dust.
+        why: Dust attenuation is multiplicative. Each additional unit of optical depth removes the same fraction of the beam that remains. That is why a change from τ = 0.4 to τ = 2.4 is much worse than subtracting two equal pieces of sunlight. The direct beam falls to under a tenth of the above-dust value. The array still receives some scattered light from the sky, so direct-beam loss is not the same as total array output. The exponential relation describes only the unscattered beam.
+        estimate:
+          prompt: Above the dust the beam is 490 watts a square metre. The station's sun sensor reports an optical depth of 2.4.
+          question: Estimate the direct beam reaching a panel through this dust.
+          labels:
+            - 490 W/m²  (beam above the dust)
+            - 2.4  (optical depth today)
+            - 0.4  (optical depth on a clear sol)
+            - 0.22  (efficiency of the panels)
+            - 1900 m²  (area of the array)
+          values: [490, 2.4, 0.4, 0.22, 1900]
+          slots: 2
+          template: "{0} × e^(−{1})"
+          formula: a*Math.exp(-b)
+          correct: [0, 1]
+          target: 44.5
+          tolerance: 8
+          units: W per square metre
+          solution: 490 × e^(−2.4) ≈ 44 W per square metre of direct beam.
+          explanation: The exponential is why a storm is so much worse than it looks. The panel efficiency and the array area turn this into kilowatts, and are a later step.
+          relationship: "Transmitted beam = the beam above the dust × e raised to minus the optical depth: each unit of depth divides the beam by a further factor of about 2.7."
+      - group: GIBBS
+        task: Build a plan for the power there is
+        title: What the station stops doing
+        place: Plant Control
+        scene: The dust storm has cut the sol from about 2,000 kilowatt-hours to 430. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.
+        assumes:
+          - stopping a process can be reversible or costly to reverse
+          - a cryogenic tank warms up when its refrigerator stops
+        takeaway: Loads are ranked by what stopping them costs to undo, rather than by what they draw.
+        format: ALLOCATE
+        question: Four hundred and thirty kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.
+        allocate:
+          hint: Nothing on this list is a wrong thing to run. What the plan cannot do is the price of what it can.
+          pool:
+            amount: 430
+            unit: kWh
+            mode: scalar
+          items:
+            - id: habitat
+              label: Habitat heat and air
+              cost: 180
+              protected: true
+              note: the crew is not a load
+            - id: liquefier
+              label: Liquefier and tank refrigeration
+              cost: 210
+            - id: stacks
+              label: Electrolysis stacks at half rate
+              cost: 160
+            - id: batteries
+              label: Recharge the battery reserve
+              cost: 120
+            - id: drill
+              label: Drill and hopper heating
+              cost: 90
+            - id: drier
+              label: Keep the product drier warm
+              cost: 40
+            - id: comms
+              label: The downlink home
+              cost: 20
+          answers:
+            - question: Does the propellant already made stay in the tanks?
+              requires:
+                - liquefier
+              required: true
+            - question: Does the plant make any methane this sol?
+              requires:
+                - stacks
+            - question: Is there reserve in hand for the next storm?
+              requires:
+                - batteries
+            - question: Does the cold end stay clear of ice?
+              requires:
+                - drier
+            - question: Is any ice cut today?
+              requires:
+                - drill
+          commit: Commit the sol's plan
+        answerText: Keep the protected habitat bus and cryogenic refrigeration inside the 430 kWh limit. Then choose at most one substantial optional job. The jobs left unfunded are part of the answer.
+        why: The power plan should rank loads by the cost of stopping them. Digging is recoverable because the ground remains available. Batteries can recharge on the next clear sol. Electrolysis can be made up later if schedule margin remains. Cryogenic refrigeration is different. When it stops, heat keeps entering the tanks and already-made propellant boils away. That loss cannot be recovered without making new propellant later. Habitat power is protected separately. The scarce pool should therefore preserve irreversible assets before funding work that can simply be deferred.
+      - group: SOIL
+        task: Decide what the water plant does with no drill
+        title: Running the plant with no digging
+        place: Water Plant
+        scene: The drill is off and the hopper is empty. The holding tank still contains 1,100 litres, while the reactor draws about 60 litres per sol. Abiola is asked whether the whole water plant must stop.
+        assumes:
+          - the reactor's water demand is met from a holding tank rather than from the drill directly
+          - the Sabatier reaction makes water as well as methane
+        takeaway: A buffer between two steps is what lets one of them stop without the other one noticing.
+        format: CHOICE
+        question: What lets the reactor keep running through a storm with the drill stopped?
+        why: "Two buffers separate the reactor from daily drilling. The first is stored water: 1,100 litres at 60 litres per sol is about eighteen sols of inventory. That is longer than the storms recorded at this site. The second is process recycle. The Sabatier reaction produces water, and the plant condenses and returns part of that stream. Those two buffers let extraction pause without forcing an immediate reactor shutdown. They also show why plant reliability depends on inventories between steps, not only on the machines themselves."
+        choices:
+          - The holding tank, plus the water the reaction itself gives back into the loop.
+          - The condenser, which pulls water vapour out of the atmosphere at six millibars.
+          - The polishing column, which stores clean water inside its resin bed.
+          - Nothing does; the reactor has to stop with the drill and restart afterwards.
+        answer: The holding tank, plus the water the reaction itself gives back into the loop.
+        rebuttals:
+          - The atmosphere here holds almost no water vapour, and the condenser works on the hopper stream instead.
+          - An exchange bed holds ions rather than water, and it holds no useful volume.
+          - Restarting a cold reactor costs a sol of production, which is exactly what the buffer exists to avoid.
+  # ---------------------------------------------------------------- sol 303
+  - title: Three things at once
+    objective: Rank three faults that arrived together, and act on them in that order.
+    briefing: The storm cleared and left three problems that were not there a week ago.
+    stake: >-
+      Sol 303, and the storm blew itself out in the last hours of the night. It left three things
+      behind. Moreau's oxygen tank is losing twice the boil-off it lost a fortnight ago; the new
+      catalyst charge has never been checked against the sol-270 run because the storm took the
+      power to do it; and the battery bank came down to thirty per cent overnight and has to be
+      brought back before the next dust event. Today you work out what is wrong with the cold end,
+      decide what a fair comparison of the new charge looks like, and rank all three against each
+      other. Kaur, Moreau and Achebe each want theirs first, and all three of them are being
+      reasonable about it.
+    takeaway: Three reasonable people wanting to be first is a ranking problem rather than an argument.
+    stops:
+      - group: PHASE
+        task: Build the refrigerator heat path in order and identify the transfer that dust has made limiting.
+        title: Follow the heat to the sky
+        place: Cold End
+        scene: Oxygen boil-off has jumped from 12 to 26 kilograms a sol since the storm. Moreau opens the refrigeration schematic beside the tank. Jacket pressure is normal, while the compressor is already at its current limit.
+        assumes:
+          - a refrigerator has to reject its heat somewhere
+          - dust settles on any surface left out in a storm
+        takeaway: A refrigerator can lose capacity because heat cannot leave its warm end, even when the compressor and insulation are intact.
+        format: CHAIN
+        question: Trace the heat from the liquid oxygen to its final sink. Which required transfer is now governing the loss?
+        chain:
+          hint: Assemble only the required heat-transfer path from the tank to the environment. Then choose which link is contradicted by the normal readings and which is directly impaired by dust.
+          links:
+            - id: evaporator
+              label: Tank liquid → cold heat exchanger
+              transfers: heat from liquid oxygen into the refrigerant
+            - id: compressor
+              label: Compressor work on refrigerant
+              transfers: raises refrigerant pressure and temperature so heat can be rejected
+            - id: condenser
+              label: Hot refrigerant → radiator plate
+              transfers: moves heat out of the refrigerant
+            - id: radiator_sky
+              label: Radiator plate → cold sky
+              transfers: radiates the heat away from the station
+            - id: vacuum_jacket
+              label: Outside structure → tank through insulation
+              transfers: parasitic heat leak into the tank
+          distractor: compressor
+          evidence:
+            vacuum_jacket: pressure normal
+            compressor: at current limit
+            radiator: dust-covered after storm
+          order:
+            - evaporator
+            - compressor
+            - condenser
+            - radiator_sky
+          governing: radiator_sky
+        answerText: The governing link is heat rejection from the dusty radiator to the sky. The compressor is working, and the jacket is intact, but the final heat-transfer step has lost capacity.
+        why: The refrigerator does not destroy heat. It moves heat from the tank into the refrigerant. Compressor work then raises the refrigerant temperature enough for heat rejection. The condenser transfers that heat to the radiator, which must radiate it to the sky. The vacuum jacket is a separate path for unwanted heat to enter the tank. Its normal pressure makes that path less likely here. Dust weakens the final radiator-to-sky transfer, so the cold end warms even while the compressor works at its limit.
+      - group: KINET
+        task: Set the terms of a fair comparison
+        title: Comparing two charges honestly
+        place: Catalyst Bay
+        scene: |-
+          Kaur wants the new charge compared against the sol-270 run before it is trusted with the rest of the season. The plant is at a different temperature, flow and pressure than it was on sol 270.
+        assumes:
+          - conversion depends on temperature, pressure, flow and the catalyst together
+          - a comparison is only about the variable that was deliberately changed
+        takeaway: A comparison is worth what its matched conditions are worth.
+        format: CHOICE
+        question: What has to be true for a comparison between two charges to mean anything?
+        why: Conversion depends on several variables at once. Temperature, pressure and flow are operating settings, while catalyst condition is the property being compared. If the settings differ between two runs, the comparison mixes catalyst performance with operating effects. Matching those settings removes the main alternative explanations. The remaining conversion difference can then be attributed more credibly to the charge. Running each catalyst at its own best condition answers a different question and produces two results that cannot be cleanly subtracted.
+        choices:
+          - Temperature, pressure and flow are set to the sol-270 values before conversion is read.
+          - Both charges are run at whatever conditions produce their best conversion.
+          - The comparison uses a whole sol of production from each charge.
+          - Both are compared at the same time of sol, so the ambient conditions match.
+        answer: Temperature, pressure and flow are set to the sol-270 values before conversion is read.
+        rebuttals:
+          - Best-for-each conditions produce two numbers that cannot be compared, since the settings differ along with the charge.
+          - A whole sol of each is more data about an unmatched comparison, which does not repair it.
+          - Ambient conditions outside barely reach a reactor held at 593 K, and the loop's own settings are what matter.
+      - group: GIBBS
+        task: Rank three faults against each other
+        title: Which of the three cannot wait
+        place: Plant Control
+        scene: >
+          The three problems are on the board with the power to fix one of them today. Wells wants
+          the order and the grounds for it in the log before anybody starts work.
+        assumes:
+          - propellant vented from a tank cannot be recovered
+          - a comparison run and a battery charge can both be done later
+        takeaway: What cannot be undone goes first, whatever is loudest.
+        format: CHOICE
+        question: Which of the three is dealt with first?
+        choices:
+          - The radiator, since every sol of doubled boil-off is propellant that leaves for good.
+          - The battery bank, since another storm without reserve would stop the whole station.
+          - The charge comparison, since the season's production depends on knowing the bed is good.
+          - Whichever can be finished today, since a finished job is worth more than a started one.
+        answer: The radiator, since every sol of doubled boil-off is propellant that leaves for good.
+        why: >-
+          Rank by what a delay costs and whether it can be recovered. Boil-off is a loss of a thing
+          already made, running at fourteen extra kilograms a sol, and no later work brings those
+          kilograms back. Batteries recharge on the next clear sol. A comparison run is information,
+          and information waits at no cost provided the bed is watched. Only one of the three is
+          spending an asset while it is queued, and that is the one that goes first.
+        rebuttals:
+          - The battery bank refills on the next clear sol at no permanent cost, and one has been forecast.
+          - The comparison matters and loses nothing by waiting two sols, since the bed is under watch.
+          - Choosing by what fits in a sol ranks by convenience and ignores what each delay is costing.
+
+  # ---------------------------------------------------------------- sol 304
+  - title: Loading is one way
+    objective: Decide whether this batch goes into the vehicle.
+    briefing: The batch is made, the assay is back, and one line of it is outside the specification.
+    stake: >-
+      Sol 304, and the batch made since the new charge went in is standing in the transfer tank
+      this morning with its assay beside it. It is four hundred and ten kilograms of methane, which
+      is three sols of the season, and one line of the assay sits outside what Bhatt's specification
+      allows. Once it goes across into the vehicle it cannot be taken out again, cleaned, or
+      tested by firing. Today you read the batch against the specification, work out what mass of
+      oxygen the vehicle needs beside it, and decide whether the stacks can be pushed to close the
+      remaining gap. Bhatt has said she will sign what the assay supports and nothing else, and
+      Sundqvist has counted how many sols are left.
+    takeaway: A decision that cannot be reversed is worth more care than one that costs more.
+    stops:
+      - group: EQUIL
+        task: Match each assay line to what it means for the vehicle.
+        title: The line that fails
+        place: Reactor Hall
+        scene: The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; one is not. Herrera wants the consequence named before the transfer valve opens.
+        assumes:
+          - water freezes at a temperature the vehicle's valves reach in use
+          - carbon monoxide does not burn to give the energy methane does
+        takeaway: A specification is a list of chemical limits tied to different downstream consequences, not a single purity score.
+        format: PROTOCOL
+        why: "A specification is not one overall purity score. Each line protects a different downstream function. Water is the failure here: 400 ppm is eight times a 50 ppm limit. At cryogenic valve temperatures, that water can become solid and interfere with moving hardware. Carbon monoxide and carbon dioxide are still inside their stated limits. If either rose too far, it would create a different consequence. The vehicle therefore needs every assay line interpreted against its own limit and failure mode before loading begins."
+        scenarios:
+          - Methane at 99.1 per cent against a limit of 99.0.
+          - Water at 400 parts per million against a limit of 50.
+          - Carbon monoxide at 0.5 per cent against a limit of 1.0.
+          - Carbon dioxide at 0.2 per cent against a limit of 0.5.
+        choices:
+          - Inside the limit, and the margin is thin enough to be worth watching on the next batch.
+          - Eight times the limit, and it freezes in a valve at the temperature that valve runs at.
+          - Inside the limit; it is ballast that costs a little performance and does no damage.
+          - Inside the limit, and it freezes out in the tank rather than in a moving part.
+        mapping: [0, 1, 2, 3]
+      - group: PHASE
+        task: Work out how much oxygen goes with the methane
+        title: How much oxygen a tonne of methane needs
+        place: Cold End
+        scene: |-
+          Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen two moles to one, and the vehicle carries six point six tonnes of fuel.
+        assumes:
+          - a balanced equation gives the mole ratio for a reaction
+          - a molar mass converts a number of moles into a mass
+        takeaway: A mole ratio is not a mass ratio until both molar masses have been applied.
+        format: BALLPARK
+        question: Estimate the mass of oxygen needed for each kilogram of methane burned.
+        why: A balanced equation gives a mole ratio, while tanks are filled by mass. Complete methane combustion uses two moles of oxygen for every mole of methane. Two moles of O₂ have a mass of 64 g, while one mole of CH₄ has a mass of 16 g. The stoichiometric oxygen-to-fuel mass ratio is therefore 4:1. A rocket engine may deliberately operate away from that exact ratio for performance reasons. That design choice does not change the stoichiometric calculation the loading team must understand.
+        estimate:
+          prompt: Burning methane completely takes two moles of oxygen per mole of methane. Oxygen is 32.0 g per mole and methane is 16.0.
+          question: Estimate the mass of oxygen needed for each kilogram of methane burned.
+          labels:
+            - 2  (moles of oxygen per mole of methane)
+            - 32.0 g/mol  (molar mass of oxygen)
+            - 16.0 g/mol  (molar mass of methane)
+            - 6600 kg  (methane the vehicle carries)
+            - 44.0 g/mol  (molar mass of carbon dioxide)
+          values: [2, 32, 16, 6600, 44]
+          slots: 3
+          template: "{0} × {1} ÷ {2}"
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 4
+          tolerance: 0.3
+          units: kg of oxygen per kg of methane
+          solution: 2 × 32.0 ÷ 16.0 = 4.0 kilograms of oxygen for each kilogram of methane.
+          explanation: The mole ratio is 2 to 1 and the mass ratio is 4 to 1, since oxygen is twice as heavy a molecule. The engine actually runs below this, which is a design choice rather than an arithmetic one.
+          relationship: Mass ratio = the mole ratio from the balanced equation × the molar mass of the oxidiser ÷ the molar mass of the fuel.
+      - group: ELEC
+        task: Say whether the stacks can be pushed harder
+        title: What limits the current
+        place: Electrolysis Hall
+        scene: >
+          Sundqvist wants the stacks run twenty per cent above their rated current for the sols that
+          remain. Achebe has the cooling loop's capacity written on the board beside the request.
+        assumes:
+          - the product a cell makes is proportional to the charge it passes
+          - the voltage above the minimum leaves the cell as heat
+        takeaway: The ceiling on a cell is usually thermal rather than electrochemical.
+        format: CHOICE
+        question: What sets the highest current these stacks can be run at?
+        choices:
+          - The heat the cooling loop can carry away, since the wasted voltage rises with the current.
+          - Faraday's constant, which fixes how many moles a cell can pass in a sol.
+          - The water supply, since a cell can split no more than it is fed.
+          - The pressure in the hydrogen collection line, which rises with the production rate.
+        answer: The heat the cooling loop can carry away, since the wasted voltage rises with the current.
+        why: >-
+          Faraday's law puts no ceiling on current at all: more charge is simply more product, in
+          exact proportion. What rises with current is the overpotential, because resistance and
+          sluggish electrode steps both cost more voltage the harder the cell is driven, and that
+          extra voltage becomes heat inside the stack. So the limit is set by what the cooling loop
+          can carry away before the cell cooks its own seals. Twenty per cent more current can cost
+          forty per cent more heat.
+        rebuttals:
+          - Faraday's constant converts charge into moles and does not cap the charge itself.
+          - Water feed is a limit worth checking and this hall has buffer enough for the requested rate.
+          - Collection pressure is held by a regulator and does not rise with production.
+
+  # ---------------------------------------------------------------- sol 305
+  - title: What the next crew is told
+    objective: Say what is known, how well it is known, and what was never established.
+    briefing: The fortnight ends, and what survives it is what gets written down.
+    stake: >-
+      Sol 305, the last sol of this rotation, and the handover file has to be finished this morning.
+      The plant is making fourteen point four kilograms a sol against a target of thirteen point
+      eight, the tank stands at four point three tonnes of methane, and the arithmetic now finishes
+      the fill eleven sols before the window opens. None of that is the difficult part. Today you
+      decide what is left funded and instrumented for the crew who arrive on the next vehicle, write
+      the standing order for the water loop, and say honestly what is known about the catalyst and
+      what is not. Wells has one instruction about the file: that somebody who was not here can act
+      on it without asking anybody who was.
+    takeaway: A handover states what is known, how well, and what was never established at all.
+    stops:
+      - group: GIBBS
+        task: Fund what the next crew should inherit.
+        title: What to leave running
+        place: Plant Control
+        scene: Only two improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.
+        assumes:
+          - the fault that cost this season went undetected because nothing measured it
+          - the next crew arrives without anybody from this one
+        takeaway: What outlives a crew is what somebody made automatic before they left.
+        format: SCIENCETANK
+        answerText: Leave the feed-water conductivity alarm and the standing lead/lag changeover rule. Together they detect breakthrough and tell the next crew what action follows.
+        why: The best inheritance is a system that turns a known failure mode into an automatic response. The conductivity alarm closes the exact gap that let breakthrough continue unnoticed. The standing order for lead-and-lag column changeover tells the next crew what to do when that signal arrives. Spare thermocouples are useful but the bed already has temperature coverage, and a second sun sensor does not address the failure that consumed the catalyst. Together, alarm plus procedure connect measurement, threshold and action without requiring this crew’s memory.
+        proposals:
+          - label: A
+            text: An alarm on feed-water conductivity, wired to the plant panel rather than to a log.
+          - label: B
+            text: A written standing order for changing the lead polishing column at breakthrough.
+          - label: C
+            text: A spare set of thermocouples for the catalyst bed.
+          - label: D
+            text: A second sun sensor at the far end of the array.
+        recommended:
+          A: 45
+          B: 35
+        evidence: |-
+          This season lost thirty-eight sols of production to a measurement that was taken every sol,
+          logged every sol, and read by nobody. The bed already carries four thermocouples and the
+          array has one sun sensor that has never disagreed with the sky.
+      - group: SOIL
+        task: Set the warning and column-swap thresholds, then replay the historic conductivity rise without changing them.
+        title: Write the rule before the trace moves
+        place: Water Plant
+        scene: Abiola is writing a rule for a crew he will never meet. He loads last season’s conductivity trace into the alarm simulator. Once the replay starts, the thresholds are locked and the values run forward.
+        assumes:
+          - an exchange bed reaches breakthrough without warning
+          - a lead and lag pair lets one bed be changed while the other works
+        takeaway: A breakthrough threshold must be written before the rise and early enough to cover the action’s lead time.
+        format: TRIGGER
+        question: Where should warning and changeover trigger so the fresh column is in service before feed water leaves the accepted range?
+        trigger:
+          hint: Set both rules before release. The swap takes one update to complete. The accepted-water limit on this normalized replay is 3.0 times the clean baseline.
+          direction: rising
+          scale:
+            min: 1
+            max: 6
+            step: 0.1
+            unit: × clean-baseline conductivity
+          limit: 3
+          conditions:
+            - id: warn
+              label: Call the breakthrough warning
+              leadHours: 2
+            - id: swap
+              label: Move lag column into lead service
+              leadHours: 1
+          stream:
+            - step: 0
+              value: 1
+              hoursLeft: 8
+              at: update 0
+              update: 1 × clean-baseline conductivity
+            - step: 1
+              value: 1
+              hoursLeft: 7
+              at: update 1
+              update: 1 × clean-baseline conductivity
+            - step: 2
+              value: 1.1
+              hoursLeft: 6
+              at: update 2
+              update: 1.1 × clean-baseline conductivity
+            - step: 3
+              value: 1.3
+              hoursLeft: 5
+              at: update 3
+              update: 1.3 × clean-baseline conductivity
+            - step: 4
+              value: 1.6
+              hoursLeft: 4
+              at: update 4
+              update: 1.6 × clean-baseline conductivity
+            - step: 5
+              value: 2
+              hoursLeft: 3
+              at: update 5
+              update: 2 × clean-baseline conductivity
+            - step: 6
+              value: 2.6
+              hoursLeft: 2
+              at: update 6
+              update: 2.6 × clean-baseline conductivity
+            - step: 7
+              value: 3.4
+              hoursLeft: 1
+              at: update 7
+              update: 3.4 × clean-baseline conductivity
+            - step: 8
+              value: 4.5
+              hoursLeft: 0
+              at: update 8
+              update: 4.5 × clean-baseline conductivity
+        answerText: Warn near 1.6× clean-baseline conductivity and start the lead/lag swap at 2.0×. With one-update lead time, the fresh bed is online before the replay crosses the 3.0× limit.
+        why: The outlet can remain near baseline while the exchange front is still inside the bed, then rise quickly as the front reaches the end. A threshold is useful only if the response can finish before the water leaves specification. Here changeover takes one update. Triggering at twice baseline completes the swap while the next point is still 2.6 times baseline. Waiting for 2.6 completes it after the trace has crossed the 3.0 limit. Precommitting the rule prevents the next crew from turning hindsight into policy.
+      - group: KINET
+        task: State what is known about the catalyst and what is not
+        title: The honest claim about the bed
+        place: Catalyst Bay
+        scene: Kaur is writing the final catalyst handover. The bed has run for five sols at one set of conditions using water from a fresh polishing column. It is the last charge available on the station.
+        assumes:
+          - a claim is limited by the conditions it was tested under
+          - a poison accumulates over time rather than acting at once
+        takeaway: The strength of a claim is set by what was varied while it was being tested.
+        format: CHOICE
+        question: What is the honest claim to hand over about this charge?
+        why: A claim is limited by the conditions under which the evidence was collected. Five sols at one set point on clean water support a narrow statement about that operating window. They do not establish performance at other temperatures or flows. They also do not test resistance to chloride because chloride was intentionally absent after the column change. A useful handover keeps those conditions attached to the claim. The next crew can then tell whether a future observation is a replication of this result or a genuinely new test.
+        choices:
+          - It matches the sol-270 charge at matched conditions over five sols, on polished water.
+          - It performs as well as any charge the station has run, on the evidence available.
+          - It is unaffected by chloride, since conversion has held since the column was changed.
+          - Its behaviour cannot be stated, since five sols is too short a run to say anything.
+        answer: It matches the sol-270 charge at matched conditions over five sols, on polished water.
+        rebuttals:
+          - A comparison against every charge the station has run was not made, and two of them were never assayed.
+          - Chloride was absent throughout, so the run says nothing about what the charge does when it is present.
+          - Five sols supports a narrow claim rather than none at all, and the narrow claim is worth writing down.
+# ------------------------------------------------------------- review stops
+# Lessons no mission points at. From sol 3 the engine appends a callback to an
+# area taught earlier and prefers a "— Review" variant of that lesson, so these
+# are the spaced retrieval rather than spares: the same idea, a different case,
+# a fortnight after it was first met.
+lessons:
+  - group: EQUIL
+    title: What the loop settles at — Review
+    task: Say what each change does to the balance, on a different reactor
+    place: Reactor Hall
+    scene: >
+      A second reactor on the station makes ammonia for the greenhouse, from nitrogen and hydrogen,
+      and it also gives out heat and ends with fewer gas molecules. Four changes are proposed to it.
+    assumes:
+      - a reaction that gives out heat has its balance pushed back by heating
+      - fewer gas molecules on one side makes that side favoured by pressure
+    takeaway: A rule about balance is about the equation's shape, not about the substance in the pipe.
+    format: PROTOCOL
+    task: Match each change to what it does to the ammonia at equilibrium.
+    scenarios:
+      - The vessel is squeezed to twice its working pressure.
+      - The vessel is warmed by sixty degrees.
+      - Ammonia is condensed out of the product and the rest returned.
+      - A better catalyst is fitted at the same conditions.
+    choices:
+      - 'More ammonia: four gas molecules go in and two come out, so crowding favours the products.'
+      - 'Less ammonia: heat is one of the outputs, and supplying more of it pushes the balance back.'
+      - 'More ammonia: removing an output leaves the mixture short of what it settles at.'
+      - 'No change in amount: the balance is reached sooner and it is the same balance.'
+    mapping: [0, 1, 2, 3]
+    why: >-
+      The shape of the equation decides the answers, which is why a reactor making a completely
+      different substance behaves the same way. Count the gas molecules to know what pressure does.
+      Ask which side the heat is on to know what temperature does. Ask whether anything taking part
+      has been added or removed to know whether the balance moves at all. A catalyst changes the
+      time and never the destination.
+
+  - group: KINET
+    title: Rate is not yield — Review
+    task: Separate speed from ceiling on a different reaction
+    place: Catalyst Bay
+    scene: >
+      The greenhouse reactor is running cold and slow. Its operator proposes forty degrees more, and
+      the same argument that ran through the propellant plant a fortnight ago starts again.
+    assumes:
+      - heating raises the fraction of collisions that clear the barrier
+      - an exothermic reaction's balance is pushed back by heating
+    takeaway: One setting moving two quantities in opposite directions is the normal case rather than a special one.
+    format: CHOICE
+    question: A reaction that gives out heat is run hotter. Which pair of statements is right?
+    choices:
+      - Faster to its balance, and the balance itself holds less product.
+      - Faster to its balance, and the balance holds more product as well.
+      - Slower to its balance, and the balance holds less product.
+      - Neither the speed nor the balance moves; temperature acts on the catalyst instead.
+    answer: Faster to its balance, and the balance itself holds less product.
+    why: >-
+      Two quantities carry the temperature and they carry it in opposite directions. The rate
+      constant rises steeply, since more collisions arrive with enough energy to clear the barrier.
+      The equilibrium constant of a reaction that gives out heat falls, since heat behaves as one of
+      its products. Every exothermic industrial reaction lives with that trade, and the usual answer
+      is a temperature low enough for a decent balance with a catalyst good enough to reach it.
+    rebuttals:
+      - Rising with temperature is what the rate does, and the balance for this kind of reaction does the opposite.
+      - Reactions do not slow when heated; it is the ceiling that comes down.
+      - Temperature acts on the molecules rather than on the catalyst, and both the speed and the balance respond.
+
+  - group: PHASE
+    title: What freezes before methane condenses — Review
+    task: Say what leaves a stream first as it is cooled
+    place: Cold End
+    scene: >
+      A different stream comes off the greenhouse: mostly nitrogen, with water vapour, some carbon
+      dioxide and a little argon. It is being cooled to recover the argon as a liquid.
+    assumes:
+      - each substance leaves the gas phase at its own temperature
+      - stronger attractions between molecules mean a higher condensation temperature
+    takeaway: Cooling a mixture separates it in the order the attractions between its molecules run.
+    format: SEQUENCE
+    task: Order the substances by the temperature at which they leave the gas, warmest first.
+    cards:
+      - Water, which hydrogen-bonds to itself and holds together far above room temperature.
+      - Carbon dioxide, which turns solid near 195 K at this pressure.
+      - Nitrogen, a small non-polar molecule that condenses near 77 K.
+      - Argon, a single atom with the weakest attractions in the stream.
+    order: [0, 1, 2, 3]
+    why: >-
+      The order is the strength of the forces between whole molecules. Water hydrogen-bonds and is
+      the first out by a wide margin. Carbon dioxide is held by weaker forces and, at this pressure,
+      goes straight from gas to solid. Nitrogen and argon are held only by the fleeting attractions
+      between electron clouds, so they need the deepest cold, and argon — one atom, with the least to
+      hold onto — is last. A cooling stream is a separation in that order.
+
+  - group: ELEC
+    title: Which electrode does which job — Review
+    task: Read a different cell the same way
+    place: Electrolysis Hall
+    scene: >
+      The station's oxygen generator splits water in a low-temperature cell rather than a hot one.
+      Achebe wants it read the same way as the hot stacks, part by part.
+    assumes:
+      - reduction happens where electrons are pushed in
+      - the electrolyte carries ions and not electrons
+    takeaway: The parts of an electrolysis cell do the same jobs whatever the cell is made of.
+    format: PROTOCOL
+    task: Match each part of this cell to what happens there.
+    scenarios:
+      - The electrode the supply pushes electrons into.
+      - The electrode electrons are drawn out of.
+      - The membrane between them.
+      - The applied voltage.
+    choices:
+      - Water gains electrons here and hydrogen comes off.
+      - Water loses electrons here and oxygen comes off.
+      - It passes hydrogen ions and keeps the two gases apart.
+      - It has to exceed the minimum the thermodynamics sets before anything happens at all.
+    mapping: [0, 1, 2, 3]
+    why: >-
+      A cell is a redox reaction with the halves separated, and which half sits where is fixed by
+      the direction the electrons are pushed. Electrons in means reduction, so hydrogen appears at
+      that electrode in any water-splitting cell, hot or cold. Electrons out means oxidation and
+      oxygen. The separator carries one ion and stops the gases mixing. Below the minimum voltage
+      nothing happens, and above it the excess is the price of a useful rate.
+
+  - group: GIBBS
+    title: What has to be paid for — Review
+    task: Sort four station processes into driven and spontaneous
+    place: Plant Control
+    scene: >
+      Demir has four of the station's processes on the board and wants them sorted before the
+      quarterly energy plan is written. Two of them run downhill and two have to be pushed.
+    assumes:
+      - a negative free-energy change means a process can run on its own
+      - running on its own says nothing about how fast a process goes
+    takeaway: Sorting a station's processes by direction is what says which of them have a bill nobody can design away.
+    format: CASEBOOK
+    task: Match each process to what it needs from the station.
+    scenarios:
+      - Methane assembling from carbon dioxide and hydrogen over the bed.
+      - Water splitting into hydrogen and oxygen in the stack.
+      - Liquid oxygen boiling in a warmed tank.
+      - Compressing the atmosphere from six millibars to twelve bar.
+    choices:
+      - Runs downhill and needs a catalyst to be quick about it.
+      - Runs uphill and needs the free-energy difference supplied electrically.
+      - Runs downhill and is the thing the refrigerator is fighting.
+      - Runs uphill and is paid for in shaft work rather than in chemistry.
+    mapping: [0, 1, 2, 3]
+    why: >-
+      Direction and speed are separate questions, and only direction decides whether there is a bill.
+      The assembly is downhill and slow, which is what a catalyst is for. Splitting water is the same
+      reaction backwards and the bill is the free-energy difference, paid in electricity. Boiling is
+      downhill, which is why a tank needs work done on it to stop happening. Compression is uphill
+      and physical rather than chemical, and it is paid for at the compressor.
+
+  - group: SOIL
+    title: Getting water out of frozen ground — Review
+    task: Order the same plant on a poorer load
+    place: Water Plant
+    scene: >
+      A load has come in at three per cent water instead of eight, and the same four operations have
+      to run on it. Nakagawa wants the order confirmed before the hopper is sealed.
+    assumes:
+      - warming ice-bearing soil releases water as vapour at low pressure
+      - a leaner load carries the same salts in less water
+    takeaway: A poorer load changes the yield of a process and not the order of it.
+    format: SEQUENCE
+    task: Order the operations for a lean load.
+    cards:
+      - Weigh the load and sample it, so the water it should give is known in advance.
+      - Seal and warm the hopper, holding it below the temperature the salts decompose at.
+      - Condense the vapour on the chilled plate and measure what was actually collected.
+      - Pass the collected water through the lead polishing column at the usual rate.
+    order: [0, 1, 2, 3]
+    why: >-
+      Sampling comes first on a lean load for a reason that does not apply to a rich one: without a
+      figure to expect, a poor yield and a plant fault look identical. Warming has a ceiling as well
+      as a floor, since perchlorate salts break down when they are heated hard and release chlorine
+      compounds into the vapour. Measuring what was collected against what was expected is the
+      comparison that makes the sample worth taking, and the polishing rate does not change.
+
+  - group: EQUIL
+    title: Why the hotter pass gave less — Review
+    task: Read a table of constants against temperature
+    place: Reactor Hall
+    scene: >
+      Herrera has the equilibrium constant for the methane assembly at four temperatures: 500 K,
+      550 K, 600 K and 650 K. It falls by more than a factor of ten across that range.
+    assumes:
+      - the equilibrium constant depends on temperature and on nothing else
+      - this reaction gives out heat
+    takeaway: A table of constants against temperature is the plant's ceiling written out in advance.
+    format: CHOICE
+    question: What does a constant falling steeply with temperature tell the plant?
+    choices:
+      - The reaction gives out heat, and yield per pass is best at the lowest workable temperature.
+      - The reaction takes in heat, so the ceiling on each pass improves as the bed is pushed hotter.
+      - The catalyst is losing activity across that range, which is what the fall records.
+      - Pressure has been changing with temperature, and the table mixes two effects.
+    answer: The reaction gives out heat, and yield per pass is best at the lowest workable temperature.
+    why: >-
+      The direction the constant moves in identifies the sign of the heat. Falling with temperature
+      means heat behaves as a product, so heating pushes the balance back — that is the definition
+      of an exothermic reaction read off a table. The practical consequence is the whole design
+      problem of this plant: yield wants a cold bed and rate wants a hot one, and the operating
+      temperature is chosen where a good enough catalyst makes a good enough yield reachable.
+    rebuttals:
+      - A constant that rose with temperature would mean heat was taken in, and this one falls.
+      - The constant is a property of the reaction and takes no account of what the catalyst is doing.
+      - The constant is defined at a stated temperature and does not depend on the pressure at all.
+
+  - group: PHASE
+    title: Reading a blockage from outside the pipe — Review
+    task: Read a second blockage from its readings
+    place: Cold End
+    scene: >
+      A line on the oxygen side has slowed over two sols. Cho has four readings from around it, and
+      the plant needs to know whether to warm the line out or open it up.
+    assumes:
+      - a refrigerator at its set point is doing its job
+      - carbon dioxide deposits as a solid near 195 K
+    takeaway: What a blockage is made of decides whether warming the line clears it.
+    format: DIAGNOSIS
+    headline: An oxygen line has slowed over two sols with the refrigerator holding temperature.
+    task: Which explanation fits every reading?
+    readings:
+      - { zone: Oxygen line, label: Flow, value: down 60% over 2 sols, status: alarm }
+      - { zone: Oxygen line, label: Inlet pressure, value: rising, status: high }
+      - { zone: Refrigerator, label: Cold head temperature, value: at set point, status: normal }
+      - { zone: Upstream trap, label: Carbon dioxide breakthrough, value: 700 ppm, status: alarm }
+      - { zone: Line, label: Vacuum jacket pressure, value: unchanged, status: normal, note: the insulation is intact }
+    choices:
+      - { label: Carbon dioxide past the trap is freezing in the line, mechanism: 'Solid builds slowly on the wall and takes the flow down with it.' }
+      - { label: The refrigerator has lost capacity over the last two sols, mechanism: 'A cold head above its set point cannot condense what it is given.' }
+      - { label: A valve on this line has been partly closed by somebody, mechanism: 'A restriction cuts the flow and raises the pressure behind it.' }
+      - { label: The vacuum jacket on this line has failed, mechanism: 'Heat leaking in warms the line and changes what it can carry.' }
+    answer: Carbon dioxide past the trap is freezing in the line
+    why: >-
+      Three readings do the ruling out. A cold head at its set point has not lost capacity, and a
+      steady jacket pressure is intact insulation. A valve moving would change the flow in the minute
+      it moved rather than over two sols. What is left is something accumulating, and the trap's
+      breakthrough figure names the material. It matters which material: carbon dioxide sublimes away
+      when the line is warmed to 220 K, so this one is cleared without opening anything.
+
+# ---------------------------------------------------------------- the rooms
+# What is inside each of the six buildings, and what the instrument on the wall
+# is reading when the player walks in.
+interiors:
+  KINET:
+    caption: The bed is the only part of this plant that does something nothing else can do.
+    standLine: Nine sols of temperature profiles, and a hot spot thirty centimetres further down the bed.
+    station:
+      kind: panel
+      title: Reactor bed profile
+      rows:
+        - { label: Hot spot position, value: 34 cm, status: alarm }
+        - { label: Peak temperature, value: 604 K, status: normal }
+        - { label: Pressure drop, value: 0.6 bar, status: normal }
+        - { label: Conversion this pass, value: 58 %, status: low }
+  EQUIL:
+    caption: There is an amount of methane this mixture will settle at, and urgency does not move it.
+    standLine: Carbon in against carbon out, for one pass and for the loop.
+    station:
+      kind: panel
+      title: Reactor loop
+      rows:
+        - { label: Loop pressure, value: 12.0 bar, status: normal }
+        - { label: Bed inlet temperature, value: 593 K, status: high }
+        - { label: Methane in dry product, value: 96.4 %, status: normal }
+        - { label: Carbon monoxide, value: 0.9 %, status: alarm }
+  PHASE:
+    caption: Everything in the stream stops being a gas somewhere, and not at the same temperature.
+    standLine: The cold line, the drier and the trap, in the order the stream meets them.
+    station:
+      kind: panel
+      title: Cold end
+      rows:
+        - { label: Cold head, value: 114 K, status: normal }
+        - { label: Drier outlet water, value: 900 ppm, status: alarm }
+        - { label: Methane tank pressure, value: 3.4 bar, status: high }
+        - { label: Oxygen boil-off, value: 12.5 kg/sol, status: low }
+  ELEC:
+    caption: Charge and moles are one measurement in two units, and the gap between them is the cell.
+    standLine: Twelve cells, six hundred and forty amps, and eight per cent of it making nothing.
+    station:
+      kind: panel
+      title: Water stack
+      rows:
+        - { label: Stack current, value: 640 A, status: normal }
+        - { label: Cell voltage, value: 1.75 V, status: high }
+        - { label: Hydrogen collected, value: 6.9 kg/sol, status: normal }
+        - { label: Current efficiency, value: 92 %, status: low }
+  GIBBS:
+    caption: Some of what this station does runs on its own. The rest is paid for out of one array.
+    standLine: The sol's ledger, with what the array delivered on the other side of it.
+    station:
+      kind: panel
+      title: Station ledger
+      rows:
+        - { label: Array delivered, value: 1950 kWh, status: normal }
+        - { label: Electrolysis, value: 380 kWh, status: normal }
+        - { label: Liquefaction, value: 610 kWh, status: high }
+        - { label: Habitat, value: 240 kWh, status: normal }
+  SOIL:
+    caption: What comes out of this ground is a solution, and everything dissolved in it has an address downstream.
+    standLine: Eleven hundred litres in the tank, and a column nobody has changed since sol 190.
+    station:
+      kind: panel
+      title: Water plant
+      rows:
+        - { label: Holding tank, value: 1100 L, status: normal }
+        - { label: Load water content, value: 4.5 %, status: low }
+        - { label: Outlet conductivity, value: 6× the spring figure, status: alarm }
+        - { label: Column in service since, value: sol 190, status: high }
+
+# What each place says when the player reads its sign.
+copy:
+  KINET: <p>Catalyst Bay. Nickel on alumina, in a bed the size of a kitchen bin, doing the one job in this plant that nothing else can do.</p>
+  EQUIL: <p>The reactor hall. Carbon dioxide and hydrogen go in, methane and water come out, and the argument is about how much.</p>
+  PHASE: <p>The cold end. Where a gas nobody can store becomes a liquid the vehicle can fly, at a hundred and twelve kelvin.</p>
+  ELEC: <p>The electrolysis hall. Twelve cells splitting water, and one hot stack splitting carbon dioxide straight to oxygen.</p>
+  GIBBS: <p>Plant control. The energy ledger for everything on this plain, and the desk where the arguments about it end.</p>
+  SOIL: <p>The water plant. Frozen ground in at one end, and a brine that has to be cleaned before anything downstream can use it.</p>
+  HAB: <p>The habitat. Six people, nineteen degrees, and the only room on the planet with a window somebody chose the view from.</p>
+  PAD: <p>The pad. The ascent vehicle stands on it, four point three tonnes of methane aboard and six point six needed.</p>
+  ARRAY: <p>The array shed. Eighteen hundred square metres of panel out there, and a sun sensor that says how much of the sun is reaching it.</p>
+  TANKS: <p>The tank farm. Everything the plant has made so far, held at its own boiling point and losing a little every sol.</p>
+  GARAGE: <p>The garage. Two pressurised rovers, one drill rig, and the dust that comes back in with all of them.</p>
+  INTAKE: <p>The intake. Six millibars of carbon dioxide compressed to twelve bar, which is most of the plant's power bill before any chemistry happens.</p>

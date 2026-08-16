@@ -63,6 +63,9 @@
      "t",
      "the variable being differentiated with respect to"
     ]
+   ],
+   "needs": [
+    "f'(t) = lim (f(t + h) − f(t)) / h  as h → 0"
    ]
   },
   {
@@ -73,6 +76,9 @@
      "u, v",
      "the two quantities being multiplied, each a function of time"
     ]
+   ],
+   "needs": [
+    "d/dt (t^n) = n·t^(n−1)"
    ]
   },
   {
@@ -87,6 +93,9 @@
      "dx/dt",
      "how fast the inner one is moving"
     ]
+   ],
+   "needs": [
+    "d/dt (t^n) = n·t^(n−1)"
    ]
   },
   {
@@ -105,6 +114,9 @@
      "dh/dt",
      "the rate the level is moving, in metres per unit time"
     ]
+   ],
+   "needs": [
+    "dy/dt = (dy/dx)·(dx/dt)"
    ]
   },
   {
@@ -123,6 +135,10 @@
      "dH/dt",
      "how fast that head is rising"
     ]
+   ],
+   "needs": [
+    "d/dt (t^n) = n·t^(n−1)",
+    "dy/dt = (dy/dx)·(dx/dt)"
    ]
   },
   {
@@ -151,6 +167,9 @@
      "a, b",
      "the two ends of the interval"
     ]
+   ],
+   "needs": [
+    "d/dt (t^n) = n·t^(n−1)"
    ]
   },
   {
@@ -165,6 +184,9 @@
      "t",
      "the upper end, which moves"
     ]
+   ],
+   "needs": [
+    "∫ₐᵇ f(t)dt = F(b) − F(a)"
    ]
   },
   {
@@ -175,6 +197,9 @@
      "b − a",
      "the length of the interval, in the same units of time as the rate"
     ]
+   ],
+   "needs": [
+    "∫ₐᵇ f(t)dt = F(b) − F(a)"
    ]
   },
   {
@@ -189,6 +214,9 @@
      "Δx",
      "the step away from it"
     ]
+   ],
+   "needs": [
+    "f'(t) = lim (f(t + h) − f(t)) / h  as h → 0"
    ]
   },
   {
@@ -207,6 +235,9 @@
      "t½",
      "the time to fall by half"
     ]
+   ],
+   "needs": [
+    "∫ₐᵇ f(t)dt = F(b) − F(a)"
    ]
   },
   {
@@ -221,6 +252,9 @@
      "h₀",
      "the head at the start"
     ]
+   ],
+   "needs": [
+    "∫ₐᵇ f(t)dt = F(b) − F(a)"
    ]
   },
   {
@@ -235,6 +269,9 @@
      "V",
      "the volume held between two levels"
     ]
+   ],
+   "needs": [
+    "∫ₐᵇ f(t)dt = F(b) − F(a)"
    ]
   },
   {
@@ -249,6 +286,9 @@
      "ΔV",
      "the net change over the interval"
     ]
+   ],
+   "needs": [
+    "∫ₐᵇ f(t)dt = F(b) − F(a)"
    ]
   }
  ],

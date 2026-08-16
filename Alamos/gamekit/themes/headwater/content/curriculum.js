@@ -97,21 +97,6 @@ export const CURRICULUM = {
           ],
           "s": "Each adjacent pair is treated as a trapezium, which is why every interior reading is counted twice as heavily as an end one, and it is exact wherever the rate runs straight.",
           "computed": true
-        },
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
         }
       ]
     },
@@ -684,6 +669,22 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "dy/dt = (dy/dx)·(dx/dt)",
+          "c": "the chain rule, and every related rate on the site",
+          "v": [
+            [
+              "dy/dx",
+              "how the outer quantity responds to the inner one"
+            ],
+            [
+              "dx/dt",
+              "how fast the inner one is moving"
+            ]
+          ],
+          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
+          "computed": true
+        },
+        {
           "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
           "c": "the fundamental theorem, used to total a rate",
           "v": [
@@ -696,7 +697,8 @@ export const CURRICULUM = {
               "the two ends of the interval"
             ]
           ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
+          "computed": true
         },
         {
           "e": "f(a + Δx) ≈ f(a) + f′(a)·Δx",
@@ -711,7 +713,8 @@ export const CURRICULUM = {
               "the step away from it"
             ]
           ],
-          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step."
+          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step.",
+          "card": false
         }
       ]
     }
@@ -845,7 +848,24 @@ export const CURRICULUM = {
               "the instantaneous rate of change at t"
             ]
           ],
-          "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one."
+          "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one.",
+          "computed": true
+        },
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
         }
       ]
     },
@@ -963,21 +983,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
-        },
-        {
-          "e": "d/dt ∫ₐᵗ f(s)ds = f(t)",
-          "c": "the other half of the fundamental theorem",
-          "v": [
-            [
-              "a",
-              "the fixed lower end"
-            ],
-            [
-              "t",
-              "the upper end, which moves"
-            ]
-          ],
-          "s": "The slope of a running total at any instant is whatever was arriving at that instant, so differentiating an accumulation hands back exactly what was accumulated."
         }
       ]
     },
@@ -1085,6 +1090,24 @@ export const CURRICULUM = {
       "assumes": [
         "a quantity stops rising where its derivative is zero",
         "the sign of the second derivative distinguishes a maximum from a minimum"
+      ],
+      "equations": [
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
+        }
       ]
     },
     {
@@ -1258,7 +1281,8 @@ export const CURRICULUM = {
               "the variable being differentiated with respect to"
             ]
           ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
         },
         {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
@@ -1273,7 +1297,62 @@ export const CURRICULUM = {
               "how fast the inner one is moving"
             ]
           ],
-          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable."
+          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
+          "computed": true
+        },
+        {
+          "e": "dh/dt = (I − O) / A(h)",
+          "c": "the reservoir related-rates equation, with a non-constant area",
+          "v": [
+            [
+              "I, O",
+              "inflow and outflow, in cubic metres a second"
+            ],
+            [
+              "A(h)",
+              "the surface area at that level, in square metres"
+            ],
+            [
+              "dh/dt",
+              "the rate the level is moving, in metres per unit time"
+            ]
+          ],
+          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
+          "c": "the fundamental theorem, used to total a rate",
+          "v": [
+            [
+              "F",
+              "any antiderivative of f"
+            ],
+            [
+              "a, b",
+              "the two ends of the interval"
+            ]
+          ],
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "dh/dt = −k·√h  ⟹  h(t) = (√h₀ − k·t/2)²",
+          "c": "a separable equation whose solution actually reaches zero",
+          "v": [
+            [
+              "k",
+              "the drain constant, per unit time"
+            ],
+            [
+              "h₀",
+              "the head at the start"
+            ]
+          ],
+          "s": "Separating the variables puts every h on one side and every t on the other, and the square root is what makes the solution a parabola with a finishing time rather than an exponential without one.",
+          "card": false
         }
       ]
     },
@@ -1340,6 +1419,23 @@ export const CURRICULUM = {
           ],
           "s": "Each adjacent pair is treated as a trapezium, which is why every interior reading is counted twice as heavily as an end one, and it is exact wherever the rate runs straight.",
           "computed": true
+        },
+        {
+          "e": "V = ∫A(h)dh",
+          "c": "volume as an accumulation of areas up through the levels",
+          "v": [
+            [
+              "A(h)",
+              "the surface area at level h"
+            ],
+            [
+              "V",
+              "the volume held between two levels"
+            ]
+          ],
+          "s": "A stage-storage curve is a table of this integral, which is why an error in the area curve is inherited whole by every volume and every level forecast computed through it.",
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -1446,7 +1542,8 @@ export const CURRICULUM = {
               "the variable being differentiated with respect to"
             ]
           ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
         },
         {
           "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
@@ -1461,7 +1558,61 @@ export const CURRICULUM = {
               "the two ends of the interval"
             ]
           ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
+          "computed": true
+        },
+        {
+          "e": "dQ/dt = −k·Q  ⟹  Q(t) = Q₀·e^(−k·t),  t½ = ln 2 / k",
+          "c": "exponential decay, and the halving time that does not depend on where you started",
+          "v": [
+            [
+              "k",
+              "the recession constant, per unit time"
+            ],
+            [
+              "Q₀",
+              "the flow at the start"
+            ],
+            [
+              "t½",
+              "the time to fall by half"
+            ]
+          ],
+          "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "f(a + Δx) ≈ f(a) + f′(a)·Δx",
+          "c": "linear approximation, and the differential that computes it",
+          "v": [
+            [
+              "f′(a)",
+              "the slope at the point you are starting from"
+            ],
+            [
+              "Δx",
+              "the step away from it"
+            ]
+          ],
+          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step.",
+          "card": false
+        },
+        {
+          "e": "dh/dt = −k·√h  ⟹  h(t) = (√h₀ − k·t/2)²",
+          "c": "a separable equation whose solution actually reaches zero",
+          "v": [
+            [
+              "k",
+              "the drain constant, per unit time"
+            ],
+            [
+              "h₀",
+              "the head at the start"
+            ]
+          ],
+          "s": "Separating the variables puts every h on one side and every t on the other, and the square root is what makes the solution a parabola with a finishing time rather than an exponential without one.",
+          "card": false
         }
       ]
     },
@@ -1584,7 +1735,8 @@ export const CURRICULUM = {
               "the two ends of the interval"
             ]
           ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
+          "computed": true
         },
         {
           "e": "d/dt ∫ₐᵗ f(s)ds = f(t)",
@@ -1599,7 +1751,8 @@ export const CURRICULUM = {
               "the upper end, which moves"
             ]
           ],
-          "s": "The slope of a running total at any instant is whatever was arriving at that instant, so differentiating an accumulation hands back exactly what was accumulated."
+          "s": "The slope of a running total at any instant is whatever was arriving at that instant, so differentiating an accumulation hands back exactly what was accumulated.",
+          "computed": true
         }
       ]
     },
@@ -1738,6 +1891,34 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
+        },
+        {
+          "e": "(u·v)′ = u′·v + u·v′",
+          "c": "a product where both factors are moving",
+          "v": [
+            [
+              "u, v",
+              "the two quantities being multiplied, each a function of time"
+            ]
+          ],
+          "s": "A product of two changing quantities has two rates in it, and the rule keeps them apart: one term holds the first factor still, the other holds the second.",
+          "computed": true
+        },
+        {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
           "v": [
@@ -1750,7 +1931,9 @@ export const CURRICULUM = {
               "how fast the inner one is moving"
             ]
           ],
-          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable."
+          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
+          "computed": true,
+          "card": false
         },
         {
           "e": "dh/dt = (I − O) / A(h)",
@@ -1769,7 +1952,30 @@ export const CURRICULUM = {
               "the rate the level is moving, in metres per unit time"
             ]
           ],
-          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level."
+          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "Q = C·L·H^(3/2),  dQ/dt = (3/2)·C·L·H^(1/2)·dH/dt",
+          "c": "a power law differentiated through time",
+          "v": [
+            [
+              "C·L",
+              "the discharge coefficient times the crest length"
+            ],
+            [
+              "H",
+              "the head over the sill, in metres"
+            ],
+            [
+              "dH/dt",
+              "how fast that head is rising"
+            ]
+          ],
+          "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line.",
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -1864,6 +2070,22 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "dy/dt = (dy/dx)·(dx/dt)",
+          "c": "the chain rule, and every related rate on the site",
+          "v": [
+            [
+              "dy/dx",
+              "how the outer quantity responds to the inner one"
+            ],
+            [
+              "dx/dt",
+              "how fast the inner one is moving"
+            ]
+          ],
+          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
+          "computed": true
+        },
+        {
           "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
           "c": "the fundamental theorem, used to total a rate",
           "v": [
@@ -1876,7 +2098,24 @@ export const CURRICULUM = {
               "the two ends of the interval"
             ]
           ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
+          "computed": true
+        },
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "card": false
         }
       ]
     },
@@ -1949,6 +2188,21 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
+        },
+        {
           "e": "dh/dt = (I − O) / A(h)",
           "c": "the reservoir related-rates equation, with a non-constant area",
           "v": [
@@ -1966,6 +2220,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level."
+        },
+        {
+          "e": "Q = C·L·H^(3/2),  dQ/dt = (3/2)·C·L·H^(1/2)·dH/dt",
+          "c": "a power law differentiated through time",
+          "v": [
+            [
+              "C·L",
+              "the discharge coefficient times the crest length"
+            ],
+            [
+              "H",
+              "the head over the sill, in metres"
+            ],
+            [
+              "dH/dt",
+              "how fast that head is rising"
+            ]
+          ],
+          "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line.",
+          "card": false
         }
       ]
     },
@@ -2052,6 +2326,24 @@ export const CURRICULUM = {
       "assumes": [
         "a continuous quantity on a closed interval attains a largest value somewhere on it",
         "a critical point is where the derivative is zero or does not exist"
+      ],
+      "equations": [
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
+        }
       ]
     },
     {
@@ -2146,6 +2438,25 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
+        },
+        {
+          "e": "Q = C·L·H^(3/2),  dQ/dt = (3/2)·C·L·H^(1/2)·dH/dt",
+          "c": "a power law differentiated through time",
+          "v": [
+            [
+              "C·L",
+              "the discharge coefficient times the crest length"
+            ],
+            [
+              "H",
+              "the head over the sill, in metres"
+            ],
+            [
+              "dH/dt",
+              "how fast that head is rising"
+            ]
+          ],
+          "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line."
         }
       ]
     },
@@ -2351,6 +2662,34 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
+        },
+        {
+          "e": "(u·v)′ = u′·v + u·v′",
+          "c": "a product where both factors are moving",
+          "v": [
+            [
+              "u, v",
+              "the two quantities being multiplied, each a function of time"
+            ]
+          ],
+          "s": "A product of two changing quantities has two rates in it, and the rule keeps them apart: one term holds the first factor still, the other holds the second.",
+          "computed": true
+        },
+        {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
           "v": [
@@ -2363,7 +2702,30 @@ export const CURRICULUM = {
               "how fast the inner one is moving"
             ]
           ],
-          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable."
+          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "dh/dt = (I − O) / A(h)",
+          "c": "the reservoir related-rates equation, with a non-constant area",
+          "v": [
+            [
+              "I, O",
+              "inflow and outflow, in cubic metres a second"
+            ],
+            [
+              "A(h)",
+              "the surface area at that level, in square metres"
+            ],
+            [
+              "dh/dt",
+              "the rate the level is moving, in metres per unit time"
+            ]
+          ],
+          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -2806,6 +3168,74 @@ export const CURRICULUM = {
       "assumes": [
         "a product of two quantities that both change has a rate from each of them",
         "a constant factor passes through a derivative unchanged"
+      ],
+      "equations": [
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "computed": true
+        },
+        {
+          "e": "(u·v)′ = u′·v + u·v′",
+          "c": "a product where both factors are moving",
+          "v": [
+            [
+              "u, v",
+              "the two quantities being multiplied, each a function of time"
+            ]
+          ],
+          "s": "A product of two changing quantities has two rates in it, and the rule keeps them apart: one term holds the first factor still, the other holds the second.",
+          "computed": true
+        },
+        {
+          "e": "dy/dt = (dy/dx)·(dx/dt)",
+          "c": "the chain rule, and every related rate on the site",
+          "v": [
+            [
+              "dy/dx",
+              "how the outer quantity responds to the inner one"
+            ],
+            [
+              "dx/dt",
+              "how fast the inner one is moving"
+            ]
+          ],
+          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "dh/dt = (I − O) / A(h)",
+          "c": "the reservoir related-rates equation, with a non-constant area",
+          "v": [
+            [
+              "I, O",
+              "inflow and outflow, in cubic metres a second"
+            ],
+            [
+              "A(h)",
+              "the surface area at that level, in square metres"
+            ],
+            [
+              "dh/dt",
+              "the rate the level is moving, in metres per unit time"
+            ]
+          ],
+          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
+          "computed": true,
+          "card": false
+        }
       ]
     },
     {
@@ -2863,6 +3293,27 @@ export const CURRICULUM = {
           ],
           "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
           "computed": true
+        },
+        {
+          "e": "dh/dt = (I − O) / A(h)",
+          "c": "the reservoir related-rates equation, with a non-constant area",
+          "v": [
+            [
+              "I, O",
+              "inflow and outflow, in cubic metres a second"
+            ],
+            [
+              "A(h)",
+              "the surface area at that level, in square metres"
+            ],
+            [
+              "dh/dt",
+              "the rate the level is moving, in metres per unit time"
+            ]
+          ],
+          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
+          "computed": true,
+          "card": false
         }
       ]
     },
@@ -3478,7 +3929,8 @@ export const CURRICULUM = {
               "the two ends of the interval"
             ]
           ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
+          "computed": true
         },
         {
           "e": "average value = (1 / (b − a)) · ∫ₐᵇ f(t)dt",

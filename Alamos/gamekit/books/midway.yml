@@ -1,0 +1,1436 @@
+# midway.yml — Safety Factor: certifying seven rides at Corbin Park.
+#
+# AP Physics 1, algebra-based, all eight units: kinematics, dynamics, circular
+# motion and gravitation, energy, momentum, simple harmonic motion, torque and
+# rotational motion, and fluids. One ride per area, so the syllabus is the
+# midway: the drop tower is kinematics, the coaster is energy, the wheel is
+# torque, the flume is fluids.
+#
+# **This game is built on derivations.** Forty-one years of maintenance here were
+# done by one mechanic who wrote down settings and never wrote down why, and the
+# county inspector will not accept a number whose derivation nobody can produce.
+# So ten stops are DERIVE: build the result line by line, name the rule that
+# licenses each line, and every wrong branch is a mistake a student actually
+# makes — with at least one per step that stays algebraically valid, which is
+# what stops the panel being passable by spotting the malformed line.
+#
+# The argument: Marsh holds that a ride that has run safely for forty-one years
+# is evidence, and a season lost closes the park. Vey holds that evidence of
+# having got away with it is not a margin. Marsh is right on day 4. Vey is right
+# on day 9, when the loop turns out to have been regraded in 1998 and the
+# drawing never updated.
+
+theme:
+  id: midway
+  title: Safety Factor
+  subtitle: Ride Engineer · Corbin Park
+
+# ---------------------------------------------------------------- the areas
+# Seven rides, and each one is the unit of the course it teaches best. The
+# player walks the syllabus: kinematics at the tower, energy on the coaster,
+# torque under the wheel, fluids at the flume.
+groups:
+  - id: TOWER
+    code: TOWER
+    name: The Drop Tower
+    color: '#c0392b'
+    desc: Free fall down forty-two metres, and a brake that has to take it back in nine.
+    defaultLeader: vey
+    milestones:
+      - Time the drop and get an acceleration out of it
+      - Derive the speed at the bottom two ways
+      - Put a number on what the brake does to a body
+      - Certify the tower or say why not
+  - id: COASTER
+    code: COASTER
+    name: The Coaster
+    color: '#2f7fa8'
+    desc: One lift hill, one drop, one loop, and whatever friction has taken since 1974.
+    defaultLeader: marsh
+    milestones:
+      - Close the energy books on one circuit
+      - Find where the losses actually are
+      - Derive the speed the loop demands
+      - Recompute the margin the drawing promised
+  - id: CAROUSEL
+    code: CAROUSEL
+    name: The Carousel and Swings
+    color: '#c99a2e'
+    desc: Everything here goes in a circle, which means everything here is accelerating.
+    defaultLeader: brennan
+    milestones:
+      - Separate speed from acceleration
+      - Derive the angle the swings hang at
+      - Check the setting against the mechanic's number
+      - Sign the speed limit for both rides
+  - id: WHEEL
+    code: WHEEL
+    name: The Ferris Wheel
+    color: '#7a4fa3'
+    desc: Twenty-eight metres of steel that has to balance before it turns.
+    defaultLeader: raman
+    milestones:
+      - Balance the wheel on paper
+      - Find the load the arm actually sees
+      - Turn a moment into a stress
+      - Set a wind limit somebody can operate to
+  - id: BUMPER
+    code: BUMPER
+    name: The Bumper Cars
+    color: '#3f9e6b'
+    desc: A hundred collisions an hour, and every one of them is the same equation.
+    defaultLeader: chen
+    milestones:
+      - Count the momentum before and after
+      - Find the energy the collision does not return
+      - Turn a collision into a force on a neck
+      - Set the floor speed and the car mass
+  - id: SHIP
+    code: SHIP
+    name: The Pirate Ship
+    color: '#4a6d8c'
+    desc: A pendulum with sixty people on it, and a period that does not care how many.
+    defaultLeader: idowu
+    milestones:
+      - Measure the period and get g out of it
+      - Derive why the period ignores the load
+      - Find the drive frequency the ride must avoid
+      - Certify the swing angle
+  - id: FLUME
+    code: FLUME
+    name: The Log Flume
+    color: '#2e8b8b'
+    desc: Water doing the work, and a pump that has to lift it back up again.
+    defaultLeader: abara
+    milestones:
+      - Get a pressure out of a depth
+      - Float a loaded boat on paper
+      - Derive the outlet speed
+      - Match the pump to the channel
+
+# ------------------------------------------------------------------ the cast
+# Fourteen people, two to a ride. Marsh and Vey are the argument; Brennan is the
+# forty-one years of settings the whole game is trying to justify.
+roster:
+  - id: vey
+    name: Marcus Vey
+    role: County Ride Inspector
+    division: TOWER
+    bio: |
+      Inspects rides for the county, which makes him the one person here who does
+      not work for the park. He signs or he does not sign, and a ride he has not
+      signed does not turn.
+
+      His position is narrow and he states it the same way every time: a ride
+      that has never hurt anybody is evidence about the past, and a margin is a
+      statement about the future. Forty-one years of getting away with something
+      is indistinguishable, from the outside, from forty-one years of doing it
+      right.
+
+      His limit is that he cannot design anything. He can only ask for the
+      working, and when the working is produced he has to accept it, whatever he
+      thought that morning.
+    quiz:
+      - q: Why will Vey not accept a ride's forty-one-year record as a margin?
+        a: A record says what happened, and a margin says what the ride can survive
+        wrong:
+          - County rules require every setting to be recalculated once each decade
+          - Records kept by a park cannot be audited by an outside inspector
+          - The park's insurers have refused to accept any evidence older than five years
+  - id: santos
+    name: Rafael Santos
+    role: Brake and Hydraulics Technician
+    division: TOWER
+    bio: |
+      Looks after the brakes on every ride in the park, which on the tower means a
+      row of copper fins and a set of magnets that never touch them.
+
+      He likes the magnetic brake because it cannot be adjusted wrong: the force
+      it makes rises with the speed it is given, so it takes the most out of the
+      fall exactly when there is the most to take. Nothing wears and nothing is
+      set by hand.
+
+      His limit is that a brake is judged by what it does to a person rather than
+      by what it does to a carriage, and the number that matters is one nobody at
+      this park has ever measured.
+    quiz:
+      - q: Why does Santos trust a magnetic brake more than a friction one?
+        a: The force it makes rises with speed, so it cannot be set to the wrong strength
+        wrong:
+          - Magnets are checked by the county twice a season and pads are not
+          - A magnetic brake stops a carriage in a shorter distance than pads do
+          - Copper fins are stronger than the steel a friction brake grips
+  - id: marsh
+    name: Delia Marsh
+    role: Park Director
+    division: COASTER
+    bio: |
+      Owns the park, and has three weeks to reopen it. The season is a hundred and
+      six days long and pays for the other two hundred and fifty-nine, and a ride
+      that stays shut this summer is not a ride that opens next summer, because
+      there is no next summer without this one.
+
+      Her argument is not that safety does not matter. It is that Brennan's
+      settings are data: forty-one years, eleven million rides, no serious
+      injury, written down in one hand in eleven notebooks that nobody has ever
+      contradicted.
+
+      Her limit is that she is asking somebody else to sign. The certificate has
+      the engineer's name on it and not hers, and she has never once pretended
+      otherwise.
+    quiz:
+      - q: What does Marsh mean by calling Brennan's notebooks data?
+        a: Eleven million rides with no serious injury is an observation about the rides
+        wrong:
+          - The notebooks record the calculations Brennan did before each setting
+          - County inspectors accepted the notebooks at every previous inspection
+          - The settings were copied from the manufacturers' original manuals
+  - id: kovac
+    name: Marta Kovač
+    role: Maintenance Lead
+    division: COASTER
+    bio: |
+      Runs the maintenance crew and has walked the coaster's track every working
+      morning for nine years, which means she knows where the noise is before
+      anybody else does.
+
+      What she brings to an argument is the history of a machine: which section
+      was rebuilt, which bolts have been replaced twice, where the paint is thin
+      because somebody has been up there often. A drawing says what was intended
+      and she can say what is there.
+
+      Her limit is that nothing she knows is written down in a form an inspector
+      accepts. Her evidence is a walk and a memory, and it has been right nearly
+      every time.
+    quiz:
+      - q: Why is Kovač's morning walk worth more than the maintenance file?
+        a: She can say what is on the structure now, and the file says what was intended
+        wrong:
+          - The maintenance file was destroyed in the flood two winters ago
+          - Every entry in the file was written by Brennan without dates
+          - She measures each section with instruments the file's authors lacked
+  - id: brennan
+    name: Alf Brennan
+    role: Chief Mechanic, retired
+    division: CAROUSEL
+    bio: |
+      Kept this park running for forty-one years and retired last autumn to a
+      house eleven minutes' walk from the gate. He comes in when he is asked, and
+      he is being asked a great deal this month.
+
+      Everything he knows is in eleven notebooks: settings, timings, the number of
+      turns on a nut, the sound a bearing makes before it goes. What is not in
+      them is a single line of working. He set the carousel at eight turns a
+      minute because at nine the horses on the outside felt wrong to him, and he
+      was right, and he cannot say why.
+
+      His limit is the one he states himself: he changed things and did not always
+      write down that he had. The park is full of his corrections, and some of
+      them are only in his memory.
+    quiz:
+      - q: What is the difficulty with Brennan's settings, in his own account?
+        a: He altered the park over four decades and did not record every alteration
+        wrong:
+          - The notebooks were written in a shorthand nobody else can read
+          - He set the rides by manufacturers' tables he no longer has
+          - His numbers were correct for equipment that has since been replaced
+  - id: adeyemi
+    name: Bisi Adeyemi
+    role: Ride Electrician
+    division: CAROUSEL
+    bio: |
+      Wires the drives, the interlocks and the speed controllers, which means every
+      limit anybody agrees to eventually becomes a setting she types in.
+
+      She is the one who asks what happens when the limit is reached: whether the
+      ride refuses to start, slows itself, or lets an operator override it with a
+      key. A number that only exists on paper is a number that gets exceeded on a
+      hot Saturday.
+
+      Her limit is that an interlock can only measure what it is wired to. It can
+      count revolutions, and it cannot see sixty people all standing on one side.
+    quiz:
+      - q: Why does Adeyemi ask what a ride does when a limit is reached?
+        a: A limit with no interlock behind it is a number an operator can pass
+        wrong:
+          - County rules require an audible alarm at every operating limit
+          - Controllers hold their settings only until the next power cut
+          - Operators are not told the limits, so the machine has to hold them
+  - id: raman
+    name: Priya Raman
+    role: Structures Engineer
+    division: WHEEL
+    bio: |
+      Came in on contract to look at the wheel, and thinks in loads and load
+      paths: what is carrying what, and what happens to the rest of the structure
+      when one member stops carrying its share.
+
+      Her method is to work out the force at a joint before looking at the joint,
+      so that the inspection has a number to be surprised by. A crack found
+      without a computed load is a crack nobody can size.
+
+      Her limit is that a model is a set of assumptions about how a structure is
+      loaded, and this wheel is eighty-one years old and has been modified by
+      people who left no drawings.
+    quiz:
+      - q: Why does Raman compute a joint's load before she inspects the joint?
+        a: A crack means nothing until there is a number it can be judged against
+        wrong:
+          - Inspecting first would bias her model toward the damage she saw
+          - The county requires the calculation to be dated before the inspection
+          - She cannot reach the joint until the wheel is stopped in position
+  - id: novak
+    name: Jan Novák
+    role: Rigging and Lifting
+    division: WHEEL
+    bio: |
+      Rigs anything that has to be lifted, held or lowered, and owns the only
+      crane on the site. Everything he does is a moment about a point, and he has
+      never once needed to be told that.
+
+      He works in what he calls the two numbers: what the load actually is, and
+      what the arm holding it is. The second one is the one people get wrong,
+      because it is measured perpendicular to the force and not along the beam.
+
+      His limit is the wind. He can rig anything in still air, and the same lift
+      at thirty kilometres an hour is a different job with a different answer.
+    quiz:
+      - q: Which of Novák's two numbers do people get wrong?
+        a: The arm, which is measured across the force rather than along the beam
+        wrong:
+          - The load, since the weight of the lifting gear is usually left out
+          - The arm, since the beam's own weight acts at its far end
+          - The load, because a swinging load weighs more than a still one
+  - id: chen
+    name: Wei Chen
+    role: Controls and Telemetry
+    division: BUMPER
+    bio: |
+      Instruments things. He has put accelerometers in three of the bumper cars
+      and one in a dummy on the tower, and he has more data about this park than
+      anybody has ever had.
+
+      His interest is the difference between what a ride does and what a body in
+      the ride does. A car changes speed in a tenth of a second; the person in it
+      changes speed over whatever time the seat, the belt and their own neck take
+      to do it, and that time is the whole question.
+
+      His limit is that an accelerometer measures a point. Where he puts it
+      decides what he learns, and he has been wrong about where to put it twice.
+    quiz:
+      - q: Why does Chen distinguish what the car does from what the rider does?
+        a: The rider changes speed over a longer time, and that time sets the force
+        wrong:
+          - Riders are lighter than cars, so they accelerate more in a collision
+          - The car's accelerometer reads the floor rather than the seat frame
+          - A rider's own muscles absorb most of the change before the belt does
+  - id: hart
+    name: Georgia Hart
+    role: Midway Supervisor
+    division: BUMPER
+    bio: |
+      Runs the midway staff, which means she is responsible for what actually
+      happens at a ride rather than what the procedure says happens. Twelve
+      operators, most of them nineteen, and a queue that does not stop.
+
+      Her contribution to every safety argument is the same and it is always
+      right: whatever the rule is, it has to be doable by a tired teenager on the
+      four-hundredth cycle of a hot Saturday, or it is not a rule, it is a wish.
+
+      Her limit is that she cannot make a machine safe by supervising it harder,
+      and she has stopped pretending she can.
+    quiz:
+      - q: What test does Hart apply to a proposed safety rule?
+        a: Whether a tired operator can do it on the four-hundredth cycle of a day
+        wrong:
+          - Whether the rule can be written on a single laminated card
+          - Whether two operators can carry it out without speaking
+          - Whether the county has approved the wording of the rule
+  - id: idowu
+    name: Sam Idowu
+    role: Senior Ride Operator
+    division: SHIP
+    bio: |
+      Has run the pirate ship for twenty years and can tell from the console how
+      full it is, because a fuller boat takes the drive a little differently even
+      though it swings at the same rate.
+
+      He is the person who first said the drive was pushing at the wrong moment.
+      He could not put it in the language anybody wanted, and what he said was
+      that on a heavy boat the second push arrives late and you can feel it in the
+      floor.
+
+      His limit is that being right about a machine is not the same as being able
+      to prove it, and he has spent two seasons being told the ride is within
+      specification.
+    quiz:
+      - q: What did Idowu notice about the drive that nobody could yet prove?
+        a: On a heavy boat the pushes were arriving out of step with the swing
+        wrong:
+          - The drive was pushing harder than the setting on the console said
+          - A full boat swings more slowly, so the ride ran long on busy days
+          - The floor vibration was coming from the bearing rather than the drive
+  - id: bianchi
+    name: Elena Bianchi
+    role: Weld Inspection
+    division: SHIP
+    bio: |
+      Non-destructive testing: dye penetrant, ultrasonic, magnetic particle. She
+      finds cracks, sizes them, and refuses absolutely to say whether one matters.
+
+      That refusal is the discipline. A crack is a length and a depth in a
+      material with a known strength; whether it matters depends on the load the
+      member carries, which is somebody else's number. She has watched people
+      talk themselves into ignoring a real one and out of using a sound member.
+
+      Her limit is access. She can only test what she can reach, and on this
+      structure that is about two thirds of the welds.
+    quiz:
+      - q: Why does Bianchi refuse to say whether a crack matters?
+        a: Its importance depends on a load she is not the one who computes
+        wrong:
+          - Her certification allows her to report findings and not to interpret them
+          - Ultrasonic testing cannot measure a crack's depth accurately enough
+          - A crack changes between inspections, so any judgement is out of date
+  - id: abara
+    name: Kelechi Abara
+    role: Pumps and Water Systems
+    division: FLUME
+    bio: |
+      Keeps the water moving: two pumps, four hundred metres of channel, a
+      splash-down pool and a header tank that has to stay full or the ride stops
+      mid-flume with a boat in it.
+
+      His way of thinking about the flume is that the pump does all the work at
+      the start and the water gives it back all the way round. Every metre the
+      channel drops is energy the boat gets for nothing; every metre the pump
+      lifts is energy somebody pays for.
+
+      His limit is the leaks. He can measure what he pumps and what arrives, and
+      the difference has been getting larger for three seasons without anybody
+      finding where it goes.
+    quiz:
+      - q: How does Abara describe what the pump is for?
+        a: It buys the height the water then spends going round the circuit
+        wrong:
+          - It keeps the channel full so the boats do not ground on the bends
+          - It supplies the pressure that pushes the boats along the flat sections
+          - It replaces the water lost to leaks and to splash at the bottom
+  - id: mccarthy
+    name: Fiona McCarthy
+    role: Flume Operator
+    division: FLUME
+    bio: |
+      Loads the boats and sets them off, which means she is the person who decides
+      how many people go in one, and she has been doing it by eye for six years.
+
+      She reads a boat by how it sits: a heavy load rides low, takes the first
+      bend slowly and comes down the drop fast. She has a rule about four adults
+      that came from Brennan and she has never known it to be wrong.
+
+      Her limit is that eye can only compare a boat with the boats she has seen.
+      When the park changed to the moulded hulls two seasons ago, every judgement
+      she had was about a different boat.
+    quiz:
+      - q: Why did the new moulded hulls unsettle McCarthy's judgement?
+        a: Reading a boat by eye is a comparison, and the thing compared against changed
+        wrong:
+          - The moulded hulls sit lower in the water at every load
+          - The new boats hold five adults where the old ones held four
+          - Their sides are too high to see the waterline from the platform
+
+glossary:
+  - name: Acceleration
+    aliases: [accelerating, accelerates, decelerate, deceleration]
+    def: How fast a velocity is changing, in metres per second every second. Speeding up, slowing down and turning are all acceleration.
+  - name: Free fall
+    aliases: [falls freely, in free fall]
+    def: Motion with gravity as the only force acting. Everything in free fall gains speed at the same rate, whatever it weighs.
+  - name: g
+    aliases: [gravitational field strength, acceleration due to gravity]
+    def: The acceleration of anything in free fall near the ground, about 9.8 metres per second every second.
+  - name: Net force
+    aliases: [resultant force, unbalanced force, sum of the forces]
+    def: What is left when every force on a body is added together with its direction. It is what the mass responds to.
+  - name: Free-body diagram
+    aliases: [free body diagram]
+    def: A sketch of one object with every force acting on it drawn as an arrow, and nothing else on the page.
+  - name: Normal force
+    aliases: [normal, support force, seat force]
+    def: The push a surface gives an object at right angles to itself. It is what a rider actually feels.
+  - name: Apparent weight
+    aliases: [felt weight, g-force]
+    def: The support force a rider feels, divided by their ordinary weight. In free fall it is zero, and nothing about their mass has changed.
+  - name: Friction
+    aliases: [frictional, kinetic friction, static friction]
+    def: The force a surface makes along itself, opposing sliding. Static friction holds until it is exceeded; kinetic friction acts while sliding.
+  - name: Coefficient of friction
+    aliases: [coefficient, mu]
+    def: The ratio of the friction available to the normal force pressing the surfaces together.
+  - name: Centripetal acceleration
+    aliases: [centripetal, towards the centre]
+    def: The acceleration of anything moving in a circle, directed at the centre, equal to the speed squared over the radius.
+  - name: Centripetal force
+    aliases: [the force towards the centre]
+    def: The net force that produces circular motion. It is not a new force; it is whatever is doing the job — a rail, a chain, a seat.
+  - name: Conical pendulum
+    aliases: [swing chair, hanging chain]
+    def: A mass on a chain swung in a horizontal circle, so the chain traces a cone. Its angle depends on speed and radius, not on mass.
+  - name: Work
+    aliases: [work done]
+    def: Force times the distance moved along the force. It is the way energy gets from one place to another.
+  - name: Kinetic energy
+    aliases: [kinetic]
+    def: The energy a moving body has, one half its mass times its speed squared. It goes up with the square, so twice the speed is four times the energy.
+  - name: Potential energy
+    aliases: [gravitational potential energy, stored energy, height energy]
+    def: The energy stored by lifting something, its weight times the height it was lifted.
+  - name: Mechanical energy
+    aliases: [total energy, energy of the train]
+    def: Kinetic and potential added together. Without friction it stays the same all the way round.
+  - name: Work–energy theorem
+    aliases: [work energy theorem, net work]
+    def: The net work done on a body equals the change in its kinetic energy. It is how a force becomes a speed.
+  - name: Power
+    aliases: [rate of working]
+    def: How quickly work is done, in joules a second. A pump's rating is a power, not an energy.
+  - name: Momentum
+    aliases: [momenta]
+    def: Mass times velocity. In a collision the total, counted with direction, is the same before and after.
+  - name: Impulse
+    aliases: [impulse–momentum, change in momentum]
+    def: Force times the time it acts for. It equals the change in momentum, which is why a slower stop is a gentler one.
+  - name: Elastic collision
+    aliases: [elastic]
+    def: A collision that gives back all its kinetic energy. Bumper cars do not.
+  - name: Inelastic collision
+    aliases: [inelastic, perfectly inelastic]
+    def: A collision that keeps some of the kinetic energy as deformation, sound and heat. Momentum is still conserved.
+  - name: Centre of mass
+    aliases: [center of mass, balance point]
+    def: The point a body's weight can be treated as acting through.
+  - name: Torque
+    aliases: [moment, turning effect]
+    def: The turning effect of a force about a point: the force times the perpendicular distance to the line it acts along.
+  - name: Moment arm
+    aliases: [lever arm, perpendicular distance]
+    def: The distance from the pivot to the line of the force, measured at right angles to that line.
+  - name: Static equilibrium
+    aliases: [balanced, in equilibrium]
+    def: Forces adding to zero and torques adding to zero, so nothing moves and nothing turns.
+  - name: Rotational inertia
+    aliases: [moment of inertia, inertia of a wheel]
+    def: How hard it is to change something's spin. It depends on where the mass is, not only how much there is.
+  - name: Angular velocity
+    aliases: [angular speed, revolutions a minute, rpm]
+    def: How fast something turns, in radians a second. Multiply by the radius and you have the speed of a point on it.
+  - name: Angular momentum
+    aliases: [spin momentum]
+    def: Rotational inertia times angular velocity. With no outside torque it stays the same.
+  - name: Simple harmonic motion
+    aliases: [harmonic, oscillation, oscillates, oscillating]
+    def: Motion where the restoring force is proportional to the displacement. It gives a period that does not depend on the size of the swing.
+  - name: Restoring force
+    aliases: [restoring]
+    def: The force that pulls an oscillator back toward the middle, and grows as it gets further away.
+  - name: Period
+    aliases: [time for one swing, cycle time]
+    def: The time for one complete oscillation. For a pendulum it depends on the length and on g, and not on the mass.
+  - name: Frequency
+    aliases: [frequencies, cycles a second]
+    def: How many oscillations happen each second. It is one divided by the period.
+  - name: Resonance
+    aliases: [resonant, in step with]
+    def: Driving an oscillator at its own frequency, so every push arrives in step and the swing keeps growing.
+  - name: Damping
+    aliases: [damped, damper]
+    def: Taking energy out of an oscillation, so the swing dies away instead of building.
+  - name: Amplitude
+    aliases: [swing angle, size of the swing]
+    def: How far an oscillator goes from the middle at the extreme of its motion.
+  - name: Pressure
+    aliases: [pressures]
+    def: Force spread over an area, in pascals. In a liquid it grows with depth and acts in every direction.
+  - name: Density
+    aliases: [densities]
+    def: Mass in each cubic metre. Water is about a thousand kilograms in every cubic metre.
+  - name: Buoyancy
+    aliases: [buoyant force, upthrust, floats, floating]
+    def: The upward force on anything in a fluid, equal to the weight of the fluid it pushes out of the way.
+  - name: Pascal's principle
+    aliases: [pascals principle, hydraulic]
+    def: Pressure applied to an enclosed fluid is passed on undiminished, so a small force on a small piston becomes a large force on a large one.
+  - name: Continuity
+    aliases: [continuity equation, flow rate]
+    def: What goes in has to come out, so a channel that narrows makes the water in it move faster.
+  - name: Safety factor
+    aliases: [margin, factor of safety]
+    def: What a part can take, divided by what it is asked to take. A margin of one is a part that fails at its working load.
+
+# ---------------------------------------------------------------- the days
+# Fifteen working days, three weeks before the season opens. The county
+# inspection is on day 15 and the gates open seven days after that.
+missions:
+  # ------------------------------------------------------------------ day 1
+  - title: Eleven notebooks and no working
+    objective: Find out what the park actually knows about its own rides.
+    briefing: Every setting in this park is in one man's handwriting and none of them has a calculation behind it.
+    stake: >-
+      Monday, and the season opens in three weeks. Corbin Park lost its certificate in October and
+      seven rides have to get it back before the gates open, which is your signature on seven
+      documents. Delia Marsh, who owns the park, has laid out Alf Brennan's eleven notebooks on the
+      workshop bench: forty-one years of settings, timings and turns of a nut, in one hand, with not
+      one line of working anywhere in them. Marcus Vey, the county inspector, has read the same
+      notebooks and calls them a record of having got away with it. Today you take the first three
+      numbers the park runs on and find out where they come from. A hundred and six days of season
+      pay for the other two hundred and fifty-nine, and nothing opens on a setting nobody can derive.
+    takeaway: A number that works is not the same as a number somebody can justify.
+    stops:
+      - group: TOWER
+        task: Derive the speed at the bottom of the drop
+        title: What forty-two metres of fall is worth
+        place: The Drop Tower
+        scene: >
+          The tower drops its carriage forty-two metres before the brake fins begin. Brennan's
+          notebook gives the speed at the bottom as "about twenty-nine" and nothing else. Vey wants
+          the line of working under it.
+        assumes:
+          - an object in free fall accelerates at about 9.8 metres per second every second
+          - the constant-acceleration relations connect speed, acceleration and distance
+        takeaway: A derivation is a chain of licensed steps, and naming the licence is half of it.
+        format: DERIVE
+        question: >-
+          Get the speed at the end of a forty-two metre free fall, from the constant-acceleration
+          relations rather than from the notebook.
+        derive:
+          hint: >-
+            Each line has to follow from the one above it, and the rule you name is part of the
+            answer.
+          start: 'v² = v₀² + 2aΔx'
+          startNote: the carriage is released from rest and falls 42 m before the fins engage
+          goal: the speed at the bottom of the fall, in metres per second
+          rules: [substitution, rearrangement, evaluation, definition]
+          steps:
+            - ask: Put the conditions of this drop into the relation.
+              answer: 0
+              candidates:
+                - text: 'v² = 0 + 2(9.8)(42)'
+                  rule: substitution
+                - text: 'v² = 0 + 2(9.8)(42)(2.9)'
+                  rule: substitution
+                  why: >-
+                    The time is already inside the relation; that is what makes it the useful one
+                    here. Multiplying by it as well counts the fall twice and leaves units of metres
+                    squared per second.
+                - text: 'v² = 0 + (9.8)(42)'
+                  rule: substitution
+                  survives: true
+                  why: >-
+                    The factor of two is what carries the average speed of an accelerating body. Drop
+                    it and every step below is clean algebra with a speed twenty-nine per cent low —
+                    twenty metres a second, which reads perfectly plausible for a fall of this size.
+                - text: 'v = 0 + 2(9.8)(42)'
+                  rule: substitution
+                  why: >-
+                    The relation gives the square of the speed. Reading the left side as v and not v²
+                    turns a speed into something eight hundred and twenty-three units large.
+            - ask: Rearrange for the speed itself.
+              answer: 1
+              candidates:
+                - text: 'v = 823 ÷ 2'
+                  rule: rearrangement
+                  why: >-
+                    Halving is not the inverse of squaring. It happens to be the operation that
+                    appears in the relation, applied to the wrong side of it.
+                - text: 'v = √823'
+                  rule: rearrangement
+                - text: 'v = 823²'
+                  rule: rearrangement
+                  why: >-
+                    Squaring again moves in the wrong direction. The left-hand side is already a
+                    square and has to be undone rather than repeated.
+                - text: 'v = √(823) with the sign left open, since the root has two values'
+                  rule: definition
+                  survives: true
+                  why: >-
+                    Algebraically correct and physically empty: the negative root is the same speed
+                    travelling upward, which this carriage is not doing. Carrying it down the page
+                    leaves an answer that cannot be reported as a number.
+            - ask: Evaluate it, and say what the answer is a statement about.
+              answer: 2
+              candidates:
+                - text: 'v ≈ 28.7 m/s, the speed of anybody in the carriage'
+                  rule: evaluation
+                  survives: true
+                  why: >-
+                    The arithmetic is right and the claim is too wide. It is the speed of the
+                    carriage and of everything falling with it, which happens to include the riders,
+                    and the derivation says nothing about what any of them feel.
+                - text: 'v ≈ 41.2 m/s by the time the carriage reaches the bottom of the tower'
+                  rule: evaluation
+                  why: >-
+                    That is the root of 1,700, which is what 2aΔx gives if the drop is taken as the
+                    whole tower rather than the free part of it. The fins take the last nine metres.
+                - text: 'v ≈ 28.7 m/s, the speed of the carriage where the fins begin'
+                  rule: evaluation
+                - text: 'v ≈ 28.7 m/s, the average speed over the fall'
+                  rule: definition
+                  why: >-
+                    The average speed of a fall from rest is half the final one, about fourteen. This
+                    number is the speed at one instant, which is the instant the brake has to work at.
+        answerText: >-
+          v = √(2 × 9.8 × 42) ≈ 28.7 m/s, and it is the speed at the moment the fins engage.
+        why: >-
+          Brennan's "about twenty-nine" was right, and now it is defensible. The relation v² = v₀² +
+          2aΔx is the one to reach for when a problem gives a distance and asks for a speed, since it
+          is the only constant-acceleration relation with no time in it. Two things carry the physics:
+          the factor of two, which is where the average speed of an accelerating body lives, and the
+          square, which is why a fall twice as long gives a speed only forty per cent higher.
+      - group: COASTER
+        task: Say what is true of the train's energy at each point
+        title: Reading a circuit as energy
+        place: The Coaster
+        scene: >
+          Marta Kovač walks the track every morning and has the circuit chalked on the workshop wall:
+          lift hill, first drop, loop, brake run. Four points on it, and one statement each.
+        assumes:
+          - lifting something stores energy that can be given back
+          - a moving body carries energy that depends on the square of its speed
+        takeaway: A ride is one quantity of energy being moved between two forms and quietly spent.
+        format: PROTOCOL
+        task: Match each point on the circuit to what is true of the train's energy there.
+        scenarios:
+          - The chain is dragging the train up the lift hill.
+          - The train is at the crest, moving slowly.
+          - The train is at the foot of the first drop.
+          - The train is in the brake run at the end.
+        choices:
+          - A motor is putting energy in, and it is the only place on the circuit where that happens.
+          - Almost all of it is stored in the height, and very little is in the motion.
+          - Almost all of it is in the motion, and this is the fastest the train will be all circuit.
+          - It is being taken out and turned into heat in the fins, and none of it comes back.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          A circuit like this is one lot of energy handed back and forth. The motor does work once, at
+          the beginning; from the crest onward nothing adds any, and every metre of descent converts
+          store into motion. The foot of the first drop is the fastest point on the whole ride for
+          that reason, and every hill after it has to be lower than the one before. The brake run is
+          the only other place energy crosses the boundary, and it goes out as heat.
+      - group: SHIP
+        task: Say what the swing's period depends on
+        title: Sixty people and the same five seconds
+        place: The Pirate Ship
+        scene: >
+          Sam Idowu has run the ship for twenty years. He says a full boat and an empty one swing at
+          the same rate, and the console log agrees with him: five point nine seconds either way,
+          all season.
+        assumes:
+          - a pendulum swings back and forth in a repeating time
+          - a heavier body needs a bigger force to give it the same acceleration
+        takeaway: More mass brings more restoring force with it, and the two changes cancel exactly.
+        format: CHOICE
+        question: Why does the loaded boat swing at the same rate as the empty one?
+        choices:
+          - Extra mass is pulled back harder in the same proportion, so the acceleration is unchanged.
+          - The extra riders sit near the pivot, where they have little effect on the swing.
+          - The drive motor holds the rate constant whatever the boat weighs.
+          - Extra mass does slow it, and five point nine seconds is the average of full and empty.
+        answer: Extra mass is pulled back harder in the same proportion, so the acceleration is unchanged.
+        why: >-
+          The force pulling the boat back to the middle is a share of its own weight, so doubling the
+          mass doubles the restoring force. Acceleration is force divided by mass, and both have
+          doubled, so the acceleration at every point of the swing is exactly what it was. The mass
+          cancels out of the problem entirely, which is why a pendulum's period depends on its length
+          and on gravity and on nothing else — and why sixty people change the loads in the bearings
+          without changing the timing by a hundredth of a second.
+        rebuttals:
+          - Riders sit along the whole boat, and where they sit would matter to the period if mass mattered at all.
+          - The drive gives a push at the end of each swing and does not set the rate the boat returns at.
+          - The log shows five point nine seconds on empty cycles and on full ones separately, not as a mean.
+
+  # ------------------------------------------------------------------ day 2
+  - title: What the brake has to take out
+    objective: Turn a stopping distance into a force on a person.
+    briefing: The tower's brake has nine metres to remove everything the fall put in.
+    stake: >-
+      Tuesday, and the tower is first on Vey's list because it is the ride with the least between a
+      rider and the ground. Yesterday's derivation says the carriage reaches the fins at twenty-nine
+      metres a second; the fins have nine metres to take that back. Rafael Santos, who maintains the
+      brakes, points out that nothing in the system is adjustable — the magnets make more force the
+      faster the fins move — and Vey's reply is that a brake nobody can adjust is still a brake
+      nobody has measured. Today you turn a stopping distance into an acceleration, get a pressure
+      out of a depth at the flume, and settle what a moment arm is under the wheel. Four point seven
+      times gravity is a number a fit adult takes in their seat and a number you would not put a
+      child through.
+    takeaway: Every force in this park is a mass times an acceleration somebody has to work out.
+    stops:
+      - group: TOWER
+        task: Get the deceleration the fins have to produce
+        title: Nine metres to take back twenty-nine
+        place: The Drop Tower
+        scene: >
+          The carriage arrives at the fins at 28.7 metres a second and is stationary nine metres
+          later. Santos wants that expressed as an acceleration before anybody argues about whether
+          it is comfortable.
+        assumes:
+          - the same constant-acceleration relation runs backwards for slowing down
+          - an acceleration can be quoted as a multiple of g
+        takeaway: A stopping distance and a speed are enough to fix the acceleration, with no time measured at all.
+        format: BALLPARK
+        question: Estimate the average deceleration in the braked section.
+        estimate:
+          prompt: The carriage enters the fins at 28.7 m/s and stops in 9.0 m of travel.
+          question: Estimate the average deceleration in the braked section.
+          labels:
+            - 28.7 m/s  (speed entering the fins)
+            - 2  (the factor in v² = 2aΔx)
+            - 9.0 m  (length of the braked section)
+            - 42 m  (the free fall above it)
+            - 9.8 m/s²  (g)
+          values: [28.7, 2, 9.0, 42, 9.8]
+          slots: 3
+          template: '{0} × {0} ÷ ({1} × {2})'
+          formula: a*a/(b*c)
+          correct: [0, 1, 2]
+          target: 45.8
+          tolerance: 3
+          units: m/s²
+          solution: a = v² ÷ 2Δx = 28.7² ÷ (2 × 9.0) ≈ 45.8 m/s², which is 4.7 g.
+          explanation: The free fall above the fins and the value of g are already inside the entry speed. Using them again counts the same drop twice.
+          relationship: 'a = v² ÷ 2Δx: the deceleration is the entry speed squared divided by twice the distance it is removed over.'
+        why: >-
+          The same relation that gave the speed gives the deceleration when it is run the other way,
+          and neither use needs a stopwatch. Forty-six metres a second every second is four point
+          seven times gravity, which is what the seat has to push through the rider for a fifth of a
+          second. The square is the part worth keeping: a brake run half as long would double the
+          deceleration, and one metre shorter than designed costs more than most people expect.
+      - group: FLUME
+        task: Turn the header tank's depth into a pressure
+        title: What nine metres of water pushes with
+        place: The Log Flume
+        scene: >
+          The header tank stands nine point four metres above the splash pool and feeds the top of
+          the flume. Kelechi Abara has a gauge on the outlet pipe and a figure in Brennan's notebook
+          that does not match it.
+        assumes:
+          - pressure in a liquid grows with depth below the surface
+          - water has a density of about a thousand kilograms per cubic metre
+        takeaway: Depth sets pressure, and the width of the tank has nothing to do with it.
+        format: BALLPARK
+        question: Estimate the gauge pressure at the bottom of the header tank.
+        estimate:
+          prompt: The water in the header tank stands 9.4 m above the outlet. Water is 1,000 kg per cubic metre.
+          question: Estimate the gauge pressure at the bottom of the header tank.
+          labels:
+            - 1000 kg/m³  (density of water)
+            - 9.8 m/s²  (g)
+            - 9.4 m  (depth of water above the outlet)
+            - 3.2 m  (diameter of the tank)
+            - 0.42 m³/s  (flow through the outlet)
+          values: [1000, 9.8, 9.4, 3.2, 0.42]
+          slots: 3
+          template: '{0} × {1} × {2}'
+          formula: a*b*c
+          correct: [0, 1, 2]
+          target: 92120
+          tolerance: 4000
+          units: Pa
+          solution: P = ρgh = 1000 × 9.8 × 9.4 ≈ 92 kPa above atmospheric.
+          explanation: The tank's diameter does not appear. A narrow standpipe of the same height pushes just as hard, which is the part people refuse to believe.
+          relationship: 'P = ρgh: gauge pressure is the density of the liquid times g times the depth below its surface.'
+        why: >-
+          Pressure at a depth is the weight of the column standing above one square metre, so it
+          depends on how tall the column is and not how wide. That is why the tank's diameter is
+          absent from the arithmetic and why a hose left up a ladder can burst a fitting. Ninety-two
+          kilopascals is a little under one atmosphere, which means the outlet fitting is holding
+          about nine tonnes over its face — a number worth having before anybody opens it.
+      - group: WHEEL
+        task: Identify the distance a torque is actually measured over
+        title: The number people get wrong
+        place: The Ferris Wheel
+        scene: >
+          Jan Novák has a jib out over the wheel's hub with a load on the end of it, and a
+          disagreement with the lifting plan about how big the moment on the pin is.
+        assumes:
+          - a force applied further from a pivot has a greater turning effect
+          - a force can be drawn as a line extending in both directions
+        takeaway: A turning effect is fixed by where the line of the force passes, not by the shape of the thing carrying it.
+        format: CHOICE
+        question: The jib is six metres long and angled up at 30°. Which distance sets the moment about the pin?
+        choices:
+          - The horizontal distance from the pin to the load's line of action, which is 5.2 metres.
+          - The length of the jib itself, six metres, since that is the steel carrying the load.
+          - The vertical height the load hangs above the pin, three metres.
+          - The distance along the ground from the crane's tracks to the load.
+        answer: The horizontal distance from the pin to the load's line of action, which is 5.2 metres.
+        why: >-
+          A torque is the force times the perpendicular distance from the pivot to the line the force
+          acts along. The load hangs straight down, so that line is vertical and the perpendicular
+          distance to it is horizontal — six metres times the cosine of thirty, which is 5.2. Raising
+          the jib does not shorten the steel and it does shorten the arm, which is exactly why a crane
+          can lift more with the boom up. Using the length of the member instead overstates this
+          moment by fifteen per cent.
+        rebuttals:
+          - The steel is six metres of it, and the arm is measured across the force rather than along the member.
+          - The height fixes where the load hangs and has no bearing on a vertical force's arm.
+          - The tracks are not the pivot; the moment being argued about is the one at the pin.
+
+  # ------------------------------------------------------------------ day 3
+  - title: Where the energy went
+    objective: Find the losses on the circuit, and what they leave for the loop.
+    briefing: The train comes back to the station slower every year and nobody has measured by how much.
+    stake: >-
+      Wednesday, and Kovač has three seasons of station-return speeds on a clipboard: 6.1 metres a
+      second in her first year, 5.2 this spring, measured the same way each time with the same
+      wheel. Nothing about the hill has changed, which means the difference is friction and the
+      difference is energy the ride no longer has. Marsh reads it as wear and a bearing job. Vey
+      reads it as a circuit whose margins are all computed from a drawing made in 1974. Today you
+      close the energy books on one lap, work out what a circular ride does to the direction of a
+      velocity, and count momentum through a collision on the bumper floor. Whatever the loop needs,
+      it has to come out of what is left at the top of the hill.
+    takeaway: Friction takes a fixed amount of energy each lap, and it takes it out of the margin.
+    stops:
+      - group: COASTER
+        task: Derive the speed at the bottom with the losses in it
+        title: The lap that does not come back
+        place: The Coaster
+        scene: >
+          The train leaves the crest at 26 metres and reaches the bottom of the first drop two metres
+          above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal
+          circuit says more.
+        assumes:
+          - stored energy is weight times height, and kinetic energy is half the mass times the speed squared
+          - friction does negative work along the whole path
+        takeaway: The gap between the ideal speed and the measured one is a measurement of the friction.
+        format: DERIVE
+        question: >-
+          Work the energy statement down to the speed at the foot of the drop, and say what the
+          measured speed then tells you.
+        derive:
+          hint: >-
+            Write the energy statement first, then divide out what cancels. Name the move as well as
+            the line.
+          start: 'mgh₀ + ½mv₀² = mgh₁ + ½mv₁² + W_friction'
+          startNote: h₀ = 26 m, h₁ = 2 m, v₀ = 2.0 m/s at the crest, mass of the loaded train 4,800 kg
+          goal: the speed at the foot of the drop with no losses, and what the measured 21.4 m/s implies
+          rules: [conservation, cancellation, substitution, evaluation]
+          steps:
+            - ask: Set the friction term to zero for the ideal case and divide through by the mass.
+              answer: 1
+              candidates:
+                - text: 'gh₀ + ½v₀² = gh₁ + ½v₁², so the result depends on the mass of the train'
+                  rule: cancellation
+                  why: >-
+                    The line is right and the conclusion contradicts it. Every term had an m and every
+                    m has just been divided out, which is the whole reason a heavy train and a light
+                    one reach the bottom together.
+                - text: 'gh₀ + ½v₀² = gh₁ + ½v₁²'
+                  rule: cancellation
+                - text: 'gh₀ + ½v₀² = gh₁ + ½v₁² + W_friction ÷ m'
+                  rule: cancellation
+                  survives: true
+                  why: >-
+                    Correct algebra for the real circuit, and it is not the ideal case the step asked
+                    for. Carried down the page it gives an answer with an unknown in it, and the
+                    unknown is the thing this stop is trying to measure.
+                - text: 'mgh₀ + ½mv₀² = mgh₁ + ½mv₁², so v₁ = √(2g(h₀ − h₁))'
+                  rule: conservation
+                  why: >-
+                    The final expression drops the starting speed, which is small here and not zero.
+                    It is the answer to a train released from rest, and this one is already moving.
+            - ask: Solve for the ideal speed at the foot.
+              answer: 0
+              candidates:
+                - text: 'v₁ = √(v₀² + 2g(h₀ − h₁))'
+                  rule: substitution
+                - text: 'v₁ = √(2g(h₀ − h₁))'
+                  rule: substitution
+                  survives: true
+                  why: >-
+                    Valid for a start from rest, and this train enters the drop at two metres a
+                    second. It understates the ideal speed by a tenth of a metre a second — small
+                    here, and the same omission on a launched circuit is a large error.
+                - text: 'v₁ = v₀ + 2g(h₀ − h₁)'
+                  rule: substitution
+                  why: >-
+                    Speeds and squares of speeds cannot be added. The left side is metres a second
+                    and the right is metres squared per second squared.
+                - text: 'v₁ = √(v₀² + g(h₀ − h₁))'
+                  rule: conservation
+                  why: >-
+                    The half in the kinetic term is what puts a two in front of g when the equation is
+                    rearranged. Dropping it loses thirty per cent of the speed.
+            - ask: Evaluate it and compare with the wheel's 21.4 metres a second.
+              answer: 2
+              candidates:
+                - text: 'v₁ ≈ 21.7 m/s, so the measured speed shows the circuit is very nearly ideal'
+                  rule: evaluation
+                  survives: true
+                  why: >-
+                    The arithmetic drops the starting speed and the difference looks like nothing.
+                    Compare energies rather than speeds and the same gap is 130 kilojoules a lap —
+                    the square is what makes a small speed difference a large energy one.
+                - text: 'v₁ ≈ 23.6 m/s, and the wheel is reading two metres a second low'
+                  rule: evaluation
+                  why: >-
+                    That is the ideal speed for a drop from 26 metres to the ground rather than to the
+                    station two metres above it.
+                - text: 'v₁ ≈ 21.8 m/s, so friction has taken about 4 per cent of the energy'
+                  rule: evaluation
+                - text: 'v₁ ≈ 21.8 m/s, so friction has taken about 2 per cent of the energy'
+                  rule: evaluation
+                  why: >-
+                    Two per cent is the shortfall in the speed. Energy goes as the square, so the
+                    fraction lost is close to twice the fraction of speed lost, and reporting the
+                    smaller one halves the loss the ride actually has.
+        answerText: >-
+          v₁ = √(2.0² + 2 × 9.8 × 24) ≈ 21.8 m/s ideal against 21.4 measured — about four per cent of
+          the energy gone by the foot of the first drop.
+        why: >-
+          Dividing by the mass is the step worth remembering: it is why the loaded train and the empty
+          one arrive together, and why the answer is a statement about the track rather than about
+          the load. What the comparison buys is a measurement of the friction that no gauge in the
+          park reports. Four per cent by the foot of the drop is ordinary; the number that matters is
+          what has gone by the crown of the loop, because that is where the circuit has the least in
+          hand.
+      - group: CAROUSEL
+        task: Separate the speed from the acceleration
+        title: Going round at a steady speed
+        place: The Carousel and Swings
+        scene: >
+          The carousel turns at eight revolutions a minute and has done since Brennan set it. Bisi
+          Adeyemi is wiring a new controller and wants to know what the outer horses are actually
+          being subjected to.
+        assumes:
+          - velocity has a direction as well as a size
+          - acceleration is the rate at which velocity changes
+        takeaway: Steady speed on a curve is still acceleration, and it points at the middle.
+        format: CHOICE
+        question: An outer horse goes round at a constant eight revolutions a minute. What is its acceleration?
+        choices:
+          - About 4.4 metres per second squared, directed at the centre of the carousel.
+          - Zero, since the speed is not changing.
+          - About 4.4 metres per second squared, directed along the way the horse is travelling.
+          - It cannot be found without knowing the mass of the horse and its rider.
+        answer: About 4.4 metres per second squared, directed at the centre of the carousel.
+        why: >-
+          Velocity is a direction as well as a size, and on a circle the direction changes every
+          instant even when the size does not. That change is an acceleration, it points at the
+          centre, and its size is the speed squared over the radius: 5.2 metres a second on a 6.2
+          metre radius gives 4.4, which is about 0.44 g sideways. The force that produces it comes
+          from the platform and the pole, and the rider feels it as being leant outward.
+        rebuttals:
+          - Constant speed and constant velocity are different claims, and only the first one is true here.
+          - Along the motion is where an acceleration points when a body is speeding up, which this one is not.
+          - Mass sets the force needed and not the acceleration, which comes from the speed and the radius alone.
+      - group: BUMPER
+        task: Count what survives a collision and what does not
+        title: A hundred collisions an hour
+        place: The Bumper Cars
+        scene: >
+          Wei Chen has accelerometers in three cars and four hundred collisions logged from last
+          season. Two cars, one moving and one stopped, and they leave the impact together.
+        assumes:
+          - momentum is mass times velocity, counted with direction
+          - kinetic energy depends on the square of the speed
+        takeaway: One quantity survives every collision and the other one does not, and knowing which is the whole of the subject.
+        format: CHOICE
+        question: A 320 kg car at 3.1 m/s strikes a stationary 290 kg car and they move off together. What is conserved?
+        choices:
+          - The momentum, which is the same before and after; the kinetic energy is not.
+          - Both the momentum and the kinetic energy, since nothing leaves the floor.
+          - The kinetic energy, which is the same before and after; the momentum is not.
+          - Neither, since the floor's motor is putting energy in throughout.
+        answer: The momentum, which is the same before and after; the kinetic energy is not.
+        why: >-
+          Momentum is conserved in any collision where nothing outside pushes on the pair, which on a
+          slippery floor over a tenth of a second is a good description. Kinetic energy is a different
+          quantity and it is not protected: this pair leaves at 1.6 metres a second carrying about 810
+          joules where 1,540 went in, so nearly half of it has gone into deforming rubber, making
+          noise and warming the bumper. That is what an inelastic collision is, and it is what makes
+          the ride bearable.
+        rebuttals:
+          - A collision that returned all its energy would send the cars apart again, which these do not do.
+          - Kinetic energy is the quantity that goes missing here; nearly half of it does.
+          - The motor pushes through the pickup all the time and does nothing measurable in the tenth of a second the impact lasts.
+
+  # ------------------------------------------------------------------ day 4
+  - title: Eight turns a minute
+    objective: Check a forty-one-year-old setting against the physics behind it.
+    briefing: Brennan set the swings by how the chains hung, and nobody has ever computed the angle.
+    stake: >-
+      Thursday, and Alf Brennan walked up from his house this morning to be asked why the swing
+      carousel runs at ten turns a minute and not eleven. His answer is the one it always is: at
+      eleven the chains came out too far and it felt wrong. Vey has been polite about this for three
+      days. Today you derive the angle the chains hang at from the speed and the radius, put a number
+      on the energy in the ship's swing, and balance the wheel on paper. Marsh is right this
+      afternoon, and it is worth saying out loud: the derived angle lands within a degree of the
+      chalk mark Brennan made in 1991, and two days of an engineer's time have confirmed what a
+      mechanic knew by looking at it.
+    takeaway: Confirming a good number is not wasted work; it is the difference between a setting and a limit.
+    stops:
+      - group: CAROUSEL
+        task: Derive the angle the chains hang at
+        title: Why the chains come out
+        place: The Carousel and Swings
+        scene: >
+          The swing carousel turns at ten revolutions a minute. The chains are 4.5 metres long, hung
+          from a hub of radius 3.0 metres, and Brennan's chalk mark on the pole says where the seats
+          reach at full speed.
+        assumes:
+          - a body moving in a circle needs a net force toward the centre
+          - the tension in a chain acts along the chain
+        takeaway: The angle a hanging chain settles at is set by the turning, and the mass falls out of it entirely.
+        format: DERIVE
+        question: >-
+          Work the two force equations down to a relation for the angle, and say what the angle
+          depends on.
+        derive:
+          hint: >-
+            Resolve the tension into two directions, write one equation each way, and divide one by
+            the other.
+          start: 'T sinθ = mv²/r  and  T cosθ = mg'
+          startNote: θ is measured from the vertical; r is the radius of the circle the seat travels in
+          goal: a relation for θ, and the quantities it turns out to depend on
+          rules: [resolution, division, substitution, evaluation]
+          steps:
+            - ask: Divide the horizontal equation by the vertical one.
+              answer: 2
+              candidates:
+                - text: 'tanθ = v²/(rg) × m'
+                  rule: division
+                  why: >-
+                    Both sides carried an m and the division removes it. Leaving one in makes the
+                    angle depend on the load, which would mean a full seat and an empty one hanging
+                    differently on the same ride, and they do not.
+                - text: 'sinθ/cosθ = mv²/r ÷ mg, so cotθ = v²/(rg)'
+                  rule: division
+                  why: >-
+                    Sine over cosine is the tangent. Naming it the cotangent inverts the relation and
+                    gives an angle of about sixty degrees where the chains hang at thirty.
+                - text: 'tanθ = v²/(rg)'
+                  rule: division
+                - text: 'T tanθ = v²/(rg)'
+                  rule: division
+                  survives: true
+                  why: >-
+                    The tension divides out along with the mass; keeping it leaves an unknown on the
+                    left. The line is algebraically consistent and every step below it produces an
+                    angle in terms of a force nobody has measured.
+            - ask: Say what this angle can depend on, given the relation.
+              answer: 1
+              candidates:
+                - text: The speed, the radius and the mass of the loaded seat.
+                  rule: substitution
+                  why: >-
+                    Mass appeared on both sides of the original pair and has gone. This is the same
+                    result as a pendulum's period ignoring its bob, and for the same reason.
+                - text: The speed of the seat and the radius of the circle it travels in.
+                  rule: substitution
+                - text: The length of the chain and nothing else, since that is what is hanging.
+                  rule: resolution
+                  survives: true
+                  why: >-
+                    The chain's length is genuinely in the problem — it sets the radius once the angle
+                    is known — but it is not what fixes the angle, and treating it as the only input
+                    gives a ride whose chains hang at one angle at every speed.
+                - text: The tension in the chain, which is what holds the seat out.
+                  rule: resolution
+                  why: >-
+                    The tension is what does the holding and it is not a free quantity: it adjusts
+                    itself to whatever the load and the angle require, which is why it divides out.
+            - ask: Evaluate the angle at ten turns a minute.
+              answer: 0
+              candidates:
+                - text: 'About 31° from the vertical, with the seats out at a radius of 5.3 m'
+                  rule: evaluation
+                - text: 'About 31° from the horizontal, with the seats well above the hub'
+                  rule: evaluation
+                  why: >-
+                    The angle in these equations is measured from the vertical, since that is the
+                    direction the weight acts in. Reading it from the horizontal puts the chains at
+                    fifty-nine degrees and the seats far outside anything this ride does.
+                - text: 'About 21°, taking the radius as the 3.0 m hub'
+                  rule: substitution
+                  survives: true
+                  why: >-
+                    Consistent arithmetic on the wrong radius. The seat travels in a circle wider than
+                    the hub by however far the chain has swung out, so the radius and the angle have
+                    to be solved together — and the answer is ten degrees shy.
+                - text: 'About 45°, since the speed and the radius are nearly equal in size'
+                  rule: evaluation
+                  why: >-
+                    Comparing a speed with a length compares two different quantities. The tangent
+                    here is v² over rg, which is a pure number, and it is not close to one.
+        answerText: >-
+          tanθ = v²/(rg), giving about 31° from the vertical at ten turns a minute — and it depends on
+          the speed and the radius, not on who is sitting in the seat.
+        why: >-
+          Dividing the two equations is the move: the tension is unknown, it appears in both, and one
+          division removes it along with the mass. What is left says the angle is fixed by the speed
+          and the radius alone, which is why a ride full of adults and a ride full of children hang
+          their chains identically. The radius has to be solved with the angle, since a seat that
+          swings out travels a wider circle. Brennan's chalk mark reads thirty degrees.
+      - group: SHIP
+        task: Get the speed at the bottom of the swing
+        title: What the swing is worth at the bottom
+        place: The Pirate Ship
+        scene: >
+          The ship swings to 48 degrees on a full cycle. Idowu wants the speed through the bottom
+          before the bearing work is quoted, and the pivot is 8.6 metres above the centre of the
+          loaded boat.
+        assumes:
+          - stored energy is weight times the height risen
+          - the height risen by a pendulum comes from the geometry of the swing
+        takeaway: A swing is a fall along a curve, and the height it falls through is the only part that matters.
+        format: BALLPARK
+        question: Estimate the speed of the boat through the bottom of its swing.
+        estimate:
+          prompt: The boat rises 2.85 m above its lowest point at 48°. Energy is conserved through the swing.
+          question: Estimate the speed of the boat through the bottom of its swing.
+          labels:
+            - 2  (the factor in v = √(2gh))
+            - 9.8 m/s²  (g)
+            - 2.85 m  (height risen at the top of the swing)
+            - 8.6 m  (length from pivot to the boat's centre)
+            - 5.9 s  (the period of the swing)
+          values: [2, 9.8, 2.85, 8.6, 5.9]
+          slots: 3
+          template: '√({0} × {1} × {2})'
+          formula: Math.sqrt(a*b*c)
+          correct: [0, 1, 2]
+          target: 7.5
+          tolerance: 0.6
+          units: m/s
+          solution: v = √(2 × 9.8 × 2.85) ≈ 7.5 m/s at the bottom.
+          explanation: The length and the period fix how long the swing takes and not how fast it goes; the height risen is what becomes speed.
+          relationship: 'v = √(2gh): the speed at the bottom of a swing comes from the height fallen through, whatever path the body took to fall.'
+        why: >-
+          A pendulum is a fall down a curved track, and energy does not care about the shape of the
+          path — only about the height. That is the same expression the tower's carriage obeys and
+          the same one the flume's water obeys, which is worth noticing: three rides, three
+          mechanisms, one relation. The height here is not the swing radius but the rise, 8.6 metres
+          times one minus the cosine of forty-eight degrees, which is 2.85.
+      - group: WHEEL
+        task: Balance the wheel before it is asked to turn
+        title: Loading one side of a wheel
+        place: The Ferris Wheel
+        scene: >
+          Loading puts passengers into the gondolas at the bottom, six at a time, so for part of
+          every cycle one side of the wheel carries more than the other. Priya Raman wants the worst
+          case on paper.
+        assumes:
+          - torque is a force times the perpendicular distance from the axle
+          - a torque can be balanced by another torque acting the other way
+        takeaway: A wheel is balanced by its own symmetry, and loading is what breaks the symmetry.
+        format: BALLPARK
+        question: Estimate the out-of-balance torque about the axle with four gondolas loaded on one side.
+        estimate:
+          prompt: Four gondolas on one side each carry 470 kg of passengers, at an average perpendicular distance of 9.6 m from the axle.
+          question: Estimate the out-of-balance torque about the axle with four gondolas loaded on one side.
+          labels:
+            - 4  (loaded gondolas on one side)
+            - 470 kg  (passenger load in each)
+            - 9.8 m/s²  (g)
+            - 9.6 m  (average perpendicular distance from the axle)
+            - 14 m  (radius of the wheel)
+          values: [4, 470, 9.8, 9.6, 14]
+          slots: 4
+          template: '{0} × {1} × {2} × {3}'
+          formula: a*b*c*d
+          correct: [0, 1, 2, 3]
+          target: 176870
+          tolerance: 9000
+          units: N·m
+          solution: τ = 4 × 470 × 9.8 × 9.6 ≈ 177 kN·m about the axle.
+          explanation: The wheel's radius is not the arm. A gondola part-way up the wheel hangs on a shorter perpendicular distance, which is why the average is 9.6 and not 14.
+          relationship: 'τ = Fd: the out-of-balance moment is the unbalanced weight times its perpendicular distance from the axle.'
+        why: >-
+          A wheel with everything symmetrical needs no torque to hold it, which is why an empty Ferris
+          wheel turns on very little power. Loading four gondolas on one side puts a hundred and
+          seventy-seven kilonewton-metres on the drive and the brake, and the number the drawing gives
+          is for the ride running full, which is the balanced case. The awkward load is not the
+          heaviest one; it is the most lopsided one, and it happens during loading rather than during
+          the ride.
+
+  # ------------------------------------------------------------------ day 5
+  - title: The seat, the pole and the ram
+    objective: Put forces on the parts that hold people in a circle.
+    briefing: The carousel's poles and the flume's gate both hold, and neither has ever been computed.
+    stake: >-
+      Friday, and the first week ends with three parts nobody has a number for. Adeyemi will not wire
+      the new controller until somebody tells her what force an outer horse's pole carries at eight
+      turns a minute. Santos has a hydraulic gate on the flume with a two-centimetre ram driving a
+      nine-centimetre one and a note in Brennan's hand reading "plenty". Vey has spent the morning
+      reading yesterday's derivation and has signed nothing. Today you get the sideways force on a
+      carousel pole, put the tower's drop test in the order it has to happen in, and derive what a
+      hydraulic ram multiplies. Marsh has the season on a wall chart with fifteen working days left
+      on it.
+    takeaway: Every part in this park is holding a force somebody can compute in three lines.
+    stops:
+      - group: CAROUSEL
+        task: Get the sideways force on an outer pole
+        title: What a pole holds sideways
+        place: The Carousel and Swings
+        scene: >
+          An outer horse carries a rider of 78 kilograms at 6.2 metres from the middle, going round
+          at eight turns a minute. Adeyemi wants the sideways force the pole is asked for.
+        assumes:
+          - a body in a circle needs a net force toward the centre
+          - that force is the mass times the centripetal acceleration
+        takeaway: The force holding somebody in a circle is a real force from a real part, and it grows with the square of the speed.
+        format: BALLPARK
+        question: Estimate the sideways force the pole puts on a 78 kg rider.
+        estimate:
+          prompt: The rider sits 6.2 m from the axis and travels at 5.2 m/s. Their mass is 78 kg.
+          question: Estimate the sideways force the pole puts on a 78 kg rider.
+          labels:
+            - 78 kg  (mass of the rider)
+            - 5.2 m/s  (speed at that radius)
+            - 6.2 m  (radius of the circle)
+            - 9.8 m/s²  (g)
+            - 8  (turns a minute)
+          values: [78, 5.2, 6.2, 9.8, 8]
+          slots: 3
+          template: '{0} × {1} × {1} ÷ {2}'
+          formula: a*b*b/c
+          correct: [0, 1, 2]
+          target: 340
+          tolerance: 30
+          units: N
+          solution: F = mv²/r = 78 × 5.2² ÷ 6.2 ≈ 340 N toward the middle.
+          explanation: g does not appear: this force is horizontal and the weight is vertical. The turns a minute are already inside the speed.
+          relationship: 'F = mv²/r: the force needed to hold a mass on a circle is the mass times the speed squared, divided by the radius.'
+        why: >-
+          Three hundred and forty newtons is about forty-four per cent of this rider's weight, pushing
+          sideways, and it has to come from somewhere real — the pole, through the saddle, into the
+          rider. Nine turns a minute instead of eight would make it 430 newtons, since the force goes
+          as the square of the speed while the speed goes as the rate of turning. That is the whole of
+          why Brennan's difference between eight and nine was something he could feel.
+      - group: TOWER
+        task: Put the drop test in the order it has to happen in
+        title: The order a drop test runs in
+        place: The Drop Tower
+        scene: >
+          Vey wants the tower's annual drop test witnessed rather than described. Santos has four
+          operations written on the whiteboard in the order he happens to have thought of them.
+        assumes:
+          - a test is only evidence if the conditions are known before it runs
+          - ballast can stand in for passengers
+        takeaway: A test is designed backwards from the number it has to produce.
+        format: SEQUENCE
+        task: Order the operations for a witnessed drop test.
+        cards:
+          - Weigh the ballast and record what the carriage will mass on the drop.
+          - Fit the recording accelerometer to the carriage floor and confirm it is logging.
+          - Release from the full height with the ballast aboard and no passengers on site.
+          - Compare the logged deceleration against the figure the certificate will carry.
+        order: [0, 1, 2, 3]
+        why: >-
+          Each operation exists because the one after it would mean nothing without it. A logged
+          deceleration is a number about a mass, so the mass is established before anything moves. An
+          instrument that was fitted after the drop has recorded a different drop. The release is at
+          full height because a partial drop tests a brake at a speed it will not meet in service.
+          And the comparison is last because it is the only step that produces the thing the
+          certificate needs, which is a measurement set against a claim.
+      - group: FLUME
+        task: Derive what the hydraulic gate multiplies
+        title: Two centimetres driving nine
+        place: The Log Flume
+        scene: >
+          The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand
+          pump drives a nine-centimetre one at the gate, and Brennan's note against it reads
+          "plenty".
+        assumes:
+          - pressure applied to an enclosed fluid is passed on undiminished
+          - pressure is force divided by the area it acts over
+        takeaway: A hydraulic multiplies force and gives back exactly nothing, because the big piston moves less.
+        format: DERIVE
+        question: >-
+          Work Pascal's principle down to the force at the gate, and say what the multiplication
+          costs.
+        derive:
+          hint: >-
+            Start from the pressures being equal, write each as a force over an area, and remember
+            what an area does when a diameter changes.
+          start: 'P₁ = P₂'
+          startNote: hand piston 2.0 cm across, gate piston 9.0 cm across, 250 N applied by hand
+          goal: the force at the gate, and what has been given up to get it
+          rules: [definition, substitution, geometry, evaluation]
+          steps:
+            - ask: Write each pressure as a force over its own area.
+              answer: 0
+              candidates:
+                - text: 'F₁/A₁ = F₂/A₂, so F₂ = F₁ × (A₂/A₁)'
+                  rule: definition
+                - text: 'F₁A₁ = F₂A₂, so F₂ = F₁ × (A₁/A₂)'
+                  rule: definition
+                  survives: true
+                  why: >-
+                    Consistent algebra on an inverted definition. Pressure is force divided by area,
+                    not multiplied by it, and this version makes the wide piston the weak one — a ram
+                    that would give five newtons at the gate for two hundred and fifty at the hand.
+                - text: 'F₁ = F₂, since pressure is passed on undiminished'
+                  rule: substitution
+                  why: >-
+                    What is passed on undiminished is the pressure. The force is the pressure times
+                    an area, and the two areas here differ by a factor of twenty.
+                - text: 'F₂ = F₁ × (d₂/d₁)'
+                  rule: geometry
+                  why: >-
+                    This uses the diameters where the areas belong. It gives a multiplication of four
+                    and a half instead of twenty, which is the same mistake as pricing a pizza by its
+                    width.
+            - ask: Put the areas in, from the diameters given.
+              answer: 3
+              candidates:
+                - text: 'A₂/A₁ = 9.0/2.0 = 4.5'
+                  rule: geometry
+                  why: >-
+                    That is the ratio of the diameters. Area grows with the square of the diameter,
+                    so the ratio of areas is the square of this.
+                - text: 'A₂/A₁ = (9.0² − 2.0²)/2.0² = 19.25'
+                  rule: geometry
+                  why: >-
+                    Subtracting the small area from the large one is the arithmetic for an annulus.
+                    These are two separate cylinders and each has its own full circle.
+                - text: 'A₂/A₁ = π(9.0)²/π(2.0)², and the π has to be evaluated before dividing'
+                  rule: evaluation
+                  survives: true
+                  why: >-
+                    Perfectly valid and needlessly so: the π appears above and below and cancels
+                    exactly. Evaluating it changes nothing except the number of chances to make an
+                    arithmetic slip.
+                - text: 'A₂/A₁ = (9.0/2.0)² = 20.25'
+                  rule: geometry
+            - ask: Give the force at the gate and say what it cost.
+              answer: 1
+              candidates:
+                - text: 'F₂ ≈ 5,060 N, and the ram delivers that over the same distance the hand moved'
+                  rule: evaluation
+                  survives: true
+                  why: >-
+                    The force is right and the second half is not. Work cannot be created by plumbing:
+                    the gate piston moves about a twentieth as far as the hand piston, which is
+                    exactly what keeps the energy books straight.
+                - text: 'F₂ ≈ 5,060 N, and the gate piston moves about a twentieth as far'
+                  rule: evaluation
+                - text: 'F₂ ≈ 1,125 N, from the ratio of the diameters'
+                  rule: substitution
+                  why: >-
+                    This is the diameter ratio again, four and a half times the hand force. It
+                    understates the gate force by a factor of four and a half.
+                - text: 'F₂ ≈ 5,060 N, so the hand pump does twenty times the work'
+                  rule: evaluation
+                  why: >-
+                    The work at each end is the same, less what the seals take. Twenty times the force
+                    over a twentieth of the distance is the same product.
+        answerText: >-
+          F₂ = 250 × (9.0/2.0)² ≈ 5,060 N at the gate — and the gate piston travels about a twentieth
+          of the distance the hand piston does.
+        why: >-
+          The step that decides this is the area, not the diameter: doubling a piston's width
+          quadruples its face, so a factor of four and a half in diameter is twenty in force. What the
+          hydraulic gives is force, and what it takes is distance — the two multiply to the same work
+          at both ends, which is why nobody has ever built a hydraulic that produces energy. Brennan's
+          "plenty" turns out to be five kilonewtons against a gate that needs about eleven hundred.

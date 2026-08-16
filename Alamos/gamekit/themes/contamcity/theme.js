@@ -46,11 +46,12 @@ export default {
   // every theme served from gamekit/ — Deep Watch spent a session opening with a
   // paragraph about a river city.
   opening: [
-    'A freight yard beside the river burned last night, and nobody can say what came off it. '
-    + 'Two neighbourhoods are downwind of a plume nobody has identified. The drinking-water intake '
-    + 'for a hundred and forty thousand people sits nine hundred metres downstream of the outfall, '
-    + 'and the utility has closed it — which means the city is drinking its reserves, and the '
-    + 'reserves are measured in days. You are the Chief Scientific Officer.',
+    'A freight yard beside the river burned last night, and nobody can say what came off it. You '
+    + 'are the city\'s Chief Scientific Officer, which means what gets measured — and what the city '
+    + 'is told about it — is decided by you. Two neighbourhoods are downwind of a plume nobody has '
+    + 'identified. The drinking-water intake for a hundred and forty thousand people sits nine '
+    + 'hundred metres downstream of the outfall, and the utility has closed it, which means the '
+    + 'city is drinking its reserves and the reserves are measured in days.',
   ],
 
   people: {

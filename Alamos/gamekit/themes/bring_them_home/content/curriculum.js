@@ -163,13 +163,65 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Force divided by mass gives an acceleration of 0.20 metres per second squared. Over 20 seconds, that produces a 4 metre-per-second change in speed. The same result comes from impulse divided by mass. Four metres per second looks tiny beside an orbital speed measured in kilometres per second. Applied days before arrival, however, it shifts the encounter by hundreds of kilometres. A late correction must produce the same positional change in far less time, so it costs much more.",
         "givens": [],
-        "relationship": "Impulse = force × time. Velocity change = impulse ÷ mass.",
+        "relationship": "Net force ÷ mass is the acceleration. Thrust is steady, so at constant acceleration the velocity change is acceleration × burn time.",
         "calcKey": "NAV-4"
       },
       "assumes": [
         "force applied over a time is an impulse"
       ],
       "equations": [
+        {
+          "e": "v = v₀ + at, x = x₀ + v₀t + ½at²",
+          "c": "kinematics at constant acceleration",
+          "v": [
+            [
+              "v",
+              "speed at time t, in metres per second"
+            ],
+            [
+              "v₀",
+              "speed at the start"
+            ],
+            [
+              "a",
+              "acceleration, in metres per second squared"
+            ],
+            [
+              "t",
+              "elapsed time, in seconds"
+            ],
+            [
+              "x",
+              "position"
+            ],
+            [
+              "x₀",
+              "starting position"
+            ]
+          ],
+          "s": "Under constant acceleration, speed grows in step with time and distance grows with the square of it.",
+          "computed": true
+        },
+        {
+          "e": "F = ma",
+          "c": "Newton's second law",
+          "v": [
+            [
+              "F",
+              "net force, in newtons"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "a",
+              "acceleration, in metres per second squared"
+            ]
+          ],
+          "s": "Acceleration is what a net force produces, and the same force moves a heavier object less.",
+          "computed": true
+        },
         {
           "e": "J = FΔt = Δp",
           "c": "impulse as the change in momentum",
@@ -192,7 +244,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A small force applied for a long time changes momentum as much as a large one applied briefly.",
-          "computed": true
+          "card": false
         }
       ]
     },
@@ -1123,6 +1175,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
+        },
+        {
+          "e": "τ = rF",
+          "c": "torque about an axis, and rotational equilibrium",
+          "v": [
+            [
+              "τ",
+              "torque, in newton metres"
+            ],
+            [
+              "r",
+              "distance from the axis, in metres"
+            ],
+            [
+              "F",
+              "force applied at that distance"
+            ]
+          ],
+          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel.",
+          "card": false
         }
       ]
     },
@@ -1248,6 +1320,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
+        },
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion.",
+          "card": false
         }
       ]
     }

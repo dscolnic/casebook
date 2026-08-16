@@ -15,3 +15,12 @@ books/copy/
 # commit:
 #   npm run shots <theme>
 shots/
+
+# Built games and the landing page that indexes them. `npm run gallery` writes
+# dist/<theme>/ for every game plus dist/index.html, and the page is only honest
+# about what it has just built. Regenerate rather than commit:
+#   npm run gallery
+# Note it reads its snapshots out of shots/, which is ignored above — so a fresh
+# clone wants `npm run shots <theme>` first, or the cards come up with a
+# placeholder where the picture should be.
+dist/

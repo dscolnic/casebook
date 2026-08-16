@@ -218,6 +218,75 @@ if(!manifest.dayNoun){
   note(`no dayNoun in the manifest, so the plan card says "Day N" — right only if a mission really is a day`);
 }
 
+// ——— the opening card ————————————————————————————————————————————————
+//
+// The first thing anybody reads, and the one card with no day behind it to make
+// it concrete. Two games shipped without one at all — `opening` is optional in
+// the manifest and nothing looked — and the rest were swept against four beats:
+// what has happened and to whom; the job stated as authority; the clock or the
+// argument; and, last, what it costs in people.
+//
+// The failure this exists for is the INVENTORY OPENING. Red Sand's first version
+// was nine modules, eighteen hundred square metres of panel and an ascent
+// vehicle four hundred metres past the last of them — every fact true, nobody in
+// it, and a specification for a closing line. A reader finished it knowing the
+// dimensions of the place and nothing about why anyone should care, because the
+// thing at stake (six people do not leave for another twenty-six months) was
+// never in the paragraph.
+{
+  const paras = (manifest.opening ?? []).filter(p => String(p ?? '').trim());
+  const card = paras.join(' ').trim();
+  const n = words(card).length;
+  if(!card){
+    fail('no opening card — `opening` in the manifest is what the title screen prints, '
+       + 'and without it the game opens on a blank');
+  } else {
+    if(paras.length > 1){
+      fail(`the opening is ${paras.length} paragraphs — it is one paragraph of situation, and the `
+         + 'second one has always turned out to be mechanics or a disclaimer');
+    }
+    // Thin cards cannot carry four beats; long ones stop being read. Outbreak's
+    // was 41 words and said nothing about what being late costs.
+    const floor = Number.isFinite(grade) && grade <= 4 ? 55 : 70;
+    if(n < floor) fail(`the opening is ${n} words — too short to say what has happened, what your job is, and what it costs`);
+    else if(n > 180) note(`the opening is ${n} words`);
+
+    // The job, as authority. Every one of them says it in the same breath: "You
+    // are the duty engineer, which means the release ordered each morning is
+    // ordered by you."
+    if(!/\byou (are|have|lead|run|direct|command|own)\b/i.test(card)){
+      fail('the opening never says what the player is — "You are the …, which means …" is the beat');
+    }
+    // Mechanics belong in the first minute of play, not in front of it.
+    const MECHANICS = /\b(press|click|keyboard|mouse|menu|wasd|score|points|per cent complete|three stops|each mission|the clock runs|time limit)\b/i;
+    const m = card.match(MECHANICS);
+    if(m) fail(`the opening explains a mechanic ("${m[0]}") — that is the first minute of play, not the card before it`);
+
+    // The last sentence is where the cost goes. A closing line with no number,
+    // no time and nobody in it is the inventory opening's signature: it ends on
+    // a specification and the reader is left to supply the consequence.
+    // Written-out numbers count: these games say "four million people" and "three
+    // point nine tonnes" far more often than they print a digit. `every` and
+    // `both` are deliberately not on the list — "every sol since the spring" is
+    // the closing line this rule was written to catch.
+    const NUM = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty'
+      + '|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|dozen';
+    const STAKE = new RegExp('\\d|\\b(' + NUM + '|people|person|crew|patient|patients|household'
+      + '|households|famil\\w+|child|children|nobody|somebody|everybody|city|town|village|villages'
+      + '|home|hospital|hospitals|day|days|hour|hours|week|weeks|month|months|year|years|decade'
+      + '|fortnight|window)\\b', 'i');
+    const closing = sentences(card).at(-1) ?? '';
+    const namesSomebody = surnames.some(s => closing.includes(s));
+    if(!STAKE.test(closing) && !namesSomebody){
+      fail(`the opening ends on "${closing.trim().slice(0, 72)}…" — a closing line with no number, `
+         + 'no clock and nobody in it is a specification rather than a stake');
+    }
+    if(!surnames.some(s => card.includes(s))){
+      note('the opening names nobody from the roster — a clock can carry a card instead, and a person carries it better');
+    }
+  }
+}
+
 // ——— report ————————————————————————————————————————————————————————
 const mean = (a) => a.reduce((x, y) => x + y, 0) / (a.length || 1);
 if(notes.length){
