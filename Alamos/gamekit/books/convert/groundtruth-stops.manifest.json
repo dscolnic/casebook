@@ -1,0 +1,642 @@
+{
+ "theme": "groundtruth",
+ "book": "books/groundtruth.yml",
+ "course": "AP Physics C: Electricity & Magnetism, all five units, derived rather than quoted — every formula the course hands a student is produced here from the law it comes out of, on a lightning research station where each one is a measurement somebody has to take",
+ "curriculum": [
+  "Charge, and where it sits on a conductor",
+  "The electric field as a vector field, and field lines",
+  "Gauss's law, and choosing a surface it can be used on",
+  "Field of a charged sheet, line and sphere",
+  "Field inside a conductor, and shielding",
+  "Field enhancement at a point, and why height and radius both matter",
+  "Electric potential as a line integral of the field",
+  "Potential and field as derivative and integral of one another",
+  "Equipotentials, and what they mean on the ground",
+  "Capacitance as a ratio, before it is a formula",
+  "Parallel plates: capacitance from the field between them",
+  "Dielectrics, dielectric strength and breakdown",
+  "Energy stored in a capacitor, and where the half comes from",
+  "Capacitors in series and parallel",
+  "Current as a flow, and current density",
+  "Resistance, resistivity and the ground as a resistor",
+  "Kirchhoff's rules on a real network",
+  "The RC circuit, and what a time constant means",
+  "Instrument bandwidth: what a slow instrument cannot see",
+  "Magnetic field of a current, and Ampère's law",
+  "Biot–Savart, and when the integral is worth doing",
+  "Force on a current in a field, and forces between conductors",
+  "Magnetic flux through a surface",
+  "Faraday's law: an EMF from a changing flux",
+  "Lenz's law, and the sign that says which way",
+  "Mutual inductance: one circuit talking to another",
+  "Self-inductance, and why a straight wire has it",
+  "The LR transient, and inductive volts against resistive volts",
+  "Energy in the magnetic field, and where a strike puts it",
+  "Measurement in the right regime: shunts, dividers and what they load"
+ ],
+ "equations": [
+  {
+   "e": "∮E·dA = Q_enc/ε₀",
+   "about": "Gauss's law — flux out of a closed surface counts the charge inside it",
+   "symbols": [
+    [
+     "E",
+     "the electric field, in volts per metre"
+    ],
+    [
+     "dA",
+     "an element of the closed surface, pointing outward"
+    ],
+    [
+     "Q_enc",
+     "the charge inside that surface, in coulombs"
+    ],
+    [
+     "ε₀",
+     "the permittivity of free space, 8.85 × 10⁻¹² F/m"
+    ]
+   ]
+  },
+  {
+   "e": "E = σ / (2ε₀)",
+   "about": "the field of a charged layer, which does not fall off with distance",
+   "symbols": [
+    [
+     "E",
+     "field between the layer and the ground, in volts per metre"
+    ],
+    [
+     "σ",
+     "charge per unit area on the layer, in coulombs per square metre"
+    ],
+    [
+     "ε₀",
+     "the permittivity of free space"
+    ]
+   ],
+   "needs": [
+    "∮E·dA = Q_enc/ε₀"
+   ]
+  },
+  {
+   "e": "V = −∫E·dl",
+   "about": "potential difference as the work done along a path",
+   "symbols": [
+    [
+     "V",
+     "the potential difference between two points, in volts"
+    ],
+    [
+     "E",
+     "the field along the path"
+    ],
+    [
+     "dl",
+     "an element of the path taken between them"
+    ]
+   ]
+  },
+  {
+   "e": "C = ε₀A / d",
+   "about": "parallel-plate capacitance, from the field between the plates",
+   "symbols": [
+    [
+     "C",
+     "capacitance, in farads"
+    ],
+    [
+     "A",
+     "the area facing across the gap, in square metres"
+    ],
+    [
+     "d",
+     "the separation, in metres"
+    ],
+    [
+     "ε₀",
+     "the permittivity of free space"
+    ]
+   ],
+   "needs": [
+    "∮E·dA = Q_enc/ε₀",
+    "V = −∫E·dl"
+   ]
+  },
+  {
+   "e": "U = ½CV²",
+   "about": "the energy it took to charge it, and where the half comes from",
+   "symbols": [
+    [
+     "U",
+     "energy stored, in joules"
+    ],
+    [
+     "C",
+     "capacitance, in farads"
+    ],
+    [
+     "V",
+     "the final voltage across it"
+    ]
+   ],
+   "needs": [
+    "C = ε₀A / d"
+   ]
+  },
+  {
+   "e": "∮B·dl = μ₀I_enc",
+   "about": "Ampère's law — circulation of B counts the current through the loop",
+   "symbols": [
+    [
+     "B",
+     "the magnetic field, in tesla"
+    ],
+    [
+     "dl",
+     "an element of a closed path"
+    ],
+    [
+     "I_enc",
+     "the current passing through that path, in amperes"
+    ],
+    [
+     "μ₀",
+     "the permeability of free space, 4π × 10⁻⁷ T·m/A"
+    ]
+   ]
+  },
+  {
+   "e": "B = μ₀I / (2πr)",
+   "about": "the field around a long straight conductor",
+   "symbols": [
+    [
+     "B",
+     "field at distance r, in tesla"
+    ],
+    [
+     "I",
+     "current in the conductor, in amperes"
+    ],
+    [
+     "r",
+     "distance from its axis, in metres"
+    ],
+    [
+     "μ₀",
+     "the permeability of free space"
+    ]
+   ],
+   "needs": [
+    "∮B·dl = μ₀I_enc"
+   ]
+  },
+  {
+   "e": "Φ = (μ₀Iℓ / 2π)·ln(b/a)",
+   "about": "flux through a loop lying beside a conductor",
+   "symbols": [
+    [
+     "Φ",
+     "magnetic flux through the loop, in webers"
+    ],
+    [
+     "ℓ",
+     "the length the loop runs parallel to the conductor, in metres"
+    ],
+    [
+     "a",
+     "the near side's distance from it"
+    ],
+    [
+     "b",
+     "the far side's distance"
+    ],
+    [
+     "I",
+     "the current in the conductor"
+    ]
+   ],
+   "needs": [
+    "B = μ₀I / (2πr)"
+   ]
+  },
+  {
+   "e": "ε = −dΦ/dt",
+   "about": "Faraday's law, and the sign that says which way",
+   "symbols": [
+    [
+     "ε",
+     "the induced EMF, in volts"
+    ],
+    [
+     "Φ",
+     "the flux through the loop, in webers"
+    ],
+    [
+     "t",
+     "time, in seconds"
+    ]
+   ],
+   "needs": [
+    "Φ = (μ₀Iℓ / 2π)·ln(b/a)"
+   ]
+  },
+  {
+   "e": "V = L·dI/dt",
+   "about": "the volts across an inductance, and why a straight lead has one",
+   "symbols": [
+    [
+     "V",
+     "the voltage across the lead, in volts"
+    ],
+    [
+     "L",
+     "its self-inductance, in henries — about a microhenry per metre for a straight wire"
+    ],
+    [
+     "dI/dt",
+     "how fast the current through it is changing, in amperes per second"
+    ]
+   ],
+   "needs": [
+    "ε = −dΦ/dt"
+   ]
+  },
+  {
+   "e": "q(t) = Q·e^(−t/RC)",
+   "about": "the RC discharge, and the time constant that comes out of it",
+   "symbols": [
+    [
+     "q(t)",
+     "the charge left on the capacitor at time t"
+    ],
+    [
+     "Q",
+     "the charge it started with"
+    ],
+    [
+     "R",
+     "the resistance it discharges through, in ohms"
+    ],
+    [
+     "C",
+     "its capacitance, in farads"
+    ],
+    [
+     "RC",
+     "the time constant, in seconds"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 12,
+ "subject": "Measurements Lead · Station 12, Sablon Flats",
+ "groups": [
+  {
+   "id": "FIELD",
+   "name": "Field & Charge",
+   "desc": "What is overhead, read from the ground, and what the reading is entitled to say."
+  },
+  {
+   "id": "BANK",
+   "name": "Impulse Hall",
+   "desc": "Stored charge, stored energy, and air that stops being an insulator."
+  },
+  {
+   "id": "MAST",
+   "name": "Mast & Down-conductor",
+   "desc": "Where the current goes, what it does on the way, and how it is measured."
+  },
+  {
+   "id": "EARTH",
+   "name": "Earthing & Transients",
+   "desc": "The grid under the flat, and the difference between an ohm and a microsecond."
+  },
+  {
+   "id": "COUPLE",
+   "name": "Coupling & the Outstation",
+   "desc": "How a strike reaches a cable it never touched."
+  },
+  {
+   "id": "SHOT",
+   "name": "Launch & Records",
+   "desc": "When to trigger, what was predicted, and what the record can carry."
+  }
+ ],
+ "stops": [
+  {
+   "id": "groundtruth.m01.s1",
+   "day": 1,
+   "group": "SHOT",
+   "format": "TRIGGER",
+   "title": "Three stages and a cell coming in"
+  },
+  {
+   "id": "groundtruth.m01.s2",
+   "day": 1,
+   "group": "FIELD",
+   "format": "CHOICE",
+   "title": "A spinning shutter and a sign"
+  },
+  {
+   "id": "groundtruth.m01.s3",
+   "day": 1,
+   "group": "EARTH",
+   "format": "CHOICE",
+   "title": "Twenty-five ohms, at what"
+  },
+  {
+   "id": "groundtruth.m02.s1",
+   "day": 2,
+   "group": "FIELD",
+   "format": "DERIVE",
+   "title": "A pillbox through the cloud base"
+  },
+  {
+   "id": "groundtruth.m02.s2",
+   "day": 2,
+   "group": "BANK",
+   "format": "CHOICE",
+   "title": "Two plates, and a factor of two"
+  },
+  {
+   "id": "groundtruth.m02.s3",
+   "day": 2,
+   "group": "MAST",
+   "format": "CHOICE",
+   "title": "Inside the sheet"
+  },
+  {
+   "id": "groundtruth.m03.s1",
+   "day": 3,
+   "group": "FIELD",
+   "format": "DERIVE",
+   "title": "Down the path, and the sign"
+  },
+  {
+   "id": "groundtruth.m03.s2",
+   "day": 3,
+   "group": "COUPLE",
+   "format": "CHOICE",
+   "title": "One foot and the other"
+  },
+  {
+   "id": "groundtruth.m03.s3",
+   "day": 3,
+   "group": "SHOT",
+   "format": "CHOICE",
+   "title": "The number that has to exist first"
+  },
+  {
+   "id": "groundtruth.m04.s1",
+   "day": 4,
+   "group": "MAST",
+   "format": "DERIVE",
+   "title": "Sixty metres up, two centimetres across"
+  },
+  {
+   "id": "groundtruth.m04.s2",
+   "day": 4,
+   "group": "FIELD",
+   "format": "CHOICE",
+   "title": "What the hiss costs"
+  },
+  {
+   "id": "groundtruth.m04.s3",
+   "day": 4,
+   "group": "SHOT",
+   "format": "CHOICE",
+   "title": "The afternoon Vero is right about"
+  },
+  {
+   "id": "groundtruth.m05.s1",
+   "day": 5,
+   "group": "BANK",
+   "format": "DERIVE",
+   "title": "Ten square kilometres, twelve hundred metres up"
+  },
+  {
+   "id": "groundtruth.m05.s2",
+   "day": 5,
+   "group": "EARTH",
+   "format": "CHOICE",
+   "title": "Two conductors, two hundred metres"
+  },
+  {
+   "id": "groundtruth.m05.s3",
+   "day": 5,
+   "group": "COUPLE",
+   "format": "CHOICE",
+   "title": "Filling the gap"
+  },
+  {
+   "id": "groundtruth.m06.s1",
+   "day": 6,
+   "group": "BANK",
+   "format": "DERIVE",
+   "title": "Fifteen hundred joules, or three thousand"
+  },
+  {
+   "id": "groundtruth.m06.s2",
+   "day": 6,
+   "group": "MAST",
+   "format": "CHOICE",
+   "title": "Charge that is still there"
+  },
+  {
+   "id": "groundtruth.m06.s3",
+   "day": 6,
+   "group": "SHOT",
+   "format": "CHOICE",
+   "title": "A clean pulse and a real one"
+  },
+  {
+   "id": "groundtruth.m07.s1",
+   "day": 7,
+   "group": "MAST",
+   "format": "TRACE",
+   "title": "Agreement is not independence"
+  },
+  {
+   "id": "groundtruth.m07.s2",
+   "day": 7,
+   "group": "EARTH",
+   "format": "CHOICE",
+   "title": "The rod is not a fixed point"
+  },
+  {
+   "id": "groundtruth.m07.s3",
+   "day": 7,
+   "group": "SHOT",
+   "format": "DEGENERACY",
+   "title": "One peak, one shared offset"
+  },
+  {
+   "id": "groundtruth.m08.s1",
+   "day": 8,
+   "group": "MAST",
+   "format": "DERIVE",
+   "title": "Once round the conductor"
+  },
+  {
+   "id": "groundtruth.m08.s2",
+   "day": 8,
+   "group": "BANK",
+   "format": "BALLPARK",
+   "title": "How much charge came down"
+  },
+  {
+   "id": "groundtruth.m08.s3",
+   "day": 8,
+   "group": "COUPLE",
+   "format": "CHOICE",
+   "title": "The cabinet is a loop"
+  },
+  {
+   "id": "groundtruth.m09.s1",
+   "day": 9,
+   "group": "COUPLE",
+   "format": "DERIVE",
+   "title": "The loop nobody drew"
+  },
+  {
+   "id": "groundtruth.m09.s2",
+   "day": 9,
+   "group": "MAST",
+   "format": "DIAGNOSIS",
+   "title": "What survived in August"
+  },
+  {
+   "id": "groundtruth.m09.s3",
+   "day": 9,
+   "group": "SHOT",
+   "format": "CHOICE",
+   "title": "What the finding costs the plan"
+  },
+  {
+   "id": "groundtruth.m10.s1",
+   "day": 10,
+   "group": "EARTH",
+   "format": "DERIVE",
+   "title": "The same wire, twice"
+  },
+  {
+   "id": "groundtruth.m10.s2",
+   "day": 10,
+   "group": "FIELD",
+   "format": "CHOICE",
+   "title": "Short, or not at all"
+  },
+  {
+   "id": "groundtruth.m10.s3",
+   "day": 10,
+   "group": "BANK",
+   "format": "CHOICE",
+   "title": "Making a microsecond on purpose"
+  },
+  {
+   "id": "groundtruth.m11.s1",
+   "day": 11,
+   "group": "MAST",
+   "format": "PROBE",
+   "title": "Down the conductor, one station at a time"
+  },
+  {
+   "id": "groundtruth.m11.s2",
+   "day": 11,
+   "group": "FIELD",
+   "format": "BALLPARK",
+   "title": "Eight tenths of a coulomb"
+  },
+  {
+   "id": "groundtruth.m11.s3",
+   "day": 11,
+   "group": "EARTH",
+   "format": "VALUE",
+   "title": "Two hundred amps: buy the discriminating check"
+  },
+  {
+   "id": "groundtruth.m12.s1",
+   "day": 12,
+   "group": "SHOT",
+   "format": "VERIFY",
+   "title": "The number on the board"
+  },
+  {
+   "id": "groundtruth.m12.s2",
+   "day": 12,
+   "group": "COUPLE",
+   "format": "CHOICE",
+   "title": "The afternoon Brenner is right about"
+  },
+  {
+   "id": "groundtruth.m12.s3",
+   "day": 12,
+   "group": "BANK",
+   "format": "STRESS",
+   "title": "What survives a shorter season"
+  },
+  {
+   "id": "groundtruth.m13.s1",
+   "day": 13,
+   "group": "EARTH",
+   "format": "DERIVE",
+   "title": "The circuit that decides what is recordable"
+  },
+  {
+   "id": "groundtruth.m13.s2",
+   "day": 13,
+   "group": "FIELD",
+   "format": "CHOICE",
+   "title": "The dip after the stroke"
+  },
+  {
+   "id": "groundtruth.m13.s3",
+   "day": 13,
+   "group": "MAST",
+   "format": "CHOICE",
+   "title": "What to put on a microsecond"
+  },
+  {
+   "id": "groundtruth.m14.s1",
+   "day": 14,
+   "group": "BANK",
+   "format": "DERIVE",
+   "title": "In parallel to charge, in series to fire"
+  },
+  {
+   "id": "groundtruth.m14.s2",
+   "day": 14,
+   "group": "SHOT",
+   "format": "CHOICE",
+   "title": "Repeat the placard, or test the number"
+  },
+  {
+   "id": "groundtruth.m14.s3",
+   "day": 14,
+   "group": "COUPLE",
+   "format": "CHOICE",
+   "title": "What to tell the next station"
+  },
+  {
+   "id": "groundtruth.m15.s1",
+   "day": 15,
+   "group": "SHOT",
+   "format": "CLOUD",
+   "title": "Earlier, or more certain"
+  },
+  {
+   "id": "groundtruth.m15.s2",
+   "day": 15,
+   "group": "EARTH",
+   "format": "ATTEST",
+   "title": "What the report can actually stand behind"
+  },
+  {
+   "id": "groundtruth.m15.s3",
+   "day": 15,
+   "group": "MAST",
+   "format": "CHOICE",
+   "title": "What is still open"
+  }
+ ]
+}

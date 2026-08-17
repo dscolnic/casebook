@@ -85,6 +85,11 @@ export const GAMES = [
     place: 'A mesa laboratory in 1943. Chalkboards and typed sheets, and no screens anywhere.',
     hero: 'spawn-7.png' },
 
+  { id: 'groundtruth', title: 'Ground Truth',
+    course: 'AP Physics C · E&M, derived', field: 'Physics', accent: '#7f8894',
+    place: 'A lightning research station on a salt flat: a sixty-metre mast, a launch rail, and a storm coming in.',
+    hero: 'the-mast.png' },
+
   { id: 'blackout', title: 'Blackout',
     course: 'AP Physics 2 · circuits & induction', field: 'Engineering', accent: '#d9b23c',
     place: 'Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.',

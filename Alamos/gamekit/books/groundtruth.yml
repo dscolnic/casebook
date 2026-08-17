@@ -1,0 +1,2603 @@
+# Ground Truth — Station 12, Sablon Flats, and 15 working days of a storm season.
+#
+# Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/groundtruth/site.js;
+# the plan it came from is ../GAME_IDEAS.md under "Ground Truth".
+#
+# AP Physics C: E&M, taught as derivations. Ten of the forty-five stops are
+# DERIVE panels and they are the spine of the campaign: Gauss on day 2, the
+# potential integral on day 3, capacitance on day 5, the stored energy on day 6,
+# Ampère on day 8, the inductive volts on day 9, the flux logarithm and Faraday
+# on day 10, the RC discharge on day 13 and the Marx bank on day 14.
+#
+# `askRule: true` is on, which it is not in Midway or Headwater, and the reason
+# is that in this course the choice of law IS the physics: a step whose key
+# applies superposition while a distractor applies Gauss to a surface with no
+# symmetry is the commonest way a Physics C student loses an E&M point. Every
+# step offers at least two distinct rules among its candidates.
+#
+# The argument: Vero holds that the season is six weeks and a marginal field is
+# still a field. Brenner holds that the crew is on an open flat under a 60 m
+# mast and a cell that outruns the nowcast does not care about a countdown.
+# Vero is right on day 4. Brenner is right on day 12.
+#
+# The timeline the cards are checked against:
+#   3 Aug last season   strike S-114 — the outstation electronics died
+#   April this year     the earthing signed off at 25 Ω, measured at DC
+#   week 1–2            the mast re-instrumented, three shunts fitted
+#   now                 week 3 of a six-week season; 15 working days
+#   end of season       the funding review that decides the second mast
+
+theme:
+  id: groundtruth
+  title: Ground Truth
+  subtitle: Measurements Lead · Station 12, where lightning is made on purpose
+
+groups:
+  - id: FIELD
+    code: FIELD
+    name: Field & Charge
+    color: '#5f7fb8'
+    desc: What is overhead, read from the ground, and what the reading is entitled to say.
+    defaultLeader: vero
+    milestones: [Read the mill, Bound the charge, Set the criterion, Ready to hand over]
+  - id: BANK
+    code: BANK
+    name: Impulse Hall
+    color: '#c2703f'
+    desc: Stored charge, stored energy, and air that stops being an insulator.
+    defaultLeader: strand
+    milestones: [Charge the bank, Compute the energy, Fire the gap, Ready to hand over]
+  - id: MAST
+    code: MAST
+    name: Mast & Down-conductor
+    color: '#8a8f4a'
+    desc: Where the current goes, what it does on the way, and how it is measured.
+    defaultLeader: tate
+    milestones: [Check the path, Read the shunts, Bound the field, Ready to hand over]
+  - id: EARTH
+    code: EARTH
+    name: Earthing & Transients
+    color: '#7a6a52'
+    desc: The grid under the flat, and the difference between an ohm and a microsecond.
+    defaultLeader: sifuentes
+    milestones: [Measure the grid, Model the lead, Time the transient, Ready to hand over]
+  - id: COUPLE
+    code: COUPLE
+    name: Coupling & the Outstation
+    color: '#6f5b9a'
+    desc: How a strike reaches a cable it never touched.
+    defaultLeader: lauwers
+    milestones: [Find the loop, Compute the flux, Break the coupling, Ready to hand over]
+  - id: SHOT
+    code: SHOT
+    name: Launch & Records
+    color: '#3f8f7a'
+    desc: When to trigger, what was predicted, and what the record can carry.
+    defaultLeader: brenner
+    milestones: [Set the rule, Call the shot, Close the record, Ready to hand over]
+
+roster:
+  - id: vero
+    name: Dr. Adeyinka Vero
+    role: Station Lead
+    division: FIELD
+    bio: |
+      Runs Station 12 and has run it for nine seasons. She holds that a
+      triggered strike is the only lightning anybody gets to instrument in
+      advance, and that six weeks a year is not many.
+
+      Her argument with operations is the same one every storm. A marginal
+      field is still a field, and a season spent waiting for the textbook cell
+      is a season of nothing. She has never overruled a hold and she has argued
+      against most of them.
+
+      Her limit is that she wants the data, which is exactly the state of mind
+      a launch criterion is written to protect a station from.
+    quiz:
+      - q: Why does Vero treat a cautious season as a cost rather than as prudence?
+        a: Six weeks a year is the whole supply of triggered strikes
+        wrong:
+          - Funding bodies withdraw support from stations that fire fewer than ten rockets in a season
+          - A field mill left unused for several weeks drifts out of calibration and cannot be trusted
+          - Natural strikes cannot be instrumented at all, so a missed trigger means no data of any kind
+  - id: brenner
+    name: Hal Brenner
+    role: Operations & Safety Officer
+    division: SHOT
+    bio: |
+      Twenty years on ranges before this one, and the only person here who has
+      watched a cell change direction on a radar loop while a crew was still
+      walking in from the pad.
+
+      He is careful about how he puts it. Nobody at this station is reckless,
+      and the criterion is not there for reckless people — it is there because
+      the nowcast is a forecast, the flat is open, and the mast is sixty metres
+      of steel with nothing else near it for a kilometre.
+
+      His limit is that a hold is unfalsifiable. The strike that would have been
+      caught is never in the record, and Vero can always point at that.
+    quiz:
+      - q: Why does Brenner say a hold can never be shown to have been right?
+        a: The shot that was not fired leaves no record to argue with
+        wrong:
+          - Safety decisions are excluded from the station log by the operating agreement
+          - A cancelled launch destroys the rocket, so the evidence is gone either way
+          - Field mill readings are not archived unless a launch actually takes place
+  - id: sifuentes
+    name: Dr. Ana Sifuentes
+    role: Earthing Engineer
+    division: EARTH
+    bio: |
+      Designed the grounding grid under this flat and signed the certificate
+      that says it measures 25 ohms. Both statements are true and she is the
+      person most interested in why that was not enough.
+
+      Her method is to ask what regime a number was taken in. Soil resistance is
+      a direct-current measurement of a direct-current property, and a strike is
+      neither. She has spent two seasons trying to get a transient earth tester
+      into the budget.
+
+      Her limit is the ground itself: it is sand over clay, it changes with the
+      water table, and no model of it survives a wet fortnight unchanged.
+    quiz:
+      - q: Why is Sifuentes unsatisfied by a grounding certificate she signed herself?
+        a: The measurement was of a property the strike does not meet
+        wrong:
+          - The instrument used for the survey had not been calibrated within the previous year
+          - Twenty-five ohms is above the limit set by the standard the station works to
+          - Soil measurements are only valid for the season in which they are taken
+  - id: strand
+    name: Dr. Emil Strand
+    role: High-Voltage Engineer
+    division: BANK
+    bio: |
+      Keeps the impulse hall, which is twelve capacitor stages, a set of spark
+      gaps and a rule that nobody walks past the barrier until the earthing
+      stick is on the bank and visibly on it.
+
+      He is unromantic about the physics. A capacitor is a geometry, an energy
+      is an integral, and the reason the hall exists is that a laboratory
+      impulse can be fired at a chosen moment with a known waveform, which no
+      cloud will ever agree to.
+
+      His limit is that his impulses are clean. Real strikes have a rise time
+      that varies stroke to stroke, and the hall cannot reproduce that.
+    quiz:
+      - q: Why does Strand consider the impulse hall worth having beside a real storm?
+        a: It can be fired when you are ready, the same way every time
+        wrong:
+          - Laboratory impulses reach far higher currents than natural strikes do
+          - Work in the hall can be carried out during the months when no storms occur
+          - A capacitor bank produces a waveform closer to a real strike than a triggered one is
+  - id: lauwers
+    name: Dr. Ingrid Lauwers
+    role: EMC Engineer
+    division: COUPLE
+    bio: |
+      Studies how a strike reaches equipment it never touched, which at this
+      station means the outstation trailer two hundred metres from the mast and
+      the cable run that goes out to it.
+
+      She talks about loops rather than about wires. Any two conductors and the
+      space between them enclose an area, that area has flux through it, and a
+      current that changes in a microsecond turns that flux into volts. Nothing
+      has to be connected to anything for this to happen.
+
+      Her limit is that she can compute the coupling and not the damage. What a
+      given voltage does to a given card is a question about the card.
+    quiz:
+      - q: Why does Lauwers describe the outstation cable as a loop rather than as a wire?
+        a: Two conductors enclose an area, and area is what flux passes through
+        wrong:
+          - Cables are wound in loops during installation and are never fully straightened
+          - A loop is the only shape in which a cable can carry current in both directions
+          - The trailer and the mast are joined at both ends, which is what makes the run circular
+  - id: tate
+    name: Owen Tate
+    role: Rigger & Mast Supervisor
+    division: MAST
+    bio: |
+      Put the sixty-metre mast up and has climbed it more often than anybody
+      should. The three current shunts on the down-conductor are his fitting
+      work, and the bonding at each joint is his signature.
+
+      He is the station's memory of what is physically there. A conductor is not
+      a line on a drawing: it has joints, a route, a bend radius at the base,
+      and a clamp somebody replaced in a hurry last season that nobody has
+      written down since.
+
+      His limit is that he does not do the arithmetic and says so. He can tell
+      you the lead is about six metres long, and what six metres costs is
+      somebody else's department.
+    quiz:
+      - q: Why does Tate insist the drawings are not the down-conductor?
+        a: A drawn line has no joints, no route and no bend at the base
+        wrong:
+          - Drawings of the mast were lost when the station changed operators
+          - A conductor's resistance is impossible to calculate from a drawing at any scale
+          - The route shown on the drawing was never the one that was built
+  - id: halvorsen
+    name: Mira Halvorsen
+    role: Field Instruments Technician
+    division: FIELD
+    bio: |
+      Looks after the field mills: four of them across the flat, spinning
+      shutters that read the field overhead by chopping it, and a fifth kept
+      in the hut as a reference nobody is allowed to take outside.
+
+      She distrusts a single mill. Any one of them sees the field plus whatever
+      has blown onto it, and the way to tell a real change from a dirty rotor is
+      that the flat's four readings move together.
+
+      Her limit is speed. A mill reports the slow field; the fast part of a
+      strike is gone long before its electrometer has responded.
+    quiz:
+      - q: Why does Halvorsen refuse to call a launch on one field mill?
+        a: A single instrument cannot separate the sky from its own dirt
+        wrong:
+          - One mill provides no way of knowing which direction the storm is travelling
+          - Mills are required by the operating standard to be installed in groups of four
+          - A single reading is always lower than the true field because of ground effects
+  - id: nakata
+    name: Kenji Nakata
+    role: Current Measurement Engineer
+    division: MAST
+    bio: |
+      Owns the shunts, the dividers and the digitisers, which between them are
+      the only reason anybody knows what a strike at this station did.
+
+      His standing complaint is regime. Every instrument here has a band it is
+      honest in, and a reading taken outside that band is not noisy, it is
+      wrong: a shunt with too much inductance reports the derivative of the
+      current rather than the current, and it does so smoothly and plausibly.
+
+      His limit is that he cannot calibrate against a real strike. Everything is
+      referred to the impulse hall, and the hall does not do what the sky does.
+    quiz:
+      - q: Why does Nakata treat an out-of-band reading as worse than a noisy one?
+        a: It comes back smooth and plausible and is of the wrong quantity
+        wrong:
+          - Out-of-band readings usually saturate the digitiser and produce a flat line
+          - Noise can be averaged away, and every other kind of error can be corrected afterwards
+          - A reading outside the band is always too small, so it is easy to detect
+  - id: ruiz
+    name: Josefa Ruiz
+    role: Impulse Hall Technician
+    division: BANK
+    bio: |
+      Charges the bank, sets the gaps and puts the earthing stick on. She has
+      done it eleven hundred times and does it the same way each time, which is
+      the entire safety case of the hall.
+
+      Her contribution to the physics is a habit: she writes the stage voltage
+      and the gap spacing on the board before every shot, because the two
+      together predict whether it will fire, and a bank that fires early is a
+      bank whose gaps have drifted.
+
+      Her limit is that the hall's numbers are hers and nobody checks them. She
+      has asked for a second signature on the board for two seasons.
+    quiz:
+      - q: Why does Ruiz write the stage voltage and gap spacing up before every shot?
+        a: The pair predicts whether it fires, so a surprise means something drifted
+        wrong:
+          - The board is the only record of the shot accepted by the station log
+          - Writing them down is required before the earthing stick may be removed
+          - The two numbers must be equal for the bank to discharge correctly
+  - id: okoro
+    name: Blessing Okoro
+    role: Test Engineer
+    division: EARTH
+    bio: |
+      Runs the injection tests: a small known current pushed into the grid so
+      the response can be measured somewhere else, which is the only way to
+      learn anything about the ground without waiting for the sky.
+
+      Her point about the grid is that it is a network rather than a terminal.
+      Current entering at the mast leaves through every leg, and where it leaves
+      decides the potential of the ground somebody is standing on.
+
+      Her limit is amplitude. She injects amps and the sky delivers kiloamps,
+      so everything she measures has to be argued to be linear before it can be
+      scaled.
+    quiz:
+      - q: Why does Okoro describe the grounding grid as a network rather than an earth point?
+        a: The current divides, and where it surfaces decides the ground somebody stands on
+        wrong:
+          - The grid was installed in separate sections that were never bonded together
+          - A single earth point would exceed the resistance limit in the standard
+          - Networks are easier to model than single conductors, so it is treated as one
+  - id: abioye
+    name: Sam Abioye
+    role: Instrumentation Technician
+    division: COUPLE
+    bio: |
+      Wires the outstation and re-wires it after every season that damages it.
+      The cable run to the trailer is his, including the two hundred metres of
+      it that lie parallel to the down-conductor because that is where the
+      trench is.
+
+      He is the person who noticed that the trench route was never a decision.
+      It follows the old service road, and the old service road runs past the
+      mast, so the geometry that produces the coupling was chosen by whoever
+      graded a track thirty years ago.
+
+      His limit is that rerouting is a season's work and the season is now.
+    quiz:
+      - q: Why does Abioye say the cable route was never chosen?
+        a: It follows a service road graded decades before the mast existed
+        wrong:
+          - The route was selected because it was the shortest path to the trailer
+          - Cable trenches must follow existing tracks under the station's land agreement
+          - The original drawings for the route were lost and it was rebuilt from memory
+  - id: kaya
+    name: Dr. Yusuf Kaya
+    role: Records & Data
+    division: SHOT
+    bio: |
+      Keeps the shot record: every launch, every hold, the field at the moment
+      of the decision, and what each instrument returned. He is the reason the
+      station can say anything about last season at all.
+
+      His rule is that a record is written before the result is known. A field
+      reading logged after a successful shot is a memory of a reading, and the
+      difference matters most on exactly the shots people most want to describe
+      afterwards.
+
+      His limit is that he holds what was written. Three of last season's shots
+      have no criterion recorded at all, and no amount of care now recovers it.
+    quiz:
+      - q: Why does Kaya insist the criterion is logged before the launch rather than after it?
+        a: A number written afterwards is shaped by knowing how it turned out
+        wrong:
+          - Readings recorded after a shot cannot be time-stamped by the station system
+          - Post-shot entries are inadmissible in the funding review's evidence pack
+          - The field mill overwrites its buffer as soon as a strike is detected
+
+glossary:
+  - name: Field mill
+    aliases: [field mill, mill]
+    def: An instrument that reads the electric field overhead by spinning a shutter over a plate and measuring the charge that comes and goes.
+  - name: Triggered lightning
+    aliases: [triggered lightning, triggered strike, trigger a strike]
+    def: A strike started on purpose by flying a small rocket that trails a thin earthed wire up into a charged sky.
+  - name: Return stroke
+    aliases: [return stroke, stroke]
+    def: The bright, fast surge of current that runs back up an established channel, and the part of a strike that carries most of the charge.
+  - name: Rise time
+    aliases: [rise time, rises in]
+    def: How long a current takes to go from small to its largest value, about a microsecond in a strike.
+  - name: Peak current
+    aliases: [peak current, peak of the current]
+    def: The peak the current reaches during a strike, tens of kiloamps in a typical one.
+  - name: Gaussian surface
+    aliases: [gaussian surface, closed surface]
+    def: A closed surface drawn wherever you like, chosen so the flux out of it is easy to write down.
+  - name: Electric flux
+    aliases: [electric flux, flux out of]
+    def: The field passing through a surface, counted as field strength times the area facing it.
+  - name: Surface charge density
+    aliases: [surface charge density, charge per square metre, sigma]
+    def: How much charge sits on each square metre of a layer or a plate.
+  - name: Potential
+    aliases: [potential, potential difference, voltage]
+    def: The work per unit charge to move between two points, which is why it always belongs to a pair of them.
+  - name: Equipotential
+    aliases: [equipotential, equipotential line]
+    def: A line or surface every point of which is at the same potential, so moving along it costs no work.
+  - name: Capacitance
+    aliases: [capacitance, capacitor]
+    def: The charge a pair of conductors holds per volt between them, fixed by their shape and spacing.
+  - name: Dielectric strength
+    aliases: [dielectric strength, breakdown field]
+    def: The field a material can stand before it stops insulating, about three million volts per metre for dry air.
+  - name: Breakdown
+    aliases: [breakdown, breaks down, flashover]
+    def: What happens when a field exceeds what the material can hold: a conducting path forms and the charge crosses.
+  - name: Marx generator
+    aliases: [marx generator, marx, the bank, capacitor bank]
+    def: A stack of capacitors charged side by side at a low voltage and then switched into a chain, so their voltages add.
+  - name: Derivation
+    aliases: [derivation, derive, derived]
+    def: Getting a result out of a law you already accept, one line at a time, so each line follows from the one above it.
+  - name: Electromagnetic compatibility
+    aliases: [electromagnetic compatibility, emc]
+    def: Whether equipment can work beside other equipment without being disturbed by its neighbours' fields.
+  - name: Impulse
+    aliases: [impulse, impulse test]
+    def: A single fast pulse of voltage or current, fired deliberately to see what a piece of equipment does about it.
+  - name: Spark gap
+    aliases: [spark gap, gap, gaps]
+    def: A deliberate air space set to break down at a chosen voltage, used as a switch that needs no moving parts.
+  - name: Shunt
+    aliases: [shunt, current shunt]
+    def: A small precise resistance placed in a current path, so the voltage across it reports the current through it.
+  - name: Divider
+    aliases: [divider, voltage divider]
+    def: A pair of impedances that produce a small copy of a large voltage, so an instrument can read it safely.
+  - name: Down-conductor
+    aliases: [down-conductor, down conductor]
+    def: The conductor that carries a strike from the top of a structure to the earthing below it.
+  - name: Grounding grid
+    aliases: [grounding grid, earth grid, the grid]
+    def: A mesh of copper under the ground, which spreads current entering the earth over as much soil as possible.
+  - name: Earth resistance
+    aliases: [earth resistance, ground resistance]
+    def: How many ohms an electrode driven into the soil presents to a steady current spreading away from it.
+  - name: Impedance
+    aliases: [impedance]
+    def: What a component opposes a changing current with, which includes its resistance and everything that depends on the rate of change.
+  - name: Inductance
+    aliases: [inductance, self-inductance, inductive]
+    def: The property by which a conductor opposes a change in its own current, measured in henries and present even in a straight wire.
+  - name: Mutual inductance
+    aliases: [mutual inductance]
+    def: The measure of how much of one circuit's flux passes through another, so that a change in one puts volts across the other.
+  - name: Time constant
+    aliases: [time constant, tau]
+    def: The characteristic time a circuit needs to respond, given by resistance times capacitance or by inductance over resistance.
+  - name: Bandwidth
+    aliases: [bandwidth, in band, out of band]
+    def: The range of speeds of change an instrument reports honestly; anything faster arrives distorted rather than merely noisy.
+  - name: Screened room
+    aliases: [screened room, screened enclosure]
+    def: A room wrapped in conducting sheet so that no outside field reaches what is inside it.
+  - name: Step potential
+    aliases: [step potential]
+    def: The difference in ground potential between one foot and the other while current is spreading through the soil.
+  - name: Nowcast
+    aliases: [nowcast]
+    def: A very short forecast built from radar returns, giving where a cell is now and where it will be in the next few minutes.
+  - name: Ampèrian loop
+    aliases: [ampèrian loop, amperian loop]
+    def: A closed path drawn round a current, chosen so the field is the same everywhere along it.
+  - name: Lenz's law
+    aliases: [lenz's law, lenz]
+    def: The rule that an induced current flows in whichever direction opposes the change that caused it.
+
+missions:
+  # ---------------------------------------------------------------- day 1
+  - title: What the flat is for
+    objective: Establish what the station measures and what last season cost it.
+    briefing: Week three of six, and the first cell of the week is forecast for the afternoon.
+    stake: >-
+      Monday of week three, and there are three weeks of season left. Station 12 fires small
+      rockets trailing an earthed wire into charged sky and instruments what comes back down the
+      wire. Adeyinka Vero wants shots; Hal Brenner wants a rule written down before the sky is
+      overhead rather than during it. Last August a triggered strike killed every card in the
+      outstation trailer two hundred metres from the mast, on a site whose earthing had been
+      signed off that spring. Today you set the launch rule, read what a field mill is telling
+      you, and find out what that certificate actually measured.
+    takeaway: A criterion written while the cell is overhead is not a criterion.
+    stops:
+      - group: SHOT
+        task: Write the launch rule before the field moves
+        title: Three stages and a cell coming in
+        place: Launch Control
+        scene: Operations and Safety lead Hal Brenner has the afternoon cell on radar and the four field mills on the wall. Three actions must finish before a rocket leaves the rail, and the cell is already moving toward the flat.
+        assumes:
+          - a crew on an open flat has to be walked back before a strike is likely
+          - a forecast of where a cell will be is not a promise
+        takeaway: A threshold is only useful if the action it triggers can still be finished before the sky arrives.
+        format: TRIGGER
+        question: Set the field at which each stage of the launch is called, and hold to it as the cell comes in.
+        trigger:
+          hint: Each stage takes as long as it takes. Set the field where you want it called and the afternoon will tell you whether you left yourself the time.
+          scale:
+            label: Surface field magnitude
+            unit: kV/m
+            min: 0
+            max: 9
+            step: 0.1
+          conditions:
+            - id: clear
+              label: Clear the pad and walk the crew back to the bunker
+              leadHours: 0.5
+              owner: Brenner
+              action: nobody left on the flat
+            - id: arm
+              label: Arm the rocket and connect the trailing wire
+              leadHours: 0.25
+              owner: Tate
+              action: pad live
+            - id: fire
+              label: Launch
+              leadHours: 0.05
+              owner: Vero
+              action: rocket away
+          stream:
+            - at: 14:10
+              update: cell fourteen kilometres out and holding its track
+              value: 1.2
+              hoursLeft: 1.5
+            - at: 14:40
+              update: field rising and all four mills agreeing
+              value: 3.1
+              hoursLeft: 1
+            - at: 15:05
+              update: anvil edge overhead
+              value: 5.2
+              hoursLeft: 0.5
+            - at: 15:20
+              update: field climbing faster than the last two cells did
+              value: 6.4
+              hoursLeft: 0.2
+            - at: 15:30
+              update: first natural strike three kilometres north
+              value: 7.1
+              hoursLeft: 0.05
+          release: Hold the rule
+          commit: Commit the rule
+        answerText: Clear at about 3 kV/m, arm at about 5 kV/m, and fire at about 6.4 kV/m. Each call must leave its own lead time. A thirty-minute walkback means calling the crew in well before the field reaches the final firing condition.
+        why: A launch rule is a set of promises about time, not about field strength. The field is only the clock face. Each threshold must start an action early enough to finish before the sky becomes dangerous. Setting thresholds late is the natural error. Early calls look wasteful in hindsight, while late calls look acceptable until the one afternoon they fail. Writing the numbers first makes the decision reviewable and separates a criterion from a preference.
+      - group: FIELD
+        task: Read what the mill is actually reporting
+        title: A spinning shutter and a sign
+        place: Field Station
+        scene: Field-instruments specialist Mira Halvorsen has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.
+        assumes:
+          - a field is a vector and has a direction as well as a size
+        takeaway: A single field measurement constrains only the quantities that enter the field relation; unmeasured geometry can remain free.
+        format: CHOICE
+        question: What does the mill's reading tell you about the charge overhead?
+        why: The field under a wide charged sheet does not depend on the sheet's height. A ground reading can therefore fix charge per square metre while leaving height completely open. That is useful, not defective. One instrument near the ground can report a property of a cloud base more than a kilometre up. It still cannot give total charge without the layer's area. It also cannot give timing without the history of how the reading changed.
+        choices:
+          - Its sign, and how much per square metre
+          - How high the charge is sitting above the station
+          - The total charge held in the cell above the flat
+          - How soon the cell will produce its first strike
+        answer: Its sign, and how much per square metre
+        rebuttals:
+          - Height cancels out of the field of a wide layer, which is exactly why the mill can be at the ground.
+          - Total charge needs the area of the layer, and the mill sees only what is over it.
+          - Timing comes from how the reading is changing, and a single value carries none of that.
+      - group: EARTH
+        task: Find out what the certificate measured
+        title: Twenty-five ohms, at what
+        place: Earthing Compound
+        scene: "Earthing engineer Ana Sifuentes sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season."
+        assumes:
+          - an instrument measures under the conditions it applies, not the ones you care about
+        takeaway: A measurement carries the conditions it was made under, and a number quoted without them is a number about nothing in particular.
+        format: CHOICE
+        question: What does the 25-ohm figure describe?
+        why: An earth tester injects a small steady current and measures the voltage it produces. Its 25-ohm result is therefore a steady-current resistance. A strike is a different regime. Its current changes by tens of kiloamps in about a microsecond, so other terms can dominate the voltage. Nothing about the April certificate is wrong. The mistake would be using that steady-state number as though it were a complete description of what the grid does during lightning.
+        choices:
+          - How the grid opposes a steady current in the soil
+          - How much voltage the grid will develop when a strike arrives
+          - How much of a strike the grid will carry away from the mast
+          - How well the grid is bonded to the down-conductor at the base
+        answer: How the grid opposes a steady current in the soil
+        rebuttals:
+          - The volts under a strike need a quantity measured at the strike's own rate of change, which this is not.
+          - How the current divides between the grid and everything else is a property of the whole network.
+          - Bonding is a joint and is checked with a different instrument entirely.
+  # ---------------------------------------------------------------- day 2
+  - title: The layer overhead
+    objective: Get the charge on the cloud base out of a reading taken at the ground.
+    briefing: The mills read 4.5 kV/m under yesterday's cell, and nobody has turned that into charge.
+    stake: >-
+      Tuesday, and yesterday's cell left a number nobody has used. At the moment the crew was
+      walked back the four mills read 4.5 kV/m together, which Vero wants in the season log as a
+      charge rather than as a field. Emil Strand says the hall can produce the same field between
+      two plates a metre apart and that the arithmetic is the same either way. Today you get the
+      charge per square metre on the cloud base out of a reading taken at head height, and find
+      out what the same law says about the inside of the screened room.
+    takeaway: Gauss turns a field into a charge whenever a surface can be chosen the field is simple on.
+    stops:
+      - group: FIELD
+        task: Derive the charge per square metre from the mill reading
+        title: A pillbox through the cloud base
+        place: Field Station
+        scene: Field-instruments specialist Mira Halvorsen has 4.5 kV/m on the board. Station lead Adeyinka Vero wants coulombs per square metre. The charge sits near cloud base, spread over an area far wider than its height above the flat.
+        assumes:
+          - flux out of a closed surface counts the charge inside it
+          - a layer far wider than its distance can be treated as unbounded
+        takeaway: A wide sheet of charge produces a field that does not depend on distance, which is why a reading at the ground fixes it.
+        format: DERIVE
+        question: Turn the mill reading into the charge per square metre on the layer above it.
+        answerText: σ = 2ε₀E = 8.0 × 10⁻⁸ C/m². The pillbox puts flux through its two faces and none through the sides. Cloud-base height never enters the result.
+        why: The result is 8.0 × 10⁻⁸ C/m². Over ten square kilometres, that corresponds to about 0.8 C on the layer. The derivation matters more than the total. Choose a pillbox so E is constant on its two faces and parallel to its sides. Then E can leave the surface integral. The cloud-base height never appears. That is why a mill at the ground can recover charge per unit area on a layer more than a kilometre above it.
+        derive:
+          hint: Each line has to follow from the one above it, and each one is licensed by a rule.
+          start: ∮E·dA = Q_enc/ε₀
+          startNote: the mills read E = 4.5 × 10³ V/m, and ε₀ = 8.85 × 10⁻¹² F/m
+          goal: the charge per square metre on the layer, in coulombs per square metre
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Choose a surface the law can actually be used on.
+              answer: 0
+              candidates:
+                - text: a flat pillbox through the layer, faces parallel to it
+                  rule: symmetry argument
+                - text: a pillbox through the layer, faces perpendicular to it
+                  rule: symmetry argument
+                  survives: true
+                  why: A closed surface, and the integral over it is perfectly well defined. It is also zero for a uniform field, so the derivation runs on and concludes there is no charge anywhere — clean algebra, silent physics.
+                - text: a sphere centred on the mast tip
+                  rule: Gauss's law
+                  why: The law holds for any closed surface and is only useful where the field is constant on it. On this sphere it is not, so nothing can be taken outside the integral.
+                - text: a hemisphere resting on the ground under the mill
+                  rule: boundary condition
+                  why: That is not closed until the flat disc is added, and the disc is where the ground is, which is exactly the part being asked about.
+            - ask: Add up the flux through the surface you chose.
+              answer: 2
+              candidates:
+                - text: Φ = E(4πr²)
+                  rule: superposition
+                  why: That is the area of a sphere, and there is no sphere here. The pillbox has two flat faces and a short side wall.
+                - text: Φ = EA + E(2πrh) for the faces and the sides
+                  rule: Gauss's law
+                  why: The field runs along the side wall rather than through it, so the dot product there is zero and the sides contribute nothing however tall the box is.
+                - text: Φ = 2EA, the two faces only
+                  rule: symmetry argument
+                - text: Φ = EA, one face
+                  rule: symmetry argument
+                  survives: true
+                  why: Counting one face is arithmetically clean and gives a charge density exactly half the true one, which is well inside the range anybody would believe.
+            - ask: Set the flux equal to the enclosed charge over ε₀.
+              answer: 1
+              candidates:
+                - text: 2EA = σAε₀
+                  rule: Gauss's law
+                  why: ε₀ divides the charge, it does not multiply it. Written this way the units come out as coulombs per farad and the answer is twenty orders out.
+                - text: 2EA = σA/ε₀
+                  rule: Gauss's law
+                - text: 2EA = σ/ε₀
+                  rule: rearrangement
+                  survives: true
+                  why: Dropping the area on the right leaves an equation that still solves, and σ then depends on how big a pillbox you happened to draw — which is the tell, and it is only visible if you check the units.
+                - text: 2E = σA/ε₀
+                  rule: boundary condition
+                  why: The area belongs on both sides or neither. Here it has been cancelled from the left only.
+            - ask: Rearrange for σ and put the reading in.
+              answer: 3
+              candidates:
+                - text: σ = E/(2ε₀)
+                  rule: rearrangement
+                  why: ε₀ has moved to the wrong side. This returns 2.5 × 10¹⁴, which is a charge density no cloud has ever had.
+                - text: σ = ε₀E/2
+                  rule: rearrangement
+                  survives: true
+                  why: "A factor of four low and entirely plausible on the page: 2.0 × 10⁻⁸ rather than 8.0 × 10⁻⁸, and every later line built on it is clean."
+                - text: σ = 2E/ε₀
+                  rule: rearrangement
+                  why: Inverting ε₀ again. The units here are volt-farads per metre squared, which is not a charge density.
+                - text: σ = 2ε₀E
+                  rule: rearrangement
+          commit: Commit the derivation
+      - group: BANK
+        task: Say what the same law gives between two plates
+        title: Two plates, and a factor of two
+        place: Impulse Hall
+        scene: High-voltage engineer Strand has two plates a metre apart with equal and opposite surface charge. Beside them is the one-sheet model from yesterday. The two setups use the same σ, and he asks why the field between the plates is different.
+        assumes:
+          - fields from separate charges add as vectors
+        takeaway: Electric fields from separate sources add as vectors, so geometry decides whether their contributions reinforce or cancel.
+        format: CHOICE
+        question: Why is the field between two charged plates twice that of one charged layer?
+        why: "One charged sheet gives σ/(2ε₀) on each side. Put an oppositely charged sheet across the gap and its field points the same way between the plates. The two contributions therefore add to σ/ε₀. Outside the pair, the fields point in opposite directions and cancel. That is why an ideal capacitor keeps most of its field between the plates. Gauss's law has not changed. The factor of two comes from superposition: two sources contribute to the field in the gap."
+        choices:
+          - Both plates contribute a field in the same direction between them
+          - The law takes a different form when two conductors are involved
+          - The gap is small, so the field has less room to spread
+          - The plates carry twice as much charge in total as the single layer
+        answer: Both plates contribute a field in the same direction between them
+        rebuttals:
+          - The law is the same in both cases, and the two answers come from adding two sources rather than one.
+          - Separation does not appear in the result at all, which is what makes a plate capacitor useful.
+          - Total charge is not what the field depends on — it is the charge per unit area on each plate.
+      - group: MAST
+        task: Work out what the screened room does to a field
+        title: Inside the sheet
+        place: Screened Room
+        scene: Rigger and mast supervisor Owen Tate closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.
+        assumes:
+          - charge in a conductor is free to move
+        takeaway: Electrostatic shielding is a consequence of how conductors reach equilibrium in an applied field.
+        format: CHOICE
+        question: Why does the field inside the screened room fall to zero?
+        why: Place a conductor in an external electric field and its free charge begins to move. The redistribution continues until the induced field cancels the applied field inside the conducting material. That is the electrostatic equilibrium condition. A cavity fully enclosed by the conductor is then shielded from the outside static field. Earthing can fix the shell's potential, but it is not what creates the shielding. The shielding comes from mobile charge rearranging itself on the conductor's surfaces.
+        choices:
+          - Charge on the shell moves until it cancels the outside field
+          - The steel absorbs the field and turns it into heat in the sheet
+          - The room is earthed, and earthing removes any field present in it
+          - The sheet reflects the field back the way it came
+        answer: Charge on the shell moves until it cancels the outside field
+        rebuttals:
+          - Nothing is absorbed and the sheet does not warm; the charge simply moves and then stops.
+          - Earthing sets the potential of the shell and a shell that is not earthed shields just as well.
+          - Reflection is a wave idea and the field here is not oscillating.
+  # ---------------------------------------------------------------- day 3
+  - title: Volts are a path
+    objective: Turn a field in volts per metre into the volts between two places.
+    briefing: The season log wants the cloud-to-ground potential, and nobody has written the integral.
+    stake: >-
+      Wednesday, and the log has a column for potential difference that has been empty since the
+      station opened. Vero wants it filled from yesterday's field rather than from a textbook.
+      Ingrid Lauwers has asked a question that sounds like pedantry and is not: between which two
+      points. Today you take the field down a path and get volts out of it, and settle what a
+      number in that column would have to name before it means anything. The records officer,
+      Yusuf Kaya, has three shots
+      from last season with no criterion recorded, and this is how that happens.
+    takeaway: A potential belongs to a pair of points, and a path is how you get from the field to the volts.
+    stops:
+      - group: FIELD
+        task: Derive the cloud-to-ground potential from the field
+        title: Down the path, and the sign
+        place: Field Station
+        scene: |-
+          The field under yesterday's cell was 4.5 kV/m, near enough uniform, and the cloud base was 1.2 km up on the radar. Vero wants the potential difference between the base and the flat.
+        assumes:
+          - the field between the layer and the ground is close to uniform
+          - work per unit charge is what a volt is
+        takeaway: With a uniform field the integral is a product, and the minus sign is the physics rather than the bookkeeping.
+        format: DERIVE
+        question: Get the potential difference between the cloud base and the ground out of the field.
+        answerText: Vb − Va = −Ed = −5.4 × 10⁶ V. The negative sign says the cloud base is at lower potential than the ground for this field direction.
+        why: The result is −5.4 MV. The sign says the cloud base is at lower potential than the ground under this field direction. Potential is the line integral of the field, while the field is the spatial derivative of potential with a minus sign. Here the field is treated as uniform, so the integral becomes a product. A real cell would require the full integral. Every reported potential must also name the two points being compared.
+        derive:
+          hint: Take the integral down a path you choose, and say what licenses each line.
+          start: V_b − V_a = −∫E·dl
+          startNote: E = 4.5 × 10³ V/m, directed downward; the cloud base is 1.2 × 10³ m up
+          goal: the potential of the cloud base relative to the ground, in volts
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Choose the path to integrate along.
+              answer: 1
+              candidates:
+                - text: the shortest path only, because the integral requires it
+                  rule: boundary condition
+                  why: The integral is path-independent in an electrostatic field, so the straight line is a convenience rather than a requirement. Believing it is a requirement is what makes the next problem, with a curved route, look impossible.
+                - text: straight up from the flat to the base, along the field
+                  rule: line integral of E
+                - text: a path around the mast and up, to stay off the field lines
+                  rule: line integral of E
+                  survives: true
+                  why: Perfectly legitimate — the answer is the same by any route — and it turns a one-line product into an integral nobody can do in their head, which is how a correct choice still costs the derivation.
+                - text: along an equipotential from the flat to a point under the base
+                  rule: symmetry argument
+                  why: That leg contributes nothing at all, which is what an equipotential is. It is not wrong so much as it is not yet an answer.
+            - ask: Write the integral for a uniform field along that path.
+              answer: 2
+              candidates:
+                - text: V_b − V_a = −∫E dl = −E/d
+                  rule: rearrangement
+                  why: Dividing rather than multiplying. Volts per metre divided by metres is not volts, and the answer comes out at about four, which looks harmless.
+                - text: V_b − V_a = −E·d²/2
+                  rule: line integral of E
+                  why: That is the integral of a field growing linearly with height. This one is uniform, so nothing inside the integral depends on l.
+                - text: V_b − V_a = −E·d
+                  rule: line integral of E
+                - text: V_b − V_a = E·d
+                  rule: line integral of E
+                  survives: true
+                  why: The magnitude is right and the sign is not, and every later line stays clean. It says the cloud base is positive with respect to the flat, which for this cell is exactly backwards.
+            - ask: Put the numbers in.
+              answer: 0
+              candidates:
+                - text: V_b − V_a = −(4.5 × 10³)(1.2 × 10³)
+                  rule: rearrangement
+                - text: V_b − V_a = −(4.5 × 10³)(1.2)
+                  rule: rearrangement
+                  survives: true
+                  why: The kilometre never became metres. Five and a half kilovolts is a plausible number for something and it is not this.
+                - text: V_b − V_a = −(4.5)(1.2 × 10³)
+                  rule: rearrangement
+                  why: The kilovolts per metre never became volts per metre either, and the two errors are the same error at different ends of the product.
+                - text: V_b − V_a = −(4.5 × 10³) + (1.2 × 10³)
+                  rule: superposition
+                  why: Adding a field to a distance. Superposition adds fields to fields, and there is only one field here.
+          commit: Commit the derivation
+      - group: COUPLE
+        task: Say what an equipotential means for somebody standing on it
+        title: One foot and the other
+        place: Outstation
+        scene: EMC engineer Lauwers has the injection-test map on the trailer wall. Rings of equal potential spread from the mast base, crowded near it and widely spaced farther out. She asks where one ordinary stride crosses the largest voltage difference.
+        assumes:
+          - current spreading through soil produces a potential that falls with distance
+        takeaway: What hurts somebody standing on the ground is the difference between where their feet are, not the potential of the ground itself.
+        format: CHOICE
+        question: Where on the flat is the step potential largest during a strike?
+        why: Step potential is the voltage difference between two points a stride apart, not the absolute potential of either point. Near the injection point, the current crosses a small area of soil. The potential therefore changes rapidly with distance, and closely spaced equipotential rings mark a large field. Farther out, the same current spreads through more soil. The rings separate and one stride crosses a smaller voltage difference, even if the ground there is still far from zero.
+        choices:
+          - Close to the mast, where the rings are packed tightest together
+          - Out at the trailer, where the ground is furthest from the earth grid
+          - Anywhere the soil is driest, since dry sand carries no current
+          - Along the cable trench, which carries current away from the mast
+        answer: Close to the mast, where the rings are packed tightest together
+        rebuttals:
+          - Distance from the grid lowers the potential and flattens it, which is the opposite of the danger.
+          - Dry soil raises the resistance and therefore the potential difference; it does not stop current.
+          - The trench carries current in a conductor, which is what keeps it out of the soil there.
+      - group: SHOT
+        task: Establish what a record has to fix before the shot
+        title: The number that has to exist first
+        place: Launch Control
+        scene: Records lead Yusuf Kaya has three shots from last season with no criterion recorded. The mill logs preserve every launch field, but nobody can reconstruct what threshold the team had committed to before seeing how each afternoon ended.
+        assumes:
+          - a decision can be described after the event by the person who made it
+        takeaway: A criterion is evidence about a decision only if it exists before the outcome does.
+        format: CHOICE
+        question: Why is a criterion written afterwards worth so much less than the same words written before?
+        why: People reconstruct decisions after learning how events ended, often without realizing it. A clean shot makes its launch threshold look more reasonable. A cautious hold followed by nothing makes caution look more reasonable. Neither memory is dishonest, but neither is an unbiased test. Writing the criterion first lets every launch and hold be judged against the same rule. Only then can the season test whether the rule works, instead of quietly changing the rule to fit the outcomes.
+        choices:
+          - Knowing the outcome can shift which threshold looks defensible
+          - The logged field can reconstruct a threshold accurately after the shot
+          - A criterion chosen after several shots uses a larger evidence sample
+          - Post-season criteria are stronger because they include the rare cases
+        answer: Knowing the outcome can shift which threshold looks defensible
+        rebuttals:
+          - The log can reconstruct the field, but it cannot reconstruct an unbiased decision rule that was never committed.
+          - More examples can help design the next rule; they do not turn a post-hoc rule into a precommitted test of this season.
+          - Including rare cases is useful for the next criterion, but it does not make an after-the-fact threshold independent of the outcomes.
+  # ---------------------------------------------------------------- day 4
+  - title: Why the tall thing is struck
+    objective: Get the field at the mast tip, and say what it does to the air.
+    briefing: The mast has been drawing corona since the first cell, and nobody has computed the tip field.
+    stake: >-
+      Thursday, and Tate reports the mast hissing again — corona at the tip, audible from the base
+      in the quiet before a cell. Vero calls that the station working; Brenner calls it the mast
+      being sixty metres of steel with nothing else near it. Both are describing the same
+      arithmetic and neither has done it. Today you get the field at the tip out of the field over
+      the flat, work out what air can stand before it stops insulating, and decide whether the
+      afternoon's marginal cell is a launch. Vero has been arguing for a week that it is.
+    takeaway: A conductor takes the potential of the air it reaches into, and a small radius turns that potential into an enormous field.
+    stops:
+      - group: MAST
+        task: Derive the field at the tip of the mast
+        title: Sixty metres up, two centimetres across
+        place: Mast Base
+        scene: "The flat is at 4.5 kV/m and the mast is earthed. Its whole length therefore sits at ground potential in air that is not. Tate has the tip radius on the drawing: twenty millimetres."
+        assumes:
+          - an earthed conductor is all at one potential
+          - the potential of the undisturbed air rises with height above the ground
+        takeaway: The field at a conductor's surface is its potential difference from its surroundings divided by its radius of curvature, so sharpness costs more than height.
+        format: DERIVE
+        question: Work out the field at the mast tip, and say what the air does about it.
+        answerText: E ≈ V/r = 2.7 × 10⁵ / 0.020 = 1.4 × 10⁷ V/m. That is about five times the dry-air breakdown field, so corona at the tip is expected.
+        why: The tip field is about 1.4 × 10⁷ V/m, against roughly 3 × 10⁶ V/m for dry-air breakdown. The air at the sharp tip therefore begins to ionize. Height sets how much potential the earthed mast reaches into. Tip radius then concentrates that potential difference over a small distance. Double the mast height and the tip field doubles. Make the tip radius ten times smaller and the field rises by ten. Shape is the amplifier.
+        derive:
+          hint: Treat the tip as a small sphere at the potential of the ground, in air that is not.
+          start: V = kQ/r and E = kQ/r² for an isolated sphere
+          startNote: undisturbed potential at 60 m is E_flat × h = 4.5 × 10³ × 60 = 2.7 × 10⁵ V; tip radius 0.020 m
+          goal: the field at the tip surface, in volts per metre
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Combine the two relations to remove the charge.
+              answer: 1
+              candidates:
+                - text: E = V·r
+                  rule: rearrangement
+                  why: Multiplying rather than dividing. It gives 5.4 × 10³, which is the same order as the field over the flat and therefore looks reasonable and says nothing.
+                - text: E = V/r
+                  rule: rearrangement
+                - text: E = V/r²
+                  rule: rearrangement
+                  survives: true
+                  why: Only one factor of r cancels between the two relations. Keeping both gives a field fifty times too large, and it is fifty times an already enormous number, so nothing about the result looks wrong.
+                - text: E = kV/r
+                  rule: superposition
+                  why: The Coulomb constant cancels with the charge. Leaving it in multiplies the answer by nine billion and gives units nothing has.
+            - ask: Say which potential difference belongs in it.
+              answer: 2
+              candidates:
+                - text: the potential of the flat, which is zero
+                  rule: boundary condition
+                  why: The mast and the flat are both at earth potential, so that difference is zero and nothing happens — which is the correct answer to a different question.
+                - text: the full cloud-to-ground potential, 5.4 × 10⁶ V
+                  rule: superposition
+                  survives: true
+                  why: "Algebraically fine and twenty times too big: it puts the tip at the potential of the cloud base rather than of the air at sixty metres, and the conclusion — corona — comes out the same, which is what makes it hard to catch."
+                - text: the mast against the air at its own height, 2.7 × 10⁵ V
+                  rule: boundary condition
+                - text: the potential drop along the sixty metres of the mast itself
+                  rule: line integral of E
+                  why: A conductor has no potential drop along it in electrostatics. That is what being a conductor means, and it is why the whole mast is at ground potential.
+            - ask: Put the numbers in and compare with what air can stand.
+              answer: 3
+              candidates:
+                - text: E = 2.7 × 10⁵ / 0.020 = 1.4 × 10⁴ V/m, below breakdown
+                  rule: rearrangement
+                  why: "The division has been done as though the radius were in centimetres rather than metres, and the conclusion reverses: it says the tip is quiet, and the tip is audibly not."
+                - text: E = 2.7 × 10⁵ × 0.020 = 5.4 × 10³ V/m
+                  rule: rearrangement
+                  why: "Multiplying again, one line later. The check is the units: volts times metres is not volts per metre."
+                - text: E = 0.020 / 2.7 × 10⁵ = 7.4 × 10⁻⁸ V/m
+                  rule: rearrangement
+                  survives: true
+                  why: Inverted, and it solves cleanly to a number so small nobody reads it as wrong — they read it as scientific notation and move on.
+                - text: E = 2.7 × 10⁵ / 0.020 = 1.4 × 10⁷ V/m
+                  rule: rearrangement
+          commit: Commit the derivation
+      - group: FIELD
+        task: Say what corona at the tip does to the field above it
+        title: What the hiss costs
+        place: Field Station
+        scene: |-
+          Halvorsen has two mills to compare: the one at the mast base and the reference one four hundred metres out. Under the same cell the base mill reads consistently lower, and it has done all season.
+        assumes:
+          - air that has broken down carries charge
+        takeaway: A local electric-field sensor can be biased by nearby space charge even when the larger storm field has not changed.
+        format: CHOICE
+        question: Why does the mill at the mast base read lower than the one out on the flat?
+        why: Corona sends charge of the tip's sign into the air above the mast. That drifting space charge creates its own field. Near the ground, its contribution partly opposes the cloud field, so the base mill reads low. The effect matters because the nearest instrument is the one people are most tempted to trust. Distance from the mast gives the reference mill cleaner exposure to the ambient field. The difference is therefore a measurement effect created by the charged plume.
+        choices:
+          - Tip charge hangs above the mast and partly cancels the field
+          - The steel mast screens the mill from the field overhead
+          - The base mill is closer to the grid and therefore better earthed
+          - Corona consumes the charge in the cloud above the mast
+        answer: Tip charge hangs above the mast and partly cancels the field
+        rebuttals:
+          - A mast is a thin vertical conductor and screens nothing at ground level beside it.
+          - Earthing sets the mill's reference and does not change the field arriving at its plate.
+          - The charge overhead in a cell is far too large to be consumed by a plume at one mast.
+      - group: SHOT
+        task: Decide whether the marginal cell is a launch
+        title: The afternoon Vero is right about
+        place: Launch Control
+        scene: Brenner checks the launch board twice, then radios that the flat is clear. The incoming cell is smaller than yesterday's and the mills are climbing steadily. Vero looks from the written rule to the rail and asks for the launch call.
+        assumes:
+          - the launch rule sets thresholds for actions with lead times
+        takeaway: A precommitted operating rule should be applied consistently on marginal cases unless new evidence shows the rule itself is inadequate.
+        format: CHOICE
+        question: What makes this afternoon a launch rather than a hold?
+        why: "The rule exists so this decision is not reinvented under a storm. It was written before the season and states what must be true. Today every stage is satisfied in order, with its required lead time intact. Vero is not claiming that marginal cells are harmless. Her point is narrower: a criterion that nobody uses is not an operating rule. The shot goes. It returns the cleanest waveform of the season so far, and Brenner still has the same rule for the next cell."
+        choices:
+          - Every stage was met with its required lead time intact
+          - The field trend is smoother than yesterday and the cell is smaller
+          - The crew are clear and the radar track still looks comfortable
+          - The latest mill reading is above the value used for yesterday's shot
+        answer: Every stage was met with its required lead time intact
+        rebuttals:
+          - Cell size and smoothness are context, not substitutes for the prewritten stages and their lead times.
+          - Crew clearance and a comfortable track satisfy only part of the launch rule.
+          - Yesterday's launch value is not today's criterion; the rule is the staged threshold written before either event.
+  # ---------------------------------------------------------------- day 5
+  - title: The cloud as a capacitor
+    objective: Get a capacitance out of the geometry, and see what it is worth.
+    briefing: Strand wants the cell modelled as a plate pair before anybody talks about energy.
+    stake: >-
+      Friday, and Strand has taken over the board in the hall. The station keeps describing the
+      cell overhead as though it were a charged plate above a conducting flat, and he wants the
+      capacitance of that pair written down before Monday, because on Monday somebody will want
+      the energy and the energy needs it. Sifuentes is more interested in what the same model says
+      about the trench, where two conductors run parallel for two hundred metres. Today you derive
+      a capacitance from a geometry and find out what a dielectric does to it.
+    takeaway: Capacitance is a ratio before it is a formula, and the formula is Gauss followed by a line integral.
+    stops:
+      - group: BANK
+        task: Derive the capacitance of the cloud-ground pair
+        title: Ten square kilometres, twelve hundred metres up
+        place: Impulse Hall
+        scene: Strand puts the cell on the board as one plate. Ten square kilometres of charged base sit twelve hundred metres above a flat that conducts well enough to serve as the other plate.
+        assumes:
+          - the field between oppositely charged plates is σ over ε₀
+          - capacitance is the charge held per volt between the conductors
+        takeaway: Capacitance depends only on the shape and spacing of the conductors, which is why it can be computed before anything is charged.
+        format: DERIVE
+        question: Get the capacitance of the cloud-ground pair from its geometry.
+        answerText: "C = ε₀A/d = 7.4 × 10⁻⁸ F, about seventy-four nanofarads, out of a geometry alone: no charge and no volts appear in the answer."
+        why: "The cloud-ground pair comes out near 74 nF from geometry and ε₀ alone. That is what capacitance means: the geometry fixes the ratio of stored charge to voltage before the system is charged. The derivation starts with Gauss's law for the plate field. The path integral then gives the voltage across the separation. Only after those steps does the ratio Q/V become C. Keeping the factor of two straight between one sheet and two plates is essential. The model is a parallel plate capacitor: area of the plates over plate separation, with the cloud as a plate and the flat as the other."
+        derive:
+          hint: Field from Gauss, volts from the path, and the ratio at the end.
+          start: C = Q/V
+          startNote: A = 1.0 × 10⁷ m², d = 1.2 × 10³ m, ε₀ = 8.85 × 10⁻¹² F/m
+          goal: the capacitance of the pair, in farads
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Write the field between the plates in terms of the charge on them.
+              answer: 0
+              candidates:
+                - text: E = σ/ε₀ = Q/(ε₀A)
+                  rule: Gauss's law
+                - text: E = σ/(2ε₀) = Q/(2ε₀A)
+                  rule: Gauss's law
+                  survives: true
+                  why: That is one sheet on its own. Between a pair the two contributions add, and taking the single-sheet value halves the field, halves the volts and doubles the capacitance — all of it clean.
+                - text: E = Q/(4πε₀d²)
+                  rule: superposition
+                  why: The field of a point charge. The plates are wide compared with their spacing, which is the whole reason this model is worth writing down.
+                - text: E = Qd/(ε₀A)
+                  rule: rearrangement
+                  why: The separation has no business in the field between wide plates; it is what turns that field into volts on the next line, and only there.
+            - ask: Turn the field into the potential difference across the gap.
+              answer: 2
+              candidates:
+                - text: V = E/d
+                  rule: line integral of E
+                  why: Volts per metre divided by metres. The units say it immediately and the number it produces — about four hundred — is small enough to look ordinary.
+                - text: V = ∫E·dl with E falling off as one over r squared
+                  rule: line integral of E
+                  why: That is the point-charge integral again. Between wide plates the field does not change across the gap at all, which is what makes the integral a product.
+                - text: V = Ed = Qd/(ε₀A)
+                  rule: line integral of E
+                - text: V = Ed², integrating the uniform field twice
+                  rule: rearrangement
+                  survives: true
+                  why: A clean line with an extra metre in it. It gives a capacitance in farads per metre, which is a real unit and belongs to a different quantity.
+            - ask: Form the ratio and put the numbers in.
+              answer: 1
+              candidates:
+                - text: C = Q/V = ε₀A·d = (8.85 × 10⁻¹²)(1.0 × 10⁷)(1.2 × 10³)
+                  rule: rearrangement
+                  why: The separation has ended up multiplying. A wider gap holds more charge per volt, which is backwards, and the number is a hundred million times too big.
+                - text: C = Q/V = ε₀A/d = (8.85 × 10⁻¹²)(1.0 × 10⁷)/(1.2 × 10³)
+                  rule: rearrangement
+                - text: C = V/Q = d/(ε₀A)
+                  rule: rearrangement
+                  survives: true
+                  why: "The reciprocal, and it solves perfectly well: 1.4 × 10⁷ of something. Farads are charge per volt, and this is volts per coulomb, which is a stiffness rather than a capacitance."
+                - text: C = ε₀/(Ad)
+                  rule: rearrangement
+                  why: Both geometric quantities have gone to the bottom. Doubling the area of a capacitor does not halve what it holds.
+          commit: Commit the derivation
+      - group: EARTH
+        task: Work out what the trench pair does
+        title: Two conductors, two hundred metres
+        place: Cable Trench
+        scene: The armoured signal cable and bare copper earth conductor run side by side for two hundred metres, forty centimetres apart. Neither is connected to the other. Lauwers wants the pair treated as two conductors before anyone calls the trench electrically quiet.
+        assumes:
+          - any two conductors separated by an insulator have a capacitance between them
+        takeaway: Conductors can exchange transient electrical influence without a direct metallic connection.
+        format: CHOICE
+        question: What follows from the two trench conductors having a capacitance between them?
+        why: Capacitance carries current whenever the voltage across it changes. Faster voltage change drives more displacement current through the same capacitance. During a strike, even a small capacitance between nearby conductors can therefore become an important path. At steady voltage, that same capacitance carries no current. The trench can look perfectly quiet for hours and then matter during one microsecond. That contrast is why cable geometry matters even when the two conductors have no direct metallic connection.
+        choices:
+          - A fast change on one drives current into the other
+          - The two will slowly charge each other until they reach the same potential
+          - Current in the earth conductor is forced to return along the signal cable
+          - The pair stores enough energy to be a hazard to anybody opening the trench
+        answer: A fast change on one drives current into the other
+        rebuttals:
+          - Nothing is exchanged at a steady voltage, which is why the pair sits quietly between storms.
+          - Return current follows whatever path is available and is a question about the network rather than the capacitance.
+          - The stored energy at ordinary signal voltages is minute; the hazard is the transient it passes.
+      - group: COUPLE
+        task: Say what a dielectric does between plates
+        title: Filling the gap
+        place: Outstation
+        scene: |-
+          Lauwers has two identical cable samples on the bench. One is insulated with air and one with polyethylene, and the polyethylene one measures more than twice the capacitance per metre.
+        assumes:
+          - an insulator contains charge that can shift slightly without leaving its molecules
+        takeaway: The material between conductors changes the relationship between stored charge and voltage.
+        format: CHOICE
+        question: Why does filling the gap with polyethylene raise the capacitance?
+        why: A dielectric polarizes in an electric field. Bound positive and negative charge shift slightly in opposite directions, creating a field that opposes the applied field. For the same free charge, the net field and voltage fall. Because C = Q/V, capacitance rises by the material's dielectric factor, about 2.3 for polyethylene here. Polyethylene also has a larger dielectric strength than air. That separate property lets the cable survive a larger field before electrical breakdown begins.
+        choices:
+          - Its charge shifts against the field, so the volts fall
+          - The plastic conducts slightly, which increases the effective plate area
+          - Solid insulation lets the conductors sit closer together in the cable
+          - Polyethylene stores charge of its own in addition to the plates
+        answer: Its charge shifts against the field, so the volts fall
+        rebuttals:
+          - Conduction would discharge the pair rather than improve it; a good dielectric conducts as little as possible.
+          - Geometry is a separate effect and these two samples are built to the same dimensions.
+          - The dielectric holds no net charge; what it does is displace what it already has.
+  # ---------------------------------------------------------------- day 6
+  - title: Where the half comes from
+    objective: Derive the energy in the bank, and say what it means for the hall.
+    briefing: Twelve stages at fifty kilovolts, and the safety case rests on a number nobody re-derives.
+    stake: >-
+      Monday of week four, and Josefa Ruiz wants the hall's energy figure checked before the
+      season's biggest impulse test on Friday. Twelve stages, a hundred nanofarads each, charged
+      to fifty kilovolts: the placard on the barrier says fifteen hundred joules, and it has said
+      so since the hall was built by people who have all since left. Emil Strand's view is that a
+      number nobody has re-derived is a rumour with a unit after it, and he has been saying so
+      about this one for two seasons. Today you get the stored energy out of the work it took to
+      put the charge there, settle what the earthing stick is actually for, and decide what the
+      hall can honestly stand in for when the sky will not cooperate.
+    takeaway: The energy in a capacitor is the work done against the voltage that was already there, which is where the half comes from.
+    stops:
+      - group: BANK
+        task: Derive the energy stored in a charged capacitor
+        title: Fifteen hundred joules, or three thousand
+        place: Impulse Hall
+        scene: "Impulse-hall technician Ruiz sets one stage on the bench: 100 nF charged to 50 kV. The bank placard says 1,500 J for twelve stages, and Strand wants the number derived rather than trusted."
+        assumes:
+          - moving charge onto a capacitor takes work against the voltage already across it
+          - the voltage across a capacitor is proportional to the charge on it
+        takeaway: Charging is done against a voltage that grows as you go, so the work is an integral and not a product.
+        format: DERIVE
+        question: Work out the energy stored in one stage of the bank.
+        answerText: U = ½CV² = 125 J a stage, so 1,500 J across the twelve. The half is what the integral gives, because the first charge crosses no voltage and the last crosses all of it.
+        why: One 100 nF stage at 50 kV stores 125 J, so twelve stages store 1,500 J. The factor of one-half is not a convention. As charge is added, the capacitor voltage rises from zero to its final value. Early charge crosses little voltage; the last increment crosses almost all of it. Integrating V dq therefore uses an average voltage of one-half the final value. Dropping that factor doubles the energy and turns a derivation into a dangerous overestimate.
+        derive:
+          hint: Write the work to add one more charge, then add up all of them.
+          start: dU = V dq
+          startNote: one stage is C = 100 nF, charged to V = 5.0 × 10⁴ V
+          goal: the energy stored in one stage, in joules
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Write the voltage in terms of the charge already on the plates.
+              answer: 1
+              candidates:
+                - text: dU = V dq with V the final voltage, so U = QV
+                  rule: boundary condition
+                  survives: true
+                  why: This is the whole trap of the derivation and it produces a clean, wrong answer twice the true one. The first charge crosses no voltage at all; only the last one crosses the full fifty kilovolts.
+                - text: dU = (q/C) dq
+                  rule: rearrangement
+                - text: dU = (C/q) dq
+                  rule: rearrangement
+                  why: Inverted. It integrates to a logarithm, which is a respectable-looking result and has units of farads rather than of joules.
+                - text: dU = (Q/C) dq
+                  rule: boundary condition
+                  why: Q is the final charge and q is what is on the plates as you go. Using the final value inside the integral is the same error as the first line, written in charge rather than in volts.
+            - ask: Integrate from empty to the final charge.
+              answer: 2
+              candidates:
+                - text: U = Q²/C
+                  rule: rearrangement
+                  why: The integral of q dq is q²/2, and the two has been lost. This is exactly the factor the derivation exists to produce.
+                - text: U = ∫₀^Q (q/C) dq = Q²/(2C²)
+                  rule: rearrangement
+                  survives: true
+                  why: A second C has appeared from the integration, which it cannot. The line is algebraically consistent and the units are joules per farad.
+                - text: U = ∫₀^Q (q/C) dq = Q²/(2C)
+                  rule: rearrangement
+                - text: U = ∫₀^Q (q/C) dq = QC/2
+                  rule: rearrangement
+                  why: Multiplying by C rather than dividing. Charge times capacitance is not an energy in any system of units.
+            - ask: Write it in terms of the voltage and put the numbers in.
+              answer: 0
+              candidates:
+                - text: U = ½CV² = ½(100 × 10⁻⁹)(5.0 × 10⁴)² = 125 J
+                  rule: rearrangement
+                - text: U = ½CV = ½(100 × 10⁻⁹)(5.0 × 10⁴) = 2.5 × 10⁻³ J
+                  rule: rearrangement
+                  why: One factor of V short. Two and a half millijoules for a bank that can punch a hole through a metre of air is the kind of answer worth stopping at.
+                - text: U = ½C²V = ½(100 × 10⁻⁹)²(5.0 × 10⁴)
+                  rule: rearrangement
+                  survives: true
+                  why: The square has moved from the volts to the farads. It is a clean substitution of Q = CV into the wrong slot, and nothing later in the arithmetic complains.
+                - text: U = CV² = (100 × 10⁻⁹)(5.0 × 10⁴)² = 250 J
+                  rule: boundary condition
+                  why: The half again, dropped at the last line rather than the first. Twice the energy, and the placard on the barrier would be wrong in the dangerous direction.
+          commit: Commit the derivation
+      - group: MAST
+        task: Say what the earthing stick is for
+        title: Charge that is still there
+        place: Mast Base
+        scene: Ruiz keeps the barrier closed even after the supply is off and the meter reads zero. The earthing stick must be connected to the bank and visibly left in place before anyone enters the hall.
+        assumes:
+          - a capacitor holds its charge once the supply is removed
+        takeaway: Stored electrical energy can remain after its source is removed, so a safe state requires a controlled discharge path.
+        format: CHOICE
+        question: Why is switching the supply off not enough before entering the hall?
+        why: A capacitor can remain charged after its supply is disconnected. The dielectric blocks a steady discharge path, so stored charge can persist even when the source is off. The earthing stick gives that charge a deliberate path away from the bank. Leaving the stick visibly in place also makes the safe state observable from outside the barrier. A voltmeter reading alone is not the whole safety case. Dielectric absorption can even let some voltage recover after a brief discharge.
+        choices:
+          - Charge remains on the stages until a discharge path is provided
+          - A zero meter reading proves only the divider circuit is unloaded
+          - The supply contactor can isolate power without discharging every stage
+          - Leakage through the dielectric removes charge too slowly to define a safe time
+        answer: Charge remains on the stages until a discharge path is provided
+        rebuttals:
+          - The meter can read zero for several reasons, but the core issue is stored charge on the capacitors themselves.
+          - Isolating the supply prevents new charging; it does not provide the path that removes existing charge.
+          - Slow leakage is real, but waiting for an uncertain leakage time is not the controlled safe state the procedure requires.
+      - group: SHOT
+        task: Decide what the impulse test can and cannot stand in for
+        title: A clean pulse and a real one
+        place: Launch Control
+        scene: |-
+          Strand can fire the bank into the mast on any afternoon, with a rise time he chooses. Vero would rather wait for a cell. Kaya has to write down which of the two the season's waveform library is built from.
+        assumes:
+          - an instrument is calibrated against a signal whose shape is known
+        takeaway: "Calibration data and natural-event data answer different questions: repeatability versus real-world variation."
+        format: CHOICE
+        question: What can the hall's impulse do for the station that a triggered strike cannot?
+        why: "The impulse hall gives a signal whose timing and waveform are chosen in advance. That makes repeated calibration possible. A natural triggered stroke is different: its peak, rise time and number of strokes vary from event to event. Those variations are exactly what the station exists to measure. The hall can therefore test response and timing under repeatable conditions. It cannot replace the weather record. The library needs both kinds of shot labelled clearly so calibration data never masquerade as atmospheric data."
+        choices:
+          - Arrive at a known moment with the same shape every time
+          - Reach the peak currents that a natural return stroke reaches
+          - Reproduce the variation between one stroke and the next
+          - Test the whole current path from the tip to the soil
+        answer: Arrive at a known moment with the same shape every time
+        rebuttals:
+          - Peak current in the hall is a fraction of a natural stroke, which is one reason the hall cannot replace it.
+          - Variation is precisely what a repeatable pulse does not have.
+          - The hall's pulse enters at the base, so it never tests the tip or the channel above it.
+  # ---------------------------------------------------------------- day 7
+  - title: Three instruments that agree
+    objective: Find out whether the current measurements are independent of each other.
+    briefing: Three shunts, three readings within ten per cent, and one thing they have in common.
+    stake: >-
+      Tuesday, and Kenji Nakata has the S-114 record open because the funding review will quote
+      it. Three separate measurements of last August's strike agree within ten per cent, which the
+      station has been treating as confirmation for a year and which Vero has already put in a
+      draft. Nakata does not like how tidy it is. Ana Sifuentes has pointed out, without making
+      anything of it yet, that every digitiser on the site is referred to one rod. Today you open
+      each channel, find what its reading was measured against, and work out what the agreement
+      between them is actually worth to a reviewer who asks.
+    takeaway: Instruments that share a reference share its errors, and their agreement measures nothing.
+    stops:
+      - group: MAST
+        task: Find the reference the agreeing channels have in common
+        title: Agreement is not independence
+        place: Mast Base
+        scene: |-
+          Five records exist of strike S-114. Four of them give a peak current and the fifth gives a stroke count. Nakata has their derivations closed and wants the shared piece named before anybody quotes the average.
+        assumes:
+          - a measurement is made against something, and that something can be wrong
+        takeaway: A number quoted three times from one reference is one number, however many instruments produced it.
+        format: TRACE
+        question: Four of these five report the same peak. Open them, keep whatever still stands on its own, and name what they have in common.
+        trace:
+          hint: Open a channel to see what its reading was referred to. Tick the ones that would survive if a shared reference were removed, then name the reference.
+          channels:
+            - id: shuntTop
+              label: Upper shunt at 45 m
+              reading: 28 kA
+              depends:
+                - rod
+                - rack
+            - id: shuntMid
+              label: Middle shunt at 30 m
+              reading: 29 kA
+              depends:
+                - rod
+                - rack
+            - id: divider
+              label: Base divider
+              reading: 31 kA equivalent
+              depends:
+                - rod
+            - id: rogowski
+              label: Clamp around the lead
+              reading: 30 kA
+              depends: []
+            - id: camera
+              label: High-speed camera
+              reading: three strokes down one channel
+              depends: []
+          resources:
+            - id: rod
+              label: The single earth rod every digitiser is referred to
+            - id: rack
+              label: The instrument rack supply at the base
+          independent:
+            - rogowski
+            - camera
+          target: rod
+          commit: Name the shared reference
+        answerText: The shared source is the single earth rod. Three current channels use it, so their agreement is not independent. The clamp measures the magnetic field around the lead and keeps its evidence because it needs no earth reference.
+        why: A shunt reports voltage across a known resistance, and voltage is always a difference between two points. If several channels share the same earth rod, motion of that reference appears in all of them together. The channels can then agree without being independent. The clamp is different. It responds to the magnetic field around the conductor and never uses the earth rod. That separate dependency chain is what makes its agreement informative rather than another copy of the same reference.
+      - group: EARTH
+        task: Work out what the rod does during a strike
+        title: The rod is not a fixed point
+        place: Earthing Compound
+        scene: |-
+          Sifuentes draws the rod as a resistor rather than as a symbol. Thirty kiloamps into twenty-five ohms puts the whole compound somewhere, and every instrument in the rack calls that somewhere zero.
+        assumes:
+          - a resistance carrying current has a voltage across it
+        takeaway: An electrical reference is only a chosen zero; real resistance can make that reference move when large current flows.
+        format: CHOICE
+        question: What happens to the potential of the earth rod while the strike current is flowing?
+        why: |-
+          The earth is a conductor with resistance, so pushing current into it produces a potential difference exactly as a resistor does. Thirty kiloamps through twenty-five ohms lifts the rod by hundreds of kilovolts relative to soil far away, for as long as the current lasts. That is not necessarily damaging: if everything on the site is bonded to the same rod, everything rides up together and nothing sees a difference. The damage starts wherever two things are earthed at two places, which is what the outstation is.
+        choices:
+          - It rises with the current, and so does the rack
+          - It stays at zero, which is what makes it a reference
+          - It falls, because current is being drawn away from it
+          - It oscillates around zero at the frequency of the stroke
+        answer: It rises with the current, and so does the rack
+        rebuttals:
+          - Zero is a choice of reference and holds only while no current is flowing through it.
+          - Current is being pushed in rather than drawn away, and either direction produces a rise in magnitude.
+          - A stroke is a single unipolar pulse rather than an oscillation, so the rise does not swing about zero.
+      - group: SHOT
+        task: Match the rod-referenced peak with more than one true-current and reference-offset pair, then add the independent clamp.
+        title: One peak, one shared offset
+        place: Launch Control
+        scene: Yusuf Kaya has three rod-referenced shunt peaks at 28, 29 and 31 kA, plus a 30 kA clamp reading. The review wants one peak, but the three shunts still share the same moving earth reference.
+        assumes:
+          - an average of several readings is only better than one if they are independent
+        takeaway: A shared reference can trade off against the true signal; an independent measurement can collapse that ambiguity.
+        format: DEGENERACY
+        question: How many true peak currents fit the shunts before the independent clamp is added?
+        degeneracy:
+          hint: First fit the rod-referenced shunt mean with several combinations. Then add the clamp, which does not use the earth rod.
+          controls:
+            - id: true_peak
+              label: True peak current
+              min: 25
+              max: 35
+              step: 0.1
+              unit: kA
+              truth: 30
+            - id: rod_offset
+              label: Shared earth-reference offset
+              min: -5
+              max: 4
+              step: 0.1
+              unit: kA
+              truth: -0.7
+          firstObservable:
+            label: Rod-referenced shunt mean
+            target: 29.3
+            tolerance: 0.25
+            unit: kA
+          secondObservable:
+            label: Independent magnetic clamp
+            target: 30
+            tolerance: 0.5
+            unit: kA
+          truth:
+            a: 30
+            b: -0.7
+          tolerance:
+            a: 0.5
+            b: 0.5
+          answerTolerance: 0.5
+          locus:
+            - a: 26
+              b: 3.3
+            - a: 28
+              b: 1.3
+            - a: 30
+              b: -0.7
+            - a: 32
+              b: -2.7
+            - a: 34
+              b: -4.7
+          second:
+            label: Second measurement
+            locus:
+              - a: 30
+                b: -4
+              - a: 30
+                b: -0.7
+              - a: 30
+                b: 3
+        answerText: Before the clamp, several true-current and shared-offset pairs fit the rod-referenced readings. The independent 30 kA clamp selects a true peak near 30 kA and leaves the common reference offset as the shared nuisance term.
+        why: The three shunts do not independently determine the true current because each is measured against the same earth rod. A shift in that rod can move all three together. The shunt average therefore permits several combinations of true peak and shared reference offset. The magnetic clamp uses different physics and no earth reference. Its 30 kA reading cuts across that family of solutions. The important gain is not another decimal place. It is removing an ambiguity that three agreeing channels cannot remove by themselves.
+  # ---------------------------------------------------------------- day 8
+  - title: What thirty kiloamps does at two metres
+    objective: Get the field around the down-conductor, and say what has to live in it.
+    briefing: The instrument cabinet sits two metres from the down-conductor and has done for nine years.
+    stake: >-
+      Wednesday, and Tate has been asked to move the instrument cabinet and wants a reason he can
+      put in a job sheet. It has stood two metres from the down-conductor since the mast went up.
+      Nakata's clamp says thirty kiloamps went past it in August and nobody has ever written down
+      what that means at the cabinet door. Today you get the magnetic field around a conductor out
+      of Ampère's law, work out what force that puts on the bonding straps, and settle what the
+      hall can and cannot test about it.
+    takeaway: A current does not stay in its conductor as far as anything nearby is concerned.
+    stops:
+      - group: MAST
+        task: Derive the field around the down-conductor
+        title: Once round the conductor
+        place: Mast Base
+        scene: |-
+          Thirty kiloamps down a single vertical conductor, and a steel cabinet two metres from it. Tate wants the field at the cabinet in a unit he can compare with something.
+        assumes:
+          - the circulation of the magnetic field around a closed path counts the current through it
+          - the field of a long straight conductor circles it
+        takeaway: Choosing a path the field is constant along is what turns Ampère's law from a statement into a number.
+        format: DERIVE
+        question: Get the magnetic field two metres from the down-conductor while the strike is at its peak.
+        answerText: B = μ₀I/2πr = 3.0 × 10⁻³ T, three millitesla at the cabinet door — about sixty times the Earth's field, for a hundred microseconds.
+        why: At two metres, a 30 kA current produces about 3.0 mT. Ampère's law works cleanly because a circular path around the conductor has B parallel to the path and nearly constant in size. That symmetry lets B leave the integral. The result falls as 1/r, not 1/r², because the source is treated as a long line current. The magnetic field also stores energy while the current flows, which is why inductance later matters to fast strike transients.
+        derive:
+          hint: Choose the path first, and say what licenses taking B outside the integral.
+          start: ∮B·dl = μ₀I_enc
+          startNote: I = 3.0 × 10⁴ A at the peak, r = 2.0 m, μ₀ = 4π × 10⁻⁷ T·m/A
+          goal: the magnetic field at the cabinet, in tesla
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Choose the path to go round.
+              answer: 2
+              candidates:
+                - text: a square loop of side 2 m centred on the conductor
+                  rule: symmetry argument
+                  survives: true
+                  why: The law holds for it and the enclosed current is the same, so the equation is true — and B is not constant along a square, so it cannot come out of the integral and the line leads nowhere.
+                - text: a straight path from the conductor out to the cabinet
+                  rule: line integral of E
+                  why: Ampère's law is about a closed path. An open one encloses no area and there is no current through it to count.
+                - text: a circle of radius 2 m centred on the conductor
+                  rule: symmetry argument
+                - text: a closed surface around the base of the mast
+                  rule: Gauss's law
+                  why: That is the other law. A surface counts flux out of it; this one needs a path with a current threading it.
+            - ask: Write the circulation along that path.
+              answer: 0
+              candidates:
+                - text: ∮B·dl = B(2πr)
+                  rule: symmetry argument
+                - text: ∮B·dl = B(πr²)
+                  rule: rearrangement
+                  survives: true
+                  why: An area where a length belongs. It solves cleanly and gives a field in tesla per metre, and at r = 2 the two numbers are close enough that the answer looks ordinary.
+                - text: ∮B·dl = B(2πr)cos θ, carrying the angle
+                  rule: symmetry argument
+                  why: The angle between B and dl is genuinely in the definition, and on this path it is zero everywhere. Carrying it is correct and unfinished.
+                - text: ∮B·dl = B(4πr²)
+                  rule: Gauss's law
+                  why: The area of a sphere, borrowed from the electrostatic problem. Nothing here is a sphere and nothing here is a surface.
+            - ask: Set it equal to the enclosed current and solve.
+              answer: 1
+              candidates:
+                - text: B = μ₀I(2πr)
+                  rule: rearrangement
+                  why: The path length has moved to the top. It gives a field that grows with distance, which would make the far side of the compound the dangerous place.
+                - text: B = μ₀I/(2πr)
+                  rule: rearrangement
+                - text: B = I/(2πrμ₀)
+                  rule: rearrangement
+                  survives: true
+                  why: μ₀ inverted. The line is consistent and the answer is 1.9 × 10⁹, which reads as a large number in a domain where large numbers are normal.
+                - text: B = μ₀I/(4πr²)
+                  rule: superposition
+                  why: That is the Biot–Savart contribution of a single current element, not the total for a long conductor. Integrating along the whole wire is what removes the square.
+          commit: Commit the derivation
+      - group: BANK
+        task: Estimate the charge the stroke moved
+        title: How much charge came down
+        place: Impulse Hall
+        scene: Strand wants the August stroke written in coulombs as well as kiloamps. The clamp recorded a 30 kA peak and the current stayed near that scale for about 100 microseconds. The hall comparison is waiting on the number.
+        assumes:
+          - charge is current multiplied by the time it flows for
+        takeaway: Peak current, delivered charge and rise time describe different parts of a pulse, so matching one does not match the whole event.
+        format: BALLPARK
+        question: Estimate the charge delivered by the August return stroke.
+        why: The stroke moves about 3 C in roughly 100 microseconds. That is much more charge than the impulse hall bank can deliver, even when the hall reproduces a similar front rate. Peak current, total charge and rise time describe different parts of the event. The microsecond front controls induced voltage through dI/dt. The longer current duration controls how much charge moves. A useful calibration must therefore say which property it reproduces rather than calling the entire laboratory pulse equivalent to lightning.
+        estimate:
+          prompt: The clamp puts the August stroke at 30 kA peak, and the current stayed within a factor of two of that for about 100 microseconds.
+          question: Choose the current and the time it flowed for.
+          labels:
+            - 30000  (A, peak current from the clamp)
+            - 100e-6  (s, the duration of the stroke)
+            - 1e-6  (s, the rise time of the front)
+            - 25  (Ω, the measured earth resistance)
+            - 1500  (J, the energy in the hall's bank)
+          values: [30000, 0.0001, 0.000001, 25, 1500]
+          slots: 2
+          template: "{0} × {1}"
+          formula: a*b
+          correct: [0, 1]
+          target: 3
+          tolerance: 0.9
+          units: coulombs
+          relationship: Charge Q = I × t, the current multiplied by the time for which it flows.
+          solution: 30,000 × 100 × 10⁻⁶ = 3 C.
+          explanation: About three coulombs. The rise time is a much shorter interval and belongs to a different question — it is what decides induced voltages rather than delivered charge, and using it here gives three hundredths of a coulomb, which is a hundred times light.
+          givens:
+            - Peak current 30 kA
+            - Flowing for about 100 microseconds
+      - group: COUPLE
+        task: Say what the field at the cabinet does to what is inside it
+        title: The cabinet is a loop
+        place: Outstation
+        scene: |-
+          Lauwers is unbothered by three millitesla as a number and very bothered by how fast it arrives. Inside the cabinet there are half a dozen circuits, each of them a loop of some area.
+        assumes:
+          - a changing magnetic field through a loop drives a voltage around it
+        takeaway: A changing electromagnetic field can drive voltage in a nearby circuit without any direct electrical contact.
+        format: CHOICE
+        question: Why does the rise time matter more than the peak field for the cabinet's circuits?
+        why: |-
+          A loop responds to how fast the flux through it changes. Three millitesla arriving over a second would do nothing at all. The same three millitesla arriving in a microsecond puts volts around every loop in the cabinet, in proportion to its area. That is why one installation survives a switching surge and dies in a strike. It is also why the useful fixes are geometric — smaller loops, tighter twists, cables run together rather than apart — rather than a matter of insulation. Two more consequences sit in the same field. There is energy in it, half L I squared, stored in the inductance of the path while the current flows, which is where a good part of the joules in a strike are during it. And the force on a current in a field, F = IℓB, is what makes two conductors carrying a stroke repel each other hard enough that a bus bar has to be braced.
+        choices:
+          - The induced voltage follows how fast the flux changes
+          - A faster pulse contains more energy than a slow one of the same peak
+          - Steel enclosures screen slow fields better than fast ones
+          - The peak field is only reached after the circuits have already failed
+        answer: The induced voltage follows how fast the flux changes
+        rebuttals:
+          - Energy depends on the current and the time, and a fast pulse of the same peak carries less rather than more.
+          - Conducting enclosures shield fast changes better than slow ones, which is the opposite way round.
+          - The front is where the rate is highest, so the induced volts peak early rather than late.
+  # ---------------------------------------------------------------- day 9
+  - title: Nothing was connected to anything
+    objective: Work out how a strike reached a cable it never touched.
+    briefing: The outstation cards died in August, and the trailer is bonded to nothing that was struck.
+    stake: >-
+      Thursday, and this is the question the station has been arguing about for a year. In August
+      every card in the outstation trailer died. The trailer is two hundred metres from the mast,
+      it is earthed to its own rod, and no conductor runs between it and anything the strike
+      touched. Sifuentes has been defending the earthing for twelve months and Lauwers has been
+      saying the earthing was never the route. Today you compute the flux through the cable loop
+      that runs beside the down-conductor, and find out what a microsecond does to it.
+    takeaway: A circuit that touches nothing can still be driven, because flux does not need a connection.
+    stops:
+      - group: COUPLE
+        task: Derive the voltage induced in the trench cable
+        title: The loop nobody drew
+        place: Cable Trench
+        scene: Instrumentation specialist Sam Abioye has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.
+        assumes:
+          - the field around a long conductor falls off as one over the distance
+          - a changing flux through a loop drives an EMF around it
+        takeaway: The field across the loop is not uniform, so the flux is an integral, and it comes out as a logarithm of the two distances.
+        format: DERIVE
+        question: Work out the voltage driven around the trench loop by the August stroke.
+        answerText: About 200 kV. The loop geometry gives M ≈ 6.8 µH. With dI/dt = 3 × 10¹⁰ A/s, the induced EMF is about 2.0 × 10⁵ V.
+        why: The trench loop sees about 200 kV even though the strike never touches it. Integrating the magnetic field across the loop gives a mutual inductance of 6.8 µH. Multiplying that by the strike's dI/dt produces the induced EMF. The logarithm comes from the field being stronger on the near side than the far side. Lauwers circles the answer on the board. The failed path was geometric coupling through a loop, not current arriving through the cable insulation or trailer earth.
+        derive:
+          hint: Build the flux out of strips, integrate across the loop, then differentiate in time.
+          start: B(r) = μ₀I/(2πr)
+          startNote: ℓ = 40 m parallel, a = 1.5 m, b = 3.5 m, dI/dt = 3.0 × 10¹⁰ A/s at the front
+          goal: the EMF driven around the trench loop, in volts
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Write the flux through a strip of the loop at distance r.
+              answer: 3
+              candidates:
+                - text: dΦ = B·ℓ·dr with B taken at the middle of the loop
+                  rule: boundary condition
+                  survives: true
+                  why: Using the mid-distance value turns the integral into a product and loses the logarithm. It is about eight per cent low here and it is the version most people write, because it is right whenever the field is uniform and this field is not.
+                - text: dΦ = B·dr, without the length
+                  rule: rearrangement
+                  why: A strip has two dimensions. Dropping the forty metres leaves webers per metre, and the answer is forty times small.
+                - text: dΦ = B·ℓ·r·dr
+                  rule: rearrangement
+                  why: An extra factor of r, borrowed from a polar area element. The strip here is a rectangle and its area is ℓ dr.
+                - text: dΦ = B(r)·ℓ·dr
+                  rule: superposition
+            - ask: Integrate across the loop, from the near conductor to the far one.
+              answer: 1
+              candidates:
+                - text: Φ = (μ₀Iℓ/2π)(b − a)
+                  rule: rearrangement
+                  survives: true
+                  why: The integral of dr rather than of dr/r. Clean, and it says a loop twice as far away links the same flux for the same width, which is not how a field that falls off works.
+                - text: Φ = (μ₀Iℓ/2π)·ln(b/a)
+                  rule: line integral of E
+                - text: Φ = (μ₀Iℓ/2π)·ln(b − a)
+                  rule: rearrangement
+                  why: "A logarithm of a length, which has no meaning: the argument of a log has to be a ratio. It is also negative for gaps under a metre."
+                - text: Φ = (μ₀Iℓ/2π)(1/a − 1/b)
+                  rule: rearrangement
+                  why: That is the integral of dr/r², which belongs to a point source. Here the field goes as one over r and integrates to a logarithm.
+            - ask: Differentiate to get the EMF.
+              answer: 0
+              candidates:
+                - text: ε = (μ₀ℓ/2π)·ln(b/a)·dI/dt
+                  rule: rearrangement
+                - text: ε = (μ₀Iℓ/2π)·ln(b/a)·dI/dt
+                  rule: rearrangement
+                  survives: true
+                  why: The current has been kept as well as its derivative. The line is tidy and the answer is thirty thousand times too large, which in a domain of large numbers is not obviously absurd.
+                - text: ε = (μ₀ℓ/2π)·ln(b/a)·I
+                  rule: boundary condition
+                  why: Faraday's law is about the rate of change. Using the current itself makes the steady state as dangerous as the front, which the site's nine quiet years disprove.
+                - text: ε = (μ₀ℓ/2π)·d[ln(b/a)]/dt
+                  rule: line integral of E
+                  why: The geometry is not moving. Nothing in the logarithm depends on time, so this differentiates to zero and predicts that nothing ever happens.
+            - ask: Put the numbers in.
+              answer: 2
+              candidates:
+                - text: ε = (2 × 10⁻⁷)(40)(0.85)(3.0 × 10¹⁰)/40
+                  rule: rearrangement
+                  why: The length has been divided out again at the end, which undoes the strip. Five kilovolts is survivable and the trailer did not survive.
+                - text: ε = (2 × 10⁻⁷)(0.85)(3.0 × 10¹⁰)
+                  rule: rearrangement
+                  survives: true
+                  why: The forty metres was dropped between lines. Five kilovolts again, by a different route, and it is the number somebody quotes when the cable run is described as short.
+                - text: ε = (2 × 10⁻⁷)(40)(0.85)(3.0 × 10¹⁰)
+                  rule: rearrangement
+                - text: ε = (2 × 10⁻⁷)(40)(0.85)(3.0 × 10⁴)
+                  rule: rearrangement
+                  why: The peak current has been used where its rate of change belongs. It gives two tenths of a volt and would close the investigation with the wrong answer.
+          commit: Commit the derivation
+      - group: MAST
+        task: Which explanation fits all four observations?
+        title: What survived in August
+        place: Screened Room
+        scene: Four devices were on the outstation loop in August. EMC engineer Lauwers has each device's operating state and post-strike condition on separate cards. She wants one explanation that fits all four without changing the facts between cards.
+        assumes:
+          - a loop's induced voltage grows with the area it encloses
+        takeaway: A good failure explanation must fit both the damaged equipment and the nearby equipment that survived.
+        format: DIAGNOSIS
+        why: The cable insulation still holds its test voltage, so a breakdown through the insulation does not fit. The battery logger three metres away is also unharmed despite sharing the storm environment. What differs is enclosed loop area. The long trench pair encloses substantial changing magnetic flux; the small battery logger does not. The trailer earth also measures the same before and after. Together, those observations point to inductive coupling through the trench geometry rather than damage delivered through the soil or failed insulation.
+        headline: Every card on the long trench pair died, and a logger three metres away on its own battery did not.
+        readings:
+          - zone: Trench pair
+            label: Cards at the trailer end
+            value: all six destroyed
+            status: alarm
+          - zone: Trench pair
+            label: Insulation of the cable itself
+            value: intact, tested to 5 kV
+            status: normal
+            note: nothing arced through it
+          - zone: Battery logger
+            label: Standalone unit 3 m away
+            value: unharmed and still logging
+            status: normal
+          - zone: Earthing
+            label: Trailer rod and bonding
+            value: measured before and after, unchanged
+            status: normal
+        choices:
+          - label: The strike reached the trailer through the earth
+            mechanism: Current flowed from the mast grid to the trailer rod through the soil.
+          - label: Flux through the trench loop drove the pair
+            mechanism: A changing field induced volts around a large loop; a small isolated loop enclosed almost none.
+          - label: The cable insulation failed
+            mechanism: The conductor broke down to earth somewhere along the run.
+          - label: The trailer earthing was inadequate
+            mechanism: A higher-resistance rod let the trailer rise relative to the site.
+        answer: Flux through the trench loop drove the pair
+        rebuttals:
+          - Soil conduction would have taken the logger too, and it would have left the rod measurements changed.
+          - The insulation held at five kilovolts afterwards, so nothing crossed it.
+          - Rod quality decides how far the trailer rises with the site, and a rise that everything shares breaks nothing.
+      - group: SHOT
+        task: Say what this changes about the season's plan
+        title: What the finding costs the plan
+        place: Launch Control
+        scene: "Hal Brenner points at the trench drawing. If the coupling is geometric, every remaining shot is also a test of that geometry. Adeyinka Vero asks the harder question: does knowing the mechanism argue for firing more, or stopping sooner?"
+        assumes:
+          - a mechanism that is understood can be measured deliberately
+        takeaway: Once a mechanism makes numerical predictions, the next event can test the mechanism rather than merely repeat the observation.
+        format: CHOICE
+        question: What does the coupling finding change about the remaining shots?
+        why: "Before today, the outstation damage was an event the station could only survive. Now the mechanism has a formula and a numerical prediction. The next stroke can therefore be predicted before it is measured. If the result holds, the geometry becomes a design rule rather than a post-mortem explanation. Rerouting now would remove the very configuration needed to test that prediction. That is the real argument between Vero and Brenner: whether one more dangerous-looking configuration is also one more decisive measurement."
+        choices:
+          - Each one can now test a prediction computed in advance
+          - Nothing, since the mechanism was already suspected by two people
+          - They should stop until the cable has been rerouted away from the mast
+          - They become more dangerous, because the trench is now known to carry surges
+        answer: Each one can now test a prediction computed in advance
+        rebuttals:
+          - Suspecting a mechanism and being able to compute it are different states, and only the second one predicts.
+          - Rerouting is a season's work, and stopping now leaves the rule unverified.
+          - The trench is no more dangerous today than it was in August; what changed is that somebody can say what it does.
+  # ---------------------------------------------------------------- day 10
+  - title: Nine volts and a hundred and eighty thousand
+    objective: Work out what the bonding lead does, and what the certificate never covered.
+    briefing: Six metres of copper between the mast base and the equipment earth, and nobody has costed it.
+    stake: >-
+      Friday, and Sifuentes has brought the April certificate back to the table. Yesterday's
+      finding explains the trailer and not the rack at the mast base, which also lost two channels
+      in August and is bonded to the grid by six metres of heavy copper. Strand says six metres of
+      copper is nine hundredths of an ohm and can be ignored. Sifuentes says that is the right
+      number for the wrong quantity. Today you work out what a rising current does along a
+      straight piece of wire, and settle what the earthing certificate was ever able to say.
+    takeaway: A perfect earth at the end of six metres of wire is not an earth at a microsecond.
+    stops:
+      - group: EARTH
+        task: Derive the voltage along the bonding lead
+        title: The same wire, twice
+        place: Earthing Compound
+        scene: Six metres of 70 mm² copper run from the rack earth bar to the grid. Its measured resistance is 0.3 mΩ. Sifuentes places the April certificate beside the drawing while the strike's 1 µs rise time goes on the board.
+        assumes:
+          - a straight conductor has an inductance of roughly a microhenry per metre
+          - a changing current through an inductance produces a voltage across it
+        takeaway: The same wire can be resistance-dominated at steady current and inductance-dominated during a fast transient.
+        format: DERIVE
+        question: Work out what the bonding lead does during the front of the strike, and compare it with what it does at direct current.
+        answerText: 9 V resistive and 180 kV inductive, in the same six metres of copper. V = L·dI/dt with L ≈ 6 µH and dI/dt = 3 × 10¹⁰ A/s, against IR = 30 kA × 0.3 mΩ.
+        why: "The same six-metre lead gives only 9 V from IR at 30 kA, yet about 180 kV from L·dI/dt on the one-microsecond front. The wire did not change. The rate of current change did. Sifuentes looks back at the April certificate and says the important sentence herself: the 25-ohm result is correct. It measured the steady regime. A steady test makes the inductive term vanish, so the certificate could never contain the quantity that dominated the strike."
+        derive:
+          hint: Do the resistive line first so there is something to compare with.
+          start: V = IR for the steady case, V = L·dI/dt for the changing one
+          startNote: R = 3.0 × 10⁻⁴ Ω, L ≈ 1 µH/m over 6 m, I = 3.0 × 10⁴ A, dI/dt = 3.0 × 10¹⁰ A/s
+          goal: the two voltages across the same lead, in volts
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Write the resistive drop at the peak of the current.
+              answer: 1
+              candidates:
+                - text: V = I/R = 3.0 × 10⁴ / 3.0 × 10⁻⁴
+                  rule: rearrangement
+                  why: Dividing by the resistance instead of multiplying. A hundred megavolts across a piece of copper, which is the sort of answer that ends an investigation early.
+                - text: V = IR = (3.0 × 10⁴)(3.0 × 10⁻⁴)
+                  rule: rearrangement
+                - text: V = IR with R the earth resistance, 25 Ω
+                  rule: boundary condition
+                  survives: true
+                  why: A real voltage — 750 kV, the rise of the whole grid — and not the one asked for. It is the difference between how far the site rises together and what appears across one lead inside it.
+                - text: V = I²R
+                  rule: rearrangement
+                  why: That is a power rather than a voltage, and it puts watts where volts belong.
+            - ask: Write the inductance of the lead.
+              answer: 0
+              candidates:
+                - text: L ≈ (1 µH/m)(6 m) = 6 µH
+                  rule: rearrangement
+                - text: L ≈ 1 µH, because it is one conductor
+                  rule: boundary condition
+                  survives: true
+                  why: Inductance is a property of the path rather than of the object, and it grows with length. Taking one microhenry gives thirty kilovolts, which is still enormous and still six times light.
+                - text: L = 0, because a straight wire is not a coil
+                  rule: symmetry argument
+                  why: A straight wire links flux around itself and has an inductance of about a microhenry per metre. This is the assumption the whole day exists to break.
+                - text: L ≈ (1 µH/m)/(6 m)
+                  rule: rearrangement
+                  why: Dividing by the length. It says a longer bond is a better one, which would make the fix the opposite of the fix.
+            - ask: Write the inductive voltage on the front of the stroke.
+              answer: 2
+              candidates:
+                - text: V = L·I = (6 × 10⁻⁶)(3.0 × 10⁴)
+                  rule: boundary condition
+                  why: The current rather than its rate of change. It gives a fifth of a volt and would exonerate the lead completely.
+                - text: V = I·dL/dt
+                  rule: rearrangement
+                  why: The inductance is not changing — nobody is moving the wire. This differentiates the wrong factor and gives zero.
+                - text: V = L·dI/dt = (6 × 10⁻⁶)(3.0 × 10¹⁰)
+                  rule: rearrangement
+                - text: V = L·dI/dt with dI/dt = 3.0 × 10⁴ A/s
+                  rule: rearrangement
+                  survives: true
+                  why: The peak current has been written in as though it were the slope. The line is correct in form and the answer, a fifth of a volt, is the same wrong conclusion as the first branch by a tidier route.
+            - ask: Say which of the two the April certificate measured.
+              answer: 1
+              candidates:
+                - text: both, since resistance and inductance are measured together
+                  rule: boundary condition
+                  why: An earth tester injects a steady current, and a steady current has no rate of change for an inductance to respond to. It cannot see the second term at all.
+                - text: the resistive one, because the tester injects a steady current
+                  rule: boundary condition
+                - text: the inductive one, because the tester uses an alternating source
+                  rule: rearrangement
+                  survives: true
+                  why: Testers do use a low-frequency alternating source, which makes this sound right. At a hundred hertz the inductive part of six microhenries is four milliohms — real, and ten million times smaller than what a microsecond front produces.
+                - text: neither, because it measured the soil rather than the lead
+                  rule: symmetry argument
+                  why: The measurement includes everything in the loop it injects around, lead included. What it cannot include is a rate of change it never applies.
+          commit: Commit the derivation
+      - group: FIELD
+        task: Say what follows for how the site should be bonded
+        title: Short, or not at all
+        place: Field Station
+        scene: Vero stands at the rack with the six-metre bond marked on the drawing. The rack, mills and trailer each have their own connection sketches. She wants one site rule the crew can apply before the next installation is built.
+        assumes:
+          - inductance grows with the length of the conductor
+        takeaway: Fast-transient bonding depends on geometry and shared reference paths, not only on low DC resistance.
+        format: CHOICE
+        question: What does the inductive term imply for how equipment should be bonded?
+        why: "Inductance depends strongly on conductor length and on the loop made by its return path. Increasing cross-section changes resistance much more than it changes inductance. For a fast transient, shortening the bond is therefore more effective than simply making it thicker. Bringing equipment to one reference point also avoids large differences between separate earths. The practical rule is geometric: keep bonds short and keep the return path controlled. That directly attacks the voltage term that dominates during the strike front."
+        choices:
+          - Keep bonds short, and bring everything to one point
+          - Use heavier conductor, since a larger cross-section lowers the inductance
+          - Earth each item separately, so no bond carries another item's current
+          - Insulate the equipment instead, so no bonding is needed at all
+        answer: Keep bonds short, and bring everything to one point
+        rebuttals:
+          - Cross-section is what sets resistance, and it barely touches the inductance that dominates here.
+          - Separate earths create exactly the difference in potential that the equipment then bridges.
+          - Insulation has to withstand the induced volts, which are the problem rather than the connection.
+      - group: BANK
+        task: Work out how to test the finding in the hall
+        title: Making a microsecond on purpose
+        place: Impulse Hall
+        scene: Strand can fire the bank into the mast base with a front chosen from 100 microseconds down to about half a microsecond. Ruiz has one afternoon of hall time and asks which setting would actually test the claim.
+        assumes:
+          - a laboratory impulse can be given a chosen rise time
+        takeaway: A causal test changes the variable that separates competing models while holding confounding variables fixed.
+        format: CHOICE
+        question: What should the hall vary to test the inductive-voltage finding?
+        why: To test V = L·dI/dt, change the rise time while holding the peak current fixed. Halving the front doubles dI/dt, so the inductive voltage should double. The resistive term depends on current itself and should stay nearly unchanged. Raising the peak instead moves both terms together and cannot separate them. The hall is valuable here because the front can be chosen rather than awaited. A controlled change turns the proposed mechanism into a prediction that can fail.
+        choices:
+          - The rise time, at constant peak current
+          - The peak current, at constant rise time
+          - The charge delivered, by adding stages
+          - The earth resistance, by wetting the grid
+        answer: The rise time, at constant peak current
+        rebuttals:
+          - Raising the peak moves the resistive and inductive terms together and distinguishes neither.
+          - Charge is a third quantity again, and it says nothing about the front.
+          - Wetting the grid changes the soil, which is the part of the argument nobody disputes.
+  # ---------------------------------------------------------------- day 11
+  - title: Where the current goes
+    objective: Follow the strike down the mast and find where it stops matching.
+    briefing: Nothing goes wrong today. Three things get confirmed and one of them is a surprise.
+    stake: >-
+      Monday of week five, and it is the quietest day the season has had. No cell is forecast
+      before Wednesday, the hall is down for a gap service, and Nakata has last week's stroke
+      recorded at every shunt on the mast for the first time. Tate has been asked to check the
+      bonding at each joint while the weather allows a climb. Today you read the current at each
+      station down the conductor, find where the record stops adding up, and put a number on how
+      much charge the cell over the flat was holding.
+    takeaway: A current that is not where it was a moment ago has gone somewhere, and the place it left is a fact about the site.
+    stops:
+      - group: MAST
+        task: Find the station where the current stops matching
+        title: Down the conductor, one station at a time
+        place: Mast Base
+        scene: Current-measurement lead Nakata has seven measuring points from mast tip to soil. He has deliberately not read them in order. The top channel says about 30 kA, and he wants the break located before anyone explains it.
+        assumes:
+          - current entering a conductor leaves it somewhere
+          - two conductors bonded together share whatever current is offered to them
+        takeaway: Current is conserved, so a shortfall between two stations is not an error but a route.
+        format: PROBE
+        question: Thirty kiloamps entered at the tip. Take the readings you think you need — where does the current stop being where it should be?
+        answerText: The break is between the 15 m shunt and the base. The reading falls from 29 kA to 18 kA there. About 12 kA therefore leaves the down-conductor in that last section, where the conduit is bonded.
+        why: The upper shunts stay near 30 kA, including 29 kA at fifteen metres. The base then falls to 18 kA. That locates the missing current before any mechanism is chosen. About 12 kA leaves the down-conductor in the last fifteen metres. The conduit bond lies inside that interval. Nakata stops at the drawing because the implication is large. A path treated as instrumentation hardware has been carrying roughly a third of the strike current without appearing on the original current map.
+        probe:
+          chainLabel: Station
+          hint: Each station reports what it measured on the last stroke and what the station above it implies. Read as few or as many as you like.
+          stations:
+            - id: S45
+              label: Shunt at 45 m
+              reading: 29.6 kA
+              expected: 30 kA entered at the tip
+              load: within tolerance
+            - id: S30
+              label: Shunt at 30 m
+              reading: 29.4 kA
+              expected: 29.6 kA from the station above
+              load: within tolerance
+            - id: S15
+              label: Shunt at 15 m
+              reading: 29.1 kA
+              expected: 29.4 kA from the station above
+              load: within tolerance
+            - id: BASE
+              label: Clamp at the base
+              reading: 18.2 kA
+              expected: 29.1 kA from the station above
+              load: eleven kiloamps unaccounted
+            - id: LEGA
+              label: Grid leg A
+              reading: 9.4 kA
+              expected: half of whatever reaches the grid
+              load: consistent with the base reading
+            - id: LEGB
+              label: Grid leg B
+              reading: 8.6 kA
+              expected: half of whatever reaches the grid
+              load: consistent with the base reading
+            - id: ROD
+              label: Trailer rod, 200 m out
+              reading: 0.2 kA
+              expected: nothing, if the trailer is not in the path
+              load: small and not zero
+          target: BASE
+          minReadings: 3
+      - group: FIELD
+        task: Put a number on the charge the cell was holding
+        title: Eight tenths of a coulomb
+        place: Field Station
+        scene: |-
+          Halvorsen has the layer's charge density from day two and the cell's area off the radar. Vero wants the total in the season log, next to the strokes it produced.
+        assumes:
+          - charge per unit area multiplied by area is charge
+        takeaway: A charge density is a local quantity and a total needs an area, which is the thing a single instrument can never supply.
+        format: BALLPARK
+        question: Estimate the charge held on the base of the cell overhead.
+        why: The estimate gives about 0.8 C on the charged cloud base, while the August stroke moved about 3 C. That is not a contradiction. A thundercloud is not a capacitor that discharges once and stops. Charge separation continues while the storm evolves, so the source can be replenished between strokes. The estimate is still useful because it connects a local field measurement with a total over the radar area. It also shows why one static cloud snapshot cannot be treated as the full charge budget of a flash.
+        estimate:
+          prompt: The layer carries 8.0 × 10⁻⁸ C/m² from the mill reading, and the radar puts the charged base at about 1.0 × 10⁷ m².
+          question: Choose the charge per square metre and the area it covers.
+          labels:
+            - 8.0e-8  (C/m², charge per square metre on the layer)
+            - 1.0e7  (m², area of the charged base)
+            - 1.2e3  (m, height of the base above the flat)
+            - 4.5e3  (V/m, the field at the ground)
+            - 3.0  (C, the charge in the August stroke)
+          values: [8e-8, 10000000, 1200, 4500, 3]
+          slots: 2
+          template: "{0} × {1}"
+          formula: a*b
+          correct: [0, 1]
+          target: 0.8
+          tolerance: 0.25
+          units: coulombs
+          relationship: Total charge Q = σ × A, the charge per unit area multiplied by the area it covers.
+          solution: 8.0 × 10⁻⁸ × 1.0 × 10⁷ = 0.8 C.
+          explanation: About eight tenths of a coulomb. The height is the quantity that famously does not appear — it cancelled out of the field of a wide layer on day two and it has no business here either — and the field itself is what σ was computed from rather than a second factor to multiply by.
+          givens:
+            - Charge density 8.0 × 10⁻⁸ C/m²
+            - A charged base of about 1.0 × 10⁷ m²
+      - group: EARTH
+        task: Spend the two field-check credits on evidence that can decide why the remote trailer rod carried 200 A.
+        title: "Two hundred amps: buy the discriminating check"
+        place: Earthing Compound
+        scene: The trailer rod carried 200 A during a stroke that never touched it. Ana Sifuentes has the network map open beside the log. Four follow-up checks are possible before the next cell, but field access allows only two credits.
+        assumes:
+          - soil conducts, and current spreads through whatever is available
+        takeaway: When several mechanisms fit one reading, the best follow-up is the measurement whose possible outcomes separate them.
+        format: VALUE
+        question: Which evidence is worth buying to decide whether the remote current is ordinary soil conduction or a different path?
+        value:
+          decision: Decide which physical path best explains the 200 A measured at the remote trailer rod.
+          budget:
+            amount: 2
+            unit: field-check credits
+            label: Field access before the next cell
+          hint: Open each check and ask what result would distinguish a distributed ground path from a different connection. Precision is not the same as discrimination.
+          options:
+            - id: soil_map
+              label: Map ground potential from the mast grid toward the trailer rod
+              cost: 2
+              axis: distributed soil conduction
+              decisive: true
+              reveals: Whether a continuous potential gradient through the soil can drive current at the remote rod.
+            - id: continuity
+              label: Trace metallic continuity between the mast system and trailer
+              cost: 1
+              axis: hidden metallic bond
+              decisive: false
+              reveals: Whether an undocumented conductor exists, but a negative result still leaves soil and induced paths unresolved.
+            - id: strike_marks
+              label: Inspect the trailer rod and bracket for branch-strike evidence
+              cost: 1
+              axis: direct attachment
+              decisive: false
+              reveals: Whether the rod was directly attached by a branch, without testing the ordinary soil-current hypothesis.
+            - id: pair_monitor
+              label: Repeat the trench-pair differential-voltage measurement
+              cost: 2
+              axis: inductive cable coupling
+              decisive: false
+              reveals: Whether the cable loop is driven again, but not whether that loop is the source of the 200 A through the rod.
+        answerText: Buy the soil-potential map. A continuous gradient from the station toward the trailer can support ordinary soil conduction as the 200 A path. The other checks can rule out side possibilities, but none tests the distributed ground path as directly.
+        why: "A small current at a remote rod does not identify its own path. An undocumented metal bond, a branch strike or a driven cable can all sound plausible from one number. A soil-potential map asks a different question: does the ground itself carry a continuous voltage gradient from the station toward the rod? If it does, distributed soil conduction explains the current without inventing a hidden connection. Repeating a nearby electrical check may add confidence, but it does not distinguish the competing routes as directly."
+  # ---------------------------------------------------------------- day 12
+  - title: Predict it, then measure it
+    objective: Commit to a number before the stroke, and find out what a forecast is worth.
+    briefing: A cell for the afternoon, and a prediction that has to be written before it arrives.
+    stake: >-
+      Tuesday, and there is a cell forecast for two o'clock. Vero wants the season's first
+      prediction on the board before it: peak current, written down, from the field and the charge
+      the station has now measured. Brenner has the nowcast open and is unhappy with how fast the
+      cell is tracking. Today you commit to a number, fire, and measure — and the afternoon ends
+      with the crew coming in late off the flat and a trailer nobody can use, which is the
+      argument Brenner has been making since week one.
+    takeaway: A prediction that is never measured against anything is an opinion with a unit after it.
+    stops:
+      - group: SHOT
+        task: Predict the peak, fire, and measure it
+        title: The number on the board
+        place: Launch Control
+        scene: |-
+          The board has a space for a predicted peak current and Vero wants it filled before the rocket leaves the rail. The clamp will give the answer forty minutes later, if anybody goes out and reads it.
+        assumes:
+          - a prediction is only a prediction if it is recorded before the outcome
+          - reading an instrument after the event is a decision with a cost
+        takeaway: Predicting and measuring are two separate acts, and skipping the second one is its own kind of failure.
+        format: VERIFY
+        question: Commit to a peak current for this stroke, fire the shot, and then decide whether to go out and read it.
+        verify:
+          hint: The rocket will fly whatever you predict. The measurement costs half an hour of a day that has a cell in it.
+          prediction:
+            label: Peak current of this stroke
+            unit: kA
+            min: 5
+            max: 60
+            step: 1
+          truth: 41
+          passRatio: [0.6, 1.6]
+          intervention:
+            label: Fire the rocket at 6.1 kV/m
+            note: the wire goes up, the channel forms and the stroke comes down it
+            outcome: a single return stroke down one channel, recorded on every station
+          measurement:
+            label: Walk out and read the clamp
+            note: forty minutes of an afternoon with a second cell behind this one
+            cost: 0.7
+            costUnit: h
+          unmeasuredMoral: A predicted peak with no measurement beside it is the station's opinion of itself, and the season log has three of those in it already.
+        answerText: The measured peak is 41 kA. Predictions from roughly 25 to 65 kA would pass this authored comparison. The essential step is reading the clamp afterwards; an unchecked prediction cannot test the model.
+        why: Prediction and measurement are separate acts, and only the pair tests the model. A number written before the shot can be wrong. A number never checked cannot be. The accepted range is deliberately broad because the field reading predicts only the scale of the peak, not an exact current. Going to the clamp afterwards is therefore part of the experiment, not paperwork. The station learns only when the committed prediction is compared with a measurement that had a real chance to disagree.
+      - group: COUPLE
+        task: Read what the second cell did to the timing
+        title: The afternoon Brenner is right about
+        place: Outstation
+        scene: At 2:00 the second cell is thirty kilometres out. By 2:20 it is eleven kilometres away. The crew door closes at 2:25. At 2:30 the first natural strike flashes and the outstation telemetry disappears from the wall.
+        assumes:
+          - a nowcast projects a cell forward from where the radar last saw it
+        takeaway: A lead-time rule must survive real variation in the process it is trying to outrun.
+        format: CHOICE
+        question: What failed this afternoon?
+        why: The crew followed the rule and still lost the margin. The second cell covered nineteen kilometres in twenty minutes, faster than the projection had allowed. Everyone was inside before the first natural strike, but only by five minutes. That is Brenner's argument becoming an observation. The problem is not that Vero ignored the rule or that the crew moved slowly. The lead-time model itself failed on this cell. Day four showed the same rule working; today shows the case it did not cover.
+        choices:
+          - The lead time, which the second cell used up faster than projected
+          - The launch rule, because its thresholds were set at the wrong field values
+          - The radar, which lost the second cell behind the first
+          - The crew, who were slower coming in than the rule allows for
+        answer: The lead time, which the second cell used up faster than projected
+        rebuttals:
+          - The thresholds were met in order and with their stated lead times in hand.
+          - Both cells were tracked throughout; the second one was seen and its speed was projected from its history.
+          - The crew were inside the time the rule allows, which is what makes this a lead-time failure rather than a discipline one.
+      - group: BANK
+        task: Move the remaining usable-sky assumption to its pessimistic end, then choose the plan that still preserves safe field science.
+        title: What survives a shorter season
+        place: Impulse Hall
+        scene: A strike has taken the outstation trailer out for the season. Nobody was inside. The mast, shunts and grid still work, while the impulse hall remains available. Vero and Brenner need a plan before the next storm window opens.
+        assumes:
+          - a station has a fixed amount of time and more than one way to spend it
+        takeaway: A robust plan is one that still meets its essential constraints when the scarce resource arrives at the pessimistic end.
+        format: STRESS
+        question: Which remaining-season plan still works if the station gets far fewer usable storm days than the calendar suggests?
+        stress:
+          hint: Move usable storm days down to five. A plan must preserve safe field measurements and fit inside the remaining sky. The plan with the highest nominal return is not automatically robust.
+          assumption:
+            id: usable_days
+            label: Usable storm days remaining
+            min: 5
+            max: 15
+            step: 1
+            nominal: 15
+            unit: days
+          criteria:
+            - id: field_evidence
+              label: Retains natural-strike measurements
+              operator: ">="
+              target: 1
+              key: field_evidence
+            - id: revised_safety
+              label: Uses a tightened call-in rule after the lead-time failure
+              operator: ">="
+              target: 1
+              key: revised_safety
+            - id: science_return
+              label: Science return at nominal sky
+              direction: higher_is_better
+              key: science_return
+          candidates:
+            - id: rebuild
+              label: Rebuild the trailer first
+            - id: mixed
+              label: Keep field shots; move coupling to hall; tighten call-in
+            - id: hall_only
+              label: Stop field triggering and use the hall only
+            - id: unchanged
+              label: Continue the original field plan unchanged
+          robust: mixed
+          optimiseOn: science_return
+          feasible:
+            rebuild: 12
+            mixed: 5
+            hall_only: 16
+            unchanged: 16
+          scores:
+            rebuild:
+              field_evidence: 1
+              revised_safety: 1
+              science_return: 100
+            mixed:
+              field_evidence: 1
+              revised_safety: 1
+              science_return: 85
+            hall_only:
+              field_evidence: 0
+              revised_safety: 1
+              science_return: 60
+            unchanged:
+              field_evidence: 1
+              revised_safety: 0
+              science_return: 95
+        answerText: Keep the field programme, move coupling work into the hall, and tighten the call-in rule. In the authored stress table, that mixed plan is the only candidate that remains feasible at five usable storm days.
+        why: Rebuilding the trailer can recover the original measurement set, but it spends storm days the station is trying to use. Hall-only work is safe but gives up the remaining natural-strike record. Continuing unchanged ignores the lead-time failure that just occurred. The mixed plan keeps the mast programme, moves coupling tests into the hall and tightens the field call-in rule. It is not the richest plan under a generous season. It is the only one that still produces safe field evidence when usable sky becomes scarce.
+  # ---------------------------------------------------------------- day 13
+  - title: What the mill cannot see
+    objective: Solve the electrometer's circuit, and find out what its time constant costs.
+    briefing: The mills report the slow field, and nobody has written down how slow.
+    stake: >-
+      Wednesday, and the record of Tuesday's stroke has a hole in the middle of it. The clamp
+      caught the current and the shunts caught the current, and all four field mills recorded a
+      smooth dip that only begins after the stroke was over. Mira Halvorsen has been saying for
+      two seasons that the mills are slow and has never been asked how slow. Kaya needs a caption
+      for the plot before the pack closes. Today you solve the electrometer's own circuit, get its
+      time constant out of the solution rather than off a data sheet, and settle what the mill
+      record is evidence about and what it is silent on.
+    takeaway: An instrument's time constant decides what it is evidence about, and no amount of care with a slow instrument makes it a fast one.
+    stops:
+      - group: EARTH
+        task: Derive the discharge of the electrometer and its time constant
+        title: The circuit that decides what is recordable
+        place: Field Station
+        scene: The field mill's input is 10 MΩ across about 100 pF. Halvorsen puts the two numbers beside a one-microsecond stroke front. The question is whether the instrument can follow that event or only what remains after it.
+        assumes:
+          - the loop rule holds around any closed circuit
+          - the current out of a capacitor is the rate at which its charge falls
+        takeaway: The exponential is not assumed; it is what comes out of the loop rule when the current is the derivative of the charge.
+        format: DERIVE
+        question: Solve the electrometer's discharge, and get the time it needs to respond.
+        answerText: q(t) = Q·e^(−t/RC) with RC = 1.0 × 10⁻³ s. A millisecond, against a stroke front of one microsecond — the mill responds a thousand times too slowly to see it.
+        why: The input time constant is RC = 10 MΩ × 100 pF = 1 ms. A stroke front lasts about 1 µs, so the instrument responds a thousand times too slowly to follow it. The mill is not broken and the data are not noise. The circuit averages changes that are much faster than its response. That makes the post-stroke field shift useful evidence about cloud charge, while the microsecond front is effectively absent. Bandwidth decides what an instrument can honestly claim.
+        derive:
+          hint: Loop rule first, then separate the variables and integrate.
+          start: q/C + IR = 0 around the loop
+          startNote: R = 1.0 × 10⁷ Ω, C = 1.0 × 10⁻¹⁰ F, and the current out of the capacitor is I = −dq/dt
+          goal: the charge as a function of time, and the time constant
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - separation of variables
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Put the current in terms of the charge.
+              answer: 2
+              candidates:
+                - text: q/C + R(dq/dt) = 0
+                  rule: rearrangement
+                  survives: true
+                  why: The sign of the current has been dropped. It integrates just as cleanly to a growing exponential, which says the electrometer charges itself up out of nothing and never comes back.
+                - text: q/C + R(d²q/dt²) = 0
+                  rule: rearrangement
+                  why: A second derivative belongs to a circuit with an inductance in it. There is none here, and this predicts an oscillation nobody has ever seen on this bench.
+                - text: q/C − R(dq/dt) = 0
+                  rule: rearrangement
+                - text: q/C + IR = 0 with I taken as constant
+                  rule: boundary condition
+                  why: A constant current empties the capacitor in a straight line and stops. That is a different circuit — a current source rather than a resistor.
+            - ask: Separate the variables.
+              answer: 0
+              candidates:
+                - text: dq/q = dt/(RC)
+                  rule: separation of variables
+                - text: dq/q = RC dt
+                  rule: separation of variables
+                  survives: true
+                  why: RC has moved to the top. It integrates perfectly well and gives a time constant of one over RC — a million per second rather than a millisecond, which happens to be the answer everybody wants and is dimensionally impossible.
+                - text: q dq = dt/(RC)
+                  rule: rearrangement
+                  why: The q has moved to the wrong side. This integrates to a square root in time, which is the solution to a different equation entirely.
+                - text: dq = q·dt
+                  rule: rearrangement
+                  why: The resistance and the capacitance have both disappeared, which would make every circuit respond at the same speed.
+            - ask: Integrate both sides and apply the starting charge.
+              answer: 1
+              candidates:
+                - text: ln q = t/(RC) + k, so q = Q·e^(t/RC)
+                  rule: boundary condition
+                  survives: true
+                  why: Same sign slip as the first branch, arriving one line later. It fits the starting charge exactly and then grows without limit.
+                - text: ln q = −t/(RC) + k, so q = Q·e^(−t/RC)
+                  rule: separation of variables
+                - text: q = Q − t/(RC)
+                  rule: rearrangement
+                  why: That is what you get by integrating the right-hand side and forgetting the left one. A capacitor discharging linearly would reach negative charge and stop being a capacitor.
+                - text: q = Q·e^(−RC·t)
+                  rule: rearrangement
+                  why: RC is a time and it belongs under t, not multiplying it. As written the exponent has units of seconds squared.
+            - ask: Put the numbers in and compare with the stroke.
+              answer: 3
+              candidates:
+                - text: RC = 10⁷ × 10⁻¹⁰ = 10⁻³ s, about the length of the stroke
+                  rule: rearrangement
+                  why: The arithmetic is right and the comparison is not. The stroke front is a microsecond and the whole stroke about a hundred, both far shorter than this.
+                - text: RC = 10⁷/10⁻¹⁰ = 10¹⁷ s
+                  rule: rearrangement
+                  why: Dividing rather than multiplying gives three billion years, which is a long time to wait for a field reading.
+                - text: RC = 10⁻⁷ × 10¹⁰ = 10³ s
+                  rule: rearrangement
+                  survives: true
+                  why: Both exponents inverted, and the product is a clean seventeen minutes. It is wrong by a factor of a million and it reads like a sensible instrument specification.
+                - text: RC = 10⁷ × 10⁻¹⁰ = 10⁻³ s, a thousand times the stroke front
+                  rule: rearrangement
+          commit: Commit the derivation
+      - group: FIELD
+        task: Say what the mill record is evidence of
+        title: The dip after the stroke
+        place: Field Station
+        scene: |-
+          All four mills show the same thing: no feature at all during the stroke, then a smooth recovery over the following few seconds. Kaya has to write a caption for the plot in the season report.
+        assumes:
+          - an instrument reports an average over its own response time
+        takeaway: A slow instrument is evidence about slow things, and its silence during a fast event is not a measurement of the event.
+        format: CHOICE
+        question: What is the mill record of Tuesday's stroke evidence about?
+        why: The field step before and after the stroke persists much longer than the mill's millisecond response. That makes it a real measurement of the source changing. The microsecond front is different. The circuit averages it away before the recorder can follow it, and later processing cannot reconstruct information the instrument never resolved. Calling the mill useless would also be wrong. It measures the slower electric-field change well. The record needs a caption that states which time scale the instrument actually observed.
+        choices:
+          - How much charge the cell lost in the seconds after
+          - The peak current, which the mill smoothed out but still contains
+          - The rise time, which set the depth of the recorded dip
+          - Nothing at all, since the instrument was too slow to be used
+        answer: How much charge the cell lost in the seconds after
+        rebuttals:
+          - Smoothing at a thousand to one does not leave the peak recoverable; the information is gone rather than hidden.
+          - The depth of the dip is set by the charge transferred, and the front is far too short to influence it.
+          - The before-and-after step is a real measurement, so dismissing the record entirely throws away the charge.
+      - group: MAST
+        task: Choose the right instrument for the front
+        title: What to put on a microsecond
+        place: Screened Room
+        scene: |-
+          Nakata has four instruments in the cabinet and a request from the review for the rise time of the next stroke. Each one has a response time written on its case.
+        assumes:
+          - an instrument reports honestly only within its own band
+        takeaway: Choosing an instrument is choosing a band, and a measurement outside it is wrong rather than merely imprecise.
+        format: CHOICE
+        question: Which instrument can report the rise time of a stroke front?
+        why: A one-microsecond front requires an instrument whose own response is much faster than one microsecond. The clamp meets that condition by roughly a factor of fifty. The other listed instruments do not. Averaging more samples cannot rescue a slow response because the front was never resolved in the first place. Increasing the electrometer's input resistance also makes its RC time constant longer. The correct instrument is therefore the one with genuine bandwidth, not the one whose slow signal can be averaged most neatly.
+        choices:
+          - The clamp, whose response is tens of nanoseconds
+          - The field mill, after averaging more one-millisecond samples
+          - The earth tester, using its one-hundred-hertz measurement cycle
+          - The electrometer, after increasing its input resistance
+        answer: The clamp, whose response is tens of nanoseconds
+        rebuttals:
+          - More samples can reduce noise but cannot restore a one-microsecond feature that each sample already averages away.
+          - A hundred-hertz instrument is slower still and is designed for a different regime.
+          - Increasing input resistance lengthens RC, so the electrometer becomes slower rather than faster.
+  # ---------------------------------------------------------------- day 14
+  - title: The last thing that can be changed
+    objective: Set the bank for the season's final test, and say what it will show.
+    briefing: After today the hall is committed and the sky is whatever it is.
+    stake: >-
+      Thursday, and this is the last day anything can be altered. The final impulse test runs
+      tomorrow at whatever setting is agreed this afternoon, one gap service is left, and the
+      review pack closes on whatever it returns. Emil Strand wants twelve stages at fifty
+      kilovolts, which is what the hall has fired eleven hundred times. Ingrid Lauwers wants the
+      front shortened at the same peak instead, which tests Tuesday's coupling number rather than
+      confirming the placard. Today you work out what twelve stages in series actually produce,
+      choose what the last shot is for, and fix what the report will recommend to a station
+      nobody here has visited.
+    takeaway: A test that repeats what is already known spends the same time as one that could come out either way.
+    stops:
+      - group: BANK
+        task: Derive the output of the twelve-stage bank
+        title: In parallel to charge, in series to fire
+        place: Impulse Hall
+        scene: |-
+          Twelve stages, each a hundred nanofarads, all charged side by side to fifty kilovolts. When the gaps break down they are in a chain instead. Ruiz wants the output written before the setting is agreed.
+        assumes:
+          - capacitors in series carry the same charge and their voltages add
+          - the reciprocals of series capacitances add
+        takeaway: Switching from parallel to series multiplies the voltage by the number of stages and divides the capacitance by it, and the energy does neither.
+        format: DERIVE
+        question: Work out what the bank delivers when the gaps fire, and check it against the energy.
+        answerText: 600 kV from a series capacitance of 8.3 nF, holding the same 1,500 J the twelve stages held separately. Twelve times the voltage, a twelfth of the capacitance, and the energy unchanged.
+        why: When the twelve stages fire in series, the bank produces about 600 kV and an effective capacitance near 8.3 nF. Those values still store the same 1,500 J present before firing. The switching network does not create energy. It trades capacitance for voltage by the stage count. That is the key check on the derivation. A Marx generator can therefore reach hundreds of kilovolts even though no individual charging supply ever exceeds 50 kV.
+        derive:
+          hint: Series capacitance first, then the voltage, then check the energy against day six.
+          start: n = 12 stages, each C = 100 nF charged to V₀ = 50 kV
+          startNote: in parallel while charging, in series once the gaps break down
+          goal: the output voltage, the series capacitance and the stored energy
+          askRule: true
+          rules:
+            - Gauss's law
+            - symmetry argument
+            - superposition
+            - line integral of E
+            - rearrangement
+            - boundary condition
+          steps:
+            - ask: Write the capacitance of the twelve in series.
+              answer: 1
+              candidates:
+                - text: C_s = nC = 1200 nF
+                  rule: rearrangement
+                  survives: true
+                  why: That is the parallel result, which is correct for the charging arrangement and wrong for the firing one. It is the commonest single error on this circuit, and everything after it stays arithmetically clean.
+                - text: C_s = C/n = 8.3 nF
+                  rule: rearrangement
+                - text: C_s = C = 100 nF, since the same charge passes through all of them
+                  rule: boundary condition
+                  why: The charge is indeed common to all of them, and that is the reason the voltages add and the capacitance falls. Equal charge is the premise rather than the conclusion.
+                - text: C_s = n/C
+                  rule: rearrangement
+                  why: Reciprocals add, and then the reciprocal of the sum is taken. Stopping halfway leaves per-farad units.
+            - ask: Write the voltage across the chain.
+              answer: 3
+              candidates:
+                - text: V = V₀ = 50 kV, since they are all the same
+                  rule: boundary condition
+                  why: In parallel that is right. In series the potential differences add along the chain, which is the entire purpose of the arrangement.
+                - text: V = V₀/n = 4.2 kV
+                  rule: rearrangement
+                  why: Dividing rather than multiplying. A generator that lowers the voltage would be a strange thing to build a hall around.
+                - text: V = √(n)·V₀ = 173 kV
+                  rule: superposition
+                  survives: true
+                  why: "Root-n is what independent random contributions give. These are not independent and not random: they are twelve equal steps in series, and they add linearly."
+                - text: V = nV₀ = 600 kV
+                  rule: rearrangement
+            - ask: Check the energy against what the twelve stages held.
+              answer: 0
+              candidates:
+                - text: U = ½C_sV² = ½(8.3 × 10⁻⁹)(6.0 × 10⁵)² = 1.5 × 10³ J
+                  rule: rearrangement
+                - text: U = ½C_sV² with C_s = 1200 nF, giving 2.2 × 10⁵ J
+                  rule: rearrangement
+                  survives: true
+                  why: The parallel capacitance carried down from the first branch. It says the act of switching created a hundred and forty times the energy, which nothing in the hall did.
+                - text: U = n·½C_sV² = 1.8 × 10⁴ J
+                  rule: superposition
+                  why: The n is already inside the series capacitance and the voltage. Multiplying by it again counts the stages twice.
+                - text: U = ½C_sV₀² = 10 J
+                  rule: boundary condition
+                  why: The stage voltage with the series capacitance, which are quantities from two different arrangements of the same hardware.
+          commit: Commit the derivation
+      - group: SHOT
+        task: Decide what the final shot is for
+        title: Repeat the placard, or test the number
+        place: Launch Control
+        scene: |-
+          One shot left in the hall and two proposals for it. Strand's runs the standard setting and confirms the bank. Lauwers's halves the front at the same peak and predicts a specific voltage on the bench loop.
+        assumes:
+          - a test is worth what it could change
+        takeaway: The most informative test is the one whose possible outcomes can falsify an important model.
+        format: CHOICE
+        question: Which shot should the hall fire tomorrow?
+        why: The standard shot has already been repeated many times, so another one mainly confirms the apparatus. The shortened front puts the coupling model at risk. Hold the peak current fixed and halve the rise time; the model predicts roughly twice the induced voltage on the bench loop. If that doubling does not appear, the explanation for the outstation failure is incomplete. Only one serviced shot remains. Using it on the prediction produces new evidence; using it on the standard setting mostly repeats reassurance.
+        choices:
+          - The shortened front, which the coupling number predicts
+          - The standard setting, because the bank must be confirmed before the review
+          - Whichever produces the higher peak voltage on the bench loop
+          - Both, by firing the standard setting and then the shortened one
+        answer: The shortened front, which the coupling number predicts
+        rebuttals:
+          - The bank was confirmed six days ago and nothing has been changed since.
+          - Peak voltage is the outcome being predicted rather than a criterion for choosing the test.
+          - There is one gap service left, so the second shot would be fired on gaps nobody has reset.
+      - group: COUPLE
+        task: Fix what the report will say about mitigation
+        title: What to tell the next station
+        place: Outstation
+        scene: |-
+          Lauwers has to write a paragraph the review will read as a recommendation. Three mitigations are on the table and only one of them is supported by this season's measurements.
+        assumes:
+          - a recommendation is only as good as the measurement behind it
+        takeaway: A recommendation should target a variable that the season's evidence shows actually controls the measured mechanism.
+        format: CHOICE
+        question: What should the report recommend for a site like this one?
+        why: The measured coupling depends on the length of the parallel run and the logarithm of its near and far distances from the conductor. Routing signal pairs away from that geometry therefore follows directly from the season's evidence. Better earthing may be useful, but it addresses a different path. Surge protection is sensible practice, yet this campaign did not measure how much it buys. Moving the trailer alone also misses the mechanism. The trailer was distant; forty metres of its cable was not.
+        choices:
+          - Route signal pairs away from the down-conductor
+          - Improve the earthing until the grid measures below ten ohms
+          - Fit surge protection at both ends of every cable run
+          - Move the outstation further from the mast
+        answer: Route signal pairs away from the down-conductor
+        rebuttals:
+          - Ten ohms would lower how far the whole site rises, which is not what damaged anything.
+          - Protection at both ends is sound practice and this season produced no measurement of its effect.
+          - The trailer was already two hundred metres out; what mattered was the parallel run rather than the separation.
+  # ---------------------------------------------------------------- day 15
+  - title: What the season can say
+    objective: Set next season's rule, and sort what was measured from what was inferred.
+    briefing: The review pack closes tonight, and every sentence in it has to be answerable.
+    stake: >-
+      Friday, and the pack goes tonight. Adeyinka Vero wants the second mast; Hal Brenner wants a
+      lead time that reflects how fast cells have actually crossed this flat rather than how fast
+      the handbook says they do; Ana Sifuentes wants the April certificate reissued with the
+      quantity it measured written on its face. All three of those go in or none of them does,
+      and the review reads the pack before it reads anybody. Today you set the criterion the
+      station will work to next season, sort the season's claims by what stands behind each one,
+      and name the thing this whole campaign has not shown. Nothing can be added after tonight.
+    takeaway: A season is worth what its record can defend, which is always less than what the room believes.
+    stops:
+      - group: SHOT
+        task: Set the criterion the station will work to
+        title: Earlier, or more certain
+        place: Launch Control
+        scene: |-
+          Twenty-two minutes is the lead time the station actually achieved this season, against the thirty the rule assumes. Four changes are available and each of them costs something the station has little of.
+        assumes:
+          - a rule has to work across every administration of it, not on a good afternoon
+          - lead time varies from cell to cell as well as having an average
+        takeaway: A rule fails on its spread as often as on its average, and only some changes touch the spread.
+        format: CLOUD
+        question: Bring next season's lead time inside what the rule needs, and say when it is defensible.
+        cloud:
+          hint: The band is the lead time the rule needs. The cloud is what this station actually achieved across the season, not what it achieved on its best day.
+          bounds:
+            min: 30
+            max: 90
+            unit: min
+            label: Lead time achieved before the first strike
+          centre: 22
+          spread: 26
+          pass: 0.85
+          seed: 41
+          costUnit: k
+          actions:
+            - id: earlier
+              label: Call the clear one mill-step earlier
+              effect: shift
+              amount: 20
+              cost: 2
+            - id: walk
+              label: Move the crew shelter to the pad end of the flat
+              effect: shift
+              amount: 14
+              cost: 9
+            - id: radar
+              label: Buy the second radar feed and its nowcast
+              effect: narrow
+              amount: 0.5
+              cost: 14
+            - id: script
+              label: Write and drill the call-out sequence
+              effect: narrow
+              amount: 0.65
+              cost: 3
+          commit: Adopt it for next season
+        answerText: Moving the average earlier is not enough. Calling earlier and shortening the walk shift the center, but the low tail still misses the rule. The radar feed and drilled call-out sequence narrow the spread, which is what finally clears the pass mark.
+        why: Calling earlier shifts the center of the lead-time distribution but does not make one afternoon resemble another. Shortening the walk does the same. The rule must survive the low end of the distribution, not only its average. A second radar feed reduces uncertainty in cell motion. A drilled call-out sequence reduces variation between shifts. Those changes narrow the spread itself. The final criterion is defensible only when both the center and the spread keep the required walk time inside the accepted band.
+      - group: EARTH
+        task: Spend the two final verification checks on the claims whose failure would most weaken the season report.
+        title: What the report can actually stand behind
+        place: Earthing Compound
+        scene: The funding-review copy closes tonight. Four headline claims are already written and signed. Two have direct backing, while two depend on steps the station has not physically verified. Kaya has time to trace only two claims before the report locks.
+        assumes:
+          - claims of different kinds are defended in different ways
+        takeaway: A signed claim is not stronger than the weakest unverified step needed to support it.
+        format: ATTEST
+        question: Which claims deserve the final two verification checks before the season report is frozen?
+        attest:
+          hint: Open each claim and read what already backs it. You have two checks. Spend them where a wrong claim would matter and the evidence chain is still incomplete.
+          checks: 2
+          claims:
+            - id: trench_voltage
+              label: The August stroke drove about 200 kV around the trench loop
+              critical: true
+              backed: true
+              evidence: derived from the 40 m loop geometry and tested in the hall with a shortened front
+              verification: trace the derivation and hall result to the archived raw records
+            - id: missing_current
+              label: About 12 kA leaves the down-conductor in its last 15 m
+              critical: true
+              backed: true
+              evidence: measured along the conductor, including 29 kA at 15 m and 18 kA at the base
+              verification: reconcile the seven current stations against the archived stroke
+            - id: bond_voltage
+              label: The six-metre bonding lead develops about 180 kV on the strike front
+              critical: true
+              backed: false
+              evidence: computed from about 6 µH and 3 × 10¹⁰ A/s; not measured directly on site
+              verification: flag for a fast differential-probe measurement on the next instrumented season
+            - id: routing
+              label: Routing signal pairs away from the down-conductor will protect the next station
+              critical: true
+              backed: false
+              evidence: inferred from the measured coupling mechanism and geometry
+              verification: trace whether the recommendation has a direct test or only the mechanism-based inference
+        answerText: "Use the two checks on the unbacked high-consequence claims: the predicted 180 kV across the bonding lead and the general mitigation claim. The trench-loop voltage and missing-current claim already have direct supporting evidence."
+        why: "The 200 kV trench result has a derivation and a hall test behind it. The missing 12 kA is supported by measurements along the conductor. The 180 kV bonding-lead voltage is different: it was computed from length and dI/dt but never read directly. The routing recommendation then extends that mechanism to another station. Those last two claims carry consequence without equivalent backing. A final review should spend scarce verification effort there, rather than making the best-supported lines look even more complete."
+      - group: MAST
+        task: Name what the season did not establish
+        title: What is still open
+        place: Mast Base
+        scene: The funding-review copy locks tonight. Nakata has one line left under “Unresolved.” Four candidates are on the screen. Kaya wants the line that names a physical claim the season still cannot support with a direct measurement.
+        assumes:
+          - a season produces limits as well as results
+        takeaway: Naming what is unresolved is what makes the rest of a report usable, and it is the sentence a review reads first.
+        format: CHOICE
+        question: What should the pack name as the season's main unresolved question?
+        why: The largest open claim is whether the predicted fast voltage actually appears across the bonding lead during a stroke. The season computed about 180 kV from its length and dI/dt, but never measured that voltage directly. A fast differential probe and suitable digitiser would test it. The other listed items are different. The mills are intentionally slow, the cell charge budget does not control the mitigation, and rebuilding the trailer is scheduled work. The report should name the unmeasured physical claim, not a task list.
+        choices:
+          - Whether the predicted bonding-lead voltage appears during a stroke
+          - Whether the mills should be redesigned to follow the stroke front
+          - Whether the cell stores more charge than one stroke removes
+          - Whether the trailer can be rebuilt before the next storm season
+        answer: Whether the predicted bonding-lead voltage appears during a stroke
+        rebuttals:
+          - The mills measure the slower source field well; redesigning them is not the unverified claim behind the mitigation.
+          - The cloud can replenish charge between strokes, but that budget does not decide the coupling recommendation.
+          - Trailer rebuilding is scheduled work. It does not test the physical claim on which the recommendation rests.
+# BOOKMARK
+
+# What is inside each place the player walks into.
+interiors:
+  FIELD:
+    caption: Read what is overhead from the ground, and know what the reading can carry.
+    standLine: Four mills across the flat and a reference one that never leaves the hut.
+    station:
+      kind: panel
+      title: Mill array
+      rows:
+        - { label: 'Mill 1, north', value: −4.5 kV/m, status: alarm }
+        - { label: Spread across the four, value: 4 %, status: normal }
+        - { label: Electrometer time constant, value: 1.0 ms, status: high }
+  BANK:
+    caption: Stored charge, stored energy, and air that stops insulating.
+    standLine: Twelve stages, a hundred nanofarads each, and the earthing stick visibly on.
+    station:
+      kind: panel
+      title: Impulse bank
+      rows:
+        - { label: Stage voltage, value: 50 kV, status: high }
+        - { label: Output at the gaps, value: 600 kV, status: alarm }
+        - { label: Stored energy, value: 1500 J, status: alarm }
+  MAST:
+    caption: Where the current goes, and what it does on the way down.
+    standLine: Sixty metres of lattice, three shunts on the down-conductor, one clamp at the base.
+    station:
+      kind: panel
+      title: Down-conductor
+      rows:
+        - { label: Shunt at 45 m, value: 29.6 kA, status: normal }
+        - { label: Clamp at the base, value: 18.2 kA, status: alarm }
+        - { label: 'Field at the cabinet, 2 m', value: 3.0 mT, status: high }
+  EARTH:
+    caption: The grid under the flat, and the difference between an ohm and a microsecond.
+    standLine: Twenty-five ohms on the certificate, six metres of copper to the rack.
+    station:
+      kind: panel
+      title: Earthing
+      rows:
+        - { label: 'Grid resistance, at DC', value: 25 Ω, status: normal }
+        - { label: 'Bonding lead, resistive', value: 9 V, status: normal }
+        - { label: 'Bonding lead, on the front', value: 180 kV, status: alarm }
+  COUPLE:
+    caption: How a strike reaches a cable it never touched.
+    standLine: Forty metres of signal pair beside the down-conductor, and a trailer at two hundred.
+    station:
+      kind: panel
+      title: Trench coupling
+      rows:
+        - { label: Parallel run, value: 40 m, status: high }
+        - { label: Mutual inductance, value: 6.8 µH, status: high }
+        - { label: Induced on the August front, value: 200 kV, status: alarm }
+  SHOT:
+    caption: When to trigger, what was predicted, and what the record can carry.
+    standLine: The season board: every launch, every hold, and the field at the moment of each.
+    station:
+      kind: panel
+      title: Season board
+      rows:
+        - { label: Shots this season, value: 9, status: normal }
+        - { label: Holds, value: 14, status: normal }
+        - { label: 'Lead time achieved, median', value: 22 min, status: alarm }
+
+# What each place says when the player reads it.
+copy:
+  FIELD: <p>The field station. Four mills on the flat report what is overhead; the fifth is a reference and never goes outside. Everything here answers slowly on purpose.</p>
+  BANK: <p>The impulse hall. Twelve capacitor stages, a row of spark gaps, and a rule about the earthing stick that has never once been waived.</p>
+  MAST: <p>The mast base. Sixty metres of lattice above you, three shunts on the down-conductor, and a cabinet two metres from it that has been there for nine years.</p>
+  EARTH: <p>The earthing compound. A copper grid under the sand, a trench left open at the halfway point, and the April certificate pinned to the wall of the hut.</p>
+  COUPLE: <p>The outstation. A trailer two hundred metres from the mast, bonded to its own rod, on the far end of a cable run that spends its first forty metres beside the down-conductor.</p>
+  SCREEN: <p>The screened room. Conducting sheet on all six faces, a door with fingerstock round it, and an instrument inside that reads nothing at all while the flat outside is at four kilovolts a metre.</p>
+  SHELTER: <p>The crew shelter. Where the flat is watched from, and where everybody walks back to when the clear is called — which is the half hour every threshold in the launch rule is really about.</p>
+  ROCKETS: <p>The rocket store. Two-metre rockets, spools of fine wire and igniters, counted out before a shot and counted back after it.</p>
+  SHOT: <p>Launch control. Radar on one screen, four mills on the other, and a board with the criterion written on it before the cell arrives rather than during it.</p>

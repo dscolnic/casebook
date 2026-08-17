@@ -3,7 +3,7 @@
 > New game? Start at [`README.md`](README.md), which names the two documents
 > to read first — `gamekit/STORY_SPEC.md` then `gamekit/NEW_GAME.md`.
 
-Fifteen playable games, one engine. Everything below is current as of the last
+Eighteen playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`GAME_IDEAS.md` is the games that do not exist yet** — the subject gaps and
@@ -14,7 +14,7 @@ timeline, the four beats of a day card, and how each is checked.
 
 ```sh
 cd gamekit
-npm run check                       # all sixteen themes: content, reachability, styles, world parity
+npm run check                       # all seventeen themes: content, reachability, styles, world parity
 THEME=<name> npm run dev            # every game: all of them live in gamekit/themes now
 npm run shots <theme>               # a picture of every room, and a contact sheet
 npm run traps                       # break every instrument trap; all 35 must fire
@@ -36,15 +36,31 @@ npm run drive <theme>               # open every live panel in Chrome, answer it
 | **Headwater** | `gamekit/themes/headwater` | Calculus, through a reservoir that has to be drawn down before it rains. Includes DERIVE, the twentieth instrument: build a result line by line, each line naming the rule it used | A five-storey tower in a gorge beside the dam. The whole east side is one floor-to-soffit glazed screen onto the spillway, and the hallways and stairs have **no ceiling at all** — you look up the shaft to the sky, open-air-mall fashion. Only the offices and labs are roofed |
 | **Wellmere** | `gamekit/themes/seedbank` | AP Biology, the half a hospital campus cannot reach: heredity, population genetics, selection, plant energetics. Season Lead, Wellmere, Saltmere Point | **The layout is the syllabus, and the quantity is isolation distance.** A breeding station on a headland, laid out in concentric rings by how far pollen travels: the crossing block alone at the centre, an empty buffer, the increase ring, another buffer, the trial ring in arcs, and the compound out on the neck. Sea on three bearings — the sea *is* the isolation — and one causeway south to a gate, which is also the only bearing contamination can arrive on. The plots curve, which nothing else in the set does |
 | **Red Sand** | `gamekit/themes/redsand` | AP Chemistry, the back half of the course The Contaminated City leaves alone: kinetics, equilibrium, electrochemistry, entropy and free energy, phase behaviour, colligative properties. Propellant Lead, Arcadia Rise | A propellant plant on Mars, and the only place in the set on another planet. Nine modules buried to the eaves in regolith along one graded track, an ascent vehicle standing on a pad four hundred metres past the last of them with a propellant gauge up its side that fills as the campaign does, six hundred solar panels with the swept third legible from the road, and a butterscotch sky the engine had to be taught to draw. **The geography is the process**: walking the site from the spawn to the pad walks one carbon atom through the whole plant, in order |
+| **Safety Factor** | `gamekit/themes/midway` | AP Physics 1, all eight units, taught through derivations: kinematics, dynamics, circular motion, energy, momentum, simple harmonic motion, torque and rotation, fluids. Ride Engineer, Corbin Park | A closed lakeside amusement park three weeks before it tries to reopen, and **the rides are the areas**: the drop tower is kinematics, the coaster is energy, the wheel is torque, the flume is fluids. The skyline is machines rather than buildings — a 26 m lift hill and a vertical loop swept along a spline, a 28 m Ferris wheel, a 45 m drop tower, a pirate ship — with boarded stalls, two car parks, a ticket line and billboards between them |
+| **Sightline** | `gamekit/themes/sightline` | AP Psychology, all five units, taught as the method of a conviction review: sensation and perception, memory, development and learning, social psychology, and the health unit reached through procedure rather than diagnosis. Review Analyst, Hallam Conviction Integrity Unit | A 1960s telephone exchange with the switch floor taken out: one hall 54 m long, rooms down both sides. **The hall is the sightline** — the Ferrier Street corner is rebuilt across the south end at 1:1, shopfront, doorway, kerb and a dark lamp column, and the identification distances are let into the corridor floor running away from it. Two of the marks are the case: the 22 m the file asserted for seven years, and the 34 m the ground gives. Walking north is walking away from the doorway |
+| **Ground Truth** | `gamekit/themes/groundtruth` | AP Physics C: Electricity & Magnetism, all five units, taught as derivations — Gauss, the potential integral, capacitance, stored energy, Ampère, flux and Faraday, self-inductance, the RC transient and a Marx bank. Measurements Lead, Station 12 | A rocket-triggered lightning research station on a coastal salt flat. A 60 m instrumented mast alone on the skyline with three shunts down its conductor, a launch rail out to the north, an impulse hall, a grounding grid open in a trench, and an outstation trailer 200 m away that the campaign is about. The sky is weather rather than climate: `atmosphere.tint` and `atmosphere.haze`, added for Mars, used here for an anvil |
 | **Project Y** | `gamekit/themes/projecty` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. The last game to lose its own entry point: `project-y-fps/` is a tombstone now |
 | **Hospital Heroes** | `gamekit/themes/hospital` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it, and the floor `engine/world/interiorSite.js` was generalised out of. `audience: { grade: 2 }`, so its whole interface comes up 1.18× larger |
 
-A sixteenth theme, `instruments`, is registered and checked but is not a game:
+A seventeenth theme, `instruments`, is registered and checked but is not a game:
 four missions authoring one stop of each instrument format, so a panel can be
 opened without playing to the day that holds it.
 
 Every game is 15 missions and 57–62 stops, except the harness. Roster sizes run
 from 11 (Wellmere) to 37 (Hospital Heroes).
+
+Sightline is the first of them to compute **every** equation on its own syllabus
+list — seven of seven, none merely mentioned — and the first to author six
+instrument formats (ATTEST, PROBE, TRACE, CLOUD, CONTROL, INJECT) rather than
+nought, one or two. Neither is a coincidence: psychological method is
+measurement of people, and half the instrument catalogue was already that.
+
+Ground Truth is the derivation game. Ten of its forty-five stops are DERIVE
+panels, one a day, and they carry the syllabus rather than decorating it: eleven
+equations, all eleven computed. It is also the only game with `askRule: true`,
+because in E&M the choice of law is the physics — a step whose key uses
+superposition while a distractor applies Gauss to a surface with no symmetry is
+the commonest way that exam is lost.
 
 ## What they all share
 

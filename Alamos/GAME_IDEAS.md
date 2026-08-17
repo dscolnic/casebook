@@ -17,20 +17,30 @@ does not look like the eight already built, and a decision the campaign can turn
 on that is genuinely arguable from both sides. An idea missing any of the three
 is in "not yet" at the bottom, with the reason.
 
-## The subject gaps, as of the fifteenth game
+## The subject gaps, as of the sixteenth game
 
 Covered: analytical chemistry · physical chemistry, the reaction half · nuclear
 physics · astronomy and mechanics · biology and epidemiology · genetics and plant
 breeding · mechanics, circuits and thermal · waves and acoustics · power systems
 and AC · anatomy (grade 2) · seismology and structural engineering · modern
 quantum · statistics and study design · climate measurement and proxies ·
-calculus.
+calculus · AP Physics 1, all eight units.
 
-Still open, roughly in order of how many students sit the course: control
-systems, organic and process chemistry, and materials. Five of the gaps this
-list opened with have been built since it was written — statistics as The Trial,
-climate measurement as Ice Core, calculus as Headwater, genetics as Wellmere, and
-the back half of AP Chemistry as Red Sand.
+Still open, roughly in order of how many students sit the course: environmental
+science, precalculus, human geography, macroeconomics, computer science
+principles, control systems, organic and process chemistry, and materials.
+Psychology closed as Sightline and Physics C E&M as Ground Truth. Five of the gaps
+this list opened with have been built since it was written — statistics as The
+Trial, climate measurement as Ice Core, calculus as Headwater, genetics as
+Wellmere, and the back half of AP Chemistry as Red Sand.
+
+**Psychology is the largest single gap in the set and it is not close.** AP
+Psychology is the second-biggest AP by enrolment and the sixteen games contain no
+social science at all except the study design half of The Trial. It stayed off
+this list for as long as it did because the obvious place for it is a clinic or a
+lecture room, which is the weakest kind of world here — the same reason Pedigree
+is in "not yet" at the bottom. Sightline is the answer to that objection rather
+than an exception to it: the place is a building you disbelieve your own eyes in.
 
 **A second game on one subject is allowed, and Red Sand is the worked example.**
 The Contaminated City had chemistry, and what it had was the front of the course:
@@ -54,6 +64,204 @@ sit.
 
 Worked out to the level a scaffold needs: the course, the place, the argument
 with its named days, the areas, the equation list and the arc.
+
+### ~~Ground Truth~~ — built, the eighteenth game
+
+Station 12, Sablon Flats: a rocket-triggered lightning research station on a
+coastal salt flat, and AP Physics C: E&M taught as derivations. See `GAMES.md`
+for what it is and `STORIES.md` for what happens in it. It was built straight
+from a conversation rather than from an entry here, which is why this is the
+whole record of the reasoning.
+
+**Why this course.** Bring Them Home already carries Physics 1 into Physics C
+mechanics and Midway derives all eight units of Physics 1, so the gap was the
+other exam: Gauss, potential as a line integral, capacitance and dielectrics, RC
+and RL transients, Ampère, Faraday and inductance. Blackout touches induction and
+never writes a ∮ — it is AC power engineering.
+
+**Why the place.** Electrostatics and capacitance are 44% of that paper, and a
+lightning station is the only setting where they are the working quantities
+rather than a chapter: a field mill reads σ off a cloud base, the cloud-ground
+pair is a plate capacitor, a Marx bank is capacitors in series, and the whole
+site is one conductor with thirty kiloamps down it. The alternative considered
+was a tokamak hall, which is a better object and a worse exam match — it barely
+touches the electrostatics half.
+
+Three things it proved:
+
+- **A course can be carried by derivations end to end.** Ten of forty-five stops
+  are DERIVE, one a day, and all eleven equations on the syllabus list are
+  computed by a question rather than mentioned — the first game in the set where
+  nothing is mention-only.
+- **`askRule: true` earns its keep where the law is the choice.** It is off in
+  Midway and Headwater because their steps all carried one rule; here a step
+  whose key uses superposition against a distractor applying Gauss's law to a
+  surface with no symmetry is the lesson, and every step offers at least two.
+- **A reversal can be a unit error nobody made.** The April earthing certificate
+  is an honest measurement of steady-state resistance, taken with the right
+  instrument by a careful person, and it is silent about the term that did the
+  damage: nine volts and a hundred and eighty thousand volts in the same six
+  metres of copper, on the same afternoon.
+
+Left unfinished when it shipped: the inductive volts are computed and never
+measured on the site, which the game says out loud on day fifteen; the outdoor
+props are geometry in `props.js` rather than site data; and the storm sky is a
+tint and a haze rather than cloud, so the weather changes colour and never shape.
+
+### ~~Sightline~~ — built, the seventeenth game
+
+The Hallam Conviction Integrity Unit. See `GAMES.md` for what it is and
+`STORIES.md` for what happens in it. Four things it proved, and the last one was
+not expected:
+
+- **A place can teach by being long.** The reconstruction of the corner stands
+  across the end of the hall and the identification distances are let into the
+  corridor floor, so the walk from the data room to the bay is the sightline at
+  1:1 — and a player has stood on both case marks before day nine tells them
+  which one is real.
+- **Psychology computes.** All seven equations on its syllabus list are computed
+  by a question and none is merely mentioned, which no other game in the set can
+  say. The course is usually taught with no arithmetic at all; what it lacked was
+  not numbers but the occasion for them.
+- **Half the instrument catalogue was already psychological method.** Six formats
+  are authored — ATTEST, PROBE, TRACE, CLOUD, CONTROL, INJECT — against nought,
+  one or two in every other shipped game, and none needed a line of engine work.
+  CLOUD is criterion against sensitivity exactly; INJECT is a known-innocent
+  lineup run; CONTROL is double-blind administration.
+- **A game can end without saying who did it.** Day 15 disposes of four claims by
+  what stands behind each, and the fourth — that Ward was not the man — is
+  matched to "not established by anything in this review". Every earlier day is
+  built so that the honest ending is also the satisfying one.
+
+Left unfinished when it shipped: fifteen of its thirty concepts are covered by a
+question that computes or decides something and the rest are reasoned about; the
+reconstruction bay's shopfront is geometry in `props.js` rather than data; and
+the roster's twelve bios each carry one authored question where the older games
+carry more.
+
+The plan it was built from follows.
+
+### Sightline — the sketch this was built from
+
+**Course:** AP Psychology, all five units. Grade 11–12, reading level ~11.
+
+**The place:** a state Conviction Integrity Unit in a converted 1960s telephone
+exchange — low, windowless, deep-plan, fluorescent, nothing like the sixteen. Its
+centrepiece is the thing that makes the game worth building: **a hangar bay
+holding a full-scale reconstruction of the street corner where it happened**,
+built to survey, lit to the measured illuminance of that night, with the
+identification distance painted on the floor as a line. The player walks to the
+mark, stands where the witness stood, and looks at the face. Every question about
+acuity, dark adaptation and attention is asked in a room that has already
+answered it.
+
+That is Aftershock's scarp indoors — a physical feature carrying a whole unit of
+the course, drawn at 1:1 — and it is the reason this idea clears the bar that
+kept psychology off the list. The rest of the site is the method: an
+identification suite behind one-way glass, a dark-adaptation booth, two interview
+rooms, a testing room, a data room, and a file store that disagrees with all of
+them.
+
+**The story:** a 2019 robbery conviction resting on one eyewitness. Seven years
+served, fifteen days to report. No victim is depicted and there is no gore; the
+crime reaches the player only as a file, a floor plan and a lux reading.
+
+**The reversal.** The file records the identification as made at 22 m. The
+survey of the reconstruction, checked against the utility's own outage ticket for
+the streetlight, puts it at 34 m and about 2 lux. And "absolutely certain" was
+recorded three weeks *after* the lineup, following the administrator's "good —
+that's our guy"; the contemporaneous note reads "maybe, number 4?" Nothing
+physical changed on the day that was found, which is the point of it — same shape
+as Safety Factor's regraded loop, and here the tape measure is a light meter.
+
+**The argument, and it is arguable from both sides.** Recommend vacating on the
+procedure alone, or re-interview the witness first and go in with something
+stronger. Re-interviewing after seven years *is* post-event information: doing it
+destroys the last uncontaminated record the case has. Act now on clean weak
+evidence, or strengthen it and spoil it. The second edge is the one that keeps
+the game honest — a bad procedure is not innocence, and the unit can be entirely
+right about the method and wrong about the man.
+
+**The fifteen days.** Intake and what the file claims · the corner, at 34 m and
+2 lux · rods, cones and the two minutes of dark adaptation · weapon focus and
+inattentional blindness · encoding, and the interview that did not happen for
+four days · the misinformation effect and the newspaper photograph shown on day
+five · co-witness contamination · the lineup's fillers and its functional size ·
+simultaneous against sequential, criterion against sensitivity · double-blind
+administration · confidence inflation and the three-week note · nineteen hours of
+interrogation, minimisation, and what the false-confession base rate actually is ·
+base rates and what a match is worth · testing the witness today — reliability,
+validity, norms — and what asking costs · the report.
+
+**Curriculum, by unit.** Biological: stress encoding and the amygdala, cortisol,
+sleep deprivation, and the fact that a flashbulb memory is vivid and not accurate.
+Cognition: encoding, storage, retrieval, source monitoring, the misinformation
+effect, weapon focus, the own-race effect, and acuity as a hard physical limit.
+Development and learning: child witness suggestibility, and confidence reinforced
+by feedback. Social: conformity between co-witnesses, authority in the interview
+room, groupthink in the jury room, and the fundamental attribution error sitting
+in the original write-up. Health and clinical: PTSD and competency, reached
+through procedure and record only — the player never diagnoses anyone.
+
+**The quantitative spine**, which is what stands in for an equation list in a
+course that has few: d′ and criterion from hits and false alarms, functional size
+of a lineup, base rates and posterior odds after a "match", visual acuity as
+angular size against distance, illuminance and the scotopic threshold, split-half
+and test–retest reliability, and standard scores against a norm table. Enough for
+a proper Ballpark set, and every one of them is a number a psychology course
+mentions and rarely makes a student compute.
+
+**Six of the twenty instruments are already this syllabus**, which no game in the
+set can currently say — the catalogue was written for physical science and half
+of it turns out to be psychological method verbatim:
+
+| Instrument | The stop it becomes |
+| --- | --- |
+| CLOUD | criterion shift against sensitivity change — narrowing is not shifting, which is d′ exactly |
+| TRACE | which witnesses share a reference; agreement is not independence |
+| ATTEST | the case file is not what was done |
+| CONTROL | double-blind administration: change one thing, reverse it |
+| INJECT | run known-innocent lineups through your own procedure and count the siphoning |
+| HOLDOUT | do not fit the theory on the data that produced it |
+
+**Two risks worth writing down now.** The place is interior, so it is
+`interiorFloor` plus one hand-built hangar bay, and a hand-built space needs its
+own `shots.js` — `themes/bring_them_home/shots.js` is the worked example. And
+half of a psychology question is qualitative, which is what `probeQuestions`
+exists to catch: every stop needs a number or a named procedure in it, or the
+options are answerable by common sense and the game teaches nothing.
+
+**The runner-up, kept here so it is not re-derived:** a concussion and
+return-to-play clinic at a sports academy — an outdoor campus, baseline
+neuropsych testing against symptom report, and coach pressure as the social unit.
+Stronger on the biological unit, weaker on the argument, because "clear the
+athlete or do not" resolves the moment anyone is honest.
+
+### ~~Safety Factor~~ — built, the sixteenth game
+
+Corbin Park: a shut lakeside amusement park with three weeks to certify seven
+rides. See `GAMES.md` for what it is and `STORIES.md` for what happens in it.
+Three things it proved:
+
+- **A syllabus can be a place, one unit per building.** Seven rides, seven areas,
+  eight AP units: the drop tower is kinematics, the coaster is energy, the wheel
+  is torque, the flume is fluids. A player walking the midway is walking the
+  course, and the day budget makes the ride at the far end cost real time.
+- **DERIVE carries a whole game.** Ten of the forty-five stops are derivations —
+  v = √(2gh) three separate ways, the conical pendulum, the loop's √(gr), the
+  pendulum period with the mass cancelling, Pascal's areas, impulse, the bolt
+  load — and the format's `survives` rule is what makes them teach: one wrong
+  branch per step has to stay algebraically valid, so the panel cannot be passed
+  by spotting the malformed line. It was written for calculus and it turns out to
+  fit algebra-based physics better, because every AP result is three lines long.
+- **The reversal can be a tape measure.** A loop regraded in 1998 with no drawing
+  issued makes the crown radius 7.4 m rather than 5.6, and √(gr) turns that into
+  a margin of 1.20 where the file claimed 1.38. Nothing physical changed on the
+  day it was found, which is the point of it.
+
+Left unfinished when it shipped: only two of the twenty instrument formats are
+authored (TRIGGER for the wind limits, VERIFY for the witnessed drop test), and
+the wheel's fracture assessment is deliberately unresolved in the ending.
 
 ### ~~Red Sand~~ — built, the fifteenth game
 

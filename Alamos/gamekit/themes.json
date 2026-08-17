@@ -27,6 +27,7 @@
     "outbreak_riverton_ms": "themes/outbreak_riverton_ms",
     "blackout_ms": "themes/blackout_ms",
     "bring_them_home_ms": "themes/bring_them_home_ms",
-    "contamcity_ms": "themes/contamcity_ms"
+    "contamcity_ms": "themes/contamcity_ms",
+    "groundtruth": "themes/groundtruth"
   }
 }

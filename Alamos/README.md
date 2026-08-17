@@ -1,7 +1,7 @@
 # Alamos — mission-based learning games
 
 First-person, mission-driven educational games on three.js, plus the shared
-engine they run on. Fifteen games are registered in `gamekit/themes.json`
+engine they run on. Eighteen games are registered in `gamekit/themes.json`
 and `npm run check` runs every one. Each is the same loop in a different
 setting: fifteen missions × three stops, walk to a place, answer a science
 question, hand off.
@@ -67,6 +67,7 @@ list `npm run check` walks. `GAMES.md` describes each one; the short version:
 | Project Y | Los Alamos 1943–45, five divisions | Stage |
 | Hospital Heroes | ~grade 2 — junior doctor, children's hospital | Shift |
 | Red Sand | AP Chemistry, the back half — a propellant plant on Mars | Sol |
+| Safety Factor | AP Physics 1, in derivations — certifying seven rides at a shut amusement park | Day |
 | Blackout · Aftershock · Quantum · The Trial · Headwater · Ice Core · Wellmere | The newer courses | Day |
 
 `instruments` is not a game: it is one stop of every question format, which is

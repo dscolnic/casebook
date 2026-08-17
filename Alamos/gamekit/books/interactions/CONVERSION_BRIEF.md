@@ -176,7 +176,7 @@ Expect **8 to 10 conversions**, out of 45 to 50 stops. Beyond about 12 you are
 converting things that should be kept, and the days start to feel like a series
 of machines rather than a story.
 
-## 4. The nineteen formats
+## 4. The formats — nineteen, plus DERIVE
 
 Twelve carry four or more instances across the six design documents; seven are
 thinner. Each entry: what the player does, the misconception it attacks, and the
@@ -303,6 +303,47 @@ rebuild it without them, and after a blocked door say which place you are
 standing in from its landmark. *Trap:* no two landmarks alike; the detour must
 drop the player ahead of where they stopped. **Reach is genuinely one game** —
 only propose it where an interruption is the point.
+
+### The twentieth — `DERIVE`, and what a game made of them needs
+
+Not one of the nineteen. It came from a calculus course and it has since carried
+two: ten of Midway's stops and ten of Ground Truth's. Build a result one line at
+a time, where each line is chosen from candidates and has to follow from the line
+above it.
+
+```yaml
+derive:
+  start:      the relation the derivation begins from
+  startNote:  the quantities it is given, with their values
+  goal:       what the last line is supposed to be
+  askRule:    true            # optional, and see below
+  rules:      [ … ]           # >= 3 when askRule, as a BLOCK list, not [a, b, c]
+  steps:
+    - ask: what this line is doing
+      answer: 1               # index into this step's own candidates
+      candidates:             # >= 3
+        - { text: …, rule: …, survives: true, why: … }
+  commit: Commit the derivation
+answerText: required, like every instrument
+```
+
+**Traps, all four enforced by the importer:** every step needs at least three
+candidates; every wrong candidate needs a `why`; **at least one wrong candidate
+per step must be marked `survives`** — algebraically valid, and leading somewhere
+wrong — or the step is passable by spotting the malformed line; and the keyed
+line may not be longer than every distractor, which is the commonest tell.
+
+**`askRule` is off by default and that is not an oversight.** Counting found that
+in five of Midway's 29 steps and ten of Headwater's 33, every candidate carried
+the *same* rule, so the second half of the answer had one possible value. Turn it
+on only where the choice of law is the physics — Ground Truth does, because a
+step whose key uses superposition against a distractor applying Gauss's law to a
+surface with no symmetry is exactly how that exam is lost. The condition to hold
+yourself to, which is stricter than the importer's: **at least two distinct rule
+values among the candidates of every step.**
+
+**A derivation is the heaviest panel in the engine.** One a day is the ceiling,
+and a day carrying one has no room for a second instrument of any kind.
 
 ### The eight existing screen formats, for `keep` and `retype`
 
@@ -641,6 +682,52 @@ there is nothing to hold fixed and nothing to rule out.
 | `INJECT` | 3 configurations |
 | `ROUTE` | 5 compartments |
 
+### The sixth round — two games written from scratch, and what the sheet cost
+
+Sightline (AP Psychology) and Ground Truth (AP Physics C: E&M) were written
+straight into books rather than converted, and the same defects turned up in the
+first draft that a returned pass produces. They are listed here because they are
+cheaper to avoid than to repair.
+
+**The keyed answer was the longest option in 49% and then 70% of questions.** Not
+carelessness — structural. The correct option is the one that has to be *true*, so
+it collects the qualifying clause, the unit and the "because", while a wrong
+option only has to be wrong. `answerShape` tests the count against chance and
+fails the game. The fix is never padding the distractors: move the qualification
+into the question stem, and give each wrong option a stated reason of its own.
+Both games came down to 0–8% that way, and the distractors improved.
+
+**Three takeaways restated their own answer.** The takeaway is shown *before* the
+question, so a takeaway that names the mechanism the options are about hands the
+stop over. Write the principle, not this stop's finding.
+
+**Two bio quiz answers quoted six or more consecutive words of the bio.** The
+question then tests whether somebody read a paragraph a moment ago. Ask about the
+why.
+
+**Five verdicts ran two grades over the audience and none had a hard word in
+it.** Every one was a pile-up of clauses. The verdict is where this happens,
+because it is the field carrying the mechanism.
+
+**Three parser traps cost a round trip each, and all three are `yaml-lite`:**
+
+- An unquoted comma inside an inline `{ … }` map splits it. `{ label: Mill 1,
+  north, value: −4.5 kV/m }` is refused now, and used to arrive silently
+  truncated. **Quote any inline value containing a comma.**
+- An escaped apostrophe inside a quoted scalar (`'the shop\'s record'`) is not
+  supported. Rewrite the phrase or use a block scalar.
+- **A flow sequence is not split.** `rules: [Gauss's law, symmetry argument, …]`
+  arrives as one string of six rules, and the importer then reports that the
+  derivation has fewer than three. Write lists as block sequences, one `- item`
+  per line.
+
+**A keyword list loose enough to match anything credits a stop with an equation
+it never touches.** Every DERIVE carries its `rules` list in the data, so a
+syllabus entry keyed on the bare word `gauss` was credited to all ten
+derivations, and the equation that genuinely depended on another was reported as
+computed a day too early. Anchor equation keywords on the symbols the lines
+actually contain.
+
 ## 5. Rules that apply to every conversion
 
 1. **The interaction replaces the question. It is not added to it.** Every one of
@@ -687,6 +774,15 @@ there is nothing to hold fixed and nothing to rule out.
 11. **`answerText` is required on every conversion.** It is what the verdict
    tells a player who got it wrong. Without it they are told they were wrong and
    never told what right was.
+12. **The keyed answer must not be the longest option, across the game.** One
+   stop is nothing; a habit is a game a player can pass by eye, and
+   `answerShape` tests the count against chance. Put the qualification in the
+   stem and give each wrong option its own stated reason.
+13. **The takeaway is shown before the question.** It carries the principle. A
+   takeaway that names this stop's mechanism has answered it.
+14. **Quote any inline value containing a comma, and write lists as block
+   sequences.** The parser refuses a colon-less fragment now rather than
+   truncating it silently, and a flow list arrives as one string.
 
 ## 6. What to send back
 
@@ -943,9 +1039,23 @@ bounces.
 
 **Across the whole game**
 
-- [ ] 8–10 conversions, and no day carrying more than one instrument.
+- [ ] 8–10 conversions, **unless the game's own START note says otherwise** —
+      a game whose every day already carries a panel has room for far fewer.
+- [ ] No day carrying more than one instrument, and **no second panel at all on
+      a day that carries a `DERIVE`**.
 - [ ] Not all of one format — take variety where two would work equally.
+- [ ] Count how often your keyed answer is the longest option. If it is much
+      more than a quarter of the time, fix it before sending.
 - [ ] The prose summary is written, including what you chose *not* to do.
+
+**On any `DERIVE` you touched**
+
+- [ ] `answer` is still the index of the line you mean — candidates are applied
+      by position, exactly like options.
+- [ ] Every step still has a wrong candidate marked `survives: true`.
+- [ ] The keyed line is not the longest on its panel.
+- [ ] With `askRule: true`, at least two distinct rules among each step's
+      candidates, and every rule named is in the `rules` list.
 
 ### Also send back, as plain prose
 

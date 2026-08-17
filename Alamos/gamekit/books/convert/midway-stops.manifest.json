@@ -1,0 +1,633 @@
+{
+ "theme": "midway",
+ "book": "books/midway.yml",
+ "course": "AP Physics 1, algebra-based: kinematics, dynamics, circular motion, energy, momentum, simple harmonic motion, torque and rotation, and fluids",
+ "curriculum": [
+  "Velocity against speed: direction is part of the quantity",
+  "Acceleration as the rate a velocity changes, whichever part of it changes",
+  "The constant-acceleration relations, and which one has no time in it",
+  "Free fall: everything falls at the same rate whatever its mass",
+  "Newton's second law as the definition of a net force",
+  "Free-body thinking: one object, every force on it, nothing else",
+  "The normal force, and what a rider actually feels",
+  "Friction as a force along a surface, and the coefficient that bounds it",
+  "Centripetal acceleration: v² over r, pointing at the centre",
+  "What supplies the centripetal force in each case — a rail, a chain, a seat",
+  "The conical pendulum: an angle set by speed and radius, not by mass",
+  "The vertical loop, and the limiting case where the rail stops pushing",
+  "Work as a force times a distance along it",
+  "Kinetic energy, and why the square matters",
+  "Gravitational potential energy as weight times height",
+  "Conservation of mechanical energy, and dividing the mass out of it",
+  "Friction as negative work, and measuring it as the gap between ideal and actual",
+  "Power as work each second, and what a motor rating is",
+  "Momentum, and its conservation in a collision",
+  "Elastic against inelastic: which quantity survives",
+  "Impulse: force times time, and why a longer stop is a gentler one",
+  "Torque as force times the perpendicular distance",
+  "Static equilibrium: forces and torques both adding to zero",
+  "Rotational inertia, and that where the mass is matters more than how much",
+  "Angular velocity, and turning revolutions a minute into a speed",
+  "Simple harmonic motion: a restoring force proportional to displacement",
+  "The small-angle approximation, and where it stops being true",
+  "The pendulum period, and the cancellation that removes the mass from it",
+  "Resonance and damping: driving an oscillator in step or out of it",
+  "Measuring g from a period, and why it belongs to the place",
+  "Pressure in a liquid: depth, not width",
+  "Pascal's principle, and the distance a hydraulic gives up",
+  "Buoyancy: a floating body displaces its own weight",
+  "Flow: continuity, and the outlet speed a head produces",
+  "Safety factor: what a part can take over what it is asked to take",
+  "Wind load, and why the last few metres a second cost the most"
+ ],
+ "equations": [
+  {
+   "e": "v² = v₀² + 2aΔx",
+   "about": "the constant-acceleration relation with no time in it",
+   "symbols": [
+    [
+     "v",
+     "the speed at the end, in metres a second"
+    ],
+    [
+     "v₀",
+     "the speed at the start"
+    ],
+    [
+     "a",
+     "the acceleration, taken as constant"
+    ],
+    [
+     "Δx",
+     "the distance travelled while it acts"
+    ]
+   ]
+  },
+  {
+   "e": "ΣF = ma",
+   "about": "what a net force is for",
+   "symbols": [
+    [
+     "ΣF",
+     "the sum of every force on the body, with direction"
+    ],
+    [
+     "m",
+     "its mass"
+    ],
+    [
+     "a",
+     "the acceleration that results"
+    ]
+   ]
+  },
+  {
+   "e": "a_c = v²/r,  F_c = mv²/r",
+   "about": "what going round a corner costs",
+   "symbols": [
+    [
+     "a_c",
+     "the acceleration toward the centre"
+    ],
+    [
+     "v",
+     "the speed along the circle"
+    ],
+    [
+     "r",
+     "the radius of the circle travelled"
+    ],
+    [
+     "F_c",
+     "the net force that produces it"
+    ]
+   ]
+  },
+  {
+   "e": "v_min = √(gr) at the crown of a loop",
+   "about": "the limiting case a rail cannot get out of",
+   "symbols": [
+    [
+     "v_min",
+     "the least speed the train can cross the crown at"
+    ],
+    [
+     "g",
+     "the acceleration due to gravity"
+    ],
+    [
+     "r",
+     "the radius of the loop at its crown"
+    ]
+   ]
+  },
+  {
+   "e": "mgh + ½mv² = constant",
+   "about": "the energy books for anything on a track",
+   "symbols": [
+    [
+     "m",
+     "the mass, which divides out of every term"
+    ],
+    [
+     "h",
+     "the height above whatever datum is chosen"
+    ],
+    [
+     "v",
+     "the speed at that height"
+    ],
+    [
+     "g",
+     "the acceleration due to gravity"
+    ]
+   ]
+  },
+  {
+   "e": "W_net = ΔK",
+   "about": "the work–energy theorem, and where the losses show up",
+   "symbols": [
+    [
+     "W_net",
+     "the net work done on the body, in joules"
+    ],
+    [
+     "ΔK",
+     "the change in its kinetic energy"
+    ]
+   ]
+  },
+  {
+   "e": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
+   "about": "momentum through a collision that ends locked together",
+   "symbols": [
+    [
+     "m₁, m₂",
+     "the two masses"
+    ],
+    [
+     "u₁, u₂",
+     "their velocities before, counted with direction"
+    ],
+    [
+     "v",
+     "the velocity of the pair afterwards"
+    ]
+   ]
+  },
+  {
+   "e": "FΔt = mΔv",
+   "about": "impulse: why the time a collision takes is the design",
+   "symbols": [
+    [
+     "F",
+     "the average force during the contact"
+    ],
+    [
+     "Δt",
+     "how long the contact lasts"
+    ],
+    [
+     "m",
+     "the mass being slowed"
+    ],
+    [
+     "Δv",
+     "the change in its velocity"
+    ]
+   ]
+  },
+  {
+   "e": "τ = Fd,  Στ = 0",
+   "about": "turning effect, and what balancing means",
+   "symbols": [
+    [
+     "τ",
+     "the torque, in newton-metres"
+    ],
+    [
+     "F",
+     "the force applied"
+    ],
+    [
+     "d",
+     "the perpendicular distance from the pivot to the line of the force"
+    ]
+   ]
+  },
+  {
+   "e": "T = 2π√(L/g)",
+   "about": "the pendulum period, and the mass that is not in it",
+   "symbols": [
+    [
+     "T",
+     "the time for one complete swing"
+    ],
+    [
+     "L",
+     "the length from the pivot to the centre of mass"
+    ],
+    [
+     "g",
+     "the acceleration due to gravity"
+    ]
+   ]
+  },
+  {
+   "e": "P = ρgh,  F_b = ρVg",
+   "about": "pressure with depth, and what holds a boat up",
+   "symbols": [
+    [
+     "P",
+     "the gauge pressure at that depth"
+    ],
+    [
+     "ρ",
+     "the density of the liquid"
+    ],
+    [
+     "h",
+     "the depth below the surface"
+    ],
+    [
+     "F_b",
+     "the buoyant force"
+    ],
+    [
+     "V",
+     "the volume of liquid displaced"
+    ]
+   ]
+  },
+  {
+   "e": "safety factor = capacity ÷ demand",
+   "about": "the number this whole job is about",
+   "symbols": [
+    [
+     "capacity",
+     "what the part or the ride can take"
+    ],
+    [
+     "demand",
+     "what it is actually asked to take"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 11,
+ "subject": "Ride Engineer · Corbin Park",
+ "groups": [
+  {
+   "id": "TOWER",
+   "name": "The Drop Tower",
+   "desc": "Free fall down 42 metres, and a brake that has to take it back in 9."
+  },
+  {
+   "id": "COASTER",
+   "name": "The Coaster",
+   "desc": "1 lift hill, 1 drop, 1 loop, and whatever friction has taken since 1974."
+  },
+  {
+   "id": "CAROUSEL",
+   "name": "The Carousel and Swings",
+   "desc": "Everything here goes in a circle, which means everything here is accelerating."
+  },
+  {
+   "id": "WHEEL",
+   "name": "The Ferris Wheel",
+   "desc": "28 metres of steel that has to balance before it turns."
+  },
+  {
+   "id": "BUMPER",
+   "name": "The Bumper Cars",
+   "desc": "100 collisions an hour, and every 1 of them is the same equation."
+  },
+  {
+   "id": "SHIP",
+   "name": "The Pirate Ship",
+   "desc": "A pendulum with 60 people on it, and a period that does not care how many."
+  },
+  {
+   "id": "FLUME",
+   "name": "The Log Flume",
+   "desc": "Water doing the work, and a pump that has to lift it back up again."
+  }
+ ],
+ "stops": [
+  {
+   "id": "midway.m01.s1",
+   "day": 1,
+   "group": "TOWER",
+   "format": "DERIVE",
+   "title": "What 42 metres of fall is worth"
+  },
+  {
+   "id": "midway.m01.s2",
+   "day": 1,
+   "group": "COASTER",
+   "format": "PROTOCOL",
+   "title": "Reading a circuit as energy"
+  },
+  {
+   "id": "midway.m01.s3",
+   "day": 1,
+   "group": "SHIP",
+   "format": "CHOICE",
+   "title": "60 people and the same 5 seconds"
+  },
+  {
+   "id": "midway.m02.s1",
+   "day": 2,
+   "group": "TOWER",
+   "format": "BALLPARK",
+   "title": "9 metres to take back 29"
+  },
+  {
+   "id": "midway.m02.s2",
+   "day": 2,
+   "group": "FLUME",
+   "format": "BALLPARK",
+   "title": "What nine metres of water pushes with"
+  },
+  {
+   "id": "midway.m02.s3",
+   "day": 2,
+   "group": "WHEEL",
+   "format": "CHOICE",
+   "title": "The number people get wrong"
+  },
+  {
+   "id": "midway.m03.s1",
+   "day": 3,
+   "group": "COASTER",
+   "format": "DERIVE",
+   "title": "The lap that does not come back"
+  },
+  {
+   "id": "midway.m03.s2",
+   "day": 3,
+   "group": "CAROUSEL",
+   "format": "CHOICE",
+   "title": "Going round at a steady speed"
+  },
+  {
+   "id": "midway.m03.s3",
+   "day": 3,
+   "group": "BUMPER",
+   "format": "CHOICE",
+   "title": "100 collisions an hour"
+  },
+  {
+   "id": "midway.m04.s1",
+   "day": 4,
+   "group": "CAROUSEL",
+   "format": "DERIVE",
+   "title": "Why the chains come out"
+  },
+  {
+   "id": "midway.m04.s2",
+   "day": 4,
+   "group": "SHIP",
+   "format": "BALLPARK",
+   "title": "What the swing is worth at the bottom"
+  },
+  {
+   "id": "midway.m04.s3",
+   "day": 4,
+   "group": "WHEEL",
+   "format": "BALLPARK",
+   "title": "Loading one side of a wheel"
+  },
+  {
+   "id": "midway.m05.s1",
+   "day": 5,
+   "group": "CAROUSEL",
+   "format": "BALLPARK",
+   "title": "What a pole holds sideways"
+  },
+  {
+   "id": "midway.m05.s2",
+   "day": 5,
+   "group": "TOWER",
+   "format": "SEQUENCE",
+   "title": "The order a drop test runs in"
+  },
+  {
+   "id": "midway.m05.s3",
+   "day": 5,
+   "group": "FLUME",
+   "format": "DERIVE",
+   "title": "Two centimetres driving nine"
+  },
+  {
+   "id": "midway.m06.s1",
+   "day": 6,
+   "group": "BUMPER",
+   "format": "DERIVE",
+   "title": "Two cars, one velocity"
+  },
+  {
+   "id": "midway.m06.s2",
+   "day": 6,
+   "group": "COASTER",
+   "format": "BALLPARK",
+   "title": "What the chain is paid to do"
+  },
+  {
+   "id": "midway.m06.s3",
+   "day": 6,
+   "group": "WHEEL",
+   "format": "CHOICE",
+   "title": "Where the mass is"
+  },
+  {
+   "id": "midway.m07.s1",
+   "day": 7,
+   "group": "SHIP",
+   "format": "DERIVE",
+   "title": "Why the mass falls out"
+  },
+  {
+   "id": "midway.m07.s2",
+   "day": 7,
+   "group": "FLUME",
+   "format": "BALLPARK",
+   "title": "How far a full boat sits down"
+  },
+  {
+   "id": "midway.m07.s3",
+   "day": 7,
+   "group": "TOWER",
+   "format": "CHOICE",
+   "title": "Measuring gravity with a boat"
+  },
+  {
+   "id": "midway.m08.s1",
+   "day": 8,
+   "group": "WHEEL",
+   "format": "DERIVE",
+   "title": "What one wheel-center bolt is holding"
+  },
+  {
+   "id": "midway.m08.s2",
+   "day": 8,
+   "group": "BUMPER",
+   "format": "CHOICE",
+   "title": "The tenth of a second that matters"
+  },
+  {
+   "id": "midway.m08.s3",
+   "day": 8,
+   "group": "CAROUSEL",
+   "format": "DIAGNOSIS",
+   "title": "The drive that pulls unevenly"
+  },
+  {
+   "id": "midway.m09.s1",
+   "day": 9,
+   "group": "COASTER",
+   "format": "DERIVE",
+   "title": "What the loop asks for at the top"
+  },
+  {
+   "id": "midway.m09.s2",
+   "day": 9,
+   "group": "TOWER",
+   "format": "CHOICE",
+   "title": "What a safety factor says"
+  },
+  {
+   "id": "midway.m09.s3",
+   "day": 9,
+   "group": "SHIP",
+   "format": "DIAGNOSIS",
+   "title": "Idowu was right"
+  },
+  {
+   "id": "midway.m10.s1",
+   "day": 10,
+   "group": "BUMPER",
+   "format": "DERIVE",
+   "title": "Turning a collision into a force"
+  },
+  {
+   "id": "midway.m10.s2",
+   "day": 10,
+   "group": "COASTER",
+   "format": "CHOICE",
+   "title": "A margin that moves"
+  },
+  {
+   "id": "midway.m10.s3",
+   "day": 10,
+   "group": "FLUME",
+   "format": "BALLPARK",
+   "title": "What the water costs to put back"
+  },
+  {
+   "id": "midway.m11.s1",
+   "day": 11,
+   "group": "FLUME",
+   "format": "DERIVE",
+   "title": "The same square root, from a different law"
+  },
+  {
+   "id": "midway.m11.s2",
+   "day": 11,
+   "group": "CAROUSEL",
+   "format": "CHOICE",
+   "title": "A limit somebody can pass"
+  },
+  {
+   "id": "midway.m11.s3",
+   "day": 11,
+   "group": "WHEEL",
+   "format": "BALLPARK",
+   "title": "What the wind does to a passenger cabin"
+  },
+  {
+   "id": "midway.m12.s1",
+   "day": 12,
+   "group": "WHEEL",
+   "format": "TRIGGER",
+   "title": "Stopping a wheel takes time"
+  },
+  {
+   "id": "midway.m12.s2",
+   "day": 12,
+   "group": "SHIP",
+   "format": "CHOICE",
+   "title": "Three tenths of a second"
+  },
+  {
+   "id": "midway.m12.s3",
+   "day": 12,
+   "group": "TOWER",
+   "format": "VERIFY",
+   "title": "What the drop test has to show"
+  },
+  {
+   "id": "midway.m13.s1",
+   "day": 13,
+   "group": "BUMPER",
+   "format": "DELEGATE",
+   "title": "Which of the three cannot wait"
+  },
+  {
+   "id": "midway.m13.s2",
+   "day": 13,
+   "group": "COASTER",
+   "format": "CHOICE",
+   "title": "A tenth of a metre a second"
+  },
+  {
+   "id": "midway.m13.s3",
+   "day": 13,
+   "group": "CAROUSEL",
+   "format": "SEQUENCE",
+   "title": "Leveling the carousel overnight"
+  },
+  {
+   "id": "midway.m14.s1",
+   "day": 14,
+   "group": "TOWER",
+   "format": "CASEBOOK",
+   "title": "Seven rides and what can be claimed"
+  },
+  {
+   "id": "midway.m14.s2",
+   "day": 14,
+   "group": "SHIP",
+   "format": "BALLPARK",
+   "title": "What the seat pushes with at the bottom"
+  },
+  {
+   "id": "midway.m14.s3",
+   "day": 14,
+   "group": "FLUME",
+   "format": "CHOICE",
+   "title": "Four adults, and why not five"
+  },
+  {
+   "id": "midway.m15.s1",
+   "day": 15,
+   "group": "COASTER",
+   "format": "VALUE",
+   "title": "What to spend the winter on"
+  },
+  {
+   "id": "midway.m15.s2",
+   "day": 15,
+   "group": "WHEEL",
+   "format": "CHOICE",
+   "title": "The honest sentence about number nine"
+  },
+  {
+   "id": "midway.m15.s3",
+   "day": 15,
+   "group": "BUMPER",
+   "format": "SEQUENCE",
+   "title": "A rule for the four-hundredth cycle"
+  }
+ ]
+}

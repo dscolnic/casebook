@@ -330,3 +330,139 @@ that is inside every specification line but one, and loading is one way. Sol 305
 is the handover: what is known, how well it is known, and what was never
 established at all, written for a crew who arrive three hundred sols after
 everybody who worked it has gone home.
+
+---
+
+## Safety Factor — *forty-one years of settings and no working*
+
+Corbin Park lost its certificate in October and has three weeks to get it back on
+seven rides. Everything the park runs on is in eleven notebooks in one
+mechanic's hand: the carousel at eight turns a minute, the swing chains at about
+thirty degrees, the tower's speed at the fins "about twenty-nine" — forty-one
+years of settings, eleven million rides, no serious injury, and not one line of
+working anywhere. Delia Marsh, who owns the park, calls that data. Marcus Vey,
+who inspects for the county, calls it a record of having got away with it. The
+first week is spent turning settings into derivations: the speed at the bottom of
+a forty-two metre drop from the constant-acceleration relations, the energy books
+for one circuit of the coaster with the friction in them, and on day four the
+angle a swing chain hangs at — which comes out at thirty-one degrees against
+Brennan's chalk mark of thirty, and Marsh is right that afternoon.
+
+Day nine is a tape measure. Marta Kovač puts one over the crown of the loop
+because nobody could find a reason not to, and it reads 7.4 metres where the 1974
+drawing says 5.6. In the ninth notebook, under 1998, there is a line about
+regrading the top of the loop after complaints of a rough ride, and no drawing
+was ever changed. A flatter crown is a gentler ride and a hungrier one: the
+minimum speed goes as the square root of the radius, so the loop demands 8.5
+metres a second rather than 7.4, and the train has been crossing it on half the
+margin the certificate claims for twenty-five years. Vey is right that morning.
+Everything computed above the first drop has to be done again, and the station
+return speed on Kovač's clipboard — 6.1 metres a second three seasons ago, 5.2
+this spring — turns a margin into a schedule.
+
+What follows is a park being made operable rather than perfect: a wind rule for
+the wheel with the eight minutes it takes to empty built into it, a drive on the
+pirate ship retimed from 5.60 seconds to the 5.90 the pendulum actually keeps
+(which Sam Idowu had been describing from the floor for two seasons and could not
+prove), a witnessed drop test that logs 5.4 g where the average was 4.7, and a
+morning reading rule a nineteen-year-old can perform with a wheel in fifteen
+seconds. Day fourteen is the last reversible moment, because a certificate cannot
+be qualified afterwards. Six rides open. The wheel does not: the load in arm
+nine's bolt group is computed at 52.7 kilonewtons, the crack in it is measured at
+41 millimetres, and whether the one can carry the other is a fracture assessment
+nobody on site can do in three weeks — which is the calculation working, and
+pointing at the single question left.
+
+---
+
+## Sightline — *nobody had ever measured it*
+
+Elias Ward has served seven years of fourteen for a robbery on Ferrier Street,
+convicted on one identification and nothing beside it, and the Conviction
+Integrity Unit has fifteen working days to report. Ines Baptiste, who ran a
+public defender's office for eleven years, wants the recommendation written on
+the procedure alone and written this month, because the sentence runs while the
+unit is careful. Ren Okada wants the November 2019 interview treated as a
+specimen — the last account of that night taken before a photograph, a lineup
+and a courtroom had each had a turn at it — and Okada's caution is what makes
+the unit slow. The first week is the street rather than the witness: what a face
+subtends at the distance the file records, where twelve volunteers in the
+reconstruction bay stop naming the right person and start describing a build,
+and what an 1,800 candela lantern puts on a doorway twelve metres away. Baptiste
+is right on day four, and the reason is that not one of those findings needs
+Alma Cardoza to answer anything.
+
+Then the account itself. A scar that is absent from ninety minutes of interview
+on 18 November, printed in the Register on the 19th, and present in the
+statement of 26 December, reported with complete certainty as a memory of the
+night. Two witnesses who agree in four particulars and who stood together on the
+kerb for twenty minutes before the first patrol arrived. An array of six
+photographs whose functional size, measured on forty strangers who had only the
+description, is about one and a half.
+
+Day nine is a tape measure. Dawit Bekele's survey of the corner puts the doorway
+34.2 metres from where Cardoza has said she stood in three separate accounts,
+and the case summary has said twenty-two since 2020 — read, it turns out, off an
+officer's sketch marked not to scale. Nothing physical changed on the day that
+was found. What changed is that the identification moves from the range where
+the bay's volunteers were poor to the range where they were at chance, and the
+finest detail an eye can resolve there goes from seven millimetres to a
+centimetre. Day eleven is the quiet one, and it is where the utility's answer
+arrives: column 4471 was out from 2 to 21 November on its own fault ticket, so
+the twelve lux the review calculated describes a street that did not exist that
+night, and what the corner had was about two lux of spill from a shop window.
+
+The last week is about what any of it is worth. Sensitivity separated from
+willingness to choose; six hundred arrays with no offender in them, run through
+four versions of the procedure to see where the errors land; an identification
+put back into the pool of four thousand men it came from. Okada is right on day
+twelve, and the evidence is somebody else's: the shop assistant, re-interviewed
+in 2023, now remembers four details that first appear in the trial transcript.
+So on day fourteen the budget does not buy a fresh interview with Cardoza. The
+report the board reads opens on the surveyed distance, because anybody can
+repeat it with a tape, and it declines to say who came out of the shop — which
+is the sentence the whole campaign has been circling, and the only one the
+review can support.
+
+---
+
+## Ground Truth — *nine volts and a hundred and eighty thousand*
+
+Station 12 fires small rockets trailing an earthed wire into charged sky and
+instruments what comes back down it, and it has three weeks of a six-week season
+left. Last August a strike it triggered on purpose killed every card in the
+outstation trailer two hundred metres from the mast, on a site whose earthing had
+been signed off that spring at twenty-five ohms, and nobody has been able to say
+how. Adeyinka Vero wants shots while there is sky to fire into. Hal Brenner wants
+a lead time that reflects how fast cells have actually crossed this flat. The
+first week is arithmetic nobody at the station has ever done: a pillbox through
+the cloud base that turns a field mill reading into eight hundredths of a
+microcoulomb on every square metre, the potential integral that makes the base
+five and a half million volts below the flat, and the tip field at the mast —
+fourteen megavolts a metre against three that dry air can stand, which is the
+corona Owen Tate can hear from the base. Vero is right on day four, and the
+reason is that not one of those findings needed the sky to cooperate.
+
+Then the two derivations the campaign turns on. On day nine the trench: forty
+metres of signal pair running parallel to the down-conductor, a flux integral
+that comes out as a logarithm of two distances, and two hundred kilovolts driven
+around a loop that is bonded to nothing the strike touched. The insulation is
+intact, a battery logger three metres from the dead cards is unharmed, and the
+earthing measures the same before and after — a year of argument about a path the
+energy never took. On day ten the other half: six metres of copper between the
+rack and the grid, nine volts of resistance and a hundred and eighty thousand
+volts of inductance in the same wire on the same afternoon, and an April
+certificate that measured the first quantity honestly with a steady current under
+which the second is exactly zero.
+
+Day eleven is quiet and finds twelve kiloamps leaving the conductor in its last
+fifteen metres, through a conduit nobody drew. Day twelve is Brenner's: a
+prediction written on the board and measured afterwards at forty-one kiloamps,
+and a second cell that crosses the flat faster than the nowcast projected, so the
+crew come in late and the trailer is gone for the season. The last week is spent
+in the hall, because the trailer is not needed there: the electrometer's own RC
+solved from the loop rule at one millisecond against a stroke front of one
+microsecond, twelve stages that trade a twelfth of the capacitance for twelve
+times the voltage and keep every joule, and a final shot chosen because it could
+come out wrong. The report asks for a second mast, and it says which of its four
+sentences was measured, which was computed, and which is an inference.

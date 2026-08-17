@@ -333,6 +333,72 @@ which cost Headwater's `Limit` its `core: true` flag — it had been core only
 because "one-sided" looked technical. A vocabulary list is load-bearing in four
 tools; change it and re-import every book before believing `bookParity`.
 
+## A field nothing renders is where instructions go to die
+
+`engine/dev/fieldCoverage.mjs` reads the *renderers* rather than the content: it
+carves `questionUI.js` and `instruments.js` into named blocks, follows each
+format's panel through the functions it calls, and collects every `ch.x` and
+`lesson.x` on that path. A sentence the book wrote that appears on none of them
+is a sentence that reaches no screen. It is **advisory** for now, because neither
+of its two findings is clean yet and a gate in front of unfinished content work
+is a gate that acquires a permanent `--advisory` flag.
+
+- **Three formats print a hardcoded instruction over the author's own**, at 164
+  stops: SEQUENCE (98 of 176), PROTOCOL (47 of 126) and SCIENCETANK (19 of 32).
+  SEQUENCE says "Put the 4 steps in order, earliest first" whatever the book
+  wrote, and about one ordering item in nine is graded on cost, risk or
+  reversibility rather than on time — ContamCity's evidence workflow, whose four
+  cards are photograph, headspace, non-destructive spectrum, destructive method,
+  three of which say they consume nothing. The axis was authored in `setup` and
+  in `task`, and `tools/BOOK_TEMPLATE.md` described `setup` as "what the panel
+  says above the question", which nothing has ever done. **`axis` and `ends` are
+  the fix** — the instruction line and the two rail captions, authored per stop —
+  and eleven stops across eight games carry them. PROTOCOL and SCIENCETANK are
+  the same fix and have not had it.
+  **The first version of this said twelve formats and 181 stops, and nine of
+  those were the checker's own fault.** Every instrument panel opens with
+  `ask(ch, fallback)`, which reads `ch.question || ch.task` — so all twenty of
+  them do render the author's line. But `ask` is `const ask = (ch, fallback) => …`
+  with a template-literal body, and the carver only knew `function name(){}` and
+  `const NAME = {}`. It never carved `ask`, so nothing that called it inherited
+  its reads, and nine instruments were reported mute. The `missing` guard could
+  not catch it because that only checks the *entry points*, which all existed —
+  a shared helper going missing is exactly the hole it does not cover. This is
+  the false negative the file's own header warns about, found in the file itself
+  within the hour, and the reason three selftest cases now name `ask` directly.
+- **`scene` was checked and `story` was rendered** — **fixed**, and it is one
+  character short of a one-line fix. All five gates read `scene ?? story`
+  (`validateContent` twice, `checkVoice`, `checkNames`, `probeQuestions`,
+  `placeStory`); `storyBriefText` alone read `lesson.story || …`. 122 stops write
+  both and mean different things by them, so on every one of those the
+  reading-level rule, the 40-word sentence rule and the GIVEAWAY probe were
+  grading a string the player never saw. ContamCity's grade-6 edition checked 26
+  scenes at Flesch–Kincaid 5.8 and displayed stories at 12.5, one of them 2.6
+  against 15.1; the hospital's grade-2 reader got 4.4 where 1.3 had passed. And
+  the drifted stories run 42 to 96 words against the scene's 27 to 38, which is
+  not merely longer — ContamCity's ordering stop opened on "some observations
+  leave the sample exactly as they found it … a destructive method gives the best
+  identification and gives it once", which is the answer to the question beneath
+  it. The scene-carries-the-teaching mistake, still shipping years after the
+  rewrite that removed it, through the one field nothing was reading.
+  **The measurement rule bites twice here.** A set of read field names cannot see
+  a fallback chain's *order*, and the order was the whole defect — both fields
+  are read either way. So `briefPrefersScene()` reads the chain itself, and it
+  was confirmed by putting the bug back and watching that one case, and only
+  that case, fail. Every check in this repo should be able to show that.
+  **What is left over is content work:** those 122 `story` values, 8,589 words of
+  it, are now displayed nowhere. They are still in the books and still exported.
+  Either fold what each one adds into its scene or delete it, but a stop should
+  not carry two situations.
+
+The selftest is the load-bearing part, and it earned that on its first run by
+failing an assertion its own author had written backwards — that the ask card
+shows `scene`. Two of its cases would otherwise invert silently: if the sink list
+stops being applied, `setup` reads as covered and the file reports all-clear; if
+`showChallengeForStop` is followed, every format inherits every other format's
+reads and the file reports all-clear again. Both were live bugs during the hour
+it was written.
+
 **Three defects the estimate panel could hide, all found by a player.** They are
 in `validateContent` now, and each is a class rather than a stop.
 
@@ -396,6 +462,8 @@ node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, no
 node engine/dev/questionLoad.mjs   <theme>    # the questions are as small as the sentences (grade 8 and below)
 node engine/dev/questionLoad.mjs --sweep      # every game: estimates that smush two equations together
 node engine/dev/questionLoad.mjs --selftest   # and that gate can tell a hard campaign from an easy one
+node engine/dev/fieldCoverage.mjs  <theme>    # the sentences the book wrote that no panel prints
+node engine/dev/fieldCoverage.mjs --selftest  # and it knows which end of an alias the engine reads
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/readabilityParity.mjs         # the reading grade cannot tell 11.4 from "eleven point four"
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
