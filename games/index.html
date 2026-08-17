@@ -251,6 +251,12 @@
     <div class="account" id="account">
       <div class="avatarpic" id="accountPic"></div>
       <div class="who"><b id="accountName"></b><span id="accountMail"></span></div>
+      <!-- Inside .account, so it appears only once the API has answered: a
+           static host has no classes to link to. One door for both sides — a
+           teacher makes a class there, a student is sent to /join.html by the
+           code their teacher reads out. -->
+      <a class="signout" href="/room.html">Play together</a>
+      <a class="signout" href="/teacher.html">Classes</a>
       <a class="signout" href="/sign-out.html">Sign out</a>
     </div>
   </header>

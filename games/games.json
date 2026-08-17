@@ -172,7 +172,7 @@
         "days": 15,
         "stops": 45
       },
-      "built": false
+      "built": true
     },
     {
       "id": "quantum",
@@ -345,6 +345,35 @@
       "size": {
         "days": 15,
         "stops": 49
+      },
+      "built": true
+    },
+    {
+      "id": "groundtruth",
+      "title": "Ground Truth",
+      "course": "AP Physics C · E&M, derived",
+      "field": "Physics",
+      "accent": "#7f8894",
+      "place": "A lightning research station on a salt flat: a sixty-metre mast, a launch rail, and a storm coming in.",
+      "hero": "shots/groundtruth.jpg",
+      "build": "groundtruth",
+      "pair": "groundtruth",
+      "shotsFrom": "groundtruth",
+      "level": "high",
+      "grades": "9–12",
+      "role": "Measurements Lead · Station 12, Sablon Flats",
+      "grade": 12,
+      "drama": "Three weeks of the storm season are left. You are the measurements lead at Station 12, which means the number beside every claim in the season report is one you have to be able to derive.",
+      "concepts": [
+        "Charge, and where it sits on a conductor",
+        "Potential and field as derivative and integral of one another",
+        "Resistance, resistivity and the ground as a resistor",
+        "Magnetic flux through a surface",
+        "Measurement in the right regime: shunts, dividers and what they load"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 45
       },
       "built": true
     },
