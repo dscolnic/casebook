@@ -64,6 +64,72 @@ node build_casebook.js          # validate + inject passing packs; prints [OK]/[
 
 Authoring spec and quality gates: [`casebook_build/SPEC.md`](casebook_build/SPEC.md).
 
+## Classes — a teacher's view of a roster
+
+A class is a join code. A teacher makes one at `/teacher.html`, reads the code
+out, and students enter it once at `/join.html`. After that every First Person
+Learning campaign those accounts play shows up on the teacher's dashboard.
+
+It reads the saves the games already write (`game_saves.state`) and adds nothing
+to what a game has to do — no engine change, no rebuild of `games/`.
+
+- `server/classes.js` — the roster, and the aggregation. **Authorisation lives in
+  the SQL**: every teacher-side query joins `classes ON teacher_id = $caller`
+  rather than fetching a row and checking ownership afterwards. This is student
+  data, and a join that returns nothing cannot be forgotten the way an `if` can.
+- Two numbers, and the difference between them is the point. *Correct* is what
+  the student's campaign records — which counts an answer that was got wrong,
+  bought back and given again. *Right first time* is correct with no retry on
+  record. A lesson the class only passes on the second attempt reads as 100% in
+  one column and 0% in the other.
+- The lesson table is sorted worst first, and the tie-break is deliberate: two
+  lessons both at 0% first time are not the same problem if one of them was
+  eventually got right, so eventual-correct breaks the tie before sample size
+  does.
+- No route lets a teacher change a campaign, and there should not be one — the
+  table is worth reading precisely because it says what happened.
+
+New tables (`classes`, `class_members`) are in `server/db.js`. As with the rest
+of the schema, DDL is **not** run at startup:
+
+```bash
+node scripts/init-db.js      # apply the schema to the dev database, once
+npm test                     # aggregation checks — no database needed
+```
+
+## Rooms — several people, one campaign
+
+`/room.html` makes a room and hands out a five-character code. Everyone who
+enters it lands in the same day of the same game, sees the others walking around
+it, and shares one clock and one set of calls. The game side is
+`Alamos/gamekit/engine/core/room.js`; this repo holds the room itself.
+
+- `server/rooms.js` — the registry, the claim table and the countdown, over a
+  WebSocket on `/ws/room`. The server is a **relay, not a second copy of the
+  game**: it stores the campaign blob opaquely and never computes it, because the
+  rules live in the engine and a second copy of them here would have to be kept
+  in step for ever.
+- **Campaign writes are last-write-wins, and the claim table is what makes that
+  safe.** One player at a time may have a stop open, so the only mutation two
+  people can make in the same instant is serialised. The accepted limit is
+  simultaneous spending, which can lose a debit; the fix would be a field-level
+  merge and it is not worth its complexity for six players.
+- **`dayLeft` is the exception and is genuinely server-owned** — a browser tab
+  that goes to the back stops getting animation frames, so a client-owned
+  countdown would freeze for whoever alt-tabbed. The room's pace drops to a
+  quarter while *anybody* has a question panel open, which is the only reason
+  the server tracks panels at all.
+- **The socket is authenticated by a ticket, not by the session cookie.** Clerk's
+  middleware runs on Express requests and an HTTP upgrade does not go through it,
+  so asking for a ticket is an ordinary signed-in POST and the auth layer stays in
+  one place. Tickets are single-use and expire in a minute.
+- Only the durable half of a room is in Postgres (`rooms`): the campaign and the
+  clock. Who is connected, where they are standing and which stop is claimed are
+  in memory, because after a restart none of them are true.
+
+Needs `node scripts/init-db.js` for the `rooms` table, and `ws` from
+package.json.
+
 ## Scaling to more games — the batch pipeline (`casebook_build/batch/`)
 
 Unattended, resumable, idempotent production so you don't babysit a session:
@@ -91,6 +157,8 @@ python3 batch_driver.py                     # then run the full set unattended
 | `manifest.webmanifest`, `sw.js`, `icon-*.png` | PWA runtime (offline install) |
 | `casebook_build/` | engine source, `pack_*.js` games, build tool, `SPEC.md`, generators |
 | `casebook_build/batch/` | the batch authoring pipeline (driver, gates, manifest, launchd) |
+| `teacher.html`, `join.html` | classes: the teacher's dashboard and the student's join page |
+| `room.html` | co-op: make or join a room, which sends you into a game with `?room=` |
 | `casebook_ios/` | native WKWebView wrapper (`IPHONE.md` has build steps) |
 | `casebook_pwa/` | icon generator + PWA notes |
 | `calibration-witness.html`, `germline-witness.html` | the two original standalone games (tone reference) |

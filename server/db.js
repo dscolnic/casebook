@@ -60,6 +60,54 @@ CREATE TABLE IF NOT EXISTS game_saves (
   PRIMARY KEY (user_id, theme)
 );
 
+-- A teacher's roster. There is no role column and there does not need to be:
+-- whoever created the class teaches it, and every other member is a student of
+-- it. The same account can teach one class and sit in another.
+--
+-- "theme" is the game the class was set, and it is nullable because a class
+-- outlives an assignment — a teacher who moves the group from Red Sand to
+-- Blackout changes one row rather than starting a new roster. The dashboard
+-- treats it as the default selection, not as a restriction: it will show any
+-- game the class actually has campaigns in.
+CREATE TABLE IF NOT EXISTS classes (
+  id SERIAL PRIMARY KEY,
+  teacher_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  name VARCHAR NOT NULL,
+  theme VARCHAR,
+  join_code VARCHAR UNIQUE NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_classes_teacher ON classes(teacher_id, created_at DESC);
+
+CREATE TABLE IF NOT EXISTS class_members (
+  class_id INTEGER NOT NULL REFERENCES classes(id) ON DELETE CASCADE,
+  user_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  joined_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (class_id, user_id)
+);
+-- Read from the student's side too — "which classes am I in" is a per-user
+-- lookup, and the primary key above only indexes the class-first direction.
+CREATE INDEX IF NOT EXISTS idx_class_members_user ON class_members(user_id);
+
+-- A co-op room: one campaign several players share. The live parts of a room —
+-- who is connected, where they are standing, which stop is claimed — are in
+-- memory in server/rooms.js and deliberately not here; they are about this
+-- moment and mean nothing after a restart. What is here is the part that must
+-- survive one: the campaign blob and the day's remaining clock.
+--
+-- Stored opaquely for the same reason game_saves is: the engine owns the shape.
+CREATE TABLE IF NOT EXISTS rooms (
+  code VARCHAR PRIMARY KEY,
+  theme VARCHAR NOT NULL,
+  owner_id VARCHAR REFERENCES users(id) ON DELETE SET NULL,
+  state JSONB,
+  version INTEGER NOT NULL DEFAULT 0,
+  clock JSONB,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_rooms_updated ON rooms(updated_at DESC);
+
 CREATE TABLE IF NOT EXISTS user_streaks (
   user_id VARCHAR PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
   current_streak INTEGER NOT NULL DEFAULT 0,

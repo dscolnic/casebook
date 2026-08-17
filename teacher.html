@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Classes · First Person Learning</title>
+<!-- The teacher's side. Create a class, read out the join code, watch the
+     roster's campaigns.
+
+     The look is the shelf's — games/index.html — on purpose: a teacher who has
+     just come from the shelf should not think they have left the product. If you
+     restyle one, restyle the other.
+
+     Everything here is read-only about the students. There is no route in this
+     app that lets a teacher change a campaign, and there should not be: the
+     whole value of the table below is that it says what actually happened.
+
+     Nothing on this page invents a metric. "First time" is correct with no retry
+     recorded against the stop, which is what server/classes.js can honestly
+     compute from the save; plain "correct" counts an answer that was bought back
+     and given again. Both are shown because the gap between them is the finding. -->
+<style>
+  :root{
+    --bg:#0d0f13; --bg2:#141821; --ink:#e9ecf2; --dim:#98a1b2; --faint:#5d6675;
+    --line:#242a36; --radius:16px;
+    --good:#6fc7d8; --mid:#d8c46f; --bad:#e0868f;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:
+      radial-gradient(1100px 620px at 12% -8%, #1b2333 0%, transparent 60%),
+      radial-gradient(900px 520px at 92% 4%, #201a2b 0%, transparent 58%),
+      var(--bg);
+    background-attachment:fixed; color:var(--ink);
+    font:16px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:48px 24px 96px}
+  a{color:inherit}
+
+  header{margin-bottom:30px; display:flex; justify-content:space-between;
+         align-items:flex-start; gap:30px; flex-wrap:wrap}
+  .mast{flex:1; min-width:280px}
+  .kicker{font:600 12px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase;
+          color:var(--faint); margin:0 0 14px}
+  .kicker a{color:var(--dim); text-decoration:none}
+  .kicker a:hover{color:var(--ink)}
+  h1{margin:0 0 10px; font-size:clamp(30px,4.6vw,46px); line-height:1.04;
+     letter-spacing:-.025em; font-weight:680}
+  h1 em{font-style:normal; background:linear-gradient(92deg,#6fc7d8,#8f6fd0 46%,#e0868f);
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{margin:0; max-width:62ch; color:var(--dim); font-size:16px}
+
+  .account{display:none; align-items:center; gap:12px; font-size:13px}
+  .account.show{display:flex}
+  .account .who{display:flex; flex-direction:column; line-height:1.25; text-align:right}
+  .account .who b{font-size:14px; font-weight:640}
+  .account .who span{color:var(--faint); font-size:12px}
+  .avatarpic{width:42px; height:42px; border-radius:50%; overflow:hidden;
+             border:1px solid var(--line); background:var(--bg2); flex:none}
+  .avatarpic img{display:block; width:100%; height:100%; object-fit:cover}
+  .avatarpic .initials{display:grid; place-items:center; width:100%; height:100%;
+                       font-size:14px; font-weight:700; color:var(--dim)}
+
+  button{font:inherit}
+  .btn{appearance:none; cursor:pointer; border:1px solid var(--line); background:var(--bg2);
+       color:var(--ink); border-radius:999px; padding:9px 18px; font-size:14px;
+       transition:border-color .16s, background .16s, transform .12s}
+  .btn:hover{border-color:#39435a; transform:translateY(-1px)}
+  .btn:focus-visible{outline:2px solid var(--good); outline-offset:2px}
+  .btn--go{background:var(--ink); color:#0d0f13; border-color:var(--ink); font-weight:640}
+  .btn--quiet{background:transparent; color:var(--dim); font-size:13px; padding:6px 13px}
+  .btn--danger:hover{border-color:var(--bad); color:var(--bad)}
+  /* A select styled as a pill still needs its own arrow — .btn sets
+     appearance:none, which on a <select> removes the disclosure triangle and
+     leaves a control that looks like a button and does not behave like one. */
+  select.btn{appearance:auto; -webkit-appearance:auto; background:#10141c;
+             color:var(--ink); padding:9px 14px}
+  input[type=text]{
+    background:#10141c; border:1px solid var(--line); color:var(--ink);
+    border-radius:10px; padding:10px 13px; font:inherit; font-size:14.5px; min-width:0;
+  }
+  input[type=text]:focus{outline:2px solid var(--good); outline-offset:1px; border-color:transparent}
+
+  /* One segmented control for the classes, the same shape the shelf uses for
+     reading levels — these are alternatives, and a shared track says so. */
+  .tabs{display:flex; flex-wrap:wrap; gap:4px; padding:4px; margin:0 0 22px;
+        border:1px solid var(--line); border-radius:999px; background:#111520; width:fit-content; max-width:100%}
+  .tabs[hidden]{display:none}
+  .tab{appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
+       border-radius:999px; padding:8px 18px; font-size:14px; line-height:1.15;
+       display:flex; flex-direction:column; align-items:center; gap:2px}
+  .tab small{font-size:11px; color:var(--faint)}
+  .tab:hover{color:var(--ink)}
+  .tab[aria-pressed="true"]{background:var(--ink); color:#0d0f13}
+  .tab[aria-pressed="true"] small{color:#4a5262}
+  .tab--new{color:var(--faint); padding-left:15px; padding-right:15px}
+  .tab--new span{font-size:17px; line-height:1}
+
+  .panel{background:linear-gradient(180deg,#161b25,#111520); border:1px solid var(--line);
+         border-radius:var(--radius); padding:24px; margin-bottom:22px}
+  .panel h2{margin:0 0 4px; font-size:21px; letter-spacing:-.015em; font-weight:640}
+  .panel .sub{margin:0 0 18px; color:var(--dim); font-size:14px}
+  .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+
+  /* The join code is the one thing on this page that gets read aloud across a
+     room, so it is set as large as a heading and spaced like a code. */
+  .code{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  /* Direct child only. The sentence beside the code names a path, which wants
+     the mono face and emphatically not the 30px — an unscoped `.code b` set
+     "/join.html" as large as the code itself and it read as the more important
+     of the two. */
+  .code > b{font:700 30px/1 var(--mono); letter-spacing:.16em; color:var(--ink)}
+  .code .where{color:var(--faint); font-size:13px; max-width:34ch}
+  .code .where code{font-family:var(--mono); color:var(--dim); font-size:12.5px}
+
+  .stats{display:flex; gap:26px; flex-wrap:wrap; margin:0 0 4px}
+  .stat b{display:block; font-size:26px; font-weight:660; line-height:1.1; letter-spacing:-.02em}
+  .stat span{font:600 10.5px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--faint)}
+
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  th{text-align:left; font:600 10.5px/1 var(--mono); letter-spacing:.12em;
+     text-transform:uppercase; color:var(--faint); padding:0 12px 10px 0; white-space:nowrap}
+  td{padding:11px 12px 11px 0; border-top:1px solid var(--line); vertical-align:middle}
+  tr:hover td{background:#151a24}
+  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums; padding-right:16px}
+  .who2{display:flex; flex-direction:column; line-height:1.3}
+  .who2 small{color:var(--faint); font-size:12px}
+  .scroll{overflow-x:auto; margin:0 -4px; padding:0 4px}
+
+  .pill{display:inline-block; font:600 10.5px/1 var(--mono); letter-spacing:.08em;
+        border-radius:999px; padding:5px 9px; white-space:nowrap}
+  .pill--playing{background:var(--ink); color:#0d0f13}
+  .pill--won{background:var(--good); color:#0d0f13}
+  .pill--lost{background:var(--bad); color:#0d0f13}
+  .pill--none{border:1px solid var(--line); color:var(--faint)}
+
+  /* A bar and its number, on one row. The bar is the thing scanned; the number
+     is what gets quoted. */
+  .meter{display:flex; align-items:center; gap:10px; min-width:150px}
+  .meter i{display:block; height:6px; border-radius:3px; background:var(--line);
+           flex:1; overflow:hidden; min-width:60px}
+  .meter i em{display:block; height:100%; background:var(--good)}
+  .meter b{font-weight:600; font-variant-numeric:tabular-nums; font-size:13px; width:4.2em; text-align:right}
+
+  .note{margin:14px 0 0; color:var(--faint); font-size:13px; line-height:1.5}
+  .empty{color:var(--dim); font-size:15px; margin:0}
+  .err{color:var(--bad); font-size:14px; margin:10px 0 0}
+  .hidden{display:none !important}
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="mast">
+      <p class="kicker"><a href="/games/">← First Person Learning</a> · classes</p>
+      <h1>Who is stuck, <em>and on what.</em></h1>
+      <p class="lede">A class is a join code. Students enter it once, and every campaign
+        they play afterwards shows up here — how far through, what they answered,
+        and which lesson the room as a whole is failing.</p>
+    </div>
+    <div class="account" id="account">
+      <div class="avatarpic" id="accountPic"></div>
+      <div class="who"><b id="accountName"></b><span id="accountMail"></span></div>
+      <a class="btn btn--quiet" href="/sign-out.html">Sign out</a>
+    </div>
+  </header>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Choose a class" hidden></div>
+
+  <div id="newClass" class="panel">
+    <h2>Start a class</h2>
+    <p class="sub">Name it something you will recognise on a Monday. You can set the game now or later.</p>
+    <div class="row">
+      <input type="text" id="className" placeholder="Period 3 — AP Chemistry" size="30" autocomplete="off">
+      <select id="classTheme" class="btn" style="padding:9px 14px"></select>
+      <button class="btn btn--go" id="createBtn" type="button">Create</button>
+    </div>
+    <p class="err hidden" id="createErr"></p>
+  </div>
+
+  <div id="dash"></div>
+
+  <div class="panel" id="enrolledPanel" hidden>
+    <h2>Classes you are in</h2>
+    <p class="sub">As a student. Your teacher sees your campaigns for these.</p>
+    <div id="enrolledList"></div>
+  </div>
+
+  <p class="note" id="foot"></p>
+
+</div>
+
+<script>
+const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
+  .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+const POLL_MS = 20000;
+
+let classes = [];        // classes I teach
+let enrolled = [];       // classes I am in as a student
+let currentId = null;    // selected class
+let currentTheme = null; // selected game within it
+let progress = null;
+let catalogue = {};      // theme id -> { title, days }
+let myId = null;         // the signed-in account, for the one route that needs it
+let timer = null;
+
+async function api(url, opts){
+  try{
+    const r = await fetch(url, { credentials:'same-origin', ...opts });
+    if(r.status === 204) return {};
+    const body = r.headers.get('content-type')?.includes('json') ? await r.json() : null;
+    if(!r.ok) return { _error: (body && body.message) || `Request failed (${r.status})` };
+    return body ?? {};
+  }catch(e){ return { _error: 'No connection to the server.' }; }
+}
+const post = (url, body) => api(url, {
+  method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+
+// -------------------------------------------------------------- account
+function initialsOf(u, name){
+  const from = [u.firstName, u.lastName].filter(Boolean);
+  if(from.length) return from.map(s => s[0]).join('').toUpperCase();
+  return (name || '?').trim()[0].toUpperCase();
+}
+async function loadAccount(){
+  const u = await api('/api/auth/user');
+  if(!u || u._error) return;
+  myId = u.id || null;
+  const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email || 'Signed in';
+  document.getElementById('accountName').textContent = name;
+  document.getElementById('accountMail').textContent = u.email || '';
+  document.getElementById('accountPic').innerHTML = u.profileImageUrl
+    ? `<img src="${esc(u.profileImageUrl)}" alt="">`
+    : `<span class="initials">${esc(initialsOf(u, name))}</span>`;
+  document.getElementById('account').classList.add('show');
+}
+
+// The catalogue is the shelf's, so a game is named here the way it is named
+// there. Absent — opened off a filesystem, or before a sync — falls back to the
+// theme id, which is ugly and still correct.
+async function loadCatalogue(){
+  const cat = await api('/games/games.json');
+  for(const g of (cat?.games ?? [])) catalogue[g.id] = { title: g.title, days: g.size?.days ?? null };
+}
+const titleOf = (t) => catalogue[t]?.title || t;
+
+function ago(ms){
+  if(!ms) return '—';
+  const s = Math.max(0, (Date.now() - ms) / 1000);
+  if(s < 90) return 'just now';
+  if(s < 3600) return `${Math.round(s/60)} min ago`;
+  if(s < 172800) return `${Math.round(s/3600)} h ago`;
+  return `${Math.round(s/86400)} days ago`;
+}
+
+// -------------------------------------------------------------- classes
+async function loadClasses(){
+  const out = await api('/api/classes');
+  if(out._error) return;
+  classes = out.teaching ?? [];
+  enrolled = out.enrolled ?? [];
+  if(!classes.some(c => c.id === currentId)) currentId = classes[0]?.id ?? null;
+  renderTabs();
+  renderEnrolled();
+}
+
+// The class bar, and the only way to the create form once there is anything to
+// create alongside. Making a class is a once-a-term action; leaving its form
+// open above the dashboard put a piece of setup permanently above the thing the
+// page is for. With no classes yet there is nothing else to show, so the form
+// is the page.
+function renderTabs(){
+  const box = document.getElementById('tabs');
+  box.hidden = classes.length === 0;
+  document.getElementById('newClass').hidden = classes.length > 0;
+  box.innerHTML = classes.map(c =>
+    `<button class="tab" type="button" data-id="${c.id}" aria-pressed="${c.id === currentId}">`
+    + `<span>${esc(c.name)}</span><small>${c.size} student${c.size === 1 ? '' : 's'}</small></button>`
+  ).join('') + `<button class="tab tab--new" type="button" id="newTab"
+      aria-pressed="false" title="Start another class"><span>＋</span><small>new</small></button>`;
+  box.querySelectorAll('.tab[data-id]').forEach(b => b.addEventListener('click', () => {
+    currentId = Number(b.dataset.id); currentTheme = null; renderTabs(); refresh();
+  }));
+  document.getElementById('newTab').addEventListener('click', () => {
+    const panel = document.getElementById('newClass');
+    panel.hidden = !panel.hidden;
+    if(!panel.hidden) document.getElementById('className').focus();
+  });
+}
+
+function renderEnrolled(){
+  const panel = document.getElementById('enrolledPanel');
+  panel.hidden = enrolled.length === 0;
+  document.getElementById('enrolledList').innerHTML = enrolled.map(c => `
+    <div class="row" style="justify-content:space-between; padding:10px 0; border-top:1px solid var(--line)">
+      <div class="who2"><b>${esc(c.name)}</b>
+        <small>${esc(c.teacher)}${c.theme ? ' · ' + esc(titleOf(c.theme)) : ''}</small></div>
+      <button class="btn btn--quiet btn--danger" type="button" data-leave="${c.id}">Leave</button>
+    </div>`).join('');
+  panel.querySelectorAll('[data-leave]').forEach(b => b.addEventListener('click', async () => {
+    // The one place a student names themselves. The server allows that id and
+    // no other from a non-teacher, so nothing here needs to be trusted.
+    if(!myId) return;
+    await api(`/api/classes/${b.dataset.leave}/members/${encodeURIComponent(myId)}`, { method:'DELETE' });
+    await loadClasses();
+  }));
+}
+
+// -------------------------------------------------------------- dashboard
+async function refresh(){
+  if(currentId == null){ progress = null; renderDash(); return; }
+  const q = currentTheme ? `?theme=${encodeURIComponent(currentTheme)}` : '';
+  const out = await api(`/api/classes/${currentId}/progress${q}`);
+  if(out._error){ renderDash(out._error); return; }
+  progress = out;
+  // The game is chosen once and then kept: default to what the class was set,
+  // else whatever its students are actually playing. Doing this after the first
+  // answer rather than before it means no extra round trip on load.
+  if(!currentTheme){
+    const pick = progress.class.theme || progress.themes[0] || null;
+    if(pick){ currentTheme = pick; return refresh(); }
+  }
+  renderDash();
+}
+
+function meter(n, of){
+  const frac = of ? n / of : 0;
+  const hue = of ? `color-mix(in srgb, var(--good) ${Math.round(frac*100)}%, var(--bad))` : 'var(--line)';
+  return `<span class="meter"><i><em style="width:${Math.round(frac*100)}%; background:${hue}"></em></i>`
+    + `<b>${of ? Math.round(frac*100) + '%' : '—'}</b></span>`;
+}
+
+function statusPill(c){
+  if(!c) return '<span class="pill pill--none">not started</span>';
+  if(c.status === 'won')  return '<span class="pill pill--won">complete</span>';
+  if(c.status === 'lost') return '<span class="pill pill--lost">ended</span>';
+  return '<span class="pill pill--playing">playing</span>';
+}
+
+function renderDash(error){
+  const box = document.getElementById('dash');
+  if(error){ box.innerHTML = `<div class="panel"><p class="err">${esc(error)}</p></div>`; return; }
+  if(!progress){
+    box.innerHTML = classes.length ? '' :
+      '<div class="panel"><p class="empty">No classes yet. Make one above, then read the join code out to the room.</p></div>';
+    return;
+  }
+
+  const c = progress.class;
+  const days = catalogue[currentTheme]?.days ?? null;
+  const started = progress.students.filter(s => s.campaigns.some(k => k.theme === currentTheme));
+  const answered = started.reduce((n, s) => n + (s.campaigns.find(k => k.theme === currentTheme)?.answered ?? 0), 0);
+  const firstTime = started.reduce((n, s) => n + (s.campaigns.find(k => k.theme === currentTheme)?.firstTime ?? 0), 0);
+
+  // The games offered are the games the class has campaigns in, plus the one it
+  // was set — a class assigned a game nobody has opened yet must still be able
+  // to show that nobody has opened it.
+  const themeOptions = Array.from(new Set([c.theme, ...progress.themes].filter(Boolean)));
+
+  box.innerHTML = `
+  <div class="panel">
+    <h2>${esc(c.name)}</h2>
+    <p class="sub">${c.size} student${c.size === 1 ? '' : 's'}${c.theme ? ' · set ' + esc(titleOf(c.theme)) : ' · no game set'}</p>
+    <div class="code">
+      <b>${esc(c.joinCode)}</b>
+      <button class="btn btn--quiet" type="button" id="copyCode">Copy join link</button>
+      <span class="where">Students enter this at <code>/join.html</code>, once.</span>
+    </div>
+    <div class="row" style="margin-top:20px; justify-content:space-between">
+      <div class="row">
+        <label class="sub" style="margin:0" for="themeSel">Game</label>
+        <select id="themeSel" class="btn" style="padding:9px 14px">
+          ${themeOptions.map(t => `<option value="${esc(t)}"${t === currentTheme ? ' selected' : ''}>${esc(titleOf(t))}</option>`).join('')
+            || '<option value="">— no campaigns yet —</option>'}
+        </select>
+        <button class="btn btn--quiet" type="button" id="setTheme">Set as this class's game</button>
+      </div>
+      <button class="btn btn--quiet btn--danger" type="button" id="deleteClass">Delete class</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="stats">
+      <div class="stat"><b>${started.length}<span style="font-size:16px; color:var(--faint)">/${c.size}</span></b><span>Started</span></div>
+      <div class="stat"><b>${answered}</b><span>Stops answered</span></div>
+      <div class="stat"><b>${answered ? Math.round(100*firstTime/answered) + '%' : '—'}</b><span>Right first time</span></div>
+    </div>
+    <p class="note">“Right first time” is a correct answer with no retry recorded against it.
+      A wrong call that was bought back and answered again counts as correct in the
+      student's campaign, and not here — the gap between the two columns below is
+      how much of the class's score is second attempts.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Where the class is stuck</h2>
+    <p class="sub">Every lesson anyone in this class has reached, worst first.</p>
+    ${progress.lessons.length ? `<div class="scroll"><table>
+      <thead><tr>
+        <th>Lesson</th><th class="num">Day</th><th class="num">Reached</th>
+        <th>Right first time</th><th class="num">Correct</th><th class="num">Used a hint</th>
+      </tr></thead>
+      <tbody>${progress.lessons.map(l => `<tr>
+        <td>${esc(l.lesson)}</td>
+        <td class="num">${l.week ?? '—'}</td>
+        <td class="num">${l.attempts}</td>
+        <td>${meter(l.firstTime, l.attempts)}</td>
+        <td class="num">${l.correct}</td>
+        <td class="num">${l.hinted}</td>
+      </tr>`).join('')}</tbody></table></div>`
+      : '<p class="empty">Nobody has answered anything in this game yet.</p>'}
+  </div>
+
+  <div class="panel">
+    <h2>Roster</h2>
+    <p class="sub">${currentTheme ? esc(titleOf(currentTheme)) : 'No game selected'}.
+      Everyone in the class, including anyone who has not started.</p>
+    ${c.size ? `<div class="scroll"><table>
+      <thead><tr>
+        <th>Student</th><th></th><th class="num">Day</th><th class="num">Answered</th>
+        <th>Right first time</th><th class="num">Last seen</th><th></th>
+      </tr></thead>
+      <tbody>${progress.students.map(s => {
+        const k = s.campaigns.find(x => x.theme === currentTheme);
+        return `<tr>
+          <td><div class="who2"><b>${esc(s.name)}</b><small>${esc(s.email || '')}</small></div></td>
+          <td>${statusPill(k)}</td>
+          <td class="num">${k?.day ? (days ? `${k.day} / ${days}` : k.day) : '—'}</td>
+          <td class="num">${k?.answered ?? 0}</td>
+          <td>${meter(k?.firstTime ?? 0, k?.answered ?? 0)}</td>
+          <td class="num" style="color:var(--faint)">${k ? esc(ago(k.savedAt)) : '—'}</td>
+          <td><button class="btn btn--quiet btn--danger" type="button"
+                data-remove="${esc(s.userId)}">Remove</button></td>
+        </tr>`;
+      }).join('')}</tbody></table></div>`
+      : `<p class="empty">Nobody has joined yet. Read out <code style="font-family:var(--mono); color:var(--ink)">${esc(c.joinCode)}</code>.</p>`}
+  </div>`;
+
+  document.getElementById('themeSel')?.addEventListener('change', (e) => {
+    currentTheme = e.target.value || null; refresh();
+  });
+  document.getElementById('setTheme')?.addEventListener('click', async () => {
+    await api(`/api/classes/${c.id}`, { method:'PATCH',
+      headers:{'Content-Type':'application/json'}, body: JSON.stringify({ theme: currentTheme }) });
+    await loadClasses(); refresh();
+  });
+  document.getElementById('copyCode')?.addEventListener('click', (e) => {
+    const link = `${location.origin}/join.html?code=${encodeURIComponent(c.joinCode)}`;
+    navigator.clipboard?.writeText(link);
+    e.target.textContent = 'Copied';
+    setTimeout(() => { e.target.textContent = 'Copy join link'; }, 1600);
+  });
+  // Deleting a roster is not recoverable, so it asks — and the confirm is a
+  // second click on the same button rather than a browser dialog, because a
+  // modal here would be the one thing on the page that blocks everything else.
+  const del = document.getElementById('deleteClass');
+  del?.addEventListener('click', async () => {
+    if(del.dataset.armed !== '1'){
+      del.dataset.armed = '1';
+      del.textContent = 'Delete — click again to confirm';
+      setTimeout(() => { del.dataset.armed = '0'; del.textContent = 'Delete class'; }, 4000);
+      return;
+    }
+    await api(`/api/classes/${c.id}`, { method:'DELETE' });
+    currentId = null; currentTheme = null; progress = null;
+    await loadClasses(); refresh();
+  });
+  box.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', async () => {
+    await api(`/api/classes/${c.id}/members/${encodeURIComponent(b.dataset.remove)}`, { method:'DELETE' });
+    await loadClasses(); refresh();
+  }));
+}
+
+// -------------------------------------------------------------- create
+document.getElementById('createBtn').addEventListener('click', async () => {
+  const name = document.getElementById('className').value.trim();
+  const theme = document.getElementById('classTheme').value || null;
+  const err = document.getElementById('createErr');
+  if(!name){ err.textContent = 'Give the class a name.'; err.classList.remove('hidden'); return; }
+  const out = await post('/api/classes', { name, theme });
+  if(out._error){ err.textContent = out._error; err.classList.remove('hidden'); return; }
+  err.classList.add('hidden');
+  document.getElementById('className').value = '';
+  currentId = out.id; currentTheme = out.theme || null;
+  await loadClasses(); refresh();
+});
+
+// -------------------------------------------------------------- start
+(async function start(){
+  await Promise.all([loadAccount(), loadCatalogue()]);
+  const sel = document.getElementById('classTheme');
+  sel.innerHTML = '<option value="">— choose a game (optional) —</option>'
+    + Object.entries(catalogue).map(([id, g]) => `<option value="${esc(id)}">${esc(g.title)}</option>`).join('');
+  await loadClasses();
+  await refresh();
+  document.getElementById('foot').textContent =
+    'This page reads the same saved campaigns the games write. It updates on its own every 20 seconds.';
+
+  // Poll, but only while the tab is actually in front. A backgrounded tab gets
+  // its timers throttled anyway, and a class left open on a laptop overnight
+  // should not be asking a question every twenty seconds until morning.
+  const tick = () => { if(document.visibilityState === 'visible') refresh(); };
+  timer = setInterval(tick, POLL_MS);
+  document.addEventListener('visibilitychange', () => {
+    if(document.visibilityState === 'visible') refresh();
+  });
+})();
+</script>
+</body>
+</html>

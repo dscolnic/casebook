@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Play together · First Person Learning</title>
+<!-- Rooms: several people, one campaign.
+
+     A room is a code and a game. Whoever makes it reads the code out; everyone
+     else types it here and lands in the same day, in the same place, able to see
+     each other walk around it.
+
+     The page deliberately does not join a room by being opened with ?code= —
+     it prefills and waits. The same reasoning as join.html: a link that enrols
+     you by being clicked enrols anyone it was forwarded to.
+
+     Look is the shelf's (games/index.html). Restyle one, restyle the other. -->
+<style>
+  :root{
+    --bg:#0d0f13; --bg2:#141821; --ink:#e9ecf2; --dim:#98a1b2; --faint:#5d6675;
+    --line:#242a36; --good:#6fc7d8; --bad:#e0868f;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; min-height:100vh; min-height:100dvh;
+    background:
+      radial-gradient(1100px 620px at 12% -8%, #1b2333 0%, transparent 60%),
+      radial-gradient(900px 520px at 92% 4%, #201a2b 0%, transparent 58%),
+      var(--bg);
+    background-attachment:fixed; color:var(--ink);
+    font:16px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; padding:48px 20px 80px;
+  }
+  a{color:inherit}
+  .wrap{max-width:880px; margin:0 auto}
+  .kicker{font:600 12px/1 var(--mono); letter-spacing:.18em; text-transform:uppercase;
+          color:var(--faint); margin:0 0 16px}
+  .kicker a{color:var(--dim); text-decoration:none}
+  .kicker a:hover{color:var(--ink)}
+  h1{margin:0 0 10px; font-size:clamp(30px,5vw,46px); line-height:1.04;
+     letter-spacing:-.025em; font-weight:680}
+  h1 em{font-style:normal; background:linear-gradient(92deg,#6fc7d8,#8f6fd0 46%,#e0868f);
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{margin:0 0 30px; max-width:62ch; color:var(--dim)}
+
+  .cards{display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+  .panel{background:linear-gradient(180deg,#161b25,#111520); border:1px solid var(--line);
+         border-radius:16px; padding:24px}
+  .panel h2{margin:0 0 4px; font-size:20px; letter-spacing:-.015em; font-weight:640}
+  .panel .sub{margin:0 0 18px; color:var(--dim); font-size:14px}
+
+  select, input[type=text]{
+    width:100%; background:#10141c; border:1px solid var(--line); color:var(--ink);
+    border-radius:10px; padding:11px 13px; font:inherit; font-size:14.5px;
+  }
+  select:focus, input:focus{outline:2px solid var(--good); outline-offset:1px; border-color:transparent}
+  input.code{font:700 24px/1 var(--mono); letter-spacing:.22em; text-align:center;
+             text-transform:uppercase; padding:14px}
+  button{
+    appearance:none; cursor:pointer; width:100%; margin-top:12px; border:1px solid var(--ink);
+    background:var(--ink); color:#0d0f13; border-radius:999px; padding:12px 20px;
+    font:640 15px/1.2 inherit;
+  }
+  button.quiet{background:transparent; color:var(--dim); border-color:var(--line); font-weight:500}
+  button:disabled{opacity:.5; cursor:default}
+  button:focus-visible{outline:2px solid var(--good); outline-offset:2px}
+
+  .msg{margin:14px 0 0; font-size:14px; min-height:1.3em}
+  .msg--bad{color:var(--bad)}
+  .made{margin-top:18px; padding-top:18px; border-top:1px solid var(--line)}
+  .made b{display:block; font:700 34px/1 var(--mono); letter-spacing:.18em; margin-bottom:12px}
+  .made p{margin:0 0 12px; color:var(--dim); font-size:13.5px}
+  .fine{margin:34px 0 0; padding-top:20px; border-top:1px solid var(--line);
+        color:var(--faint); font-size:13px; line-height:1.6; max-width:70ch}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker"><a href="/games/">← First Person Learning</a> · play together</p>
+  <h1>One day, <em>several people.</em></h1>
+  <p class="lede">A room is one campaign that several people walk around at once. The day's
+     calls are split between you: whoever opens a call answers it, and the verdict
+     goes to everybody.</p>
+
+  <div class="cards">
+    <div class="panel">
+      <h2>Start a room</h2>
+      <p class="sub">Pick the game, then read the code out.</p>
+      <select id="game"></select>
+      <button id="make" type="button">Create the room</button>
+      <p class="msg" id="makeMsg" role="status"></p>
+      <div class="made hidden" id="made">
+        <b id="code"></b>
+        <p id="madeGame"></p>
+        <button class="quiet" id="copy" type="button">Copy the join link</button>
+        <button id="enter" type="button">Go in</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Join a room</h2>
+      <p class="sub">The five characters somebody read out.</p>
+      <input class="code" id="join" type="text" maxlength="7" placeholder="ABC12"
+             autocomplete="off" autocapitalize="characters" spellcheck="false"
+             aria-label="Room code">
+      <button id="go" type="button">Go in</button>
+      <p class="msg" id="joinMsg" role="status"></p>
+    </div>
+  </div>
+
+  <p class="fine">Everyone in a room shares one campaign, one clock and one set of
+     calls — it is not your own save, and finishing a day in a room does not
+     touch the game you are playing alone. A call being answered by one person is
+     the rule that keeps six browsers from writing over each other, so if a
+     teammate has opened something, you will be told whose it is rather than
+     shown a second copy of it.</p>
+</div>
+
+<script>
+const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const clean = (s) => String(s || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+let games = [];
+let made = null;
+
+const say = (id, text, bad) => {
+  const el = document.getElementById(id);
+  el.textContent = text || '';
+  el.className = 'msg' + (bad ? ' msg--bad' : '');
+};
+
+async function api(url, opts){
+  const r = await fetch(url, { credentials:'same-origin', ...opts });
+  const body = await r.json().catch(() => null);
+  if(!r.ok) throw new Error((body && body.message) || `Request failed (${r.status})`);
+  return body;
+}
+
+// The game a room is played in has to be one that is actually built, or the
+// link lands on a directory that is not there.
+(async function start(){
+  try{
+    const cat = await (await fetch('/games/games.json')).json();
+    games = (cat.games ?? []).filter(g => g.built !== false);
+  }catch(e){ games = []; }
+  document.getElementById('game').innerHTML = games.length
+    ? games.map(g => `<option value="${esc(g.id)}">${esc(g.title)}</option>`).join('')
+    : '<option value="">— no games.json here —</option>';
+  const pre = clean(new URLSearchParams(location.search).get('code'));
+  if(pre){ document.getElementById('join').value = pre; }
+  else document.getElementById('join').focus();
+})();
+
+const linkFor = (theme, code) => `${location.origin}/games/${theme}/index.html?room=${code}`;
+
+document.getElementById('make').addEventListener('click', async () => {
+  const theme = document.getElementById('game').value;
+  if(!theme){ say('makeMsg', 'No game to start a room in.', true); return; }
+  say('makeMsg', 'Creating…');
+  try{
+    made = await api('/api/rooms', { method:'POST',
+      headers:{'Content-Type':'application/json'}, body: JSON.stringify({ theme }) });
+    say('makeMsg', '');
+    document.getElementById('code').textContent = made.code;
+    document.getElementById('madeGame').textContent =
+      (games.find(g => g.id === made.theme)?.title || made.theme)
+      + ' — anyone who types this code lands in the same campaign.';
+    document.getElementById('made').classList.remove('hidden');
+  }catch(e){ say('makeMsg', e.message, true); }
+});
+
+document.getElementById('copy').addEventListener('click', (e) => {
+  if(!made) return;
+  navigator.clipboard?.writeText(linkFor(made.theme, made.code));
+  e.target.textContent = 'Copied';
+  setTimeout(() => { e.target.textContent = 'Copy the join link'; }, 1600);
+});
+
+document.getElementById('enter').addEventListener('click', () => {
+  if(made) location.href = linkFor(made.theme, made.code);
+});
+
+// Joining looks the room up first, because the room is what knows which game it
+// is being played in — a code alone cannot say where to send anybody.
+async function join(){
+  const code = clean(document.getElementById('join').value);
+  if(code.length < 4){ say('joinMsg', 'That code looks too short.', true); return; }
+  say('joinMsg', 'Looking it up…');
+  try{
+    const room = await api(`/api/rooms/${encodeURIComponent(code)}`);
+    location.href = linkFor(room.theme, room.code);
+  }catch(e){ say('joinMsg', e.message, true); }
+}
+document.getElementById('go').addEventListener('click', join);
+document.getElementById('join').addEventListener('keydown', (e) => { if(e.key === 'Enter') join(); });
+</script>
+</body>
+</html>

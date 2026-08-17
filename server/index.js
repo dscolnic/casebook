@@ -1,3 +1,4 @@
+const http = require("http");
 const path = require("path");
 const express = require("express");
 const { setupAuth, requireUser, getUserId, clerkClient } = require("./clerkAuth");
@@ -5,6 +6,11 @@ const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
 } = require("./storage");
+const {
+  createClass, listClassesForTeacher, listClassesForStudent,
+  updateClass, deleteClass, joinClass, leaveClass, removeMember, classProgress,
+} = require("./classes");
+const { attach: attachRooms, createRoom, getRoom, issueTicket, roomSummary } = require("./rooms");
 
 const PORT = process.env.PORT || 5000;
 const ROOT = path.join(__dirname, "..");
@@ -154,6 +160,154 @@ async function main() {
     }
   });
 
+  // ---------------------------------------------------------------------
+  // Classes. A teacher creates one, reads out the join code, and watches the
+  // roster's campaigns from teacher.html.
+  //
+  // Every route that touches somebody else's progress passes the caller's own
+  // id down to the query, which joins on it. There is no route here that takes
+  // a class id and trusts it — see the note at the top of server/classes.js.
+  app.get("/api/classes", requireUser, async (req, res, next) => {
+    try {
+      const [teaching, enrolled] = await Promise.all([
+        listClassesForTeacher(req.userId),
+        listClassesForStudent(req.userId),
+      ]);
+      res.json({ teaching, enrolled });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.post("/api/classes", requireUser, async (req, res, next) => {
+    try {
+      const { name, theme } = req.body || {};
+      if (!name || !String(name).trim()) {
+        return res.status(400).json({ message: "name is required" });
+      }
+      res.json(await createClass(req.userId, name, theme));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.patch("/api/classes/:id", requireUser, async (req, res, next) => {
+    try {
+      const { name, theme } = req.body || {};
+      const out = await updateClass(Number(req.params.id), req.userId, { name, theme });
+      if (!out) return res.status(404).json({ message: "No such class" });
+      res.json(out);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.delete("/api/classes/:id", requireUser, async (req, res, next) => {
+    try {
+      const gone = await deleteClass(Number(req.params.id), req.userId);
+      if (!gone) return res.status(404).json({ message: "No such class" });
+      res.status(204).end();
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // Join by code. A wrong code is a 404 rather than a 400: from the student's
+  // side "no class with that code" is the only distinction that matters, and
+  // saying anything more precise would confirm which codes exist.
+  app.post("/api/classes/join", requireUser, async (req, res, next) => {
+    try {
+      const out = await joinClass(req.userId, (req.body || {}).code);
+      if (!out) return res.status(404).json({ message: "No class with that code" });
+      if (out.alreadyTeaching) {
+        return res.status(409).json({ message: "That is your own class — you already teach it." });
+      }
+      res.json(out);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // Leaving is the student's own action; removing somebody is the teacher's.
+  // Both end at the same row, so one route handles them and decides by who is
+  // asking — a student may only ever name themselves.
+  app.delete("/api/classes/:id/members/:userId", requireUser, async (req, res, next) => {
+    try {
+      const classId = Number(req.params.id);
+      const target = String(req.params.userId);
+      if (target === req.userId) {
+        await leaveClass(classId, req.userId);
+        return res.status(204).end();
+      }
+      const gone = await removeMember(classId, req.userId, target);
+      if (!gone) return res.status(404).json({ message: "No such member" });
+      res.status(204).end();
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // The dashboard. `theme` picks which game the per-stop detail and the lesson
+  // table are about; without it the answer is campaign summaries only.
+  app.get("/api/classes/:id/progress", requireUser, async (req, res, next) => {
+    try {
+      const out = await classProgress(
+        Number(req.params.id), req.userId,
+        req.query.theme ? String(req.query.theme) : null
+      );
+      if (!out) return res.status(404).json({ message: "No such class" });
+      res.json(out);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // ---------------------------------------------------------------------
+  // Co-op rooms. The campaign, the clock and everybody's position live in
+  // server/rooms.js behind a WebSocket; these three routes are only the way in.
+  //
+  // The socket itself is authenticated by a ticket rather than by the session
+  // cookie: Clerk's middleware runs on the Express request, and an HTTP upgrade
+  // does not go through it. Asking for a ticket is an ordinary signed-in request,
+  // so the auth layer stays in exactly one place.
+  app.post("/api/rooms", requireUser, async (req, res, next) => {
+    try {
+      const theme = String((req.body || {}).theme || "");
+      if (!theme) return res.status(400).json({ message: "theme is required" });
+      res.json(await createRoom(theme, req.userId));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/api/rooms/:code", requireUser, async (req, res, next) => {
+    try {
+      const room = await getRoom(req.params.code);
+      if (!room) return res.status(404).json({ message: "No room with that code" });
+      res.json(roomSummary(room));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.post("/api/rooms/:code/ticket", requireUser, async (req, res, next) => {
+    try {
+      const room = await getRoom(req.params.code);
+      if (!room) return res.status(404).json({ message: "No room with that code" });
+      // The display name is whatever the account calls itself. Falling back to
+      // the email's local part rather than to "Player" matters more than it
+      // looks: the name is what floats over an avatar and what a claim message
+      // reads out, and six players called Player is the same as no names at all.
+      const u = await clerkClient.users.getUser(req.userId).catch(() => null);
+      const email = u?.emailAddresses?.[0]?.emailAddress || "";
+      const name = [u?.firstName, u?.lastName].filter(Boolean).join(" ")
+        || email.split("@")[0] || "Player";
+      res.json({ ticket: issueTicket(room.code, req.userId, name), code: room.code, theme: room.theme });
+    } catch (err) {
+      next(err);
+    }
+  });
+
   // Investigator portrait: per-user saved character. Its page (character.html)
   // is retired, so nothing calls these — they stay because the column they read
   // still holds every portrait anyone drew, and a route is cheaper to keep than
@@ -203,7 +357,11 @@ async function main() {
     res.status(500).json({ message: "Internal server error" });
   });
 
-  app.listen(PORT, "0.0.0.0", () => {
+  // An explicit http server rather than app.listen(), because the co-op rooms
+  // need the 'upgrade' event and app.listen() does not hand it back.
+  const server = http.createServer(app);
+  attachRooms(server);
+  server.listen(PORT, "0.0.0.0", () => {
     console.log(`Casebook server listening on http://0.0.0.0:${PORT}`);
   });
 }

@@ -265,7 +265,35 @@ async function listGameSaves(userId) {
   }));
 }
 
+// ---------------------------------------------------------------------------
+// Co-op rooms. Only the durable half — see the note on the `rooms` table.
+
+async function loadRoom(code) {
+  const { rows } = await pool.query(`SELECT * FROM rooms WHERE code = $1`, [code]);
+  return rows[0] || null;
+}
+
+// Called on a debounce from the room's own tick, not on every message: a room
+// of six walking players produces sixty position messages a second and none of
+// them change anything worth writing down.
+async function saveRoom(room) {
+  await pool.query(
+    `INSERT INTO rooms (code, theme, owner_id, state, version, clock, updated_at)
+     VALUES ($1, $2, $3, $4, $5, $6, now())
+     ON CONFLICT (code) DO UPDATE SET
+       state = EXCLUDED.state,
+       version = EXCLUDED.version,
+       clock = EXCLUDED.clock,
+       updated_at = now()`,
+    [room.code, room.theme, room.ownerId || null,
+     room.state == null ? null : JSON.stringify(room.state),
+     room.version || 0,
+     JSON.stringify(room.clock || {})]
+  );
+}
+
 module.exports = {
   upsertUser, upsertUserProfile, getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
+  loadRoom, saveRoom,
 };
