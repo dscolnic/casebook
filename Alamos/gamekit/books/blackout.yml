@@ -1866,6 +1866,8 @@ missions:
           - Start loading the replacement plant, which needs the minutes.
           - Reconfigure the network around the faulted feeder.
         order: [0, 1, 2, 3]
+        axis: Order the four moves by what each one commits you to, not by the clock. All four are available now; what differs is how much they improve the figures you are working from, and how easily they can be taken back.
+        ends: [Improves your information, Cannot be taken back]
   - title: The last morning it can be changed
     objective: Commit the corridor to a course, knowing the window closes today.
     briefing: The reinforcement decision from last week has a date on it, and the date is today.

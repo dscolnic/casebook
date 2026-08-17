@@ -1013,6 +1013,8 @@ missions:
           - Chill to 190 K across the trap, where carbon dioxide leaves as a solid.
           - Take the remainder to 112 K, where methane runs as a liquid into the tank.
         order: [0, 1, 2, 3]
+        axis: Order the four stages by temperature, warmest first. The stream walks down the plant in that order, and the reason it does is the question — each stage removes what would otherwise foul the colder one after it.
+        ends: [Warmest stage, Coldest stage]
   # ---------------------------------------------------------------- sol 296
   - title: Water is the whole plant
     objective: Find the feed that actually caps the plant, and what it costs to clean.
@@ -2187,7 +2189,6 @@ lessons:
 
   - group: PHASE
     title: What freezes before methane condenses — Review
-    task: Say what leaves a stream first as it is cooled
     place: Cold End
     scene: >
       A different stream comes off the greenhouse: mostly nitrogen, with water vapour, some carbon
@@ -2204,6 +2205,8 @@ lessons:
       - Nitrogen, a small non-polar molecule that condenses near 77 K.
       - Argon, a single atom with the weakest attractions in the stream.
     order: [0, 1, 2, 3]
+    axis: Order the four substances by the temperature at which each one leaves the gas, warmest first. Nothing here happens before anything else — they are all in the stream together, and the cooling picks them off in the order their molecules hold on to one another.
+    ends: [Leaves the gas warmest, Leaves the gas coldest]
     why: >-
       The order is the strength of the forces between whole molecules. Water hydrogen-bonds and is
       the first out by a wide margin. Carbon dioxide is held by weaker forces and, at this pressure,

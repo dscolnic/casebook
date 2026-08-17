@@ -294,10 +294,17 @@ body.touch #turnInBar .btn small{display:none}
 <script type="module">
   // No top-level await: it needs an esnext build target, and the one thing this
   // block must never do is fail to build.
+  // A co-op room, when there is one, is read the same way and for the same
+  // reason: it arrives as a campaign that has to be in the slot before the entry
+  // point reads it. It goes SECOND, because a room's campaign is the shared one
+  // and must win over whatever this account was playing alone.
   import('./engine/core/cloudSave.js')
     .then(m => m.hydrate())
     // Never let the account layer be the reason a game does not start.
     .catch(e => console.warn('cloud save unavailable:', e))
+    .then(() => import('./engine/core/room.js'))
+    .then(m => m.connect())
+    .catch(e => console.warn('co-op unavailable:', e))
     .then(() => import('./src/main.js'));
 </script>
 </body>

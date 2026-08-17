@@ -496,7 +496,7 @@ function festoon(scene, stateHooks, groundAt){
  */
 function carPark(scene, groundAt, { cx, cz, cols, rows, cars = 0, rand, colliders, soft }){
   const BAY_W = 2.6, BAY_D = 5.2, AISLE = 6.4;
-  const line = MATERIALS.paintedSteel(0xb8b2a0);
+  const line = MATERIALS.paintedSteel(0xcfc9b4);
   const x0 = cx - (cols * BAY_W) / 2;
   const z0 = cz - (rows * (BAY_D * 2 + AISLE)) / 2;
   for(let r = 0; r < rows; r++){
@@ -506,9 +506,9 @@ function carPark(scene, groundAt, { cx, cz, cols, rows, cars = 0, rand, collider
       for(let c = 0; c <= cols; c++){
         const x = x0 + c * BAY_W;
         const y = groundAt(x, zz);
-        box(scene, 0.12, 0.02, BAY_D, x, y + 0.02, zz + dir * BAY_D / 2, line);
+        box(scene, 0.16, 0.03, BAY_D, x, y + 0.03, zz + dir * BAY_D / 2, line);
       }
-      box(scene, cols * BAY_W, 0.02, 0.12, cx, groundAt(cx, zz) + 0.02, zz, line);
+      box(scene, cols * BAY_W, 0.03, 0.16, cx, groundAt(cx, zz) + 0.03, zz, line);
     }
   }
   // Lighting columns down the middle of each aisle. Emissive heads, never lights:
@@ -583,14 +583,14 @@ function ticketLine(scene, groundAt, x, z, colliders, soft){
   // with the arms folded back the way they are left when a park closes.
   for(let i = 0; i < 4; i++){
     const tx = x - 4.5 + i * 3;
-    const ty = groundAt(tx, z - 6);
-    cyl(scene, 0.16, 1.1, tx, ty + 0.55, z - 6, STEEL());
+    const ty = groundAt(tx, z - 8);
+    cyl(scene, 0.16, 1.1, tx, ty + 0.55, z - 8, STEEL());
     for(const a of [0, 2.1, 4.2]){
-      const arm = box(scene, 0.7, 0.07, 0.07, tx + Math.cos(a) * 0.35, ty + 0.95, z - 6 + Math.sin(a) * 0.35, STEEL());
+      const arm = box(scene, 0.7, 0.07, 0.07, tx + Math.cos(a) * 0.35, ty + 0.95, z - 8 + Math.sin(a) * 0.35, STEEL());
       arm.rotation.y = a;
     }
-    box(scene, 0.5, 1.0, 0.5, tx + 1.5, ty + 0.5, z - 6, PAINT(0x6b6f74));
-    soft?.push({ x: tx, z: z - 6, r: 0.5 });
+    box(scene, 0.5, 1.0, 0.5, tx + 1.5, ty + 0.5, z - 8, PAINT(0x6b6f74));
+    soft?.push({ x: tx, z: z - 8, r: 0.5 });
   }
 }
 
@@ -711,8 +711,8 @@ export function decorate(scene, ctx){
   // Two car parks either side of the approach, the ticket line under the gate
   // canopy, and the billboards that tell somebody on the county road that this
   // place exists. This is the half of a park a visitor meets before any ride.
-  carPark(scene, at, { cx: -56, cz: 108, cols: 16, rows: 2, cars: 9, rand, colliders, soft: softColliders });
-  carPark(scene, at, { cx: 56, cz: 108, cols: 16, rows: 2, cars: 5, rand, colliders, soft: softColliders });
+  carPark(scene, at, { cx: -56, cz: 108, cols: 16, rows: 2, cars: 14, rand, colliders, soft: softColliders });
+  carPark(scene, at, { cx: 56, cz: 108, cols: 16, rows: 2, cars: 7, rand, colliders, soft: softColliders });
   // The coach bay, and the coach that has been in it since last September.
   {
     const y = at(-104, 88);
@@ -734,8 +734,10 @@ export function decorate(scene, ctx){
   // across it. The first version put five booths straight over the gate's own
   // door, which the reachability fill caught: a ticket office you cannot walk
   // past is a gate nobody gets through.
-  ticketLine(scene, at, -21, 66, colliders, softColliders);
-  ticketLine(scene, at, 21, 66, colliders, softColliders);
+  // Outside the gate, facing the car park, which is the order a visitor meets
+  // them in: billboard, ticket window, turnstile, gate, midway.
+  ticketLine(scene, at, -14, 86, colliders, softColliders);
+  ticketLine(scene, at, 14, 86, colliders, softColliders);
 
   // Billboards: one on the county road facing the traffic, one over the car park
   // and two on the midway. The park's name is on the first thing anybody sees.

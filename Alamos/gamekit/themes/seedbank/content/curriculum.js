@@ -250,6 +250,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Order the four clauses by what is lost for good if the standard omits it. These are not steps in a season — they are the things a written standard has to name, and one of them cannot be recovered by any later care.",
+        "ends": [
+          "Unrecoverable if omitted",
+          "Recoverable later"
         ]
       },
       "assumes": [

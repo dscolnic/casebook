@@ -1338,6 +1338,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Order the four stages by temperature, warmest first. The stream walks down the plant in that order, and the reason it does is the question — each stage removes what would otherwise foul the colder one after it.",
+        "ends": [
+          "Warmest stage",
+          "Coldest stage"
         ]
       },
       "assumes": [
@@ -1708,6 +1713,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Order the four substances by the temperature at which each one leaves the gas, warmest first. Nothing here happens before anything else — they are all in the stream together, and the cooling picks them off in the order their molecules hold on to one another.",
+        "ends": [
+          "Leaves the gas warmest",
+          "Leaves the gas coldest"
         ]
       },
       "assumes": [

@@ -3,7 +3,18 @@ import theme from './theme.js';
 // The save slot is per theme. This was one hardcoded string, which meant every
 // game built on the engine wrote over the same slot — starting a second theme
 // silently loaded the first one's campaign.
-const KEY=`gamekit_${theme.id}_v1`;
+//
+// A co-op room gets a slot of its own. `?room=CODE` is a shared campaign several
+// people are writing, and pointing it at the theme's own slot would overwrite
+// the player's solo game the first time they joined somebody else's — the same
+// class of bug as house rule 14, arriving through a different door. This is the
+// only place that decides it, so nothing downstream has to know a room exists.
+const ROOM = (() => {
+  if(typeof location === 'undefined') return null;
+  const code = new URLSearchParams(location.search).get('room');
+  return code ? code.toUpperCase().replace(/[^A-Z0-9]/g, '') : null;
+})();
+const KEY = ROOM ? `gamekit_${theme.id}_room_${ROOM}_v1` : `gamekit_${theme.id}_v1`;
 // The campaign is as long as the book: one mission is one working day, and the
 // last one won is the end of it. This was 15, which is what all four shipped
 // games happen to have — a theme with any other number could never reach 'won',
@@ -45,6 +56,6 @@ const SKIP_HOURS=0;
 const DAILY_STIPEND=8;
 const VISIT_BONUS=6;
 const ISSUE_VISIT_BONUS=10;
-export { KEY, WEEKS, DAY_NOUN, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
+export { KEY, ROOM, WEEKS, DAY_NOUN, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
          MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
          DAILY_STIPEND, VISIT_BONUS, ISSUE_VISIT_BONUS };

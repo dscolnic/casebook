@@ -63,7 +63,9 @@ export const site = {
     ground: { base: [70, 68, 58], spread: [22, 22, 18], repeat: 18, normalRepeat: 160 },
   },
 
-  atmosphere: { turbidity: 3.0, rayleigh: 2.4, mie: 0.004, mieG: 0.78, scale: 850, stars: 900 },
+  // Lake air in March: clean, with a high sun and a pale band at the horizon.
+  // A low rayleigh washes the whole dome out, which is what the first pass did.
+  atmosphere: { turbidity: 2.3, rayleigh: 3.2, mie: 0.003, mieG: 0.76, scale: 850, stars: 900 },
 
   // The midway itself: one avenue from the gate to the lake, with two cross
   // paths. Worn tarmac rather than road — `tone` takes the warm grit out of the

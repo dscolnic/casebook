@@ -815,6 +815,8 @@ missions:
           - The semiconductor amplifier at 4 kelvin, whose added noise matters much less after the first stage has supplied gain.
           - The digitiser at room temperature, which records what arrives.
         order: [0, 1, 2, 3]
+        axis: Put the four in the order the signal passes through them, from the chip outward. This is a place in a chain rather than a moment in time, and the walk is up the temperature gradient.
+        ends: [First in the chain, Last in the chain]
       - group: CTRL
         task: Say what the discriminator decides
         title: A line drawn between two clouds

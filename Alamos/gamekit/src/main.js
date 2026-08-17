@@ -11,9 +11,13 @@ import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLo
          setGround, setBounds, moveState, touchControls } from '../engine/core/player.js';
 import { updateInteractions, getCurrentTarget } from '../engine/core/interactions.js';
 import { initCrowd, updateCrowd, getNPCs } from '../engine/people/crowd.js';
+import { initAvatars, updateAvatars } from '../engine/people/avatars.js';
+// Co-op. Every call is a no-op unless the page was opened with `?room=CODE`.
+import * as room from '../engine/core/room.js';
+import { createCoopHUD } from '../engine/core/coopHUD.js';
 import {
   getState, save, tryLoadSaved, createFresh, advanceTime, getNextMissionStop, walkCost,
-  endDayNow, dayRunning, completeMission,
+  endDayNow, dayRunning, completeMission, applyRemoteState,
 } from '../engine/core/gameState.js';
 import { updateHUD, updateDayClock, renderStats } from '../engine/core/dashboard.js';
 import { renderMap } from '../engine/core/map.js';
@@ -90,6 +94,11 @@ initCrowd({
   blocked: (x, z, pad = 1) => world.colliders.some(c =>
     x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad),
 });
+
+// The other players, drawn with the same rig the crowd uses. Inert solo: with
+// no room there are never any members, so this draws nothing and costs a loop
+// over an empty array.
+initAvatars({ scene, groundHeight: world.groundHeight });
 
 // --------------------------------------------------------------- objective
 /** The area the current mission wants next, or null when the mission is done. */
@@ -257,6 +266,41 @@ function showDayOver(outstanding){
       else day.showPlan();
     } }]);
 }
+
+// ------------------------------------------------------------------- co-op
+//
+// Everything below is inert unless the page was opened with `?room=CODE`.
+//
+// Which SPACE the player is in, not only where they are. Interiors are built in
+// a district four kilometres along +x, so a teammate's coordinates mean nothing
+// without knowing which room they belong to — without this, somebody who walked
+// through a door appears to everyone outside as a figure standing far out across
+// the terrain.
+const coopSpace = () => (interiors.current ? `int:${interiors.current.id}` : 'out');
+
+const coop = createCoopHUD({
+  room, getState,
+  getPosition: () => getPosition(),
+  getYaw: () => camera.rotation.y,
+});
+
+// A campaign written by somebody else. `applyRemoteState` keeps our own copy of
+// the day's clock, which is the server's, and swaps everything else.
+room.onState((next) => {
+  if(!applyRemoteState(next)) return;
+  updateHUD();
+  refreshWorld();
+  // Somebody accepted the plan. Standing on a plan card for a day that is
+  // already running is standing outside the day — the clock moves, the calls
+  // are open, and this player sees a briefing.
+  if(next.dayStarted && !next.dayEnded && day.planOpen) day.resume();
+});
+
+// The clock is the server's, but the END of the day is still noticed the way it
+// always was: `tickDay` reads the room's countdown and returns 'expired' once,
+// on the frame it reaches zero, and the frame loop already turns that into the
+// day-over card. Listening for the server's `expired` as well would raise that
+// card twice on any client that was running when it landed.
 
 const COPY = theme.content.COPY ?? {};
 const activate = makeActivate({
@@ -457,6 +501,15 @@ function frame(now){
 
   world.updateWorldAnimation?.(now / 1000);
   updateCrowd(delta, now / 1000);
+  // The other players. `sendPos` throttles itself to ten a second and both calls
+  // return immediately when there is no room, so this costs a solo game two
+  // function calls a frame.
+  const eye = getPosition();
+  const space = coopSpace();
+  room.sendPos(eye.x, eye.y, eye.z, camera.rotation.y, space,
+               !!(moveState?.forward || moveState?.right));
+  updateAvatars(delta, room.members(), space);
+  coop?.update(now);
   // Only the room the player is standing in repaints its screen.
   interiors.update(delta);
 

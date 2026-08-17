@@ -3353,6 +3353,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Start with the one that stops things getting worse. Then put the rest in the order you would do them.",
+        "ends": [
+          "Stops things getting worse",
+          "Can wait"
         ]
       },
       "assumes": [
@@ -3698,6 +3703,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Start with the one that stops things getting worse. Then put the rest in the order you would do them.",
+        "ends": [
+          "Stops things getting worse",
+          "Can wait"
         ]
       },
       "assumes": [
@@ -4026,6 +4036,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Start with the one that stops things getting worse. Then put the rest in the order you would do them.",
+        "ends": [
+          "Stops things getting worse",
+          "Can wait"
         ]
       },
       "assumes": [

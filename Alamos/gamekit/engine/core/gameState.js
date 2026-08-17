@@ -1,7 +1,9 @@
 import { WEEKS, DAY_NOUN, WEEKLY_APPROPRIATION, DAILY_STIPEND } from './constants.js';
 import { def, currentMilestone, completeMilestoneIfReady, readiness, baseWork, leader, getCurrentMission, getNextStop, missionStopDone, nextMissionStopIndex, completedMissionStops, missionComplete, missionStopForGroup, plannedWeeklySpend } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
-import { saveState, loadState } from './save.js';
+import { saveState, saveStateLocal, loadState } from './save.js';
+// Co-op. Every call is a no-op without `?room=`; see room.js.
+import * as room from './room.js';
 import { postResult } from './cloudSave.js';
 import { clamp, seeded } from './utils.js';
 import { freshState } from './simulation.js';
@@ -247,6 +249,10 @@ export function startDay(positions, spawn){
     _state.log.push({ week: _state.week, text: `${DAY_NOUN} ${_state.week} opened with a $${DAILY_STIPEND} allowance.` });
   }
   save();
+  // Hand the room's clock its number. The budget is computed here because it
+  // needs the map — the server has no world to measure a route through — and
+  // counted down there because a browser tab cannot be trusted to keep counting.
+  if(room.isRoom()) room.startClock(_state.dayBudget, _state.dayLeft);
   return _state.dayBudget;
 }
 
@@ -265,6 +271,23 @@ export function dayRunning(){
 export function tickDay(realSeconds, pace = 1){
   if(!dayRunning()) return null;
   if(!Number.isFinite(realSeconds) || realSeconds <= 0) return null;
+  // In a room the countdown is not ours to run. Several browsers counting the
+  // same day down separately would drift apart within a minute, and the one
+  // that got backgrounded would stop counting entirely — so the server owns the
+  // number and this reads it. `pace` is ignored here for the same reason: the
+  // server applies the panel rate, because it is the only party that knows
+  // whether ANYBODY has a panel open.
+  if(room.isRoom() && room.isConnected()){
+    _state.dayLeft = room.clockLeft();
+    if(room.clockBudget()) _state.dayBudget = room.clockBudget();
+    _state.timeHours = hourOfDay(_state);
+    if(_state.dayLeft <= 0){
+      _state.dayEnded = true;
+      save();
+      return 'expired';
+    }
+    return 'running';
+  }
   const rate = Number.isFinite(pace) && pace > 0 ? pace : 1;
   _state.dayLeft = Math.max(0, _state.dayLeft - realSeconds * MINUTES_PER_SECOND * rate);
   // The world's light follows the countdown rather than a second clock.
@@ -304,6 +327,30 @@ export function endDayNow(){
   _state.dayEnded = true;
   _state.dayLeft = 0;
   save();
+  if(room.isRoom()) room.stopClock();
+}
+
+/**
+ * A campaign that arrived from the room.
+ *
+ * Written to the slot but NOT published back, or every write would echo around
+ * the room once per player. `ensureMissionFields` runs because the blob has been
+ * through JSON and a partner's engine may be a build behind this one.
+ *
+ * The day's clock is deliberately not taken from the blob: the server owns
+ * `dayLeft`, and a state message that arrived a second after the last clock
+ * heartbeat carries an older copy of it.
+ */
+export function applyRemoteState(next){
+  if(!next) return false;
+  const keepLeft = _state?.dayLeft;
+  const keepBudget = _state?.dayBudget;
+  _state = next;
+  if(Number.isFinite(keepLeft)) _state.dayLeft = keepLeft;
+  if(Number.isFinite(keepBudget) && keepBudget > 0) _state.dayBudget = keepBudget;
+  ensureMissionFields();
+  saveStateLocal(_state);
+  return true;
 }
 
 export function advanceTime(hours, reason=''){

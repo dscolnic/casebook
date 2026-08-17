@@ -118,9 +118,9 @@ export default {
     far: 950,   // the sky dome here is 850, and the rides are read at 400 m
     // Lake air in early spring: hazy at distance, and the far shore is the one
     // thing on the north skyline.
-    fog: { colour: 0xbcc6c4, near: 180, far: 540 },
+    fog: { colour: 0xbcc6c4, near: 230, far: 640 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
-    exposure: 0.82,
+    exposure: 0.78,
     // How wide the player is, for collision. 0.45 suits a street; a place with
     // metre-wide doorways needs 0.3 or the player gets stuck in them.
     playerRadius: 0.45,

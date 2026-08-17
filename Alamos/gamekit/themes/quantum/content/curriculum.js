@@ -860,6 +860,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Put the four in the order the signal passes through them, from the chip outward. This is a place in a chain rather than a moment in time, and the walk is up the temperature gradient.",
+        "ends": [
+          "First in the chain",
+          "Last in the chain"
         ]
       },
       "assumes": [

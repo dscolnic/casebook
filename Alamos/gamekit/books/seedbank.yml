@@ -1452,6 +1452,8 @@ missions:
           - Even harvesting, so no plant contributes far more seed than another.
           - The record of what was actually grown, plot by plot.
         order: [0, 1, 2, 3]
+        axis: Order the four clauses by what is lost for good if the standard omits it. These are not steps in a season — they are the things a written standard has to name, and one of them cannot be recovered by any later care.
+        ends: [Unrecoverable if omitted, Recoverable later]
       - group: TRIAL
         task: Spend the ground you can free without spending the trial's ability to answer.
         title: Ground that is already committed

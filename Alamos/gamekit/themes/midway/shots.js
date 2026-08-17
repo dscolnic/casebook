@@ -6,9 +6,9 @@
 // engine-built and are not the risk.
 export const shots = [
   // Arriving: the county road, the car park, the ticket line, then the midway.
-  { name: 'the-road-in', at: { x: -30, z: 158 }, yaw: 0 },
+  { name: 'the-road-in', at: { x: -12, z: 168 }, yaw: 0 },
   { name: 'car-park-west', at: { x: -56, z: 132 }, yaw: 0 },
-  { name: 'ticket-line', at: { x: 0, z: 84 }, yaw: 0 },
+  { name: 'ticket-line', at: { x: 0, z: 100 }, yaw: 0 },
   { name: 'inside-the-gate', at: { x: 0, z: 58 }, yaw: 0 },
   { name: 'the-midway-north', at: { x: 0, z: 10 }, yaw: 0 },
   // The rides. yaw is degrees, and on this site 90 looks west and 270 east.

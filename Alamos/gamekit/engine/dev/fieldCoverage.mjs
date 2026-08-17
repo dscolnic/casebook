@@ -65,19 +65,52 @@ const kindOf = (ch) => String(ch?.type ?? '').toUpperCase().replace(/[\s_-]+/g, 
 
 // ---- 1. Carve the two modules into named blocks.
 //
-// Both are written the same way and have to stay that way for this to see them:
-// `function name(...){ … }` at the left margin in questionUI, and
-// `const NAME = { html(ch){…}, bind(…){…} }` at the left margin in instruments.
-// A renderer moved inside another function, or an instrument defined by a
-// factory, becomes invisible here — which is a silent false negative, so the
-// checker refuses to run if it finds fewer blocks than it has entry points for.
+// Three shapes, and the third one had to be added after the first version of
+// this file reported nine instrument formats as printing over their author. They
+// do not: every instrument panel opens with `ask(ch, fallback)`, which reads
+// `ch.question || ch.task` — and `ask` is `const ask = (ch, fallback) => …`, an
+// arrow function whose body is a template literal with no braces around it. The
+// first two patterns matched neither, so `ask` was never carved, nothing that
+// called it inherited its reads, and every instrument looked mute.
+//
+// That is the false negative the header of this file warned about, arriving in
+// the file itself within the hour: a block the carver cannot see reads nothing,
+// so everything downstream of it reports dead. The `missing` guard below only
+// checked the *entry points*, which all existed — a shared helper going missing
+// is invisible to it, which is why the selftest now names `ask` directly.
 function carve(src){
   const out = new Map();
-  const starts = [...src.matchAll(/^(?:export\s+)?(?:function\s+([A-Za-z_]\w*)\s*\(|const\s+([A-Za-z_]\w*)\s*=\s*\{)/gm)];
+  const starts = [...src.matchAll(
+    /^(?:export\s+)?(?:function\s+([A-Za-z_]\w*)\s*\(|const\s+([A-Za-z_]\w*)\s*=\s*(\{|\(?[^=\n]*?=>))/gm)];
   for(const m of starts){
     const name = m[1] ?? m[2];
-    let i = src.indexOf('{', m.index);
+    const arrow = m[3] && m[3] !== '{';
+    let i = arrow ? m.index + m[0].length : src.indexOf('{', m.index);
     if(i < 0) continue;
+    // An arrow may still have a braced body — `=> {` — in which case it is
+    // brace-matched like the others. Only a bare expression body needs the
+    // statement-end scan.
+    if(arrow){
+      while(i < src.length && /\s/.test(src[i])) i++;
+      if(src[i] === '{') { /* fall through to brace matching */ }
+      else {
+        // Expression body: run to the `;` that closes the statement, tracking
+        // every bracket and backtick so a `;` inside a template literal or an
+        // argument list does not end it early.
+        let d = 0, tick = false, j = i;
+        for(; j < src.length; j++){
+          const c = src[j];
+          if(c === '\\'){ j++; continue; }
+          if(c === '`'){ tick = !tick; continue; }
+          if(tick) continue;
+          if('([{'.includes(c)) d++;
+          else if(')]}'.includes(c)) d--;
+          else if(c === ';' && d === 0){ j++; break; }
+        }
+        out.set(name, src.slice(i, j));
+        continue;
+      }
+    }
     let depth = 0, j = i;
     // Good enough for this source: it has no braces inside string literals at
     // the top level of a function signature, and template literals containing
@@ -293,6 +326,21 @@ async function scan(themeName){
 // engine/core exactly once, inside `allChallengeText`, so if the sink list stops
 // being applied it reads as covered and this file reports all-clear — which is
 // the state it exists to end, and the failure nobody would notice.
+/**
+ * Does the brief above the question reach for `scene` before `story`?
+ *
+ * The one thing in here that reads an ORDER rather than a set. Everything else
+ * this file does is membership — which fields does this path touch — and
+ * membership cannot see a fallback chain's priority, which is where the defect
+ * was. So this reads the first `lesson.<field>` mentioned in the one function
+ * that composes the brief.
+ */
+function briefPrefersScene(){
+  const body = BLOCKS.get('storyBriefText') ?? '';
+  const first = body.match(/\blesson\.([A-Za-z_]\w*)/)?.[1];
+  return first === 'scene';
+}
+
 function selftest(){
   const seq = shownBy('SEQUENCE');
   const cases = [
@@ -302,13 +350,27 @@ function selftest(){
     ['SEQUENCE does not show `setup` (it is only sunk into allChallengeText)', seq.has('setup'), false],
     ['SEQUENCE does not show `task`', seq.has('task'), false],
     ['CHOICE does show `task` (it is the panel\'s instruction line)', shownBy('CHOICE').has('task'), true],
-    // The engine reads `story` and falls back to `scene` at import, so `scene`
-    // is the field every check gates on and `story` is the field the player
-    // reads. Asserting it the wrong way round is how this file was first
-    // written, and the selftest is what corrected it.
-    ['the ask card shows `story`', sharedReads.has('story'), true],
-    ['the ask card does not show `scene`', sharedReads.has('scene'), false],
+    // The ask card must render `scene` — the 30-to-45 words of situation every
+    // gate in engine/dev reads. It rendered `story` instead until this file
+    // found that, and the first version of this case asserted `story` because
+    // its author matched the code rather than the intent.
+    ['the ask card shows `scene`', sharedReads.has('scene'), true],
+    ['the ask card still falls back to `story`', sharedReads.has('story'), true],
+    // Those two cannot tell the fix from the bug, which is the trap this whole
+    // file is about. Both fields are in the fallback chain either way, so a set
+    // of read field names is blind to their ORDER — and the order is the entire
+    // defect. This case reads the chain itself.
+    ['and `scene` comes first in the chain, not second', briefPrefersScene(), true],
     ['a sink alone is not coverage', closure('allChallengeText').size === 0, true],
+    // The carver's third shape. `ask` is an arrow function with a template-literal
+    // body, and until it was carved every one of the twenty instruments looked as
+    // though it printed nothing the author wrote — nine of them were reported that
+    // way. A missing shared helper is invisible to the `missing` guard, which only
+    // knows the entry points, so it has to be named here.
+    ['the arrow helper `ask` is carved at all', BLOCKS.has('ask'), true],
+    ['so BALANCE renders the author\'s question through it', shownBy('BALANCE').has('question'), true],
+    ['and so does every other instrument', ['TRACE', 'CONTROL', 'CLOUD', 'VERIFY', 'ALLOCATE']
+      .every(f => shownBy(f).has('task')), true],
     // Two inputs that should score the same: an alias carrying identical text is
     // shown, an alias that has drifted is not. This is the whole rule, and it is
     // the one that turns a thousand harmless aliases into four real findings.

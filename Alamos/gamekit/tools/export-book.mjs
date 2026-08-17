@@ -104,7 +104,7 @@ function stopOf(group, lesson, stop){
   if(format === 'PROTOCOL' || (format === 'CASEBOOK' && (g.scenarios || g.cards))){
     Object.assign(out, drop({ scenarios: g.scenarios ?? g.cards, choices: g.choices, mapping: g.mapping }));
   } else if(format === 'SEQUENCE'){
-    Object.assign(out, drop({ cards: g.cards, order: g.order }));
+    Object.assign(out, drop({ cards: g.cards, order: g.order, axis: g.axis, ends: g.ends }));
   } else if(format === 'BALLPARK'){
     const spec = BALLPARK_CALCS[g.calcKey ?? ''] ?? BALLPARK_CALCS[`${group}-${lesson.day}`] ?? {};
     out.estimate = drop({

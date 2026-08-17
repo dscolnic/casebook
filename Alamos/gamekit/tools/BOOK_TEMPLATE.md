@@ -401,7 +401,7 @@ Three stop-level fields come from the same conversion:
 | --- | --- |
 | `call` | the plan card's line for this stop — "Talk to Dr. Nguyen" — where it differs from the question's own `task` |
 | `setup` | a note carried through from the source document. **Nothing renders it** — it is in the leak checks' word list and nowhere else. Four books write it and two of them mean different things by it (ContamCity an instruction, Hospital "who • where"), which is why no renderer can use it. Do not put anything a player needs here |
-| `story` | the longer form of the situation, where a game carries one as well as a scene |
+| `story` | **write `scene` instead.** The importer fills this from `scene` when a book omits it, and the panel prefers `scene` — so a `story` that differs is 40 to 90 words nothing displays, and every reading-level and giveaway check reads the `scene` beside it. 122 stops in four books are in that state |
 | `answerText` | the printed answer key, for a format that does not derive one |
 
 And two rules the importer now applies rather than a parser guessing:

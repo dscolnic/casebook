@@ -42,12 +42,12 @@ export const MISSIONS = [
       {
         "group": "FLUME",
         "lesson": 0,
-        "task": "Turn the header tank's depth into a pressure"
+        "task": "Turn the water depth into a pressure"
       },
       {
         "group": "WHEEL",
         "lesson": 0,
-        "task": "Identify the distance a torque is actually measured over"
+        "task": "Identify the distance that sets the torque"
       }
     ]
   },
@@ -114,7 +114,7 @@ export const MISSIONS = [
       {
         "group": "TOWER",
         "lesson": 2,
-        "task": "Order the operations for a witnessed drop test."
+        "task": "Order the operations for the official drop test."
       },
       {
         "group": "FLUME",
@@ -181,7 +181,7 @@ export const MISSIONS = [
       {
         "group": "WHEEL",
         "lesson": 3,
-        "task": "Derive the force in one hub bolt"
+        "task": "Derive the force in one wheel-center bolt"
       },
       {
         "group": "BUMPER",
@@ -205,7 +205,7 @@ export const MISSIONS = [
       {
         "group": "COASTER",
         "lesson": 3,
-        "task": "Derive the speed the crown demands"
+        "task": "Derive the speed the top of the loop demands"
       },
       {
         "group": "TOWER",
@@ -263,7 +263,7 @@ export const MISSIONS = [
       {
         "group": "WHEEL",
         "lesson": 4,
-        "task": "Put a number on the wind a gondola carries"
+        "task": "Put a number on the wind a passenger cabin carries"
       }
     ]
   },
@@ -301,7 +301,7 @@ export const MISSIONS = [
       {
         "group": "BUMPER",
         "lesson": 4,
-        "task": "Rank three faults against each other"
+        "task": "Take the fault that cannot safely wait and delegate the other two with a first action and return condition."
       },
       {
         "group": "COASTER",
@@ -349,7 +349,7 @@ export const MISSIONS = [
       {
         "group": "COASTER",
         "lesson": 6,
-        "task": "Fund the work that most changes what the park knows next season."
+        "task": "Spend two winter work slots on the evidence that most changes next season's decisions."
       },
       {
         "group": "WHEEL",

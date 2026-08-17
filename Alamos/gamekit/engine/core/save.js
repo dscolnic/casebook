@@ -2,6 +2,11 @@ import { KEY } from './constants.js';
 // The account's copy, when the game is served from an app that has accounts.
 // Every call in here is inert behind a static server — see cloudSave.js.
 import { push as pushCloud, wipe as wipeCloud } from './cloudSave.js';
+// The room's copy, when several people are playing one campaign. Inert without
+// `?room=` — see room.js. It hangs off the same funnel as the cloud save for the
+// same reason: this is the one place every mutation in the engine passes through,
+// and a second publish point would be a second thing to keep in step.
+import { pushState as pushRoom } from './room.js';
 // The slot this name refers to predates per-theme keys. It is read once so an
 // in-progress campaign survives the change, then written forward under the
 // theme's own key.
@@ -19,6 +24,19 @@ export function saveState(state){
   // Stays synchronous: the cloud write is debounced and never awaited, so the
   // engine's assumption that saving is free holds whether or not there is an
   // account behind it.
+  pushCloud(state);
+  pushRoom(state);
+}
+
+/**
+ * Write a campaign that arrived from the room, without publishing it back.
+ *
+ * The ordinary path would echo it straight to the server as though this client
+ * had authored it, which costs a round trip per player per write and, worse,
+ * bumps the version so everybody's next genuine update looks stale.
+ */
+export function saveStateLocal(state){
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
   pushCloud(state);
 }
 

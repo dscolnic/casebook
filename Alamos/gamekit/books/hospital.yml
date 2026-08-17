@@ -1364,6 +1364,8 @@ missions:
           - Let the trained team examine the wrist and decide about an image.
           - Record what happened and what the team found.
         order: [0, 1, 2, 3]
+        axis: Start with the one that stops things getting worse. Then put the rest in the order you would do them.
+        ends: [Stops things getting worse, Can wait]
         answerText: 1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.
   - title: Rehab Race
     objective: Muscles, joints, movement, and practice
@@ -3122,6 +3124,8 @@ lessons:
       - Let the trained team examine the wrist and decide about an image.
       - Record what happened and what the team found.
     order: [0, 1, 2, 3]
+    axis: Start with the one that stops things getting worse. Then put the rest in the order you would do them.
+    ends: [Stops things getting worse, Can wait]
     answerText: 1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.
   - group: MOVE
     task: Put the movement pathway in order.
@@ -3291,6 +3295,8 @@ lessons:
       - Let the trained team examine the wrist and decide about an image.
       - Record what happened and what the team found.
     order: [0, 1, 2, 3]
+    axis: Start with the one that stops things getting worse. Then put the rest in the order you would do them.
+    ends: [Stops things getting worse, Can wait]
     answerText: 1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.
   - group: MOVE
     task: Put the movement pathway in order.

@@ -76,8 +76,38 @@ function jargonMatches(text, max=12){
   }
   return found;
 }
+/**
+ * The paragraph above the question: the situation, and only the situation.
+ *
+ * `scene` first, and it took a checker that reads the renderers to notice this
+ * was the wrong way round. Both fields exist — `scene` is the 30-to-45 words of
+ * situation the writing bar is about, `story` the longer form a book may also
+ * carry — and the importer fills `story` from `scene` where a book writes only
+ * one, so most stops have them identical and nothing showed. 121 stops write
+ * both and mean different things by them, and on every one of those the player
+ * was reading the long form:
+ *
+ *   · Every gate reads `scene ?? story` — validateContent twice, checkVoice,
+ *     checkNames, probeQuestions, placeStory. All five. So the reading-level
+ *     rule, the 40-word sentence rule and the GIVEAWAY probe were all being
+ *     applied to a string those stops never displayed. ContamCity's grade-6
+ *     edition checked 26 scenes at Flesch–Kincaid 5.8 and showed stories at
+ *     12.5, one of them 2.6 against 15.1; the hospital's grade-2 reader got 4.4
+ *     where 1.3 had been measured and passed.
+ *   · And the drifted stories are 42 to 96 words against the scene's 27 to 38,
+ *     which is not merely longer. It is the mechanism — ContamCity's ordering
+ *     stop opened with "some observations leave the sample exactly as they found
+ *     it … a destructive method gives the best identification and gives it
+ *     once", which is the answer to the question underneath it. That is the
+ *     scene-carries-the-teaching mistake this repo spent a rewrite of all seven
+ *     games removing, still shipping through a field nothing was checking.
+ *
+ * Every one of the 1,328 stops has a scene of at least 40 characters, so nothing
+ * loses its brief to this. `story` stays in the chain because the importer
+ * guarantees it and a hand-written theme need not.
+ */
 function storyBriefText(lesson){
-  return lesson.story || lesson.progress || lesson.title;
+  return lesson.scene || lesson.story || lesson.progress || lesson.title;
 }
 function allChallengeText(lesson,ch,includeAnswer=false){
   const parts=[lesson.title,lesson.progress,lesson.takeaway,ch.title,ch.setup,ch.play,ch.task,ch.question];
@@ -2103,6 +2133,11 @@ function finishVisit(ok){
   // closes for an hour of the day's own clock and reopens itself — and the paid
   // one is $10 to have it back now. There is always a free way forward, so the
   // only dead end left is a day with less than an hour still to run.
+  //
+  // The hour is the *default*, and it has to be the only free way out. There was
+  // a "Decide later" close on this card as well, which closed the verdict without
+  // penalising anything — so the whole penalty box was opt-in, and a player who
+  // ignored the button walked straight back in and answered again for nothing.
   const hourAvailable = (state.dayLeft ?? 0) > PENALTY_MINUTES;
   const stuck = !hourAvailable && state.reserve < RETRY_COST;
   const choices = ok ? '' :
@@ -2111,21 +2146,35 @@ function finishVisit(ok){
         + '<p class="verdictWhy">$' + fmt(state.reserve) + ' in hand, and less than an hour left to '
         + 'wait it out. The day has to start again.</p>'
         + '<button class="btn primary" id="restartDayBtn" type="button">Start the day again</button></div>'
-      : '<div class="verdictChoice"><div class="verdictChoiceLabel">What now</div>'
-        + '<button class="btn" id="waitOut" type="button"' + (hourAvailable ? '' : ' disabled') + '>'
-        + '<span>Come back in an hour</span><small>free</small></button>'
+      : '<div class="verdictChoice"><div class="verdictChoiceLabel">If you cannot wait</div>'
         + priced('retryMoney', 'Answer it again now', RETRY_COST) + '</div>');
   // The last call of the day no longer ends the day. Whatever is left on the
   // countdown is the player's: walk the town, talk to people, get paid.
   // ...and the evening has to have a way out of it, or a day with three hours
   // spare is three minutes of standing still waiting for the light to go.
+  //
+  // On a wrong call the way out of the card *is* the hour, and it lives in this
+  // sticky bar rather than up in the choice row so that the default is reachable
+  // without scrolling a long verdict. `priced` is what stacks the label over the
+  // cost line; without it the two spans ran together as "Come back in an hourfree".
+  //
+  // The close button is gone from a wrong call. The one exception is a day with
+  // less than an hour left to wait out and money in hand — nobody is made to
+  // spend to get out of a card.
+  const showClose = ok || (!stuck && !hourAvailable);
   const actions =
     (isLastStop && ledger.closes
       ? '<button class="btn primary" id="dayIsYours" type="button">Every call made — take the rest of the day</button>'
         + '<button class="btn" id="sleepNow" type="button">Go to sleep, wake up tomorrow.</button>'
       : '') +
-    '<button class="btn ' + (ok ? 'primary' : 'ghost') + '" id="visitClose" type="button">' +
-    (ok ? 'Return' : 'Decide later') + '</button>';
+    (ok || stuck ? '' :
+      '<button class="btn primary priced" id="waitOut" type="button"'
+      + (hourAvailable ? '' : ' disabled') + '>'
+      + '<span>Come back in an hour</span><small>free</small></button>') +
+    (showClose
+      ? '<button class="btn ' + (ok ? 'primary' : 'ghost') + '" id="visitClose" type="button">' +
+        (ok ? 'Return' : 'Leave it for today') + '</button>'
+      : '');
 
   const card = document.getElementById('verdictCard');
   const vOverlay = document.getElementById('verdictOverlay');
@@ -2140,7 +2189,9 @@ function finishVisit(ok){
       `<div class="verdictLedger">${ledgerHTML}</div>` +
       `<div class="verdictBody">${verdictFigureHTML(ch, lesson, ok)}${consequence}${worldNote}${stopNote}${detail}</div>` +
       choices +
-      `<div class="verdictActions">${actions}</div>`;
+      // Nothing to put in it means no bar: it is sticky, ruled and padded, so an
+      // empty one reads as a stripe across the bottom of the card.
+      (actions ? `<div class="verdictActions">${actions}</div>` : '');
     vOverlay.classList.add('show');
     bindTerms(card);
     const gainEl = card.querySelector('.ledgerValue.gain');
@@ -2228,6 +2279,12 @@ function finishVisit(ok){
     window.dispatchEvent(new CustomEvent('projecty:statechange'));
     window.dispatchEvent(new CustomEvent('projecty:visitdone'));
   });
+  // Default in the keyboard sense too, not only the visual one: the hour is the
+  // button Enter presses on a wrong call, and the money one has to be aimed at.
+  const defaultBtn = document.getElementById('waitOut')
+    || document.getElementById('restartDayBtn')
+    || document.getElementById('visitClose');
+  if(defaultBtn && !defaultBtn.disabled) defaultBtn.focus();
   bind('restartDayBtn', () => {
     closeVerdict();
     closeModal();

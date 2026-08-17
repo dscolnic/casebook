@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What 42 metres of fall is worth",
-      "scene": "The tower drops its carriage 42 metres before the brake fins begin. Brennan's notebook gives the speed at the bottom as \"about 29\" and nothing else. Vey wants the line of working under it.",
-      "takeaway": "A derivation is a chain of licensed steps, and naming the licence is half of it.",
+      "scene": "The tower drops its carriage 42 metres before the brakes begin. An old engineering notebook gives the bottom speed as 'about 29' and nothing else. The safety engineer wants the working written underneath.",
+      "takeaway": "Choose the constant-acceleration relation that contains the quantities you know and omits the one you do not.",
       "place": "The Drop Tower",
-      "story": "The tower drops its carriage 42 metres before the brake fins begin. Brennan's notebook gives the speed at the bottom as \"about 29\" and nothing else. Vey wants the line of working under it.",
+      "story": "The tower drops its carriage 42 metres before the brakes begin. An old engineering notebook gives the bottom speed as 'about 29' and nothing else. The safety engineer wants the working written underneath.",
       "game": {
         "type": "DERIVE",
         "title": "What 42 metres of fall is worth",
@@ -18,8 +18,8 @@ export const CURRICULUM = {
         "play": "Derive the speed at the bottom of the drop",
         "task": "Derive the speed at the bottom of the drop",
         "question": "Get the speed at the end of 42 metre free fall, from the constant-acceleration relations rather than from the notebook.",
-        "answer": "v = √(2 × 9.8 × 42) ≈ 28.7 m/s, and it is the speed at the moment the fins engage.",
-        "why": "Brennan's \"about 29\" was right, and now it is defensible. The relation v² = v₀² + 2aΔx is the 1 to reach for when a problem gives a distance and asks for a speed, since it is the only constant-acceleration relation with no time in it. Two things carry the physics: the factor of 2, which is where the average speed of an accelerating body lives, and the square, which is why a fall twice as long gives a speed only 40% higher.",
+        "answer": "v = √(2 × 9.8 × 42) ≈ 28.7 m/s, and it is the speed at the moment braking begins.",
+        "why": "The old notebook's 'about 29' was right, but the engineer signing the safety certificate needs a defensible chain. The relation v² = v₀² + 2aΔx fits because the distance is known and time is not. Starting from rest leaves v = √(2gΔx), with no mass in the result. That is why objects in free fall share the same acceleration. The square matters: doubling the fall distance raises speed only by √2, about 41%. The same relation will run backward tomorrow when the brake removes that speed over a known distance.",
         "derive": {
           "start": "v² = v₀² + 2aΔx",
           "goal": "the speed at the bottom of the fall, in metres per second",
@@ -143,10 +143,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "9 metres to take back 29",
-      "scene": "The carriage arrives at the fins at 28.7 metres a second and is stationary 9 metres later. Santos wants that expressed as an acceleration before anybody argues about whether it is comfortable.",
+      "scene": "The carriage reaches the brakes at 28.7 metres a second and stops 9 metres later. The tower technician wants that turned into an acceleration before anyone argues about whether the stop feels acceptable.",
       "takeaway": "A stopping distance and a speed are enough to fix the acceleration, with no time measured at all.",
       "place": "The Drop Tower",
-      "story": "The carriage arrives at the fins at 28.7 metres a second and is stationary 9 metres later. Santos wants that expressed as an acceleration before anybody argues about whether it is comfortable.",
+      "story": "The carriage reaches the brakes at 28.7 metres a second and stops 9 metres later. The tower technician wants that turned into an acceleration before anyone argues about whether the stop feels acceptable.",
       "game": {
         "type": "BALLPARK",
         "title": "9 metres to take back 29",
@@ -155,7 +155,7 @@ export const CURRICULUM = {
         "task": "Get the deceleration the fins have to produce",
         "question": "Estimate the average deceleration in the braked section.",
         "answer": "",
-        "why": "The same relation that gave the speed gives the deceleration when it is run the other way, and neither use needs a stopwatch. 46 metres a second every second is 4.7 times gravity, which is what the seat has to push through the rider for a fifth of a second. The square is the part worth keeping: a brake run half as long would double the deceleration, and one metre shorter than designed costs more than most people expect.",
+        "why": "The stopping relation is the same constant-acceleration equation used on the drop, but solved for a instead of v. With 28.7 m/s removed over 9.0 m, the average deceleration is about 45.8 m/s², or 4.7 g. The square on speed is the design lesson. Halving the stopping distance doubles the average deceleration. Likewise, a modest increase in entry speed demands much more braking force and leaves less room for error.",
         "givens": [],
         "relationship": "a = v² ÷ 2Δx: the deceleration is the entry speed squared divided by twice the distance it is removed over.",
         "calcKey": "TOWER-2"
@@ -194,23 +194,23 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The order a drop test runs in",
-      "scene": "Vey wants the tower's annual drop test witnessed rather than described. Santos has four operations written on the whiteboard in the order he happens to have thought of them.",
+      "scene": "The safety engineer must observe and sign off on the tower's annual drop test. The tower technician has the test weights, the accelerometer and four operations on a whiteboard. They are written in the order he thought of them.",
       "takeaway": "A test is designed backwards from the number it has to produce.",
       "place": "The Drop Tower",
-      "story": "Vey wants the tower's annual drop test witnessed rather than described. Santos has four operations written on the whiteboard in the order he happens to have thought of them.",
+      "story": "The safety engineer must observe and sign off on the tower's annual drop test. The tower technician has the test weights, the accelerometer and four operations on a whiteboard. They are written in the order he thought of them.",
       "game": {
         "type": "SEQUENCE",
         "title": "The order a drop test runs in",
         "setup": "The Drop Tower",
-        "play": "Order the operations for a witnessed drop test.",
-        "task": "Order the operations for a witnessed drop test.",
-        "question": "Order the operations for a witnessed drop test.",
+        "play": "Order the operations for the official drop test.",
+        "task": "Order the operations for the official drop test.",
+        "question": "Order the operations for the official drop test.",
         "answer": "",
-        "why": "Each operation exists because the one after it would mean nothing without it. A logged deceleration is a number about a mass, so the mass is established before anything moves. An instrument that was fitted after the drop has recorded a different drop. The release is at full height because a partial drop tests a brake at a speed it will not meet in service. And the comparison is last because it is the only step that produces the thing the certificate needs, which is a measurement set against a claim.",
+        "why": "An official test only means something if its conditions are fixed before release. First record the test mass, because the measured acceleration belongs to that mass. Then fit and confirm the accelerometer before anything moves. The carriage must be released from full height so the brake meets its normal operating entry speed. Only after the drop can the logged result be compared with the certificate limit. The final comparison turns a demonstration into evidence.",
         "cards": [
-          "Weigh the ballast and record what the carriage will mass on the drop.",
+          "Weigh the test weights and record what the carriage mass will be on the drop.",
           "Fit the recording accelerometer to the carriage floor and confirm it is logging.",
-          "Release from the full height with the ballast aboard and no passengers on site.",
+          "Release from the full height with the test weights aboard and no passengers on site.",
           "Compare the logged deceleration against the figure the certificate will carry."
         ],
         "order": [
@@ -222,37 +222,62 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a test is only evidence if the conditions are known before it runs",
-        "ballast can stand in for passengers"
+        "test weights can stand in for passengers"
+      ],
+      "equations": [
+        {
+          "e": "v² = v₀² + 2aΔx",
+          "c": "the constant-acceleration relation with no time in it",
+          "v": [
+            [
+              "v",
+              "the speed at the end, in metres a second"
+            ],
+            [
+              "v₀",
+              "the speed at the start"
+            ],
+            [
+              "a",
+              "the acceleration, taken as constant"
+            ],
+            [
+              "Δx",
+              "the distance travelled while it acts"
+            ]
+          ],
+          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
+        }
       ]
     },
     {
       "day": 4,
       "title": "Measuring gravity with a boat",
-      "scene": "The ship's period is 5.90 seconds on an arm of 8.60 metres. Vey observes that the tower's whole certificate rests on a value of g nobody at this park has measured.",
-      "takeaway": "One ride can calibrate another when they share a constant.",
+      "scene": "The ship's low-angle maintenance period is 5.90 seconds with an 8.60 metre effective length. The safety engineer notes that the tower calculations use a local value of g nobody at this park has measured directly.",
+      "takeaway": "A physical constant measured by one system can calibrate another when both use a valid model of the same place.",
       "place": "The Drop Tower",
-      "story": "The ship's period is 5.90 seconds on an arm of 8.60 metres. Vey observes that the tower's whole certificate rests on a value of g nobody at this park has measured.",
+      "story": "The ship's low-angle maintenance period is 5.90 seconds with an 8.60 metre effective length. The safety engineer notes that the tower calculations use a local value of g nobody at this park has measured directly.",
       "game": {
         "type": "CHOICE",
         "title": "Measuring gravity with a boat",
         "setup": "The Drop Tower",
         "play": "Get the local strength of gravity out of a period",
         "task": "Get the local strength of gravity out of a period",
-        "question": "What does the ship's period give for g, and what is it worth?",
-        "answer": "About 9.75 m/s², from g = 4π²L/T² — good to about 1%, which is enough for the tower.",
-        "why": "Rearranging the period expression makes g the subject, and the 2 things it needs — a length and a time — are the 2 quantities a park can measure well with a tape and a stopwatch over 20 cycles. The value belongs to the place rather than to the ride: gravity does not know which machine is measuring it, so the same 9.75 goes into the tower's kinematics, the coaster's energy statement and the flume's pressures. That is what makes it worth doing once, properly.",
+        "question": "What value of g follows from the low-angle period, and why can the tower use it?",
+        "answer": "About 9.75 m/s²; the tower shares the same local gravity.",
+        "why": "Rearrange the small-angle period relation to g = 4π²L/T². The inputs are a length and a time, both easy to measure over many cycles. Using 8.60 m and 5.90 s gives about 9.75 m/s². That value belongs to the location, not to the ship, so it can be used in the tower, coaster and flume calculations. The low-angle condition matters because the simple pendulum relation is the model being used.",
         "rebuttals": [
-          "Gravity is a property of the location, and every ride within 100 metres shares it.",
-          "The mass cancels out of the period expression, which is the whole reason the measurement works.",
-          "Dropping the 2π loses a factor of about 40 in the result, and 2.4 is not a gravity anywhere."
+          "Gravity is shared by every ride at the same location; the ship is only the measuring device.",
+          "Mass cancels from the small-angle period relation, so it is not an input to this measurement.",
+          "Leaving out the factor 4π² changes the result by nearly fortyfold."
         ],
         "choices": [
-          "About 9.75 m/s², from g = 4π²L/T² — good to about 1%, which is enough for the tower.",
-          "About 9.75 m/s², but it belongs to the ship alone and cannot be carried to another ride.",
-          "It gives nothing without the mass of the boat, which the expression needs.",
-          "About 2.4 m/s², from g = L/T², which shows the ship's arm has been mismeasured."
+          "About 9.75 m/s²; the tower shares the same local gravity.",
+          "About 9.75 m/s²; the result belongs only to the ship that measured it.",
+          "No value follows until the boat's mass is included.",
+          "About 2.4 m/s²; using L/T² is enough once the period is measured."
         ],
-        "correctChoice": "About 9.75 m/s², from g = 4π²L/T² — good to about 1%, which is enough for the tower."
+        "correctChoice": "About 9.75 m/s²; the tower shares the same local gravity."
       },
       "assumes": [
         "the pendulum period depends on the length and on g alone",
@@ -300,53 +325,25 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere."
-        },
-        {
-          "e": "P = ρgh,  F_b = ρVg",
-          "c": "pressure with depth, and what holds a boat up",
-          "v": [
-            [
-              "P",
-              "the gauge pressure at that depth"
-            ],
-            [
-              "ρ",
-              "the density of the liquid"
-            ],
-            [
-              "h",
-              "the depth below the surface"
-            ],
-            [
-              "F_b",
-              "the buoyant force"
-            ],
-            [
-              "V",
-              "the volume of liquid displaced"
-            ]
-          ],
-          "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does.",
-          "card": false
         }
       ]
     },
     {
       "day": 5,
       "title": "What a safety factor says",
-      "scene": "Vey's file gives the coaster a margin of 1.38 on the loop, worked from the drawing. Against the measured crown the same arithmetic gives 1.20, and Marsh wants to know whether that is still a pass.",
+      "scene": "The inspection file gives the coaster a margin of 1.38 using the old loop drawing. The measured top of the loop reduces it to 1.20. The park manager wants to know whether that still counts as a pass.",
       "takeaway": "A margin is a ratio, and it means nothing until both of its numbers are named.",
       "place": "The Drop Tower",
-      "story": "Vey's file gives the coaster a margin of 1.38 on the loop, worked from the drawing. Against the measured crown the same arithmetic gives 1.20, and Marsh wants to know whether that is still a pass.",
+      "story": "The inspection file gives the coaster a margin of 1.38 using the old loop drawing. The measured top of the loop reduces it to 1.20. The park manager wants to know whether that still counts as a pass.",
       "game": {
         "type": "CHOICE",
         "title": "What a safety factor says",
         "setup": "The Drop Tower",
         "play": "Say what a margin is a statement about",
         "task": "Say what a margin is a statement about",
-        "question": "The margin on the crown falls from 1.38 to 1.20. What has actually changed?",
+        "question": "The margin on the top of the loop falls from 1.38 to 1.20. What has actually changed?",
         "answer": "The requirement rose, so the same train speed now sits closer to the limit.",
-        "why": "A margin is what is available divided by what is needed, and only the bottom of that fraction moved: the train crosses the crown at the speed it always did, and the speed the crown demands turned out to be higher than the file said. The last option is the tempting one and it is wrong in an important way — the physical ride is exactly as it was this morning, and what changed is that the park now knows where it stands. Knowing is what makes the difference between a margin and a hope.",
+        "why": "A safety margin is capacity divided by demand. Here the train's available speed at the top of the loop has not suddenly changed. The measured radius at the top of the loop changed the required speed. That raises the demand and lowers the ratio from 1.38 to 1.20. The physical ride was already in this state before anyone measured it correctly. What changed today is the park's knowledge. A smaller known margin is safer than a larger imaginary one because it can drive an operating rule.",
         "rebuttals": [
           "The train has slowed over three seasons, and that is a separate finding from this one.",
           "Both figures are speed available over speed required, computed the same way.",
@@ -404,18 +401,18 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the drop test has to show",
-      "scene": "Thursday's witnessed test has to produce a number Vey can compare with the certificate. Santos has the accelerometer, the ballast and one afternoon.",
+      "scene": "Thursday's official drop test has one afternoon to produce a number the safety engineer can compare with the certificate. The tower technician has test weights, a recording accelerometer and the full tower before the inspectors leave.",
       "takeaway": "A test is only evidence about a claim that was written down before it ran.",
       "place": "The Drop Tower",
-      "story": "Thursday's witnessed test has to produce a number Vey can compare with the certificate. Santos has the accelerometer, the ballast and one afternoon.",
+      "story": "Thursday's official drop test has one afternoon to produce a number the safety engineer can compare with the certificate. The tower technician has test weights, a recording accelerometer and the full tower before the inspectors leave.",
       "game": {
         "type": "VERIFY",
         "title": "What the drop test has to show",
         "setup": "The Drop Tower",
         "play": "Prove the brake rather than assert it",
         "task": "Prove the brake rather than assert it",
-        "question": "Predict the peak deceleration the fins will produce, run the drop, and say what the measurement settles.",
-        "answer": "About 5.4 g at the peak against 4.7 g average — the magnetic brake is strongest where the fins are moving fastest, so the peak arrives at the top of the braked section.",
+        "question": "Predict the peak deceleration the brakes will produce, run the drop, and say what the measurement settles.",
+        "answer": "Expect a peak near 5.4 g, above the 4.7 g average. The instrument must show whether the real magnetic-brake peak stays inside the certified limit.",
         "why": "Day two gave the average deceleration from the speed and the distance. It is not the number a rider meets. A magnetic brake makes force in proportion to speed, so it bites hardest at the entry and eases as the carriage slows. The peak is therefore above the average, and the only way to know by how much is to fit an instrument and drop it. Predicting first is what makes the drop a measurement rather than a demonstration.",
         "verify": {
           "prediction": {
@@ -457,10 +454,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Seven rides and what can be claimed",
-      "scene": "Vey's file has one line for each ride. Four of them are ready to be filled in and the words matter, because the sentence on a certificate is the sentence a court reads.",
+      "scene": "The safety engineer's file has one line for each ride. Four are ready to be filled in. The wording matters because the sentence on a certificate is the sentence an insurer or court will later read.",
       "takeaway": "A certificate is a set of conditions with a number attached, and the conditions are the harder half.",
       "place": "The Drop Tower",
-      "story": "Vey's file has one line for each ride. Four of them are ready to be filled in and the words matter, because the sentence on a certificate is the sentence a court reads.",
+      "story": "The safety engineer's file has one line for each ride. Four are ready to be filled in. The wording matters because the sentence on a certificate is the sentence an insurer or court will later read.",
       "game": {
         "type": "CASEBOOK",
         "title": "Seven rides and what can be claimed",
@@ -469,15 +466,15 @@ export const CURRICULUM = {
         "task": "Match each ride to the claim its working actually supports.",
         "question": "Match each ride to the claim its working actually supports.",
         "answer": "",
-        "why": "Four rides, four different kinds of claim, and the differences are the whole point. A witnessed test certifies the thing that was tested, so the conditions of the test belong in the entry. A margin that moves needs a condition attached that somebody can actually perform. A limit held by a controller needs no condition, because there is no human step left to fail. And a computed load with an unresolved defect is not a failure of the calculation — it is the calculation working, and pointing at the one question left.",
+        "why": "Each certificate claim has to match the evidence that supports it. An observed tower test supports only the conditions actually tested. The coaster can be certified with a morning speed condition because its margin changes with performance. The carousel limit is different because the controller enforces it directly. The wheel has a known load but an unresolved defect capacity. That does not make the calculation useless. It identifies the exact missing piece that prevents certification.",
         "scenarios": [
-          "The drop tower, with a witnessed test at 5.4 g peak against a 6.0 g limit.",
-          "The coaster, with a crown margin of 1.20 and a morning reading rule.",
-          "The swing carousel, derived at 31° and limited by an interlock at 10 turns a minute.",
-          "The wheel, with number-nine's bolt load computed and the weld indication unresolved."
+          "The drop tower, with an observed test at 5.4 g peak against a 6.0 g limit.",
+          "The coaster, with a top-of-loop margin of 1.20 and a morning reading rule.",
+          "The swing carousel, derived at 31° and limited by an automatic speed cutoff at 10 turns a minute.",
+          "The wheel, with the number-nine bolt load computed and the crack-like mark at the weld still unresolved."
         ],
         "choices": [
-          "Certified as tested, with the ballast mass and the release height named in the entry.",
+          "Certified as tested, with the test weight and the release height named in the entry.",
           "Certified with a condition: it opens only on mornings the station reading is met.",
           "Certified without conditions, the limit being enforced by the machine rather than by a person.",
           "Not certified: the load is known and whether the joint can carry it is not yet settled."
@@ -494,6 +491,25 @@ export const CURRICULUM = {
         "a margin is a ratio between what is available and what is required"
       ],
       "equations": [
+        {
+          "e": "v_min = √(gr) at the crown of a loop",
+          "c": "the limiting case a rail cannot get out of",
+          "v": [
+            [
+              "v_min",
+              "the least speed the train can cross the crown at"
+            ],
+            [
+              "g",
+              "the acceleration due to gravity"
+            ],
+            [
+              "r",
+              "the radius of the loop at its crown"
+            ]
+          ],
+          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
+        },
         {
           "e": "safety factor = capacity ÷ demand",
           "c": "the number this whole job is about",
@@ -516,10 +532,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Reading a circuit as energy",
-      "scene": "Marta Kovač walks the track every morning and has the circuit chalked on the workshop wall: lift hill, first drop, loop, brake run. Four points on it, and one statement each.",
-      "takeaway": "A ride is one quantity of energy being moved between two forms and quietly spent.",
+      "scene": "Marta Kovač walks the track every morning. On the workshop wall she has four places chalked out. They are the lift hill, top of the first hill, bottom of the first drop, and final braking section.",
+      "takeaway": "Mechanical energy trades between height and motion, while motors add it and friction or brakes remove it.",
       "place": "The Coaster",
-      "story": "Marta Kovač walks the track every morning and has the circuit chalked on the workshop wall: lift hill, first drop, loop, brake run. Four points on it, and one statement each.",
+      "story": "Marta Kovač walks the track every morning. On the workshop wall she has four places chalked out. They are the lift hill, top of the first hill, bottom of the first drop, and final braking section.",
       "game": {
         "type": "PROTOCOL",
         "title": "Reading a circuit as energy",
@@ -528,12 +544,12 @@ export const CURRICULUM = {
         "task": "Match each point on the circuit to what is true of the train's energy there.",
         "question": "Match each point on the circuit to what is true of the train's energy there.",
         "answer": "",
-        "why": "A circuit like this is one lot of energy handed back and forth. The motor does work once, at the beginning; from the crest onward nothing adds any, and every metre of descent converts store into motion. The foot of the first drop is the fastest point on the whole ride for that reason, and every hill after it has to be lower than the one before. The brake run is the only other place energy crosses the boundary, and it goes out as heat.",
+        "why": "The lift motor adds mechanical energy while the train climbs. After the top of the first hill, height and speed trade energy back and forth. Friction drains some into heat all around the circuit, so later hills cannot reach the height of the first hill. The foot of the first drop is fast because much of the stored height has become kinetic energy. The final braking section removes the remaining mechanical energy deliberately. Reading the circuit this way separates energy transfers from energy losses.",
         "scenarios": [
           "The chain is dragging the train up the lift hill.",
-          "The train is at the crest, moving slowly.",
+          "The train is at the top of the first hill, moving slowly.",
           "The train is at the foot of the first drop.",
-          "The train is in the brake run at the end."
+          "The train is in the final braking section at the end."
         ],
         "choices": [
           "A motor is putting energy in, and it is the only place on the circuit where that happens.",
@@ -556,10 +572,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The lap that does not come back",
-      "scene": "The train leaves the crest at 26 metres and reaches the bottom of the first drop 2 metres above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal circuit says more.",
+      "scene": "The train leaves the top of the first hill at 26 metres and reaches the bottom of the first drop 2 metres above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal circuit says more.",
       "takeaway": "The gap between the ideal speed and the measured one is a measurement of the friction.",
       "place": "The Coaster",
-      "story": "The train leaves the crest at 26 metres and reaches the bottom of the first drop 2 metres above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal circuit says more.",
+      "story": "The train leaves the top of the first hill at 26 metres and reaches the bottom of the first drop 2 metres above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal circuit says more.",
       "game": {
         "type": "DERIVE",
         "title": "The lap that does not come back",
@@ -567,8 +583,8 @@ export const CURRICULUM = {
         "play": "Derive the speed at the bottom with the losses in it",
         "task": "Derive the speed at the bottom with the losses in it",
         "question": "Work the energy statement down to the speed at the foot of the drop, and say what the measured speed then tells you.",
-        "answer": "v₁ = √(2.0² + 2 × 9.8 × 24) ≈ 21.8 m/s ideal against 21.4 measured — about 4% of the energy gone by the foot of the first drop.",
-        "why": "Dividing by the mass is the step worth remembering: it is why the loaded train and the empty one arrive together, and why the answer is a statement about the track rather than about the load. What the comparison buys is a measurement of the friction that no gauge in the park reports. 4% by the foot of the drop is ordinary; the number that matters is what has gone by the crown of the loop, because that is where the circuit has the least in hand.",
+        "answer": "The ideal speed is v₁ = √(2.0² + 2 × 9.8 × 24) ≈ 21.8 m/s. The measured 21.4 m/s means about 4% of the mechanical energy is already gone.",
+        "why": "Start with mechanical energy at the top of the first hill and at the foot of the drop. Mass appears in every term and divides out. That is why loading the train does not change the ideal speed from the same height. The ideal result is about 21.8 m/s, while the measured value is 21.4. The difference is energy lost to friction. That loss can be tracked around the circuit, especially near the loop where the speed margin is smallest.",
         "derive": {
           "start": "mgh₀ + ½mv₀² = mgh₁ + ½mv₁² + W_friction",
           "goal": "the speed at the foot of the drop with no losses, and what the measured 21.4 m/s implies",
@@ -678,6 +694,21 @@ export const CURRICULUM = {
           ],
           "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it.",
           "computed": true
+        },
+        {
+          "e": "safety factor = capacity ÷ demand",
+          "c": "the number this whole job is about",
+          "v": [
+            [
+              "capacity",
+              "what the part or the ride can take"
+            ],
+            [
+              "demand",
+              "what it is actually asked to take"
+            ]
+          ],
+          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
         }
       ]
     },
@@ -696,7 +727,7 @@ export const CURRICULUM = {
         "task": "Work out what the lift motor has to do",
         "question": "Estimate the power the lift chain delivers to the train.",
         "answer": "",
-        "why": "23 and a half kilowatts is a modest motor, and that is the point of a lift hill: the energy for the whole circuit is bought slowly, over most a minute, and spent in about 12 seconds. The same energy delivered in 12 seconds would need a motor 5 times the size. Every hill after the first has to be lower than it, because nothing is added anywhere else on the circuit and friction is subtracting the whole way round.",
+        "why": "Power is energy transferred each second. Raising the 4,800 kg train by 26 m stores about 1.22 MJ of gravitational potential energy. Doing that in 52 s requires about 23.5 kW delivered to the train. A faster lift would need more power for the same height. Once the train leaves the top of the first hill, no motor adds energy around the circuit. Friction only subtracts, so every later hill must fit inside what the lift supplied.",
         "givens": [],
         "relationship": "P = mgh ÷ t: power is the energy given to the train divided by the time spent giving it.",
         "calcKey": "COASTER-3"
@@ -704,24 +735,49 @@ export const CURRICULUM = {
       "assumes": [
         "lifting a mass stores energy equal to its weight times the height",
         "power is work divided by the time taken"
+      ],
+      "equations": [
+        {
+          "e": "mgh + ½mv² = constant",
+          "c": "the energy books for anything on a track",
+          "v": [
+            [
+              "m",
+              "the mass, which divides out of every term"
+            ],
+            [
+              "h",
+              "the height above whatever datum is chosen"
+            ],
+            [
+              "v",
+              "the speed at that height"
+            ],
+            [
+              "g",
+              "the acceleration due to gravity"
+            ]
+          ],
+          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
+        }
       ]
     },
     {
       "day": 4,
       "title": "What the loop asks for at the top",
-      "scene": "At the crown the track is above the train and the rider is upside down. Kovač's tape gives a radius of 7.4 metres there, against 5.6 on the drawing everyone has been working from.",
+      "scene": "At the top of the loop the track is above the train and the rider is upside down. Kovač's tape gives a radius of 7.4 metres there, against 5.6 on the drawing everyone has been working from.",
       "takeaway": "The limiting case is the one where a part stops doing anything, and it sets the number.",
       "place": "The Coaster",
-      "story": "At the crown the track is above the train and the rider is upside down. Kovač's tape gives a radius of 7.4 metres there, against 5.6 on the drawing everyone has been working from.",
+      "story": "At the top of the loop the track is above the train and the rider is upside down. Kovač's tape gives a radius of 7.4 metres there, against 5.6 on the drawing everyone has been working from.",
       "game": {
         "type": "DERIVE",
         "title": "What the loop asks for at the top",
         "setup": "The Coaster",
-        "play": "Derive the speed the crown demands",
-        "task": "Derive the speed the crown demands",
-        "question": "Work the force statement at the crown down to a minimum speed, and evaluate it for both radii.",
-        "answer": "v_min = √(gr) = √(9.8 × 7.4) ≈ 8.5 m/s at the measured crown, against 7.4 m/s for the radius on the drawing.",
-        "why": "The limiting case is the whole method: a rail can push and cannot pull, so the least speed is the one where it has stopped pushing and gravity alone bends the train round the curve. The mass cancels, which is why the limit is the same for a full train and an empty one. And the direction of the surprise is worth stating plainly — regrading the crown flatter made the ride smoother and made it hungrier, because a wider curve needs more speed to hold a body against it.",
+        "play": "Derive the speed the top of the loop demands",
+        "task": "Derive the speed the top of the loop demands",
+        "question": "Work the force statement at the top of the loop down to a minimum speed, and evaluate it for both radii.",
+        "answer": "At the measured radius, v_min = √(9.8 × 7.4) ≈ 8.5 m/s. The old drawing gives 7.4 m/s.",
+        "why": "At the top of the loop, both gravity and the rail can point toward the centre. The limiting case occurs when the rail's normal force just falls to zero. Then gravity alone must supply mv²/r, giving v_min = √(gr). A larger radius at the top of the loop therefore requires a larger minimum speed. Using 7.4 m gives about 8.5 m/s, compared with 7.4 m/s from the old 5.6 m drawing. Smoother geometry can still demand more speed.",
         "derive": {
           "start": "N + mg = mv²/r",
           "goal": "the least speed the train can cross the crown at, for r = 7.4 m and for r = 5.6 m",
@@ -878,40 +934,16 @@ export const CURRICULUM = {
           ],
           "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
           "card": false
-        },
-        {
-          "e": "mgh + ½mv² = constant",
-          "c": "the energy books for anything on a track",
-          "v": [
-            [
-              "m",
-              "the mass, which divides out of every term"
-            ],
-            [
-              "h",
-              "the height above whatever datum is chosen"
-            ],
-            [
-              "v",
-              "the speed at that height"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
-          "card": false
         }
       ]
     },
     {
       "day": 5,
       "title": "A margin that moves",
-      "scene": "The crown margin stands at 1.20. Kovač's clipboard shows the station return speed falling about 0.3 metres a second each season, measured the same way with the same wheel each spring.",
+      "scene": "The top-of-loop margin is 1.20. Marta Kovač's clipboard shows station return speed falling about 0.3 metres a second each season. Each spring measurement used the same wheel and the same method.",
       "takeaway": "A quantity nobody can measure daily is watched through one that can be.",
       "place": "The Coaster",
-      "story": "The crown margin stands at 1.20. Kovač's clipboard shows the station return speed falling about 0.3 metres a second each season, measured the same way with the same wheel each spring.",
+      "story": "The top-of-loop margin is 1.20. Marta Kovač's clipboard shows station return speed falling about 0.3 metres a second each season. Each spring measurement used the same wheel and the same method.",
       "game": {
         "type": "CHOICE",
         "title": "A margin that moves",
@@ -919,23 +951,23 @@ export const CURRICULUM = {
         "play": "Turn a shrinking margin into something measurable each morning",
         "task": "Turn a shrinking margin into something measurable each morning",
         "question": "What should the certificate require, given a margin that falls a little each season?",
-        "answer": "A minimum station return speed, measured each morning, that corresponds to the crown limit.",
-        "why": "The crown speed is the quantity that matters and the station return speed is the 1 that can be taken with a wheel in 15 seconds by whoever opens the ride. They are linked by the same energy statement used all fortnight, so a number at the station can be converted into a number at the crown once and then simply read. A yearly recomputation would have caught this decline in about seven years; a daily reading catches it the week it starts, and Hart can operate to it.",
+        "answer": "Set a minimum station return speed for each morning.",
+        "why": "The quantity that matters at the loop is speed at the top of the loop, but measuring it every morning would be difficult. Station return speed is easy to measure consistently. The two are linked by the ride's energy losses, so one can serve as a practical stand-in for the other. A daily minimum catches a decline soon after it begins. A yearly recalculation does not. The rule turns a hidden margin into a number the opening crew can actually watch.",
         "rebuttals": [
-          "An annual check is the interval that let a 1998 regrade go unnoticed for 25 years.",
+          "An annual check is the interval that let a 1998 track alteration go unnoticed for 25 years.",
           "The train's mass cancels out of every limit computed this fortnight, so reweighing settles nothing.",
-          "Instrumenting the crown is the ideal measurement and it is a season of work and a cable run to the top of a loop."
+          "Measuring that speed directly would be ideal, but adding permanent sensors at the top of the loop is a major installation."
         ],
         "choices": [
-          "A minimum station return speed, measured each morning, that corresponds to the crown limit.",
-          "A recomputation of the loop margin every spring, before the season opens.",
-          "A rule that the train is reweighed whenever the margin is questioned.",
-          "A crown speed measurement on every circuit, logged automatically."
+          "Set a minimum station return speed for each morning.",
+          "Recompute the loop margin every spring before the season opens.",
+          "Reweigh the train whenever the margin is questioned.",
+          "Measure speed at the top of the loop on every circuit automatically."
         ],
-        "correctChoice": "A minimum station return speed, measured each morning, that corresponds to the crown limit."
+        "correctChoice": "Set a minimum station return speed for each morning."
       },
       "assumes": [
-        "friction losses grow as running gear wears",
+        "friction losses grow as wheels and bearings wears",
         "a margin can be watched by measuring something easier than the quantity itself"
       ],
       "equations": [
@@ -1029,23 +1061,23 @@ export const CURRICULUM = {
         "play": "Read a morning speed against the rule",
         "task": "Read a morning speed against the rule",
         "question": "The reading is down a tenth and still passing. What does the rule require?",
-        "answer": "Run the ride and log the reading, since the limit is what decides whether it runs today.",
-        "why": "A limit and a trend answer different questions. The limit is a pass or fail on this morning's ride and it has been passed, so the ride runs. The trend is what the log is for, and it needs a run of readings before it says anything — cold, wet track and a stiff grease all move a single morning's number without meaning the ride is wearing out. What would be wrong is either stopping a ride that meets its criterion or explaining away a reading without recording it, and the second one is how three seasons of decline went unnoticed.",
+        "answer": "Run and log it; today's limit is still met.",
+        "why": "A limit and a trend answer different questions. Today's reading is still above the operating minimum, so the rule says the coaster may run. The lower value still belongs in the log. One cold, wet morning can shift rolling resistance without proving long-term wear. A sequence of similar readings would be different evidence. Stopping every passing ride makes the rule unusable, while explaining away an unrecorded reading makes a real trend invisible.",
         "rebuttals": [
           "Stopping on a passing reading makes the rule unusable and teaches operators to distrust it.",
           "The weather is a fair explanation and an unlogged explanation is how a trend disappears.",
           "Load has cancelled out of every limit on this ride, so lightening the train changes nothing."
         ],
         "choices": [
-          "Run the ride and log the reading, since the limit is what decides whether it runs today.",
-          "Stop the ride until the morning reading returns to where it stood last week.",
-          "Ignore it, since a cold wet morning explains a reading a tenth low.",
-          "Reduce the train's load until the reading recovers."
+          "Run and log it; today's limit is still met.",
+          "Stop the ride until the reading returns to last week's value.",
+          "Ignore it because cold rain explains a small drop.",
+          "Reduce the train load until the reading recovers."
         ],
-        "correctChoice": "Run the ride and log the reading, since the limit is what decides whether it runs today."
+        "correctChoice": "Run and log it; today's limit is still met."
       },
       "assumes": [
-        "the morning reading stands in for a speed at the crown nobody measures",
+        "the morning reading stands in for a speed at the top of the loop nobody measures",
         "rolling resistance changes with temperature and with wet track"
       ],
       "equations": [
@@ -1073,62 +1105,84 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What to spend the winter on",
-      "scene": "There is money for about two pieces of work before next season. Marsh, Kovač and Vey each have a candidate, and the wheel's weld is unresolved.",
-      "takeaway": "The work worth doing first is the work that answers a question nobody can currently answer.",
+      "scene": "There is money for only two winter jobs before next season. The park manager, Marta Kovač and the safety engineer each have a proposal. The Ferris wheel still has no final answer on its number-nine wheel joint.",
+      "takeaway": "The best investigation is the one that can change a decision, not the one that merely adds detail to something already understood.",
       "place": "The Coaster",
-      "story": "There is money for about two pieces of work before next season. Marsh, Kovač and Vey each have a candidate, and the wheel's weld is unresolved.",
+      "story": "There is money for only two winter jobs before next season. The park manager, Marta Kovač and the safety engineer each have a proposal. The Ferris wheel still has no final answer on its number-nine wheel joint.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "VALUE",
         "title": "What to spend the winter on",
         "setup": "The Coaster",
-        "play": "Fund the work that most changes what the park knows next season.",
-        "task": "Fund the work that most changes what the park knows next season.",
-        "question": "Fund the work that most changes what the park knows next season.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Fracture assessment of number-nine spider arm against the computed 52.7 kN bolt load."
+        "play": "Spend two winter work slots on the evidence that most changes next season's decisions.",
+        "task": "Spend two winter work slots on the evidence that most changes next season's decisions.",
+        "question": "You can fund two pieces of work. Which two buy information that changes what the park can decide before reopening?",
+        "answer": "Fund the wheel crack-strength assessment and the coaster survey. Each answers an unresolved question that can change certification; the overhaul and repaint do not.",
+        "why": "The wheel has a known joint load and a measured crack-like mark, but no crack-strength assessment. That missing result directly controls whether the wheel can be certified. The coaster has a different unknown because one important radius already disagreed with its old drawing. A full geometry survey could reveal other geometry errors. An overhaul may improve a known speed loss, but the morning rule already manages that condition. Repainting changes appearance only. With two work slots, the best purchases settle unresolved decisions.",
+        "value": {
+          "budget": {
+            "amount": 2,
+            "unit": "winter work slots"
           },
-          {
-            "label": "B",
-            "text": "Bearing and wheel overhaul on the coaster train, to recover the lost running speed."
-          },
-          {
-            "label": "C",
-            "text": "Re-survey the whole coaster track and issue drawings that match what is built."
-          },
-          {
-            "label": "D",
-            "text": "Repaint the midway and the carousel horses before the season opens."
-          }
-        ],
-        "recommended": {
-          "A": 45,
-          "C": 35
-        },
-        "research": "The wheel is the only ride not certified, and the one question standing between it and a\ncertificate is whether a known crack can carry a known load. The coaster's 1974 drawing was\nwrong about the loop by 1.8 metres of radius and nobody knows what else it is wrong about.\nThe train's losses are real, understood, and inside the margin under the morning rule.\n"
+          "decision": "Which unresolved ride decisions can be settled before next season?",
+          "options": [
+            {
+              "id": "fracture",
+              "label": "Crack-strength assessment of the number-nine support arm",
+              "cost": 1,
+              "axis": "wheel structural capacity",
+              "reveals": "Whether the measured crack-like mark can carry the computed joint load with an acceptable margin.",
+              "decisive": true
+            },
+            {
+              "id": "survey",
+              "label": "Full coaster geometry survey",
+              "cost": 1,
+              "axis": "coaster geometry",
+              "reveals": "Whether other built radii and heights differ from the old drawings enough to change the certified limits.",
+              "decisive": true
+            },
+            {
+              "id": "overhaul",
+              "label": "Coaster bearing and wheel overhaul",
+              "cost": 1,
+              "axis": "coaster rolling loss",
+              "reveals": "Whether maintenance recovers some station return speed; the morning rule already tells the park whether today's train may run."
+            },
+            {
+              "id": "paint",
+              "label": "Repaint the midway and carousel horses",
+              "cost": 1,
+              "axis": "appearance",
+              "reveals": "The appearance of the rides changes, but no unresolved engineering claim is answered."
+            }
+          ],
+          "hint": "You have two work slots. Buy the work whose result could change a certification or design decision; each purchase reveals what that job would actually settle.",
+          "commit": "Commit the decision"
+        }
       },
       "assumes": [
-        "the coaster's margin has been falling about a tenth of a metre a second each season",
-        "a defect cannot be judged until the load in the part is known"
+        "the wheel is the only ride still missing a certification decision",
+        "the coaster drawing has already been shown wrong at the top of the loop"
       ],
       "equations": [
         {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
+          "e": "v_min = √(gr) at the crown of a loop",
+          "c": "the limiting case a rail cannot get out of",
           "v": [
             [
-              "capacity",
-              "what the part or the ride can take"
+              "v_min",
+              "the least speed the train can cross the crown at"
             ],
             [
-              "demand",
-              "what it is actually asked to take"
+              "g",
+              "the acceleration due to gravity"
+            ],
+            [
+              "r",
+              "the radius of the loop at its crown"
             ]
           ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
+          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
         }
       ]
     }
@@ -1137,10 +1191,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Going round at a steady speed",
-      "scene": "The carousel turns at eight revolutions a minute and has done since Brennan set it. Bisi Adeyemi is wiring a new controller and wants to know what the outer horses are actually being subjected to.",
-      "takeaway": "Steady speed on a curve is still acceleration, and it points at the middle.",
+      "scene": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi is wiring a new controller and wants the outer-horse acceleration put on paper.",
+      "takeaway": "Acceleration describes any change in velocity, including a change in direction when speed stays constant.",
       "place": "The Carousel and Swings",
-      "story": "The carousel turns at eight revolutions a minute and has done since Brennan set it. Bisi Adeyemi is wiring a new controller and wants to know what the outer horses are actually being subjected to.",
+      "story": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi is wiring a new controller and wants the outer-horse acceleration put on paper.",
       "game": {
         "type": "CHOICE",
         "title": "Going round at a steady speed",
@@ -1149,7 +1203,7 @@ export const CURRICULUM = {
         "task": "Separate the speed from the acceleration",
         "question": "An outer horse goes round at a constant eight revolutions a minute. What is its acceleration?",
         "answer": "About 4.4 metres per second squared, directed at the centre of the carousel.",
-        "why": "Velocity is a direction as well as a size, and on a circle the direction changes every instant even when the size does not. That change is an acceleration, it points at the centre, and its size is the speed squared over the radius: 5.2 metres a second on a 6.2 metre radius gives 4.4, which is about 0.44 g sideways. The force that produces it comes from the platform and the pole, and the rider feels it as being leant outward.",
+        "why": "Speed can stay constant while velocity changes because velocity also contains direction. On a circle, that direction changes every instant. The resulting acceleration points toward the centre and has size v²/r. Here 5.2 m/s on a 6.2 m radius gives about 4.4 m/s². The platform and pole supply the inward force. A rider feels the seat pushing inward while their inertia makes the experience seem outward.",
         "rebuttals": [
           "Constant speed and constant velocity are different claims, and only the first one is true here.",
           "Along the motion is where an acceleration points when a body is speeding up, which this one is not.",
@@ -1171,10 +1225,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Why the chains come out",
-      "scene": "The swing carousel turns at ten revolutions a minute. The chains are 4.5 metres long, hung from a hub of radius 3.0 metres, and Brennan's chalk mark on the pole says where the seats reach at full speed.",
-      "takeaway": "The angle a hanging chain settles at is set by the turning, and the mass falls out of it entirely.",
+      "scene": "The swing carousel turns at ten revolutions a minute. Its chains are 4.5 metres long and hang from a hub 3.0 metres from the axis. An old chalk mark shows where the seats once reached.",
+      "takeaway": "Resolving one force into components can remove unknowns and reveal which variables actually control the motion.",
       "place": "The Carousel and Swings",
-      "story": "The swing carousel turns at ten revolutions a minute. The chains are 4.5 metres long, hung from a hub of radius 3.0 metres, and Brennan's chalk mark on the pole says where the seats reach at full speed.",
+      "story": "The swing carousel turns at ten revolutions a minute. Its chains are 4.5 metres long and hang from a hub 3.0 metres from the axis. An old chalk mark shows where the seats once reached.",
       "game": {
         "type": "DERIVE",
         "title": "Why the chains come out",
@@ -1182,8 +1236,8 @@ export const CURRICULUM = {
         "play": "Derive the angle the chains hang at",
         "task": "Derive the angle the chains hang at",
         "question": "Work the two force equations down to a relation for the angle, and say what the angle depends on.",
-        "answer": "tanθ = v²/(rg), giving about 31° from the vertical at 10 turns a minute — and it depends on the speed and the radius, not on who is sitting in the seat.",
-        "why": "Dividing the two equations is the move: the tension is unknown, it appears in both, and one division removes it along with the mass. What is left says the angle is fixed by the speed and the radius alone, which is why a ride full of adults and a ride full of children hang their chains identically. The radius has to be solved with the angle, since a seat that swings out travels a wider circle. Brennan's chalk mark reads 30 degrees.",
+        "answer": "The force balance gives tanθ = v²/(rg). Solving with the changing seat radius gives about 31° from vertical at ten revolutions a minute.",
+        "why": "The chain tension has two jobs. Its vertical component balances the rider's weight, while its horizontal component supplies the inward force for circular motion. Dividing those force equations removes both the unknown tension and the rider's mass. What remains links the angle to speed and the radius of the seat's circular path. Because the seat swings outward, that radius grows with the angle and must be solved with it. At ten rpm, the result is about 31 degrees.",
         "derive": {
           "start": "T sinθ = mv²/r  and  T cosθ = mg",
           "goal": "a relation for θ, and the quantities it turns out to depend on",
@@ -1326,21 +1380,21 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a pole holds sideways",
-      "scene": "An outer horse carries a rider of 78 kilograms at 6.2 metres from the middle, going round at 8 turns a minute. Adeyemi wants the sideways force the pole is asked for.",
-      "takeaway": "The force holding somebody in a circle is a real force from a real part, and it grows with the square of the speed.",
+      "scene": "An outer horse carries a 78 kilogram rider 6.2 metres from the axis. The carousel is turning at eight revolutions a minute. Bisi Adeyemi wants the sideways force before anyone raises the controller setting.",
+      "takeaway": "Circular-force problems often hide the needed speed inside a rotation rate, so convert the motion before applying F = mv²/r.",
       "place": "The Carousel and Swings",
-      "story": "An outer horse carries a rider of 78 kilograms at 6.2 metres from the middle, going round at 8 turns a minute. Adeyemi wants the sideways force the pole is asked for.",
+      "story": "An outer horse carries a 78 kilogram rider 6.2 metres from the axis. The carousel is turning at eight revolutions a minute. Bisi Adeyemi wants the sideways force before anyone raises the controller setting.",
       "game": {
         "type": "BALLPARK",
         "title": "What a pole holds sideways",
         "setup": "The Carousel and Swings",
         "play": "Get the sideways force on an outer pole",
         "task": "Get the sideways force on an outer pole",
-        "question": "Estimate the sideways force the pole puts on a 78 kg rider.",
+        "question": "Estimate the sideways force on the rider, converting the carousel's eight revolutions a minute into linear speed first.",
         "answer": "",
-        "why": "340 newtons is about 44% of this rider's weight, pushing sideways, and it has to come from somewhere real — the pole, through the saddle, into the rider. 9 turns a minute instead of 8 would make it 430 newtons, since the force goes as the square of the speed while the speed goes as the rate of turning. That is the whole of why Brennan's difference between 17 was something he could feel.",
+        "why": "Eight revolutions a minute is an angular rate, not the rider's linear speed. One revolution covers 2πr, so the rider moves about 5.2 m/s at 6.2 m radius. Then F = mv²/r gives about 340 N toward the centre. The square on speed makes controller changes expensive. Going from eight to nine rpm raises speed by 12.5%, but the required inward force by about 27%. The pole and saddle must supply that extra force every turn.",
         "givens": [],
-        "relationship": "F = mv²/r: the force needed to hold a mass on a circle is the mass times the speed squared, divided by the radius.",
+        "relationship": "Convert rotation rate with v = 2πr(rpm)/60, then use centripetal force F = mv²/r.",
         "calcKey": "CAROUSEL-3"
       },
       "assumes": [
@@ -1348,25 +1402,6 @@ export const CURRICULUM = {
         "that force is the mass times the centripetal acceleration"
       ],
       "equations": [
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
-        },
         {
           "e": "a_c = v²/r,  F_c = mv²/r",
           "c": "what going round a corner costs",
@@ -1388,17 +1423,37 @@ export const CURRICULUM = {
               "the net force that produces it"
             ]
           ],
-          "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat."
+          "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
+          "computed": true
+        },
+        {
+          "e": "ΣF = ma",
+          "c": "what a net force is for",
+          "v": [
+            [
+              "ΣF",
+              "the sum of every force on the body, with direction"
+            ],
+            [
+              "m",
+              "its mass"
+            ],
+            [
+              "a",
+              "the acceleration that results"
+            ]
+          ],
+          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
         }
       ]
     },
     {
       "day": 4,
       "title": "The drive that pulls unevenly",
-      "scene": "The carousel's drive has been drawing an uneven current since the winter and Adeyemi has five readings on the panel. Two are alarming and three are entirely ordinary.",
+      "scene": "The carousel drive has drawn uneven current since winter. Bisi Adeyemi has five readings from the control panel and the ring survey beside them. Two look alarming. Three are stubbornly ordinary.",
       "takeaway": "The readings that are normal are what rule an explanation out.",
       "place": "The Carousel and Swings",
-      "story": "The carousel's drive has been drawing an uneven current since the winter and Adeyemi has five readings on the panel. Two are alarming and three are entirely ordinary.",
+      "story": "The carousel drive has drawn uneven current since winter. Bisi Adeyemi has five readings from the control panel and the ring survey beside them. Two look alarming. Three are stubbornly ordinary.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "The drive that pulls unevenly",
@@ -1492,7 +1547,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "A limit somebody can pass",
       "scene": "The derived limit for the swings is ten turns a minute. Adeyemi has to wire what happens when the controller is asked for 11, and there are 4 ways to do it.",
-      "takeaway": "A number becomes a limit at the moment something refuses to go past it.",
+      "takeaway": "A safety limit only works when the response to crossing it is defined before the limit is reached.",
       "place": "The Carousel and Swings",
       "story": "The derived limit for the swings is ten turns a minute. Adeyemi has to wire what happens when the controller is asked for 11, and there are 4 ways to do it.",
       "game": {
@@ -1503,7 +1558,7 @@ export const CURRICULUM = {
         "task": "Decide what the controller does at the limit",
         "question": "What should the controller do when the speed setting is pushed past ten turns a minute?",
         "answer": "Refuse the setting outright, with no key override on the ride's own panel.",
-        "why": "A limit is only a limit when something other than a person's attention holds it. An alarm on a busy Saturday is a noise in a place already full of noise, and a log is a record of the thing having happened. The derivation gives a specific number for a specific reason — the chains reach the pole surround beyond it — and the last option misreads what rounding does: the figures were rounded, and the answer is not therefore soft by 10%.",
+        "why": "A calculated limit matters only if the machine enforces it. An alarm still lets an operator choose to exceed the value. A log records the exceedance after it has already happened. The controller should therefore refuse settings above the derived limit. That makes the physics part of the machine rather than a suggestion beside it. Rounding the inputs does not justify adding an arbitrary ten percent, because the physical clearance that produced the limit has not changed.",
         "rebuttals": [
           "An alarm hands a safety decision to whoever is most tired, at the moment they are busiest.",
           "A log turns the limit into something reviewed on Friday about a Saturday.",
@@ -1524,25 +1579,25 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Shimming a ring overnight",
-      "scene": "The platform sits 11 millimetres low at 1 bearing. Kovač has a night to lift it, shim it and prove it, and four operations to fit into that night.",
-      "takeaway": "The last operation of any repair is the measurement that shows it worked.",
+      "title": "Leveling the carousel overnight",
+      "scene": "The carousel platform sits 11 millimetres low at one bearing. Marta Kovač has one night to lift the ring, add thin spacer plates under the support and prove the repair before the morning opening check.",
+      "takeaway": "A repair procedure is a chain of physical dependencies, not just a list of tasks.",
       "place": "The Carousel and Swings",
-      "story": "The platform sits 11 millimetres low at 1 bearing. Kovač has a night to lift it, shim it and prove it, and four operations to fit into that night.",
+      "story": "The carousel platform sits 11 millimetres low at one bearing. Marta Kovač has one night to lift the ring, add thin spacer plates under the support and prove the repair before the morning opening check.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Shimming a ring overnight",
+        "title": "Leveling the carousel overnight",
         "setup": "The Carousel and Swings",
         "play": "Order the four operations of the overnight repair.",
         "task": "Order the four operations of the overnight repair.",
         "question": "Order the four operations of the overnight repair.",
         "answer": "",
-        "why": "Every operation is what makes the one after it possible. A bearing under load cannot be shimmed, so the weight comes off first, and it comes off at the two neighbours rather than at the low bearing itself. The shim is measured against a level rather than counted in plates. Torque is applied after the ring is back down, since a bolt tightened on an unloaded joint is a bolt that loosens. The last one is not tidying up: the current trace is the only evidence that the thing which prompted all this has actually gone.",
+        "why": "The repair order follows the load path. The low bearing cannot be adjusted while the ring is pressing on it, so nearby jacks take the weight first. Spacer thickness comes from the measured level, not from counting plates. After lowering the ring, the mounting bolts are tightened to the specified torque. The final run is essential. If the once-per-revolution current peak disappears, the measurement that started the repair has also been resolved.",
         "cards": [
-          "Jack the ring at the two bearings either side of the low one and take the weight off it.",
-          "Pack the bearing plinth with shim stock until the ring reads level to two millimetres.",
-          "Lower the ring onto the packed plinth and torque the holding-down bolts to the plate figure.",
-          "Turn the ride for ten minutes and confirm the drive current no longer peaks each revolution."
+          "Jack the ring at the two bearings beside the low one and take the weight off it.",
+          "Add thin metal spacer plates under the low bearing until the ring is level within two millimetres.",
+          "Lower the ring onto the adjusted support and tighten the mounting bolts to the specified torque.",
+          "Turn the ride for ten minutes and confirm the drive current no longer peaks once each revolution."
         ],
         "order": [
           0,
@@ -1552,8 +1607,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a load has to be taken off a bearing before the bearing can be packed",
-        "a repair is finished when it has been measured rather than when it is done"
+        "a load has to be taken off a bearing before its support height can be adjusted",
+        "a repair is finished when the original problem is measured again"
       ],
       "equations": [
         {
@@ -1582,31 +1637,31 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The number people get wrong",
-      "scene": "Jan Novák has a jib out over the wheel's hub with a load on the end of it, and a disagreement with the lifting plan about how big the moment on the pin is.",
+      "scene": "Jan Novák has a six-metre crane arm raised 30 degrees above horizontal near the Ferris wheel. A load hangs vertically from its end. His lifting plan and the shop sketch disagree about the distance used to calculate torque.",
       "takeaway": "A turning effect is fixed by where the line of the force passes, not by the shape of the thing carrying it.",
       "place": "The Ferris Wheel",
-      "story": "Jan Novák has a jib out over the wheel's hub with a load on the end of it, and a disagreement with the lifting plan about how big the moment on the pin is.",
+      "story": "Jan Novák has a six-metre crane arm raised 30 degrees above horizontal near the Ferris wheel. A load hangs vertically from its end. His lifting plan and the shop sketch disagree about the distance used to calculate torque.",
       "game": {
         "type": "CHOICE",
         "title": "The number people get wrong",
         "setup": "The Ferris Wheel",
-        "play": "Identify the distance a torque is actually measured over",
-        "task": "Identify the distance a torque is actually measured over",
-        "question": "The jib is 6 metres long and angled up at 30°. Which distance sets the moment about the pin?",
-        "answer": "The horizontal distance from the pin to the load's line of action, which is 5.2 metres.",
-        "why": "A torque is the force times the perpendicular distance from the pivot to the line the force acts along. The load hangs straight down, so that line is vertical and the perpendicular distance to it is horizontal — 6 metres times the cosine of 30, which is 5.2. Raising the jib does not shorten the steel and it does shorten the arm, which is exactly why a crane can lift more with the boom up. Using the length of the member instead overstates this moment by 15%.",
+        "play": "Identify the distance that sets the torque",
+        "task": "Identify the distance that sets the torque",
+        "question": "The crane arm is 6 metres long and angled up at 30°. Which distance sets the torque about the pivot?",
+        "answer": "The horizontal distance from the pivot to the vertical line along which the load pulls, which is 5.2 metres.",
+        "why": "Torque uses the perpendicular distance from the pivot to the line along which the force acts. The load hangs vertically, so the needed arm is horizontal. For a 6 m crane arm at 30 degrees, that arm is 6 cos30°, or about 5.2 m. The full steel length is not the lever arm. Raising the arm shortens the horizontal arm, so the same hanging load produces less torque about the pivot. That distinction matters.",
         "rebuttals": [
-          "The steel is six metres of it, and the arm is measured across the force rather than along the member.",
+          "The steel is six metres of it, and the arm is measured across the force rather than along the arm.",
           "The height fixes where the load hangs and has no bearing on a vertical force's arm.",
-          "The tracks are not the pivot; the moment being argued about is the one at the pin."
+          "The tracks are not the pivot; the moment being argued about is the one at the pivot."
         ],
         "choices": [
-          "The horizontal distance from the pin to the load's line of action, which is 5.2 metres.",
-          "The length of the jib itself, all six metres of it, since that is the steel carrying the load.",
-          "The vertical height the load hangs above the pin, three metres.",
+          "The horizontal distance from the pivot to the vertical line along which the load pulls, which is 5.2 metres.",
+          "The length of the crane arm itself, all six metres of it, since that is the steel carrying the load.",
+          "The vertical height the load hangs above the pivot, three metres.",
           "The distance along the ground from the crane's tracks to the load."
         ],
-        "correctChoice": "The horizontal distance from the pin to the load's line of action, which is 5.2 metres."
+        "correctChoice": "The horizontal distance from the pivot to the vertical line along which the load pulls, which is 5.2 metres."
       },
       "assumes": [
         "a force applied further from a pivot has a greater turning effect",
@@ -1616,21 +1671,21 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Loading one side of a wheel",
-      "scene": "Loading puts passengers into the gondolas at the bottom, six at a time, so for part of every cycle one side of the wheel carries more than the other. Priya Raman wants the worst case on paper.",
+      "scene": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman wants the worst temporary imbalance put on paper.",
       "takeaway": "A wheel is balanced by its own symmetry, and loading is what breaks the symmetry.",
       "place": "The Ferris Wheel",
-      "story": "Loading puts passengers into the gondolas at the bottom, six at a time, so for part of every cycle one side of the wheel carries more than the other. Priya Raman wants the worst case on paper.",
+      "story": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman wants the worst temporary imbalance put on paper.",
       "game": {
         "type": "BALLPARK",
         "title": "Loading one side of a wheel",
         "setup": "The Ferris Wheel",
         "play": "Balance the wheel before it is asked to turn",
         "task": "Balance the wheel before it is asked to turn",
-        "question": "Estimate the out-of-balance torque about the axle with four gondolas loaded on one side.",
+        "question": "Estimate the out-of-balance torque about the axle with four passenger cabins loaded on one side.",
         "answer": "",
-        "why": "A wheel with everything symmetrical needs no torque to hold it, which is why an empty Ferris wheel turns on very little power. Loading 4 gondolas on 1 side puts 177 kilonewton-metres on the drive and the brake, and the number the drawing gives is for the ride running full, which is the balanced case. The awkward load is not the heaviest one; it is the most lopsided one, and it happens during loading rather than during the ride.",
+        "why": "An empty wheel is nearly balanced because opposite passenger cabins cancel one another's torques. Loading breaks that symmetry before the wheel is full. Four passenger loads on one side produce about 177 kN·m using their average perpendicular distance from the axle. The worst loading case is therefore not the heaviest total load. It is the most uneven arrangement. That temporary imbalance is what the drive, brake and hub must resist while passengers are boarding.",
         "givens": [],
-        "relationship": "τ = Fd: the out-of-balance moment is the unbalanced weight times its perpendicular distance from the axle.",
+        "relationship": "τ = Fd: the out-of-balance torque is the unbalanced weight times its perpendicular distance from the axle.",
         "calcKey": "WHEEL-2"
       },
       "assumes": [
@@ -1663,10 +1718,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Where the mass is",
-      "scene": "Novák is quoting a replacement drive and the supplier wants the wheel's rotational inertia. Two wheels of the same total mass are on the table, one with heavy gondolas and one with a heavier hub.",
+      "scene": "Novák is quoting a replacement drive and the supplier wants the wheel's rotational inertia. Two wheels of the same total mass are on the table, one with heavy passenger cabins and one with a heavier center hub.",
       "takeaway": "Rotational inertia counts every kilogram by the square of how far out it sits.",
       "place": "The Ferris Wheel",
-      "story": "Novák is quoting a replacement drive and the supplier wants the wheel's rotational inertia. Two wheels of the same total mass are on the table, one with heavy gondolas and one with a heavier hub.",
+      "story": "Novák is quoting a replacement drive and the supplier wants the wheel's rotational inertia. Two wheels of the same total mass are on the table, one with heavy passenger cabins and one with a heavier center hub.",
       "game": {
         "type": "CHOICE",
         "title": "Where the mass is",
@@ -1674,20 +1729,20 @@ export const CURRICULUM = {
         "play": "Say what makes a wheel hard to start",
         "task": "Say what makes a wheel hard to start",
         "question": "Two wheels have the same total mass. Which is harder to bring up to speed?",
-        "answer": "The one with its mass out at the rim, since distance from the axle counts twice over.",
-        "why": "Rotational inertia counts each piece of mass times the square of its distance out. A kilogram at this rim therefore counts about 200 times 1 on the axle. That is why the wheel needs a big torque to start and almost none to keep turning. It is why the gondolas are built as light as they can be. And it is why a flywheel is built the other way round, with its mass as far out as the casing allows, to be as hard to slow as possible.",
+        "answer": "The center-heavy wheel, because its mass follows a tighter circle.",
+        "why": "Rotational inertia depends on both mass and where that mass sits. Each piece contributes in proportion to the square of its distance from the axis. A kilogram near the outer rim matters far more than a kilogram near the center hub. That makes outer-rim-heavy wheels harder to speed up or slow down. Ferris-wheel passenger cabins are therefore kept light when possible. A flywheel does the opposite on purpose, putting mass outward so its rotation resists changes.",
         "rebuttals": [
-          "What the drive turns is the whole assembly, and the hub contributes least of it whatever it weighs.",
+          "What the drive turns is the whole assembly, and the center hub contributes least of it whatever it weighs.",
           "Straight-line inertia depends on mass alone; rotational inertia depends on where the mass is.",
-          "Mass near the axle does turn through a tighter circle, which is exactly why it is easier rather than harder."
+          "Mass near the center axle does turn through a tighter circle, which is exactly why it is easier rather than harder."
         ],
         "choices": [
-          "The one with its mass out at the rim, since distance from the axle counts twice over.",
-          "The one with the heavier hub, since the drive shaft has to turn that hub directly.",
-          "Neither, since the masses are equal and inertia depends on mass.",
-          "The one with the heavier hub, since mass near an axle turns through a tighter circle."
+          "The outer-rim-heavy wheel, because radius enters rotational inertia squared.",
+          "The center-heavy wheel, because the drive shaft turns the center hub directly.",
+          "Neither; equal total mass means equal rotational inertia.",
+          "The center-heavy wheel, because its mass follows a tighter circle."
         ],
-        "correctChoice": "The one with its mass out at the rim, since distance from the axle counts twice over."
+        "correctChoice": "The center-heavy wheel, because its mass follows a tighter circle."
       },
       "assumes": [
         "a torque is needed to change how fast something turns",
@@ -1717,20 +1772,20 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "What number nine is holding",
-      "scene": "The out-of-balance moment reaches 177 kilonewton-metres during loading. Each spider arm is held to the hub by a ring of 8 bolts on a circle of radius 0.42 metres, and Raman wants the force in 1.",
+      "title": "What one wheel-center bolt is holding",
+      "scene": "The loading imbalance reaches 177 kilonewton-metres. Each support arm joins the wheel center through eight bolts, each 0.42 metres from the center. Priya Raman points to number nine and asks what force one bolt must carry.",
       "takeaway": "A moment becomes a force the moment somebody asks what distance is resisting it.",
       "place": "The Ferris Wheel",
-      "story": "The out-of-balance moment reaches 177 kilonewton-metres during loading. Each spider arm is held to the hub by a ring of 8 bolts on a circle of radius 0.42 metres, and Raman wants the force in 1.",
+      "story": "The loading imbalance reaches 177 kilonewton-metres. Each support arm joins the wheel center through eight bolts, each 0.42 metres from the center. Priya Raman points to number nine and asks what force one bolt must carry.",
       "game": {
         "type": "DERIVE",
-        "title": "What number nine is holding",
+        "title": "What one wheel-center bolt is holding",
         "setup": "The Ferris Wheel",
-        "play": "Derive the force in one hub bolt",
-        "task": "Derive the force in one hub bolt",
-        "question": "Work the moment down to a force in one bolt, and say what has been assumed to get there.",
-        "answer": "F = 177,000 ÷ (8 × 0.42) ≈ 52.7 kN in 1 bolt, on the assumption that all 8 share the moment equally.",
-        "why": "Turning a moment into a force needs a distance to divide by. Choosing that distance is the engineering. Here it is the bolt-circle radius, since that is where the resisting forces act. 52 kilonewtons is now the number the crack has to be judged against. The assumption under it is worth saying out loud: equal sharing is what a drawing assumes, and an eighty-one-year-old joint only approximates it.",
+        "play": "Derive the force in one wheel-center bolt",
+        "task": "Derive the force in one wheel-center bolt",
+        "question": "Use the torque to find the force in one bolt, and state the load-sharing assumption.",
+        "answer": "F = 177,000 ÷ (8 × 0.42) ≈ 52.7 kN in one bolt, assuming the eight bolts share the torque equally.",
+        "why": "Turning a torque into a force needs a distance to divide by. Choosing that distance is the engineering. Here it is the bolt radius, since that is where the resisting forces act. About 52.7 kilonewtons per bolt is now the load the crack must be judged against. The assumption under it is worth saying out loud: equal sharing is what a drawing assumes, and an eighty-one-year-old joint only approximates it. Real joints can redistribute load.",
         "derive": {
           "start": "Στ = 0",
           "goal": "the force carried by one bolt, and the assumption behind that number",
@@ -1848,22 +1903,22 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "What the wind does to a gondola",
-      "scene": "A gondola presents about 4.2 square metres side-on. Raman wants the force on 1 at the 22 metres a second the county's rule names, before anybody argues about the limit.",
+      "title": "What the wind does to a passenger cabin",
+      "scene": "A passenger cabin presents about 4.2 square metres side-on. Raman wants the force on 1 at the 22 metres a second the county's rule names, before anybody argues about the limit.",
       "takeaway": "A wind limit is a force limit in disguise, and the square is why the last few metres a second matter most.",
       "place": "The Ferris Wheel",
-      "story": "A gondola presents about 4.2 square metres side-on. Raman wants the force on 1 at the 22 metres a second the county's rule names, before anybody argues about the limit.",
+      "story": "A passenger cabin presents about 4.2 square metres side-on. Raman wants the force on 1 at the 22 metres a second the county's rule names, before anybody argues about the limit.",
       "game": {
         "type": "BALLPARK",
-        "title": "What the wind does to a gondola",
+        "title": "What the wind does to a passenger cabin",
         "setup": "The Ferris Wheel",
-        "play": "Put a number on the wind a gondola carries",
-        "task": "Put a number on the wind a gondola carries",
-        "question": "Estimate the wind force on 1 gondola at 22 metres a second.",
+        "play": "Put a number on the wind a passenger cabin carries",
+        "task": "Put a number on the wind a passenger cabin carries",
+        "question": "Estimate the wind force on 1 passenger cabin at 22 metres a second.",
         "answer": "",
-        "why": "1500 newtons on 1 gondola is about a sixth of a tonne pushing sideways on something hanging from a pin, and there are 24 of them. The square is the part to carry away: the wind that arrives in gusts at 30 rather than 22 brings not 36% more force but 86. That is why wind rules are written with a stopping speed well below anything structural, and why the gust rather than the mean is what the operator has to watch.",
+        "why": "Wind force scales with the square of speed. For this passenger cabin, 22 m/s produces about 1.46 kN of sideways force. Doubling wind speed would quadruple that load. Even a rise from 22 to 30 m/s increases the force by about 86%. That steep growth is why gust speed matters more than the daily mean. A sensible operating rule starts action below the structural limit because unloading and stopping the wheel take time.",
         "givens": [],
-        "relationship": "F = ½ρC_dAv²: wind force is half the air density times the drag coefficient times the area times the speed squared.",
+        "relationship": "F = ½ρC_dAv²: wind force depends on air density, a shape factor, exposed area and the square of wind speed.",
         "calcKey": "WHEEL-5"
       },
       "assumes": [
@@ -1886,7 +1941,7 @@ export const CURRICULUM = {
         "task": "Write the wind rules with their lead time",
         "question": "Set both thresholds so each action is complete before the gusts pass the structural limit.",
         "answer": "Close the queue near 13 m/s and start emptying near 16, so the wheel is standing before the gusts reach 22. Waiting for 20 leaves 1 update to do 8 minutes of work in.",
-        "why": "A threshold is not a description of danger, it is an instruction with a duration attached. The wheel takes eight minutes to empty and the queue longer, so both rules have to fire while the gusts are still well below the structural number — and because the force goes as the square, the last five metres a second arrive with half again the load of everything before them. Setting the trigger at the limit itself is the commonest mistake, and it means the action starts at the moment it needed to be finished.",
+        "why": "A wind threshold is useful only if the action behind it can finish before conditions become unsafe. Those two jobs take an eight-minute unload and rather more than that to run the queue down, and both have to be over before the gusts arrive. Their lead times force the first triggers well below the 22 m/s structural limit. Wind force is also rising as speed squared during the same interval. Waiting until the limit is nearly reached leaves too little time. The rule must be written before the forecast stream arrives, not improvised afterward.",
         "trigger": {
           "scale": {
             "label": "Gust speed",
@@ -1950,10 +2005,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "The honest sentence about number nine",
-      "scene": "Raman has the bolt load, Bianchi has the indication's length and depth, and nobody has the fracture assessment. Marsh needs a sentence for the board and for the insurers.",
+      "scene": "Priya Raman has the computed bolt load. The inspector has the crack-like mark's measured length and depth. Nobody has the crack-strength assessment. The park manager needs one sentence for the board and insurers before the meeting ends.",
       "takeaway": "The strength of a claim is set by what was actually established, and saying so is the claim.",
       "place": "The Ferris Wheel",
-      "story": "Raman has the bolt load, Bianchi has the indication's length and depth, and nobody has the fracture assessment. Marsh needs a sentence for the board and for the insurers.",
+      "story": "Priya Raman has the computed bolt load. The inspector has the crack-like mark's measured length and depth. Nobody has the crack-strength assessment. The park manager needs one sentence for the board and insurers before the meeting ends.",
       "game": {
         "type": "CHOICE",
         "title": "The honest sentence about number nine",
@@ -1961,20 +2016,20 @@ export const CURRICULUM = {
         "play": "State what can be claimed about the wheel",
         "task": "State what can be claimed about the wheel",
         "question": "What is the honest sentence about the wheel this afternoon?",
-        "answer": "The load in the joint is computed and whether the indication can carry it is not yet established.",
-        "why": "Two things are known and one is not, and the sentence has to carry all three. Calling the wheel unsafe claims a finding nobody has made; calling it safe is the argument this fortnight was spent taking apart, since 81 years of service is a record rather than a margin. And saying nothing can be said discards real work: the load is computed, the indication is sized, and the single remaining question is now narrow enough to be answered by one specialist over the winter.",
+        "answer": "The joint load is known, but the crack-like mark's allowable load is not.",
+        "why": "The file already establishes the joint load and the size of the crack-like mark. It does not establish the crack's allowable load. Calling the wheel unsafe would claim a result the crack-strength assessment has not produced. Calling it safe would treat 81 years of service as proof of margin. Both overreach. The accurate statement keeps the two known facts and names the one unresolved question. That narrow uncertainty is useful because it tells the winter specialist exactly what must be answered.",
         "rebuttals": [
           "A crack in a joint is a finding about the joint, and its importance needs the load it is under.",
           "81 seasons is exactly the evidence this whole fortnight has been about not accepting.",
           "The load and the crack size are both established, and pretending otherwise wastes them."
         ],
         "choices": [
-          "The load in the joint is computed and whether the indication can carry it is not yet established.",
-          "The wheel is unsafe, since a crack of measured length has been found in a loaded joint.",
-          "The wheel is safe, since it has carried this load every season for 81 years.",
-          "Nothing can be said about the wheel until the fracture assessment is complete."
+          "The joint load is known, but the crack-like mark's allowable load is not.",
+          "The wheel is unsafe because a measured crack exists in a loaded joint.",
+          "The wheel is safe because it has carried the load for 81 seasons.",
+          "Nothing useful can be said until the crack-strength assessment is complete."
         ],
-        "correctChoice": "The load in the joint is computed and whether the indication can carry it is not yet established."
+        "correctChoice": "The joint load is known, but the crack-like mark's allowable load is not."
       },
       "assumes": [
         "a claim is limited by the working that supports it",
@@ -2003,10 +2058,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "100 collisions an hour",
-      "scene": "Wei Chen has accelerometers in 3 cars and 400 collisions logged from last season. Two cars, one moving and one stopped, and they leave the impact together.",
-      "takeaway": "One quantity survives every collision and the other one does not, and knowing which is the whole of the subject.",
+      "scene": "Wei Chen has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
+      "takeaway": "A collision can preserve one bookkeeping quantity while transforming another into heat, sound and deformation.",
       "place": "The Bumper Cars",
-      "story": "Wei Chen has accelerometers in 3 cars and 400 collisions logged from last season. Two cars, one moving and one stopped, and they leave the impact together.",
+      "story": "Wei Chen has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
       "game": {
         "type": "CHOICE",
         "title": "100 collisions an hour",
@@ -2014,20 +2069,20 @@ export const CURRICULUM = {
         "play": "Count what survives a collision and what does not",
         "task": "Count what survives a collision and what does not",
         "question": "A 320 kg car at 3.1 m/s strikes a stationary 290 kg car and they move off together. What is conserved?",
-        "answer": "The momentum, which is the same before and after; the kinetic energy is not.",
-        "why": "Momentum is kept. Nothing outside pushes on the pair, so the total before is the total after. Kinetic energy is not kept. The pair leaves at 1.6 metres a second and carries about 810 joules. It went in with 1,540. Nearly half has gone into bending rubber, noise and heat. That loss is what makes the ride safe to sit in.",
+        "answer": "Momentum only; kinetic energy is transformed.",
+        "why": "Total momentum stays the same because the pair receives almost no external impulse during the brief collision. Kinetic energy does not. The cars leave together at about 1.63 m/s, carrying roughly 810 J of kinetic energy after starting with about 1,540 J. The missing mechanical energy became deformation, sound and heat. That distinction separates an inelastic collision from an elastic one and explains why soft bumpers reduce rebound.",
         "rebuttals": [
           "A collision that returned all its energy would send the cars apart again, which these do not do.",
           "Kinetic energy is the quantity that goes missing here; nearly half of it does.",
-          "The motor pushes through the pickup all the time and does nothing measurable in the tenth of a second the impact lasts."
+          "The floor motor keeps supplying power, but its force is negligible during the tenth of a second the impact lasts."
         ],
         "choices": [
-          "The momentum, which is the same before and after; the kinetic energy is not.",
-          "Both the momentum and the kinetic energy, since nothing leaves the floor.",
-          "The kinetic energy, which is the same before and after; the momentum is not.",
-          "Neither, since the floor's motor is putting energy in throughout."
+          "Momentum only; kinetic energy is transformed.",
+          "Both momentum and kinetic energy, because the pair is isolated.",
+          "Kinetic energy only; momentum is lost to the floor.",
+          "Neither; the floor motor changes both during impact."
         ],
-        "correctChoice": "The momentum, which is the same before and after; the kinetic energy is not."
+        "correctChoice": "Momentum only; kinetic energy is transformed."
       },
       "assumes": [
         "momentum is mass times velocity, counted with direction",
@@ -2059,7 +2114,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Two cars, one velocity",
       "scene": "A 320 kilogram car and rider at 3.1 metres a second strikes a stationary 290 kilogram car and rider. They stay in contact and move off together, which the telemetry confirms.",
-      "takeaway": "One equation gives the speed after any collision where the pair ends up moving as one.",
+      "takeaway": "For a perfectly inelastic collision, momentum fixes the shared speed while kinetic energy tells how much mechanical energy was transformed.",
       "place": "The Bumper Cars",
       "story": "A 320 kilogram car and rider at 3.1 metres a second strikes a stationary 290 kilogram car and rider. They stay in contact and move off together, which the telemetry confirms.",
       "game": {
@@ -2070,7 +2125,7 @@ export const CURRICULUM = {
         "task": "Derive the speed the pair leaves at",
         "question": "Work the momentum statement down to the speed the pair leaves at, and then say what happened to the energy.",
         "answer": "v = (320 × 3.1) ÷ 610 ≈ 1.63 m/s, and about 47% of the kinetic energy has gone into rubber, heat and noise.",
-        "why": "Momentum is conserved in every collision where nothing outside pushes on the pair, which is what makes it the quantity to write down first. Kinetic energy is not conserved and is not destroyed either: it leaves the mechanical books and turns up as deformation, sound and a warm bumper. A ride designed to keep its energy would be a ride that flung people apart at the speed they arrived, which is why the softness of the rubber is a safety feature.",
+        "why": "With negligible external impulse, total momentum is conserved during the collision. Because the cars leave together, one shared speed describes the pair afterward. Solving the momentum equation gives about 1.63 m/s. Kinetic energy is different. It falls because this collision is inelastic. The missing mechanical energy becomes deformation, sound and heat in the bumpers and bodies. Soft structures are useful precisely because they absorb energy instead of returning it as rebound.",
         "derive": {
           "start": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
           "goal": "the speed of the pair after impact, and the fraction of the kinetic energy left",
@@ -2213,10 +2268,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The tenth of a second that matters",
-      "scene": "Chen's accelerometers show the car changing speed in about 0.10 seconds and the rider's head in about 0.18. Hart wants to know which of those numbers belongs in a rule about who may ride.",
+      "scene": "Wei Chen's accelerometers show the car changing speed in about 0.10 seconds and the rider's head in about 0.18. The safety lead wants to know which interval belongs in a rule about rider force.",
       "takeaway": "The same speed change over a longer time is a smaller force, and the time is a design choice.",
       "place": "The Bumper Cars",
-      "story": "Chen's accelerometers show the car changing speed in about 0.10 seconds and the rider's head in about 0.18. Hart wants to know which of those numbers belongs in a rule about who may ride.",
+      "story": "Wei Chen's accelerometers show the car changing speed in about 0.10 seconds and the rider's head in about 0.18. The safety lead wants to know which interval belongs in a rule about rider force.",
       "game": {
         "type": "CHOICE",
         "title": "The tenth of a second that matters",
@@ -2224,20 +2279,20 @@ export const CURRICULUM = {
         "play": "Say what a collision does to a neck",
         "task": "Say what a collision does to a neck",
         "question": "Which time should the force on a rider be computed over, and why?",
-        "answer": "The rider's 0.18 s, since it is the rider's own change of momentum being resisted.",
-        "why": "Impulse is force times time, and it equals the change in momentum of whatever body is being talked about. The rider's momentum changes over the time their seat, their belt and their own neck take to bring them to the car's new speed, and that is longer than the bumper's collision. Using the car's time overstates the force on a person by nearly a factor of two. It is also why every safety improvement in this field is an attempt to make that time longer — padding, give in a seat, a belt that stretches.",
+        "answer": "Use 0.18 s, the interval over which the rider changes momentum.",
+        "why": "Impulse connects force, time and momentum change. The correct time interval belongs to the body whose force you want. The rider's head and torso take about 0.18 s to match the car's new speed, longer than the bumper contact itself. Using 0.10 s would describe the car more closely and would overstate the rider force. Safety systems work by lengthening the rider's stopping time through padding, belt stretch and controlled seat motion.",
         "rebuttals": [
           "The car's time gives the force on the car, which is a question about the chassis rather than the rider.",
           "Designing against the largest number sounds prudent and here it is simply the wrong body's number.",
           "Masses give the change in speed; turning that into a force needs the time it happens over."
         ],
         "choices": [
-          "The rider's 0.18 s, since it is the rider's own change of momentum being resisted.",
-          "The car's 0.10 s, since the car is the body the collision actually happens to.",
-          "The shorter of the two always, since the largest force is the one to design against.",
-          "Neither; the force follows from the masses and does not need a time at all."
+          "Use 0.18 s, the interval over which the rider changes momentum.",
+          "Use 0.10 s, because the car is the body that receives the collision.",
+          "Always use the shorter interval, because safety design should assume the largest force.",
+          "Time is unnecessary; the rider force follows from mass and speed change alone."
         ],
-        "correctChoice": "The rider's 0.18 s, since it is the rider's own change of momentum being resisted."
+        "correctChoice": "Use 0.18 s, the interval over which the rider changes momentum."
       },
       "assumes": [
         "a change in momentum needs a force acting over a time",
@@ -2295,10 +2350,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Turning a collision into a force",
-      "scene": "The rider's own change of speed in Chen's telemetry is 1.47 metres a second, over 0.18 seconds. Hart wants that as a force, and then as a number she can compare with a person.",
+      "scene": "The rider's own speed change in Wei Chen's telemetry is 1.47 metres a second over 0.18 seconds. The safety lead wants that turned into a force and then compared with the rider's weight.",
       "takeaway": "A force from a collision is a momentum change divided by the time somebody was given to make it.",
       "place": "The Bumper Cars",
-      "story": "The rider's own change of speed in Chen's telemetry is 1.47 metres a second, over 0.18 seconds. Hart wants that as a force, and then as a number she can compare with a person.",
+      "story": "The rider's own speed change in Wei Chen's telemetry is 1.47 metres a second over 0.18 seconds. The safety lead wants that turned into a force and then compared with the rider's weight.",
       "game": {
         "type": "DERIVE",
         "title": "Turning a collision into a force",
@@ -2307,7 +2362,7 @@ export const CURRICULUM = {
         "task": "Derive the average force on a rider",
         "question": "Work the impulse statement down to an average force on a 60 kilogram rider, and express it against their own weight.",
         "answer": "F = 60 × 1.47 ÷ 0.18 ≈ 490 N, which is about 0.83 of the rider's own weight.",
-        "why": "Impulse is the bridge between a collision and a person: the momentum change is fixed by the speeds, so the only thing left to design is the time it happens over. Stretch that time and the force falls in exact proportion, which is what padding, belt stretch and a soft bumper all buy. Eight tenths of body weight through a seat is unremarkable for an adult; the same collision with a stiff car and a shorter contact is the one that hurts, and the two differ by nothing except a tenth of a second.",
+        "why": "Impulse equals the change in momentum, so average force is momentum change divided by contact time. The rider changes speed by 1.47 m/s over 0.18 s. For a 60 kg rider, that gives about 490 N. Compared with body weight, the force is roughly 0.83 g. The design lever is time. Stretching the same momentum change over a longer interval lowers the average force in direct proportion, which is why padding and compliant restraints help.",
         "derive": {
           "start": "FΔt = mΔv",
           "goal": "the average force, and what it is as a multiple of the rider's weight",
@@ -2425,60 +2480,90 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Which of the three cannot wait",
       "scene": "A cracked chassis rail on 1 car, a coaster reading a tenth low, a carousel platform 11 millimetres down. One crew, two days, and Kovač wants the order in writing.",
-      "takeaway": "What can be taken out of service is never the emergency; what cannot be is.",
+      "takeaway": "Urgency depends on how a fault changes and whether it can be isolated, not on how dramatic it looks.",
       "place": "The Bumper Cars",
       "story": "A cracked chassis rail on 1 car, a coaster reading a tenth low, a carousel platform 11 millimetres down. One crew, two days, and Kovač wants the order in writing.",
       "game": {
-        "type": "CHOICE",
+        "type": "DELEGATE",
         "title": "Which of the three cannot wait",
         "setup": "The Bumper Cars",
-        "play": "Rank three faults against each other",
-        "task": "Rank three faults against each other",
-        "question": "Which of the three has to be dealt with first, and on what grounds?",
-        "answer": "The carousel, since a settling foundation gets worse under use and cannot be isolated.",
-        "why": "Two of these can be isolated and one cannot. The cracked car comes off the floor in 10 minutes and the ride runs on 11 cars, so the fault is contained the moment it is found. The coaster's tenth of a metre a second is a trend to watch under the new morning rule, and it is inside the margin today. A foundation that is moving is the only one of the three that is loading itself further every cycle it runs, and it is under the ride nobody can take one horse out of.",
-        "rebuttals": [
-          "A cracked rail is serious and its car is out of service already, which is what makes it not urgent.",
-          "The poster is a reason to want the coaster open and not evidence about which fault is worst.",
-          "Choosing by what fits in a shift ranks by convenience and leaves the growing fault growing."
-        ],
-        "choices": [
-          "The carousel, since a settling foundation gets worse under use and cannot be isolated.",
-          "The bumper car, since a cracked chassis rail is the most obviously dangerous of the three.",
-          "The coaster, since it is the ride the reopening has been advertised around.",
-          "Whichever the crew can finish tonight, so that tomorrow starts with two problems."
-        ],
-        "correctChoice": "The carousel, since a settling foundation gets worse under use and cannot be isolated."
+        "play": "Take the fault that cannot safely wait and delegate the other two with a first action and return condition.",
+        "task": "Take the fault that cannot safely wait and delegate the other two with a first action and return condition.",
+        "question": "Keep one problem yourself. Assign the other two so the crew knows what to do first and when to bring each one back.",
+        "answer": "Keep the carousel settlement. Isolate and inspect the cracked car. Log the coaster reading, and return it if the limit is crossed or the decline persists.",
+        "why": "The cracked bumper car is serious but contained once that car is removed from service. The coaster is still above its morning limit, so today's reading belongs in the trend log. The carousel is different. Its foundation is moving under a ride that cannot isolate one section, and each cycle keeps loading the same low bearing. That makes it the rising, hard-to-reverse problem. Good delegation separates the problem you must stop now from problems that can return on a clear condition.",
+        "delegate": {
+          "team": [
+            {
+              "id": "kovac",
+              "label": "Marta Kovač, track and ride engineer"
+            },
+            {
+              "id": "crew",
+              "label": "Maintenance crew, two-person overnight crew"
+            }
+          ],
+          "firstActions": [
+            {
+              "id": "stop_carousel",
+              "label": "Stop the carousel and unload the low bearing"
+            },
+            {
+              "id": "isolate_car",
+              "label": "Remove the cracked car from service and inspect the rail"
+            },
+            {
+              "id": "log_coaster",
+              "label": "Record the coaster reading and repeat the morning check under the rule"
+            },
+            {
+              "id": "watch",
+              "label": "Watch it for now"
+            }
+          ],
+          "problems": [
+            {
+              "id": "carousel",
+              "label": "Carousel platform 11 mm low",
+              "trend": "rising",
+              "rate": "settlement continues under repeated cycles",
+              "consequence": "the low bearing takes increasing load and the whole ride remains exposed",
+              "irreversible": true,
+              "delegable": false
+            },
+            {
+              "id": "bumper",
+              "label": "Cracked chassis rail on one bumper car",
+              "trend": "stable",
+              "rate": "stable after the car is removed from service",
+              "consequence": "the single car cannot safely return until the chassis is inspected",
+              "loud": true
+            },
+            {
+              "id": "coaster",
+              "label": "Station return speed 0.1 m/s lower than yesterday",
+              "trend": "stable",
+              "rate": "still above the morning operating limit",
+              "consequence": "a continued decline would reduce the loop margin"
+            }
+          ],
+          "first": "carousel",
+          "hint": "Compare each problem's trend, containment and consequence. Every delegated fault needs an owner, a first action and a return condition.",
+          "commit": "Take the watch"
+        }
       },
       "assumes": [
-        "a fault that can be isolated costs less than one that cannot",
-        "a ride can run with a car out of service"
-      ],
-      "equations": [
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
-        }
+        "a fault can be contained by removing only the affected equipment",
+        "a passing limit and a worsening trend are different kinds of information"
       ]
     },
     {
       "day": 6,
       "title": "A rule for the four-hundredth cycle",
-      "scene": "Hart is writing the floor's standing order for people who will not have read any of this fortnight's working. Four instructions, in the order they happen on an ordinary cycle.",
-      "takeaway": "A standing order is written for somebody who has never seen the calculation behind it.",
+      "scene": "The bumper-floor supervisor is writing a standing order for operators who will not have read this fortnight's calculations. Four recurring conditions are on the sheet. Each needs a response that can survive a busy shift.",
+      "takeaway": "A standing order should turn a physical limit into an action that a new operator can carry out without reconstructing the calculation.",
       "place": "The Bumper Cars",
-      "story": "Hart is writing the floor's standing order for people who will not have read any of this fortnight's working. Four instructions, in the order they happen on an ordinary cycle.",
+      "story": "The bumper-floor supervisor is writing a standing order for operators who will not have read this fortnight's calculations. Four recurring conditions are on the sheet. Each needs a response that can survive a busy shift.",
       "game": {
         "type": "SEQUENCE",
         "title": "A rule for the four-hundredth cycle",
@@ -2486,8 +2571,8 @@ export const CURRICULUM = {
         "play": "Order the four instructions for one cycle on the bumper floor.",
         "task": "Order the four instructions for one cycle on the bumper floor.",
         "question": "Order the four instructions for one cycle on the bumper floor.",
-        "answer": "",
-        "why": "The order follows what each instruction protects. The speed setting is checked before anyone is on the floor, because it is the one number that changes what every collision does and the one nobody can judge by eye. Seating and belts come next and they are per rider. Watching during the cycle is where a fault shows itself. The log is last and it is not paperwork: a car taken out of service without a written record is a car somebody puts back tomorrow.",
+        "answer": "Control the shared speed at the console and the restraint at the seat. Isolate the electrical-contact fault, and keep removed-car faults in the shift log.",
+        "why": "Each response belongs to a different failure. Excess floor speed raises collision energy because kinetic energy scales with v², so the common setting must be corrected before dispatch. An unsecured restraint is a rider-level problem and that seat cannot run. An intermittent electrical-contact fault belongs to one car, which can be isolated. A removed car also needs a persistent record. Otherwise the next shift can unknowingly return a known fault to service.",
         "cards": [
           "Check the floor speed setting against the card on the console before the gate opens.",
           "Seat riders one to a car and confirm each lap belt is latched.",
@@ -2502,8 +2587,33 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "the floor speed and the car mass set the collision energy",
-        "an operator's checks have to fit inside the cycle they belong to"
+        "kinetic energy grows with the square of speed",
+        "a fault on one bumper car can be isolated without closing the whole floor"
+      ],
+      "equations": [
+        {
+          "e": "mgh + ½mv² = constant",
+          "c": "the energy books for anything on a track",
+          "v": [
+            [
+              "m",
+              "the mass, which divides out of every term"
+            ],
+            [
+              "h",
+              "the height above whatever datum is chosen"
+            ],
+            [
+              "v",
+              "the speed at that height"
+            ],
+            [
+              "g",
+              "the acceleration due to gravity"
+            ]
+          ],
+          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
+        }
       ]
     }
   ],
@@ -2511,19 +2621,19 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "60 people and the same 5 seconds",
-      "scene": "Sam Idowu has run the ship for 20 years. He says a full boat and an empty one swing at the same rate, and the console log agrees with him: 5.9 seconds either way, all season.",
-      "takeaway": "More mass brings more restoring force with it, and the two changes cancel exactly.",
+      "scene": "Sam Idowu has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
+      "takeaway": "A variable can disappear from a motion when it scales both the restoring force and the inertia in the same way.",
       "place": "The Pirate Ship",
-      "story": "Sam Idowu has run the ship for 20 years. He says a full boat and an empty one swing at the same rate, and the console log agrees with him: 5.9 seconds either way, all season.",
+      "story": "Sam Idowu has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
       "game": {
         "type": "CHOICE",
         "title": "60 people and the same 5 seconds",
         "setup": "The Pirate Ship",
         "play": "Say what the swing's period depends on",
         "task": "Say what the swing's period depends on",
-        "question": "Why does the loaded boat swing at the same rate as the empty one?",
-        "answer": "Extra mass is pulled back harder in the same proportion, so the acceleration is unchanged.",
-        "why": "The force pulling the boat back is a share of its own weight. Double the mass and you double that force. Acceleration is force divided by mass, and both have doubled, so the acceleration at every point of the swing is what it was. The mass cancels out of the problem entirely. That is why a pendulum's period depends on its length and on gravity and on nothing else, and why 60 people change the loads in the bearings without changing the timing by a hundredth of a second.",
+        "question": "Why does adding riders leave the low-angle period essentially unchanged?",
+        "answer": "At small angles, the extra restoring force and extra inertia scale together, so mass cancels from the period.",
+        "why": "The restoring force comes from the boat's own weight. Add mass and that force grows in the same proportion as the inertia resisting acceleration. Those factors cancel, so the small-angle period does not depend on mass. Length and local gravity remain. This statement has a limit: the simple period formula assumes a small swing angle. At the ride's 48-degree operating swing, the period is a little longer. Loading still barely changes it, but amplitude now matters.",
         "rebuttals": [
           "Riders sit along the whole boat, and where they sit would matter to the period if mass mattered at all.",
           "The drive gives a push at the end of each swing and does not set the rate the boat returns at.",
@@ -2538,17 +2648,38 @@ export const CURRICULUM = {
         "correctChoice": "Extra mass is pulled back harder in the same proportion, so the acceleration is unchanged."
       },
       "assumes": [
-        "a pendulum swings back and forth in a repeating time",
-        "a heavier body needs a bigger force to give it the same acceleration"
+        "a pendulum has a restoring force toward its lowest point",
+        "Newton's second law connects net force, mass and acceleration"
+      ],
+      "equations": [
+        {
+          "e": "ΣF = ma",
+          "c": "what a net force is for",
+          "v": [
+            [
+              "ΣF",
+              "the sum of every force on the body, with direction"
+            ],
+            [
+              "m",
+              "its mass"
+            ],
+            [
+              "a",
+              "the acceleration that results"
+            ]
+          ],
+          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
+        }
       ]
     },
     {
       "day": 2,
       "title": "What the swing is worth at the bottom",
-      "scene": "The ship swings to 48 degrees on a full cycle. Idowu wants the speed through the bottom before the bearing work is quoted, and the pivot is 8.6 metres above the centre of the loaded boat.",
+      "scene": "The pirate ship reaches 48 degrees on a full cycle. Idowu wants the speed through the bottom before the bearing work is quoted. The loaded boat's centre sits 8.6 metres below the pivot.",
       "takeaway": "A swing is a fall along a curve, and the height it falls through is the only part that matters.",
       "place": "The Pirate Ship",
-      "story": "The ship swings to 48 degrees on a full cycle. Idowu wants the speed through the bottom before the bearing work is quoted, and the pivot is 8.6 metres above the centre of the loaded boat.",
+      "story": "The pirate ship reaches 48 degrees on a full cycle. Idowu wants the speed through the bottom before the bearing work is quoted. The loaded boat's centre sits 8.6 metres below the pivot.",
       "game": {
         "type": "BALLPARK",
         "title": "What the swing is worth at the bottom",
@@ -2557,7 +2688,7 @@ export const CURRICULUM = {
         "task": "Get the speed at the bottom of the swing",
         "question": "Estimate the speed of the boat through the bottom of its swing.",
         "answer": "",
-        "why": "A pendulum is a fall down a curved track, and energy does not care about the shape of the path — only about the height. That is the same expression the tower's carriage obeys and the same one the flume's water obeys, which is worth noticing: three rides, three mechanisms, one relation. The height here is not the swing radius but the rise, 8.6 metres times 1 minus the cosine of 48 degrees, which is 2.85.",
+        "why": "The ship is a body falling along a curved path. Mechanical energy depends on the change in height, not on the shape of that path. At 48 degrees, the centre of mass rises about 2.85 m above the bottom. Turning that height into kinetic energy gives about 7.5 m/s. The tower reaches the same square-root form by kinematics. The shared result is useful because both situations convert gravitational potential energy into motion.",
         "givens": [],
         "relationship": "v = √(2gh): the speed at the bottom of a swing comes from the height fallen through, whatever path the body took to fall.",
         "calcKey": "SHIP-2"
@@ -2570,19 +2701,19 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Why the mass falls out",
-      "scene": "The boat hangs 8.6 metres below its pivot and swings to 48 degrees. Idowu's console logs 5.9 seconds a cycle, full or empty, and nobody at the park can produce the expression that predicts it.",
-      "takeaway": "Two proportionalities meeting is what makes an oscillation keep the same time whatever its size.",
+      "scene": "The boat hangs 8.6 metres below its pivot. In a low-angle maintenance test, Idowu logs 5.9 seconds per cycle whether the boat is full or empty. Nobody at the park can produce the expression that predicts it.",
+      "takeaway": "An approximation can preserve the right physical dependencies while becoming quantitatively wrong outside its valid range.",
       "place": "The Pirate Ship",
-      "story": "The boat hangs 8.6 metres below its pivot and swings to 48 degrees. Idowu's console logs 5.9 seconds a cycle, full or empty, and nobody at the park can produce the expression that predicts it.",
+      "story": "The boat hangs 8.6 metres below its pivot. In a low-angle maintenance test, Idowu logs 5.9 seconds per cycle whether the boat is full or empty. Nobody at the park can produce the expression that predicts it.",
       "game": {
         "type": "DERIVE",
         "title": "Why the mass falls out",
         "setup": "The Pirate Ship",
         "play": "Derive the period from the restoring force",
         "task": "Derive the period from the restoring force",
-        "question": "Work the restoring force down to the period of the swing, and say what the period depends on.",
-        "answer": "T = 2π√(L/g) ≈ 5.9 s, and it depends on the length and on g — the mass cancels out 2 lines before the end.",
-        "why": "The cancellation is the result. A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the timing is untouched, and the same argument is why every object falls at the same rate. Turned round, the expression is a way of measuring gravity: length and period are both easy to measure well, and 5.9 seconds on 8.6 metres gives g to better than 1%. Idowu's complaint now has a number to be checked against.",
+        "question": "Derive the small-angle period from the restoring force, then state when that result should not be treated as exact.",
+        "answer": "For small angles, T = 2π√(L/g) ≈ 5.9 s. Mass cancels; a 48° operating swing needs a measured period because the approximation is no longer exact.",
+        "why": "For a small angle, sinθ is close to θ, so the restoring force becomes proportional to displacement. That is the condition for simple harmonic motion. Mass appears in both the restoring force and ma, then cancels. The result is T = 2π√(L/g), which gives about 5.9 s for 8.6 m. The ride operates near 48 degrees, well outside the small-angle range. Its operating period must therefore be measured rather than assumed from this formula.",
         "derive": {
           "start": "F = −mg sinθ",
           "goal": "an expression for the period, and the quantities it contains",
@@ -2725,20 +2856,20 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Idowu was right",
-      "scene": "The drive gives the boat a push at a fixed interval set in 1996. The period derived yesterday is 5.9 seconds. Five readings are on the console and three of them are entirely ordinary.",
-      "takeaway": "A drive and an oscillator have to agree about time, and only one of them can be adjusted.",
+      "scene": "The drive pushes the boat at a fixed interval set years ago. A low-angle test gives 5.9 seconds, while the 48° operating swing measures about 6.15. Five console readings are available and three look ordinary.",
+      "takeaway": "Resonance depends on phase, so the useful period is the one the operating system actually follows.",
       "place": "The Pirate Ship",
-      "story": "The drive gives the boat a push at a fixed interval set in 1996. The period derived yesterday is 5.9 seconds. Five readings are on the console and three of them are entirely ordinary.",
+      "story": "The drive pushes the boat at a fixed interval set years ago. A low-angle test gives 5.9 seconds, while the 48° operating swing measures about 6.15. Five console readings are available and three look ordinary.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Idowu was right",
         "setup": "The Pirate Ship",
         "play": "Which explanation fits every reading?",
         "task": "Which explanation fits every reading?",
-        "question": "Which explanation fits every reading?",
-        "answer": "The drive pushes at an interval the swing does not keep",
-        "why": "The period is the reading that settles it: 5.90 seconds whether the boat is full or empty, which rules out the last explanation completely and is exactly what yesterday's derivation predicted. The bearing is within limits and the drive is making its rated push, so nothing is weak or dragging. What is left is timing — 5.60 against 5.90 — and a push that arrives 3 tenths of a second early meets a boat that has not finished coming toward it, taking energy out instead of adding it. A heavy boat takes more pushes to reach angle, so it shows up there first, which is precisely what Idowu described from the floor.",
-        "headline": "The ride swings to its set angle on a light boat and falls short on a heavy one, at the same period.",
+        "question": "Which explanation fits the full set of readings, including the operating period?",
+        "answer": "The drive interval does not match the boat's operating period.",
+        "why": "The operating period is the deciding reading. At 48 degrees the small-angle estimate is no longer exact, and the measured cycle is about 6.15 s. The bearing temperature is normal, so extra damping from drag is not the main loss. The drive also delivers its rated push. The remaining problem is timing. Each early push reaches the boat at the wrong phase and transfers less useful energy. Heavy loads expose the mismatch sooner because they need more well-timed pushes to reach angle.",
+        "headline": "Light loads nearly reach the set angle. Heavy loads fall short, while the measured operating period stays about 6.15 s.",
         "readings": [
           {
             "zone": "Drive",
@@ -2774,27 +2905,27 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "The drive pushes at an interval the swing does not keep",
-            "mechanism": "A push that arrives early meets the boat still coming toward it."
+            "label": "The drive interval does not match the boat's operating period.",
+            "mechanism": "A mistimed push can arrive before the boat reaches the phase where it adds energy."
           },
           {
-            "label": "The pivot bearing is dragging on heavy loads",
-            "mechanism": "Friction takes energy out faster than the drive puts it in."
+            "label": "The pivot bearing adds drag only when the boat is heavily loaded.",
+            "mechanism": "Extra drag would also raise the bearing temperature and motor load."
           },
           {
-            "label": "The drive is weaker than its setting",
-            "mechanism": "Less force each push means a smaller swing."
+            "label": "The drive delivers too little force on every push.",
+            "mechanism": "A weak drive would reduce the response without changing when each push arrives."
           },
           {
-            "label": "A heavy boat swings more slowly and needs more pushes",
-            "mechanism": "A longer period means fewer pushes each minute."
+            "label": "Extra rider mass makes the pendulum's period much longer.",
+            "mechanism": "Mass cancels from the pendulum timing to first order."
           }
         ],
-        "correctChoice": "The drive pushes at an interval the swing does not keep"
+        "correctChoice": "The drive interval does not match the boat's operating period."
       },
       "assumes": [
-        "a push in step with an oscillation adds to it, and out of step takes from it",
-        "the period of this pendulum does not depend on its load"
+        "a push in step with an oscillation adds energy and an out-of-step push can remove it",
+        "the small-angle pendulum formula is approximate at a 48-degree swing"
       ],
       "equations": [
         {
@@ -2821,35 +2952,35 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Three tenths of a second",
-      "scene": "The drive pushes at 5.60 seconds and the boat swings at 5.90. Idowu, Bianchi and the manufacturer's manual all have a view, and the ride is on the reopening poster.",
-      "takeaway": "When two things have to agree about time, change the one that is not fixed by physics.",
+      "scene": "The drive pushes every 5.85 seconds while the 48° operating swing measures about 6.15. Sam Idowu, the structural engineer and the manufacturer's manual disagree, and the ride is already on the reopening poster.",
+      "takeaway": "Resonance is a timing problem before it is a force problem.",
       "place": "The Pirate Ship",
-      "story": "The drive pushes at 5.60 seconds and the boat swings at 5.90. Idowu, Bianchi and the manufacturer's manual all have a view, and the ride is on the reopening poster.",
+      "story": "The drive pushes every 5.85 seconds while the 48° operating swing measures about 6.15. Sam Idowu, the structural engineer and the manufacturer's manual disagree, and the ride is already on the reopening poster.",
       "game": {
         "type": "CHOICE",
         "title": "Three tenths of a second",
         "setup": "The Pirate Ship",
         "play": "Decide what to do about the drive timing",
         "task": "Decide what to do about the drive timing",
-        "question": "The drive and the swing disagree by three tenths of a second. What is the fix?",
-        "answer": "Retime the drive to the measured period, since the swing's own timing cannot be changed.",
-        "why": "Of the two numbers, one is set by a length and by gravity and the other is set by a control somebody typed in. Shortening the arm would work and means rebuilding the ride to avoid editing a setting. More force pushes harder at the wrong moment, which puts the load into the structure rather than into the swing — the arm sees it and the riders do not. And restricting the load treats a symptom that only appears on heavy boats because those take more pushes to reach angle.",
+        "question": "The drive and the operating swing disagree by three tenths of a second. What should be changed?",
+        "answer": "Retime the drive to the measured operating period, then verify the response.",
+        "why": "The operating period is set by the ride's geometry, gravity and amplitude. The drive interval is a control setting. Changing the arm would rebuild the machine to preserve an old setting. Pushing harder at the wrong phase adds structural load without fixing the timing. Restricting rider mass also misses the cause because mass largely cancels from the period. The direct fix is to retime the drive to the measured operating period and then verify that the swing reaches angle without excess load.",
         "rebuttals": [
-          "Rebuilding the arm changes the period and everything else the certificate rests on.",
-          "A harder push at the wrong moment is a larger load in the swing arm and no more angle.",
-          "Light-load running hides the mistiming rather than fixing it, and the ride is worst when it is busiest."
+          "Changing the arm changes the ride geometry and every calculation that depends on it.",
+          "More force at the wrong phase raises load without correcting when the push arrives.",
+          "Mass is not the source of the period mismatch, so a load restriction only hides it."
         ],
         "choices": [
-          "Retime the drive to the measured period, since the swing's own timing cannot be changed.",
-          "Shorten the arm until the boat's own period comes down to match the drive's 5.60 seconds.",
-          "Increase the push force so the boat reaches angle despite the mistiming.",
-          "Restrict the ride to lighter loads, which reach angle with the timing as it is."
+          "Retime the drive to the measured operating period, then verify the response.",
+          "Shorten the arm until the boat's period falls to the existing drive interval.",
+          "Increase the push force until the boat reaches angle despite the timing mismatch.",
+          "Restrict the ride to lighter loads so fewer pushes are needed."
         ],
-        "correctChoice": "Retime the drive to the measured period, since the swing's own timing cannot be changed."
+        "correctChoice": "Retime the drive to the measured operating period, then verify the response."
       },
       "assumes": [
-        "a push in step with an oscillation adds energy and out of step takes it away",
-        "the period of this pendulum is fixed by its length and by g"
+        "a push in step with an oscillation adds energy and an out-of-step push can remove it",
+        "the operating period can differ from the small-angle estimate at large amplitude"
       ],
       "equations": [
         {
@@ -2876,10 +3007,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the seat pushes with at the bottom",
-      "scene": "At the bottom of the swing the seat has to hold a rider on a curve as well as against gravity. Bianchi wants the certified angle set from a seat-force limit rather than from what the ride happens to do.",
+      "scene": "At the bottom of the swing, the seat must support a rider and bend their path upward toward the pivot. The structural engineer wants the certified angle tied to seat force rather than to appearance.",
       "takeaway": "An angle is certified by the force it produces, not by the angle it looks like.",
       "place": "The Pirate Ship",
-      "story": "At the bottom of the swing the seat has to hold a rider on a curve as well as against gravity. Bianchi wants the certified angle set from a seat-force limit rather than from what the ride happens to do.",
+      "story": "At the bottom of the swing, the seat must support a rider and bend their path upward toward the pivot. The structural engineer wants the certified angle tied to seat force rather than to appearance.",
       "game": {
         "type": "BALLPARK",
         "title": "What the seat pushes with at the bottom",
@@ -2888,7 +3019,7 @@ export const CURRICULUM = {
         "task": "Certify a swing angle",
         "question": "Estimate the seat force at the bottom of a 48° swing, as a multiple of the rider's weight.",
         "answer": "",
-        "why": "At the bottom of the arc the centre of the circle is straight up, so the net upward force is what bends the path, and the seat has to provide the rider's weight and that turning force both. 1.67 times body weight is a firm push and a long way inside anything a seated adult minds. What the arithmetic gives, and the eye does not, is where it stops being comfortable: 60 degrees would put it past 2, and the angle looks only a little larger.",
+        "why": "At the bottom of the swing, the required centripetal acceleration points upward toward the pivot. Gravity pulls downward, so the seat must overcome weight and supply the extra inward force. Using v²/r gives the added acceleration. The total seat force is about 1.67 times body weight at 48 degrees. This is what a rider feels as apparent weight. A larger swing angle produces a larger bottom speed, so the seat force rises faster than the angle itself suggests.",
         "givens": [],
         "relationship": "N/mg = 1 + v²/(rg): at the bottom the seat carries the weight and supplies the turning force as well.",
         "calcKey": "SHIP-6"
@@ -2947,21 +3078,21 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What nine metres of water pushes with",
-      "scene": "The header tank stands 9.4 metres above the splash pool and feeds the top of the flume. Kelechi Abara has a gauge on the outlet pipe and a figure in Brennan's notebook that does not match it.",
+      "scene": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
       "takeaway": "Depth sets pressure, and the width of the tank has nothing to do with it.",
       "place": "The Log Flume",
-      "story": "The header tank stands 9.4 metres above the splash pool and feeds the top of the flume. Kelechi Abara has a gauge on the outlet pipe and a figure in Brennan's notebook that does not match it.",
+      "story": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
       "game": {
         "type": "BALLPARK",
         "title": "What nine metres of water pushes with",
         "setup": "The Log Flume",
-        "play": "Turn the header tank's depth into a pressure",
-        "task": "Turn the header tank's depth into a pressure",
-        "question": "Estimate the gauge pressure at the bottom of the header tank.",
+        "play": "Turn the water depth into a pressure",
+        "task": "Turn the water depth into a pressure",
+        "question": "Estimate the pressure above atmospheric pressure at the tank outlet.",
         "answer": "",
-        "why": "Pressure at a depth is the weight of the column standing above one square metre, so it depends on how tall the column is and not how wide. That is why the tank's diameter is absent from the arithmetic and why a hose left up a ladder can burst a fitting. 92 kilopascals is a little under 1 atmosphere, which means the outlet fitting is holding about 9 tonnes over its face — a number worth having before anybody opens it.",
+        "why": "Hydrostatic pressure comes from the weight of liquid above each unit area. It depends on density, gravity and depth, not on tank width. For 9.4 m of water, the pressure above atmospheric pressure is about 92 kPa. A narrow vertical pipe of the same height would produce the same pressure. That is why tank diameter is a distractor here. The outlet hardware responds to the pressure at its depth, even when the tank around it looks enormous.",
         "givens": [],
-        "relationship": "P = ρgh: gauge pressure is the density of the liquid times g times the depth below its surface.",
+        "relationship": "P = ρgh: pressure above atmospheric pressure is liquid density times g times depth below the surface.",
         "calcKey": "FLUME-1"
       },
       "assumes": [
@@ -3002,10 +3133,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Two centimetres driving nine",
-      "scene": "The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand pump drives a nine-centimetre one at the gate, and Brennan's note against it reads \"plenty\".",
-      "takeaway": "A hydraulic multiplies force and gives back exactly nothing, because the big piston moves less.",
+      "scene": "The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand pump drives a nine-centimetre piston at the gate. An old note beside the drawing says only 'plenty.'",
+      "takeaway": "An ideal machine can trade force for distance, but it cannot create work.",
       "place": "The Log Flume",
-      "story": "The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand pump drives a nine-centimetre one at the gate, and Brennan's note against it reads \"plenty\".",
+      "story": "The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand pump drives a nine-centimetre piston at the gate. An old note beside the drawing says only 'plenty.'",
       "game": {
         "type": "DERIVE",
         "title": "Two centimetres driving nine",
@@ -3013,8 +3144,8 @@ export const CURRICULUM = {
         "play": "Derive what the hydraulic gate multiplies",
         "task": "Derive what the hydraulic gate multiplies",
         "question": "Work Pascal's principle down to the force at the gate, and say what the multiplication costs.",
-        "answer": "F₂ = 250 × (9.0/2.0)² ≈ 5,060 N at the gate — and the gate piston travels about a twentieth of the distance the hand piston does.",
-        "why": "The step that decides this is the area, not the diameter: doubling a piston's width quadruples its face, so a factor of 4 and a half in diameter is 20 in force. What the hydraulic gives is force, and what it takes is distance — the two multiply to the same work at both ends, which is why nobody has ever built a hydraulic that produces energy. Brennan's \"plenty\" turns out to be 5 kilonewtons against a gate that needs about 1100.",
+        "answer": "F₂ = 250 × (9.0/2.0)² ≈ 5,060 N at the gate. The large piston moves only about one twentieth as far as the hand piston.",
+        "why": "Pascal's principle sends the same pressure through the enclosed fluid. Force therefore scales with piston area, not with piston diameter. A diameter ratio of 9 to 2 gives an area ratio of about 20, so 250 N becomes roughly 5.1 kN. The gain in force is paid for in distance. The large piston moves about one twentieth as far as the small one. Work is conserved apart from losses, so the hydraulic creates no free energy.",
         "derive": {
           "start": "P₁ = P₂",
           "goal": "the force at the gate, and what has been given up to get it",
@@ -3110,59 +3241,39 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "P = ρgh,  F_b = ρVg",
-          "c": "pressure with depth, and what holds a boat up",
+          "e": "W_net = ΔK",
+          "c": "the work–energy theorem, and where the losses show up",
           "v": [
             [
-              "P",
-              "the gauge pressure at that depth"
+              "W_net",
+              "the net work done on the body, in joules"
             ],
             [
-              "ρ",
-              "the density of the liquid"
-            ],
-            [
-              "h",
-              "the depth below the surface"
-            ],
-            [
-              "F_b",
-              "the buoyant force"
-            ],
-            [
-              "V",
-              "the volume of liquid displaced"
+              "ΔK",
+              "the change in its kinetic energy"
             ]
           ],
-          "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does."
-        }
-      ]
-    },
-    {
-      "day": 3,
-      "title": "How far a full boat sits down",
-      "scene": "Fiona McCarthy loads the boats by eye and has a rule about four adults that came from Brennan. The moulded hulls that replaced the timber ones 2 seasons ago are 2.9 metres by 1.1 and weigh 180 kilograms empty.",
-      "takeaway": "A floating body settles until the water it has pushed aside weighs what it does.",
-      "place": "The Log Flume",
-      "story": "Fiona McCarthy loads the boats by eye and has a rule about four adults that came from Brennan. The moulded hulls that replaced the timber ones 2 seasons ago are 2.9 metres by 1.1 and weigh 180 kilograms empty.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "How far a full boat sits down",
-        "setup": "The Log Flume",
-        "play": "Float a loaded boat on paper",
-        "task": "Float a loaded boat on paper",
-        "question": "Estimate how deep a boat with four adults sits in the water.",
-        "answer": "",
-        "why": "Buoyancy is the weight of the water pushed out of the way, so a boat settles until the two balance and not a millimetre further. 4 adults put this hull down 15 and a half centimetres, leaving 15 of freeboard on a thirty-centimetre side — which is why McCarthy's rule of 4 has held. A fifth adult takes the draught to about 18 centimetres, and the number that then matters is not the draught but what is left above the water when the boat meets the wave at the bottom of the drop.",
-        "givens": [],
-        "relationship": "Draught = mass ÷ (density × hull area): a boat sinks until it has pushed aside its own mass of water.",
-        "calcKey": "FLUME-3"
-      },
-      "assumes": [
-        "a floating body pushes aside its own weight of water",
-        "water has a density of about 1000 kilograms per cubic metre"
-      ],
-      "equations": [
+          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it."
+        },
+        {
+          "e": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
+          "c": "momentum through a collision that ends locked together",
+          "v": [
+            [
+              "m₁, m₂",
+              "the two masses"
+            ],
+            [
+              "u₁, u₂",
+              "their velocities before, counted with direction"
+            ],
+            [
+              "v",
+              "the velocity of the pair afterwards"
+            ]
+          ],
+          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for."
+        },
         {
           "e": "P = ρgh,  F_b = ρVg",
           "c": "pressure with depth, and what holds a boat up",
@@ -3189,17 +3300,42 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does.",
-          "computed": true
+          "card": false
         }
+      ]
+    },
+    {
+      "day": 3,
+      "title": "How far a full boat sits down",
+      "scene": "Fiona McCarthy loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
+      "takeaway": "A floating body settles until the water it has pushed aside weighs what it does.",
+      "place": "The Log Flume",
+      "story": "Fiona McCarthy loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How far a full boat sits down",
+        "setup": "The Log Flume",
+        "play": "Float a loaded boat on paper",
+        "task": "Float a loaded boat on paper",
+        "question": "Estimate how deep a boat with four adults sits in the water.",
+        "answer": "",
+        "why": "A floating boat settles until the buoyant force equals its weight. That means the displaced water must have the same mass as boat plus passengers. Four adults bring the total to 492 kg, which requires about 0.492 m³ of displaced water. Spread over the hull area, that is about 0.154 m of depth in the water. A fifth adult still floats. The concern is the less hull side left above the water when the boat reaches splash-down and meets a rising wave.",
+        "givens": [],
+        "relationship": "Depth in water = mass ÷ (density × hull area): a boat sinks until it has pushed aside its own mass of water.",
+        "calcKey": "FLUME-3"
+      },
+      "assumes": [
+        "a floating body pushes aside its own weight of water",
+        "water has a density of about 1000 kilograms per cubic metre"
       ]
     },
     {
       "day": 4,
       "title": "What the water costs to put back",
-      "scene": "The flume returns 0.42 cubic metres of water a second to a header tank 9.4 metres up. Abara's pump is plated at 55 kilowatts and he has never known whether that is generous.",
-      "takeaway": "A pump's rating is a power, and the job it is being asked to do is an energy every second.",
+      "scene": "The flume returns 0.42 cubic metres of water a second to an elevated tank 9.4 metres up. Abara's pump is rated at 55 kilowatts, and he has never known whether that leaves much spare capacity.",
+      "takeaway": "Power sizing needs the useful lifting power and the efficiency loss before anybody can say what is left over.",
       "place": "The Log Flume",
-      "story": "The flume returns 0.42 cubic metres of water a second to a header tank 9.4 metres up. Abara's pump is plated at 55 kilowatts and he has never known whether that is generous.",
+      "story": "The flume returns 0.42 cubic metres of water a second to an elevated tank 9.4 metres up. Abara's pump is rated at 55 kilowatts, and he has never known whether that leaves much spare capacity.",
       "game": {
         "type": "BALLPARK",
         "title": "What the water costs to put back",
@@ -3208,7 +3344,7 @@ export const CURRICULUM = {
         "task": "Size the pump against the lift it has to make",
         "question": "Estimate the electrical power the pump needs at 72% efficiency.",
         "answer": "",
-        "why": "A flow rate times a density is a mass every second, and lifting that mass through the head is an energy every second, which is a power. The efficiency divides: the pump has to take more from the supply than it hands to the water. 53.7 kilowatts against 55 kilowatt plate is a margin of about 2%, which is not a margin — it is why the pump trips on hot afternoons when its cooling is worst.",
+        "why": "The flow rate times density is the mass moved each second. Raising that water through 9.4 m gives useful power of about 38.7 kW. Because the pump is only 72% efficient, the electrical input must be larger: about 53.7 kW. Set that against the 55 kW rating and only about two per cent is left over. That is why heat, wear or a little extra lift height can trip the pump.",
         "givens": [],
         "relationship": "P = ρgQh ÷ η: the power is the weight of water lifted each second times the height, divided by the pump's efficiency.",
         "calcKey": "FLUME-4"
@@ -3216,59 +3352,15 @@ export const CURRICULUM = {
       "assumes": [
         "lifting a mass stores energy equal to its weight times the height",
         "a pump delivers less than it draws, by its efficiency"
-      ],
-      "equations": [
-        {
-          "e": "P = ρgh,  F_b = ρVg",
-          "c": "pressure with depth, and what holds a boat up",
-          "v": [
-            [
-              "P",
-              "the gauge pressure at that depth"
-            ],
-            [
-              "ρ",
-              "the density of the liquid"
-            ],
-            [
-              "h",
-              "the depth below the surface"
-            ],
-            [
-              "F_b",
-              "the buoyant force"
-            ],
-            [
-              "V",
-              "the volume of liquid displaced"
-            ]
-          ],
-          "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does."
-        },
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
-        }
       ]
     },
     {
       "day": 5,
       "title": "The same square root, from a different law",
-      "scene": "The chute discharges 4.2 metres below the surface of the water standing in the top pond. Abara has a figure from the manufacturer and no derivation, and both surfaces are open to the air.",
-      "takeaway": "Two different laws about two different rides arrive at the same expression, and that is not a coincidence.",
+      "scene": "The chute outlet is 4.2 metres below the surface of the water standing in the top pond. Abara has a figure from the manufacturer and no derivation, and both surfaces are open to the air.",
+      "takeaway": "A height drop can become speed in a falling object or in a flowing liquid because both are energy conversions.",
       "place": "The Log Flume",
-      "story": "The chute discharges 4.2 metres below the surface of the water standing in the top pond. Abara has a figure from the manufacturer and no derivation, and both surfaces are open to the air.",
+      "story": "The chute outlet is 4.2 metres below the surface of the water standing in the top pond. Abara has a figure from the manufacturer and no derivation, and both surfaces are open to the air.",
       "game": {
         "type": "DERIVE",
         "title": "The same square root, from a different law",
@@ -3276,8 +3368,8 @@ export const CURRICULUM = {
         "play": "Derive the speed the water leaves the chute at",
         "task": "Derive the speed the water leaves the chute at",
         "question": "Work the energy statement for the flow down to the outlet speed, and say what it has in common with the drop tower.",
-        "answer": "v₂ = √(2 × 9.8 × 4.2) ≈ 9.1 m/s — the same expression as a body falling 4.2 metres, from a statement about pressure rather than about kinematics.",
-        "why": "Three rides in this park have now produced the same square root: the tower from the constant-acceleration relations, the ship from energy along a curve, and the flume from the pressure statement for a moving liquid. They agree because all three say a height has turned into motion, and the density and the mass drop out of each of them for the same reason. That is what makes the result worth deriving three times: it is one idea wearing three notations.",
+        "answer": "The outlet speed is v₂ = √(2 × 9.8 × 4.2) ≈ 9.1 m/s. It matches the speed gained by a body falling through the same height.",
+        "why": "Write the fluid's mechanical energy per unit mass between the upper surface and the outlet. Both points are open to air, so atmospheric pressure cancels. Continuity says the broad pond surface moves much more slowly than water in the narrow chute, so its kinetic term is negligible. The 4.2 m height drop then gives v = √(2gh). The tower reached the same expression through kinematics. Both cases turn gravitational potential energy into motion.",
         "derive": {
           "start": "P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂",
           "goal": "the speed the water leaves the chute at",
@@ -3368,8 +3460,8 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "pressure, motion and height together account for the energy in a flowing liquid",
-        "a large surface falls so slowly that its speed can be neglected"
+        "for steady incompressible flow, continuity keeps area times speed constant",
+        "pressure, motion and height together account for the mechanical energy of a flowing liquid"
       ],
       "equations": [
         {
@@ -3401,29 +3493,6 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "v² = v₀² + 2aΔx",
-          "c": "the constant-acceleration relation with no time in it",
-          "v": [
-            [
-              "v",
-              "the speed at the end, in metres a second"
-            ],
-            [
-              "v₀",
-              "the speed at the start"
-            ],
-            [
-              "a",
-              "the acceleration, taken as constant"
-            ],
-            [
-              "Δx",
-              "the distance travelled while it acts"
-            ]
-          ],
-          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
-        },
-        {
           "e": "mgh + ½mv² = constant",
           "c": "the energy books for anything on a track",
           "v": [
@@ -3444,18 +3513,17 @@ export const CURRICULUM = {
               "the acceleration due to gravity"
             ]
           ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
-          "card": false
+          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
         }
       ]
     },
     {
       "day": 6,
       "title": "Four adults, and why not five",
-      "scene": "McCarthy's rule of four came from Brennan. The hulls changed two seasons ago, and the question on the certificate is what a boat may carry rather than what it has carried.",
-      "takeaway": "The load limit on a boat is set by what is left above the water, not by what floats.",
+      "scene": "Fiona McCarthy still uses an inherited four-adult rule. The hulls changed two seasons ago. The certificate now has to state what a boat may carry, not simply what the old boats happened to carry.",
+      "takeaway": "A floating body can still fail if too little of its side remains above the water.",
       "place": "The Log Flume",
-      "story": "McCarthy's rule of four came from Brennan. The hulls changed two seasons ago, and the question on the certificate is what a boat may carry rather than what it has carried.",
+      "story": "Fiona McCarthy still uses an inherited four-adult rule. The hulls changed two seasons ago. The certificate now has to state what a boat may carry, not simply what the old boats happened to carry.",
       "game": {
         "type": "CHOICE",
         "title": "Four adults, and why not five",
@@ -3463,20 +3531,20 @@ export const CURRICULUM = {
         "play": "Set what a boat may carry",
         "task": "Set what a boat may carry",
         "question": "What actually limits the number of adults in one of these boats?",
-        "answer": "The freeboard left at the splash-down, since the wave there is what comes over the side.",
-        "why": "Five adults float: the hull has plenty of buoyancy left and sits about three centimetres deeper, which is not the problem. The problem is at the bottom of the drop, where the boat meets the wave it has just made and the water rises relative to the hull by far more than three centimetres. What matters is therefore the height left above the waterline rather than whether the boat floats at all, and that is a different calculation from the one that says it does.",
+        "answer": "The hull height left above the water at splash-down.",
+        "why": "Floating is not the same as having enough hull above the water. Five adults still displace enough water to float, so buoyancy alone does not set the operating limit. Each added passenger lowers the hull and leaves less side height above the water. At splash-down, the boat meets a wave and the water rises relative to the side. The useful limit therefore comes from that remaining height during the splash, not simply from whether the boat floats in calm water.",
         "rebuttals": [
           "The maker's plate is a structural figure and it is well above five adults.",
-          "Grounding is a real limit on some flumes, and this channel runs deeper than the loaded draught.",
+          "Grounding is a real limit on some flumes, and this channel runs deeper than the loaded depth in the water.",
           "Four is a physical limit and it is set at the splash-down rather than in the flat water."
         ],
         "choices": [
-          "The freeboard left at the splash-down, since the wave there is what comes over the side.",
+          "The hull height left above the water at splash-down.",
           "The total mass, since the hull carries a maximum load figure stamped on it by its maker.",
-          "The draught in the flat sections, where the hull must not touch the channel floor.",
+          "How deep the boat sits in the flat sections, where the hull must still clear the channel floor.",
           "Nothing physical; four is a comfort figure and five would float perfectly well."
         ],
-        "correctChoice": "The freeboard left at the splash-down, since the wave there is what comes over the side."
+        "correctChoice": "The hull height left above the water at splash-down."
       },
       "assumes": [
         "a floating boat sits at whatever depth displaces its own weight",
@@ -3548,8 +3616,8 @@ export const BALLPARK_CALCS = {
     "explanation": "The free fall above the fins and the value of g are already inside the entry speed. Using them again counts the same drop twice."
   },
   "FLUME-1": {
-    "prompt": "The water in the header tank stands 9.4 m above the outlet. Water is 1,000 kg per cubic metre.",
-    "question": "Estimate the gauge pressure at the bottom of the header tank.",
+    "prompt": "The water surface is 9.4 m above the tank outlet. Water is 1,000 kg per cubic metre.",
+    "question": "Estimate the pressure above atmospheric pressure at the tank outlet.",
     "labels": [
       "1000 kg/m³  (density of water)",
       "9.8 m/s²  (g)",
@@ -3576,7 +3644,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 4000,
     "units": "Pa",
     "solution": "P = ρgh = 1000 × 9.8 × 9.4 ≈ 92 kPa above atmospheric.",
-    "explanation": "The tank's diameter does not appear. A narrow standpipe of the same height pushes just as hard, which is the part people refuse to believe."
+    "explanation": "The tank's diameter does not appear. A narrow vertical pipe of the same height pushes just as hard, which is the part people refuse to believe."
   },
   "SHIP-2": {
     "prompt": "The boat rises 2.85 m above its lowest point at 48°. Energy is conserved through the swing.",
@@ -3610,10 +3678,10 @@ export const BALLPARK_CALCS = {
     "explanation": "The length and the period fix how long the swing takes and not how fast it goes; the height risen is what becomes speed."
   },
   "WHEEL-2": {
-    "prompt": "4 gondolas on 1 side each carry 470 kg of passengers, at an average perpendicular distance of 9.6 m from the axle.",
-    "question": "Estimate the out-of-balance torque about the axle with four gondolas loaded on one side.",
+    "prompt": "4 passenger cabins on 1 side each carry 470 kg of passengers, at an average perpendicular distance of 9.6 m from the axle.",
+    "question": "Estimate the out-of-balance torque about the axle with four passenger cabins loaded on one side.",
     "labels": [
-      "4  (loaded gondolas on 1 side)",
+      "4  (loaded passenger cabins on 1 side)",
       "470 kg  (passenger load in each)",
       "9.8 m/s²  (g)",
       "9.6 m  (average perpendicular distance from the axle)",
@@ -3639,11 +3707,11 @@ export const BALLPARK_CALCS = {
     "tolerance": 9000,
     "units": "N·m",
     "solution": "τ = 4 × 470 × 9.8 × 9.6 ≈ 177 kN·m about the axle.",
-    "explanation": "The wheel's radius is not the arm. A gondola part-way up the wheel hangs on a shorter perpendicular distance, which is why the average is 9.6 and not 14."
+    "explanation": "The wheel's radius is not the arm. A passenger cabin part-way up the wheel hangs on a shorter perpendicular distance, which is why the average is 9.6 and not 14."
   },
   "CAROUSEL-3": {
-    "prompt": "The rider sits 6.2 m from the axis and travels at 5.2 m/s. Their mass is 78 kg.",
-    "question": "Estimate the sideways force the pole puts on a 78 kg rider.",
+    "prompt": "A 78 kg rider is 6.2 m from the axis on a carousel turning at 8 revolutions per minute.",
+    "question": "Estimate the sideways force on the rider, converting rpm to linear speed first.",
     "labels": [
       "78 kg  (mass of the rider)",
       "5.2 m/s  (speed at that radius)",
@@ -3669,8 +3737,8 @@ export const BALLPARK_CALCS = {
     "target": 340,
     "tolerance": 30,
     "units": "N",
-    "solution": "F = mv²/r = 78 × 5.2² ÷ 6.2 ≈ 340 N toward the middle.",
-    "explanation": "g does not appear: this force is horizontal and the weight is vertical. The turns a minute are already inside the speed."
+    "solution": "v = 2π(6.2)(8)/60 ≈ 5.2 m/s; F = 78 × 5.2²/6.2 ≈ 340 N toward the centre.",
+    "explanation": "The rider's linear speed is not 8 m/s. Revolutions per minute must first become distance travelled each second at this radius."
   },
   "COASTER-3": {
     "prompt": "A 4,800 kg train is raised 26 m in 52 s. Ignore friction in the chain for this estimate.",
@@ -3733,8 +3801,8 @@ export const BALLPARK_CALCS = {
     "target": 0.154,
     "tolerance": 0.02,
     "units": "m",
-    "solution": "Volume displaced = 492 ÷ 1000 = 0.492 m³; over 3.19 m² of hull that is 0.154 m of draught.",
-    "explanation": "The depth of the hull side is what is left over as freeboard, and it is the answer to the next question rather than this one."
+    "solution": "Volume displaced = 492 ÷ 1000 = 0.492 m³; over 3.19 m² of hull that is 0.154 m deep in the water.",
+    "explanation": "The hull height left above the water is a separate safety margin used later; it is not part of this calculation."
   },
   "FLUME-4": {
     "prompt": "0.42 m³/s of water lifted 9.4 m, water at 1,000 kg per cubic metre, pump 72% efficient.",
@@ -3745,7 +3813,7 @@ export const BALLPARK_CALCS = {
       "9.8 m/s²  (g)",
       "9.4 m  (height it is lifted)",
       "0.72  (efficiency of the pump)",
-      "55000 W  (the pump's plate rating)"
+      "55000 W  (the pump's rated capacity)"
     ],
     "values": [
       0.42,
@@ -3772,15 +3840,15 @@ export const BALLPARK_CALCS = {
     "explanation": "The useful power is 38.7 kW; the efficiency divides rather than multiplies, since the pump has to draw more than it delivers."
   },
   "WHEEL-5": {
-    "prompt": "Gondola area 4.2 m² side-on, drag coefficient 1.2, air density 1.2 kg/m³, wind 22 m/s.",
-    "question": "Estimate the wind force on 1 gondola at 22 metres a second.",
+    "prompt": "Passenger-cabin area 4.2 m² side-on, drag coefficient 1.2 (a shape factor), air density 1.2 kg/m³, wind 22 m/s.",
+    "question": "Estimate the wind force on 1 passenger cabin at 22 metres a second.",
     "labels": [
-      "0.5  (the half in the dynamic pressure)",
+      "0.5  (the factor in the wind-force formula)",
       "1.2 kg/m³  (density of air)",
-      "1.2  (drag coefficient of a boxy gondola)",
+      "1.2  (drag coefficient, a shape factor for the cabin)",
       "4.2 m²  (area presented to the wind)",
       "22 m/s  (wind speed)",
-      "24  (gondolas on the wheel)"
+      "24  (passenger cabins on the wheel)"
     ],
     "values": [
       0.5,
@@ -3803,8 +3871,8 @@ export const BALLPARK_CALCS = {
     "target": 1464,
     "tolerance": 90,
     "units": "N",
-    "solution": "F = ½ρC_dAv² = 0.5 × 1.2 × 1.2 × 4.2 × 22² ≈ 1,460 N on 1 gondola.",
-    "explanation": "The speed enters squared, which is why the same gondola carries a quarter of this at 11 metres a second."
+    "solution": "F = ½ρC_dAv² = 0.5 × 1.2 × 1.2 × 4.2 × 22² ≈ 1,460 N on 1 passenger cabin.",
+    "explanation": "The speed enters squared, which is why the same passenger cabin carries a quarter of this at 11 metres a second."
   },
   "SHIP-6": {
     "prompt": "The boat passes the bottom at 7.5 m/s on an arm of 8.6 m. At the bottom the seat pushes up and gravity acts down.",
@@ -3987,7 +4055,7 @@ export const JARGON = [
       "work energy theorem",
       "net work"
     ],
-    "def": "The net work done on a body equals the change in its kinetic energy. It is how a force becomes a speed."
+    "def": "A force acting along the distance a body moves changes its kinetic energy by exactly that amount. It is how a push becomes a speed."
   },
   {
     "name": "Power",
