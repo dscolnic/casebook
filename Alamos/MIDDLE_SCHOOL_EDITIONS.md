@@ -236,17 +236,50 @@ book regenerates the content, and `editionParity` is green.
 Still to do on the machinery: the casebook shelf patch, and `npm run drive`
 against the edition once its instruments exist.
 
+## 7a. The reading level was the wrong measurement
+
+Nine editions shipped green on all sixteen checks, every passage at
+Flesch–Kincaid 4 to 6 — and the first sixth grader to play one found it much too
+hard. She was right and the gate was wrong. Flesch–Kincaid is words per sentence
+and syllables per word; the prose came down two grades and the *demand* stayed
+where an AP course had put it. Measured on the shipped editions: sentences at
+grade 4–6, arithmetic ranging from grade 5 to well past 9 (impact energy as
+`8,000,000,000 × 20,000 × 20,000 × ½`, deflection as `10,000 × 12,000 ÷
+7,900,000,000`), and questions demanding grade 10–12 reasoning almost unchanged
+from their senior-high originals.
+
+`engine/dev/questionLoad.mjs` is the gate that can see it — see CLAUDE.md for
+the four limits and why CONTROL and VERIFY are exempt. It is inside `npm run
+check` for every theme at grade 8 or below, failing for an edition and advisory
+for a game written to its own audience. It carries a `--selftest` over two
+fixture campaigns, which failed on its first run and found two real holes.
+
+**The rewrite is per stop, not per word.** Bring Them Home went first: five
+stops rebuilt, nine options shortened, and the campaign went from 11 demanding
+stops in 30 (37%, five days doubled up, the hardest format in the game as the
+first question of day 1) to 5 in 30 with none before day 3. Nothing about the
+setting, the cast or the areas moved. What the stops became is the pattern for
+the rest — a judgement question replaced by the concrete one underneath it
+("which reading tells you soonest whether the crew is in danger" instead of
+"what does the flight director do first"), a VALUE panel replaced by a VERIFY
+that predicts, burns and then measures, an ATTEST replaced by the reentry
+blackout, and TRACE moved off day 1 and onto day 9, where the shared-clock
+argument was already the thing being taught.
+
 ## 8. Order of work
 
 1. **Machinery** — `derive-edition.mjs`, `editionParity.mjs`, the vite
-   `edition-of` resolution, the catalogue fields. No content.
-2. **Pilot: Planetary Defense**, end to end, including the toggle. It already
-   has a grade-6 brief written for it.
-3. **Deep Watch and Aftershock** — two direct scalers, to confirm the brief
-   generalises past the game it was written around.
-4. The trims, six games, each with its `_ms` syllabus authored first.
-5. The three redesigns.
-6. `hospital_ms`, the upward one, last.
+   `edition-of` resolution, the catalogue fields. No content. ✓
+2. **Pilot: Planetary Defense**, end to end, including the toggle. ✓
+3. **Deep Watch and Aftershock** — two direct scalers. ✓
+4. The trims, six games, each with its `_ms` syllabus authored first. ✓
+5. **The question-load gate, and Bring Them Home rebuilt against it.** ✓ — the
+   nine shipped editions were written before the gate existed, and eight of them
+   still fail it: aftershock 48, deepwatch 27, planetary_defense 26,
+   outbreak_riverton 25, icecore 24, seedbank 20, blackout 16, contamcity 10.
+   That is the punch list.
+6. The three redesigns.
+7. `hospital_ms`, the upward one, last.
 
 Fourteen editions × 30 stops is **420 authored stops**. The machinery is days;
 the writing is the project.

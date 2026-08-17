@@ -4117,8 +4117,7 @@ export const JARGON = [
       "time for one swing",
       "cycle time"
     ],
-    "def": "The time for one complete oscillation. For a pendulum it depends on the length and on g, and not on the mass.",
-    "core": true
+    "def": "The time for one complete oscillation. For a pendulum it depends on the length and on g, and not on the mass."
   },
   {
     "name": "Frequency",
@@ -4152,8 +4151,7 @@ export const JARGON = [
       "swing angle",
       "size of the swing"
     ],
-    "def": "How far an oscillator goes from the middle at the extreme of its motion.",
-    "core": true
+    "def": "How far an oscillator goes from the middle at the extreme of its motion."
   },
   {
     "name": "Pressure",

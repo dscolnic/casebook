@@ -1257,7 +1257,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From damaged container to provisional identity
         place: Molecular Identification Lab
-        scene: Inside the mobile laboratory, the first intact sample from the damaged drums is sealed on the bench. The outside markings are still visible, vapour can be collected from the headspace, and only a small amount of liquid is available for testing.
+        scene: Inside the mobile laboratory, the first intact sample from the damaged drums is sealed on the bench. Its outside markings are legible now and will be scuffed off by the opening. Breaking the seal to draw liquid vents the headspace, and there is only enough liquid for two runs.
         assumes:
           - some measurements leave the sample as they found it and some use it up
         takeaway: Analytical work runs from what costs nothing to what cannot be undone.
@@ -1266,7 +1266,7 @@ missions:
         why: The order is set by what each step costs. The markings on the outside of the drum survive only until somebody opens it, so they are recorded first and consume nothing. Headspace vapour samples what has already escaped, without breaching the bulk liquid. A non-destructive spectrum on a small aliquot can be repeated all week if it goes wrong. The destructive method gives the best identification and gives it once. It is therefore the last thing you spend and the first thing you would regret.
         call: From damaged container to provisional identity
         setup: Order the non-destructive evidence workflow.
-        story: "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for."
+        story: "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it, and so does the air above the liquid: breaking the seal to draw an aliquot vents the headspace. You are choosing the order in which to spend a sample nobody can go back for."
         rebuttals:
           - Photograph the markings first. It costs nothing and it is the only evidence that stops existing the moment the drum is opened.
           - "Headspace vapour second: it samples what has already left the liquid, without breaching the container."
@@ -1278,6 +1278,8 @@ missions:
           - Draw a small aliquot and run a non-destructive spectrum on it.
           - Commit part of that aliquot to a method that destroys it to identify it.
         order: [0, 1, 2, 3]
+        axis: Order the four by what each one costs you, cheapest first. This is not a clock — every step is available right now, and the question is which ones you can still take afterwards.
+        ends: [Costs nothing, Cannot be undone]
       - group: IDENT
         task: Spend the $800 laboratory budget on the evidence that most changes whether the provisional identity is defensible.
         title: Spend the first of the lab budget
@@ -2215,9 +2217,9 @@ missions:
           question: Estimate the moles of hydrogen ion in the measured free pool.
           labels:
             - 1,000 L  (volume treated)
-            - 4.0  (pH)
+            - 1.0×10⁻⁴ mol/L  ([H⁺] at pH 4.0)
+            - 4.0  (the pH reading itself)
             - 1.0×10⁻⁷ mol/L  ([H⁺] in neutral water)
-            - 10  (base of the logarithm)
           values: [1000, 0.0001, 4, 1e-7]
           slots: 2
           template: "{0} × {1}"

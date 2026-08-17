@@ -34,7 +34,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Photograph it against stars whose places are already known.",
-          "Compare the pitch of the signal coming back with the one sent out.",
+          "Compare the pitch coming back with the pitch sent out.",
           "Time a radio pulse out to it and back again.",
           "Measure the same thing twice, and subtract."
         ],
@@ -77,9 +77,9 @@ export const CURRICULUM = {
         ],
         "cards": [
           "Put every measurement on one map and one clock.",
-          "Fit a path that matches the distance, the angles and the pitch together.",
-          "Look at what the fit misses, and see whether the misses form a pattern.",
-          "Carry the answer, and its range, forward to the hour of the burn."
+          "Fit one path to the distance, the angles and the pitch.",
+          "Look at what the fit misses, and why.",
+          "Carry the answer, and its range, to the burn."
         ],
         "order": [
           0,
@@ -117,7 +117,7 @@ export const CURRICULUM = {
           "Its sideways speed turns constant falling into a curve around the Moon.",
           "An outward force balances gravity, so nothing is pulling it anywhere.",
           "Its speed weakens the Moon's pull on it.",
-          "Its forward motion holds it up, the way a wing holds up a plane."
+          "Its forward motion holds it up, like a wing."
         ],
         "correctChoice": "Its sideways speed turns constant falling into a curve around the Moon."
       },
@@ -157,12 +157,12 @@ export const CURRICULUM = {
       "place": "Global Tracking Network",
       "story": "Several ground measurements suddenly put the spacecraft ahead of where it should be. They agree with each other. A star camera and the clock records are both available.",
       "game": {
-        "type": "CHOICE",
+        "type": "TRACE",
         "title": "Really off course, or one bad clock?",
         "setup": "Global Tracking Network",
         "play": "Say which explanation fits all four checks.",
         "task": "Say which explanation fits all four checks.",
-        "question": "Which explanation fits all four checks?",
+        "question": "Which measurements moved on their own, and which moved together?",
         "answer": "One shared clock. The measurements that moved all use it, and the star camera, which does not, still agrees with the prediction.",
         "why": "Agreement counts only when the things agreeing could have failed apart. These measurements all use the same ground clock, so one clock error moves them together. The star camera does not use that clock, and it still matches the prediction. Nothing pushed the spacecraft, and the onboard readings show no push either. Redo the sums with the corrected clock and nearly all the error disappears. Several agreeing numbers turned out to be one fault.",
         "rebuttals": [
@@ -170,25 +170,79 @@ export const CURRICULUM = {
           "Separate failures do not drift the same way at the same moment. These share a clock.",
           "A failed star camera would put its answer in the wrong place. It is the one that agrees with the prediction."
         ],
-        "choices": [
-          {
-            "label": "The spacecraft really is off course.",
-            "mechanism": "It has actually moved away from the predicted path."
-          },
-          {
-            "label": "One shared clock is wrong, and it moved everything that uses it.",
-            "mechanism": "One shared timestamp shifts everything worked out from it, together."
-          },
-          {
-            "label": "Several instruments failed separately, at the same time.",
-            "mechanism": "Unrelated instruments happen to drift the same way at the same moment."
-          },
-          {
-            "label": "The star camera has failed.",
-            "mechanism": "The star camera alone is producing a wrong answer."
-          }
-        ],
-        "correctChoice": "One shared clock is wrong, and it moved everything that uses it."
+        "trace": {
+          "channels": [
+            {
+              "id": "range",
+              "label": "Range measurement",
+              "reading": "puts it ahead",
+              "depends": [
+                "path",
+                "ground_clock"
+              ]
+            },
+            {
+              "id": "doppler",
+              "label": "Doppler measurement",
+              "reading": "puts it ahead",
+              "depends": [
+                "path",
+                "ground_clock"
+              ]
+            },
+            {
+              "id": "reprocessed",
+              "label": "The same data, re-timed",
+              "reading": "puts it ahead",
+              "depends": [
+                "path",
+                "ground_clock"
+              ]
+            },
+            {
+              "id": "star",
+              "label": "Star camera",
+              "reading": "matches the prediction",
+              "depends": [
+                "path",
+                "star_field"
+              ]
+            },
+            {
+              "id": "onboard",
+              "label": "Onboard motion sensors",
+              "reading": "no push at all",
+              "depends": [
+                "onboard"
+              ]
+            }
+          ],
+          "resources": [
+            {
+              "id": "path",
+              "label": "Where the spacecraft actually is"
+            },
+            {
+              "id": "ground_clock",
+              "label": "The ground clock"
+            },
+            {
+              "id": "star_field",
+              "label": "The stars"
+            },
+            {
+              "id": "onboard",
+              "label": "The spacecraft's own sensors"
+            }
+          ],
+          "independent": [
+            "star",
+            "onboard"
+          ],
+          "target": "ground_clock",
+          "hint": "Open each measurement to see what it is built from. Keep the ones that do not pass through the suspect clock.",
+          "commit": "Correct it"
+        }
       },
       "assumes": [
         "several instruments can be wrong together if they share a part"
@@ -211,7 +265,7 @@ export const CURRICULUM = {
         "answer": "Fifteen kilometres each side. Twenty from the middle of the corridor, less five for how far off the spacecraft might be.",
         "why": "The corridor is forty kilometres wide, so aiming down the middle puts twenty either side. The spacecraft could be five kilometres off in any direction, so five of those twenty are already spent before anybody makes a mistake. Fifteen is what is left. That is the number the burn is judged against, and it is why the doubt has to be drawn at the same scale as the corridor rather than mentioned in a footnote.",
         "givens": [],
-        "relationship": "Margin = half the corridor − half the doubt.",
+        "relationship": "Margin = (corridor − doubt) ÷ 2.",
         "calcKey": "NAV-6"
       },
       "assumes": [
@@ -256,10 +310,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How long can the battery last?",
-      "scene": "The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight surgeon wants a number of hours before the next decision about switching things off.",
+      "scene": "The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight doctor, who watches the crew's health from the ground, wants a number of hours before the next decision about switching things off.",
       "takeaway": "An amount divided by a rate is a time, and that time is what every other decision gets argued against.",
       "place": "Electrical Systems Room",
-      "story": "The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight surgeon wants a number of hours before the next decision about switching things off.",
+      "story": "The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight doctor, who watches the crew's health from the ground, wants a number of hours before the next decision about switching things off.",
       "game": {
         "type": "BALLPARK",
         "title": "How long can the battery last?",
@@ -278,63 +332,24 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is travelling",
+          "e": "how long = amount ÷ rate",
+          "c": "how long a store lasts",
           "v": [
             [
-              "speed",
-              "in kilometres per second"
+              "how long",
+              "in hours"
             ],
             [
-              "distance",
-              "in kilometres"
+              "amount",
+              "what is in the store"
             ],
             [
-              "time",
-              "in seconds"
+              "rate",
+              "how fast it is being used"
             ]
           ],
-          "s": "Speed is how much ground is covered divided by how long it took.",
+          "s": "A store divided by the rate it is being drawn at gives the hours before it is empty.",
           "computed": true
-        },
-        {
-          "e": "time = distance ÷ speed",
-          "c": "how long a journey or a signal takes",
-          "v": [
-            [
-              "time",
-              "in seconds or hours"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "in kilometres per second"
-            ]
-          ],
-          "s": "A known speed turns a distance into a number of hours, which is what a plan is made of."
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why an early correction is worth more",
-          "v": [
-            [
-              "change in position",
-              "in kilometres"
-            ],
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "time",
-              "how long it has to act"
-            ]
-          ],
-          "s": "A tiny change in speed moves a spacecraft hardly at all in an hour and a long way in a day.",
-          "card": false
         }
       ]
     }
@@ -343,10 +358,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How much does the cabin cool?",
-      "scene": "With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight surgeon wants to know how long the crew has before the cold becomes a medical problem.",
+      "scene": "With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight doctor wants to know how long the crew has before the cold becomes a medical problem.",
       "takeaway": "Big things change temperature slowly, and that slowness is time to think.",
       "place": "Thermal Control Lab",
-      "story": "With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight surgeon wants to know how long the crew has before the cold becomes a medical problem.",
+      "story": "With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight doctor wants to know how long the crew has before the cold becomes a medical problem.",
       "game": {
         "type": "BALLPARK",
         "title": "How much does the cabin cool?",
@@ -355,9 +370,9 @@ export const CURRICULUM = {
         "task": "Work out how far the temperature falls in three hours.",
         "question": "How far does the cabin cool over three hours?",
         "answer": "Under one degree. The cabin is heavy, so a kilowatt leaking for three hours barely moves it.",
-        "why": "The cabin and everything in it is heavy, and heavy things take a lot of energy to warm or cool by even one degree. A kilowatt leaking for three hours sounds alarming, and against this much stuff it is under a degree. That is the useful part. The cold is real and it is slow, so the crew has hours rather than minutes. The same fact is why warming it back up later costs so much.",
+        "why": "A kilowatt is a thousand joules leaking away every second. Three hours is about eleven thousand seconds, so the cabin loses roughly 11 million joules. That sounds enormous. It is not, because the cabin and everything in it is heavy, and heavy things take about 12 million joules to shift by a single degree. That is the useful part. The cold is real and it is slow, so the crew has hours rather than minutes. The same fact is why warming it back up later costs so much.",
         "givens": [],
-        "relationship": "Degrees lost = energy lost ÷ energy for one degree. Energy lost = watts × seconds.",
+        "relationship": "Degrees lost = energy lost ÷ energy needed for one degree.",
         "calcKey": "THERM-1"
       },
       "assumes": [
@@ -365,23 +380,24 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "time = distance ÷ speed",
-          "c": "how long a journey or a signal takes",
+          "e": "degrees lost = energy lost ÷ energy for one degree",
+          "c": "how far something cools",
           "v": [
             [
-              "time",
-              "in seconds or hours"
+              "degrees lost",
+              "in °C"
             ],
             [
-              "distance",
-              "in kilometres"
+              "energy lost",
+              "in joules"
             ],
             [
-              "speed",
-              "in kilometres per second"
+              "energy for one degree",
+              "in joules"
             ]
           ],
-          "s": "A known speed turns a distance into a number of hours, which is what a plan is made of."
+          "s": "Heavy things need a lot of energy per degree, which is why they cool slowly.",
+          "computed": true
         }
       ]
     },
@@ -484,10 +500,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why did the signal fade?",
-      "scene": "Voice and data have gone weak at two ground stations at once. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.",
+      "scene": "Voice and data have gone weak at two ground stations at once. A ground station is a dish antenna on Earth, and these two are on opposite sides of the world. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.",
       "takeaway": "A cause is proved when the effect follows the change both ways.",
       "place": "Deep-Space Antenna",
-      "story": "Voice and data have gone weak at two ground stations at once. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.",
+      "story": "Voice and data have gone weak at two ground stations at once. A ground station is a dish antenna on Earth, and these two are on opposite sides of the world. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.",
       "game": {
         "type": "CONTROL",
         "title": "Why did the signal fade?",
@@ -555,42 +571,24 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is travelling",
+          "e": "length of one wave = how far it goes in a second ÷ waves in a second",
+          "c": "how long one radio wave is",
           "v": [
             [
-              "speed",
-              "in kilometres per second"
+              "length of one wave",
+              "in metres"
             ],
             [
-              "distance",
-              "in kilometres"
+              "how far it goes in a second",
+              "in metres"
             ],
             [
-              "time",
-              "in seconds"
+              "waves in a second",
+              "how many"
             ]
           ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "time = distance ÷ speed",
-          "c": "how long a journey or a signal takes",
-          "v": [
-            [
-              "time",
-              "in seconds or hours"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "in kilometres per second"
-            ]
-          ],
-          "s": "A known speed turns a distance into a number of hours, which is what a plan is made of."
+          "s": "Short waves make a narrow beam, which is why the aiming has to be exact.",
+          "computed": true
         }
       ]
     }
@@ -706,28 +704,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a shaking problem has a band of speeds, with room either side"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is travelling",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took.",
-          "computed": true
-        }
       ]
     }
   ],
@@ -735,105 +711,43 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The spacecraft, or the sensors?",
-      "scene": "Nine minutes after the bang, three cabin pressure readings fall together. A mechanical gauge and a leak listener are also live. The flight director wants one answer before the crew opens any panels.",
-      "takeaway": "Several readouts agreeing count as one, when they all hang off the same thing.",
+      "scene": "Nine minutes after the bang, three cabin pressure readings fall in the same second. Cabin pressure is how hard the air inside is pushing on the walls, and it drops when air leaks out. The dial gauge beside them, which is a needle on a spring rather than anything electrical, has not moved.",
+      "takeaway": "Three readings that fall together are one event. What they share is where to look first.",
       "place": "Mission Control",
-      "story": "Nine minutes after the bang, three cabin pressure readings fall together. A mechanical gauge and a leak listener are also live. The flight director wants one answer before the crew opens any panels.",
+      "story": "Nine minutes after the bang, three cabin pressure readings fall in the same second. Cabin pressure is how hard the air inside is pushing on the walls, and it drops when air leaks out. The dial gauge beside them, which is a needle on a spring rather than anything electrical, has not moved.",
       "game": {
-        "type": "TRACE",
+        "type": "CHOICE",
         "title": "The spacecraft, or the sensors?",
         "setup": "Mission Control",
-        "play": "Open what each reading depends on, keep what stands alone, and name what the rest share.",
-        "task": "Open what each reading depends on, keep what stands alone, and name what the rest share.",
-        "question": "Which pressure evidence survives, and what moved the rest?",
-        "answer": "Keep the mechanical gauge and the leak listener. The three digital channels share one circuit, and that circuit is what moved.",
-        "why": "Agreement is only strong evidence when the things agreeing could have failed separately. These three digital readings share one circuit. Shift that circuit and all three move together, whether or not the cabin does. The mechanical gauge works a different way altogether, and it has not moved. The leak listener hears nothing. So three frightening numbers turn into one electrical fault, and the evidence that still stands is kept rather than thrown out with them.",
-        "trace": {
-          "channels": [
-            {
-              "id": "digital_a",
-              "label": "Pressure channel A",
-              "reading": "drops sharply",
-              "depends": [
-                "cabin",
-                "sensor_ref"
-              ]
-            },
-            {
-              "id": "digital_b",
-              "label": "Pressure channel B",
-              "reading": "drops sharply",
-              "depends": [
-                "cabin",
-                "sensor_ref"
-              ]
-            },
-            {
-              "id": "digital_c",
-              "label": "Pressure channel C",
-              "reading": "drops sharply",
-              "depends": [
-                "cabin",
-                "sensor_ref"
-              ]
-            },
-            {
-              "id": "mechanical",
-              "label": "Direct pressure gauge",
-              "reading": "steady",
-              "depends": [
-                "cabin",
-                "mechanical_path"
-              ]
-            },
-            {
-              "id": "acoustic",
-              "label": "Leak monitor",
-              "reading": "no leak signature",
-              "depends": [
-                "acoustic_path"
-              ]
-            }
-          ],
-          "resources": [
-            {
-              "id": "cabin",
-              "label": "Cabin gas pressure"
-            },
-            {
-              "id": "sensor_ref",
-              "label": "Shared electrical reference"
-            },
-            {
-              "id": "mechanical_path",
-              "label": "Mechanical gauge linkage"
-            },
-            {
-              "id": "acoustic_path",
-              "label": "Acoustic leak monitor"
-            }
-          ],
-          "independent": [
-            "mechanical",
-            "acoustic"
-          ],
-          "target": "sensor_ref",
-          "hint": "Open each channel to see what physical sources it depends on. Keep channels whose measurement path does not pass through the suspect shared source.",
-          "commit": "Correct it"
-        }
+        "play": "Say what could make three readings fall in the same second.",
+        "task": "Say what could make three readings fall in the same second.",
+        "question": "What could make all three readings fall in the same second?",
+        "answer": "One thing all three share — the circuit that powers them. A real leak would move the dial gauge too.",
+        "why": "Three holes appearing in the same second is not a thing that happens. One fault behind all three is. So the question becomes what those three have in common, and the answer is the circuit they all run off. There is a check available, and it is the dial gauge. It measures the same cabin a completely different way, through a spring rather than through wires, and it has not moved. The leak listener hears nothing either. Together they say the cabin is fine and the wiring is not.",
+        "rebuttals": [
+          "Three holes in the same second is not a thing that happens.",
+          "A valve would move the dial gauge as well, and it has not moved.",
+          "The dial gauge is the one that disagrees, and it is the one working."
+        ],
+        "choices": [
+          "The circuit that all three run off",
+          "Three separate holes in the cabin wall",
+          "The crew opening a valve somewhere",
+          "The dial gauge being read wrongly"
+        ],
+        "correctChoice": "The circuit that all three run off"
       },
       "assumes": [
-        "several instruments can run off one shared circuit",
-        "a reading that stands alone does not inherit that circuit's fault"
+        "several instruments can run off one shared circuit"
       ]
     },
     {
       "day": 2,
       "title": "Build the first picture",
-      "scene": "Three consoles hold numbers that disagree. One power bus reads zero. The guidance computer has restarted with no memory of what it saw. Nothing has been written down yet.",
+      "scene": "Three consoles hold numbers that disagree. One of the two main power lines reads zero. The guidance computer, which keeps track of where the spacecraft is and which way it points, has restarted with no memory of what it saw. Nothing has been written down yet.",
       "takeaway": "An answer built to survive being wrong has to be built in a particular order.",
       "place": "Telemetry Analysis Room",
-      "story": "Three consoles hold numbers that disagree. One power bus reads zero. The guidance computer has restarted with no memory of what it saw. Nothing has been written down yet.",
+      "story": "Three consoles hold numbers that disagree. One of the two main power lines reads zero. The guidance computer, which keeps track of where the spacecraft is and which way it points, has restarted with no memory of what it saw. Nothing has been written down yet.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the first picture",
@@ -852,8 +766,8 @@ export const CURRICULUM = {
         "cards": [
           "Save the recordings from before and after the failure.",
           "Check the units, the clocks, and what everything depends on.",
-          "Work out where it is, how it is moving and how it is doing, each with a range.",
-          "Send only the commands that help whatever the truth turns out to be."
+          "Work out where it is and how fast, with a range.",
+          "Send only the commands that help either way."
         ],
         "order": [
           0,
@@ -868,75 +782,35 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Spend the first ten minutes",
-      "scene": "Four controllers, a crew in a spacecraft that is venting something, and ten minutes to the next tracking pass. Every desk believes its own problem is the one that kills them.",
-      "takeaway": "Attention is a resource in an emergency, and the first decision is where it goes.",
+      "title": "The reading that cannot wait",
+      "scene": "Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
+      "takeaway": "Air runs out in minutes. Warmth and power run out in hours, so the air is watched first.",
       "place": "Spacecraft Systems Console",
-      "story": "Four controllers, a crew in a spacecraft that is venting something, and ten minutes to the next tracking pass. Every desk believes its own problem is the one that kills them.",
+      "story": "Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
       "game": {
         "type": "CHOICE",
-        "title": "Spend the first ten minutes",
+        "title": "The reading that cannot wait",
         "setup": "Spacecraft Systems Console",
-        "play": "Say what the flight director does first.",
-        "task": "Say what the flight director does first.",
-        "question": "Ten minutes to the next tracking pass. What does the flight director do first?",
-        "answer": "Open one log and name one person to give commands. Everything after that counts once instead of three times.",
-        "why": "Attention runs out like fuel does. Four people are already working the same failure from four sets of numbers, and nothing says which set is the real one. One log and one voice giving commands stops the same work being done twice and contradicted once. Organising the room is not a delay before the technical work. It is what makes every later calculation count once instead of three times.",
+        "play": "Say which reading the room watches first.",
+        "task": "Say which reading the room watches first.",
+        "question": "Which reading tells you soonest whether the crew is in danger?",
+        "answer": "Cabin pressure. A leak empties the cabin in minutes, and nothing else on the board moves that fast.",
+        "why": "All four readings matter. What separates them is how fast each one runs out. Air is the quick one. A hole in the wall of a spacecraft empties the cabin in minutes, and there is no warning after that. The batteries have hours left in them. The cabin cools slowly, because heat leaks out through the walls rather than pouring out of a hole. So the flight director watches the pressure while the other three are still being counted. The order is set by the clock on each one, not by which number looks worst.",
         "rebuttals": [
-          "The power and pressure timeline is the first real piece of work, and the log is what holds it. Start it second and it survives the shift change.",
-          "Checking the trajectory decides whether they can get home. It is needed before the burn, not before the room is sorted out.",
-          "Six full reports arrive after the tracking pass, and eat the ten minutes that were meant to prepare for it."
+          "Voltage matters, but the batteries have hours in them. Air does not.",
+          "The cabin cools over hours. A leak empties it in minutes.",
+          "A lost radio is frightening and not fatal. The crew can still fly."
         ],
         "choices": [
-          "Open one log, and name one person to give commands.",
-          "Rebuild the timeline of the power and the pressure.",
-          "Check the trajectory and the attitude independently.",
-          "Ask every desk for a full report at once."
+          "Cabin pressure",
+          "Battery voltage",
+          "Cabin temperature",
+          "Radio signal strength"
         ],
-        "correctChoice": "Open one log, and name one person to give commands."
+        "correctChoice": "Cabin pressure"
       },
       "assumes": [
-        "two rooms acting on different versions of one number is worse than either acting alone"
-      ],
-      "equations": [
-        {
-          "e": "time = distance ÷ speed",
-          "c": "how long a journey or a signal takes",
-          "v": [
-            [
-              "time",
-              "in seconds or hours"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "in kilometres per second"
-            ]
-          ],
-          "s": "A known speed turns a distance into a number of hours, which is what a plan is made of."
-        },
-        {
-          "e": "how long = amount ÷ rate",
-          "c": "how long a store lasts",
-          "v": [
-            [
-              "how long",
-              "in hours"
-            ],
-            [
-              "amount",
-              "what is in the store"
-            ],
-            [
-              "rate",
-              "how fast it is being used"
-            ]
-          ],
-          "s": "A store divided by the rate it is being drawn at gives the hours before it is empty."
-        }
+        "people need air, warmth and power, and they need them on different clocks"
       ]
     },
     {
@@ -995,33 +869,33 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "change in position = change in speed × time",
-          "c": "why an early correction is worth more",
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is travelling",
           "v": [
             [
-              "change in position",
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
               "in kilometres"
             ],
             [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
               "time",
-              "how long it has to act"
+              "in seconds"
             ]
           ],
-          "s": "A tiny change in speed moves a spacecraft hardly at all in an hour and a long way in a day."
+          "s": "Speed is how much ground is covered divided by how long it took."
         }
       ]
     },
     {
       "day": 5,
       "title": "Why is the voltage sagging?",
-      "scene": "The power bus is sagging at twenty-four volts instead of twenty-eight, while the total current sits where it was planned to be. Engineers want to start pulling equipment off.",
+      "scene": "A main power line is sagging at twenty-four volts instead of twenty-eight, while the current drawn from it sits where it was planned to be. Engineers want to start pulling equipment off.",
       "takeaway": "Voltage, current and heat are three views of one fault, and one view is not enough.",
       "place": "Spacecraft Load Panel",
-      "story": "The power bus is sagging at twenty-four volts instead of twenty-eight, while the total current sits where it was planned to be. Engineers want to start pulling equipment off.",
+      "story": "A main power line is sagging at twenty-four volts instead of twenty-eight, while the current drawn from it sits where it was planned to be. Engineers want to start pulling equipment off.",
       "game": {
         "type": "CHOICE",
         "title": "Why is the voltage sagging?",
@@ -1063,10 +937,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Switch things off without losing the mission",
-      "scene": "Forty-one amp-hours left, and sixty-two hours to fly. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.",
+      "scene": "Forty-one amp-hours left, and sixty-two hours to fly. An amp-hour is one hour of giving one amp, so forty-one of them is not much. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.",
       "takeaway": "A power budget is not a ranking of what matters. It is hours multiplied by draw, and the total is fixed.",
       "place": "Mission Planning Desk",
-      "story": "Forty-one amp-hours left, and sixty-two hours to fly. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.",
+      "story": "Forty-one amp-hours left, and sixty-two hours to fly. An amp-hour is one hour of giving one amp, so forty-one of them is not much. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.",
       "game": {
         "type": "ALLOCATE",
         "title": "Switch things off without losing the mission",
@@ -1137,25 +1011,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "time = distance ÷ speed",
-          "c": "how long a journey or a signal takes",
-          "v": [
-            [
-              "time",
-              "in seconds or hours"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "in kilometres per second"
-            ]
-          ],
-          "s": "A known speed turns a distance into a number of hours, which is what a plan is made of."
-        },
-        {
           "e": "how long = amount ÷ rate",
           "c": "how long a store lasts",
           "v": [
@@ -1212,10 +1067,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Follow the air",
-      "scene": "Carbon dioxide keeps climbing. The scrubber fan sounds normal and draws its usual current, and the airflow is low. There are pressure readings on both sides of the filter.",
+      "scene": "Carbon dioxide keeps climbing. The scrubber, which is the machine that takes that gas back out of the air, has a fan that sounds normal and draws its usual current. The airflow through it is low. There are pressure readings on both sides of the filter.",
       "takeaway": "A chain moves at the rate of its most restricted link, not the rate of its noisiest one.",
       "place": "Life-Support Laboratory",
-      "story": "Carbon dioxide keeps climbing. The scrubber fan sounds normal and draws its usual current, and the airflow is low. There are pressure readings on both sides of the filter.",
+      "story": "Carbon dioxide keeps climbing. The scrubber, which is the machine that takes that gas back out of the air, has a fan that sounds normal and draws its usual current. The airflow through it is low. There are pressure readings on both sides of the filter.",
       "game": {
         "type": "CHAIN",
         "title": "Follow the air",
@@ -1368,27 +1223,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "everything has speeds at which it prefers to shake"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is travelling",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
       ]
     },
     {
@@ -1402,9 +1236,9 @@ export const CURRICULUM = {
         "type": "CHOICE",
         "title": "Stop the shaking",
         "setup": "Operations Planning Room",
-        "play": "Say what the safest immediate move is.",
-        "task": "Say what the safest immediate move is.",
-        "question": "What is the safest immediate move?",
+        "play": "Say which change stops the pushes landing in time.",
+        "task": "Say which change stops the pushes landing in time.",
+        "question": "Which change stops the pushes landing in time with the panel?",
         "answer": "Move the pump speed off the band. It stops the pushes landing in time, and it can be undone at once.",
         "why": "This kind of shaking needs two things: a structure with a rhythm, and something pushing in time with it. In flight, changing what is pushing is far easier than changing the structure. Moving the pump speed off the band stops the pushes landing in time, and it can be undone in a second. Deadening the panel is the proper permanent fix, and it needs hardware and somebody's hands on it. Running faster through the band assumes it survives the crossing.",
         "rebuttals": [
@@ -1422,89 +1256,59 @@ export const CURRICULUM = {
       },
       "assumes": [
         "shaking like this needs a structure and something pushing it in time"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is travelling",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
       ]
     },
     {
       "day": 12,
-      "title": "Burn, or look again?",
-      "scene": "Two tracking answers disagree, and both lean on the same station clock. A correction burn is ready to go. There is time for one more piece of evidence before the decision closes.",
-      "takeaway": "The measurement worth buying is the one that could fail differently.",
+      "title": "Say it before you do it",
+      "scene": "The correction burn is ready. It adds 3 metres a second, 12 hours before the spacecraft reaches the air. Carter wants the prediction written down first.",
+      "takeaway": "A burn that happened is not a burn that worked. Only the measurement afterwards says so.",
       "place": "Flight Director Console",
-      "story": "Two tracking answers disagree, and both lean on the same station clock. A correction burn is ready to go. There is time for one more piece of evidence before the decision closes.",
+      "story": "The correction burn is ready. It adds 3 metres a second, 12 hours before the spacecraft reaches the air. Carter wants the prediction written down first.",
       "game": {
-        "type": "VALUE",
-        "title": "Burn, or look again?",
+        "type": "VERIFY",
+        "title": "Say it before you do it",
         "setup": "Flight Director Console",
-        "play": "Spend the last of the tracking on what could change the decision.",
-        "task": "Spend the last of the tracking on what could change the decision.",
-        "question": "Which evidence is worth buying before committing the burn?",
-        "answer": "Buy the star-camera sighting. It is the only one that could disagree with the clock, which is what the argument is about.",
-        "why": "More precision on the same clock cannot settle a question about that clock. Redoing the sums makes the numbers tidier and leaves the clock exactly where it was. Another pass tied to the same clock has the same weakness. A star-camera sighting uses different physics and a different reference altogether, so it can say whether the spacecraft has actually moved. When there is time for one thing, being different matters more than being precise.",
-        "value": {
-          "budget": {
-            "amount": 2,
-            "unit": ""
+        "play": "Predict what the burn will do, fire it, then measure it.",
+        "task": "Predict what the burn will do, fire it, then measure it.",
+        "question": "Predict how far the burn moves the landing point, fire it, and then measure.",
+        "answer": "About 130 kilometres — and only the tracking pass afterwards shows whether it really moved that far.",
+        "why": "Three metres every second sounds like nothing. Keep it up for 12 hours and it is a long way. Three metres a second is about 11 kilometres an hour. Eleven, for 12 hours, is roughly 130 kilometres. Say that number out loud first. It is the only thing the tracking pass can be compared against. An engine can run short, point a little wrong, or stop early. None of that shows on the console that told it to fire. The pass afterwards is what turns a burn that happened into a burn that worked.",
+        "verify": {
+          "prediction": {
+            "label": "How far the landing point moves",
+            "unit": "km",
+            "min": 0,
+            "max": 200,
+            "step": 5
           },
-          "decision": "Decide whether to execute the correction burn or hold it for more evidence.",
-          "options": [
-            {
-              "id": "reprocess",
-              "label": "Reprocess the same range data",
-              "cost": 1,
-              "axis": "shared timing",
-              "reveals": "whether numerical reduction noise changed the timing-based solution"
-            },
-            {
-              "id": "second_range",
-              "label": "Take another clock-linked range pass",
-              "cost": 1,
-              "axis": "shared timing",
-              "reveals": "whether a new range point repeats the same clock-dependent offset"
-            },
-            {
-              "id": "optical",
-              "label": "Take an optical star-angle fix",
-              "cost": 2,
-              "axis": "independent geometry",
-              "reveals": "whether the spacecraft direction is displaced without using the suspect ground clock",
-              "decisive": true
-            },
-            {
-              "id": "propagate",
-              "label": "Run a denser trajectory propagation",
-              "cost": 1,
-              "axis": "model prediction",
-              "reveals": "how the current state estimate evolves if its inputs are accepted"
-            }
+          "truth": 130,
+          "passRatio": [
+            0.7,
+            1.4
           ],
-          "hint": "Each option costs tracking budget. Open an option to see what it would reveal and which evidence axis it uses before you spend.",
-          "commit": "Commit the decision"
+          "intervention": {
+            "label": "The correction burn",
+            "note": "3 metres per second, 12 hours before entry.",
+            "outcome": "Burn complete. The engine ran for the full nine seconds."
+          },
+          "measurement": {
+            "label": "A tracking pass after the burn",
+            "note": "One station, comparing where it is now against where it was going.",
+            "cost": 1,
+            "costUnit": "passes"
+          },
+          "hint": "Write the prediction first. It cannot be changed afterwards, which is the whole point of writing it first.",
+          "unmeasuredMoral": "The engine fired and nobody looked. A burn that happened is not the same as a burn that worked.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report the correction"
         }
       },
       "assumes": [
-        "two measurements that share a clock are not two pieces of evidence",
-        "a rougher measurement can be worth more than a precise one"
+        "a speed and a time give a distance",
+        "a prediction is only a test if it is made before the result is known"
       ],
       "equations": [
         {
@@ -1530,81 +1334,36 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "What still needs checking",
-      "scene": "Eleven minutes to entry. Four signed statements sit on the flight director's console. Some have real measurements behind them and one does not. Two checks can still be done.",
-      "takeaway": "A signature says somebody believes it. The evidence behind it is a separate question.",
+      "title": "Four minutes of silence",
+      "scene": "For four minutes in the middle of entry there is no radio at all. The room knows it is coming, and Carter still wants somebody to say why it happens.",
+      "takeaway": "Some silences are physics rather than faults, and nothing on the ground can shorten one.",
       "place": "Integrated Flight Room",
-      "story": "Eleven minutes to entry. Four signed statements sit on the flight director's console. Some have real measurements behind them and one does not. Two checks can still be done.",
+      "story": "For four minutes in the middle of entry there is no radio at all. The room knows it is coming, and Carter still wants somebody to say why it happens.",
       "game": {
-        "type": "ATTEST",
-        "title": "What still needs checking",
+        "type": "CHOICE",
+        "title": "Four minutes of silence",
         "setup": "Integrated Flight Room",
-        "play": "Spend the two checks on the claims where being wrong costs most.",
-        "task": "Spend the two checks on the claims where being wrong costs most.",
-        "question": "Which claims deserve the last checks before the radio goes quiet?",
-        "answer": "Check the heat shield first, then that the path is still inside the corridor. The other two already have measurements behind them.",
-        "why": "Paper readiness and real readiness are different things. Three of these have direct measurements behind them: tracking, a known correction, a checked setting. The heat shield changed and the record of the change is incomplete, and it is also the one where being wrong ends the flight. So one check goes there. The second confirms the entry path is still inside the corridor, because that is the other thing nobody can fix once the radio stops.",
-        "attest": {
-          "claims": [
-            {
-              "id": "entry_state",
-              "label": "Entry state lies inside the robust corridor",
-              "signedBy": "Navigation",
-              "evidence": "independent range, Doppler, and optical solution",
-              "critical": true,
-              "backed": true
-            },
-            {
-              "id": "shield_config",
-              "label": "Thermal-shield configuration matches the approved state",
-              "signedBy": "Configuration",
-              "evidence": "undocumented change after the last signed configuration record",
-              "critical": true
-            },
-            {
-              "id": "blackout_guidance",
-              "label": "Onboard guidance is ready for the blackout",
-              "signedBy": "Guidance",
-              "evidence": "completed autonomous guidance self-test",
-              "backed": true
-            },
-            {
-              "id": "station_bias",
-              "label": "Known station bias has been removed",
-              "signedBy": "Tracking",
-              "evidence": "reprocessed residual check under the validated correction rule",
-              "backed": true
-            }
-          ],
-          "checks": 2,
-          "hint": "Open each signed claim to see what evidence already backs it. You can perform only two final checks before the clock expires.",
-          "commit": "Close the list"
-        }
+        "play": "Say why the radio goes quiet.",
+        "task": "Say why the radio goes quiet.",
+        "question": "Why does the radio go quiet for four minutes?",
+        "answer": "The air around the capsule is squeezed until it glows, and glowing air will not let radio through.",
+        "why": "The capsule hits the air at enormous speed, and the air in front of it has nowhere to go. Being squeezed that hard makes it hot, hot enough to glow, and that glowing layer wraps the whole capsule. Radio waves cannot get through it. The silence is not a fault and nobody can fix it from the ground. It ends by itself when the capsule has slowed enough for the air to stop glowing, and everything that might need a decision has to be settled before it starts.",
+        "rebuttals": [
+          "Nothing is switched off. The radio is transmitting the whole time and nothing gets out.",
+          "The Moon is far behind them by entry. They are at the Earth.",
+          "Nothing breaks. The radio works again by itself once the capsule slows down."
+        ],
+        "choices": [
+          "Glowing hot air wraps the capsule and blocks radio.",
+          "The antenna is switched off to save battery.",
+          "The capsule is behind the Moon at that point.",
+          "The radio is broken by the shaking of entry."
+        ],
+        "correctChoice": "Glowing hot air wraps the capsule and blocks radio."
       },
       "assumes": [
-        "a signature records who is responsible, not whether it is true",
-        "time to check should go where being wrong costs most"
-      ],
-      "equations": [
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why an early correction is worth more",
-          "v": [
-            [
-              "change in position",
-              "in kilometres"
-            ],
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "time",
-              "how long it has to act"
-            ]
-          ],
-          "s": "A tiny change in speed moves a spacecraft hardly at all in an hour and a long way in a day."
-        }
+        "rubbing something hard makes it hot",
+        "radio waves travel through air but not through everything"
       ]
     },
     {
@@ -1630,10 +1389,10 @@ export const CURRICULUM = {
           "Descent last, with the record kept. This is the only flight that will ever produce this data."
         ],
         "cards": [
-          "Set the approved attitude and settings, because none of it can be changed during the silence.",
-          "Agree who is flying, before the radio goes quiet rather than during it.",
+          "Set the approved attitude and settings before the silence.",
+          "Agree who is flying, before the radio goes quiet.",
           "Watch the slowing and the heating against what was predicted.",
-          "Come down, and keep the record of what actually happened."
+          "Come down, keeping the record of what happened."
         ],
         "order": [
           0,
@@ -1711,35 +1470,32 @@ export const BALLPARK_CALCS = {
     "explanation": "The bus voltage says how the energy is delivered, and nothing about how much there is. The time to the next burn is a deadline rather than an ingredient."
   },
   "THERM-1": {
-    "prompt": "The cabin is losing about 1,000 watts more than it makes, for three hours — which is 10,800 seconds. Warming this cabin by one degree takes about 12 million joules.",
+    "prompt": "Over three hours the cabin loses about 11 million joules more than it makes. Warming this cabin by one degree takes about 12 million joules.",
     "question": "How far does the cabin cool over three hours?",
     "labels": [
-      "1,000 W (what it is losing)",
-      "10,800 s (three hours)",
-      "12 million joules for one degree",
-      "3 h (the same three hours, in hours)",
-      "4 °C (the cabin now)"
+      "11 million joules (lost in three hours)",
+      "12 million joules (to warm it one degree)",
+      "4 °C (the cabin now)",
+      "3 h (how long)"
     ],
     "values": [
-      1000,
-      10800,
-      12000000,
-      3,
-      4
+      11,
+      12,
+      4,
+      3
     ],
-    "slots": 3,
-    "template": "{0} × {1} ÷ {2}",
-    "formula": "a*b/c",
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
     "target": 0.9,
-    "tolerance": 0.1,
-    "units": "K",
-    "solution": "1,000 × 10,800 is 10.8 million joules. Divided by 12 million, that is about 0.9 of a degree.",
-    "explanation": "A watt is a joule every second, so the time has to be in seconds. Use hours instead and the answer is out by three thousand six hundred."
+    "tolerance": 0.15,
+    "units": "°C",
+    "solution": "Eleven million shared out at twelve million for each degree is a bit under one degree.",
+    "explanation": "Both numbers are energies, so they divide straight into a number of degrees. The 4 °C is where the cabin is now, not how far it moves, and the three hours are already inside the eleven million."
   },
   "THERM-3": {
     "prompt": "Three crew each breathe out about twenty litres of carbon dioxide an hour, and the scrubber has to keep up for six hours.",
@@ -1773,21 +1529,19 @@ export const BALLPARK_CALCS = {
     "explanation": "A rate for one person needs a head count and a stretch of time, and both have to match the question. The daily figure describes the same crew and cannot be used here without more work."
   },
   "COMMS-2": {
-    "prompt": "Radio travels 300 million metres each second, and this signal fits 2 billion waves into that second.",
+    "prompt": "Counted in millions: radio travels 300 million metres each second, and this signal sends 2,000 million waves in that second.",
     "question": "How long is one wave?",
     "labels": [
-      "3.0e8 m/s (speed of light)",
-      "2.0e9 Hz (carrier frequency)",
-      "2.0e6 Hz (the carrier, misread as megahertz)",
-      "343 m/s (speed of sound)",
-      "12 dB (the observed loss)"
+      "300 (millions of metres travelled each second)",
+      "2,000 (millions of waves sent each second)",
+      "2 (millions of waves, if it were megahertz)",
+      "343 (metres a second, the speed of sound)"
     ],
     "values": [
-      300000000,
-      2000000000,
-      2000000,
-      343,
-      12
+      300,
+      2000,
+      2,
+      343
     ],
     "slots": 2,
     "template": "{0} ÷ {1}",
@@ -1797,10 +1551,10 @@ export const BALLPARK_CALCS = {
       1
     ],
     "target": 0.15,
-    "tolerance": 0.015,
+    "tolerance": 0.02,
     "units": "m",
-    "solution": "300,000,000 ÷ 2,000,000,000 is 0.15 metres.",
-    "explanation": "Read the big numbers carefully. Millions instead of billions makes each wave a hundred and fifty metres long, which would need an aerial nobody could fly."
+    "solution": "300 shared between 2,000 is 0.15, so each wave is fifteen centimetres.",
+    "explanation": "Both numbers are counted in millions, so the millions cancel and the answer is in plain metres. Use 2 instead of 2,000 and each wave comes out 150 metres long, which would need an aerial nobody could fly."
   },
   "STRUCT-3": {
     "prompt": "The bad band runs from 3,100 to 3,300 turns a minute. The rule is to stay 200 clear of it.",
@@ -1836,18 +1590,16 @@ export const BALLPARK_CALCS = {
     "labels": [
       "40 km (width of the corridor)",
       "10 km (width of the doubt)",
-      "2 (halves)",
       "6 km (one of the two errors)"
     ],
     "values": [
       40,
       10,
-      2,
       6
     ],
     "slots": 2,
-    "template": "{0} ÷ 2 − {1} ÷ 2",
-    "formula": "a/2-b/2",
+    "template": "({0} − {1}) ÷ 2",
+    "formula": "(a-b)/2",
     "correct": [
       0,
       1
@@ -1855,55 +1607,26 @@ export const BALLPARK_CALCS = {
     "target": 15,
     "tolerance": 2,
     "units": "km",
-    "solution": "40 ÷ 2 is 20. 10 ÷ 2 is 5. Twenty take away five is 15 kilometres.",
-    "explanation": "Both get halved, because both are widths and the spacecraft is aiming down the middle of them. Take the whole doubt off one side and the answer is too gloomy by five kilometres."
+    "solution": "Forty take away ten is thirty. Down the middle, that is 15 kilometres on each side.",
+    "explanation": "Take the doubt off the corridor first, then split what is left between the two sides. Both are widths, so both belong to the whole corridor rather than to one edge of it."
   }
 };
 
 export const JARGON = [
   {
-    "name": "Calibration",
+    "name": "Cabin pressure",
     "aliases": [
-      "calibration",
-      "calibrated",
-      "calibrate"
+      "cabin pressure"
     ],
-    "def": "The correction between what an instrument reads and what is true, established against something known. A shared calibration is why two instruments can be wrong together."
+    "def": "How hard the air inside the crew cabin pushes on the walls. It drops when air leaks out, and the crew cannot breathe without it.",
+    "core": true
   },
   {
-    "name": "Common-mode error",
+    "name": "Carbon dioxide",
     "aliases": [
-      "common-mode error"
+      "carbon dioxide"
     ],
-    "def": "A shared error that makes several measurements agree for the same wrong reason."
-  },
-  {
-    "name": "Doppler shift",
-    "aliases": [
-      "doppler shift"
-    ],
-    "def": "A frequency change caused by relative motion between source and observer."
-  },
-  {
-    "name": "Parallax",
-    "aliases": [
-      "parallax"
-    ],
-    "def": "The apparent shift of a nearby object against a distant background when the viewpoint moves. With a known baseline it gives a distance."
-  },
-  {
-    "name": "Power",
-    "aliases": [
-      "power"
-    ],
-    "def": "The rate at which energy is transferred or used."
-  },
-  {
-    "name": "Resonance",
-    "aliases": [
-      "resonance"
-    ],
-    "def": "Large oscillation produced when forcing is near a system natural frequency."
+    "def": "The gas people breathe out. Outdoors it blows away. In a sealed cabin it builds up, and too much of it makes people muddled and then very ill."
   },
   {
     "name": "Scrubber",
@@ -1911,28 +1634,140 @@ export const JARGON = [
       "scrubber",
       "scrubbers"
     ],
-    "def": "The unit that removes carbon dioxide from the cabin air. It cleans only the air that reaches it.",
+    "def": "The machine that takes the carbon dioxide back out of the cabin air. It can only clean air that actually reaches it.",
     "core": true
   },
   {
-    "name": "State vector",
+    "name": "Amp-hour",
     "aliases": [
-      "state vector"
+      "amp-hour",
+      "amp-hours"
     ],
-    "def": "A compact description of position and velocity at one time."
+    "def": "A way of saying how much a battery holds. One amp-hour is one hour of giving one amp, so a battery of forty can give one amp for forty hours, or two amps for twenty.",
+    "core": true
+  },
+  {
+    "name": "Guidance computer",
+    "aliases": [
+      "guidance computer"
+    ],
+    "def": "The computer that keeps track of where the spacecraft is, how fast it is going, and which way it is pointing."
+  },
+  {
+    "name": "Tracking pass",
+    "aliases": [
+      "tracking pass",
+      "tracking passes"
+    ],
+    "def": "The few minutes when the spacecraft passes over a dish on Earth and can be measured. That short window is what a pass is. Between passes nobody on the ground can measure anything."
+  },
+  {
+    "name": "Ground station",
+    "aliases": [
+      "ground station",
+      "ground stations"
+    ],
+    "def": "A big dish antenna on Earth that talks to the spacecraft and times how long the answer takes."
+  },
+  {
+    "name": "Dial gauge",
+    "aliases": [
+      "dial gauge"
+    ],
+    "def": "A gauge with a needle, moved by a spring rather than by wires. It keeps working when the electrics do not, which is why it is worth having."
+  },
+  {
+    "name": "Star camera",
+    "aliases": [
+      "star camera"
+    ],
+    "def": "A camera that photographs stars to work out which way the spacecraft is pointing. It uses no clock and no radio, so it can disagree with both."
+  },
+  {
+    "name": "Correction burn",
+    "aliases": [
+      "correction burn"
+    ],
+    "def": "A short firing of the engine to nudge the path back where it should be.",
+    "core": true
+  },
+  {
+    "name": "Entry corridor",
+    "aliases": [
+      "entry corridor"
+    ],
+    "def": "The narrow band of angles the capsule has to come in at. Too steep and it burns up, too shallow and it skips back out."
+  },
+  {
+    "name": "Flight doctor",
+    "aliases": [
+      "flight doctor"
+    ],
+    "def": "The doctor who watches the crew's health from the ground, using numbers rather than a stethoscope."
+  },
+  {
+    "name": "Calibration",
+    "aliases": [
+      "calibration",
+      "calibrated",
+      "calibrate"
+    ],
+    "def": "Checking an instrument against something you already know, and writing down how far off it is. Two instruments checked against the same thing can be wrong the same way."
+  },
+  {
+    "name": "Common-mode error",
+    "aliases": [
+      "common-mode error"
+    ],
+    "def": "One fault that makes several instruments wrong in the same direction. They agree with each other, and all of them are wrong."
+  },
+  {
+    "name": "Doppler shift",
+    "aliases": [
+      "doppler shift"
+    ],
+    "def": "The change in pitch of something moving toward you or away from you. A siren sounds higher coming and lower going, and radio does the same."
+  },
+  {
+    "name": "Parallax",
+    "aliases": [
+      "parallax"
+    ],
+    "def": "The way a near thing seems to jump against far things when you move. Hold a finger up and close one eye, then the other."
+  },
+  {
+    "name": "Power",
+    "aliases": [
+      "power"
+    ],
+    "def": "How fast energy is being used. A bright lamp uses more power than a dim one."
+  },
+  {
+    "name": "Resonance",
+    "aliases": [
+      "resonance"
+    ],
+    "def": "What happens when a push keeps arriving in time with a swing, so the swing gets bigger and bigger. Push at the wrong moment and it dies away instead."
   },
   {
     "name": "Torque",
     "aliases": [
       "torque"
     ],
-    "def": "The rotational effect of a force applied with a lever arm."
+    "def": "Turning effect. The same push turns something more when it acts further from the middle, which is why a door opens easily at the handle and hardly at all near the hinge."
   },
   {
     "name": "Transponder",
     "aliases": [
       "transponder"
     ],
-    "def": "The box aboard the spacecraft that answers a radio pulse from the ground, which is what makes timing the round trip a distance measurement."
+    "def": "A box on the spacecraft that answers a radio call from Earth. How long the answer takes tells you how far away it is."
+  },
+  {
+    "name": "State vector",
+    "aliases": [
+      "state vector"
+    ],
+    "def": "Where something is and how fast it is going, written down together for one moment in time."
   }
 ];

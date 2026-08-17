@@ -17,7 +17,7 @@ export const CURRICULUM = {
         "setup": "Survey Telescope Control",
         "play": "Say which explanation fits all four readings on the board.",
         "task": "Say which explanation fits all four readings on the board.",
-        "question": "Which explanation fits all four readings?",
+        "question": "The dot moved and the stars did not. What does that tell you about the dot?",
         "answer": "A real object out in the Solar System",
         "why": "A real object moves against the sky. A camera fault moves with the camera. That is the test, and every reading here uses it. The dot is round in all three pictures, so it is not a cosmic ray, which hits once and hits sharp. It lands on a new pixel each time, so it is not a hot pixel. A second telescope found it, so it is not one camera making things up.",
         "rebuttals": [
@@ -52,10 +52,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Check it before you send it",
-      "scene": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The discovery notice goes out at dawn.",
+      "scene": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.",
       "takeaway": "A claim is worth sending out once somebody else can test it.",
       "place": "Image Processing Lab",
-      "story": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The discovery notice goes out at dawn.",
+      "story": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.",
       "game": {
         "type": "SEQUENCE",
         "title": "Check it before you send it",
@@ -73,8 +73,8 @@ export const CURRICULUM = {
         ],
         "cards": [
           "Remove the camera's own marks, and solve exactly where it was pointing.",
-          "Match every dot in the field against the star list, the satellite list and the known camera faults.",
-          "Measure where the object is and how bright it is, and say how sure you are.",
+          "Check every dot against the star and satellite lists.",
+          "Measure where it is and how bright, with a range.",
           "Post a predicted position, so another observatory can look and check."
         ],
         "order": [
@@ -115,23 +115,24 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated measurements",
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
           "v": [
             [
-              "average",
-              "the mean"
+              "speed",
+              "in kilometres per second"
             ],
             [
-              "total",
-              "the measurements added up"
+              "distance",
+              "in kilometres"
             ],
             [
-              "how many",
-              "the number of measurements"
+              "time",
+              "in seconds"
             ]
           ],
-          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero."
+          "s": "Speed is how much ground is covered divided by how long it took.",
+          "computed": true
         }
       ]
     },
@@ -160,8 +161,8 @@ export const CURRICULUM = {
         "cards": [
           "Put every measurement on the same map and the same clock.",
           "Fit a first rough path across the sky.",
-          "Look at what the fit misses, and see whether the misses make a pattern.",
-          "Say where the object will be tomorrow night, closely enough to point a telescope."
+          "Look at what the fit misses, and why.",
+          "Say where it will be tomorrow, closely enough to point."
         ],
         "order": [
           0,
@@ -234,7 +235,7 @@ export const CURRICULUM = {
         "play": "Radar has settled this pass. Say what has to be worked out before anybody calls it safe.",
         "task": "Radar has settled this pass. Say what has to be worked out before anybody calls it safe.",
         "question": "Radar has settled this pass. What has to be worked out before anybody calls the object safe?",
-        "answer": "Carry the measured pass forward through Earth's gravity, and check the close approaches after it.",
+        "answer": "Carry this pass forward, and check the later ones.",
         "why": "A measured miss settles this pass and not the next one. Passing a few Earth radii out lets Earth's gravity pull on the rock and change its speed and its direction. That changes how long its trip round the Sun takes, so it returns at a different time and in a different place. A narrow band of today's paths can turn into a much closer pass later. Safety has to be worked out after the bend.",
         "rebuttals": [
           "A measured miss settles this pass and says nothing about the path the pass creates.",
@@ -242,12 +243,12 @@ export const CURRICULUM = {
           "A fresh arc is needed and is not enough. Without carrying the orbit through the pass there is nothing to compare it with."
         ],
         "choices": [
-          "Carry the measured pass forward through Earth's gravity, and check the close approaches after it.",
-          "Use the measured miss as the final answer, since the object is already going away.",
-          "Pin down the size first, then judge safety from whether it would survive another pass.",
-          "Take a fresh set of measurements after the pass and treat those as enough on their own."
+          "Carry this pass forward, and check the later ones.",
+          "Use this miss as the final answer, since it is leaving.",
+          "Pin down the size first, and judge safety from that.",
+          "Take fresh measurements after the pass, and stop there."
         ],
-        "correctChoice": "Carry the measured pass forward through Earth's gravity, and check the close approaches after it."
+        "correctChoice": "Carry this pass forward, and check the later ones."
       },
       "assumes": [
         "a planet's gravity bends the path of anything that passes close to it"
@@ -522,7 +523,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "More light comes back, because there is more surface catching sunlight.",
-          "More of the sunlight that lands is sent back, at the same size.",
+          "More of the sunlight landing on it is sent back.",
           "Less sunlight arrives to be sent back at all.",
           "What does come back is spread thinner before it gets here."
         ],
@@ -539,27 +540,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "light spreads out as it travels, so the same lamp looks fainter from further away"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated measurements",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the measurements added up"
-            ],
-            [
-              "how many",
-              "the number of measurements"
-            ]
-          ],
-          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero."
-        }
       ]
     },
     {
@@ -672,10 +652,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Whose dip is it?",
-      "scene": "A wide dip has turned up in the spread of colours, and it would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
+      "scene": "A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
       "takeaway": "Measurements that share one path do not check each other.",
       "place": "Spectroscopy Observatory",
-      "story": "A wide dip has turned up in the spread of colours, and it would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
+      "story": "A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
       "game": {
         "type": "TRACE",
         "title": "Whose dip is it?",
@@ -758,7 +738,7 @@ export const CURRICULUM = {
             },
             {
               "id": "flat_field_calibration",
-              "label": "flat-field calibration"
+              "label": "the flat-field calibration, which is the check that evens out the camera"
             },
             {
               "id": "space_instrument",
@@ -811,10 +791,10 @@ export const CURRICULUM = {
           "Its whole shape, and the spin that carries it round."
         ],
         "choices": [
-          "Time the echo. Radio travels at a known speed, so the time there and back gives a distance.",
-          "Measure how far the echo is spread in pitch. One side turns toward us while the other turns away.",
-          "Read how strong the echo is at each moment. The near face answers first, so later means deeper.",
-          "Build pictures on many nights, right through a full turn, and fit them together."
+          "Time the echo. Radio has a known speed, so time gives distance.",
+          "Measure the spread in pitch. One side comes, one goes.",
+          "Read when each part of the echo returns. Later means further.",
+          "Build pictures across a full turn, and fit them together."
         ],
         "mapping": [
           0,
@@ -869,26 +849,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated measurements",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the measurements added up"
-            ],
-            [
-              "how many",
-              "the number of measurements"
-            ]
-          ],
-          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero.",
-          "card": false
         }
       ]
     }
@@ -1004,11 +964,11 @@ export const CURRICULUM = {
         "setup": "Deflection Physics Lab",
         "play": "Work the craft's push into a change in the rock's speed.",
         "task": "Work the craft's push into a change in the rock's speed.",
-        "question": "About how much does the rock's speed change?",
+        "question": "How far will the nudge have moved the rock by the time it arrives?",
         "answer": "",
-        "why": "Momentum is weight multiplied by speed, and a collision hands it over. The craft carries a large speed and almost no weight. The rock has an enormous weight, so the same momentum buys it very little speed. Divide, and the change is about one and a half centimetres a second. That sounds like nothing at all. Given ten years of travel, it is the difference between a hit and a miss.",
+        "why": "The push is tiny. A craft weighing ten tonnes hits a rock weighing eight billion, so the rock's speed changes by about fifteen millimetres a second — walking pace divided by two hundred. What makes it matter is that the rock keeps that speed, second after second, for eight years. Fifteen millimetres a second works out at about 475 kilometres in a year, and eight of those is thousands of kilometres of sideways shift. That is the whole idea of a nudge: it is not the push that is big, it is the time.",
         "givens": [],
-        "relationship": "Momentum = weight × speed. Change in speed = that momentum ÷ the weight it lands on.",
+        "relationship": "Distance moved = how far it shifts in one year × the number of years.",
         "calcKey": "IMPACT-3"
       },
       "assumes": [
@@ -1033,8 +993,7 @@ export const CURRICULUM = {
               "in seconds"
             ]
           ],
-          "s": "Speed is how much ground is covered divided by how long it took.",
-          "computed": true
+          "s": "Speed is how much ground is covered divided by how long it took."
         },
         {
           "e": "momentum = weight × speed",
@@ -1053,8 +1012,7 @@ export const CURRICULUM = {
               "in metres per second"
             ]
           ],
-          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on.",
-          "computed": true
+          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
         },
         {
           "e": "change in speed = momentum ÷ weight",
@@ -1074,7 +1032,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
-          "computed": true,
           "card": false
         },
         {
@@ -1243,7 +1200,7 @@ export const CURRICULUM = {
         "setup": "Follow-Up Telescope Network",
         "play": "Say which explanation fits the pattern in the misses.",
         "task": "Say which explanation fits the pattern in the misses.",
-        "question": "Which explanation fits the pattern in the misses?",
+        "question": "The misses appear at one edge of one camera's chip, and nowhere else. Where is the fault?",
         "answer": "The camera's map from chip to sky is out of date",
         "why": "The reference stars are the control. They do not move, so anything that shifts them belongs to the equipment. Here they miss by more toward one edge of the chip, and the asteroid misses the same way. That is a pattern in chip position, not in the sky. A real push would move the asteroid alone. The clock agrees, so it is not timing, and the second telescope agrees, so it is not the orbit.",
         "rebuttals": [
@@ -1273,68 +1230,79 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the reference stars in a picture are a check on the picture itself, because they do not move"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
+        }
       ]
     },
     {
       "day": 2,
-      "title": "Buy the observation that decides",
-      "scene": "Four hours of spare time on a two-metre telescope. The object is faint and sets soon after dusk. The same patch of sky comes back in six nights.",
-      "takeaway": "A measurement is worth buying when its result would change what you do next.",
+      "title": "Why waiting helps",
+      "scene": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
+      "takeaway": "Two paths that agree today drift apart with time, so a later look separates them better than a sharper look now.",
       "place": "Time Standards Room",
-      "story": "Four hours of spare time on a two-metre telescope. The object is faint and sets soon after dusk. The same patch of sky comes back in six nights.",
+      "story": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
       "game": {
-        "type": "VALUE",
-        "title": "Buy the observation that decides",
-        "setup": "Time Standards Room",
+        "type": "CHOICE",
+        "title": "Why waiting helps",
+        "setup": "Two possible paths fit tonight's measurements equally well.",
         "play": "Spend the one booking on the observation that changes next week's prediction most.",
         "task": "Spend the one booking on the observation that changes next week's prediction most.",
-        "question": "Which booking changes the six-night prediction most?",
-        "answer": "Book the later observation. By then the paths that fit today's data have spread apart. One position rules most of them out. Another picture tonight would not.",
-        "why": "A short arc fits many paths at once. A picture tonight is sharp and adds almost nothing. The paths have not had time to disagree yet. Give them days and they spread across the sky. Then one later position throws most of them out. Looking from far away works for the same reason. A new angle is new information. A sharper picture from the same spot is not.",
-        "value": {
-          "budget": {
-            "amount": 1,
-            "unit": "follow-up booking"
-          },
-          "decision": "Choose which orbit family to prioritize for the next six-night prediction and impact-monitoring update.",
-          "options": [
-            {
-              "id": "later",
-              "label": "Observe again near the end of the six-night visibility window",
-              "cost": 1,
-              "axis": "time baseline",
-              "reveals": "How the competing short-arc orbit families separate after several days of propagation.",
-              "decisive": true
-            },
-            {
-              "id": "immediate",
-              "label": "Take another exposure immediately from the same telescope",
-              "cost": 1,
-              "axis": "same-geometry precision",
-              "reveals": "A slightly smaller random position error at almost the same time and geometry."
-            },
-            {
-              "id": "parallax",
-              "label": "Use a geographically separated telescope tonight",
-              "cost": 1,
-              "axis": "distance by parallax",
-              "reveals": "An independent distance constraint from simultaneous viewing geometry, useful but less leverage on the six-day along-track prediction than the missing time baseline."
-            },
-            {
-              "id": "press",
-              "label": "Use the slot to prepare and release the discovery notice",
-              "cost": 1,
-              "axis": "communication",
-              "reveals": "No new physical constraint on distance, velocity, or the orbit family."
-            }
-          ],
-          "hint": "You can buy one follow-up booking. Open each option to see what new constraint it would add, then spend the slot on the evidence that most changes the short-arc orbit prediction.",
-          "commit": "Commit the decision"
-        }
+        "question": "Two paths fit tonight equally well. What makes them easier to tell apart?",
+        "answer": "Time. Let both paths run for six nights and they end up in visibly different places.",
+        "why": "Two paths through the same point tonight are heading slightly different ways. Tonight they sit on top of each other. No camera can split them, however sharp it is. Six nights later that small difference has become a real gap in the sky. One picture then does what ten pictures tonight cannot. So the booking worth having is the late one. A sharper look at tonight is worth much less than a rougher look later.",
+        "rebuttals": [
+          "A sharper picture of tonight still has both paths in the same place.",
+          "Ten pictures of the same moment is one moment, ten times.",
+          "A bigger telescope sees fainter, and it cannot see the future."
+        ],
+        "choices": [
+          "Waiting, and looking again in six nights",
+          "Taking a sharper picture tonight",
+          "Taking many pictures tonight in a row",
+          "Using a bigger telescope tonight"
+        ],
+        "correctChoice": "Waiting, and looking again in six nights"
       },
       "assumes": [
-        "a short arc of measurements fits many possible paths",
-        "parallax is the shift you see when you look at something from a different place"
+        "two paths that agree tonight can disagree later"
       ]
     },
     {
@@ -1420,8 +1388,8 @@ export const CURRICULUM = {
         "cards": [
           "Take out what the Sun, the air and the instrument each added.",
           "Measure how much light the surface sends back, colour by colour.",
-          "Pick out the features that hold up, and try several mineral models against them.",
-          "Report the classes that fit, the ones you cannot rule out, and what would settle it."
+          "Take the features that hold up, and try several minerals.",
+          "Report what fits, and what would settle the rest."
         ],
         "order": [
           0,
@@ -1447,7 +1415,7 @@ export const CURRICULUM = {
         "setup": "Composition Review Room",
         "play": "One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require.",
         "task": "One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require.",
-        "question": "One spectrum, one angle, one spin, and a draft notice naming a class. What do you require?",
+        "question": "The rock turns as it goes. What does watching it at other angles add?",
         "answer": "Look at more colours than this spectrum covers.",
         "why": "A firmer claim needs evidence that could disagree with the one you have. More colours reach features this spectrum cannot see at all, so whole families of minerals can be ruled out. Another look tonight, taken the same way, repeats the same mistakes. Checks that work by different physics come next, once the list is short. Keep the range visible, because the deflection team turns it into a weight.",
         "rebuttals": [
@@ -1467,6 +1435,25 @@ export const CURRICULUM = {
         "a measurement made one way can be wrong in the same way every time"
       ],
       "equations": [
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
+        },
         {
           "e": "change in position = change in speed × time",
           "c": "why a deflection works better early",
@@ -1728,7 +1715,7 @@ export const CURRICULUM = {
           "The chance falls after a decisive measurement."
         ],
         "choices": [
-          "Keep watching, and prepare in ways that cost nothing if it comes to nothing.",
+          "Keep watching, and prepare in ways that waste nothing.",
           "Move supplies in and plan the routes, because both can be undone.",
           "Order people to move, under emergency powers.",
           "Stand down in public, and say why."
@@ -1746,27 +1733,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reversible action can be undone afterwards; an irreversible one cannot"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated measurements",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the measurements added up"
-            ],
-            [
-              "how many",
-              "the number of measurements"
-            ]
-          ],
-          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero."
-        }
       ]
     },
     {
@@ -1937,9 +1903,9 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "Tracking shows the orbit shift, and somebody else confirms it.",
-          "The best guess is safe, and the edge of the spread is not pinned down.",
+          "The best guess is safe, and the edges are not pinned down.",
           "The plans are ready, and they use an old corridor.",
-          "The rock is no threat, and the search still misses parts of the sky."
+          "No threat from this rock, and the sky is still not covered."
         ],
         "choices": [
           "Accept it, and keep checking.",
@@ -1976,7 +1942,7 @@ export const CURRICULUM = {
         "play": "Say which part of the system has to keep its funding.",
         "task": "Say which part of the system has to keep its funding.",
         "question": "The campaign budget ends with this review. What survives it?",
-        "answer": "Keep the search and the fast follow-up going, and hold on to the links to everything else.",
+        "answer": "Keep the search and the quick follow-up, and the links.",
         "why": "Warning time is what every later choice gets bought with. Finding a rock earlier gives more nights to check the orbit. It gives time to measure the size and what it is made of. It makes a small push worth giving, because years turn a push into distance. It lets people prepare in stages. Plans and models matter too, and none of them can give back time that was never bought.",
         "rebuttals": [
           "Studying rocks and testing deflections are both worth having, and they need an object found early enough for any of it to matter.",
@@ -1984,12 +1950,12 @@ export const CURRICULUM = {
           "This campaign is the evidence against that. The gaps, the viewing angles and the follow-up were all short."
         ],
         "choices": [
-          "Keep the search and the fast follow-up going, and hold on to the links to everything else.",
-          "Move most of the money to studying rocks and testing deflections, since the catalogue is nearly done.",
-          "Move most of the money to civil readiness, since a warning will arrive by itself when it matters.",
+          "Keep the search and the quick follow-up, and the links.",
+          "Move the money to studying rocks and testing nudges.",
+          "Move the money to civil readiness, and wait for warnings.",
           "Stop spending. The catalogue and the automatic alerts have it covered."
         ],
-        "correctChoice": "Keep the search and the fast follow-up going, and hold on to the links to everything else."
+        "correctChoice": "Keep the search and the quick follow-up, and the links."
       },
       "assumes": [
         "warning time comes from finding things early, not from planning for them"
@@ -2071,32 +2037,30 @@ export const BALLPARK_CALCS = {
   },
   "ORBIT-3": {
     "prompt": "The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.",
-    "question": "What is the chance of impact, as a percentage?",
+    "question": "How many paths in every thousand hit?",
     "labels": [
-      "thirty-seven paths that hit",
-      "one hundred thousand paths tried",
-      "one thousand paths (the first quick run)",
-      "99,963 paths that missed",
-      "eight years to the encounter"
+      "37 (paths that hit)",
+      "100 (thousands of paths tried)",
+      "1 (thousand paths, in the first quick run)",
+      "8 (years to the encounter)"
     ],
     "values": [
       37,
-      100000,
-      1000,
-      99963,
+      100,
+      1,
       8
     ],
     "slots": 2,
-    "template": "{0} ÷ {1} × 100",
-    "formula": "a/b*100",
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
     "correct": [
       0,
       1
     ],
-    "target": 0.037,
-    "tolerance": 0.004,
-    "units": "%",
-    "solution": "Thirty-seven out of one hundred thousand is 0.037 per cent.",
+    "target": 0.37,
+    "tolerance": 0.04,
+    "units": "paths in every thousand",
+    "solution": "Thirty-seven hits in a hundred thousand paths is about a third of one path in every thousand.",
     "explanation": "The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small."
   },
   "OPS-4": {
@@ -2130,18 +2094,18 @@ export const BALLPARK_CALCS = {
     "explanation": "A quarter of the area is not a quarter of the width, because area grows as width squared. The tile that has already taken the square root is the trap."
   },
   "OPS-7": {
-    "prompt": "The pulse left the dish and the echo came back four seconds later. Radio travels three hundred thousand kilometres a second.",
-    "question": "About how far away is the object?",
+    "prompt": "The pulse left the dish and the echo came back four seconds later. Counting in thousands of kilometres, radio covers 300 of them every second.",
+    "question": "About how far away is the object, in thousands of kilometres?",
     "labels": [
       "4.0 seconds (there and back)",
-      "300,000 kilometres each second (speed of radio)",
+      "300 (thousands of kilometres radio covers each second)",
       "2 (out, and back again)",
-      "eight years to the encounter",
+      "8 (years to the encounter)",
       "0.5 arcseconds (the seeing that night)"
     ],
     "values": [
       4,
-      300000,
+      300,
       2,
       8,
       0.5
@@ -2154,89 +2118,84 @@ export const BALLPARK_CALCS = {
       1,
       2
     ],
-    "target": 600000,
-    "tolerance": 30000,
-    "units": "km",
-    "solution": "Three hundred thousand × four ÷ two is six hundred thousand kilometres.",
+    "target": 600,
+    "tolerance": 30,
+    "units": "thousand km",
+    "solution": "Four seconds at 300 thousand kilometres a second is 1,200, and half of that is 600 thousand kilometres out.",
     "explanation": "Forget to halve it and the answer is twice too big. That is how far the pulse travelled, not how far away the rock is."
   },
   "IMPACT-2": {
     "prompt": "The rock weighs about eight billion kilograms, and it would arrive at twenty thousand metres a second.",
     "question": "About how much energy would the impact carry?",
     "labels": [
-      "8,000,000,000 kg (what it weighs)",
-      "20,000 metres a second (how fast it arrives)",
-      "180 metres (how wide it is)",
-      "2,600 kg in every cubic metre (the rock it is made of)",
-      "11,200 metres a second (the speed needed to escape Earth)"
+      "1,600 (millions of billions of joules it would carry)",
+      "4 (millions of billions of joules in one megaton)",
+      "180 (metres across)",
+      "20 (kilometres a second, how fast it arrives)"
     ],
     "values": [
-      8000000000,
-      20000,
+      1600,
+      4,
       180,
-      2600,
-      11200
+      20
     ],
     "slots": 2,
-    "template": "½ × {0} × {1} × {1}",
-    "formula": "0.5*a*b*b",
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
     "correct": [
       0,
       1
     ],
-    "target": 1600000000000000000,
-    "tolerance": 200000000000000000,
-    "units": "J",
-    "solution": "Half of eight billion, times twenty thousand, times twenty thousand again — about 1.6 × 10¹⁸ joules.",
-    "explanation": "The speed goes in twice. Halve it and the energy falls to a quarter, which is why the speed tile is worth more than the weight tile."
+    "target": 400,
+    "tolerance": 40,
+    "units": "megatons",
+    "solution": "Sixteen hundred shared out at four for each megaton is about four hundred megatons.",
+    "explanation": "Joules are the wrong size of unit to think in here. Turning the energy into megatons is what lets anybody compare it with something they have heard of."
   },
   "IMPACT-3": {
-    "prompt": "A ten thousand kilogram craft hits the rock at twelve thousand metres a second. The rock weighs 7.9 billion kilograms.",
-    "question": "About how much does the rock's speed change?",
+    "prompt": "The push speeds the rock sideways by fifteen millimetres a second, which works out at about 475 kilometres in a year. The encounter is eight years away.",
+    "question": "How far will the rock have moved by then?",
     "labels": [
-      "10,000 kg (weight of the craft)",
-      "12,000 metres a second (closing speed)",
-      "7.9 billion kg (weight of the rock)",
-      "20,000 metres a second (the speed it meets Earth at)",
-      "2.0 (extra push from material thrown off)"
+      "475 km (how far the nudge moves it in a year)",
+      "8 (years before the encounter)",
+      "15 (millimetres a second the nudge adds)",
+      "2 (extra push from material thrown off)"
     ],
     "values": [
-      10000,
-      12000,
-      7900000000,
-      20000,
+      475,
+      8,
+      15,
       2
     ],
-    "slots": 3,
-    "template": "{0} × {1} ÷ {2}",
-    "formula": "a*b/c",
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 0.0152,
-    "tolerance": 0.0015,
-    "units": "m/s",
-    "solution": "Ten thousand × twelve thousand is 1.2 × 10⁸. Divided by 7.9 × 10⁹ kilograms, that is about 0.015 metres a second.",
-    "explanation": "Use the craft's own closing speed, not the speed the rock meets Earth at. Material thrown off the surface would add more push, and it is left out because nobody can predict it."
+    "target": 3800,
+    "tolerance": 300,
+    "units": "km",
+    "solution": "About 475 kilometres in a year, for eight years, is about 3,800 kilometres.",
+    "explanation": "The millimetres a second are the same fact in a smaller unit, not a second thing to multiply by. Do this nudge one year out instead of eight and it buys an eighth as much room."
   },
   "OPS-11": {
     "prompt": "Nine million people live inside the corridor. Today's chance of impact is half of one per cent.",
     "question": "How many people does that share come to?",
     "labels": [
-      "nine million people (in the corridor)",
-      "0.005 (today's chance, as a decimal)",
-      "two million people (in the biggest city there)",
-      "0.05 (an earlier, higher chance)",
-      "0.037 per cent (the number from the path count)"
+      "9,000 (thousands of people in the corridor)",
+      "5 (people in every thousand, at today's chance)",
+      "2,000 (thousands of people in the biggest city there)",
+      "50 (people in every thousand, at the earlier chance)",
+      "0.37 (paths in every thousand that hit)"
     ],
     "values": [
-      9000000,
-      0.005,
-      2000000,
-      0.05,
-      0.037
+      9000,
+      5,
+      2000,
+      50,
+      0.37
     ],
     "slots": 2,
     "template": "{0} × {1}",
@@ -2254,6 +2213,15 @@ export const BALLPARK_CALCS = {
 };
 
 export const JARGON = [
+  {
+    "name": "Spectrum",
+    "aliases": [
+      "spectrum",
+      "spectra"
+    ],
+    "def": "A thing's brightness measured colour by colour. Different materials send back different colours, so the shape of that measurement says what something is made of.",
+    "core": true
+  },
   {
     "name": "Albedo",
     "aliases": [

@@ -7,13 +7,13 @@ export const MISSIONS = [
     "title": "The Failure",
     "objective": "Create a trusted state vector and a prioritized anomaly list before commanding the crew.",
     "briefing": "A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.",
-    "stake": "The bang was four minutes ago. Commander Hale reported it before any instrument did, which is the first thing that should worry you. Now three consoles hold numbers that disagree. One power bus reads zero. The guidance computer has restarted with nothing in it. And several cabin pressure readings dropped together inside the same second. Evelyn Carter is already saying that readings dropping together are one fault, not three. This shift you decide what is happening to the spacecraft, get one agreed picture of it, and set how this room will work for the next five days. Hale and the crew can hear every word.",
+    "stake": "The bang was four minutes ago. Commander Hale heard it before any instrument showed it. Now three consoles disagree. One main power line reads zero. Several cabin pressure readings dropped in the same second. Evelyn Carter says readings that drop together are one fault, not three. Today you work out what is happening and get the room to one picture of it. Hale and the crew can hear every word you say.",
     "takeaway": "Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 0,
-        "task": "Open what each reading depends on, keep what stands alone, and name what the rest share."
+        "task": "Say what could make three readings fall in the same second."
       },
       {
         "group": "INTEG",
@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 2,
-        "task": "Say what the flight director does first."
+        "task": "Say which reading the room watches first."
       }
     ]
   },
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Find the Spacecraft",
     "objective": "Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.",
     "briefing": "Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.",
-    "stake": "9 hours after the bang, and the station carrying the whole solution sets in 40 minutes. The guidance lead, Camila Reyes, will not sign the trajectory until she has one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going, and buy the next observation. Fitting the measurements together is the job, and only one station is still up. Her trajectory officer, Dale Whitaker, wants a number now so the room can start planning the correction. Reyes wants the right number. They are both right, and there are 40 minutes.",
+    "stake": "Nine hours after the bang. The one station still tracking sets in forty minutes. Camila Reyes, the guidance lead, will not sign a trajectory built on the computer that failed. Today you rebuild where the spacecraft is and how fast it is going. Dale Whitaker wants a number now, so the room can plan the correction. Reyes wants the right number. They are both right, and the clock is the same forty minutes.",
     "takeaway": "Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Turn Without Wasting Fuel",
     "objective": "Develop a controlled reorientation procedure that stops the rotation at the required attitude.",
     "briefing": "The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.",
-    "stake": "26 hours in. The guidance platform is off to save power, 1 thruster quad is dead, and Hale has to turn the spacecraft 90 degrees by hand while Sato reads angles aloud. Kwame Mensah, who owns the structural dynamics, has done the sums and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and work out what a thruster actually does. Every degree of turn is paid for twice, once to start it and once to stop it. Let it tumble and the antenna, the array and the burn attitude go together.",
+    "stake": "Twenty-six hours in. The guidance computer is off to save power and one set of thrusters is dead. Hale has to turn the spacecraft ninety degrees by hand. Today you agree what the turning numbers mean and write the steps for him. Every degree costs fuel twice, once to start it and once to stop it. Let it tumble and they lose the antenna, the power and the engine burn together.",
     "takeaway": "Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The Power Budget",
     "objective": "Build a load-shedding plan that preserves essential functions through the next critical maneuver.",
     "briefing": "Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.",
-    "stake": "Thirty-four hours in, and the argument changes shape. Priya Shah has the power reserve down to hours. She wants everything that is not vital switched off by the end of the shift. Aaron Brooks says the two things on his list are the scrubber fan and the cabin heaters. His crew are already sleeping in everything they own. And the bus is sagging at twenty-four volts instead of twenty-eight, while the current sits where it should. That is Shah's other problem. This shift you work out how long the batteries last, decide why the voltage is low, and choose what goes off.",
+    "stake": "Thirty-four hours in. Priya Shah has the power reserve down to hours, and she wants everything not vital switched off today. Aaron Brooks says the two things on his list are the air scrubber and the heaters. His crew are sleeping in everything they own. Today you work out how long the batteries last and choose what goes off. Whatever you switch off, somebody up there feels it.",
     "takeaway": "Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The Cabin Is Cooling",
     "objective": "Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.",
     "briefing": "With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction, convection, radiation, metabolic heat, and battery performance.",
-    "stake": "Two days after the bang, Brooks wins one, and it costs Shah her margin. The cabin is at four degrees and falling, condensation is running down the walls, and Ruiz has stopped being able to write legibly. Today you work out how fast the vehicle is losing heat, decide which way it is leaving, and choose what to insulate. There is power to fight it one way and not three. Average temperature is also the wrong number: batteries fail at their own local temperature, and the coldest spot in that cabin is the wall behind the pack the entry sequence depends on. Brooks is arguing for the crew, Shah for the batteries, and they want the same watts.",
+    "stake": "Two days after the bang. Brooks won the argument, and it cost Shah her margin. The cabin is at four degrees and falling. Water is running down the walls, and Ruiz can no longer write clearly. Today you work out how fast the heat is escaping and choose what to wrap. There is power to fight it one way, not three. Brooks is arguing for the crew and Shah for the batteries, and they want the same watts.",
     "takeaway": "Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "The Air Problem",
     "objective": "Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.",
     "briefing": "Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.",
-    "stake": "58 hours in. Carbon dioxide is climbing in a cabin built for two and holding three. The life support engineer, Petra Novak, has been on the loop with the crew for an hour, and the canisters that fit are aboard the module they cannot use. The scrubber fan still draws its rated current, which Brooks refuses to accept as good news. Today you find out why the air is not being cleaned, work out how fast three people fill a cabin, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first symptom, and he cannot notice it himself.",
+    "stake": "Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. Petra Novak has been on the radio with the crew for an hour. The spare canisters are the wrong shape for the socket. Today you find out why the air is not being cleaned, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first sign, and he cannot see it himself.",
     "takeaway": "Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "Communication Fades",
     "objective": "Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.",
     "briefing": "The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.",
-    "stake": "66 hours in, the link went weak at the moment the vehicle turned — down 12 decibels, and Hale is answering calls he can barely hear. The communications lead, Naomi Ito, has the link budget open and her network officer is arguing for a different term in it. Ito wants the pointing checked first and he wants the receiver. This shift you find the cause and get the link back. Losing this costs two things at once, because the signal is also a navigation measurement — the room goes deaf and half blind in the same minute, with a burn still to fly.",
+    "stake": "Sixty-six hours in. The radio went weak the moment the spacecraft turned. Hale is answering calls he can barely hear. Naomi Ito wants the aim checked first. Her network officer wants the receiver checked instead. Today you find the cause and get the link back. Losing the radio costs twice, because it is also how the room measures where the spacecraft is. There is still a burn to fly.",
     "takeaway": "Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "The Structure Is Vibrating",
     "objective": "Move the system away from resonance and verify that the mitigation works across operating conditions.",
     "briefing": "A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.",
-    "stake": "90 hours in, and a structural dynamics engineer, Chidi Okoye, caught this 1 — worth saying, because nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it, work out the structure's own natural rhythm, and stop it. The shaking dies away as soon as the pump moves off that speed, which is the part Okoye thinks matters. This is a shift where something is simply fixed.",
+    "stake": "Ninety hours in, and Chidi Okoye caught this one early. Nothing else this week has been caught early. A panel shakes whenever a pump runs near one speed. A pipe behind it has been rubbing for an hour. Today you work out what is shaking it, and stop it. The shaking dies away as soon as the pump moves off that speed. This is a day where something is simply fixed.",
     "takeaway": "Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -191,7 +191,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 10,
-        "task": "Say what the safest immediate move is."
+        "task": "Say which change stops the pushes landing in time."
       }
     ]
   },
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "The Last Correction",
     "objective": "Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.",
     "briefing": "Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.",
-    "stake": "106 hours in, and it is Carter's turn — she has been waiting 4 days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.",
+    "stake": "A hundred and six hours in, and it is Carter's turn. She has waited four days for it. Several ground stations suddenly put the spacecraft ahead of its path. They agree with each other, and they all run off the same clock. Whitaker wants the burn now. Today you decide whether the spacecraft really moved. Carter's rule is that a correction is only worth making when it is bigger than the doubt in the measurement.",
     "takeaway": "Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 11,
-        "task": "Spend the last of the tracking on what could change the decision."
+        "task": "Predict what the burn will do, fire it, then measure it."
       }
     ]
   },
@@ -223,13 +223,13 @@ export const MISSIONS = [
     "title": "Reentry",
     "objective": "Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.",
     "briefing": "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery.",
-    "stake": "A hundred and 18 hours in. The sequence starts in 11 minutes, 4 of them with no communications, and nothing in it can be undone. This shift you take the claims one at a time and decide whether this vehicle is ready. They are not equally strong: a heat shield cold for four days, a battery charged through a path Ana Ferreira, the load officer, invented on the sixth shift, an alignment Ruiz flew by hand against stars, a corridor entered on Carter's independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word of this for five days, and today they say very little.",
+    "stake": "A hundred and eighteen hours in. The landing starts in eleven minutes, four of them with no radio, and none of it can be undone. Today you check the claims one at a time and decide whether this spacecraft is ready. The heat shield has been cold for four days. The battery was charged a way nobody planned. Ruiz lined the spacecraft up by hand, against stars. All of it has to hold at the same moment.",
     "takeaway": "Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 12,
-        "task": "Spend the two checks on the claims where being wrong costs most."
+        "task": "Say why the radio goes quiet."
       },
       {
         "group": "INTEG",

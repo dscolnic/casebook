@@ -433,6 +433,15 @@ answer first.
 **An estimate carries its `relationship` on the challenge**, not inside the
 estimate block, and offers distractor tiles. Both were real defects.
 
+**And a tile says what it is worth.** `labels[i]` is the number in `values[i]`,
+because the player clicks the label and the panel adds the value. Seven games
+shipped panels where the two had drifted apart — Deep Watch asked for the
+pressure at ninety metres and graded gallons a minute — and each of them
+rendered, graded and validated cleanly. The importer refuses it now; the trap
+suite (`npm run traps`) breaks it and confirms the refusal. Two neighbours of the
+same rule: `slots` equals the length of `correct`, and at grade 8 and below a
+stop declares **one** relationship, not a chain of them.
+
 **A sweep asks a question and states the criterion it grades against.** The first
 six were written as instructions — "sweep the drive and mark the frequency this
 qubit responds at", "move the discriminator line and find the best place for it" —

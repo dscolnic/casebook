@@ -2574,27 +2574,31 @@ export const BALLPARK_CALCS = {
       "1013 Pa  (0.01 atm)",
       "8.314 J/(mol·K)  (R)",
       "0.9 mol/h/person  (CO₂ production)",
-      "9  (people)"
+      "9  (people)",
+      "0.21  (the oxygen fraction, which this is not about)"
     ],
     "values": [
-      9,
-      0.04,
       36,
-      0.01,
-      1,
-      70
+      293,
+      1013,
+      8.314,
+      0.9,
+      9,
+      0.21
     ],
-    "slots": 4,
-    "template": "{2} × {3} ÷ ({0} × {1})",
-    "formula": "c*d/(a*b)",
+    "slots": 6,
+    "template": "{2} × {0} ÷ ({3} × {1}) ÷ ({4} × {5})",
+    "formula": "c*a/(d*b)/(e*f)",
     "correct": [
       0,
       1,
       2,
-      3
+      3,
+      4,
+      5
     ],
-    "target": 1,
-    "tolerance": 0.2,
+    "target": 1.85,
+    "tolerance": 0.3,
     "units": "hours",
     "solution": "n ≈ (1013 Pa × 36 m³)/(8.314 × 293) ≈ 15 mol. Production = 9 × 0.9 = 8.1 mol/h. Time ≈ 15/8.1 ≈ 1.9 h.",
     "explanation": "At nearly fixed total pressure and temperature, a one-percentage-point concentration rise is a 0.01-atmosphere rise in CO₂ partial pressure."
@@ -2634,7 +2638,7 @@ export const BALLPARK_CALCS = {
     "prompt": "An external contact’s line is at 149.7 Hz. The class reference is 150.0 Hz. Use c = 1500 m/s.",
     "question": "Estimate the line-of-sight range rate.",
     "labels": [
-      "-0.3 Hz  (frequency shift)",
+      "0.3 Hz  (how far the line has shifted)",
       "150.0 Hz  (reference frequency)",
       "1500 m/s  (sound speed)",
       "0.5144 m/s per knot  (conversion)"
@@ -2663,16 +2667,16 @@ export const BALLPARK_CALCS = {
     "prompt": "The bilge contains about 1.6 m³ of seawater. Use ρ = 1025 kg/m³ and g = 9.81 m/s².",
     "question": "Estimate the added weight and the equal buoyant-force scale.",
     "labels": [
-      "1025 kg/m³  (seawater density)",
+      "1.025 tonnes/m³  (seawater density)",
       "1.6 m³  (floodwater volume)",
       "9.81 m/s²  (g)",
-      "9.81 kN  (weight of 1 tonne)"
+      "9.81 kN  (the weight of one tonne)"
     ],
     "values": [
-      4,
+      1.025,
       1.6,
-      8,
-      90
+      9.81,
+      9.81
     ],
     "slots": 2,
     "template": "{0} × {1}",
@@ -2681,10 +2685,10 @@ export const BALLPARK_CALCS = {
       0,
       1
     ],
-    "target": 6.4,
-    "tolerance": 0.8,
+    "target": 1.64,
+    "tolerance": 0.2,
     "units": "tonnes",
-    "solution": "1025 × 1.6 × 9.81 ≈ 1.61×10^4 N = 16.1 kN, equivalent to about 1.64 tonnes of seawater.",
+    "solution": "1.025 tonnes in every cubic metre, times 1.6 m³, is about 1.64 tonnes — as a force, 1.64 × 9.81 ≈ 16.1 kN.",
     "explanation": "Use measured volume, not depth change, because a submerged boat’s vertical motion also depends on planes, speed and acceleration."
   },
   "ATMO-4": {
@@ -2756,9 +2760,9 @@ export const BALLPARK_CALCS = {
     "question": "By what factor is radiated power reduced?",
     "labels": [
       "12 dB  (level reduction)",
-      "10  (power-ratio decibel divisor)",
-      "15.85  (exact reduction factor)",
-      "3 dB  (about a factor of 2, for scale)"
+      "3 dB  (one halving of power)",
+      "2  (the factor each 3 dB is worth)",
+      "10  (the divisor if you work in powers of ten)"
     ],
     "values": [
       12,
@@ -2777,7 +2781,7 @@ export const BALLPARK_CALCS = {
     "target": 16,
     "tolerance": 2,
     "units": "× less power",
-    "solution": "10^(12/10) = 10^1.2 ≈ 15.85, so the power is about 16 times lower, or 6.3% of the original.",
+    "solution": "12 dB is four steps of 3 dB, and each step halves the power: 2^4 = 16 times lower, or about 6% of the original.",
     "explanation": "A logarithmic level difference turns subtraction in decibels into a power ratio."
   },
   "SONAR-9": {

@@ -56,10 +56,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "From damaged container to provisional identity",
-      "scene": "Inside the mobile laboratory, the first intact sample from the damaged drums is sealed on the bench. The outside markings are still visible, vapour can be collected from the headspace, and only a small amount of liquid is available for testing.",
+      "scene": "Inside the mobile laboratory, the first intact sample from the damaged drums is sealed on the bench. Its outside markings are legible now and will be scuffed off by the opening. Breaking the seal to draw liquid vents the headspace, and there is only enough liquid for two runs.",
       "takeaway": "Analytical work runs from what costs nothing to what cannot be undone.",
       "place": "Molecular Identification Lab",
-      "story": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
+      "story": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it, and so does the air above the liquid: breaking the seal to draw an aliquot vents the headspace. You are choosing the order in which to spend a sample nobody can go back for.",
       "game": {
         "type": "SEQUENCE",
         "title": "From damaged container to provisional identity",
@@ -86,6 +86,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Order the four by what each one costs you, cheapest first. This is not a clock — every step is available right now, and the question is which ones you can still take afterwards.",
+        "ends": [
+          "Costs nothing",
+          "Cannot be undone"
         ]
       },
       "assumes": [
@@ -1607,6 +1612,29 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
+        },
+        {
+          "e": "ΔTf = i·Kf·m",
+          "c": "how far dissolved salt drops a freezing point",
+          "v": [
+            [
+              "ΔTf",
+              "in °C"
+            ],
+            [
+              "i",
+              "particles per formula unit"
+            ],
+            [
+              "Kf",
+              "in °C kg/mol"
+            ],
+            [
+              "m",
+              "in mol/kg"
+            ]
+          ],
+          "s": "Only the number of dissolved particles matters, which is why a salt that splits in two counts twice."
         }
       ]
     }
@@ -2812,6 +2840,35 @@ export const CURRICULUM = {
       },
       "assumes": [
         "oxidation is losing electrons and reduction is gaining them"
+      ],
+      "equations": [
+        {
+          "e": "n = It ÷ (zF)",
+          "c": "how much a current can deposit or remove",
+          "v": [
+            [
+              "n",
+              "in moles"
+            ],
+            [
+              "I",
+              "in amperes"
+            ],
+            [
+              "t",
+              "in seconds"
+            ],
+            [
+              "z",
+              "electrons per ion"
+            ],
+            [
+              "F",
+              "Faraday's constant"
+            ]
+          ],
+          "s": "Charge is the currency: how much metal moves is set by how many electrons were pushed through."
+        }
       ]
     },
     {
@@ -3124,6 +3181,33 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
+        },
+        {
+          "e": "n = It ÷ (zF)",
+          "c": "how much a current can deposit or remove",
+          "v": [
+            [
+              "n",
+              "in moles"
+            ],
+            [
+              "I",
+              "in amperes"
+            ],
+            [
+              "t",
+              "in seconds"
+            ],
+            [
+              "z",
+              "electrons per ion"
+            ],
+            [
+              "F",
+              "Faraday's constant"
+            ]
+          ],
+          "s": "Charge is the currency: how much metal moves is set by how many electrons were pushed through."
         }
       ]
     },
@@ -3322,9 +3406,9 @@ export const BALLPARK_CALCS = {
     "question": "Estimate the moles of hydrogen ion in the measured free pool.",
     "labels": [
       "1,000 L  (volume treated)",
-      "4.0  (pH)",
-      "1.0×10⁻⁷ mol/L  ([H⁺] in neutral water)",
-      "10  (base of the logarithm)"
+      "1.0×10⁻⁴ mol/L  ([H⁺] at pH 4.0)",
+      "4.0  (the pH reading itself)",
+      "1.0×10⁻⁷ mol/L  ([H⁺] in neutral water)"
     ],
     "values": [
       1000,

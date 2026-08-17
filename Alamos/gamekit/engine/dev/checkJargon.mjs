@@ -83,6 +83,49 @@ const MORPHEMES = [
   'quadratur', 'transponder', 'interferomet', 'lithotrip', 'auscultat', 'saturation',
 ];
 
+// ——— terms built out of ordinary words ————————————————————————————
+//
+// The lexicon above is morphemes, so it cannot see a domain term whose parts are
+// all words a child knows. "Cabin pressure" and "power bus" are the two that a
+// sixth grader stopped on, and both are invisible to every test in this file:
+// six ordinary words, four syllables, and a meaning she had no way to get.
+// CLAUDE.md already predicted this one — "what no cheap rule catches is a domain
+// term built from ordinary words, which is exactly what 'transfer window' is" —
+// and the answer is the same as it was for TERMS: a list, matched whole, that
+// grows the next time a game teaches one.
+const PHRASES = [
+  // spaceflight
+  'cabin pressure', 'power bus', 'guidance computer', 'tracking pass', 'state vector',
+  'flight surgeon', 'ground station', 'heat shield', 'entry corridor', 'attitude control',
+  'correction burn', 'star camera', 'leak monitor', 'dial gauge', 'transfer window',
+  // power and electricity
+  'load bank', 'switching station', 'transmission line', 'power factor', 'demand curve',
+  'state of charge', 'amp hour', 'amp-hour',
+  // water, air and ground
+  'storm surge', 'water table', 'fault scarp', 'ice equivalent', 'core sample',
+  'settling tank', 'holding time', 'detection limit', 'background level',
+  // life and health
+  'case definition', 'contact tracing', 'attack rate', 'control group', 'growth medium',
+  'isolation distance', 'seed lot',
+  // instruments generally
+  'shared reference', 'common cause', 'sampling rate', 'error bar', 'confidence interval',
+];
+// One canonical spelling per phrase, so "amp-hour", "amp hour" and "amp-hours"
+// are one term rather than three that each look under-explained. The plural
+// lives in the regex rather than in the key: stripping a trailing s from the key
+// turned "tracking pass" into "tracking pas", which matched nothing anywhere.
+const flatPhrase = (p) => String(p).toLowerCase().replace(/[-–—]/g, ' ').replace(/\s+/g, ' ').trim();
+const phraseRe = (p) => new RegExp('\\b' + flatPhrase(p).replace(/ /g, '[\\s-]+') + '(?:es|s)?\\b', 'i');
+// Only for a young audience. "Cabin pressure" is vocabulary an AP course is
+// entitled to use without stopping, and running this list over the senior games
+// would report every one of them for words their readers have.
+const juniorAudience = Number.isFinite(Number(theme?.audience?.grade)) && Number(theme.audience.grade) <= 8;
+const phrasesIn = (text) => {
+  if(!juniorAudience) return [];
+  const t = String(text ?? '');
+  return [...new Set(PHRASES.filter(p => phraseRe(p).test(t)).map(flatPhrase))];
+};
+
 const hardWord = (w) => {
   const word = w.toLowerCase().replace(/[’']s$/, '');
   if(TERMS.has(word)) return true;
@@ -102,6 +145,9 @@ const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
 // Plurals only, and only the safe ones: the first version turned "substance" into
 // "substanc" and "candidate" into "candidat", so half the report was misspelt.
 const flat = (w) => {
+  // An acronym keeps its S. Stripping it turned RMS into "rm", which matched no
+  // glossary entry and was reported as an undefined term that appears nowhere.
+  if(/^[A-Z]{2,5}$/.test(String(w))) return String(w).toLowerCase();
   const word = String(w).toLowerCase().replace(/[’']s$/, '');
   if(/(ss|us|is)$/.test(word)) return word;
   if(/(?:ses|xes|zes|ches|shes)$/.test(word)) return word.slice(0, -2);
@@ -121,8 +167,11 @@ const flat = (w) => {
 const glossary = new Set();
 const stem = (w) => flat(String(w).toLowerCase().replace(/-/g, '')).slice(0, 6);
 const GLUE = new Set(['the', 'a', 'an', 'of', 'and', 'or', 'in', 'on', 'to', 'by', 'per']);
+/** The multi-word entries, flattened the same way phrasesIn flattens the text. */
+const glossaryPhrases = new Set();
 for(const t of JARGON){
   for(const n of [t?.name, ...(t?.aliases ?? [])].filter(Boolean)){
+    if(/\s|-/.test(String(n))) glossaryPhrases.add(flatPhrase(n));
     // Short entries count: the acronyms are the shortest words in the glossary
     // and a length floor of four excluded every one of them — QC, DC, RNA, MeV.
     for(const w of words(n)) if(!GLUE.has(w.toLowerCase())) glossary.add(stem(w));
@@ -138,14 +187,41 @@ const known = (raw) => {
 
 /** Does this text define the word on the spot? */
 function definedInPlace(word, text){
-  const w = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`\\b${w}\\b\\s*(?:—|–|-|\\(|,\\s*(?:which|that|the)\\b|\\s+is\\s+|\\s+are\\s+|\\s+means\\b)`, 'i').test(text)
+  // Spaces in a term match a hyphen too, so the prose is free to write
+  // "amp-hour" where the glossary writes "amp hour" without looking undefined.
+  // By stem, and tolerant of the plural and the hyphen: prose says "calibration
+  // is the check against known samples" where the word the questions use is
+  // "calibrated", and requiring the exact inflection called that undefined.
+  // Escape first, then add the wildcard — escaping afterwards turns the stem's
+  // own `[a-z]*` into a literal, which is how this arrived reporting that a word
+  // defined two words earlier was defined nowhere.
+  const safe = String(word).replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[\\s-]+');
+  const w = word.length > 6 && !/\s/.test(word) ? safe.slice(0, 6) + '[a-z]*' : safe + '(?:es|s)?';
+  return new RegExp(`\\b${w}\\b\\s*(?::|—|–|-|\\(|,\\s*(?:which|that|the)\\b|\\s+is\\s+|\\s+are\\s+|\\s+means\\b)`, 'i').test(text)
       || new RegExp(`\\b(?:called|known as|that is|meaning)\\s+(?:a |an |the )?${w}\\b`, 'i').test(text);
 }
 
 // ——— walk the campaign in order ————————————————————————————————————
 const taught = new Set();      // words a verdict has explained, or a glossary defines
 for(const w of glossary) taught.add(w);   // stems, so `taught` and `known` agree
+
+// ——— how many times each term is explained —————————————————————————
+//
+// Once is not teaching, for a young reader. A glossary chip explains a word to
+// somebody who thinks to open it; a definition in the scene explains it to
+// somebody reading the scene; a verdict explains it to somebody who has just
+// been wrong about it. Those are three different readers and they are often the
+// same child on three different days. So for a junior edition this file counts
+// explanations rather than asking whether there is one, and every place that
+// explains a term in its own words counts once.
+const explained = new Map();   // term -> Set of "where"
+const explainedBy = (term, where) => {
+  if(!explained.has(term)) explained.set(term, new Set());
+  explained.get(term).add(where);
+};
+function countExplanations(term, text, where){
+  if(definedInPlace(term, text)) explainedBy(term, where);
+}
 
 const firstUse = new Map();    // word -> { day, where, kind }
 const perDay = [];
@@ -188,10 +264,32 @@ MISSIONS.forEach((m, mi) => {
         : 'unexplained';
       if(!dayHard.has(w)) dayHard.set(w, { how, where: `${stop.group} "${l.title}"` });
       if(how === 'unexplained' && !firstUse.has(w)) firstUse.set(w, { day: dayNo, where: `${stop.group} "${l.title}"` });
+      countExplanations(w, asked, `day ${dayNo} ${l.title}`);
+    }
+    // The same walk again for terms made of ordinary words, which the word
+    // tokenizer above cannot see because every part of them is a word.
+    for(const p of phrasesIn(asked)){
+      const how = phrasesIn(primerText).includes(p) ? 'primer'
+        : glossaryPhrases.has(p) ? 'glossary'
+        : phrasesIn((l.assumes ?? []).join(' ')).includes(p) ? 'assumes'
+        : taught.has(p) ? 'taught earlier'
+        : definedInPlace(p, asked) ? 'defined in place'
+        : 'unexplained';
+      if(!dayHard.has(p)) dayHard.set(p, { how, where: `${stop.group} "${l.title}"` });
+      if(how === 'unexplained' && !firstUse.has(p)) firstUse.set(p, { day: dayNo, where: `${stop.group} "${l.title}"` });
+      countExplanations(p, asked, `day ${dayNo} ${l.title}`);
     }
     // A verdict may teach a word for later days.
-    for(const raw of words([ch.why, l.takeaway, ...(ch.rebuttals ?? []).map(label)].join(' '))){
+    const verdict = [ch.why, l.takeaway, ch.answerText, ...(ch.rebuttals ?? []).map(label)].join(' ');
+    for(const raw of words(verdict)){
       if(hardWord(raw)) explainedLater.push(flat(raw));
+    }
+    for(const raw of new Set(words(verdict).filter(hardWord).map(flat))){
+      countExplanations(raw, verdict, `verdict of "${l.title}"`);
+    }
+    for(const p of phrasesIn(verdict)){
+      explainedLater.push(p);
+      countExplanations(p, verdict, `verdict of "${l.title}"`);
     }
   }
 
@@ -233,6 +331,29 @@ const blindDays = perDay.filter(d => d.unexplained.length >= 2 && !d.covered.len
 const thinDays = perDay.filter(d => d.unexplained.length >= 2 && d.covered.length
                                     && d.covered.length < d.hard.length / 3);
 
+// 1b. And for a young audience, once is not enough. A term the game uses has to
+//     be said again somewhere else, in different words — the glossary entry, the
+//     scene that first uses it, and the verdict that corrects a wrong answer are
+//     three different moments, and a child needs more than one of them.
+const junior = Number.isFinite(grade) && grade <= 8;
+const usedTerms = [...new Set([...perDay.flatMap(d => [...d.dayHard.keys()])])];
+const onceOnly = !junior ? [] : usedTerms.filter((t) => {
+  const places = explained.get(t)?.size ?? 0;
+  const inGlossary = t.includes(' ') ? glossaryPhrases.has(t) : known(t);
+  return places + (inGlossary ? 1 : 0) < 2;
+});
+// An edition is held to this. A game written for its own audience from scratch
+// is advised, for the same reason questionLoad advises rather than fails there:
+// the rule arrived after those games shipped, and applying it retroactively is a
+// content decision for a person.
+const { editionBase } = await import('./registry.mjs');
+const isEdition = !!editionBase(themeName);
+if(onceOnly.length && isEdition) problems.push(
+  `${onceOnly.length} term(s) are explained once or not at all, for an audience of grade ${grade}`
+  + ` — say it again somewhere else, in different words`);
+else if(onceOnly.length) notes.push(
+  `${onceOnly.length} term(s) are explained once or not at all, for grade ${grade} (advisory — not an edition)`);
+
 if(neverTaught.length) problems.push(
   `${neverTaught.length} hard word(s) are used and never introduced — no glossary entry, no primer, no definition in place`);
 if(blindDays.length) problems.push(
@@ -252,6 +373,15 @@ if(neverTaught.length){
     console.log(`    · ${w} — first used on day ${u.day}, ${u.where}`);
   }
   if(!verbose && neverTaught.length > 12) console.log(`    … ${neverTaught.length - 12} more (--verbose)`);
+}
+if(onceOnly.length){
+  console.log(`  explained once or not at all, and this edition is for grade ${grade} (${onceOnly.length}):`);
+  for(const t of show(onceOnly, 14)){
+    const places = [...(explained.get(t) ?? [])];
+    const inGlossary = t.includes(' ') ? glossaryPhrases.has(t) : known(t);
+    console.log(`    · ${t} — ${places.length ? places.join('; ') : 'nowhere'}${inGlossary ? ' + the glossary' : ''}`);
+  }
+  if(!verbose && onceOnly.length > 14) console.log(`    … ${onceOnly.length - 14} more (--verbose)`);
 }
 console.log(`  primer coverage of each day's hard words:`);
 for(const d of perDay){

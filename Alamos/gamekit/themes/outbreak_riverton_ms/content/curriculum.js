@@ -12,56 +12,18 @@ export const CURRICULUM = {
       "place": "Hospital Pathology Suite",
       "story": "Pathology has four results from the same samples and still cannot name what this is. The samples are waiting under the hood. Ortiz needs a broad answer before the overnight run is booked.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "CHOICE",
         "title": "What kind of germ fits everything?",
         "setup": "Hospital Pathology Suite",
         "play": "Say which explanation fits every reading, including the quiet ones.",
         "task": "Say which explanation fits every reading, including the quiet ones.",
-        "question": "Which explanation fits every reading here?",
+        "question": "Bacteria and fungi are cells. Nothing cell-shaped is on the slide. What does that rule out?",
         "answer": "Something virus-like. Three separate looks for a cell came back empty, and it only copies itself inside living cells.",
         "why": "The negative results do most of the work. Nothing cell-shaped is visible. The marker that finds bacteria is absent. The stain built to find fungal walls is clean, and it rarely misses. The signal only grows where there are living cells to grow in, which fits something that cannot copy itself alone. And the blank is clean, so it did not come out of the room. That is a virus-shaped answer, without naming which one.",
         "rebuttals": [
           "A bacterium is a cell, and it would leave something behind. Three separate looks came back empty.",
           "A fungus would show its wall on a stain built to find it. That stain is clean, and it rarely misses.",
           "Something from the room is the right suspicion, and the blank is how it gets checked. This blank is clean."
-        ],
-        "headline": "Several clues from the same samples, and no name yet.",
-        "readings": [
-          {
-            "zone": "Microscope",
-            "label": "Microscope",
-            "value": "No intact cellular forms seen",
-            "status": "normal",
-            "note": "Several fields examined; image quality is good"
-          },
-          {
-            "zone": "Host-cell dependence",
-            "label": "Host-cell dependence",
-            "value": "Signal rises only when living host cells are present",
-            "status": "alarm",
-            "note": "Acellular control shows no increase"
-          },
-          {
-            "zone": "Bacterial marker",
-            "label": "Bacterial marker",
-            "value": "Not detected",
-            "status": "normal",
-            "note": "Control bacterial sample is detected normally"
-          },
-          {
-            "zone": "Fungal cell-wall stain",
-            "label": "Fungal cell-wall stain",
-            "value": "Negative",
-            "status": "normal",
-            "note": "Positive stain control is normal"
-          },
-          {
-            "zone": "Extraction blank",
-            "label": "Extraction blank",
-            "value": "Negative",
-            "status": "normal",
-            "note": "No target signal in the blank"
-          }
         ],
         "choices": [
           {
@@ -86,6 +48,27 @@ export const CURRICULUM = {
       "assumes": [
         "some germs are cells that can copy themselves, and viruses cannot copy themselves alone",
         "a test that comes back negative is a result, not a missing one"
+      ],
+      "equations": [
+        {
+          "e": "how many after n rounds = start × 2 each round",
+          "c": "why an outbreak grows so fast",
+          "v": [
+            [
+              "how many after n rounds",
+              "the number of cases"
+            ],
+            [
+              "start",
+              "how many there were to begin with"
+            ],
+            [
+              "each round",
+              "one person passing it to two"
+            ]
+          ],
+          "s": "Doubling looks slow for a week and then is not slow at all, which is why a small outbreak is worth acting on."
+        }
       ]
     },
     {
@@ -208,7 +191,7 @@ export const CURRICULUM = {
           "The hijacked machinery is last, because it is an effect. A cell doing the wrong work has already been entered."
         ],
         "cards": [
-          "Something on the outside of the germ is recognised by a piece on the cell's surface.",
+          "A piece on the cell surface recognises the germ.",
           "The cell's outer layer bends, or joins with it.",
           "The material crosses into the cell.",
           "The cell's own machinery starts being used for something else."
@@ -247,8 +230,8 @@ export const CURRICULUM = {
           "Something large being wrapped up is a different process from anything crossing the layer."
         ],
         "scenarios": [
-          "Something small and greasy moves from where there is more of it to where there is less.",
-          "A charged particle moves the same way, through a doorway in the layer.",
+          "Something small and greasy drifts from more to less.",
+          "A charged particle goes the same way, through a doorway.",
           "Something is moved uphill, and energy gets spent doing it.",
           "Something large is wrapped up by the layer and taken in."
         ],
@@ -326,52 +309,6 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "How many by morning",
-      "scene": "The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.",
-      "takeaway": "Doubling looks slow at first and then is not slow at all.",
-      "place": "Cell Biology Laboratory",
-      "story": "The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "How many by morning",
-        "setup": "Cell Biology Laboratory",
-        "play": "Work out how many cells there will be in eight hours.",
-        "task": "Work out how many cells there will be in eight hours.",
-        "question": "About how many cells will there be after eight hours?",
-        "answer": "About two million. Twelve doublings is roughly four thousand times as many, not twelve times.",
-        "why": "Eight hours is four hundred and eighty minutes, which is twelve doublings. Twelve doublings is not twelve times as many. It is two multiplied by itself twelve times, which is about four thousand times as many. Five hundred cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which multiplies the answer by four. That is why the same arithmetic is frightening when the thing doubling is cases.",
-        "givens": [],
-        "relationship": "Cells at the end = cells at the start × two, doubled once for every doubling time.",
-        "calcKey": "CELL-4"
-      },
-      "assumes": [
-        "every division turns one cell into two"
-      ],
-      "equations": [
-        {
-          "e": "how many after n rounds = start × 2 each round",
-          "c": "why an outbreak grows so fast",
-          "v": [
-            [
-              "how many after n rounds",
-              "the number of cases"
-            ],
-            [
-              "start",
-              "how many there were to begin with"
-            ],
-            [
-              "each round",
-              "one person passing it to two"
-            ]
-          ],
-          "s": "Doubling looks slow for a week and then is not slow at all, which is why a small outbreak is worth acting on.",
-          "computed": true
-        }
-      ]
-    },
-    {
-      "day": 5,
       "title": "Same instructions, different cells",
       "scene": "The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.",
       "takeaway": "Every cell carries the same instructions and reads a different part of them.",
@@ -392,12 +329,12 @@ export const CURRICULUM = {
           "The landing site is one of the body's own parts. The germ uses it and does not supply it."
         ],
         "choices": [
-          "The instruction is read in some kinds of cell and left unread in others.",
+          "Some kinds of cell read it, and others never do.",
           "Only airway cells have that instruction. The muscle cells lost it.",
           "The muscle cells make it too, and the stain cannot reach them.",
           "The germ makes it, rather than the cell."
         ],
-        "correctChoice": "The instruction is read in some kinds of cell and left unread in others."
+        "correctChoice": "Some kinds of cell read it, and others never do."
       },
       "assumes": [
         "every cell in a body carries the same set of instructions"
@@ -428,8 +365,8 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The higher temperature wrecked the shape the test depends on.",
-          "More heat always means a faster reaction, so it must have run too fast.",
-          "The patient's sample went off, even though this test used the same working part.",
+          "More heat always means faster, so it ran too fast.",
+          "The patient's sample went off before it was tested.",
           "The thing being looked for was destroyed at fifty-five degrees."
         ],
         "correctChoice": "The higher temperature wrecked the shape the test depends on."
@@ -605,9 +542,9 @@ export const CURRICULUM = {
           "The total on the wards stays high after new admissions fall."
         ],
         "choices": [
-          "An early sign from the whole town, and not proof of how it spreads.",
+          "An early sign from the whole town, not a route.",
           "Evidence that people can pass it on before they feel ill.",
-          "A sample of volunteers at one station, which may not be like the riders.",
+          "Volunteers at one station, who may not be typical.",
           "Each patient takes weeks to recover, so the wards empty slowly."
         ],
         "mapping": [
@@ -635,57 +572,18 @@ export const CURRICULUM = {
       "place": "Emergency Department Network",
       "story": "Seven patients across three hospitals in four days, with the same four symptoms. Dr. Sofia Morales has the printouts, and the press office has asked twice whether to say anything.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "CHOICE",
         "title": "Signal or noise?",
         "setup": "Emergency Department Network",
         "play": "Say whether this is a real signal, and what on the desk decides it.",
         "task": "Say whether this is a real signal, and what on the desk decides it.",
-        "question": "Is this a real signal, and what on the desk decides it?",
+        "question": "The city normally sees about two of these a year. How many were there in four days?",
         "answer": "A real signal. Two a year is what this city normally sees. And two of the seven were found a second way.",
         "why": "A count on its own is not a signal. What makes it one is a comparison with what was expected, written down beforehand. This city logs about two of these a year. Seven in four days is not a busy week. The quiet reading matters most: two of the seven were found by hand, outside the alert that found the other five. If every case had come through one alert, the cluster could have belonged to the alert.",
         "rebuttals": [
           "The alert rule is the right worry, and it is the one this panel rules out. Five came through it and two did not.",
           "Autumn coughs would lift the other illnesses too. Those are flat, so whatever this is, it is not the season.",
           "The population figures are on the desk. All three hospitals supplied theirs, so that objection has already been answered."
-        ],
-        "headline": "Seven cases in four days, against a thing the city normally logs twice a year.",
-        "readings": [
-          {
-            "zone": "Count",
-            "label": "Cases meeting the syndrome",
-            "value": "7 in four days",
-            "status": "alarm"
-          },
-          {
-            "zone": "Baseline",
-            "label": "Same syndrome",
-            "value": "about 2 a year",
-            "status": "key"
-          },
-          {
-            "zone": "Reporting",
-            "label": "How the cases were found",
-            "value": "5 by one alert rule",
-            "status": "key"
-          },
-          {
-            "zone": "Denominator",
-            "label": "Catchment population",
-            "value": "supplied by all three hospitals",
-            "status": "normal"
-          },
-          {
-            "zone": "Season",
-            "label": "Other respiratory syndromes this week",
-            "value": "flat",
-            "status": "normal"
-          },
-          {
-            "zone": "Geography",
-            "label": "Shared address",
-            "value": "none found",
-            "status": "normal"
-          }
         ],
         "choices": [
           {
@@ -735,10 +633,10 @@ export const CURRICULUM = {
           "The revision date goes out with it. Without one, three hospitals keep counting to a definition everybody knows is temporary."
         ],
         "cards": [
-          "Read the notes of the patients already in, and find what they share.",
-          "Write down the symptoms, the timing and the place, plainly enough to use at four in the morning.",
-          "Try it on known cases, and on people who obviously do not have it.",
-          "Send it out with a date for revising it, and what is still unknown."
+          "Read the notes of the patients already in.",
+          "Write the symptoms, timing and place plainly enough to use.",
+          "Try it on known cases, and on clear non-cases.",
+          "Send it out with a date to revise it."
         ],
         "order": [
           1,
@@ -760,54 +658,26 @@ export const CURRICULUM = {
       "place": "Clinical Data Office",
       "story": "Morales can start one thing this afternoon. Four are ready to go, and tomorrow's hospital numbers will land before any second one can start.",
       "game": {
-        "type": "VALUE",
+        "type": "CHOICE",
         "title": "Spend the first afternoon",
         "setup": "Clinical Data Office",
         "play": "Spend the one slot on what makes tomorrow's numbers usable.",
         "task": "Spend the one slot on what makes tomorrow's numbers usable.",
-        "question": "Which first move changes what the team can conclude tomorrow?",
+        "question": "Three hospitals are sending numbers tomorrow. What has to be the same before they can be added together?",
         "answer": "Start the shared list. Tomorrow's three counts only become one usable picture if the same definition and the same dates made them.",
         "why": "Three hospitals are about to send in three sets of numbers. They can only be added together if the same rule made them. A shared list, with the same dates and the same town figures, is what does that. Testing the sewage gives a separate signal about the whole town, and it cannot say who is ill. Asking experts what they think has nothing underneath it. A warning adds no evidence.",
-        "value": {
-          "budget": {
-            "amount": 1,
-            "unit": "response start"
-          },
-          "decision": "Choose the first action that makes tomorrow's citywide outbreak picture interpretable.",
-          "options": [
-            {
-              "id": "line_list",
-              "label": "Standardised line list across all three hospitals",
-              "cost": 1,
-              "axis": "measurement standardization",
-              "reveals": "Whether all three hospitals are counting the same observable case definition with dates and catchment denominators.",
-              "decisive": true
-            },
-            {
-              "id": "director_interviews",
-              "label": "Interview every hospital director",
-              "cost": 1,
-              "axis": "expert opinion",
-              "reveals": "Clinicians' impressions of how unusual the week feels, without a common denominator or case definition."
-            },
-            {
-              "id": "wastewater",
-              "label": "Start wastewater sampling in affected and comparison areas",
-              "cost": 1,
-              "axis": "independent population surveillance",
-              "reveals": "A community-level signal that does not depend on care seeking, but cannot define or identify clinical cases."
-            },
-            {
-              "id": "warning",
-              "label": "Issue a citywide warning now",
-              "cost": 1,
-              "axis": "public communication",
-              "reveals": "No new physical evidence; it commits public credibility before the transmission picture is established."
-            }
-          ],
-          "hint": "You can start one project before tomorrow’s hospital reports arrive. Open each card to see what new conclusion it would make possible, then spend the slot.",
-          "commit": "Commit the decision"
-        }
+        "rebuttals": [
+          "Who reported it is worth recording and changes no count.",
+          "Which hospital they went to is the thing being compared, not fixed.",
+          "The hour of the count matters far less than what was counted."
+        ],
+        "choices": [
+          "The rule for what counts as a case",
+          "The name of the doctor who reported it",
+          "The hospital each patient arrived at",
+          "The time of day the count was made"
+        ],
+        "correctChoice": "The rule for what counts as a case"
       },
       "assumes": [
         "three hospitals can only be added together if they counted the same way"
@@ -837,8 +707,8 @@ export const CURRICULUM = {
         ],
         "cards": [
           "Compare the patient material against healthy tissue and a blank.",
-          "Look at how big it is, what it is made of, and what its genetic material is like.",
-          "Ask whether it can copy itself alone, or only inside a living cell.",
+          "Look at its size, its coat and its genetic material.",
+          "Ask whether it can copy itself without a cell.",
           "Put the separate observations together into a first answer."
         ],
         "order": [
@@ -1144,7 +1014,7 @@ export const CURRICULUM = {
         ],
         "cards": [
           "A few of them are already different, before any treatment.",
-          "The treatment kills the ones it can much better than the ones it cannot.",
+          "The treatment clears the vulnerable ones far better.",
           "The ones it cannot kill survive and multiply.",
           "What is left is mostly the form the drug cannot touch."
         ],
@@ -1265,8 +1135,8 @@ export const CURRICULUM = {
         ],
         "cards": [
           "Say what it is supposed to do, and how.",
-          "Show it does something, and find the obvious harms, before any person takes it.",
-          "Write down who is in the trial, what counts as working, and when to stop.",
+          "Show it works, and find the obvious harms, first.",
+          "Write who is in it, what working means, and when to stop.",
           "Run the trial, watched by people who are not running it."
         ],
         "order": [
@@ -1461,7 +1331,7 @@ export const CURRICULUM = {
           "How it spreads, which three separate streams agree on.",
           "Who gets sickest, which one small group of patients suggests.",
           "Where it came from, which is still open.",
-          "What would settle each open question, and when the city will look again."
+          "What would settle each open question, and when."
         ],
         "order": [
           0,
@@ -1583,8 +1453,8 @@ export const CURRICULUM = {
         "cards": [
           "Map where people got ill against where the animals live.",
           "Sample the likely animals, and sample comparison places too.",
-          "Compare how common it is, and how closely related, across animals and people.",
-          "Test whether all of it explains the germ crossing over again and again."
+          "Compare how common and how closely related, across both.",
+          "Test whether it explains the crossings happening again."
         ],
         "order": [
           0,
@@ -1623,34 +1493,30 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "POP-5": {
-    "prompt": "Out of ten thousand people, a hundred really have it. The test flags 90 of those hundred, and it also flags 99 people who do not have it.",
+    "prompt": "The test flagged 189 people altogether. Ninety of them really have it, and ninety-nine do not.",
     "question": "Out of every hundred positive results, how many are real cases?",
     "labels": [
-      "90 (real cases the test flagged)",
-      "99 (people flagged who do not have it)",
-      "10 (real cases the test missed)",
-      "9,801 (people correctly cleared)",
+      "90 (of them are real cases)",
+      "189 (people the test flagged altogether)",
+      "99 (flagged people who do not have it)",
       "100 (people who really have it)",
       "9,900 (people who do not)"
     ],
     "values": [
-      10000,
-      0.01,
-      0.9,
-      0.99,
-      0.3,
-      0.1
+      90,
+      189,
+      99,
+      100,
+      9900
     ],
-    "slots": 4,
-    "template": "{0}×{1}×{2} ÷ ( {0}×{1}×{2} + {0}×(1−{1})×(1−{3}) ) × 100",
-    "formula": "a*b*c/(a*b*c + a*(1-b)*(1-d))*100",
+    "slots": 2,
+    "template": "{0} ÷ {1} × 100",
+    "formula": "a/b*100",
     "correct": [
       0,
-      1,
-      2,
-      3
+      1
     ],
-    "target": 47.62,
+    "target": 47.6,
     "tolerance": 3,
     "units": "%",
     "solution": "90 ÷ (90 + 99) × 100 is about 48 out of every hundred.",
@@ -1685,40 +1551,6 @@ export const BALLPARK_CALCS = {
     "units": "L O₂/min",
     "solution": "3 × 0.20 is 0.6 litres of oxygen a minute, against 1.0 for the other patient.",
     "explanation": "Delivery is a rate. The saturation and the blood count describe what a litre carries, and neither of them says how many litres arrive."
-  },
-  "CELL-4": {
-    "prompt": "Five hundred cells to start, one doubling every forty minutes, and eight hours to go.",
-    "question": "About how many cells will there be after eight hours?",
-    "labels": [
-      "500 (cells at the start)",
-      "480 min (eight hours)",
-      "40 min (one doubling)",
-      "2 (cells from each division)",
-      "8 h (the same time, in hours)",
-      "60 (minutes in an hour)"
-    ],
-    "values": [
-      500,
-      480,
-      40,
-      2,
-      8,
-      60
-    ],
-    "slots": 4,
-    "template": "{0} × {3} ^ ({1} ÷ {2})",
-    "formula": "a*Math.pow(d, b/c)",
-    "correct": [
-      0,
-      1,
-      2,
-      3
-    ],
-    "target": 2048000,
-    "tolerance": 400000,
-    "units": "cells",
-    "solution": "480 ÷ 40 is 12 doublings. Doubling twelve times is about 4,100 times as many, so 500 becomes about two million.",
-    "explanation": "Twelve doublings, not twelve times. Multiply five hundred by twelve and the answer is out by a factor of over three hundred."
   }
 };
 

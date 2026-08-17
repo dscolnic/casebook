@@ -1232,7 +1232,7 @@ missions:
   - title: The Unknown Containers
     objective: Create a provisional identity list and choose the next discriminating measurements.
     briefing: A freight-yard fire damages several unlabeled containers beside Riverton's river. The response team must establish chemical identity and hazard classes before firefighters, residents, and the water utility act on rumors. A wrong identity can cause an incompatible firefighting or treatment decision.
-    stake: "Day one, and the freight yard fire has been out for six hours. A row of containers 80 metres from the river is damaged and nobody can tell you what was in them. Three names are going around: one from a driver, one from a half-burnt manifest, one from a label nobody can read. Adaeze Okonjo, who leads the analytical chemistry, wants two methods on the same sample before anybody writes a name down; the fire chief wants a name now. Today you turn that into a short list you would defend, and decide how to spend the one round of lab work you get. Sampling has an order too, because some steps destroy what the next one needed."
+    stake: "Day one. The freight yard fire has been out for six hours. A row of damaged containers sits eighty metres from the river, and nobody knows what was in them. Three names are going around, and they do not agree. Adaeze Okonjo, who runs the laboratory, wants two tests before anybody writes a name down. The fire chief wants a name now. Today you build a short list you would defend."
     takeaway: Create a provisional identity list and choose the next discriminating measurements.
     stops:
       - group: IDENT
@@ -1258,7 +1258,7 @@ missions:
           - What the record shows
           - What you can conclude
         scenarios:
-          - The formula pairs a metal with a group of atoms carrying a charge.
+          - A metal, paired with a charged group of atoms.
           - Two records share every element and disagree on how many of each.
           - A particle has more electrons than protons.
           - A label gives a trade name and nothing else.
@@ -1269,10 +1269,10 @@ missions:
           - Not enough to say anything about the danger.
         mapping: [0, 1, 2, 3]
       - group: IDENT
-        task: Put the four steps in the order they have to happen.
+        task: Put the four steps in order of what each one costs, cheapest first.
         title: From damaged drum to a first answer
         place: Molecular Identification Lab
-        scene: In the mobile laboratory, the first sealed sample from the damaged drums is on the bench. The outside markings are still readable, and there is very little liquid to work with.
+        scene: In the mobile laboratory, the first sealed drum sample is on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. There is enough liquid for two tests.
         assumes:
           - some tests leave a sample as they found it, and some use it up
         takeaway: Do the tests that cost nothing before the ones that cannot be taken back.
@@ -1291,59 +1291,39 @@ missions:
           - Photograph the markings on the outside, which uses nothing up.
           - Collect the air above the liquid, without opening the drum.
           - Take a few drops, and run a test that gives them back.
-          - Run the test that consumes the sample, once there is a question worth spending it on.
+          - Run the test that uses up the sample.
         order: [0, 1, 2, 3]
+        axis: Put the four in order by what each one costs you, cheapest first. There is no clock here. You can do any of them right now, so the question is which ones you can still do afterwards.
+        ends: [Costs nothing, Cannot be taken back]
       - group: IDENT
         task: Spend the budget on the evidence that could change the answer.
-        title: Spend the first of the budget
+        title: Float or sink
         place: Records and Shipping Office
-        scene: There is eight hundred pounds left for the first round of tests. Three drums have lost their labels, and the first sample is ready. Firefighters are waiting at the fence for a name.
+        scene: One drum is leaking into the bund. Nobody knows what the liquid is yet. Adaeze Okonjo needs to know whether it will float on the water already lying there, or sink under it.
         assumes:
-          - two tests that work in different ways can fail in different ways
-          - running the same test twice is not two pieces of evidence
-        takeaway: Buy the test that could prove you wrong, not the one that makes you look thorough.
-        format: VALUE
-        question: Which evidence do you buy before telling firefighters what this is?
-        value:
-          decision: Can the response give firefighters a defensible provisional identity for the damaged drums?
-          budget:
-            amount: 800
-            unit: $
-          hint: Open each evidence card to see what it would tell you, then spend no more than $800. Repeating a result and independently identifying it are different purchases.
-          options:
-            - id: orthogonal
-              label: Independent structural method on the same extract
-              cost: 600
-              axis: identity
-              decisive: true
-              reveals: Whether the proposed compound is supported by a method that does not depend on the original separation or retention-time match.
-            - id: records
-              label: Supplier and shipping-record search
-              cost: 150
-              axis: provenance
-              decisive: false
-              reveals: What should have been shipped in the drums before the fire, not what is chemically present now.
-            - id: controls
-              label: Reference material, blank and matrix spike
-              cost: 250
-              axis: quality control
-              decisive: false
-              reveals: Whether the laboratory added signal or the sample matrix changed the response of the first method.
-            - id: replicate
-              label: Repeat the first method on a second aliquot
-              cost: 200
-              axis: precision
-              decisive: false
-              reveals: Whether the first method repeats on the same sample; it does not create an independent identity measurement.
-        answerText: Buy the test that works a different way. It is the only one that could overturn the answer, and everything else only makes the current answer look tidier.
-        why: A test result can be precise and still be wrong. Running the same test again shows only that it repeats. Checking the paperwork shows where the sample came from. Quality checks catch particular laboratory mistakes. None of those can say the substance is something else. A test that works by different physics can, which is why it is the one worth buying while there is still a decision hanging on the answer.
-        call: Spend the first of the lab budget
-        setup: What does the response run first?
-        story: "You have a limited laboratory budget and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns."
+          - a litre of water weighs about a kilogram
+        takeaway: Whether something floats is a comparison, not a property: it is heavier or lighter than the same amount of water.
+        format: CHOICE
+        question: Which measurement decides whether the liquid floats on water?
+        answerText: How much a litre of it weighs. Under a kilogram and it floats, over a kilogram and it sinks.
+        why: Floating is a comparison. A litre of water weighs about a kilogram, so a litre of anything lighter than that rides on top and a litre of anything heavier goes under. Nothing else on the list decides it. Colour and smell say nothing about weight. The amount in the drum does not change it either — a full drum and a spoonful of the same liquid float or sink the same way. The answer matters tonight, because a floating layer spreads across the bund and reaches the drain, while a sinking one sits at the bottom where the pump inlet is.
+        choices:
+          - How much a litre of it weighs
+          - What colour it is
+          - How strongly it smells
+          - How much of it is in the drum
+        answer: How much a litre of it weighs
+        rebuttals:
+          - Colour is worth writing down and decides nothing here. Clear liquids do both.
+          - Smell is a warning, not a measurement, and it means putting somebody in the vapour.
+          - A spoonful and a full drum of the same liquid float exactly alike.
+        call: Say whether it floats
+        setup: One drum is leaking into the bund, and nobody knows what the liquid is.
+        story: "Whether a spilled liquid floats or sinks decides where it goes and which end of the bund matters. A litre of water weighs about a kilogram; a litre of the spill weighs more or less than that, and that single comparison sets the response. A floating layer spreads out and reaches the drain. A sinking one collects at the bottom, which is where the pump inlet sits, and it can be pumped straight into the system somebody is trying to protect."
   - title: The Vapor Cloud
     objective: Provide a bounded plume assessment and decision triggers for evacuation zones.
     briefing: A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.
-    stake: Day 2, first light, and the wind has backed 40 degrees. A colourless plume is drifting off the yard toward 2 neighbourhoods, and the forecast from the atmospheric chemistry lead, Miklos Varga, disagrees with the incident commander's map about where it goes by 11. Sipho Mbeki, who briefs the public, has to tell residents something by eight. Today you work out how much air that release can fill, what the warming morning will do to it, and which measurement to buy next. Both mistakes cost people. Evacuate too small an area and somebody is standing downwind of it. Evacuate the whole district and you block the roads the fire crews need.
+    stake: "Day two, first light. The wind has turned, and a colourless cloud is drifting off the yard toward two neighbourhoods. Miklos Varga's forecast and the fire chief's map disagree about where it goes by eleven. Sipho Mbeki has to tell residents something by eight. Today you work out how much air that release can fill, and what the warming morning does to it. Warn too small an area and somebody is standing in it."
     takeaway: Provide a bounded plume assessment and decision triggers for evacuation zones.
     stops:
       - group: GASES
@@ -1414,9 +1394,9 @@ missions:
           - The wind shifts while the drum is still leaking.
         choices:
           - It takes up more room, in step with the warming.
-          - It takes up more room, because there is less pushing in on it.
-          - It may sink and pool low down, though wind can stir it up.
-          - Where the danger lies has moved, and the map has to move with it.
+          - It takes up more room, with less pushing in.
+          - It may sink and pool low down.
+          - The danger has moved, so the map must move.
         mapping: [0, 1, 2, 3]
       - group: GASES
         task: Say why the same drum reads three times higher.
@@ -1436,15 +1416,15 @@ missions:
           - Both readings came from the same instrument, and three times over is far more than it can drift.
           - Evaporating takes away the part that evaporates most easily, which would lower the vapour rather than raise it.
         choices:
-          - It is warmer, so more of the liquid is in the air above it.
+          - Warmer liquid puts more of itself into the air.
           - It reacted during the day and made something that evaporates faster.
           - The morning reading was wrong, because instruments drift when cold.
           - More evaporated overnight, so what is left is stronger.
-        answer: It is warmer, so more of the liquid is in the air above it.
+        answer: Warmer liquid puts more of itself into the air.
   - title: What Dissolved in the River?
     objective: Predict where each chemical class will be found and design a mass-balance sampling plan.
     briefing: Runoff from the accident enters the river. Some compounds remain in surface films, some dissolve, and others bind to sediment. The player must predict partitioning from molecular interactions and verify it with sampling. If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.
-    stake: "Day three. Runoff reached the river overnight and Riverton's drinking-water intake is 900 metres downstream. Inês Ferreira, who owns water and sediment, has been out since four and wants it sampled; the state's auditor wants a water survey, because that is what a water survey means. Today you design it: where to sample, in what order, and which parts of the river to sample at all. That last one decides everything else. Test only the water and the result comes back clean, and it is honestly clean — today. The next flood will stir that sediment back into the water."
+    stake: "Day three. Runoff reached the river overnight, and the town takes its drinking water out nine hundred metres downstream. Inês Ferreira has been out since four and wants it sampled properly. Today you decide where to sample, in what order, and whether to test the mud as well as the water. Test only the water and it comes back clean, and it honestly is clean today. The next flood stirs that mud back up."
     takeaway: Predict where each chemical class will be found and design a mass-balance sampling plan.
     stops:
       - group: WATER
@@ -1499,7 +1479,7 @@ missions:
           - Eight times eight would apply if the two joined up in pairs, and this one joins one for one.
         choices:
           - About 0.39 a litre, because the metal falls by about eight times.
-          - About 3.1 a litre, because dissolving is fixed once a solid is there.
+          - About 3.1 a litre, whatever solid is left over.
           - About 24.8 a litre, because both go up together.
           - About 0.05 a litre, because it falls by eight times eight.
         answer: About 0.39 a litre, because the metal falls by about eight times.
@@ -1567,14 +1547,14 @@ missions:
   - title: The Concentration Problem
     objective: Produce concentration maps whose units, detection limits, and quality controls are explicit.
     briefing: City leaders ask whether the contaminant is "high," but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.
-    stake: Day six, and this is where Marisol Reyes and Rie Nakamura stop agreeing. The results are back as numbers, and the city is holding each one against a legal limit, one water system at a time. Nakamura wants every result run again before anything reopens. Reyes points out that four systems are shut on numbers nobody has questioned. Hospitals are on tankers. A week of caution has a cost too, and today she is right. Today you turn readings into what was really in the river, decide whether one result can be trusted, and choose where to sample next.
+    stake: "Day six. The results are back as numbers, and the city is holding each one against a legal limit. Rie Nakamura wants every result run again before anything reopens. Marisol Reyes points out that four water systems are already shut on numbers nobody has questioned. Hospitals are on tankers. Today you turn readings into what was really in the river, and decide whether one result can be trusted."
     takeaway: Produce concentration maps whose units, detection limits, and quality controls are explicit.
     stops:
       - group: QUANT
         task: Work out what was really in the river sample.
         title: Undo the dilution
         place: Quantitative Analysis Lab
-        scene: The laboratory watered the sample down before measuring it. So the instrument reports what was in the vial. The city is about to compare that number with a limit.
+        scene: The lab watered the sample down before measuring it. So the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.
         assumes:
           - watering a sample down lowers the reading by a known amount
         takeaway: What was done to a sample before it was measured is part of the answer.
@@ -1589,7 +1569,7 @@ missions:
           prompt: Ten millilitres of river water were made up to a hundred millilitres. The instrument then read 2.5 milligrams a litre.
           question: What was really in the river sample?
           labels:
-            - 2.5 mg/L (what the instrument read)
+            - 2.5 mg/L — milligrams in every litre (what the instrument read)
             - 100 mL (what it was made up to)
             - 10 mL (how much river water was used)
             - 0.25 mg/L (the smallest the instrument can see)
@@ -1612,7 +1592,7 @@ missions:
         task: Predict what watering it down does, do it, and check the reading.
         title: Say what should happen, then check
         place: River Mapping Center
-        scene: The reading sits above the range this instrument was set up for. It still prints a number, and the number is about to be written into a report.
+        scene: The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and it is going into a report.
         assumes:
           - the reading goes up in step with how much is in the sample
           - watering something down by half halves what is in it
@@ -1633,7 +1613,7 @@ missions:
             dilutionFactor: 2
           measurements:
             - id: rerun
-              label: Rerun diluted sample inside the calibration range
+              label: Rerun it diluted, inside the range the instrument was checked against
               cost: 1
               value: 0.68
               unit: absorbance
@@ -1683,7 +1663,7 @@ missions:
   - title: The Heat Is Rising
     objective: Create an energy balance and choose a monitoring plan that detects self-heating early.
     briefing: A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. If self-heating is mistaken for leftover warmth, responders may leave before runaway conditions develop.
-    stake: Day 11 o'clock in the morning. The fire has been out for eight days and one storage bay is still getting warmer. Tomas Brandt, who owns reactions and energy, has been reading it hourly since midnight and has 11 readings. Fire Command wants the site released tonight and the crews have been on shift for 14 hours. Today you work out how much energy it takes to warm that much material, decide whether you are watching leftover heat or a reaction still running, and set up the monitoring either way. Fire Command wants your answer after the next reading, not after the trend.
+    stake: "Day eleven. The fire has been out for eight days, and one storage bay is still getting warmer. Tomas Brandt has been reading it every hour since midnight. Fire Command wants the site released tonight, and the crews have been on shift for fourteen hours. Today you decide whether this is leftover heat or a reaction still running, and set up the watching either way. One reading cannot tell you which."
     takeaway: Create an energy balance and choose a monitoring plan that detects self-heating early.
     stops:
       - group: ENERGY
@@ -1833,29 +1813,38 @@ missions:
         place: Fire Command
         scene: Fire Command wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.
         assumes:
-          - a trend says something a single reading cannot
-        takeaway: A site is safe to leave when somebody can watch the trend, not when one reading looks fine.
-        format: CHOICE
-        question: Fire Command wants it released tonight. What do you require first?
-        answerText: Continuous watching of the temperature. It is the only thing that says which way the race is going, and it can be in place tonight.
-        why: Self-heating is a race. Something inside is making heat, and the surroundings are carrying heat away, and only the trend says which is winning. One reading cannot. So the thing to insist on is watching it continuously, because that is what turns a guess into a warning. Working out the chemistry takes days and is worth starting. Bringing cooling in changes the race and needs to know which way it is running first.
+          - a rate of change can be carried forward to guess what comes next
+        takeaway: A rising temperature is a rate, and a rate can be run forward to a time somebody has to act by.
+        format: BALLPARK
+        question: If it keeps climbing at the same rate, what will bay three read in eight more hours?
+        answerText: About fifty-seven degrees, and that is the optimistic version — it has been speeding up, not holding steady.
+        why: Thirteen degrees in eight hours is the rate. Run it forward and you get another thirteen. That is about fifty-seven degrees by morning. The number turns an argument into a decision, because it can be held against the temperature where this material runs away. The catch is in the words "the same rate". It has been climbing faster each hour. So fifty-seven is the friendly answer, and the real one comes sooner.
         call: Control the self-heating risk
-        setup: Fire Command wants the site released tonight. What do you require first?
+        setup: Bay three has gone from thirty-one to forty-four in eight hours.
         story: "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen."
-        rebuttals:
-          - Testing the material gives the mechanism and the rate, and it takes days. Start it, and it does not decide tonight.
-          - Cooling changes the race, and it has to know which way the race is running before it can be sized.
-          - One reading at the door is exactly the measurement that failed this afternoon. One bay was warm and falling. One was warm and rising.
-        choices:
-          - Watch the temperature and the heat continuously, in every bay.
-          - Take material away and test how much heat it makes.
-          - Bring cooling on site, and prove it works if the supply fails.
-          - One more reading at the door as the crews leave.
-        answer: Watch the temperature and the heat continuously, in every bay.
+        estimate:
+          relationship: Next temperature = the temperature now + the rise over the same length of time again.
+          prompt: Bay three read thirty-one degrees eight hours ago and reads forty-four now.
+          question: If it keeps climbing at the same rate, what will it read in eight more hours?
+          labels:
+            - 44 °C (what it reads now)
+            - 13 °C (how much it rose in eight hours)
+            - 31 °C (what it read eight hours ago)
+            - 8 (the hours between readings)
+          values: [44, 13, 31, 8]
+          slots: 2
+          template: "{0} + {1}"
+          formula: a+b
+          correct: [0, 1]
+          target: 57
+          tolerance: 3
+          units: °C
+          solution: Forty-four now, plus another thirteen over the next eight hours, is about fifty-seven degrees.
+          explanation: The rise is the difference between the two readings, not either reading on its own. Add the whole forty-four again and you have doubled the temperature rather than continued the trend.
   - title: The Water Changes pH
     objective: Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.
     briefing: The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. A pH correction can mobilize metals, damage infrastructure, or injure workers if the chemical context is ignored.
-    stake: Day 14. The intake has turned acidic and Reyes wants a neutralising dose this morning; Novák, who maintains the pipeline, wants to know what it will do to her mains before anybody doses anything. The titration Ferreira ran overnight is nearly flat for four millilitres and then turns over hard. Today you work out how much acid is really there, read what that curve says about this water, and pick a dose that will not overshoot. There is one dosing pump and no way to take a dose back out. Overshoot and metals come off the pipe walls. Novák's question is the right one.
+    stake: "Day fourteen. The water at the intake has turned acidic, and Reyes wants it neutralised this morning. Novák, who looks after the pipes, wants to know what a dose will do to them first. Today you work out how much acid is really there, and pick a dose that will not overshoot. There is one dosing pump, and no way to take a dose back out. Overshoot and metals come off the pipe walls."
     takeaway: Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.
     stops:
       - group: WATER
@@ -1899,7 +1888,7 @@ missions:
         task: Say what the test explains about the overshoot.
         title: Why the first dose overshot
         place: Acid-Base Bench
-        scene: A dose worked out from the intake reading overshot badly. The bench test is now up beside a reference curve for a simple acid, with fresh checks on the meter from the same electrode.
+        scene: A dose worked out from the intake reading overshot badly. The bench test is up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.
         assumes:
           - some acids hold most of their acid back, and let it out as you neutralise
         takeaway: A reading tells you what is loose right now. It does not tell you what is held in reserve.
@@ -1909,7 +1898,7 @@ missions:
         why: "The reading measures the acid that is loose in the water at that moment. Some acids hold most of theirs back, and release more every time you neutralise what is loose. So the reading looks mild while the amount actually needed is five times bigger. That is what the long flat stretch on the test is: base going in and the reading barely moving, because more acid keeps arriving from the reserve."
         call: Read the titration curve
         setup: Match each feature to its meaning.
-        story: "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading."
+        story: "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is that: adding a measured amount, drop by drop, until the water changes, and counting how much it took. It is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading."
         rebuttals:
           - A simple acid is the reference curve, on the same axes. It finishes early and sharply, and this one does neither.
           - The meter was checked against two known liquids and it was right. It is answering a different question from the one the dose needed.
@@ -2064,7 +2053,7 @@ missions:
   - title: The Corrosion Failure
     objective: Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.
     briefing: Acidic water and different metals threaten the intake pipeline. The player must identify redox couples and stop a small leak from becoming a system-wide failure. A hidden localized failure could interrupt drinking water during the emergency.
-    stake: "Day 26. A section of the intake pipeline has failed and Novák is standing in the hole in Third Street. It is also the main your own team clamped an earth cable to a fortnight ago. That pipe carries the water 140000 people drink, and the city is already on its reserves. Today you find where the metal is being lost and why, work out how fast, and choose the protection. Speed decides your response: the same loss over ten years is maintenance, and over a fortnight it is a burst main."
+    stake: "Day twenty-six. A section of the intake pipeline has failed, and Novák is standing in the hole in Third Street. That pipe carries the water a hundred and forty thousand people drink, and the city is on its reserves. Today you find where the metal is going, work out how fast, and choose the protection. Speed decides everything. The same loss over ten years is maintenance. Over a fortnight it is a burst main."
     takeaway: Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.
     stops:
       - group: TREAT
@@ -2109,30 +2098,30 @@ missions:
           - a rate only becomes a decision when it is compared with a thickness
         takeaway: An amount lost is not a warning until somebody turns it into a depth.
         format: BALLPARK
-        question: How much depth is being lost each year?
-        answerText: About 0.06 millimetres a year, spread evenly. At that rate the wall lasts most of a century — if it really is spread evenly.
-        why: Two kilograms a year sounds alarming and means nothing alone. Spread over four square metres of steel, it works out at about six hundredths of a millimetre a year. At that rate a six millimetre wall lasts most of a century. That is the useful answer, and it is also a warning about averages. The same two kilograms at one hole goes through in a season.
+        question: How many years does it take to lose one millimetre of wall?
+        answerText: About sixteen years for the first millimetre, if the loss is spread evenly over the whole patch.
+        why: Two kilograms a year sounds alarming and means nothing on its own. Spread over four square metres of steel, one millimetre of thickness weighs about thirty-two kilograms, so two kilograms a year takes about sixteen years to eat through it. Six millimetres of wall is most of a century at that rate. That is the useful answer, and it is also a warning about averages. The same two kilograms arriving at one small hole goes straight through in a season.
         call: How fast can material disappear?
         setup: Use a simplified mass-loss estimate.
         story: An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.
         estimate:
-          prompt: The pipe loses about 2.0 kilograms of steel a year over 4.0 square metres. Steel weighs 7,900 kilograms for every cubic metre.
-          question: How much depth is being lost each year?
+          prompt: One millimetre of steel, spread over the whole affected patch, weighs about 32 kilograms. The pipe is losing about 2.0 kilograms a year.
+          question: How many years does it take to lose one millimetre?
           labels:
-            - 2.0 kg each year (steel lost)
-            - 7,900 kg in every cubic metre (steel)
-            - 4.0 m² (the area affected)
+            - 32 kg (one millimetre of steel over that patch)
+            - 2.0 kg each year (what is being lost)
             - 6 mm (the wall that is left)
-          values: [2.0, 7900, 4.0, 6]
-          slots: 3
-          template: "{0} ÷ ({1} × {2})"
-          formula: a/(b*c)*1000
-          correct: [0, 1, 2]
-          target: 0.063
-          tolerance: 0.01
-          units: mm/year
-          solution: 2.0 ÷ (7,900 × 4.0) is about 0.000063 metres, which is 0.063 millimetres a year.
-          explanation: Divide by the density of the metal, not of water. The two differ by nearly eight times, and only one of them is the pipe.
+            - 4.0 m² (the area affected)
+          values: [32, 2.0, 6, 4.0]
+          slots: 2
+          template: "{0} ÷ {1}"
+          formula: a/b
+          correct: [0, 1]
+          target: 16
+          tolerance: 2
+          units: years
+          solution: Thirty-two kilograms in each millimetre, at two kilograms a year, is about sixteen years for the first millimetre.
+          explanation: The six millimetres of wall left is most of a century at this rate, which is maintenance. Ten times the rate is a burst main within a decade, so the rate is the whole question.
           givens:
             - corrosion mass loss = 2.0 kg/year
             - affected area = 4.0 m²
@@ -2165,7 +2154,7 @@ missions:
   - title: Remove It Without Making It Worse
     objective: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     briefing: Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.
-    stake: "Day 31. Kwabena Osei runs the treatment side, and his pilot treatment works — 98% of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for."
+    stake: "Day thirty-one. Kwabena Osei's pilot treatment works. Almost all of the compound is gone by the outlet, and he wants to scale it up this week. Nakamura points out that the test panel was written for that compound and nothing else. Today you work out what the treatment really did: what it removed, what it made, and where the rest went. A panel that is not looking for the new thing reports success either way."
     takeaway: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     stops:
       - group: TREAT
@@ -2267,7 +2256,7 @@ missions:
   - title: Can the Water Be Released?
     objective: Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.
     briefing: Treatment results cluster near the decision threshold. The player must account for uncertainty, detection limits, and sampling representativeness before reopening the water system. A premature release exposes the city; an unnecessary hold can deprive hospitals and homes of essential water.
-    stake: "Day 45, and Nakamura gets her day. The verification results are in and one sits just under the limit — and it is the re-run of a sample whose first quality check failed. She has the instrument's own repeatability from 40 duplicate runs and would like somebody to look at it. Reyes has schools and two hospitals on tankers and wants the release signed this morning. Today you decide: release, release with conditions, or hold. Nakamura's name is on that form under Reyes's. Both mistakes are real, and they are not the same size."
+    stake: "Day forty-five. The checking results are in, and one sits just under the limit. It is the re-run of a sample whose first quality check failed. Nakamura would like somebody to look at that. Reyes has schools and two hospitals on tankers, and wants the release signed this morning. Today you decide: release, release with conditions, or hold. Both mistakes are real, and they are not the same size."
     takeaway: Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.
     stops:
       - group: QUANT
@@ -2289,7 +2278,7 @@ missions:
           - Sixteen units apart is easy for an instrument that weighs molecules. That is exactly the tie it is built to break.
         choices:
           - The weight of the molecule, which differs by sixteen between them.
-          - The order it came out in, since the heavier one always comes later.
+          - The order it came out in, heavier ones later.
           - How big the peak is, since the heavier one gives more signal.
           - Neither, because they are the same kind of substance.
         answer: The weight of the molecule, which differs by sixteen between them.
@@ -2365,7 +2354,7 @@ missions:
   - title: Reopen the City
     objective: Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.
     briefing: The final board must explain what was released, how chemicals moved and changed, which treatments worked, and what contamination remains in solids, infrastructure, and ecosystems. Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.
-    stake: Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits everything the teams have worked out in seven weeks, and those things are not equally solid. Elena Stavros, who runs the long-term watching, wants the monitoring paid for before the emergency money closes on Friday. Nobody else in the room has mentioned it. Today you take the claims one at a time. What was measured. What was worked out. What is still open. Then decide what the city keeps paying for after everyone goes home.
+    stake: "Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits seven weeks of work, and not all of it is equally solid. Elena Stavros wants the long-term monitoring paid for before the emergency money closes on Friday. Nobody else has mentioned it. Today you take the claims one at a time, and decide what the city keeps paying for."
     takeaway: Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.
     stops:
       - group: TREAT

@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What is actually in the vault",
     "objective": "Find out what Wellmere is holding and what it is doing while it sits there.",
     "briefing": "41000 accessions, and 60 of them overdue.",
-    "stake": "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds 41,000 accessions at minus 18, and Yusuf Mbaye's germination schedule says 60 of them have dropped below the line where they have to be grown out this season. There is room in the ground for about 40. Chiara Volpe wants that ground for her own trial and Nasrin Qureshi wants it for the collection. Today you find out what a seed is doing while it is stored, what the crossing programme is trying to make, and how the trial ground is laid out — because Friday's plan is made out of those three things.",
+    "stake": "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds forty-one thousand seed batches at minus 18. Yusuf Mbaye says sixty of them must be grown out this season, and there is ground for about forty. Chiara Volpe wants that ground for her trial, and Nasrin Qureshi wants it for the collection. Today you find out what a seed does while it is stored.",
     "takeaway": "A stored seed is alive and spending itself, and everything in the vault is aimed at slowing that down.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the generation tells you",
     "objective": "Read the second generation of last year's cross, and check it against a marker.",
     "briefing": "400 plants in the warm bay, and a ratio to count.",
-    "stake": "Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — 400 plants, and the first generation of any cross where the parents' alleles come apart and show themselves. Hana Nakagawa has run a marker on the same plants and has a disagreement to explain: 11 of them score as carrying the resistance allele and do not look it. Osman Toft, meanwhile, wants somebody to explain to the trainees where the grain in his drying hall came from. Today you count what the generation is telling you, decide what the marker mismatch means, and follow the carbon.",
+    "stake": "Tuesday. Four hundred plants from Volpe's cross are in the warm bay. This is the generation where the parents' hidden versions come apart and show themselves. Hana Nakagawa has run a marker test on the same plants and has a disagreement to explain. Eleven of them carry the resistance gene and do not look it. Today you count what the generation is telling you, and work out what the mismatch means.",
     "takeaway": "A ratio is evidence about what the parents carried, not a decoration on a data sheet.",
     "stops": [
       {
@@ -42,7 +42,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 0,
-        "task": "Fit the disagreement both ways, then use the direct gene test to separate them."
+        "task": "Say what the drift does to the screen."
       },
       {
         "group": "DRY",
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The season you do not get back",
     "objective": "Weigh a release against a delay, with a dry summer forecast.",
     "briefing": "WM-712 is ready. The ground it needs is the ground the vault wants.",
-    "stake": "Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through 4 seasons of trials and yields 11% over the standard in dry years. Releasing it needs the whole west ground for seed increase, which is the ground Qureshi's 60 overdue accessions would have used. The forecast for the summer is dry, the merchant wants a decision, and both of them are right about something. Today you work out what a season's delay actually costs, what the trial data does and does not support, and what the crop gets out of a wet spring that a dry one never gives it.",
+    "stake": "Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through four seasons and yields eleven per cent over the standard in dry years. Releasing it needs the whole west ground — which is the ground Qureshi's sixty overdue batches would have used. The forecast for summer is dry. Today you work out what a season's delay actually costs, and what the trial data does not support.",
     "takeaway": "A delay is not neutral, and neither is a release; the question is which cost is recoverable.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "What comes with what you wanted",
     "objective": "Find out what else the resistance gene is dragging behind it.",
     "briefing": "The resistant lines are shorter, and nobody bred them that way.",
-    "stake": "Friday, and the plan is signed. WM-712 goes forward, forty of the sixty batches get regrown, and Qureshi has put in writing what she thinks of that. In the glasshouse, every line carrying the resistance gene is noticeably shorter than its sisters. Nobody chose that and nobody wants it. Nakagawa has the DNA results, and a question about whether the test still means anything two populations later. Today you work out what came along with the gene, whether the test can be trusted here, and what to do about both of them.",
+    "stake": "Friday, and the plan is signed. WM-712 goes forward, forty of the sixty batches get regrown, and Qureshi has put in writing what she thinks of that. In the glasshouse, every line carrying the resistance gene is noticeably shorter than its sisters. Nobody chose that. Today you work out what came along with the gene, and whether the test can still be trusted here.",
     "takeaway": "Genes near each other are inherited together, which is what makes markers work and what makes them expensive.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "How many is enough",
     "objective": "Put a number on what a regeneration needs, and on what the vault is losing.",
     "briefing": "40 accessions, 1 field, and a number nobody wants to hear.",
-    "stake": "Monday of the second week, and the regrow list has to be cut from sixty to forty. Tomas Ivanescu, who studies how plant families change, spent the weekend working out how many plants each regrow needs. It is not the number in the manual. Mbaye has eleven years of tests on one batch, and a line the results are about to cross. Quiroga wants to know why last year's trial found a difference in height that this year cannot see at all. Today you size the samples, read the falling line, and work out which of last year's results were really the ground talking.",
+    "stake": "Monday of the second week, and the regrow list has to be cut from sixty to forty. Tomas Ivanescu has worked out how many plants each regrow needs, and it is not the number in the manual. Mbaye has eleven years of tests on one batch, and a line the results are about to cross. Today you size the samples, and work out which of last year's results were really the ground talking.",
     "takeaway": "Every number here is about a population, and populations do not behave like the plants in them.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "What you asked for and what you got",
     "objective": "Predict what one round of selection will actually deliver.",
     "briefing": "The best 20 plots, and what their offspring will be like.",
-    "stake": "Harvest week, and the trial is scored. Volpe has picked the best twenty plots out of two hundred and forty and wants them all kept. Quiroga says most of that head start is the ground they stood on, and will not travel to next year. Bengtsson has one warm bay free over the winter and three teams asking for it. Two of the best plots also covered the ground eleven days early. Today you work out what the choosing really buys, what the warm bay is for, and why those two plots did so well.",
+    "stake": "Harvest week, and the trial is scored. Volpe has picked the best twenty plots out of two hundred and forty, and wants them all kept. Quiroga says most of that head start is the ground they stood on, and will not travel to next year. Two of the best plots also covered the ground eleven days early. Today you work out what the choosing really buys, and why those two did so well.",
     "takeaway": "What a round of selection returns is the part of the difference that was inherited, and no more.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The collection is not what the records say",
     "objective": "Find out why the regenerated accessions no longer match their own passports.",
     "briefing": "A genotyping run that was meant to be routine.",
-    "stake": "Thursday. Nakagawa ran a routine DNA panel across ninety batches to build a reference set. A third of them do not match their records. Same numbers, same paperwork, different plants. Sylvie Pirelli, who keeps the records, has checked the labels twice and found nothing wrong. Qureshi has gone down to the vault and has not come back up. Today you work out what has happened to those batches, whether it happened in the vault or out in the field, and what it means for the fifty being screened for rust.",
+    "stake": "Thursday. Nakagawa ran a routine DNA test across ninety batches. DNA is the instruction set inside every seed, and it can be read directly. A third of them do not match their records — same numbers, same paperwork, different plants. Sylvie Pirelli has checked the labels twice and found nothing wrong. Qureshi has gone down to the vault and has not come back up. Today you work out what happened to those batches, and whether it happened in the vault or in the field.",
     "takeaway": "A collection can be kept perfectly and still stop being the thing it was.",
     "stops": [
       {
@@ -162,7 +162,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 2,
-        "task": "Say what the drift does to the screen."
+        "task": "Choose the batch worth the slot"
       },
       {
         "group": "VAULT",
@@ -175,13 +175,13 @@ export const MISSIONS = [
     "title": "The rust arrives",
     "objective": "Find a second resistance gene, in a collection that may no longer have one.",
     "briefing": "200 kilometres in 4 days, and WM-712 is in the ground.",
-    "stake": "Tuesday. The wind has come round off the foothills and the new race is 200 kilometres closer than it was on Friday and there are pustules on the screening nursery this morning — the same nursery WM-712's sister lines are in. The single resistance gene is not holding. Volpe, who was right in March about the season, has stopped arguing. Nakagawa's screen of the 50 candidate accessions has come back with 2 hits, and Ivanescu can tell you what is wrong with both of them. Today you find out what the collection can still offer, and where the rest of it is.",
+    "stake": "Tuesday. The wind has come round off the foothills, and the new rust is two hundred kilometres closer than it was on Friday. There are pustules on the screening nursery this morning, in the beds holding WM-712's sister lines. The single resistance gene is not holding. Today you find out what the collection can still offer, and where the rest of it is.",
     "takeaway": "The insurance was bought decades ago by people who did not know what for, and only some of it survived.",
     "stops": [
       {
         "group": "LAB",
         "lesson": 3,
-        "task": "Spend the two checks on evidence that could change which batch gets the slot."
+        "task": "Decide what gets tested early, and what the finished line must still show."
       },
       {
         "group": "POP",
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "What goes in the crossing block",
     "objective": "Decide what the next seven years are made of, on the last day it can be changed.",
     "briefing": "The block is drilled tomorrow. After that the parents are fixed.",
-    "stake": "Thursday. The crossing block goes in tomorrow morning and it decides what the programme is working on until 2033 — a cross made in it is a line in 4 years and a release in 7. Volpe has her list, Qureshi has hers, and this year they overlap more than they ever have. The screen has 1 clean source of a second resistance gene, Fenn has 40 marked plants being threshed individually, and there is room in the block for 8 crosses. Today you fix the eight, and after tomorrow nothing in this season can be changed.",
+    "stake": "Thursday. The crossing block goes in tomorrow morning, and it decides what the programme works on until 2033. A cross made in it is a line in four years and a release in seven. Volpe has her list and Qureshi has hers, and this year they overlap. There is room for eight crosses. Today you fix the eight. After tomorrow nothing this season can be changed.",
     "takeaway": "A crossing block is a decision about a decade, made in one morning with what is to hand.",
     "stops": [
       {
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "LAB",
         "lesson": 4,
-        "task": "Decide what gets tested early, and what the finished line must still show."
+        "task": "Fit the disagreement both ways, then use the direct gene test to separate them."
       }
     ]
   },
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "What the season established",
     "objective": "Say what Wellmere knows now, what it cost, and what changes.",
     "briefing": "The block is in. The rust is here. The collection is smaller than the catalogue says.",
-    "stake": "Friday, and the season is set. The crossing block went in yesterday, WM-712 was released with its weakness written on the label, and the drifted accessions are on a list that will take 15 years to work through. Fenn's marked plants are drying in 40 paper bags with his handwriting on them. The board meets on Monday and Qureshi has to say what happened here in terms somebody who funds a gene bank will understand. Today you settle what the season established, what it cost to find out, and which of the things done under pressure are worth keeping.",
+    "stake": "Friday, and the season is set. The crossing block went in yesterday. WM-712 was released with its weakness written on the label. The drifted batches are on a list that will take fifteen years to work through. The board meets on Monday, and Qureshi has to explain the season to people who fund gene banks. Today you settle what the season established, and what it cost to find out.",
     "takeaway": "A collection is only as good as the last time each accession was grown, and now Wellmere knows which.",
     "stops": [
       {

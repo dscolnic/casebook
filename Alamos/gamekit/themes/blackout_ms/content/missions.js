@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The number on the wall",
     "objective": "Establish what the frequency is actually telling the room before anybody acts on it.",
     "briefing": "A unit tripped at 04:12 and the frequency has not come back to where it started.",
-    "stake": "Tuesday, ten past four in the morning, and the biggest machine on the Calder system has tripped with no warning. The frequency fell, then steadied below where it started. Dolores Reyes says that matters more than the fall. A system that stops falling has found a new balance, and this balance is short. Nadia Haddad has machines that can cover it, and not in the next two minutes. June Farrow wants the records checked before anybody calls it a lost unit. Reyes is not waiting. Today you read what the frequency is telling you, work out how much has gone, and decide what to ask for first.",
+    "stake": "Tuesday, ten past four in the morning. The biggest machine on the Calder system has tripped with no warning. The frequency fell, then steadied below where it started. Dolores Reyes says the steadying matters more than the fall. Nadia Haddad has machines that can cover it, but not in two minutes. Today you read what the frequency is telling you, and decide what to ask for first. Every house on the system is on the other end of it.",
     "takeaway": "Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.",
     "stops": [
       {
@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "METER",
         "lesson": 0,
-        "task": "Open what each record depends on, keep what stands, and name the bad clock."
+        "task": "Say what a timestamp is made of"
       }
     ]
   },
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the line can carry",
     "objective": "Decide which circuit takes the flow once one path is gone.",
     "briefing": "With the unit off, the flow has redistributed and one corridor is running warm.",
-    "stake": "Wednesday, and the replacement power is coming from the wrong side of the system. That means it arrives down two lines instead of three. Piotr Novak has a line above its steady limit, and a relay that will take the decision away from the room in about forty minutes if nobody else does. Those forty minutes come off a heat record June Farrow has not checked, and she says so. Thabo Dube is out in the yard waiting to be told what to switch. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move power about or accept the risk.",
+    "stake": "Wednesday. The replacement power is coming from the wrong side of the system, so it arrives down two lines instead of three. Piotr Novak has a line above its steady limit. A relay will take the decision away from the room in about forty minutes if nobody else does. Thabo Dube is in the yard waiting to be told what to switch. Today you rate the line honestly, and work out where the flow goes if it trips.",
     "takeaway": "A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The last few kilometres",
     "objective": "Get customers back on in an order that can be defended afterwards.",
     "briefing": "11 feeders are still dead and the crews can only be in 1 place at a time.",
-    "stake": "Thursday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo Obi has 3 crews and 14000 households in the dark. One of her circuits carries a dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk is at the first fault already, and it is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
+    "stake": "Thursday. The big lines are steady, but eleven local feeders are still dead. Chinelo Obi has three crews and fourteen thousand households in the dark. One of her circuits carries a dialysis clinic. Another carries a thousand homes. Today you work out why the far end of a long feeder sits low, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold.",
     "takeaway": "Restoration is a series of choices about people, made with instruments that only see the substation.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Is that number the number",
     "objective": "Establish which readings the incident account is allowed to rest on.",
     "briefing": "The report is due and two of the figures in it come from instruments nobody has checked.",
-    "stake": "Friday, and Tuesday night has to be written down. Dolores Reyes wants it filed today, so the week can close. June Farrow will not sign it while two of its figures come from instruments last checked in the spring. Nadia Haddad needs a machine back on the bars before the evening peak, and there is a right order for that which nobody is in a hurry to follow. Today you work out what the system was really delivering, put the steps of joining a machine in the order that works, and settle an argument between a meter and a scope. Farrow is right this time, and the delay is the cheapest thing all week.",
+    "stake": "Friday. Tuesday night has to be written down, and Dolores Reyes wants it filed today. June Farrow will not sign it. Two of its figures come from instruments last checked in the spring. Nadia Haddad needs a machine back on the bars before the evening peak, and there is a right order for that. Today you work out what the system was really delivering, and settle an argument between two instruments. Farrow is right this time.",
     "takeaway": "A reading is a claim about one quantity, and two instruments can disagree while both are right.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "Enough in the tank",
     "objective": "Decide what the system is holding back, and whether it is enough.",
     "briefing": "Tomorrow's peak is colder than the forecast the reserve was set against.",
-    "stake": "Monday, and the forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the number has not changed much but the width has, and the width is what the reserve has to cover. Rafael Alvarez has the storage figures from the weekend and they are worse than the brochure. Dolores Reyes has to say tonight how much generation is held back and how much is sold. Today you work out what the battery will really give back, decide why the transmission side runs at high voltage at all, and choose what evidence is worth buying before the peak. Hold too much back and it is wasted. Hold too little and Thursday happens again.",
+    "stake": "Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the middle has hardly changed, but the width has, and the width is what the reserve must cover. Rafael Alvarez has weekend storage figures that are worse than the brochure. Today you work out what the battery will really give back, and decide what is worth finding out before the peak. Hold too little back and Thursday happens again.",
     "takeaway": "A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "80 milliseconds",
     "objective": "Establish what a fault does before anybody can respond to it.",
     "briefing": "A cable failed at the substation and the protection cleared it before the alarm reached the room.",
-    "stake": "Wednesday, and a cable failed inside the substation at 13:40. The protection cleared it in under a tenth of a second, which is the whole story: nobody in the control room saw the fault, they saw the aftermath. Piotr Novak needs the fault current worked out before he will sign the switchgear back into service. June Farrow wants to know how a current transformer produces a reading from a wire it never touches. Ewa Kowalczyk has a crew standing at a gate and a rule about earthing that they are quietly impatient with. Today you size the fault, explain the instrument, and decide who may approach.",
+    "stake": "Wednesday. A cable failed inside the substation at twenty to two. The protection cleared it in under a tenth of a second, so nobody in the control room saw the fault — only the aftermath. Piotr Novak wants the fault current worked out before he signs the switchgear back into service. Ewa Kowalczyk has a crew at the gate. Today you size the fault, and decide who may go near it.",
     "takeaway": "A fault is limited only by impedance, which is why the numbers are enormous and the times are tiny.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "Merit order",
     "objective": "Decide what runs tomorrow, and what is held back for the day it is needed.",
     "briefing": "The cheapest generation is on the ridge and it will not say what it is doing after four.",
-    "stake": "Thursday, and tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing for money and cannot promise any of it, and she is tired of being asked to. Nadia Haddad has expensive machines that can be told exactly what to do. Dolores Reyes has to sign an order that puts them in sequence. Today you forecast the peak from the load curve, decide what merit order actually means when the cheapest plant is the least certain, and choose what to do with more wind than the corridor can carry.",
+    "stake": "Thursday. Tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing for money and cannot promise any of it. Nadia Haddad has expensive machines that do exactly as they are told. Today you forecast the peak, and decide what cheapest-first really means when the cheapest plant is the least certain.",
     "takeaway": "Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "Cranking path",
     "objective": "Build a live system out of a dead one, in the only order that works.",
     "briefing": "The valley collapsed at 19:04 and nothing in it can start without power it has not got.",
-    "stake": "Saturday evening, and the island has gone. The valley is dark, and every machine in it needs electricity before it can start. The pumps, the fans, the controls, the switchgear itself. Nadia Haddad has one small water-driven machine at the head of the valley that can start on its own. Thabo Dube has a yard full of open switches. Dolores Reyes has to decide the order, and only one order works at all. Today you cost the hours the valley has been without power, work out why the small machine matters more than the big one, and write the restart in the order physics allows.",
+    "stake": "Saturday evening. The island has gone, the valley is dark, and every machine in it needs electricity before it can start. The pumps, the fans, the controls, the switchgear itself. Nadia Haddad has one small water-driven machine that can start on its own. Thabo Dube has a yard full of open switches. Today you work out why that small machine matters more than the big one, and write the restart in the order physics allows.",
     "takeaway": "A dead system is rebuilt from one machine that needs nothing, outward along a path chosen in advance.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three simultaneous problems, and hold the reasoning while they interfere.",
     "briefing": "A fault, a forecast miss and a plant coming off at the same hour, and one room.",
-    "stake": "Thursday, 16:40, and 3 things arrive together. A cable fault has taken a feeder with 3,300 households on it. Ravi Lindgren's forecast is running 200 megawatts under actual and still climbing. And the gas machine that has carried the evening peak all week has to come off at 1800 for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores Reyes has 1 control room, 1 crew on shift and about 80 minutes. Today you decide what gets attention first, work out what the corridor is costing at the higher flow, and put the evening's moves in an order that does not undo itself. None of these is new. All three at once is.",
+    "stake": "Thursday, twenty to five, and three things arrive together. A cable fault has taken a feeder with three thousand three hundred households on it. Ravi Lindgren's forecast is running two hundred megawatts under, and climbing. And the gas machine that has carried the peak all week must come off at six. Dolores Reyes has one crew and about eighty minutes. Today you decide what gets attention first. None of these is new; all three at once is.",
     "takeaway": "Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "What we know, and how well",
     "objective": "Say how strongly each of the fortnight's claims is held, and what outlives the emergency.",
     "briefing": "The event report has to state what is established, what is inferred and what is still a guess.",
-    "stake": "Friday, and the fortnight goes into a report. Dolores Reyes will not sign a document that states everything at the same confidence, because a reader who cannot tell a measurement from an inference will act on both the same way. June Farrow has the evidence file. Ravi Lindgren wants his forecast width in as a range rather than a number. Piotr Novak wants the sensor drift written as a finding rather than an excuse. Today you sort the fortnight's claims by how strongly each is held, put numbers on the ones that deserve them, and decide which of the emergency's changes should become permanent practice. This is the part of the fortnight that will still matter in a year.",
+    "stake": "Friday. The fortnight goes into a report, and Dolores Reyes will not sign one that states everything at the same confidence. A reader who cannot tell a measurement from a guess will act on both the same way. June Farrow has the evidence file. Ravi Lindgren wants his forecast written as a range. Today you sort the fortnight's claims by how well each is known, and decide what becomes permanent practice.",
     "takeaway": "A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.",
     "stops": [
       {

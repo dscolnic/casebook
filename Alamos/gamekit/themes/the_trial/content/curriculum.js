@@ -2608,9 +2608,9 @@ export const BALLPARK_CALCS = {
     "labels": [
       "0.189  (control arm event rate)",
       "0.147  (treatment arm event rate)",
-      "1200  (participants in 1 arm, approximately)",
+      "0.78  (the risk ratio, which is not what NNT is built from)",
       "1  (the numerator in NNT)",
-      "0.95  (a tempting probability, but not an input to either calculation)"
+      "0.042  (the absolute risk reduction, already worked out)"
     ],
     "values": [
       0.189,

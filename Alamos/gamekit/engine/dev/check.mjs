@@ -24,7 +24,14 @@ for(const theme of wanted){
                      'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'jargonDepth.mjs', 'answerShape.mjs', 'checkVoice.mjs', 'placeStory.mjs',
                      'checkPassages.mjs', 'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs',
                      // Silent for a theme that is not an edition of another one.
-                     'editionParity.mjs']){
+                     'editionParity.mjs',
+                     // Silent above grade 8; advisory for a game written to its
+                     // own audience rather than derived from a harder one.
+                     'questionLoad.mjs',
+                     // Advisory for now: it reports the sentences the book wrote
+                     // that the panel never prints, and neither of its two
+                     // findings is clean yet. See the note at the foot of the file.
+                     'fieldCoverage.mjs']){
     const res = spawnSync(process.execPath, [resolve(here, tool), theme, ...(tool === 'jargonDepth.mjs' ? ['--check'] : [])],
       { stdio: 'inherit', cwd: resolve(here, '../..') });
     if(res.status !== 0) failed++;
@@ -33,8 +40,17 @@ for(const theme of wanted){
 // One cross-cutting check, not per theme: no game stylesheet re-declares the
 // engine's.
 if(!process.argv[2]){
-  for(const tool of ['checkStyles.mjs', 'worldParity.mjs', 'readabilityParity.mjs']){
-    const res = spawnSync(process.execPath, [resolve(here, tool)],
+  for(const tool of ['checkStyles.mjs', 'worldParity.mjs', 'readabilityParity.mjs',
+                     // Two measurements that assert something about themselves,
+                     // because the reading grade did not and nine editions
+                     // shipped too hard with every number green.
+                     'questionLoad.mjs --selftest',
+                     // The third. It reads the renderers rather than the
+                     // content, so a renamed panel function would make it report
+                     // all-clear rather than error, and it says so out loud.
+                     'fieldCoverage.mjs --selftest']){
+    const [file, ...flags] = tool.split(' ');
+    const res = spawnSync(process.execPath, [resolve(here, file), ...flags],
       { stdio: 'inherit', cwd: resolve(here, '../..') });
     if(res.status !== 0) failed++;
   }

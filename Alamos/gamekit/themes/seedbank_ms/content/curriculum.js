@@ -27,9 +27,9 @@ export const CURRICULUM = {
         ],
         "choices": [
           "They slow down the chemical changes that damage a stored seed.",
-          "They keep the seed asleep, by blocking the signals that start it growing.",
+          "They keep the seed asleep, blocking what starts it growing.",
           "They mostly work by killing the moulds already in the packet.",
-          "They harden the seed coat, so the living cells inside need no repair."
+          "They harden the coat, so the cells inside need no repair."
         ],
         "correctChoice": "They slow down the chemical changes that damage a stored seed."
       },
@@ -191,7 +191,7 @@ export const CURRICULUM = {
         "setup": "Seed Vault",
         "play": "Name the step that failed.",
         "task": "Name the step that failed.",
-        "question": "What is the honest statement of what went wrong?",
+        "question": "The vault log shows twenty-eight years with no fault. What does that rule out?",
         "answer": "Storage kept the seed alive. Repeated small grow-outs changed what was in it, by letting too few plants be the parents.",
         "why": "The fix depends on naming the step that failed. The vault kept the seed cold, and the seed still grows. What changed tracks the number of grow-outs, where a few plants stood in for a whole population. Call it a storage failure and money goes to freezers that already worked. Call it a grow-out failure and attention goes where it belongs. The same packet can hold healthy seed and be a poor copy of what it came from.",
         "rebuttals": [
@@ -200,12 +200,12 @@ export const CURRICULUM = {
           "The affected packets still grow well, and death in store would follow storage history rather than grow-outs."
         ],
         "choices": [
-          "Storage kept the seed alive, while repeated grow-outs changed what was in it.",
+          "Storage kept it alive. Repeated grow-outs changed what was in it.",
           "The old records are too rough for any comparison of this kind.",
           "The testing method has drifted over the years and invented the difference.",
           "Seed died in store, and that decided which plants survived."
         ],
-        "correctChoice": "Storage kept the seed alive, while repeated grow-outs changed what was in it."
+        "correctChoice": "Storage kept it alive. Repeated grow-outs changed what was in it."
       },
       "assumes": [
         "a store keeps what it is given rather than improving it"
@@ -416,12 +416,12 @@ export const CURRICULUM = {
           "A wrong test in the parents would break the pattern rather than produce a textbook one."
         ],
         "choices": [
-          "One gene is doing it, and the resistant copy wins when both are present.",
+          "One gene, and the resistant copy wins when both are present.",
           "Two genes are doing it, and either one of them is enough.",
           "The resistance is partly the glasshouse rather than the plants.",
           "The test used to pick the parents was wrong."
         ],
-        "correctChoice": "One gene is doing it, and the resistant copy wins when both are present."
+        "correctChoice": "One gene, and the resistant copy wins when both are present."
       },
       "assumes": [
         "a plant carries two copies of each gene and passes on one of them"
@@ -912,7 +912,7 @@ export const CURRICULUM = {
           "How long seed lasts depends on how it was dried and stored, not on whose grandparent it shares."
         ],
         "choices": [
-          "A narrow set of choices, plus one resistance gene shared by all six.",
+          "A narrow set of choices, and one gene shared by all six.",
           "Serious weakening, because four parents share a recent grandparent.",
           "No room left to improve yield by choosing among their offspring.",
           "Faster loss of seed in store, because related parents store alike."
@@ -929,7 +929,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Why the same line is sown four times",
       "scene": "Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
-      "takeaway": "A field is not the same all over, so one plot measures the ground as much as the seed in it.",
+      "takeaway": "Repeating a thing in different places is how you find out which part of the answer was the place.",
       "place": "Field Laboratory",
       "story": "Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
       "game": {
@@ -947,12 +947,12 @@ export const CURRICULUM = {
           "Each plot is measured the same way. What repeating buys is a better comparison, not a better plot."
         ],
         "choices": [
-          "A comparison that separates the seed from the piece of ground it grew on.",
+          "A comparison that separates the seed from its patch of ground.",
           "Four separate lots of seed, protecting next season's planting stock.",
           "Cover against one storm wiping out the whole trial.",
           "A more exact yield figure from each individual plot."
         ],
-        "correctChoice": "A comparison that separates the seed from the piece of ground it grew on."
+        "correctChoice": "A comparison that separates the seed from its patch of ground."
       },
       "assumes": [
         "the same crop grows differently in different parts of a field"
@@ -980,12 +980,12 @@ export const CURRICULUM = {
           "The trial separates dry years from wet ones here. It does not set a rainfall line that guarantees anything."
         ],
         "choices": [
-          "At this site, its advantage is much bigger in dry seasons than in wet ones.",
-          "Across these four seasons it is eleven per cent better here, whatever the weather.",
+          "Here, its advantage is much bigger in dry seasons.",
+          "Across four seasons it is eleven per cent better here.",
           "Its dry-year result shows it suits dry regions everywhere.",
           "It should beat the standard whenever the rain is below average."
         ],
-        "correctChoice": "At this site, its advantage is much bigger in dry seasons than in wet ones."
+        "correctChoice": "Here, its advantage is much bigger in dry seasons."
       },
       "assumes": [
         "a trial measures what happened under the conditions it happened in"
@@ -1135,12 +1135,12 @@ export const CURRICULUM = {
           "A second season tests how far the result travels. The first season's result is still real."
         ],
         "choices": [
-          "Report the trial-wide gain, with the dry season and site in the same sentence.",
-          "Report the bigger figure from the chosen plots, since those lines go forward.",
-          "Report the trial-wide gain as the headline, and put the conditions in a footnote.",
+          "Report the whole-trial gain, with the season and site named.",
+          "Report the bigger figure from the chosen plots only.",
+          "Report the whole-trial gain, with conditions in a footnote.",
           "Hold the result back until another season gives the same number."
         ],
-        "correctChoice": "Report the trial-wide gain, with the dry season and site in the same sentence."
+        "correctChoice": "Report the whole-trial gain, with the season and site named."
       },
       "assumes": [
         "a trial's conclusions belong to the conditions it ran under"
@@ -1171,107 +1171,44 @@ export const CURRICULUM = {
   "LAB": [
     {
       "day": 1,
-      "title": "One disagreement, two possible causes",
-      "scene": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
-      "takeaway": "A test can be right about the marker and still be wrong about the plant.",
+      "title": "What the screen may not find",
+      "scene": "Nakagawa is screening fifty batches for a second resistance gene. Twenty-two of them are on the drifted list, and their test controls are clean. She wants to know what a clean result still means.",
+      "takeaway": "A screen finds what is in front of it, and what is in front of it is what survived the last grow-out.",
       "place": "Molecular Laboratory",
-      "story": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
+      "story": "Nakagawa is screening fifty batches for a second resistance gene. Twenty-two of them are on the drifted list, and their test controls are clean. She wants to know what a clean result still means.",
       "game": {
-        "type": "DEGENERACY",
-        "title": "One disagreement, two possible causes",
+        "type": "CHOICE",
+        "title": "What the screen may not find",
         "setup": "Molecular Laboratory",
-        "play": "Fit the disagreement both ways, then use the direct gene test to separate them.",
-        "task": "Fit the disagreement both ways, then use the direct gene test to separate them.",
-        "question": "Which mixes of swapping and test error fit the disagreement, and which one survives the direct gene test?",
-        "answer": "The first result fits several mixes of swapping and test error. Testing the gene itself rules out the misreading, and swapping is what is left — about four plants in a hundred.",
-        "why": "The DNA test here does not look at the resistance gene. It looks at a marker sitting near it. Near is not inside. When a plant makes seed, its two copies of a chromosome swap pieces, and a marker close to a gene usually travels with it and sometimes does not. So eleven disagreements could be swapping, or a test that misreads. One number cannot separate those two. A second test aimed at the gene itself can.",
-        "degeneracy": {
-          "controls": [
-            {
-              "id": "recombination",
-              "label": "Recombination fraction",
-              "min": 0,
-              "max": 0.08,
-              "step": 0.01,
-              "unit": "fraction"
-            },
-            {
-              "id": "marker_error",
-              "label": "Marker-assay error fraction",
-              "min": 0,
-              "max": 0.08,
-              "step": 0.01,
-              "unit": "fraction"
-            }
-          ],
-          "observable": {
-            "label": "Marker–phenotype disagreement, 11 of 400 in this generation"
-          },
-          "locus": [
-            {
-              "a": 0,
-              "b": 0.04
-            },
-            {
-              "a": 0.01,
-              "b": 0.03
-            },
-            {
-              "a": 0.02,
-              "b": 0.02
-            },
-            {
-              "a": 0.03,
-              "b": 0.01
-            },
-            {
-              "a": 0.04,
-              "b": 0
-            }
-          ],
-          "second": {
-            "label": "PCR aimed inside the resistance gene itself, on the 11 discordant plants",
-            "apply": "Run the direct-gene assay",
-            "locus": [
-              {
-                "a": 0.02,
-                "b": 0
-              },
-              {
-                "a": 0.04,
-                "b": 0
-              },
-              {
-                "a": 0.06,
-                "b": 0
-              }
-            ]
-          },
-          "truth": {
-            "a": 0.04,
-            "b": 0
-          },
-          "tolerance": {
-            "a": 0.005,
-            "b": 0.005
-          },
-          "hint": "Use the first panel to find more than one pair that fits. Then open the PCR check aimed inside the resistance gene and keep only combinations that fit both measurements.",
-          "commit": "Report it"
-        }
+        "play": "Say what the drift does to the screen.",
+        "task": "Say what the drift does to the screen.",
+        "question": "What does the drift mean for the screen?",
+        "answer": "A clean result no longer proves the gene was never there. It may have been lost in a grow-out, and the test cannot tell the difference.",
+        "why": "Drift can remove a gene that was rare to begin with. So a clean result from one of those batches has two explanations. The gene was never there, or it was there and got lost in a grow-out. The test cannot tell those apart, because it is looking at the seed in front of it. A positive is still worth having, because drift removes genes and never invents them. The fix is to test material that missed the bottleneck.",
+        "rebuttals": [
+          "Drift removes genes rather than inventing them, so a positive result is unaffected.",
+          "The tests work. What has changed is the seed they are being run on.",
+          "Nothing in a vault cares about rust, so there is no reason for resistance to be kept."
+        ],
+        "choices": [
+          "A clean result there no longer proves the gene is absent.",
+          "The screen will report genes that are not there at all.",
+          "The screen has to be rebuilt around different tests.",
+          "Nothing. Resistance genes get kept, because they are useful."
+        ],
+        "correctChoice": "A clean result there no longer proves the gene is absent."
       },
       "assumes": [
-        "a DNA test looks for a chosen stretch of DNA",
-        "a marker sits near a gene rather than inside it",
-        "a plant swaps pieces between its two copies of a chromosome when it makes seed"
+        "a gene that is rare in a population may be missing from a small sample of it"
       ]
     },
     {
       "day": 2,
       "title": "A test fitted where it worked",
-      "scene": "The DNA test was worked out on the first population, and it has picked plants right for three seasons. Nakagawa has a new cross, and a hundred plants scored both ways.",
+      "scene": "The test reads DNA, which is the set of instructions inside every seed. It was worked out on the first population, and it has picked plants right for three seasons. Nakagawa has a new cross, and a hundred plants scored both ways.",
       "takeaway": "A rule fitted on one set of plants has to be scored on a set it has never seen.",
       "place": "Molecular Laboratory",
-      "story": "The DNA test was worked out on the first population, and it has picked plants right for three seasons. Nakagawa has a new cross, and a hundred plants scored both ways.",
+      "story": "The test reads DNA, which is the set of instructions inside every seed. It was worked out on the first population, and it has picked plants right for three seasons. Nakagawa has a new cross, and a hundred plants scored both ways.",
       "game": {
         "type": "HOLDOUT",
         "title": "A test fitted where it worked",
@@ -1401,101 +1338,40 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "What the screen may not find",
-      "scene": "Nakagawa is screening fifty batches for a second resistance gene. Twenty-two of them are on the drifted list, and their test controls are clean. She wants to know what a clean result still means.",
-      "takeaway": "A screen finds what is in front of it, and what is in front of it is what survived the last grow-out.",
+      "title": "The vial nobody has grown",
+      "scene": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
+      "takeaway": "Copies of copies drift. The one nobody has copied is the one that still holds what was collected.",
       "place": "Molecular Laboratory",
-      "story": "Nakagawa is screening fifty batches for a second resistance gene. Twenty-two of them are on the drifted list, and their test controls are clean. She wants to know what a clean result still means.",
+      "story": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
       "game": {
         "type": "CHOICE",
-        "title": "What the screen may not find",
-        "setup": "Molecular Laboratory",
-        "play": "Say what the drift does to the screen.",
-        "task": "Say what the drift does to the screen.",
-        "question": "What does the drift mean for the screen?",
-        "answer": "A clean result no longer proves the gene was never there. It may have been lost in a grow-out, and the test cannot tell the difference.",
-        "why": "Drift can remove a gene that was rare to begin with. So a clean result from one of those batches has two explanations. The gene was never there, or it was there and got lost in a grow-out. The test cannot tell those apart, because it is looking at the seed in front of it. A positive is still worth having, because drift removes genes and never invents them. The fix is to test material that missed the bottleneck.",
+        "title": "The vial nobody has grown",
+        "setup": "The screenhouse can grow one of the two this season.",
+        "play": "Spend the two checks on evidence that could change which batch gets the slot.",
+        "task": "Spend the two checks on evidence that could change which batch gets the slot.",
+        "question": "One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?",
+        "answer": "The thin one. Every grow-out is a chance to drift, and that vial has had none.",
+        "why": "A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.",
         "rebuttals": [
-          "Drift removes genes rather than inventing them, so a positive result is unaffected.",
-          "The tests work. What has changed is the seed they are being run on.",
-          "Nothing in a vault cares about rust, so there is no reason for resistance to be kept."
+          "How much there is says nothing about what is in it.",
+          "A grow-out is not a check. It is a chance for the batch to change.",
+          "Time in the cold changes a batch far less than a season in a field."
         ],
         "choices": [
-          "A clean result on those batches no longer proves the gene is absent.",
-          "The screen will report genes that are not there, on the drifted material.",
-          "The screen has to be rebuilt around different tests.",
-          "Nothing. Resistance genes get kept, because they are useful."
+          "The thin one, because it has never been grown out",
+          "The full one, because there is more of it",
+          "The full one, because it has been checked three times",
+          "Neither, since both have been in store the same time"
         ],
-        "correctChoice": "A clean result on those batches no longer proves the gene is absent."
+        "correctChoice": "The thin one, because it has never been grown out"
       },
       "assumes": [
-        "a gene that is rare in a population may be missing from a small sample of it"
+        "every grow-out is a chance for a batch to drift from what it was",
+        "a small lot of living seed can usually be built back up"
       ]
     },
     {
       "day": 4,
-      "title": "Which one is worth the slot",
-      "scene": "Two of the fifty batches carry a different resistance gene, and the screenhouse can grow only one of them this season. One vial looks thin, the other is full.",
-      "takeaway": "The best measurement is the one that could change the decision, not the one with the most detail in it.",
-      "place": "Molecular Laboratory",
-      "story": "Two of the fifty batches carry a different resistance gene, and the screenhouse can grow only one of them this season. One vial looks thin, the other is full.",
-      "game": {
-        "type": "VALUE",
-        "title": "Which one is worth the slot",
-        "setup": "Molecular Laboratory",
-        "play": "Spend the two checks on evidence that could change which batch gets the slot.",
-        "task": "Spend the two checks on evidence that could change which batch gets the slot.",
-        "question": "Which evidence is worth buying before the slot is committed?",
-        "answer": "Buy the grow-out history. Then take the batch that has never been regrown — eleven grams is about three hundred seeds, which is plenty to build up.",
-        "why": "The question is not which vial has more seed in it today. A thin vial with living seed can be built back up in one careful season. What cannot be repaired is a batch that has already lost what made it worth keeping. So the check worth buying is the one that says which batch has been through grow-outs and which has not. Another round of the same test would add detail and change nothing.",
-        "value": {
-          "budget": {
-            "amount": 2,
-            "unit": "evidence credits"
-          },
-          "decision": "Which marker-positive accession should receive the single screenhouse increase slot?",
-          "options": [
-            {
-              "id": "history",
-              "label": "Audit regeneration history",
-              "cost": 1,
-              "axis": "genetic integrity",
-              "reveals": "The thin-vial accession has never been regenerated. The full-vial accession has been regenerated three times and is on the drifted list.",
-              "decisive": true
-            },
-            {
-              "id": "seed_count",
-              "label": "Count viable seed in the thin vial",
-              "cost": 1,
-              "axis": "increase feasibility",
-              "reveals": "11 grams is roughly 300 viable seeds, enough for a careful protected increase."
-            },
-            {
-              "id": "repeat_marker",
-              "label": "Repeat the resistance-marker screen",
-              "cost": 2,
-              "axis": "assay repeatability",
-              "reveals": "Both positive calls repeat with clean controls; the repeat does not tell which accession still represents its original population."
-            },
-            {
-              "id": "yield_trial",
-              "label": "Run a small field-performance comparison",
-              "cost": 3,
-              "axis": "agronomic performance",
-              "reveals": "A one-season yield difference would not establish which seed lot has preserved the accession's original genetic variation."
-            }
-          ],
-          "hint": "Buy evidence that could change which accession deserves the scarce increase slot. A precise answer to a side question can still be poor value.",
-          "commit": "Commit the decision"
-        }
-      },
-      "assumes": [
-        "a grow-out can change what is in a batch, by chance",
-        "a small lot of living seed can often be built back up"
-      ]
-    },
-    {
-      "day": 5,
       "title": "Gene present, resistance working?",
       "scene": "Nakagawa can run the DNA test on two-leaf seedlings. On final plants she can also check whether the gene is switched on after rust, and put real rust on the leaves.",
       "takeaway": "DNA says what a plant carries. Only a real test says whether it works.",
@@ -1507,7 +1383,7 @@ export const CURRICULUM = {
         "setup": "Molecular Laboratory",
         "play": "Decide what gets tested early, and what the finished line must still show.",
         "task": "Decide what gets tested early, and what the finished line must still show.",
-        "question": "Which evidence belongs early, and what must the final line still prove?",
+        "question": "The DNA test says the gene is there. What has it not shown?",
         "answer": "Use the DNA test early to clear seedlings. Then make the final line show the gene switching on, and shrug off real rust.",
         "why": "The DNA test is worth running early, because it clears out most seedlings months before rust could be used. It is not proof. The marker sits near the gene rather than inside it, and the two can come apart. Even the gene itself only says what the plant carries. It has to switch that gene on when rust arrives. So the last plants get real rust put on them.",
         "rebuttals": [
@@ -1516,16 +1392,112 @@ export const CURRICULUM = {
           "A nearby marker can come apart from the gene, and carrying a gene does not prove it works."
         ],
         "choices": [
-          "Use the DNA test early. On the final line, check it switches on and beats real rust.",
+          "Use the DNA test early, then test the final line against rust.",
           "Check the switching every generation. The final rust test is then unnecessary.",
-          "Put rust on every generation. Use the DNA test only after the last backcross.",
+          "Put rust on every generation, and the DNA test at the end.",
           "Use the DNA test early and late. Carrying the gene is enough."
         ],
-        "correctChoice": "Put rust on every generation. Use the DNA test only after the last backcross."
+        "correctChoice": "Put rust on every generation, and the DNA test at the end."
       },
       "assumes": [
         "a nearby marker can come apart from the gene it stands for",
         "a gene has to be switched on before it does anything"
+      ]
+    },
+    {
+      "day": 5,
+      "title": "One disagreement, two possible causes",
+      "scene": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
+      "takeaway": "A test can be right about the marker and still be wrong about the plant.",
+      "place": "Molecular Laboratory",
+      "story": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
+      "game": {
+        "type": "DEGENERACY",
+        "title": "One disagreement, two possible causes",
+        "setup": "Molecular Laboratory",
+        "play": "Fit the disagreement both ways, then use the direct gene test to separate them.",
+        "task": "Fit the disagreement both ways, then use the direct gene test to separate them.",
+        "question": "Which mixes of swapping and test error fit the disagreement, and which one survives the direct gene test?",
+        "answer": "The first result fits several mixes of swapping and test error. Testing the gene itself rules out the misreading, and swapping is what is left — about four plants in a hundred.",
+        "why": "The DNA test here does not look at the resistance gene. It looks at a marker sitting near it. Near is not inside. When a plant makes seed, its two copies of a chromosome swap pieces, and a marker close to a gene usually travels with it and sometimes does not. So eleven disagreements could be swapping, or a test that misreads. One number cannot separate those two. A second test aimed at the gene itself can.",
+        "degeneracy": {
+          "controls": [
+            {
+              "id": "recombination",
+              "label": "Recombination fraction",
+              "min": 0,
+              "max": 0.08,
+              "step": 0.01,
+              "unit": "fraction"
+            },
+            {
+              "id": "marker_error",
+              "label": "Marker-assay error fraction",
+              "min": 0,
+              "max": 0.08,
+              "step": 0.01,
+              "unit": "fraction"
+            }
+          ],
+          "observable": {
+            "label": "Marker–phenotype disagreement, 11 of 400 in this generation"
+          },
+          "locus": [
+            {
+              "a": 0,
+              "b": 0.04
+            },
+            {
+              "a": 0.01,
+              "b": 0.03
+            },
+            {
+              "a": 0.02,
+              "b": 0.02
+            },
+            {
+              "a": 0.03,
+              "b": 0.01
+            },
+            {
+              "a": 0.04,
+              "b": 0
+            }
+          ],
+          "second": {
+            "label": "PCR aimed inside the resistance gene itself, on the 11 discordant plants",
+            "apply": "Run the direct-gene assay",
+            "locus": [
+              {
+                "a": 0.02,
+                "b": 0
+              },
+              {
+                "a": 0.04,
+                "b": 0
+              },
+              {
+                "a": 0.06,
+                "b": 0
+              }
+            ]
+          },
+          "truth": {
+            "a": 0.04,
+            "b": 0
+          },
+          "tolerance": {
+            "a": 0.005,
+            "b": 0.005
+          },
+          "hint": "Use the first panel to find more than one pair that fits. Then open the PCR check aimed inside the resistance gene and keep only combinations that fit both measurements.",
+          "commit": "Report it"
+        }
+      },
+      "assumes": [
+        "a DNA test looks for a chosen stretch of DNA",
+        "a marker sits near a gene rather than inside it",
+        "a plant swaps pieces between its two copies of a chromosome when it makes seed"
       ]
     }
   ],
@@ -1533,10 +1505,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Where a tonne of grain comes from",
-      "scene": "Toft has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
+      "scene": "Osman Toft, the agronomist, has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
       "takeaway": "A harvest weighs what it weighs because of something that was not there when it started.",
       "place": "Drying & Processing Hall",
-      "story": "Toft has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
+      "story": "Osman Toft, the agronomist, has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
       "game": {
         "type": "CHOICE",
         "title": "Where a tonne of grain comes from",
@@ -1693,12 +1665,12 @@ export const CURRICULUM = {
           "Shading weeds out is a real gain from early cover, and it is not worth this much yield."
         ],
         "choices": [
-          "They caught the light and set their grain before the soil dried out.",
+          "They set their grain before the soil dried out.",
           "Flowering early makes each leaf work harder.",
           "They dodged the rust, which arrived late.",
           "Early cover shades the weeds out."
         ],
-        "correctChoice": "They caught the light and set their grain before the soil dried out."
+        "correctChoice": "They set their grain before the soil dried out."
       },
       "assumes": [
         "a crop builds most of its grain from light caught after it flowers"
@@ -1806,30 +1778,27 @@ export const BALLPARK_CALCS = {
     "prompt": "A hundred and twenty plants stood in the plot. Eighteen of them gave pollen, and a hundred and two set seed.",
     "question": "What share of the plants gave pollen?",
     "labels": [
-      "4  (the sex-ratio constant)",
-      "18  (pollen donors)",
-      "102  (seed parents)",
+      "18  (plants that gave pollen)",
       "120  (plants standing in the plot)",
+      "102  (plants that set seed)",
       "60  (half the plot)"
     ],
     "values": [
-      4,
       18,
-      102,
       120,
+      102,
       60
     ],
-    "slots": 3,
-    "template": "{0} × {1} × {2} ÷ ({1} + {2})",
-    "formula": "a*b*c/(b+c)",
+    "slots": 2,
+    "template": "{0} ÷ {1} × 100",
+    "formula": "a/b*100",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 61.2,
-    "tolerance": 6,
-    "units": "effective plants",
+    "target": 15,
+    "tolerance": 2,
+    "units": "%",
     "solution": "Eighteen ÷ a hundred and twenty, times a hundred, is fifteen per cent.",
     "explanation": "A hundred and twenty plants stood there, and that is not the number that matters. Every seed had to get its pollen from one of eighteen."
   },
@@ -1851,11 +1820,11 @@ export const BALLPARK_CALCS = {
       240
     ],
     "slots": 3,
-    "template": "{0} + {2} × ({1} − {0})",
-    "formula": "a+c*(b-a)",
+    "template": "{0} + {3} × {2}",
+    "formula": "a+b*c",
     "correct": [
       0,
-      1,
+      3,
       2
     ],
     "target": 7.91,

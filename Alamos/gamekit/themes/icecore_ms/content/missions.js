@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What the plateau has been writing down",
     "objective": "Establish what this site records, how fast it records it, and why anybody drilled here.",
     "briefing": "A new season opens on a core that is already 2000 metres deep.",
-    "stake": "First morning of the season, and the drill has not turned yet. Nadia Brandt, the field glaciologist, has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen, the chief scientist, wants the season's snowfall figure before the plan is written. Today you settle what this site records, how much a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres. Nothing here is drilled twice. Whatever the season measures is what the next ten years of papers will use.",
+    "stake": "First morning of the season, and the drill has not turned yet. Nadia Brandt has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen wants the season's snowfall figure before the plan is written. Today you settle how much snow a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres.",
     "takeaway": "A record is only as good as the rate at which it was written.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Three kilometres of one attempt",
     "objective": "Get the core to the surface and onto the line without changing what it can say.",
     "briefing": "The brittle zone starts at 540 metres and the run sheet has 3 short runs on it.",
-    "stake": "Second day, and the drill is going back down after a night of repairs. Lindqvist has three short runs on the sheet from last season's brittle ice. Sigrid Holt has a section that arrived with no depth mark on it. Today you decide how the run through the brittle ice is made, what happens to a section nobody can place, and what a dirty sample costs. Ice gets one reading. What breaks on the way up cannot be drilled again, and what is dirty cannot be cleaned. Lindqvist wants the order agreed before the winch starts, because nobody argues about method with a barrel in the air.",
+    "stake": "Second day, and the drill is going back down after a night of repairs. Lindqvist has three short runs on the sheet from last season's brittle ice. Sigrid Holt has a section that arrived with no depth mark on it. Today you decide how the brittle run is made, and what happens to a section nobody can place. Ice gets one reading. What breaks on the way up cannot be drilled again.",
     "takeaway": "Everything the core can say is decided before anybody measures anything.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Counting to 2000",
     "objective": "Establish how a year is counted, and find the depth where counting stops working.",
     "briefing": "Okonkwo needs the depth at which the layer thickness drops below what the line can resolve.",
-    "stake": "Wednesday, and the counting is holding up everything else. Okonkwo has counted by eye to eleven hundred and eighty metres, and the layers get thinner every hundred metres. Halvorsen wants the season's depth and age scale by the time the aircraft comes, and the whole comparison with Skarv rests on it. Today you find where counting stops being possible, choose which yearly signal to count with, and put a number on the snow's own clock. Below where the layers close up, every age comes from a model. A model is not a count, and the report has to say which one each age came from. Okonkwo will not sign one that blurs the two.",
+    "stake": "Wednesday, and the counting is holding everything else up. Okonkwo has counted by eye to eleven hundred and eighty metres, and the layers get thinner with every hundred. Halvorsen wants the depth and age scale before the aircraft comes. Today you find where counting stops being possible, and choose which yearly signal to count with. Below where the layers close up, every age comes from a model, and a model is not a count.",
     "takeaway": "Every dating method has a depth where it stops working, and knowing it is part of the date.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Turning a ratio into a temperature",
     "objective": "Establish what the isotope record measures and how confidently it can be stated in degrees.",
     "briefing": "The isotope profile is finished to 1,600 metres and nobody has agreed what it says in degrees.",
-    "stake": "Friday, and the isotope readings run down to sixteen hundred metres. Tanabe has the numbers, and Halvorsen wants them in degrees for the summary. That means a conversion figure. Somebody measured that figure. It is not a law of nature. Brandt has eleven years of mast temperatures to test it against. Today you turn the readings into a temperature change, decide how firmly it can be stated, and settle what the isotopes are a thermometer of. A figure taken on trust turns every degree into somebody's assumption. Halvorsen wants the sentence to say how firm the number is. Tanabe wants the number first, and the two of them have all afternoon.",
+    "stake": "Friday, and the isotope readings run down to sixteen hundred metres. Tanabe has the numbers, and Halvorsen wants them in degrees for the summary. That means a conversion figure. Somebody measured that figure; it is not a law of nature. Today you turn the readings into a temperature change, and decide how firmly it can be stated. A figure taken on trust turns every degree into somebody's assumption.",
     "takeaway": "A proxy becomes a number through a calibration, and the calibration is part of the result.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "Air that stopped moving",
     "objective": "Establish what a bubble is, when it sealed, and why its air is younger than its ice.",
     "briefing": "The gas record and the ice record from the same depth are not the same age.",
-    "stake": "Saturday, and Samuel Adeyemi, the gas chemist, has carbon dioxide from four depths and a problem with all of them. The air in a bubble stopped moving centuries after the snow around it fell. At a site this dry, that gap is the biggest correction in the whole record. Okonkwo needs it before the two clocks can be put together. Today you work out how big the gap is here, name the step that decides it, and settle why the gas record is smoother than the ice one. Get the gap wrong and a gas record lands centuries away from the climate it belongs to. Adeyemi would rather say so now than in a paper.",
+    "stake": "Saturday. Samuel Adeyemi has carbon dioxide from four depths and a problem with all of them. The air in a bubble stopped moving centuries after the snow around it fell. At a site this dry, that gap is the biggest correction in the record. Today you work out how big the gap is here, and why the gas record is smoother than the ice one. Get it wrong and a gas record lands centuries from the climate it belongs to.",
     "takeaway": "Two things in the same piece of ice can be different ages, and the difference has to be calculated.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "The year that is written everywhere",
     "objective": "Use a dated eruption to tie this core to another one, and know what that tie does not fix.",
     "briefing": "A sulphate spike at 1,642 metres could be the anchor the deep section needs.",
-    "stake": "Monday, and the chemistry has found a sulphur spike with glass fragments in it. If it is the eruption Okonkwo thinks it is, the deep section gets its first fixed date, and the two records get their first shared point. Adeyemi wants to know what that does for the gas record. The forecast gives Brandt one clear day for three jobs. Today you name the spike, say what a fixed date fixes, and choose what gets done before the wind returns. One clear day and four of blowing snow is the whole choice. Brandt has already packed for all three jobs, which helps nobody.",
+    "stake": "Monday. The chemistry has found a sulphur spike with glass fragments in it. If it is the eruption Okonkwo thinks it is, the deep section gets its first fixed date. Adeyemi wants to know what that does for the gas record. The forecast gives Brandt one clear day for three jobs. Today you name the spike, and choose what gets done before the wind returns.",
     "takeaway": "A dated event in two records fixes them to each other at that moment, and nowhere else.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "Two records, side by side",
     "objective": "Put both records on one plot and find out how much of the comparison is independent.",
     "briefing": "The Skarv record and this one differ by more than either group's stated uncertainty.",
-    "stake": "Wednesday, and both records are on one screen for the first time. They differ by about half a per mil through the cold interval, which is larger than either group has claimed as its uncertainty. Halvorsen has a draft paragraph written. Okonkwo has asked what the two records have in common before anybody asks what they disagree about. Today you work out which parts of the comparison are independent, what the gas record says about the energy budget, and what half a per mil is worth in degrees. Two records that share a method are one record with two names on it.",
+    "stake": "Wednesday, and both records are on one screen for the first time. They differ by about half a unit through the cold spell, which is more than either team has claimed as its doubt. Halvorsen has a draft paragraph written. Today you work out which parts of the comparison stand on their own, and what half a unit is worth in degrees. Two records that share a method are one record with two names on it.",
     "takeaway": "Agreement between two records is worth what their independence is worth.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "The offset that was not climate",
     "objective": "Test whether the age difference accounts for the disagreement before it is called one.",
     "briefing": "The two records may differ because one dates ice and the other dates gas.",
-    "stake": "Thursday, and Adeyemi has spent the night on the two teams' age scales. Skarv gets four times the snow this station does, so its gap between gas and ice is a fraction of ours. The comparison so far has both gas records plotted on the ice clocks. Okonkwo has been saying since the first week that two clocks have to be matched before anything is compared. Today you predict what the difference becomes once that is fixed, do it, and check it against the one date neither team worked out. If the correction explains the difference, two records agree. If it does not, somebody has found something, and it will need a great deal more than one night.",
+    "stake": "Thursday. Adeyemi has spent the night on the two teams' age scales. Skarv gets four times the snow this station does, so its gap between gas and ice is a fraction of ours. Today you predict what the difference becomes once that is corrected, do it, and check it against the one date neither team worked out. If the correction explains the difference, the two records agree.",
     "takeaway": "A disagreement between two records is a claim about both of them, including how they were dated.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "The night the generator stopped",
     "objective": "Work out what the core store record can still prove after a power failure.",
     "briefing": "The store was without power for six hours and the log says nothing about it.",
-    "stake": "Saturday, and the number two generator stopped at some point in the night. The core store came back at minus 19 and the log has an entry for the whole night signed by the watch. Anneke de Vries, the camp manager, needs the drill and the store back in a fixed order and Lindqvist wants his own list first. Aalto has been asked how much of the season's temperature record survives the scatter in it. Today you decide which signatures are worth checking, what gets restarted first, and how tightly a mean can be quoted. Ice that warmed and was signed for as cold is worse than ice that warmed.",
+    "stake": "Saturday. The number two generator stopped at some point in the night. The core store came back at minus 19, and the log has an entry for the whole night, signed. Anneke de Vries needs the drill and the store back in a fixed order. Today you decide which signatures are worth checking, and what gets restarted first. Ice that warmed and was signed for as cold is worse than ice that warmed.",
     "takeaway": "A record is a claim about a condition, and the two can come apart in a night.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "What is known, and how well",
     "objective": "State what the season established, at what precision, and what it could not reach.",
     "briefing": "The last day is spent deciding what the record supports and what the next season must do.",
-    "stake": "Monday, the last working day, and the aircraft comes on Wednesday. The report is going out, and Halvorsen wants the season's own account of itself. What is settled, what rests on a model, and what the next team has to do first. Brandt is closing the stake array. Tanabe has one question left about how fine this record can ever be. Today you settle which sentence the evidence reaches, sort what was measured from what was assumed, and say what the shortest event this ice could show is. What the next team believes about this ice is whatever gets written down this week. Nobody comes back for four years.",
+    "stake": "Monday, the last working day, and the aircraft comes on Wednesday. The report is going out. Halvorsen wants the season's own account of itself. What is settled, what rests on a model, and what the next team does first. Today you sort what was measured from what was assumed, and say what the shortest event this ice could show is. Nobody comes back for four years.",
     "takeaway": "A record is worth what its limits are known to be.",
     "stops": [
       {

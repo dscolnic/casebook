@@ -162,6 +162,11 @@ accelerometer propel propulsion switchboard thermometer transmitter unambiguous 
 rise rises rising lower lowers lowering proceed proceeds stay stays stayed run runs running way ways
 straight steeply steep ones zero act acts acting get gets go goes back middle push pushes pushing
 feel feels felt along angle angles rider riders squared square
+crew crews breathe breath breathing away dish dishes earth ground grounds use uses used using user star stars
+pass passes passing
+show shows sit sits clock clocks camera cameras radio battery batteries fan fans needle needles
+spring springs swing swings hinge hinges siren sirens tape hose sock cover covers panel panels
+screen screens wall walls hole holes door doors window windows empty full
 `.trim().split(/\s+/).concat(FUNCTION_WORDS, IRREGULAR).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has
@@ -186,7 +191,12 @@ const FORMS = [/e?d$/, /s$/, /es$/, /ing$/, /ly$/, /e?r$/, /ion$/, /ment$/, /anc
 // terms, and stripping it turns "reagent" into "agent" and "reactive" into
 // "active" — two of the words this tool exists to find.
 const PREFIXES = /^(?:un|non|over|under|mis|pre|post|sub|inter|multi|semi|self)/;
-const known = (b) => b.length >= 4 && (COMMON.has(b) || UNITS.has(b) || COMMON.has(b + 'e') || UNITS.has(b + 'e'));
+// The floor is four letters against the bare stem, and three against a stem that
+// only needs its `e` back: stripping "moved" leaves "mov", which is three, so
+// "move" was ordinary and "moved" was jargon. The floor is there to stop short
+// fragments matching by accident, and "mov" + "e" is not an accident.
+const known = (b) => (b.length >= 4 && (COMMON.has(b) || UNITS.has(b)))
+  || (b.length >= 3 && (COMMON.has(b + 'e') || UNITS.has(b + 'e')));
 // One pass strips one ending, and English stacks them: "scientifically" is
 // "scientific" under two, "controller" is "control" under an ending and the
 // doubled consonant that carrying it needed.

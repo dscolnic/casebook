@@ -27,7 +27,7 @@ export const CURRICULUM = {
           "A trade name with no formula and no strength says nothing about danger. It is a word on a drum."
         ],
         "scenarios": [
-          "The formula pairs a metal with a group of atoms carrying a charge.",
+          "A metal, paired with a charged group of atoms.",
           "Two records share every element and disagree on how many of each.",
           "A particle has more electrons than protons.",
           "A label gives a trade name and nothing else."
@@ -56,7 +56,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "From damaged drum to a first answer",
-      "scene": "In the mobile laboratory, the first sealed sample from the damaged drums is on the bench. The outside markings are still readable, and there is very little liquid to work with.",
+      "scene": "In the mobile laboratory, the first sealed drum sample is on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. There is enough liquid for two tests.",
       "takeaway": "Do the tests that cost nothing before the ones that cannot be taken back.",
       "place": "Molecular Identification Lab",
       "story": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
@@ -64,9 +64,9 @@ export const CURRICULUM = {
         "type": "SEQUENCE",
         "title": "From damaged drum to a first answer",
         "setup": "Order the non-destructive evidence workflow.",
-        "play": "Put the four steps in the order they have to happen.",
-        "task": "Put the four steps in the order they have to happen.",
-        "question": "Put the four steps in the order they have to happen.",
+        "play": "Put the four steps in order of what each one costs, cheapest first.",
+        "task": "Put the four steps in order of what each one costs, cheapest first.",
+        "question": "Put the four steps in order of what each one costs, cheapest first.",
         "answer": "1. Photograph and record the markings on the outside of the drum, which consumes nothing. 2. Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.",
         "why": "The order is set by what each step costs. The markings on the outside survive only until somebody opens the drum, so they get photographed first, and it costs nothing. Sampling the air above the liquid takes what has already escaped, without opening anything. A test that gives the sample back can be repeated all week if it goes wrong. The test that uses the sample up answers best, and it answers once.",
         "rebuttals": [
@@ -79,13 +79,18 @@ export const CURRICULUM = {
           "Photograph the markings on the outside, which uses nothing up.",
           "Collect the air above the liquid, without opening the drum.",
           "Take a few drops, and run a test that gives them back.",
-          "Run the test that consumes the sample, once there is a question worth spending it on."
+          "Run the test that uses up the sample."
         ],
         "order": [
           0,
           1,
           2,
           3
+        ],
+        "axis": "Put the four in order by what each one costs you, cheapest first. There is no clock here. You can do any of them right now, so the question is which ones you can still do afterwards.",
+        "ends": [
+          "Costs nothing",
+          "Cannot be taken back"
         ]
       },
       "assumes": [
@@ -94,64 +99,35 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Spend the first of the budget",
-      "scene": "There is eight hundred pounds left for the first round of tests. Three drums have lost their labels, and the first sample is ready. Firefighters are waiting at the fence for a name.",
-      "takeaway": "Buy the test that could prove you wrong, not the one that makes you look thorough.",
+      "title": "Float or sink",
+      "scene": "One drum is leaking into the bund. Nobody knows what the liquid is yet. Adaeze Okonjo needs to know whether it will float on the water already lying there, or sink under it.",
+      "takeaway": "Whether something floats is a comparison, not a property: it is heavier or lighter than the same amount of water.",
       "place": "Records and Shipping Office",
-      "story": "You have a limited laboratory budget and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns.",
+      "story": "Whether a spilled liquid floats or sinks decides where it goes and which end of the bund matters. A litre of water weighs about a kilogram; a litre of the spill weighs more or less than that, and that single comparison sets the response. A floating layer spreads out and reaches the drain. A sinking one collects at the bottom, which is where the pump inlet sits, and it can be pumped straight into the system somebody is trying to protect.",
       "game": {
-        "type": "VALUE",
-        "title": "Spend the first of the budget",
-        "setup": "What does the response run first?",
+        "type": "CHOICE",
+        "title": "Float or sink",
+        "setup": "One drum is leaking into the bund, and nobody knows what the liquid is.",
         "play": "Spend the budget on the evidence that could change the answer.",
         "task": "Spend the budget on the evidence that could change the answer.",
-        "question": "Which evidence do you buy before telling firefighters what this is?",
-        "answer": "Buy the test that works a different way. It is the only one that could overturn the answer, and everything else only makes the current answer look tidier.",
-        "why": "A test result can be precise and still be wrong. Running the same test again shows only that it repeats. Checking the paperwork shows where the sample came from. Quality checks catch particular laboratory mistakes. None of those can say the substance is something else. A test that works by different physics can, which is why it is the one worth buying while there is still a decision hanging on the answer.",
-        "value": {
-          "budget": {
-            "amount": 800,
-            "unit": "$"
-          },
-          "decision": "Can the response give firefighters a defensible provisional identity for the damaged drums?",
-          "options": [
-            {
-              "id": "orthogonal",
-              "label": "Independent structural method on the same extract",
-              "cost": 600,
-              "axis": "identity",
-              "reveals": "Whether the proposed compound is supported by a method that does not depend on the original separation or retention-time match.",
-              "decisive": true
-            },
-            {
-              "id": "records",
-              "label": "Supplier and shipping-record search",
-              "cost": 150,
-              "axis": "provenance",
-              "reveals": "What should have been shipped in the drums before the fire, not what is chemically present now."
-            },
-            {
-              "id": "controls",
-              "label": "Reference material, blank and matrix spike",
-              "cost": 250,
-              "axis": "quality control",
-              "reveals": "Whether the laboratory added signal or the sample matrix changed the response of the first method."
-            },
-            {
-              "id": "replicate",
-              "label": "Repeat the first method on a second aliquot",
-              "cost": 200,
-              "axis": "precision",
-              "reveals": "Whether the first method repeats on the same sample; it does not create an independent identity measurement."
-            }
-          ],
-          "hint": "Open each evidence card to see what it would tell you, then spend no more than $800. Repeating a result and independently identifying it are different purchases.",
-          "commit": "Commit the decision"
-        }
+        "question": "Which measurement decides whether the liquid floats on water?",
+        "answer": "How much a litre of it weighs. Under a kilogram and it floats, over a kilogram and it sinks.",
+        "why": "Floating is a comparison. A litre of water weighs about a kilogram, so a litre of anything lighter than that rides on top and a litre of anything heavier goes under. Nothing else on the list decides it. Colour and smell say nothing about weight. The amount in the drum does not change it either — a full drum and a spoonful of the same liquid float or sink the same way. The answer matters tonight, because a floating layer spreads across the bund and reaches the drain, while a sinking one sits at the bottom where the pump inlet is.",
+        "rebuttals": [
+          "Colour is worth writing down and decides nothing here. Clear liquids do both.",
+          "Smell is a warning, not a measurement, and it means putting somebody in the vapour.",
+          "A spoonful and a full drum of the same liquid float exactly alike."
+        ],
+        "choices": [
+          "How much a litre of it weighs",
+          "What colour it is",
+          "How strongly it smells",
+          "How much of it is in the drum"
+        ],
+        "correctChoice": "How much a litre of it weighs"
       },
       "assumes": [
-        "two tests that work in different ways can fail in different ways",
-        "running the same test twice is not two pieces of evidence"
+        "a litre of water weighs about a kilogram"
       ]
     }
   ],
@@ -215,9 +191,9 @@ export const CURRICULUM = {
         ],
         "choices": [
           "It takes up more room, in step with the warming.",
-          "It takes up more room, because there is less pushing in on it.",
-          "It may sink and pool low down, though wind can stir it up.",
-          "Where the danger lies has moved, and the map has to move with it."
+          "It takes up more room, with less pushing in.",
+          "It may sink and pool low down.",
+          "The danger has moved, so the map must move."
         ],
         "mapping": [
           0,
@@ -256,12 +232,12 @@ export const CURRICULUM = {
           "Evaporating takes away the part that evaporates most easily, which would lower the vapour rather than raise it."
         ],
         "choices": [
-          "It is warmer, so more of the liquid is in the air above it.",
+          "Warmer liquid puts more of itself into the air.",
           "It reacted during the day and made something that evaporates faster.",
           "The morning reading was wrong, because instruments drift when cold.",
           "More evaporated overnight, so what is left is stronger."
         ],
-        "correctChoice": "It is warmer, so more of the liquid is in the air above it."
+        "correctChoice": "Warmer liquid puts more of itself into the air."
       },
       "assumes": [
         "a liquid is always sending some of itself into the air above it"
@@ -341,7 +317,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "About 0.39 a litre, because the metal falls by about eight times.",
-          "About 3.1 a litre, because dissolving is fixed once a solid is there.",
+          "About 3.1 a litre, whatever solid is left over.",
           "About 24.8 a litre, because both go up together.",
           "About 0.05 a litre, because it falls by eight times eight."
         ],
@@ -490,10 +466,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Why the first dose overshot",
-      "scene": "A dose worked out from the intake reading overshot badly. The bench test is now up beside a reference curve for a simple acid, with fresh checks on the meter from the same electrode.",
+      "scene": "A dose worked out from the intake reading overshot badly. The bench test is up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.",
       "takeaway": "A reading tells you what is loose right now. It does not tell you what is held in reserve.",
       "place": "Acid-Base Bench",
-      "story": "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading.",
+      "story": "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is that: adding a measured amount, drop by drop, until the water changes, and counting how much it took. It is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why the first dose overshot",
@@ -780,7 +756,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Undo the dilution",
-      "scene": "The laboratory watered the sample down before measuring it. So the instrument reports what was in the vial. The city is about to compare that number with a limit.",
+      "scene": "The lab watered the sample down before measuring it. So the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.",
       "takeaway": "What was done to a sample before it was measured is part of the answer.",
       "place": "Quantitative Analysis Lab",
       "story": "The instrument reports what was in the vial, not what was in the river. Samples are diluted so that the signal falls inside the range the method can actually measure, and the analyst has to carry that factor back through before the number means anything about the water — a tenfold dilution reported as-is understates the river by a factor of ten. Sample preparation is part of the result, not something that happened to it beforehand. City leaders are comparing the number you hand over against a threshold and closing or opening a water system with it.",
@@ -849,7 +825,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Say what should happen, then check",
-      "scene": "The reading sits above the range this instrument was set up for. It still prints a number, and the number is about to be written into a report.",
+      "scene": "The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and it is going into a report.",
       "takeaway": "Predict what a change should do, make it, and check. That is what turns a reading into a result.",
       "place": "River Mapping Center",
       "story": "An instrument will return a number for almost anything you put in front of it, which is why quality control exists. A calibration curve is a claim about a specific range of concentrations, built from standards that bracket that range; a blank says whether the laboratory contributed to the signal; a spike recovery says whether the matrix is suppressing or enhancing the response; replicates say whether the measurement is stable at all. Each of them fails in a distinct way, and the panel in front of you contains everything you need to decide whether this reading can be defended.",
@@ -996,7 +972,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The weight of the molecule, which differs by sixteen between them.",
-          "The order it came out in, since the heavier one always comes later.",
+          "The order it came out in, heavier ones later.",
           "How big the peak is, since the heavier one gives more signal.",
           "Neither, because they are the same kind of substance."
         ],
@@ -1351,33 +1327,24 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Control the self-heating",
       "scene": "Fire Command wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.",
-      "takeaway": "A site is safe to leave when somebody can watch the trend, not when one reading looks fine.",
+      "takeaway": "A rising temperature is a rate, and a rate can be run forward to a time somebody has to act by.",
       "place": "Fire Command",
       "story": "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Control the self-heating",
-        "setup": "Fire Command wants the site released tonight. What do you require first?",
+        "setup": "Bay three has gone from thirty-one to forty-four in eight hours.",
         "play": "Say what has to be in place before the site is released.",
         "task": "Say what has to be in place before the site is released.",
-        "question": "Fire Command wants it released tonight. What do you require first?",
-        "answer": "Continuous watching of the temperature. It is the only thing that says which way the race is going, and it can be in place tonight.",
-        "why": "Self-heating is a race. Something inside is making heat, and the surroundings are carrying heat away, and only the trend says which is winning. One reading cannot. So the thing to insist on is watching it continuously, because that is what turns a guess into a warning. Working out the chemistry takes days and is worth starting. Bringing cooling in changes the race and needs to know which way it is running first.",
-        "rebuttals": [
-          "Testing the material gives the mechanism and the rate, and it takes days. Start it, and it does not decide tonight.",
-          "Cooling changes the race, and it has to know which way the race is running before it can be sized.",
-          "One reading at the door is exactly the measurement that failed this afternoon. One bay was warm and falling. One was warm and rising."
-        ],
-        "choices": [
-          "Watch the temperature and the heat continuously, in every bay.",
-          "Take material away and test how much heat it makes.",
-          "Bring cooling on site, and prove it works if the supply fails.",
-          "One more reading at the door as the crews leave."
-        ],
-        "correctChoice": "Watch the temperature and the heat continuously, in every bay."
+        "question": "If it keeps climbing at the same rate, what will bay three read in eight more hours?",
+        "answer": "About fifty-seven degrees, and that is the optimistic version — it has been speeding up, not holding steady.",
+        "why": "Thirteen degrees in eight hours is the rate. Run it forward and you get another thirteen. That is about fifty-seven degrees by morning. The number turns an argument into a decision, because it can be held against the temperature where this material runs away. The catch is in the words \"the same rate\". It has been climbing faster each hour. So fifty-seven is the friendly answer, and the real one comes sooner.",
+        "givens": [],
+        "relationship": "Next temperature = the temperature now + the rise over the same length of time again.",
+        "calcKey": "ENERGY-3"
       },
       "assumes": [
-        "a trend says something a single reading cannot"
+        "a rate of change can be carried forward to guess what comes next"
       ]
     }
   ],
@@ -1444,9 +1411,9 @@ export const CURRICULUM = {
         "setup": "Use a simplified mass-loss estimate.",
         "play": "Work out how deep the loss is each year.",
         "task": "Work out how deep the loss is each year.",
-        "question": "How much depth is being lost each year?",
-        "answer": "About 0.06 millimetres a year, spread evenly. At that rate the wall lasts most of a century — if it really is spread evenly.",
-        "why": "Two kilograms a year sounds alarming and means nothing alone. Spread over four square metres of steel, it works out at about six hundredths of a millimetre a year. At that rate a six millimetre wall lasts most of a century. That is the useful answer, and it is also a warning about averages. The same two kilograms at one hole goes through in a season.",
+        "question": "How many years does it take to lose one millimetre of wall?",
+        "answer": "About sixteen years for the first millimetre, if the loss is spread evenly over the whole patch.",
+        "why": "Two kilograms a year sounds alarming and means nothing on its own. Spread over four square metres of steel, one millimetre of thickness weighs about thirty-two kilograms, so two kilograms a year takes about sixteen years to eat through it. Six millimetres of wall is most of a century at that rate. That is the useful answer, and it is also a warning about averages. The same two kilograms arriving at one small hole goes straight through in a season.",
         "givens": [
           "corrosion mass loss = 2.0 kg/year",
           "affected area = 4.0 m²"
@@ -1478,23 +1445,27 @@ export const CURRICULUM = {
           "s": "A small concentration in a very large volume can still be a large amount of material."
         },
         {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several samples",
+          "e": "depth lost each year = weight lost ÷ (how heavy it is × the area)",
+          "c": "how fast a wall is thinning",
           "v": [
             [
-              "average",
-              "the mean"
+              "depth lost each year",
+              "in millimetres"
             ],
             [
-              "total",
-              "the readings added up"
+              "weight lost",
+              "in kilograms"
             ],
             [
-              "how many",
-              "the number of samples"
+              "how heavy it is",
+              "kilograms in a cubic metre"
+            ],
+            [
+              "the area",
+              "in square metres"
             ]
           ],
-          "s": "One sample is a place and a moment. An average over several is closer to the river."
+          "s": "A weight loss spread over a wide area is a thin loss; over a small one it is a hole."
         }
       ]
     },
@@ -1896,7 +1867,7 @@ export const BALLPARK_CALCS = {
     "prompt": "Ten millilitres of river water were made up to a hundred millilitres. The instrument then read 2.5 milligrams a litre.",
     "question": "What was really in the river sample?",
     "labels": [
-      "2.5 mg/L (what the instrument read)",
+      "2.5 mg/L — milligrams in every litre (what the instrument read)",
       "100 mL (what it was made up to)",
       "10 mL (how much river water was used)",
       "0.25 mg/L (the smallest the instrument can see)",
@@ -1954,6 +1925,34 @@ export const BALLPARK_CALCS = {
     "solution": "2,000 × 4.2 × 5 is 42,000 units.",
     "explanation": "Five degrees is the temperature change, not the temperature. Using 300 instead would answer a question about heating it from nothing, which is not what happened."
   },
+  "ENERGY-3": {
+    "prompt": "Bay three read thirty-one degrees eight hours ago and reads forty-four now.",
+    "question": "If it keeps climbing at the same rate, what will it read in eight more hours?",
+    "labels": [
+      "44 °C (what it reads now)",
+      "13 °C (how much it rose in eight hours)",
+      "31 °C (what it read eight hours ago)",
+      "8 (the hours between readings)"
+    ],
+    "values": [
+      44,
+      13,
+      31,
+      8
+    ],
+    "slots": 2,
+    "template": "{0} + {1}",
+    "formula": "a+b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 57,
+    "tolerance": 3,
+    "units": "°C",
+    "solution": "Forty-four now, plus another thirteen over the next eight hours, is about fifty-seven degrees.",
+    "explanation": "The rise is the difference between the two readings, not either reading on its own. Add the whole forty-four again and you have doubled the temperature rather than continued the trend."
+  },
   "WATER-4": {
     "prompt": "The intake reads 4 and ordinary water reads 7. Each step down the scale means ten times more acid.",
     "question": "How many times more acidic is the intake water?",
@@ -1983,33 +1982,32 @@ export const BALLPARK_CALCS = {
     "explanation": "Three steps is ten times ten times ten. Subtracting instead gives three, which is the number of steps rather than the answer."
   },
   "TREAT-2": {
-    "prompt": "The pipe loses about 2.0 kilograms of steel a year over 4.0 square metres. Steel weighs 7,900 kilograms for every cubic metre.",
-    "question": "How much depth is being lost each year?",
+    "prompt": "One millimetre of steel, spread over the whole affected patch, weighs about 32 kilograms. The pipe is losing about 2.0 kilograms a year.",
+    "question": "How many years does it take to lose one millimetre?",
     "labels": [
-      "2.0 kg each year (steel lost)",
-      "7,900 kg in every cubic metre (steel)",
-      "4.0 m² (the area affected)",
-      "6 mm (the wall that is left)"
+      "32 kg (one millimetre of steel over that patch)",
+      "2.0 kg each year (what is being lost)",
+      "6 mm (the wall that is left)",
+      "4.0 m² (the area affected)"
     ],
     "values": [
+      32,
       2,
-      7900,
-      4,
-      6
+      6,
+      4
     ],
-    "slots": 3,
-    "template": "{0} ÷ ({1} × {2})",
-    "formula": "a/(b*c)*1000",
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 0.063,
-    "tolerance": 0.01,
-    "units": "mm/year",
-    "solution": "2.0 ÷ (7,900 × 4.0) is about 0.000063 metres, which is 0.063 millimetres a year.",
-    "explanation": "Divide by the density of the metal, not of water. The two differ by nearly eight times, and only one of them is the pipe."
+    "target": 16,
+    "tolerance": 2,
+    "units": "years",
+    "solution": "Thirty-two kilograms in each millimetre, at two kilograms a year, is about sixteen years for the first millimetre.",
+    "explanation": "The six millimetres of wall left is most of a century at this rate, which is maintenance. Ten times the rate is a burst main within a decade, so the rate is the whole question."
   },
   "TREAT-8": {
     "prompt": "The current the cell drew allows at most 4.5 kilograms of metal to be removed. The water figures say 3.6 kilograms came out.",

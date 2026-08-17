@@ -28,7 +28,9 @@ matter are few, and every one of them exists because breaking it shipped a bug:
 - **Every roster entry has a `division`.** Without it, that area's person stops
   are unreachable and nothing says so until a player walks the whole town.
 - **A `BALLPARK` stop carries an `estimate` block.** Prose carries no
-  arithmetic; without it the panel opens with "not yet converted".
+  arithmetic; without it the panel opens with "not yet converted". Its tiles must
+  say what they are worth and its slots must match its answer — see the four
+  rules under BALLPARK below, all four enforced at import.
 - **`takeaway` never repeats `why`.** The takeaway is shown before the question.
 - **The `scene` is the situation, not the teaching.** Thirty to forty-five words
   of where the player is and what is being asked of them. It must not contain
@@ -187,6 +189,23 @@ missions:
         why: Physical control and records preserve safety and provenance before interpretation.
 ```
 
+**Write `axis` whenever the order is not chronological.** The panel's default
+instruction is "put the N steps in order, earliest first", and the rail is
+captioned Earliest → Latest. That is a claim about what the answer is graded on,
+and about one ordering item in nine is graded on something else — cost, risk,
+reversibility, how much information each move buys. Those cards then sit under an
+instruction that sends the player hunting for a chronology that does not exist,
+and the real axis is in `takeaway` and `why`, which arrive after the answer.
+`axis` replaces the instruction and `ends` the two captions:
+
+```yaml
+        axis: Order the four by what each one costs you, cheapest first. This is not a clock — every step is available right now, and the question is which ones you can still take afterwards.
+        ends: [Costs nothing, Cannot be undone]
+```
+
+Both are optional, and `ends` takes exactly two captions or the importer refuses
+it — a rail labelled at one end reads as a bug.
+
 ### BALLPARK — an estimate the player assembles from quantities
 
 ```yaml
@@ -215,6 +234,34 @@ missions:
 
 Distractor tiles should be plausible *quantities*, not wrong answers. The point
 is choosing what belongs in the calculation.
+
+**Four rules the importer enforces, each of them paid for by a shipped defect:**
+
+1. **A tile says what it is worth.** `labels[i]` and `values[i]` are the same
+   number — the player clicks the label and the panel adds the value. Any
+   notation is fine (`10²²`, `1/2`, `3.0e8`, "12 million", a typeset minus); what
+   is refused is a label reading 1025 over a value of 1.025. This is what a
+   re-target breaks: `apply-conversions` will not guess at a `labels` list whose
+   length changed, so the numbers move and the words stay. Deep Watch shipped a
+   panel asking for pressure at ninety metres and grading gallons per minute, and
+   ten stops across seven games were like it. Every one rendered perfectly.
+2. **`slots` equals the length of `correct`.** A panel that wants three tiles and
+   knows two can never be completed.
+3. **One relationship per stop, at grade 8 and below.** `relationship: Degrees
+   lost = energy lost ÷ energy for one degree. Energy lost = watts × seconds.` is
+   two equations and a unit conversion in one panel; `questionLoad` refuses it.
+   Put the second step in the verdict, where it is teaching rather than work.
+   `node engine/dev/questionLoad.mjs --sweep` lists the multi-step estimates in
+   every game at any grade, and fails none of them — a senior course is allowed
+   a chain, and it is still worth looking at.
+4. **The equation on the card is the one the stop uses.** The chip comes from
+   `tools/syllabus.js`, attached by keyword, so a key of `how long` put
+   `time = distance ÷ speed` on a stop about a cooling cabin, and `megawatt` put
+   `P = IV` on a demand forecast. `validateContent` compares the chip against the
+   relationship, the template and the worked solution. If a stop computes
+   something the syllabus does not list, **add the equation** rather than
+   loosening a key — three of the six games caught this way were wrong because
+   the equation was missing, not because the matching was.
 
 ### DIAGNOSIS — one explanation that fits the whole panel
 
@@ -353,7 +400,7 @@ Three stop-level fields come from the same conversion:
 | Field | What it is |
 | --- | --- |
 | `call` | the plan card's line for this stop — "Talk to Dr. Nguyen" — where it differs from the question's own `task` |
-| `setup` | what the panel says above the question, where it differs from `place` |
+| `setup` | a note carried through from the source document. **Nothing renders it** — it is in the leak checks' word list and nowhere else. Four books write it and two of them mean different things by it (ContamCity an instruction, Hospital "who • where"), which is why no renderer can use it. Do not put anything a player needs here |
 | `story` | the longer form of the situation, where a game carries one as well as a scene |
 | `answerText` | the printed answer key, for a format that does not derive one |
 

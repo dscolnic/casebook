@@ -26,9 +26,9 @@ export const CURRICULUM = {
           "Both records cover the same ninety seconds, and the aftershocks are on separate traces."
         ],
         "choices": [
-          "One of the two instruments is faulty, and its record should be thrown out.",
+          "One instrument is faulty, and its record should go.",
           "The soft ground under the Flats shook harder, and for longer.",
-          "The Flats are closer to where it started, so the shaking there was stronger.",
+          "The Flats are closer, so the shaking there was stronger.",
           "The Flats record has aftershocks in it that the other station missed."
         ],
         "correctChoice": "The soft ground under the Flats shook harder, and for longer."
@@ -128,7 +128,7 @@ export const CURRICULUM = {
           "The plant room is still locked, so the inspection is not finished."
         ],
         "choices": [
-          "That the building is undamaged, since the shaking stayed under the design figure.",
+          "It is undamaged, since the shaking stayed under the design figure.",
           "That this building felt a little less than it was built for.",
           "That the design figure was too low and should be raised.",
           "That no more inspection is needed anywhere in the building."
@@ -262,13 +262,13 @@ export const CURRICULUM = {
           "The reference vault sits on weathered granite, not solid rock.",
           "The hospital felt 0.31 g at its base.",
           "Marina Court tipped because the ground stopped holding it up.",
-          "The Flats will shake about five times as hard in a future earthquake."
+          "The Flats will shake about five times as hard next time."
         ],
         "choices": [
           "Settled. A 1998 trench log, and five days of side-by-side records.",
           "Measured once, at one building, for one earthquake.",
-          "Worked out. Good ground reasoning from a survey, with no hole dug under the slab.",
-          "A projection. The weakest claim in the report, and the one the plan leans on."
+          "Worked out from a survey, with no hole dug to check.",
+          "A projection — the weakest claim, and the one the plan uses."
         ],
         "mapping": [
           0,
@@ -394,12 +394,12 @@ export const CURRICULUM = {
           "The frame is undamaged, which is exactly what the survey found."
         ],
         "choices": [
-          "The lean will keep growing on its own until the building falls over.",
-          "The weight now lands off to one side, which bends columns built to be squashed.",
+          "The lean will keep growing until the building falls.",
+          "The weight lands off centre, bending columns built to squash.",
           "A leaning building frightens people, and public confidence matters.",
           "The frame was weakened by the tipping itself."
         ],
-        "correctChoice": "The weight now lands off to one side, which bends columns built to be squashed."
+        "correctChoice": "The weight lands off centre, bending columns built to squash."
       },
       "assumes": [
         "a column is built to be pushed straight down, along its own length"
@@ -567,7 +567,7 @@ export const CURRICULUM = {
         "setup": "Structural Assessment",
         "play": "Say which explanation fits the pattern.",
         "task": "Say which explanation fits the pattern.",
-        "question": "Which explanation fits the pattern?",
+        "question": "The cracks cross in an X on every column. What kind of movement makes that shape?",
         "answer": "Being pushed side to side, first one way and then the other.",
         "why": "Concrete cracks across whatever is pulling it apart. Push a column sideways and the pull runs on a diagonal, so the crack opens on a diagonal. Push it back and a second diagonal opens, crossing the first. That X is the mark of shaking, not of weight or of slow settling. Many fine cracks rather than one big one also says the steel inside is working. It does not say how much is left.",
         "rebuttals": [
@@ -613,7 +613,7 @@ export const CURRICULUM = {
         "play": "Say what the new cracks tell the office.",
         "task": "Say what the new cracks tell the office.",
         "question": "What do the two buildings with new cracks tell the office?",
-        "answer": "That those two are near the limit of what they have left, which is what the props bought time against.",
+        "answer": "Those two are near their limit, which the props bought time against.",
         "why": "Props hold a building up. They do not put back what the earthquake took out of it. So a shake a tenth the size doing fresh damage says something specific. Those two are working near the limit of what they have left. That is a reason to tighten the restrictions and look again before anybody talks about repairs. It is not proof that the props failed, and it does not say how close to falling either building is.",
         "rebuttals": [
           "The props are still standing and doing their job. Nothing about them failed.",
@@ -622,11 +622,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "That the props failed, and should be swapped for something else.",
-          "That those two are near the limit of what they have left, which is what the props bought time against.",
-          "That the aftershock was much bigger in those two streets than the network says.",
+          "Those two are near their limit, which the props bought time against.",
+          "The aftershock was much bigger in those two streets.",
           "That the first assessment of both buildings was wrong."
         ],
-        "correctChoice": "That those two are near the limit of what they have left, which is what the props bought time against."
+        "correctChoice": "Those two are near their limit, which the props bought time against."
       },
       "assumes": [
         "a propped building is being held up, not repaired"
@@ -646,7 +646,7 @@ export const CURRICULUM = {
         "play": "Choose the practice worth keeping when nothing is happening.",
         "task": "Choose the practice worth keeping when nothing is happening.",
         "question": "Which practice would most directly stop this happening again?",
-        "answer": "Write down, on every inspection, the parts of the building nobody could see.",
+        "answer": "On every inspection, write down what nobody could see.",
         "why": "A habit worth keeping catches the mistakes that keep happening, at a price the office will still pay in a quiet year. The gym, the plant room and the Ferry Street basement were all outside what anybody looked at. In every case somebody knew. Writing that list down, and giving it an owner, would have caught all three. A rule nobody keeps is worse than no rule.",
         "rebuttals": [
           "Doubling up halves how many buildings get cleared in a day, for a mistake rate nobody has measured.",
@@ -654,12 +654,12 @@ export const CURRICULUM = {
           "A rule that fires on every magnitude 4 gets dropped in the first quiet year, which is worse than no rule."
         ],
         "choices": [
-          "Write down, on every inspection, the parts of the building nobody could see.",
+          "On every inspection, write down what nobody could see.",
           "Two engineers on every placard, which halves how many buildings get cleared.",
           "A daily public meeting, which took two hours out of every afternoon.",
           "Re-inspect every propped building after any aftershock above magnitude 4."
         ],
-        "correctChoice": "Write down, on every inspection, the parts of the building nobody could see."
+        "correctChoice": "On every inspection, write down what nobody could see."
       },
       "assumes": [
         "a habit taken up in an emergency has a cost that only shows later"
@@ -691,10 +691,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Ground that people put there",
-      "scene": "Navarro has an 1892 survey and a photograph from 1948. Where Bay Road runs now there was a tidal creek. The port was pumped into place out of a dredger over four summers.",
+      "scene": "Elena Navarro, the ground engineer, has an 1892 survey and a photograph from 1948. Where Bay Road runs now there was a tidal creek. The port was pumped into place out of a dredger over four summers.",
       "takeaway": "Loose, wet, young ground behaves in a way old rock does not.",
       "place": "Geotechnical",
-      "story": "Navarro has an 1892 survey and a photograph from 1948. Where Bay Road runs now there was a tidal creek. The port was pumped into place out of a dredger over four summers.",
+      "story": "Elena Navarro, the ground engineer, has an 1892 survey and a photograph from 1948. Where Bay Road runs now there was a tidal creek. The port was pumped into place out of a dredger over four summers.",
       "game": {
         "type": "PROTOCOL",
         "title": "Ground that people put there",
@@ -717,10 +717,10 @@ export const CURRICULUM = {
           "Ground that has sat in place for ten thousand years."
         ],
         "choices": [
-          "Loose and full of water, so shaking packs it down and squeezes the water.",
+          "Loose and wet, so shaking packs it and squeezes water out.",
           "Stiff and dry, so it passes the shaking on almost unchanged.",
-          "The loosest and wettest of the lot, which is where the sand came up.",
-          "Squeezed tight by its own weight over time, which is why age helps."
+          "The loosest and wettest, where the sand came up.",
+          "Squeezed tight by its own weight over time."
         ],
         "mapping": [
           0,
@@ -751,7 +751,7 @@ export const CURRICULUM = {
         "setup": "Geotechnical",
         "play": "Say which explanation fits every observation.",
         "task": "Say which explanation fits every observation.",
-        "question": "Which explanation fits every observation?",
+        "question": "The slab is whole and level within itself, and the whole block has tipped. Where did the movement happen?",
         "answer": "The ground gave way under one side and the building went with it. The whole slab and the straight frame are what say the fault is underneath.",
         "why": "Everything here points underneath the building rather than inside it. The slab is whole. The frame is straight. The whole block has tipped like a tray, one edge down and one edge up, with fresh sand pushed up on the low side. That is ground that stopped holding weight. Shake wet fill hard enough and the water takes the load, the grains stop pressing on each other, and one side sinks into it.",
         "rebuttals": [
@@ -769,7 +769,7 @@ export const CURRICULUM = {
             "mechanism": "Ground that has gone liquid cannot hold the slab up, so the slab tips into it."
           },
           {
-            "label": "The slab was built out of level, and this was here before the earthquake.",
+            "label": "The slab was built out of level, before the earthquake.",
             "mechanism": "A mistake during building would leave a permanent lean."
           },
           {
@@ -796,7 +796,7 @@ export const CURRICULUM = {
         "setup": "Geotechnical",
         "play": "Say what state Ferry Street is really in.",
         "task": "Say what state Ferry Street is really in.",
-        "question": "What is the honest status of Ferry Street now?",
+        "question": "The sand has dried and the water has dropped back. What can the street carry now?",
         "answer": "Drained and disturbed. Walkable, no heavy vehicles, and liable to go again.",
         "why": "Ground goes liquid while the water in it is under pressure, and that pressure drains away within hours. So the liquid part is finished. The ground it left is not the ground that was there before. It has settled unevenly, spread sideways, and lost sand up through the surface, which leaves holes underneath. Dry on top says nothing about whether a truck is safe. And the same layer can go again in a big aftershock.",
         "rebuttals": [
@@ -808,7 +808,7 @@ export const CURRICULUM = {
           "Still liquid, and dangerous to anybody walking on it.",
           "Drained and disturbed. Walkable, no heavy vehicles, and liable to go again.",
           "Fully recovered, since the water has gone and the surface is dry.",
-          "Ruined for good, and the street will have to be rebuilt before anybody returns."
+          "Ruined for good, and the street must be rebuilt."
         ],
         "correctChoice": "Drained and disturbed. Walkable, no heavy vehicles, and liable to go again."
       },
@@ -845,12 +845,12 @@ export const CURRICULUM = {
       "place": "Geotechnical",
       "story": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault. The corrected vault report is clipped up beside them.",
       "game": {
-        "type": "CASEBOOK",
+        "type": "PROTOCOL",
         "title": "What still stands",
         "setup": "Geotechnical",
         "play": "Sort the fortnight's conclusions by what they rest on.",
         "task": "Sort the fortnight's conclusions by what they rest on.",
-        "question": "Sort the fortnight's conclusions",
+        "question": "Match each conclusion to what the vault error does to it",
         "answer": "",
         "why": "Follow each conclusion down to what it rests on. The Flats figure used the vault as its yardstick, so a bad yardstick moves it. Marina Court was worked out from a survey, from heave and from sand. The hospital's number came from its own basement. The parapet case rests on what people watched fall. Those three may deserve other checks, and this error is not one of them.",
         "rebuttals": [
@@ -900,7 +900,7 @@ export const CURRICULUM = {
         "play": "Say why the burst main matters more here than uphill.",
         "task": "Say why the burst main matters more here than uphill.",
         "question": "Why does the burst main matter more here than it would in Upper Town?",
-        "answer": "Because more water in loose fill lifts the water pressure before any shaking starts.",
+        "answer": "More water in loose fill raises the pressure before shaking.",
         "why": "Ground holds things up because the grains press on each other. Water in the gaps carries some of the load instead. The more water there is, the less the grains carry. Loose wet fill is already near the edge, and a burst main pushes it closer before any shaking starts. The leak alone will not make it go liquid. It means a smaller shake will.",
         "rebuttals": [
           "Pipe age explains why it burst, and not why it matters more on this ground.",
@@ -909,11 +909,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Because the Flats have older pipes, and more of them will burst.",
-          "Because more water in loose fill lifts the water pressure before any shaking starts.",
-          "Because the water washes away the sand that came up in the first event.",
+          "More water in loose fill raises the pressure before shaking.",
+          "The water washes away the sand that came up before.",
           "Because the fill will dissolve if it stays wet long enough."
         ],
-        "correctChoice": "Because more water in loose fill lifts the water pressure before any shaking starts."
+        "correctChoice": "More water in loose fill raises the pressure before shaking."
       },
       "assumes": [
         "ground can only go liquid if it is full of water"
@@ -1004,8 +1004,8 @@ export const CURRICULUM = {
         "setup": "Materials & Testing",
         "play": "Say what the four crushed cores actually support.",
         "task": "Say what the four crushed cores actually support.",
-        "question": "What is the strongest claim these four results support?",
-        "answer": "That the concrete is as strong as the design assumed, which is one input and not the answer.",
+        "question": "The drawing asks for twenty-five, and the lowest core came out at twenty-four. What does that tell you about the concrete?",
+        "answer": "It is as strong as the design assumed, and no stronger.",
         "why": "The four cores average close to what the drawing asked for, so weak concrete is not the story. That is worth knowing, and it is not the answer. Crushing a cylinder measures the material. It does not measure what the column went through, how much steel is inside it, or how well that steel wraps the concrete. The cores narrow the question. Somebody still has to work out what the column can carry now.",
         "rebuttals": [
           "Cracking is something you see in the structure. A crushed core says nothing about it either way.",
@@ -1014,11 +1014,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "That the columns are undamaged, since the concrete beats what was specified.",
-          "That the concrete is as strong as the design assumed, which is one input and not the answer.",
-          "That the design was too careful, and the building is stronger than it needs to be.",
+          "It is as strong as the design assumed, and no stronger.",
+          "The design was too careful, and the building is over-strong.",
           "That the cracking must have come from something other than the earthquake."
         ],
-        "correctChoice": "That the concrete is as strong as the design assumed, which is one input and not the answer."
+        "correctChoice": "It is as strong as the design assumed, and no stronger."
       },
       "assumes": [
         "concrete strength is measured by crushing a sample of it"
@@ -1060,7 +1060,7 @@ export const CURRICULUM = {
         "setup": "Hazard & Forecasting",
         "play": "Explain what changed between the two magnitudes.",
         "task": "Explain what changed between the two magnitudes.",
-        "question": "Which explanation of the change from 6.6 to 6.8 holds up?",
+        "question": "The second figure used more stations than the first. What got bigger — the earthquake, or the measurement?",
         "answer": "The later figure used more stations, and more of each record. A step of 0.2 is about twice the energy. It is a better measurement, not a bigger earthquake.",
         "why": "A magnitude is not read off the ground. It is worked out from what the instruments recorded, so it gets better as more of them report. The first bulletin used the handful of stations that had answered in the first minutes. The later one used the whole network. Going from 6.6 to 6.8 sounds tiny, and it is not. That step means about twice the energy. The earthquake never changed. How much of it had been measured did.",
         "rebuttals": [
@@ -1072,7 +1072,7 @@ export const CURRICULUM = {
           "The earthquake got stronger during the six hours between the bulletins.",
           "The later figure used more stations, and more of each record.",
           "One agency made a mistake, and it should be corrected in public.",
-          "The two figures are on different scales and cannot be compared at all."
+          "The two figures use different scales, so they cannot be compared."
         ],
         "correctChoice": "The later figure used more stations, and more of each record."
       },
@@ -1083,17 +1083,17 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What four more days buys",
-      "scene": "Tanaka has the aftershock rate for the week. Ives has the transfer log. Halvorsen wants both stated as what they cost, rather than as principles. The board meets on Friday.",
+      "scene": "Tanaka has the aftershock rate for the week, and the hospital transfer log beside it. The office wants both stated as what they cost, rather than as principles. The board meets on Friday.",
       "takeaway": "Waiting is a decision, and it has to be compared with the decision to act now.",
       "place": "Hazard & Forecasting",
-      "story": "Tanaka has the aftershock rate for the week. Ives has the transfer log. Halvorsen wants both stated as what they cost, rather than as principles. The board meets on Friday.",
+      "story": "Tanaka has the aftershock rate for the week, and the hospital transfer log beside it. The office wants both stated as what they cost, rather than as principles. The board meets on Friday.",
       "game": {
         "type": "CHOICE",
         "title": "What four more days buys",
         "setup": "Hazard & Forecasting",
         "play": "Put the cost of waiting into the same units as the risk.",
         "task": "Put the cost of waiting into the same units as the risk.",
-        "question": "How should the office weigh four more days of evidence?",
+        "question": "Four more days would sharpen the number. What does the waiting cost while it does?",
         "answer": "Against what the waiting costs, and what the evidence could change.",
         "why": "Both choices have a cost, and both can be counted. Waiting means transfers, delayed care and a hospital running short. Testing is worth it when it has a real chance of changing the answer. Here the frame has been looked at already, and the thing nobody has settled is a locked plant room with heavy tanks in it. Four days of coring answers a different question. Ask what the evidence could change, and who pays while it is collected.",
         "rebuttals": [
@@ -1102,9 +1102,9 @@ export const CURRICULUM = {
           "Managers carry the day-to-day risk, and they do not get to set the engineering standard."
         ],
         "choices": [
-          "Evidence comes first. The delay is a shame, and it is not the engineer's problem.",
+          "Evidence comes first, and the delay is not your problem.",
           "Against what the waiting costs, and what the evidence could change.",
-          "By the aftershock forecast alone, since that is the hazard on the placard.",
+          "By the aftershock forecast alone, as the placard says.",
           "By what the hospital's managers want, since they carry the day-to-day risk."
         ],
         "correctChoice": "Against what the waiting costs, and what the evidence could change."
@@ -1137,18 +1137,18 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "A condition, not a date",
-      "scene": "Halvorsen wants a date. Delacroix wants a condition. Tanaka says a date is a promise about the ground, and a condition is a promise about the office.",
+      "scene": "Halvorsen wants a date on the fence. Delacroix wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
       "takeaway": "Tie a decision to something somebody can check, and it stays honest whatever the ground does next.",
       "place": "Hazard & Forecasting",
-      "story": "Halvorsen wants a date. Delacroix wants a condition. Tanaka says a date is a promise about the ground, and a condition is a promise about the office.",
+      "story": "Halvorsen wants a date on the fence. Delacroix wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
       "game": {
         "type": "CHOICE",
         "title": "A condition, not a date",
         "setup": "Hazard & Forecasting",
         "play": "Say what the office should promise.",
         "task": "Say what the office should promise.",
-        "question": "What should the office commit to?",
-        "answer": "A condition. Each stretch opens when the hazard written against it is fixed.",
+        "question": "A date is a promise about the ground, and a condition is a promise about the office. Which one can the office actually keep?",
+        "answer": "A condition, so each stretch opens when its hazard is fixed.",
         "why": "A date promises how the ground will behave, and nobody controls that. A condition promises what the office will require before it moves a fence, and the office does control that. Publishing the conditions turns waiting into something people can watch. The aftershock rate is a poor trigger, because it says nothing about one street. Name the checks that open each stretch.",
         "rebuttals": [
           "A date promises how the ground and the repairs will behave, and nobody can promise that.",
@@ -1157,11 +1157,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "A date. The fence comes down on Friday.",
-          "A condition. Each stretch opens when the hazard written against it is fixed.",
-          "A rate. The fence comes down when aftershocks drop below one a day.",
-          "No promise at all, until every building inside the fence has been fully assessed."
+          "A condition, so each stretch opens when its hazard is fixed.",
+          "A rate, tied to the aftershocks dropping below one a day.",
+          "No promise until every building inside is assessed."
         ],
-        "correctChoice": "A condition. Each stretch opens when the hazard written against it is fixed."
+        "correctChoice": "A condition, so each stretch opens when its hazard is fixed."
       },
       "assumes": [
         "a promise can be tied to a day, or to something anybody can check"
@@ -1181,7 +1181,7 @@ export const CURRICULUM = {
         "play": "Say what the corrected figure changes.",
         "task": "Say what the corrected figure changes.",
         "question": "What does the corrected figure change?",
-        "answer": "The figures for rebuilding in the Flats, and the case for improving that ground.",
+        "answer": "The rebuilding figures, and the case for improving the ground.",
         "why": "The placards came from people looking at buildings, so a corrected figure does not move them. What it moves is everything still to be decided. Rebuilding in the Flats is designed against expected shaking, and that expectation just went up. So has the case for improving the ground first. One number is not a whole design either. It changes the future, not the past.",
         "rebuttals": [
           "Placards came from looking at damage, not from a predicted figure.",
@@ -1190,11 +1190,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The placards issued this fortnight, which used the wrong figure.",
-          "The figures for rebuilding in the Flats, and the case for improving that ground.",
+          "The rebuilding figures, and the case for improving the ground.",
           "The size of the earthquake that has already happened.",
           "Nothing, because the buildings have already been through the real shaking."
         ],
-        "correctChoice": "The figures for rebuilding in the Flats, and the case for improving that ground."
+        "correctChoice": "The rebuilding figures, and the case for improving the ground."
       },
       "assumes": [
         "design figures come from the shaking that is expected"
@@ -1222,9 +1222,9 @@ export const CURRICULUM = {
           "A range can be shown to be wrong. Outcomes outside it count against the model."
         ],
         "choices": [
-          "Because a range is more careful, and careful is right after something like this.",
+          "A range is more careful, and careful is right here.",
           "Because people plan against the bad end, and one number deletes it.",
-          "Because the model is not good enough yet to give one number honestly.",
+          "The model cannot honestly give one number yet.",
           "Because a range cannot be shown to be wrong afterwards."
         ],
         "correctChoice": "Because people plan against the bad end, and one number deletes it."
@@ -1275,7 +1275,7 @@ export const CURRICULUM = {
         "cards": [
           "What to do about the building you are standing outside.",
           "Why, in one sentence.",
-          "That the number was revised from 6.6 to 6.8, and what that does and does not mean.",
+          "It went from 6.6 to 6.8, and what that does not mean.",
           "The chance of aftershocks, given as a rate for the week."
         ],
         "order": [
@@ -1292,10 +1292,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What knocking it down would fix",
-      "scene": "Halvorsen wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
+      "scene": "The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
       "takeaway": "The best measurement is the one that could change a decision you have not made yet.",
       "place": "Public Safety",
-      "story": "Halvorsen wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
+      "story": "The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
       "game": {
         "type": "VALUE",
         "title": "What knocking it down would fix",
@@ -1353,10 +1353,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Four hundred children on Monday",
-      "scene": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, and there is no spare school to move anybody to.",
+      "scene": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Bram Halvorsen, who runs the district's emergency work, has parents calling, and there is no spare school to move anybody to.",
       "takeaway": "The question is which parts can be used, not whether the site is open or shut.",
       "place": "Public Safety",
-      "story": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, and there is no spare school to move anybody to.",
+      "story": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Bram Halvorsen, who runs the district's emergency work, has parents calling, and there is no spare school to move anybody to.",
       "game": {
         "type": "CHOICE",
         "title": "Four hundred children on Monday",
@@ -1372,10 +1372,10 @@ export const CURRICULUM = {
           "The gym is the worst room on the site, not the safest. Its walls hang on the fixings that tested short."
         ],
         "choices": [
-          "Open the whole site. The placard is green and the classrooms are undamaged.",
+          "Open the whole site, because the placard is green.",
           "Open the classrooms and shut the gym until the fixings are repaired.",
-          "Shut the whole site until every building on it has been looked at properly.",
-          "Open the site, and hold every class in the gym, which has no inside walls to fall."
+          "Shut the site until every building has been looked at.",
+          "Open the site, and hold every class in the gym."
         ],
         "correctChoice": "Open the classrooms and shut the gym until the fixings are repaired."
       },
@@ -1401,8 +1401,8 @@ export const CURRICULUM = {
         "why": "Part-use is an engineering line, not a hopeful label. Propping comes first, because it changes what the building can carry. A number on the door comes next. A limit nobody can count is not a limit. A review date comes after that, or the restriction quietly turns permanent and stops being believed. Only then is the meeting a yes or a no.",
         "cards": [
           "Prop the three cracked columns, to take weight off them.",
-          "Set a limit on how many people, and put it on the door.",
-          "Put a review date on the limit, so it ends rather than drifts.",
+          "Set a limit on numbers, and put it on the door.",
+          "Put a review date on the limit, so it ends.",
           "Decide whether Monday's meeting can be held in the building."
         ],
         "order": [
@@ -1796,8 +1796,7 @@ export const JARGON = [
       "loose",
       "loosely packed"
     ],
-    "def": "Ground that is not tightly packed, so shaking can settle it into a smaller space.",
-    "core": true
+    "def": "Ground that is not tightly packed, so shaking can settle it into a smaller space."
   },
   {
     "name": "Saturated",

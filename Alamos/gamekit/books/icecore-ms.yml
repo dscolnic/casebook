@@ -371,7 +371,7 @@ missions:
   - title: What the plateau has been writing down
     objective: Establish what this site records, how fast it records it, and why anybody drilled here.
     briefing: A new season opens on a core that is already 2000 metres deep.
-    stake: First morning of the season, and the drill has not turned yet. Nadia Brandt, the field glaciologist, has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen, the chief scientist, wants the season's snowfall figure before the plan is written. Today you settle what this site records, how much a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres. Nothing here is drilled twice. Whatever the season measures is what the next ten years of papers will use.
+    stake: "First morning of the season, and the drill has not turned yet. Nadia Brandt has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen wants the season's snowfall figure before the plan is written. Today you settle how much snow a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres."
     takeaway: A record is only as good as the rate at which it was written.
     stops:
       - group: FIELD
@@ -420,11 +420,11 @@ missions:
         answerText: The ice at each depth fell close to where it sits now, so the core is one place's weather stacked up.
         why: An ice sheet spreads outwards from its high points, like very slow treacle. On a slope, the ice at a given depth came from somewhere uphill. So a core there mixes one place's weather with a long journey, and nothing afterwards can separate them. Under a dome the ice goes almost straight down, so the column under the drill is very nearly the snow that fell on it. Domes charge for that. High, cold, dry, thin layers.
         choices:
-          - The ice at each depth fell near this spot, and did not arrive from somewhere else.
-          - The ice is colder at the top, which slows down the changes inside it.
-          - Snow falls hardest at the high point, which makes the yearly layers thick.
-          - The rock under a dome is flattest, which keeps a long hole straight.
-        answer: The ice at each depth fell near this spot, and did not arrive from somewhere else.
+          - The ice at each depth fell here, not somewhere else.
+          - Colder ice at the top slows the changes inside it.
+          - Snow falls hardest here, so yearly layers are thick.
+          - The rock under a dome is flat, so the hole stays straight.
+        answer: The ice at each depth fell here, not somewhere else.
         rebuttals:
           - Ice at the summit is colder, and cold is not what makes depth match time.
           - Domes are the driest part of an ice sheet, not the snowiest. Thin layers are the price of drilling here.
@@ -448,8 +448,8 @@ missions:
           - A rise in fine mineral dust
           - Light and dark bands about a centimetre apart
         choices:
-          - A summer surface that sat out in the open and grew coarse before it was buried.
-          - Acid from a volcano, laid down over a season or two and then gone.
+          - A summer surface, left out in the open and grown coarse.
+          - Acid from a volcano, laid down over a season or two.
           - Windier months on faraway continents, carried here and settled out.
           - Bubbles changing size through the year as the snow was squashed.
         mapping: [0, 1, 2, 3]
@@ -461,7 +461,7 @@ missions:
   - title: Three kilometres of one attempt
     objective: Get the core to the surface and onto the line without changing what it can say.
     briefing: The brittle zone starts at 540 metres and the run sheet has 3 short runs on it.
-    stake: Second day, and the drill is going back down after a night of repairs. Lindqvist has three short runs on the sheet from last season's brittle ice. Sigrid Holt has a section that arrived with no depth mark on it. Today you decide how the run through the brittle ice is made, what happens to a section nobody can place, and what a dirty sample costs. Ice gets one reading. What breaks on the way up cannot be drilled again, and what is dirty cannot be cleaned. Lindqvist wants the order agreed before the winch starts, because nobody argues about method with a barrel in the air.
+    stake: "Second day, and the drill is going back down after a night of repairs. Lindqvist has three short runs on the sheet from last season's brittle ice. Sigrid Holt has a section that arrived with no depth mark on it. Today you decide how the brittle run is made, and what happens to a section nobody can place. Ice gets one reading. What breaks on the way up cannot be drilled again."
     takeaway: Everything the core can say is decided before anybody measures anything.
     stops:
       - group: DRILL
@@ -476,8 +476,8 @@ missions:
         why: Deep down, the bubbles are squeezed far harder than the air at the surface. Bring that ice up quickly and it cracks itself apart. Each step here buys the next one. A slow lift is less of a shock. Resting at hole temperature lets the pressure even out. Writing down the breaks fixes which depth each piece came from, while somebody still knows. Cutting first destroys that, and cuts ice that is still moving.
         cards:
           - Slow the winch through the band where the bubbles are squeezed hardest.
-          - Let the section sit in the trench at hole temperature before anybody handles it.
-          - Write down every break and where it is, before anything moves off the barrel.
+          - Let it sit at hole temperature before handling it.
+          - Write down every break before anything is moved.
           - Carry the section to the storage trench and leave it to settle.
           - Cut it up and share it out, after the cracking has finished.
         order: [0, 1, 2, 3, 4]
@@ -494,11 +494,11 @@ missions:
         answerText: Work that does not need a precise depth. How heavy it is, what the crystals look like, how the drill is doing. The four metres of doubt gets written against it.
         why: A depth is what turns a measurement into a statement about a year. Four metres here is thirty-odd years, so an isotope value off this section cannot be put anywhere in the record. The ice is still perfectly good for anything a depth does not enter. How heavy it is. What the crystals look like. How the drill is performing. What matters is that the doubt travels with the sample. The danger is somebody later who never hears about it.
         choices:
-          - Work that can live with four metres of doubt, with the doubt written down.
+          - Work that can live with four metres of doubt.
           - Isotope work, since four metres is small next to the whole core.
-          - Nothing. An unplaced section is thrown out so it cannot spoil the record.
-          - Anything, once the run sheet is used to give it its most likely depth.
-        answer: Work that can live with four metres of doubt, with the doubt written down.
+          - Nothing. An unplaced section is thrown out.
+          - Anything, once the run sheet suggests a depth.
+        answer: Work that can live with four metres of doubt.
         rebuttals:
           - Four metres is about thirty years here, which is bigger than most of what the isotopes are used to find.
           - Throwing it out wastes measurements that never needed a depth in the first place.
@@ -507,11 +507,12 @@ missions:
         task: Work out where the salt came from.
         title: Clean until it was handled
         place: Cold Laboratory
-        scene: Elena Cruz has a salt result four times higher than the run before it. The blank, the run order and the section's handling record are on the bench.
+        scene: Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.
         assumes:
           - a blank goes through the whole process with no sample in it, so it measures the process
         takeaway: A blank measures the process, so anything it shows was never evidence about the ice.
-        format: DIAGNOSIS
+        format: CHOICE
+        question: The blank before the sample was clean, and the blank after it is high. Where did the salt join?
         answerText: Something in the laboratory got into the run. The blank afterwards is high, and the second core holds the same year clean.
         why: The blank before the sample is normal, and the blank after it is high. That puts the salt inside the run rather than inside the ice. The trim was done properly, so the outside of the section is out. The second core holds the same year with no salt in it, so that year's weather is out too. What names the source is not the loud number. It is which quiet ones stayed quiet.
         headline: One salt result is four times the run before it — and the blank that followed it is high too.
@@ -538,20 +539,20 @@ missions:
             status: normal
             note: same year, different hole
         choices:
-          - label: Sea salt reached the plateau in the year this ice fell.
-            mechanism: A storm carried sea air a long way inland, and the ice recorded it.
-          - label: Something in the laboratory got into the run and stayed there.
-            mechanism: The process itself added salt, and went on adding it to what came after.
-          - label: The outside of the section was not trimmed off.
-            mechanism: Drill fluid and handling left salt on the outside of the section.
-          - label: The second core missed the layer, so it is the wrong thing to compare with.
-            mechanism: The second hole missed the layer completely.
-        answer: Something in the laboratory got into the run and stayed there.
+          - Something in the laboratory got into the run
+          - Sea salt fell on the plateau that year
+          - The outside of the section was never trimmed
+          - The second core missed the layer altogether
+        answer: Something in the laboratory got into the run
+        rebuttals:
+          - Real sea salt would show in the second core as well, and it does not.
+          - The trim was done as specified, so the outside is not the source.
+          - The second core has the same year, and it is ordinary. It did not miss.
   # ------------------------------------------------------------------ day 3
   - title: Counting to 2000
     objective: Establish how a year is counted, and find the depth where counting stops working.
     briefing: Okonkwo needs the depth at which the layer thickness drops below what the line can resolve.
-    stake: Wednesday, and the counting is holding up everything else. Okonkwo has counted by eye to eleven hundred and eighty metres, and the layers get thinner every hundred metres. Halvorsen wants the season's depth and age scale by the time the aircraft comes, and the whole comparison with Skarv rests on it. Today you find where counting stops being possible, choose which yearly signal to count with, and put a number on the snow's own clock. Below where the layers close up, every age comes from a model. A model is not a count, and the report has to say which one each age came from. Okonkwo will not sign one that blurs the two.
+    stake: "Wednesday, and the counting is holding everything else up. Okonkwo has counted by eye to eleven hundred and eighty metres, and the layers get thinner with every hundred. Halvorsen wants the depth and age scale before the aircraft comes. Today you find where counting stops being possible, and choose which yearly signal to count with. Below where the layers close up, every age comes from a model, and a model is not a count."
     takeaway: Every dating method has a depth where it stops working, and knowing it is part of the date.
     stops:
       - group: CORE
@@ -673,7 +674,7 @@ missions:
   - title: Turning a ratio into a temperature
     objective: Establish what the isotope record measures and how confidently it can be stated in degrees.
     briefing: The isotope profile is finished to 1,600 metres and nobody has agreed what it says in degrees.
-    stake: Friday, and the isotope readings run down to sixteen hundred metres. Tanabe has the numbers, and Halvorsen wants them in degrees for the summary. That means a conversion figure. Somebody measured that figure. It is not a law of nature. Brandt has eleven years of mast temperatures to test it against. Today you turn the readings into a temperature change, decide how firmly it can be stated, and settle what the isotopes are a thermometer of. A figure taken on trust turns every degree into somebody's assumption. Halvorsen wants the sentence to say how firm the number is. Tanabe wants the number first, and the two of them have all afternoon.
+    stake: "Friday, and the isotope readings run down to sixteen hundred metres. Tanabe has the numbers, and Halvorsen wants them in degrees for the summary. That means a conversion figure. Somebody measured that figure; it is not a law of nature. Today you turn the readings into a temperature change, and decide how firmly it can be stated. A figure taken on trust turns every degree into somebody's assumption."
     takeaway: A proxy becomes a number through a calibration, and the calibration is part of the result.
     stops:
       - group: COLD
@@ -744,7 +745,7 @@ missions:
         task: Say what the isotopes are a thermometer of.
         title: The temperature of what, and where
         place: Science Module
-        scene: Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. Halvorsen wants that narrowed before it goes out.
+        scene: Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. The drilling lead wants that narrowed before it goes out.
         assumes:
           - snow forms in a cloud and falls to the ground some way below it
         takeaway: A stand-in measures one specific thing, and the sentence has to say which.
@@ -766,7 +767,7 @@ missions:
   - title: Air that stopped moving
     objective: Establish what a bubble is, when it sealed, and why its air is younger than its ice.
     briefing: The gas record and the ice record from the same depth are not the same age.
-    stake: Saturday, and Samuel Adeyemi, the gas chemist, has carbon dioxide from four depths and a problem with all of them. The air in a bubble stopped moving centuries after the snow around it fell. At a site this dry, that gap is the biggest correction in the whole record. Okonkwo needs it before the two clocks can be put together. Today you work out how big the gap is here, name the step that decides it, and settle why the gas record is smoother than the ice one. Get the gap wrong and a gas record lands centuries away from the climate it belongs to. Adeyemi would rather say so now than in a paper.
+    stake: "Saturday. Samuel Adeyemi has carbon dioxide from four depths and a problem with all of them. The air in a bubble stopped moving centuries after the snow around it fell. At a site this dry, that gap is the biggest correction in the record. Today you work out how big the gap is here, and why the gas record is smoother than the ice one. Get it wrong and a gas record lands centuries from the climate it belongs to."
     takeaway: Two things in the same piece of ice can be different ages, and the difference has to be calculated.
     stops:
       - group: GAS
@@ -857,11 +858,11 @@ missions:
         answerText: The air mixed through the whole open snow column before it was sealed. So each bubble holds decades of sky, not one year of it.
         why: Air stays in touch with the sky all the way through the open snow, and the spaces do not all close at once. They close across a stretch of depth, so the bubbles sealed in one layer hold a mixture covering every year that stretch represents. That smoothing belongs to the site. Somewhere with heavy snowfall seals in a decade and keeps sharp features. Here it takes several. Cutting smaller samples cannot undo it.
         choices:
-          - Each bubble holds air mixed over the decades the spaces took to close.
+          - Each bubble holds air mixed over decades.
           - Gas samples are bigger, so they average more ice.
           - Carbon dioxide changes more slowly in the air than temperature does.
           - Bubbles leak slowly into each other over thousands of years.
-        answer: Each bubble holds air mixed over the decades the spaces took to close.
+        answer: Each bubble holds air mixed over decades.
         rebuttals:
           - Sample size is a choice and could be made smaller. The mixing in the snow is fixed by the site.
           - Some changes in the air really are fast, and this record could not show those either.
@@ -870,14 +871,14 @@ missions:
   - title: The year that is written everywhere
     objective: Use a dated eruption to tie this core to another one, and know what that tie does not fix.
     briefing: A sulphate spike at 1,642 metres could be the anchor the deep section needs.
-    stake: Monday, and the chemistry has found a sulphur spike with glass fragments in it. If it is the eruption Okonkwo thinks it is, the deep section gets its first fixed date, and the two records get their first shared point. Adeyemi wants to know what that does for the gas record. The forecast gives Brandt one clear day for three jobs. Today you name the spike, say what a fixed date fixes, and choose what gets done before the wind returns. One clear day and four of blowing snow is the whole choice. Brandt has already packed for all three jobs, which helps nobody.
+    stake: "Monday. The chemistry has found a sulphur spike with glass fragments in it. If it is the eruption Okonkwo thinks it is, the deep section gets its first fixed date. Adeyemi wants to know what that does for the gas record. The forecast gives Brandt one clear day for three jobs. Today you name the spike, and choose what gets done before the wind returns."
     takeaway: A dated event in two records fixes them to each other at that moment, and nowhere else.
     stops:
       - group: CORE
         task: Name which eruption the layer came from.
         title: The spike at 1,642 metres
         place: Core Line
-        scene: One sulphur spike. Two eruptions of about the same age. Glass fragments from the same centimetre. Okonkwo has the chemistry, the layer count and the modelled age.
+        scene: The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.
         assumes:
           - volcanic glass carries the chemistry of the volcano that threw it out
         takeaway: A layer is identified by what is in it, not by the date that would be convenient.
@@ -930,11 +931,11 @@ missions:
         answerText: The age of the ice at that depth. The age of the air in the same piece still has to be reached by taking the gap off it.
         why: Ash falls onto the surface and is buried with the snow, so it dates the ice it sits in. The air in the bubbles beside it was sealed centuries later, further down. It is that much younger. So a dated layer fixes one of the two clocks in the core, and leaves the other to be worked out. That is why the age gap has to be found before a gas record and an ice record can be compared.
         choices:
-          - The age of the ice at that depth, and nothing else on its own.
-          - The age of both the ice and the air there, since they sit in the same piece.
-          - The age of the air, because the ash and the air arrived together.
+          - The age of the ice at that depth, and nothing else.
+          - The age of the ice and of the air in it.
+          - The age of the air, since ash and air arrived together.
           - How fast snow was falling then, from the thickness of the ash.
-        answer: The age of the ice at that depth, and nothing else on its own.
+        answer: The age of the ice at that depth, and nothing else.
         rebuttals:
           - The two clocks sit in the same piece of core, and they are not the same clock. That gap is what the offset measures.
           - Ash lands on the surface. The air at that depth stopped moving centuries after the ash was buried.
@@ -965,21 +966,14 @@ missions:
   - title: Two records, side by side
     objective: Put both records on one plot and find out how much of the comparison is independent.
     briefing: The Skarv record and this one differ by more than either group's stated uncertainty.
-    stake: >-
-      Wednesday, and both records are on one screen for the first time. They differ by about half a
-      per mil through the cold interval, which is larger than either group has claimed as its
-      uncertainty. Halvorsen has a draft paragraph written. Okonkwo has asked what the two records
-      have in common before anybody asks what they disagree about. Today you work out which parts of
-      the comparison are independent, what the gas record says about the energy budget, and what
-      half a per mil is worth in degrees. Two records that share a method are one record with two
-      names on it.
+    stake: "Wednesday, and both records are on one screen for the first time. They differ by about half a unit through the cold spell, which is more than either team has claimed as its doubt. Halvorsen has a draft paragraph written. Today you work out which parts of the comparison stand on their own, and what half a unit is worth in degrees. Two records that share a method are one record with two names on it."
     takeaway: Agreement between two records is worth what their independence is worth.
     stops:
       - group: DATA
         task: Open what each part of the comparison rests on, and keep what stands alone.
         title: What both records rest on
         place: Science Module
-        scene: Five pieces of the comparison are on Aalto's screen, each worked out from something else. Okonkwo wants to know which of them would still stand if the flow model were wrong.
+        scene: Five pieces of the comparison are on Aalto's screen, each worked out from something else. The chronology team wants to know which would still stand if the flow model were wrong.
         assumes:
           - two results worked out from one assumption fail together if that assumption fails
         takeaway: Two numbers that agree because they came through the same step have not checked each other.
@@ -1028,7 +1022,7 @@ missions:
         task: State the change against what it started from.
         title: How much more carbon dioxide
         place: Gas Laboratory
-        scene: Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. Halvorsen wants the change stated plainly.
+        scene: Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. The station wants the change stated plainly.
         assumes:
           - parts per million counts how many there are out of every million
         takeaway: A rise means most when it is stated against what it started from.
@@ -1068,11 +1062,11 @@ missions:
         answerText: About three quarters of a degree. Smaller than the cooling being reported, and big enough to matter to it.
         why: This site's figure is 0.67 units for every degree. Half a unit divided by that is about three quarters of a degree. That is the whole point of converting. In units the difference sounds like a rounding error. In degrees it is a quarter of the cooling the season means to report. Whether it is real climate is a separate argument, and nobody can have it in two different units.
         choices:
-          - About three quarters of a degree, which is a quarter of the cooling being reported.
+          - About three quarters of a degree — a quarter of the cooling.
           - About half a degree, since one unit is roughly one degree.
           - Nothing, until the difference is bigger than the scatter on one measurement.
           - About four degrees, since the figure is in units for each degree.
-        answer: About three quarters of a degree, which is a quarter of the cooling being reported.
+        answer: About three quarters of a degree — a quarter of the cooling.
         rebuttals:
           - One unit per degree is not this site's figure, and using it changes the answer by half.
           - The scatter on one measurement is far smaller than this, which is why anybody noticed it.
@@ -1081,7 +1075,7 @@ missions:
   - title: The offset that was not climate
     objective: Test whether the age difference accounts for the disagreement before it is called one.
     briefing: The two records may differ because one dates ice and the other dates gas.
-    stake: Thursday, and Adeyemi has spent the night on the two teams' age scales. Skarv gets four times the snow this station does, so its gap between gas and ice is a fraction of ours. The comparison so far has both gas records plotted on the ice clocks. Okonkwo has been saying since the first week that two clocks have to be matched before anything is compared. Today you predict what the difference becomes once that is fixed, do it, and check it against the one date neither team worked out. If the correction explains the difference, two records agree. If it does not, somebody has found something, and it will need a great deal more than one night.
+    stake: "Thursday. Adeyemi has spent the night on the two teams' age scales. Skarv gets four times the snow this station does, so its gap between gas and ice is a fraction of ours. Today you predict what the difference becomes once that is corrected, do it, and check it against the one date neither team worked out. If the correction explains the difference, the two records agree."
     takeaway: A disagreement between two records is a claim about both of them, including how they were dated.
     stops:
       - group: GAS
@@ -1163,7 +1157,7 @@ missions:
         choices:
           - The two records agree, once both are on gas clocks.
           - The two records disagree, by less than was first thought.
-          - Nothing at all, since a correction had to be applied to get there.
+          - Nothing, because a correction had to be applied first.
           - The Skarv record is wrong, since its gap was the smaller one.
         answer: The two records agree, once both are on gas clocks.
         rebuttals:
@@ -1174,14 +1168,7 @@ missions:
   - title: The night the generator stopped
     objective: Work out what the core store record can still prove after a power failure.
     briefing: The store was without power for six hours and the log says nothing about it.
-    stake: >-
-      Saturday, and the number two generator stopped at some point in the night. The core store came
-      back at minus 19 and the log has an entry for the whole night signed by the watch. Anneke de
-      Vries, the camp manager, needs the drill and the store back in a fixed order and Lindqvist wants his own list
-      first. Aalto has been asked how much of the season's temperature record survives the scatter
-      in it. Today you decide which signatures are worth checking, what gets restarted first, and
-      how tightly a mean can be quoted. Ice that warmed and was signed for as cold is worse than
-      ice that warmed.
+    stake: "Saturday. The number two generator stopped at some point in the night. The core store came back at minus 19, and the log has an entry for the whole night, signed. Anneke de Vries needs the drill and the store back in a fixed order. Today you decide which signatures are worth checking, and what gets restarted first. Ice that warmed and was signed for as cold is worse than ice that warmed."
     takeaway: A record is a claim about a condition, and the two can come apart in a night.
     stops:
       - group: COLD
@@ -1235,7 +1222,7 @@ missions:
         task: Put the restart in order.
         title: What comes back first
         place: Drill Trench
-        scene: Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system first. One generator will not carry them all.
+        scene: Power is back on one generator. Three teams each want their own system first, and Lindqvist is arguing hardest. One generator will not carry them all.
         assumes:
           - something already being lost is different from something merely waiting
         takeaway: Restart in the order of what is still being lost, not in the order of who asked.
@@ -1257,7 +1244,7 @@ missions:
         task: Turn thirty years of readings into one number for the period.
         title: One year proves nothing
         place: Science Module
-        scene: Aalto has thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.
+        scene: There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.
         assumes:
           - averaging many years lets the random part of each one cancel out
         takeaway: One year is weather. An average of many years is closer to a climate.
@@ -1288,7 +1275,7 @@ missions:
   - title: What is known, and how well
     objective: State what the season established, at what precision, and what it could not reach.
     briefing: The last day is spent deciding what the record supports and what the next season must do.
-    stake: Monday, the last working day, and the aircraft comes on Wednesday. The report is going out, and Halvorsen wants the season's own account of itself. What is settled, what rests on a model, and what the next team has to do first. Brandt is closing the stake array. Tanabe has one question left about how fine this record can ever be. Today you settle which sentence the evidence reaches, sort what was measured from what was assumed, and say what the shortest event this ice could show is. What the next team believes about this ice is whatever gets written down this week. Nobody comes back for four years.
+    stake: "Monday, the last working day, and the aircraft comes on Wednesday. The report is going out. Halvorsen wants the season's own account of itself. What is settled, what rests on a model, and what the next team does first. Today you sort what was measured from what was assumed, and say what the shortest event this ice could show is. Nobody comes back for four years."
     takeaway: A record is worth what its limits are known to be.
     stops:
       - group: DATA
@@ -1304,11 +1291,11 @@ missions:
         answerText: The one that names the cooling, the period, the doubt, and the fact that the deep dating rests on a model.
         why: The first sentence says what was measured, over what stretch, and which part rests on something nobody measured here. The second calls the two records independent. The shared flow model makes that untrue below the counts. The third rounds until the doubt vanishes into the number. The fourth is a claim about every other record at this latitude, and nobody here has read them.
         choices:
-          - A cooling of about 2.7 degrees, with the deep part modelled rather than counted.
+          - A cooling of about 2.7 degrees, part of it modelled.
           - A cooling of 2.7 degrees, settled by two independent records.
           - A cooling of about three degrees, matching the Skarv site.
           - The biggest cooling ever recorded at this latitude, pending the deep section.
-        answer: A cooling of about 2.7 degrees, with the deep part modelled rather than counted.
+        answer: A cooling of about 2.7 degrees, part of it modelled.
         rebuttals:
           - The two records share a flow model below their counts, so independent is the word that fails.
           - Rounding to three degrees hides the doubt that decides whether this differs from anywhere else.
@@ -1360,7 +1347,7 @@ missions:
           labels:
             - 16 cm (how much gets blurred together)
             - 11.9 cm (one year of ice at the surface)
-            - 2.6 mm (one year, deep down)
+            - 0.26 cm (one year, deep down)
             - 30 (years in the period)
           values: [16, 11.9, 0.26, 30]
           slots: 2

@@ -26,12 +26,12 @@ export const CURRICULUM = {
           "The shape of the rock matters to the deepest ice, and it is not why the site sits on the high point."
         ],
         "choices": [
-          "The ice at each depth fell near this spot, and did not arrive from somewhere else.",
-          "The ice is colder at the top, which slows down the changes inside it.",
-          "Snow falls hardest at the high point, which makes the yearly layers thick.",
-          "The rock under a dome is flattest, which keeps a long hole straight."
+          "The ice at each depth fell here, not somewhere else.",
+          "Colder ice at the top slows the changes inside it.",
+          "Snow falls hardest here, so yearly layers are thick.",
+          "The rock under a dome is flat, so the hole stays straight."
         ],
-        "correctChoice": "The ice at each depth fell near this spot, and did not arrive from somewhere else."
+        "correctChoice": "The ice at each depth fell here, not somewhere else."
       },
       "assumes": [
         "ice spreads outwards from the high points of an ice sheet"
@@ -55,8 +55,8 @@ export const CURRICULUM = {
         "why": "Deep down, the bubbles are squeezed far harder than the air at the surface. Bring that ice up quickly and it cracks itself apart. Each step here buys the next one. A slow lift is less of a shock. Resting at hole temperature lets the pressure even out. Writing down the breaks fixes which depth each piece came from, while somebody still knows. Cutting first destroys that, and cuts ice that is still moving.",
         "cards": [
           "Slow the winch through the band where the bubbles are squeezed hardest.",
-          "Let the section sit in the trench at hole temperature before anybody handles it.",
-          "Write down every break and where it is, before anything moves off the barrel.",
+          "Let it sit at hole temperature before handling it.",
+          "Write down every break before anything is moved.",
           "Carry the section to the storage trench and leave it to settle.",
           "Cut it up and share it out, after the cracking has finished."
         ],
@@ -136,10 +136,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What comes back first",
-      "scene": "Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system first. One generator will not carry them all.",
+      "scene": "Power is back on one generator. Three teams each want their own system first, and Lindqvist is arguing hardest. One generator will not carry them all.",
       "takeaway": "Restart in the order of what is still being lost, not in the order of who asked.",
       "place": "Drill Trench",
-      "story": "Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system first. One generator will not carry them all.",
+      "story": "Power is back on one generator. Three teams each want their own system first, and Lindqvist is arguing hardest. One generator will not carry them all.",
       "game": {
         "type": "TRIAGE",
         "title": "What comes back first",
@@ -196,8 +196,8 @@ export const CURRICULUM = {
           "Light and dark bands about a centimetre apart"
         ],
         "choices": [
-          "A summer surface that sat out in the open and grew coarse before it was buried.",
-          "Acid from a volcano, laid down over a season or two and then gone.",
+          "A summer surface, left out in the open and grown coarse.",
+          "Acid from a volcano, laid down over a season or two.",
           "Windier months on faraway continents, carried here and settled out.",
           "Bubbles changing size through the year as the snow was squashed."
         ],
@@ -238,12 +238,12 @@ export const CURRICULUM = {
           "A most likely depth writes a guess into the record, in the same handwriting as the measurements."
         ],
         "choices": [
-          "Work that can live with four metres of doubt, with the doubt written down.",
+          "Work that can live with four metres of doubt.",
           "Isotope work, since four metres is small next to the whole core.",
-          "Nothing. An unplaced section is thrown out so it cannot spoil the record.",
-          "Anything, once the run sheet is used to give it its most likely depth."
+          "Nothing. An unplaced section is thrown out.",
+          "Anything, once the run sheet suggests a depth."
         ],
-        "correctChoice": "Work that can live with four metres of doubt, with the doubt written down."
+        "correctChoice": "Work that can live with four metres of doubt."
       },
       "assumes": [
         "a measurement belongs to the depth it came from, and to no other"
@@ -457,12 +457,12 @@ export const CURRICULUM = {
           "Bubbles are sealed, and they do not swap with each other on any timescale that matters here."
         ],
         "choices": [
-          "Each bubble holds air mixed over the decades the spaces took to close.",
+          "Each bubble holds air mixed over decades.",
           "Gas samples are bigger, so they average more ice.",
           "Carbon dioxide changes more slowly in the air than temperature does.",
           "Bubbles leak slowly into each other over thousands of years."
         ],
-        "correctChoice": "Each bubble holds air mixed over the decades the spaces took to close."
+        "correctChoice": "Each bubble holds air mixed over decades."
       },
       "assumes": [
         "a measurement that averages over a stretch cannot show anything shorter than it"
@@ -471,10 +471,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The spike at 1,642 metres",
-      "scene": "One sulphur spike. Two eruptions of about the same age. Glass fragments from the same centimetre. Okonkwo has the chemistry, the layer count and the modelled age.",
+      "scene": "The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.",
       "takeaway": "A layer is identified by what is in it, not by the date that would be convenient.",
       "place": "Core Line",
-      "story": "One sulphur spike. Two eruptions of about the same age. Glass fragments from the same centimetre. Okonkwo has the chemistry, the layer count and the modelled age.",
+      "story": "The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "The spike at 1,642 metres",
@@ -571,72 +571,31 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Clean until it was handled",
-      "scene": "Elena Cruz has a salt result four times higher than the run before it. The blank, the run order and the section's handling record are on the bench.",
+      "scene": "Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
       "takeaway": "A blank measures the process, so anything it shows was never evidence about the ice.",
       "place": "Cold Laboratory",
-      "story": "Elena Cruz has a salt result four times higher than the run before it. The blank, the run order and the section's handling record are on the bench.",
+      "story": "Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "CHOICE",
         "title": "Clean until it was handled",
         "setup": "Cold Laboratory",
         "play": "Work out where the salt came from.",
         "task": "Work out where the salt came from.",
-        "question": "Work out where the salt came from.",
+        "question": "The blank before the sample was clean, and the blank after it is high. Where did the salt join?",
         "answer": "Something in the laboratory got into the run. The blank afterwards is high, and the second core holds the same year clean.",
         "why": "The blank before the sample is normal, and the blank after it is high. That puts the salt inside the run rather than inside the ice. The trim was done properly, so the outside of the section is out. The second core holds the same year with no salt in it, so that year's weather is out too. What names the source is not the loud number. It is which quiet ones stayed quiet.",
-        "headline": "One salt result is four times the run before it — and the blank that followed it is high too.",
-        "readings": [
-          {
-            "zone": "Sample",
-            "label": "Sodium",
-            "value": "4.1× the previous run",
-            "status": "alarm"
-          },
-          {
-            "zone": "Blank after it",
-            "label": "Sodium",
-            "value": "raised",
-            "status": "alarm"
-          },
-          {
-            "zone": "Blank before it",
-            "label": "Sodium",
-            "value": "at the usual level",
-            "status": "normal"
-          },
-          {
-            "zone": "Outer trim",
-            "label": "Removed",
-            "value": "1 cm, as specified",
-            "status": "normal"
-          },
-          {
-            "zone": "Neighbouring depth",
-            "label": "Sodium on the replicate core",
-            "value": "ordinary",
-            "status": "normal",
-            "note": "same year, different hole"
-          }
+        "rebuttals": [
+          "Real sea salt would show in the second core as well, and it does not.",
+          "The trim was done as specified, so the outside is not the source.",
+          "The second core has the same year, and it is ordinary. It did not miss."
         ],
         "choices": [
-          {
-            "label": "Sea salt reached the plateau in the year this ice fell.",
-            "mechanism": "A storm carried sea air a long way inland, and the ice recorded it."
-          },
-          {
-            "label": "Something in the laboratory got into the run and stayed there.",
-            "mechanism": "The process itself added salt, and went on adding it to what came after."
-          },
-          {
-            "label": "The outside of the section was not trimmed off.",
-            "mechanism": "Drill fluid and handling left salt on the outside of the section."
-          },
-          {
-            "label": "The second core missed the layer, so it is the wrong thing to compare with.",
-            "mechanism": "The second hole missed the layer completely."
-          }
+          "Something in the laboratory got into the run",
+          "Sea salt fell on the plateau that year",
+          "The outside of the section was never trimmed",
+          "The second core missed the layer altogether"
         ],
-        "correctChoice": "Something in the laboratory got into the run and stayed there."
+        "correctChoice": "Something in the laboratory got into the run"
       },
       "assumes": [
         "a blank goes through the whole process with no sample in it, so it measures the process"
@@ -721,12 +680,12 @@ export const CURRICULUM = {
           "Multiplying by the figure instead of dividing by it gives an answer about five times too big."
         ],
         "choices": [
-          "About three quarters of a degree, which is a quarter of the cooling being reported.",
+          "About three quarters of a degree — a quarter of the cooling.",
           "About half a degree, since one unit is roughly one degree.",
           "Nothing, until the difference is bigger than the scatter on one measurement.",
           "About four degrees, since the figure is in units for each degree."
         ],
-        "correctChoice": "About three quarters of a degree, which is a quarter of the cooling being reported."
+        "correctChoice": "About three quarters of a degree — a quarter of the cooling."
       },
       "assumes": [
         "a difference in units becomes a difference in degrees through the site's own figure"
@@ -915,12 +874,12 @@ export const CURRICULUM = {
           "A layer thickness gives a snowfall rate only once you already know its age."
         ],
         "choices": [
-          "The age of the ice at that depth, and nothing else on its own.",
-          "The age of both the ice and the air there, since they sit in the same piece.",
-          "The age of the air, because the ash and the air arrived together.",
+          "The age of the ice at that depth, and nothing else.",
+          "The age of the ice and of the air in it.",
+          "The age of the air, since ash and air arrived together.",
           "How fast snow was falling then, from the thickness of the ash."
         ],
-        "correctChoice": "The age of the ice at that depth, and nothing else on its own."
+        "correctChoice": "The age of the ice at that depth, and nothing else."
       },
       "assumes": [
         "volcanic ash falls out of the sky within a year or two of the eruption"
@@ -950,10 +909,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "How much more carbon dioxide",
-      "scene": "Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. Halvorsen wants the change stated plainly.",
+      "scene": "Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. The station wants the change stated plainly.",
       "takeaway": "A rise means most when it is stated against what it started from.",
       "place": "Gas Laboratory",
-      "story": "Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. Halvorsen wants the change stated plainly.",
+      "story": "Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. The station wants the change stated plainly.",
       "game": {
         "type": "BALLPARK",
         "title": "How much more carbon dioxide",
@@ -1274,10 +1233,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The temperature of what, and where",
-      "scene": "Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. Halvorsen wants that narrowed before it goes out.",
+      "scene": "Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. The drilling lead wants that narrowed before it goes out.",
       "takeaway": "A stand-in measures one specific thing, and the sentence has to say which.",
       "place": "Science Module",
-      "story": "Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. Halvorsen wants that narrowed before it goes out.",
+      "story": "Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. The drilling lead wants that narrowed before it goes out.",
       "game": {
         "type": "CHOICE",
         "title": "The temperature of what, and where",
@@ -1307,10 +1266,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What both records rest on",
-      "scene": "Five pieces of the comparison are on Aalto's screen, each worked out from something else. Okonkwo wants to know which of them would still stand if the flow model were wrong.",
+      "scene": "Five pieces of the comparison are on Aalto's screen, each worked out from something else. The chronology team wants to know which would still stand if the flow model were wrong.",
       "takeaway": "Two numbers that agree because they came through the same step have not checked each other.",
       "place": "Science Module",
-      "story": "Five pieces of the comparison are on Aalto's screen, each worked out from something else. Okonkwo wants to know which of them would still stand if the flow model were wrong.",
+      "story": "Five pieces of the comparison are on Aalto's screen, each worked out from something else. The chronology team wants to know which would still stand if the flow model were wrong.",
       "game": {
         "type": "TRACE",
         "title": "What both records rest on",
@@ -1407,7 +1366,7 @@ export const CURRICULUM = {
         "choices": [
           "The two records agree, once both are on gas clocks.",
           "The two records disagree, by less than was first thought.",
-          "Nothing at all, since a correction had to be applied to get there.",
+          "Nothing, because a correction had to be applied first.",
           "The Skarv record is wrong, since its gap was the smaller one."
         ],
         "correctChoice": "The two records agree, once both are on gas clocks."
@@ -1419,10 +1378,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "One year proves nothing",
-      "scene": "Aalto has thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
+      "scene": "There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
       "takeaway": "One year is weather. An average of many years is closer to a climate.",
       "place": "Science Module",
-      "story": "Aalto has thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
+      "story": "There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
       "game": {
         "type": "BALLPARK",
         "title": "One year proves nothing",
@@ -1484,12 +1443,12 @@ export const CURRICULUM = {
           "A superlative is a claim about everybody else's records, and nobody here has read them."
         ],
         "choices": [
-          "A cooling of about 2.7 degrees, with the deep part modelled rather than counted.",
+          "A cooling of about 2.7 degrees, part of it modelled.",
           "A cooling of 2.7 degrees, settled by two independent records.",
           "A cooling of about three degrees, matching the Skarv site.",
           "The biggest cooling ever recorded at this latitude, pending the deep section."
         ],
-        "correctChoice": "A cooling of about 2.7 degrees, with the deep part modelled rather than counted."
+        "correctChoice": "A cooling of about 2.7 degrees, part of it modelled."
       },
       "assumes": [
         "a claim is supported when the evidence would have come out differently if it were false"
@@ -1705,7 +1664,7 @@ export const BALLPARK_CALCS = {
     "labels": [
       "16 cm (how much gets blurred together)",
       "11.9 cm (one year of ice at the surface)",
-      "2.6 mm (one year, deep down)",
+      "0.26 cm (one year, deep down)",
       "30 (years in the period)"
     ],
     "values": [

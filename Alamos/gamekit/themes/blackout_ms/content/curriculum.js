@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the falling number tells you",
-      "scene": "The wall shows the frequency dropping for eight seconds, then flattening out low. Aaron Whitlock has the log open. Two people have already named a cause.",
+      "scene": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.",
       "takeaway": "Frequency belongs to the whole system. Voltage belongs to one place.",
       "place": "System Operations",
-      "story": "The wall shows the frequency dropping for eight seconds, then flattening out low. Aaron Whitlock has the log open. Two people have already named a cause.",
+      "story": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.",
       "game": {
         "type": "PROTOCOL",
         "title": "What the falling number tells you",
@@ -34,7 +34,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "One number for the whole system, because every machine turns in step.",
-          "How big the gap is, against how much was spinning to absorb it.",
+          "The size of the gap, against what was spinning.",
           "A new balance at a slower speed, not the system getting better.",
           "A local number, which is what makes it useful for saying where."
         ],
@@ -93,11 +93,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Being over the steady limit means damage starts at once.",
-          "If it trips, its flow lands on a neighbour that is not rated for it.",
+          "If it trips, its flow lands on a weaker neighbour.",
           "The seventeen megawatts of heat is enough to make the protection operate.",
           "The protection has to trip before anybody can use the short-term limit."
         ],
-        "correctChoice": "If it trips, its flow lands on a neighbour that is not rated for it."
+        "correctChoice": "If it trips, its flow lands on a weaker neighbour."
       },
       "assumes": [
         "a network is supposed to survive losing any single line"
@@ -128,7 +128,7 @@ export const CURRICULUM = {
           "The feeder with 4,100 households, faulted at the substation, four hours' work.",
           "The clinic feeder — 180 homes, one pole, an hour's work.",
           "The feeder with 2,600 households and a fault nobody has found yet.",
-          "The feeder to the pumping station, which is running on its standby supply."
+          "The feeder to the pumping station, on standby supply."
         ],
         "correctChoice": "The clinic feeder — 180 homes, one pole, an hour's work."
       },
@@ -244,14 +244,14 @@ export const CURRICULUM = {
         "scenarios": [
           "The ridge fleet, almost free to run, with output nobody can promise.",
           "A gas machine that can move fast, deliberately left at half output.",
-          "An old station on the wrong side of the line, kept off despite a middling price.",
-          "An old station on the right side of a bottleneck, run despite being dear."
+          "Old, on the wrong side of the line, kept off.",
+          "Old, on the right side of the squeeze, run anyway."
         ],
         "choices": [
           "First in the queue on cost, with something reliable kept behind it.",
-          "Held at half output on purpose, because only a half-loaded machine has spare.",
-          "Kept off, because running it would push flow onto a line that cannot take it.",
-          "Run out of turn because of where it is, not what it costs."
+          "Held at half output, because only that leaves spare.",
+          "Held back, because starting it overloads something downstream.",
+          "Run out of turn for where it is, not its price."
         ],
         "mapping": [
           0,
@@ -808,7 +808,7 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "The wire is at 78 degrees, on a limit of 75.",
-          "The circuit has been switched to a higher voltage than it was built for.",
+          "The circuit is on a higher voltage than it was built for.",
           "Customers at the end report low voltage in the evening.",
           "The span over the road has dropped a metre since morning."
         ],
@@ -910,7 +910,7 @@ export const CURRICULUM = {
         "answer": "About 20 megawatts, against 17 an hour ago. The flow rose about a ninth and the waste rose about a fifth.",
         "why": "An hour ago this line carried eleven hundred and fifty megawatts and wasted about seventeen. Now it carries twelve hundred and eighty and wastes about twenty. The flow went up about a ninth. The waste went up about a fifth. That is because the heat depends on the current twice over, so it always outruns the flow. And the limit on the line is a heat limit, so the margin disappears faster than the loading suggests.",
         "givens": [
-          "RMS current is now 1,280 A in each phase",
+          "the steady current is now 1,280 A in each phase",
           "Resistance remains 4.2 Ω per phase",
           "There are three phases"
         ],
@@ -1075,9 +1075,9 @@ export const CURRICULUM = {
         ],
         "choices": [
           "A frequency limit, because a small system cannot take a big step.",
-          "A voltage limit, because a lightly loaded line pushes the far end up.",
+          "A voltage limit, since a quiet line pushes the end up.",
           "A cold-load limit, because everything that was off comes back at once.",
-          "A matching limit, because both sides have to agree before the switch closes."
+          "A matching limit, since both sides must agree first."
         ],
         "mapping": [
           0,
@@ -1153,7 +1153,7 @@ export const CURRICULUM = {
         "answer": "About 17 megawatts, turned into warm air along the line.",
         "why": "Pushing current down a wire warms the wire, and that heat is power that never reaches anybody. About one and a half per cent of what this corridor carries is being spent that way. On eleven hundred and fifty megawatts that is seventeen, which is a small power station keeping the countryside warm. The share is not fixed either. Push more current down the same wire and the waste climbs faster than the current does.",
         "givens": [
-          "RMS current is 1,150 A in each phase",
+          "the steady current is 1,150 A in each phase",
           "Resistance is 4.2 Ω per phase over the corridor",
           "There are three phases"
         ],
@@ -1288,6 +1288,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "This is not a clock. You could do any of the four right now. Order them by how easily each one can be undone, easiest first.",
+        "ends": [
+          "Easy to take back",
+          "Nobody can undo it"
         ]
       },
       "assumes": [
@@ -1337,12 +1342,12 @@ export const CURRICULUM = {
           "The forecast and the reserve are separate decisions. The width informs the reserve; it does not contain it."
         ],
         "choices": [
-          "Because reserve has to cover how far above the middle the peak could land.",
-          "Because a range stops one odd winter counting as the model being wrong.",
-          "Because the middle cannot be measured until winter is over, and the width can.",
+          "Reserve has to cover how far above the middle it lands.",
+          "A range stops one odd winter looking like a broken model.",
+          "The middle needs a whole winter, and the width does not.",
           "Because a range already includes the reserve the operators have scheduled."
         ],
-        "correctChoice": "Because reserve has to cover how far above the middle the peak could land."
+        "correctChoice": "Reserve has to cover how far above the middle it lands."
       },
       "assumes": [
         "a forecast covers a spread of outcomes, not just one"
@@ -1373,88 +1378,35 @@ export const CURRICULUM = {
   "METER": [
     {
       "day": 1,
-      "title": "The order the records claim",
-      "scene": "June Farrow has three records of the same eight seconds, and they disagree about what happened first. One was stamped by a clock nobody has checked since spring.",
-      "takeaway": "Agreement only counts when the two things agreeing did not come from the same source.",
+      "title": "What a timestamp is made of",
+      "scene": "June Farrow has three records of the same eight seconds, and they disagree about what happened first. The three of them are stamped by two different clocks.",
+      "takeaway": "Being sure something happened and being sure when it happened are two separate pieces of work.",
       "place": "Metering & Standards",
-      "story": "June Farrow has three records of the same eight seconds, and they disagree about what happened first. One was stamped by a clock nobody has checked since spring.",
+      "story": "A timestamp is a measurement and a clock, glued together and written as one number. The measurement can be sound while the clock is months out, and the record will still look exactly like a fact. June Farrow's three records of the same eight seconds do not agree, and none of the relays is faulty. Knowing what a timestamp is made of is what turns that from a mystery into a question about clocks.",
       "game": {
-        "type": "TRACE",
-        "title": "The order the records claim",
-        "setup": "Metering & Standards",
+        "type": "CHOICE",
+        "title": "What a timestamp is made of",
+        "setup": "Three records of the same eight seconds, and they disagree.",
         "play": "Open what each record depends on, keep what stands, and name the bad clock.",
         "task": "Open what each record depends on, keep what stands, and name the bad clock.",
-        "question": "Which records still support the order of events, and which clock explains the rest?",
-        "answer": "Keep the satellite-timed recorder for the order, and the slow record for which breakers opened. The other two share the drifted clock, and that clock is the fault.",
-        "why": "A timestamp is two things at once. Something that happened, and a clock saying when. Those fail separately. Two of these records were stamped by the same clock, so their agreement is one clock repeated, not two measurements. The recorder using satellite time has its own clock and kept the real order. The slow record cannot resolve fractions of a second, and it can still say which breakers opened.",
-        "trace": {
-          "channels": [
-            {
-              "id": "relay-log",
-              "label": "Protection relay event log",
-              "reading": "pickup 1.6 s before the GPS record; internal intervals match",
-              "depends": [
-                "relay-clock",
-                "breaker-contact"
-              ]
-            },
-            {
-              "id": "relay-annunciator",
-              "label": "Local relay annunciator",
-              "reading": "alarm 1.6 s early on the same absolute clock",
-              "depends": [
-                "relay-clock"
-              ]
-            },
-            {
-              "id": "gps-recorder",
-              "label": "GPS disturbance recorder",
-              "reading": "pickup, then trip 0.28 s later",
-              "depends": [
-                "gps-clock",
-                "breaker-contact"
-              ]
-            },
-            {
-              "id": "scada",
-              "label": "SCADA historian",
-              "reading": "breaker open in the next 2.0 s scan",
-              "depends": [
-                "scada-clock",
-                "breaker-contact"
-              ]
-            }
-          ],
-          "resources": [
-            {
-              "id": "gps-clock",
-              "label": "GPS time receiver"
-            },
-            {
-              "id": "relay-clock",
-              "label": "Relay internal clock"
-            },
-            {
-              "id": "scada-clock",
-              "label": "SCADA server clock"
-            },
-            {
-              "id": "breaker-contact",
-              "label": "Breaker auxiliary contact"
-            }
-          ],
-          "independent": [
-            "gps-recorder",
-            "scada"
-          ],
-          "target": "relay-clock",
-          "hint": "Open each channel to see which clock and physical input it depends on. Keep only the claims each channel can support, then name the shared source behind the false early time.",
-          "commit": "Correct it"
-        }
+        "question": "A record says the alarm came first. What two things have to be right for that to be true?",
+        "answer": "The alarm really happened, and the clock that stamped it was telling the right time.",
+        "why": "Every timestamp is two claims glued together. One is that something happened — a relay picked up, a breaker opened. The other is that the clock writing the time was correct at that moment. They fail separately, and that is the whole difficulty. A relay can be perfectly right about what it saw and eighteen months out on when. So when two records disagree about the order, the first question is not which relay is broken. It is which clocks they used, and when those clocks were last checked.",
+        "rebuttals": [
+          "A new relay with a drifted clock writes wrong times all day.",
+          "Two records off one clock are one clock, written down twice.",
+          "Whether anybody heard it says nothing about when it happened."
+        ],
+        "choices": [
+          "The event happened, and the clock was right",
+          "The relay is new, and the wiring is correct",
+          "Two records agree, and both are signed",
+          "The alarm is loud, and somebody heard it"
+        ],
+        "correctChoice": "The event happened, and the clock was right"
       },
       "assumes": [
-        "a timestamp is a measurement plus a clock, and either can be wrong",
-        "two records can agree because they share one clock"
+        "a written-down time is a measurement plus a clock"
       ]
     },
     {
@@ -1650,19 +1602,19 @@ export const BALLPARK_CALCS = {
     "question": "How much of the power is being lost as heat?",
     "labels": [
       "1,150 MW (what the corridor carries)",
-      "0.015 (the share lost as heat)",
+      "1.5 MW lost for every 100 MW carried",
       "4.2 (ohms of wire)",
       "400 kV (the voltage it runs at)"
     ],
     "values": [
       1150,
-      0.015,
+      1.5,
       4.2,
       400
     ],
     "slots": 2,
-    "template": "{0} × {1}",
-    "formula": "a*b",
+    "template": "{0} ÷ 100 × {1}",
+    "formula": "a/100*b",
     "correct": [
       0,
       1
@@ -1670,21 +1622,21 @@ export const BALLPARK_CALCS = {
     "target": 17.25,
     "tolerance": 2,
     "units": "MW",
-    "solution": "1,150 × 0.015 is about 17 megawatts.",
+    "solution": "1,150 is eleven and a half hundreds, and 1.5 lost from each hundred is about 17 megawatts.",
     "explanation": "The share is written as a decimal already. Use one and a half instead of 0.015 and the answer comes out a hundred times too big."
   },
   "DIST-1": {
     "prompt": "The far end sits about 1,070 volts below the substation. The feeder is supposed to run at 11,000 volts.",
     "question": "How big is the drop, as a share of what the feeder should be?",
     "labels": [
-      "1,070 V (how much it drops)",
-      "11,000 V (what the feeder should be)",
+      "1.07 kV (how much it drops)",
+      "11 kV (what the feeder should be)",
       "310 A (the current it is carrying)",
       "4 km (how far out the customers are)"
     ],
     "values": [
-      1070,
-      11000,
+      1.07,
+      11,
       310,
       4
     ],
@@ -1698,7 +1650,7 @@ export const BALLPARK_CALCS = {
     "target": 9.7,
     "tolerance": 1,
     "units": "%",
-    "solution": "1,070 ÷ 11,000 × 100 is about 9.7 per cent.",
+    "solution": "1.07 divided by 11 is about a tenth, so the drop is about 9.7 per cent of what the feeder should be.",
     "explanation": "Divide by the drop instead of into it and the answer is upside down. The current and the length explain why the drop is there, and neither is part of this sum."
   },
   "METER-2": {
@@ -1847,19 +1799,19 @@ export const BALLPARK_CALCS = {
     "question": "How much is the line wasting as heat now?",
     "labels": [
       "1,280 MW (what it carries now)",
-      "0.016 (the share lost now)",
+      "1.6 MW lost for every 100 MW carried",
       "1,150 MW (what it carried an hour ago)",
-      "0.015 (the share lost then)"
+      "1.5 MW for every 100, an hour ago"
     ],
     "values": [
       1280,
-      0.016,
+      1.6,
       1150,
-      0.015
+      1.5
     ],
     "slots": 2,
-    "template": "{0} × {1}",
-    "formula": "a*b",
+    "template": "{0} ÷ 100 × {1}",
+    "formula": "a/100*b",
     "correct": [
       0,
       1
@@ -1867,7 +1819,7 @@ export const BALLPARK_CALCS = {
     "target": 20.5,
     "tolerance": 2,
     "units": "MW",
-    "solution": "1,280 × 0.016 is about 20 megawatts.",
+    "solution": "1,280 is nearly thirteen hundreds, and 1.6 lost from each hundred is about 20 megawatts.",
     "explanation": "The share itself has gone up, from 0.015 to 0.016, because a busier wire wastes a bigger fraction. That is why the answer rises faster than the flow."
   }
 };
@@ -1945,7 +1897,7 @@ export const JARGON = [
       "apparent power",
       "volt-ampere"
     ],
-    "def": "The product of RMS voltage and RMS current, whatever the phase between them. It is what a cable and a transformer are rated for.",
+    "def": "The voltage times the current, whatever the timing between them. It is what a cable and a transformer are rated for, and it is bigger than the power actually doing work.",
     "core": true
   },
   {

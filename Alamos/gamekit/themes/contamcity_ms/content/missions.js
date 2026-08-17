@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Unknown Containers",
     "objective": "Create a provisional identity list and choose the next discriminating measurements.",
     "briefing": "A freight-yard fire damages several unlabeled containers beside Riverton's river. The response team must establish chemical identity and hazard classes before firefighters, residents, and the water utility act on rumors. A wrong identity can cause an incompatible firefighting or treatment decision.",
-    "stake": "Day one, and the freight yard fire has been out for six hours. A row of containers 80 metres from the river is damaged and nobody can tell you what was in them. Three names are going around: one from a driver, one from a half-burnt manifest, one from a label nobody can read. Adaeze Okonjo, who leads the analytical chemistry, wants two methods on the same sample before anybody writes a name down; the fire chief wants a name now. Today you turn that into a short list you would defend, and decide how to spend the one round of lab work you get. Sampling has an order too, because some steps destroy what the next one needed.",
+    "stake": "Day one. The freight yard fire has been out for six hours. A row of damaged containers sits eighty metres from the river, and nobody knows what was in them. Three names are going around, and they do not agree. Adaeze Okonjo, who runs the laboratory, wants two tests before anybody writes a name down. The fire chief wants a name now. Today you build a short list you would defend.",
     "takeaway": "Create a provisional identity list and choose the next discriminating measurements.",
     "stops": [
       {
@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "IDENT",
         "lesson": 2,
-        "task": "Spend the first of the lab budget"
+        "task": "Say whether it floats"
       }
     ]
   },
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The Vapor Cloud",
     "objective": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "briefing": "A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.",
-    "stake": "Day 2, first light, and the wind has backed 40 degrees. A colourless plume is drifting off the yard toward 2 neighbourhoods, and the forecast from the atmospheric chemistry lead, Miklos Varga, disagrees with the incident commander's map about where it goes by 11. Sipho Mbeki, who briefs the public, has to tell residents something by eight. Today you work out how much air that release can fill, what the warming morning will do to it, and which measurement to buy next. Both mistakes cost people. Evacuate too small an area and somebody is standing downwind of it. Evacuate the whole district and you block the roads the fire crews need.",
+    "stake": "Day two, first light. The wind has turned, and a colourless cloud is drifting off the yard toward two neighbourhoods. Miklos Varga's forecast and the fire chief's map disagree about where it goes by eleven. Sipho Mbeki has to tell residents something by eight. Today you work out how much air that release can fill, and what the warming morning does to it. Warn too small an area and somebody is standing in it.",
     "takeaway": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What Dissolved in the River?",
     "objective": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
     "briefing": "Runoff from the accident enters the river. Some compounds remain in surface films, some dissolve, and others bind to sediment. The player must predict partitioning from molecular interactions and verify it with sampling. If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.",
-    "stake": "Day three. Runoff reached the river overnight and Riverton's drinking-water intake is 900 metres downstream. Inês Ferreira, who owns water and sediment, has been out since four and wants it sampled; the state's auditor wants a water survey, because that is what a water survey means. Today you design it: where to sample, in what order, and which parts of the river to sample at all. That last one decides everything else. Test only the water and the result comes back clean, and it is honestly clean — today. The next flood will stir that sediment back into the water.",
+    "stake": "Day three. Runoff reached the river overnight, and the town takes its drinking water out nine hundred metres downstream. Inês Ferreira has been out since four and wants it sampled properly. Today you decide where to sample, in what order, and whether to test the mud as well as the water. Test only the water and it comes back clean, and it honestly is clean today. The next flood stirs that mud back up.",
     "takeaway": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The Concentration Problem",
     "objective": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "briefing": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
-    "stake": "Day six, and this is where Marisol Reyes and Rie Nakamura stop agreeing. The results are back as numbers, and the city is holding each one against a legal limit, one water system at a time. Nakamura wants every result run again before anything reopens. Reyes points out that four systems are shut on numbers nobody has questioned. Hospitals are on tankers. A week of caution has a cost too, and today she is right. Today you turn readings into what was really in the river, decide whether one result can be trusted, and choose where to sample next.",
+    "stake": "Day six. The results are back as numbers, and the city is holding each one against a legal limit. Rie Nakamura wants every result run again before anything reopens. Marisol Reyes points out that four water systems are already shut on numbers nobody has questioned. Hospitals are on tankers. Today you turn readings into what was really in the river, and decide whether one result can be trusted.",
     "takeaway": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The Heat Is Rising",
     "objective": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
     "briefing": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. If self-heating is mistaken for leftover warmth, responders may leave before runaway conditions develop.",
-    "stake": "Day 11 o'clock in the morning. The fire has been out for eight days and one storage bay is still getting warmer. Tomas Brandt, who owns reactions and energy, has been reading it hourly since midnight and has 11 readings. Fire Command wants the site released tonight and the crews have been on shift for 14 hours. Today you work out how much energy it takes to warm that much material, decide whether you are watching leftover heat or a reaction still running, and set up the monitoring either way. Fire Command wants your answer after the next reading, not after the trend.",
+    "stake": "Day eleven. The fire has been out for eight days, and one storage bay is still getting warmer. Tomas Brandt has been reading it every hour since midnight. Fire Command wants the site released tonight, and the crews have been on shift for fourteen hours. Today you decide whether this is leftover heat or a reaction still running, and set up the watching either way. One reading cannot tell you which.",
     "takeaway": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "The Water Changes pH",
     "objective": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
     "briefing": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. A pH correction can mobilize metals, damage infrastructure, or injure workers if the chemical context is ignored.",
-    "stake": "Day 14. The intake has turned acidic and Reyes wants a neutralising dose this morning; Novák, who maintains the pipeline, wants to know what it will do to her mains before anybody doses anything. The titration Ferreira ran overnight is nearly flat for four millilitres and then turns over hard. Today you work out how much acid is really there, read what that curve says about this water, and pick a dose that will not overshoot. There is one dosing pump and no way to take a dose back out. Overshoot and metals come off the pipe walls. Novák's question is the right one.",
+    "stake": "Day fourteen. The water at the intake has turned acidic, and Reyes wants it neutralised this morning. Novák, who looks after the pipes, wants to know what a dose will do to them first. Today you work out how much acid is really there, and pick a dose that will not overshoot. There is one dosing pump, and no way to take a dose back out. Overshoot and metals come off the pipe walls.",
     "takeaway": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The Corrosion Failure",
     "objective": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "briefing": "Acidic water and different metals threaten the intake pipeline. The player must identify redox couples and stop a small leak from becoming a system-wide failure. A hidden localized failure could interrupt drinking water during the emergency.",
-    "stake": "Day 26. A section of the intake pipeline has failed and Novák is standing in the hole in Third Street. It is also the main your own team clamped an earth cable to a fortnight ago. That pipe carries the water 140000 people drink, and the city is already on its reserves. Today you find where the metal is being lost and why, work out how fast, and choose the protection. Speed decides your response: the same loss over ten years is maintenance, and over a fortnight it is a burst main.",
+    "stake": "Day twenty-six. A section of the intake pipeline has failed, and Novák is standing in the hole in Third Street. That pipe carries the water a hundred and forty thousand people drink, and the city is on its reserves. Today you find where the metal is going, work out how fast, and choose the protection. Speed decides everything. The same loss over ten years is maintenance. Over a fortnight it is a burst main.",
     "takeaway": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "Remove It Without Making It Worse",
     "objective": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "briefing": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.",
-    "stake": "Day 31. Kwabena Osei runs the treatment side, and his pilot treatment works — 98% of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for.",
+    "stake": "Day thirty-one. Kwabena Osei's pilot treatment works. Almost all of the compound is gone by the outlet, and he wants to scale it up this week. Nakamura points out that the test panel was written for that compound and nothing else. Today you work out what the treatment really did: what it removed, what it made, and where the rest went. A panel that is not looking for the new thing reports success either way.",
     "takeaway": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Can the Water Be Released?",
     "objective": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
     "briefing": "Treatment results cluster near the decision threshold. The player must account for uncertainty, detection limits, and sampling representativeness before reopening the water system. A premature release exposes the city; an unnecessary hold can deprive hospitals and homes of essential water.",
-    "stake": "Day 45, and Nakamura gets her day. The verification results are in and one sits just under the limit — and it is the re-run of a sample whose first quality check failed. She has the instrument's own repeatability from 40 duplicate runs and would like somebody to look at it. Reyes has schools and two hospitals on tankers and wants the release signed this morning. Today you decide: release, release with conditions, or hold. Nakamura's name is on that form under Reyes's. Both mistakes are real, and they are not the same size.",
+    "stake": "Day forty-five. The checking results are in, and one sits just under the limit. It is the re-run of a sample whose first quality check failed. Nakamura would like somebody to look at that. Reyes has schools and two hospitals on tankers, and wants the release signed this morning. Today you decide: release, release with conditions, or hold. Both mistakes are real, and they are not the same size.",
     "takeaway": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "Reopen the City",
     "objective": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "briefing": "The final board must explain what was released, how chemicals moved and changed, which treatments worked, and what contamination remains in solids, infrastructure, and ecosystems. Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.",
-    "stake": "Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits everything the teams have worked out in seven weeks, and those things are not equally solid. Elena Stavros, who runs the long-term watching, wants the monitoring paid for before the emergency money closes on Friday. Nobody else in the room has mentioned it. Today you take the claims one at a time. What was measured. What was worked out. What is still open. Then decide what the city keeps paying for after everyone goes home.",
+    "stake": "Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits seven weeks of work, and not all of it is equally solid. Elena Stavros wants the long-term monitoring paid for before the emergency money closes on Friday. Nobody else has mentioned it. Today you take the claims one at a time, and decide what the city keeps paying for.",
     "takeaway": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "stops": [
       {

@@ -138,11 +138,25 @@ MISSIONS.forEach((m, i) => {
   //    floor follows the audience: the hospital says the same four things to a
   //    seven-year-old in ninety words that Riverton needs a hundred and fifty
   //    for, and padding it would be the opposite of the point.
-  const floor = Number.isFinite(grade) && grade <= 4 ? 70 : 90;
+  //
+  //    And there is a ceiling for a young audience, which is the half that was
+  //    missing. The middle-school editions inherited their openings from the
+  //    senior games almost word for word — a mean of 107 words, up to nine
+  //    sentences, read before *every* day — and a sixth grader has stopped
+  //    reading well before the end of that. The four beats fit in seventy words
+  //    when the sentences are short.
+  const junior = Number.isFinite(grade) && grade <= 8;
+  const floor = Number.isFinite(grade) && grade <= 4 ? 70 : junior ? 60 : 90;
+  const ceiling = junior ? 85 : 200;
   const n = words(stake).length;
   lengths.push(n);
   if(n < floor) fail(`${where}: stake is ${n} words — too short to say what happened, what you decide, and why`);
-  else if(n > 200) note(`${where}: stake is ${n} words`);
+  else if(n > ceiling && junior) fail(`${where}: stake is ${n} words — over ${ceiling} is more than this audience reads before every day`);
+  else if(n > ceiling) note(`${where}: stake is ${n} words`);
+  // A pile-up is unreadable however plain its words, and the opening card rule
+  // learned that already. Same number, applied to the card read every morning.
+  const longest = Math.max(0, ...String(stake).split(/(?<=[.!?])\s+/).map(s => words(s).length));
+  if(junior && longest > 24) fail(`${where}: a sentence in the stake runs to ${longest} words — 24 is the limit at grade ${grade}`);
 
   // 3. Somebody is in it. A card with no people in it is a problem statement.
   const who = surnames.filter(s => stake.includes(s));

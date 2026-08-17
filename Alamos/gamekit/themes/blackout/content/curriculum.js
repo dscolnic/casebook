@@ -402,29 +402,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        },
-        {
           "e": "df/dt = (P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
           "v": [
@@ -739,6 +716,31 @@ export const CURRICULUM = {
       "assumes": [
         "a stable problem can be severe without becoming more urgent each minute",
         "reserve actions need lead time before the peak"
+      ],
+      "equations": [
+        {
+          "e": "peak = base peak + sensitivity × degrees below",
+          "c": "how far cold moves an evening peak",
+          "v": [
+            [
+              "peak",
+              "in MW"
+            ],
+            [
+              "base peak",
+              "in MW for that day and season"
+            ],
+            [
+              "sensitivity",
+              "in MW per degree"
+            ],
+            [
+              "degrees below",
+              "below the reference temperature"
+            ]
+          ],
+          "s": "Demand rises with cold at a rate measured from this system, not from a textbook."
+        }
       ]
     },
     {
@@ -1038,29 +1040,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        },
-        {
           "e": "η = E_out / E_in",
           "c": "round-trip efficiency of storage",
           "v": [
@@ -1108,30 +1087,6 @@ export const CURRICULUM = {
         "power sustained over a period of time delivers energy"
       ],
       "equations": [
-        {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current.",
-          "computed": true
-        },
         {
           "e": "E = Pt",
           "c": "energy from power over time — the kilowatt-hour",
@@ -2228,27 +2183,28 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
+          "e": "peak = base peak + sensitivity × degrees below",
+          "c": "how far cold moves an evening peak",
           "v": [
             [
-              "P",
-              "power, in watts"
+              "peak",
+              "in MW"
             ],
             [
-              "I",
-              "current, in amperes"
+              "base peak",
+              "in MW for that day and season"
             ],
             [
-              "V",
-              "voltage, in volts"
+              "sensitivity",
+              "in MW per degree"
             ],
             [
-              "R",
-              "resistance, in ohms"
+              "degrees below",
+              "below the reference temperature"
             ]
           ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
+          "s": "Demand rises with cold at a rate measured from this system, not from a textbook.",
+          "computed": true
         }
       ]
     },
@@ -2299,31 +2255,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a forecast can be right by luck as easily as by skill on any one day"
-      ],
-      "equations": [
-        {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        }
       ]
     },
     {
@@ -2353,6 +2284,11 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "axis": "Order the four moves by what each one commits you to, not by the clock. All four are available now; what differs is how much they improve the figures you are working from, and how easily they can be taken back.",
+        "ends": [
+          "Improves your information",
+          "Cannot be taken back"
         ]
       },
       "assumes": [
@@ -2390,31 +2326,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a forecast is a distribution rather than a single value"
-      ],
-      "equations": [
-        {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        }
       ]
     }
   ],

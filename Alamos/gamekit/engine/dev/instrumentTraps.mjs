@@ -28,7 +28,14 @@ import { join } from 'node:path';
 const BOOK = 'books/instruments.yml';
 const SRC = readFileSync(BOOK, 'utf8');
 
-// [format, what is broken, [[find, replace], …], the words the refusal must say]
+// The estimate traps are the exception to "one book": `instruments.yml` is the
+// worked example of the instrument formats and carries no BALLPARK, so the two
+// tile traps run against Deep Watch, which does. A trap may name its own book
+// and theme as a fifth element.
+const OTHER = { book: 'books/deep-watch.yml', theme: 'deepwatch' };
+
+// [format, what is broken, [[find, replace], …], the words the refusal must say,
+//  optional { book, theme }]
 const BREAKS = [
   ['TRACE', 'only one channel shares the target', [
     ["- { id: ratioB, label: Harbour site ratio, reading: '2.1', depends: [vault] }",
@@ -159,6 +166,16 @@ const BREAKS = [
      ['                  rule: chain\n                  why: >-\n                    The 3/2 that comes down',
       '                  rule: lhopital\n                  why: >-\n                    The 3/2 that comes down']],
     'not in `rules`'],
+  // A BALLPARK's trap is that the tile says what it is worth. The player clicks
+  // a label and the panel adds a value, so a panel whose labels and values have
+  // drifted apart renders perfectly, grades consistently, and cannot be answered
+  // by reading it. Seven games shipped one.
+  ['BALLPARK', 'a tile label that is not its value',
+    [['            - 1.025 tonnes/m³  (seawater density)', '            - 1025 kg/m³  (seawater density)']],
+    'and is worth', OTHER],
+  ['BALLPARK', 'more slots than correct tiles',
+    [['          correct: [0, 1]\n          target: 1.64', '          correct: [0]\n          target: 1.64']],
+    'the panel can never be completed', OTHER],
   ['DERIVE', 'a rules list nobody is ever shown',
     [["          startNote: given",
       "          startNote: given\n          rules: [chain, power, substitution, evaluation]"]],
@@ -168,8 +185,10 @@ const BREAKS = [
 const dir = mkdtempSync(join(tmpdir(), 'gamekit-traps-'));
 let ok = 0, bad = 0;
 
-BREAKS.forEach(([fmt, what, subs, expect], i) => {
-  let s = SRC;
+BREAKS.forEach(([fmt, what, subs, expect, from], i) => {
+  const bookPath = from?.book ?? BOOK;
+  const theme = from?.theme ?? 'instruments';
+  let s = from ? readFileSync(bookPath, 'utf8') : SRC;
   for(const [find, replace] of subs){
     if(!s.includes(find)){
       bad++;
@@ -185,7 +204,7 @@ BREAKS.forEach(([fmt, what, subs, expect], i) => {
   writeFileSync(f, s);
   let out = '';
   try{
-    out = execFileSync('node', ['tools/import-book.mjs', f, 'instruments'],
+    out = execFileSync('node', ['tools/import-book.mjs', f, theme, '--dry'],
       { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }) + '\nIMPORT SUCCEEDED';
   }catch(e){ out = (e.stdout ?? '') + (e.stderr ?? ''); }
   if(out.toLowerCase().includes(expect.toLowerCase())){

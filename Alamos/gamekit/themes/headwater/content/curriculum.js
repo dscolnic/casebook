@@ -4571,8 +4571,7 @@ export const JARGON = [
       "limits",
       "one-sided limit"
     ],
-    "def": "The value a quantity closes on as its input closes on a number, whether or not it ever arrives there.",
-    "core": true
+    "def": "The value a quantity closes on as its input closes on a number, whether or not it ever arrives there."
   },
   {
     "name": "Difference quotient",

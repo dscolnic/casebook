@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Four traces, one of them ours",
-      "scene": "Four traces sit on the display while the watch calls them out. The boat slowed four minutes ago and one trace changed with it. Petty Officer Nils Rask, the sonar supervisor, wants each one named.",
+      "scene": "Four traces sit on the display while the watch calls them out. The boat slowed four minutes ago and one trace changed with it. Sonar is how a submarine sees: it listens, because light does not travel down here. Petty Officer Nils Rask, who runs it, wants each trace named.",
       "takeaway": "A sound that changes when the boat changes belongs to the boat.",
       "place": "Sonar Room",
-      "story": "Four traces sit on the display while the watch calls them out. The boat slowed four minutes ago and one trace changed with it. Petty Officer Nils Rask, the sonar supervisor, wants each one named.",
+      "story": "Four traces sit on the display while the watch calls them out. The boat slowed four minutes ago and one trace changed with it. Sonar is how a submarine sees: it listens, because light does not travel down here. Petty Officer Nils Rask, who runs it, wants each trace named.",
       "game": {
         "type": "PROTOCOL",
         "title": "Four traces, one of them ours",
@@ -66,7 +66,7 @@ export const CURRICULUM = {
         "setup": "Sonar Room",
         "play": "Say which explanation fits every reading, not only the loudest one.",
         "task": "Say which explanation fits every reading, not only the loudest one.",
-        "question": "Which explanation fits every reading here?",
+        "question": "Machinery makes a steady tone. This trace has none. What does that say about it?",
         "answer": "Something outside, arriving faint.",
         "why": "The broad display measures sound of every pitch at once. The narrow one hunts for steady tones. A layer of warmer water can bend a path and make a far-off source arrive faint. It cannot reach in and strip that source's tones away. So faintness and missing tones are two separate clues. The layer explains the first. The second says no tone is loud enough to show. Eleven minutes says it is not a flicker.",
         "rebuttals": [
@@ -182,10 +182,10 @@ export const CURRICULUM = {
           "The lost-contact rule before the entrance, while there is still contact to lose and somebody free to argue."
         ],
         "cards": [
-          "Record what the boat itself sounds like, because nothing new can be heard as new without it.",
-          "Find the depth of the layer, because it decides which missing sounds are missing for a reason.",
-          "Hold the contacts long enough to see which way their bearings are moving.",
-          "Agree what the boat does if contact is lost, while there is still contact to lose."
+          "Record what the boat itself sounds like, first.",
+          "Find the depth of the layer, which hides sounds below it.",
+          "Hold them long enough to see which way they move.",
+          "Agree what to do if contact is lost, before it is."
         ],
         "order": [
           0,
@@ -390,7 +390,7 @@ export const CURRICULUM = {
         "choices": [
           "We are closing with it, and the range is shrinking.",
           "It has stopped, since its bearing is not changing.",
-          "It is drawing away, and the noise is rising for some other reason.",
+          "It is drawing away, and something else is louder.",
           "Nothing at all, until somebody has a range."
         ],
         "correctChoice": "We are closing with it, and the range is shrinking."
@@ -743,9 +743,9 @@ export const CURRICULUM = {
           "Whether this space can fight it, last. That is a judgement about the first three."
         ],
         "cards": [
-          "Find where the sealed boundary runs, because it decides whose flood this is.",
+          "Find where the sealed boundary runs.",
           "Prove both hatches out of here still open, by trying them.",
-          "Find what in here could start a fire or a flood — sea pipes, cables, stores.",
+          "Find what in here could start a fire or a flood.",
           "Judge whether the kit stowed here could fight one."
         ],
         "order": [
@@ -875,7 +875,7 @@ export const CURRICULUM = {
         "play": "Work out how hard the sea is pushing on the fitting.",
         "task": "Work out how hard the sea is pushing on the fitting.",
         "question": "About how much pressure is the sea putting on the fitting?",
-        "answer": "About 0.91 MPa gauge, roughly 9 atmospheres above surface pressure.",
+        "answer": "About nine atmospheres of added pressure, and about ten in total once the air above the sea is counted.",
         "why": "Water is heavy, and every metre of it above the fitting presses down. About ten metres of sea adds one atmosphere, so ninety metres adds nine. Add the air we all live under and the outside of that fitting sits near ten atmospheres. That is why a small hole this deep drives so much water. It is also why shutting the hull valve matters more than fitting another pump. A pump fights the flow. The valve takes the push away.",
         "givens": [],
         "relationship": "Pressure added = depth ÷ ten metres for each atmosphere.",
@@ -968,10 +968,10 @@ export const CURRICULUM = {
           "The bearing running warm."
         ],
         "choices": [
-          "Log the level every ten minutes, and report a change rather than a number.",
+          "Log the level every ten minutes, and report changes.",
           "Hold it until the bearing moves, and report before it is certain.",
-          "Get it running, or name the hour when the air stops being optional.",
-          "Get the second cooling pump back, and say what that costs in noise."
+          "Get it running, or name the hour the air runs out.",
+          "Get the second pump back, and say what noise it costs."
         ],
         "mapping": [
           0,
@@ -1254,7 +1254,7 @@ export const CURRICULUM = {
           "Turning a machine off needs a record of what it was cooling.",
           "The quiet lineup should undo itself once the passage ends.",
           "The bearing should have an alarm that starts the pump again.",
-          "Nothing. The watch that shut it made a fair trade at the time."
+          "Nothing. Shutting it was a fair trade at the time."
         ],
         "correctChoice": "Turning a machine off needs a record of what it was cooling."
       },
@@ -1278,7 +1278,7 @@ export const CURRICULUM = {
         "play": "Say what the smoke has done to the way this is fought.",
         "task": "Say what the smoke has done to the way this is fought.",
         "question": "What does the smoke change about how this casualty is fought?",
-        "answer": "The space cannot be read by eye any more, so the boundaries have to be measured instead.",
+        "answer": "Nobody can read the space by eye, so measure it instead.",
         "why": "Smoke does more than make breathing hard. It takes sight away, so a team can lose the route, the boundary and each other within a few metres. Sixty degrees at head height against twenty-eight at the deck also says the heat is stacked in layers. Things can get much worse above that layer while the floor still feels survivable. Masks fix the breathing and nothing else. From here the space has to be measured rather than looked at.",
         "rebuttals": [
           "Masks keep the team working. They do not give back the information the smoke took away.",
@@ -1286,12 +1286,12 @@ export const CURRICULUM = {
           "Giving up the compartment hands it to the fire, and somebody still has to read the boundaries."
         ],
         "choices": [
-          "The space cannot be read by eye any more, so the boundaries have to be measured instead.",
+          "Nobody can read the space by eye, so measure it instead.",
           "Nothing, as long as everybody is on air.",
-          "The fire will put itself out once the smoke pushes the air out.",
+          "The fire will go out once the smoke fills the space.",
           "The compartment has to be given up until the smoke clears."
         ],
-        "correctChoice": "The space cannot be read by eye any more, so the boundaries have to be measured instead."
+        "correctChoice": "Nobody can read the space by eye, so measure it instead."
       },
       "assumes": [
         "a fire inside a structure does not show you where it is"
@@ -1311,7 +1311,7 @@ export const CURRICULUM = {
         "play": "Say which explanation accounts for every reading.",
         "task": "Say which explanation accounts for every reading.",
         "question": "Which explanation accounts for every reading here?",
-        "answer": "Berthing is shut out of the air loop, and its fitted sensor is wrong as well.",
+        "answer": "Berthing is shut out of the air loop, and misreading.",
         "why": "A scrubber can only clean air that reaches it. Shut one damper and a compartment drops out of the loop while the plant's own outlet still reads clean. Here the handheld in berthing agrees with how the people in there feel, and handhelds elsewhere read normal. So the problem is in one space. The sensor fitted in that space disagrees with both, which makes it a second fault. Two faults at once is allowed. The evidence decides, not tidiness.",
         "rebuttals": [
           "Control and machinery read normal on their own handhelds, so this is not boat-wide.",
@@ -1321,7 +1321,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "Berthing is shut out of the air loop, and its fitted sensor is wrong as well.",
+            "label": "Berthing is shut out of the air loop, and misreading.",
             "mechanism": "A shut damper cuts the space out of the loop, and a bad fitted sensor hides the rise."
           },
           {
@@ -1341,7 +1341,7 @@ export const CURRICULUM = {
             "mechanism": "Air going bad in one space, with two instruments disagreeing, is not background."
           }
         ],
-        "correctChoice": "Berthing is shut out of the air loop, and its fitted sensor is wrong as well."
+        "correctChoice": "Berthing is shut out of the air loop, and misreading."
       },
       "assumes": [
         "a machine can only clean the air that reaches it"
@@ -1464,8 +1464,8 @@ export const CURRICULUM = {
           "A folded hose on a reel, beside a small shut-off valve."
         ],
         "choices": [
-          "Open it ninety metres down and the sea comes in at ten atmospheres.",
-          "It gives people air to breathe before a space is fit to enter.",
+          "Open it that deep and the sea comes in hard.",
+          "It gives people air before a space is fit to enter.",
           "It holds the props and plugs this compartment fights with.",
           "It puts water on a fire, once the circuit is proved dead."
         ],
@@ -1498,7 +1498,7 @@ export const CURRICULUM = {
         "play": "Say why the hull rings at one shaft speed and nowhere else.",
         "task": "Say why the hull rings at one shaft speed and nowhere else.",
         "question": "The hull rings at one shaft speed and nowhere else. Why that one?",
-        "answer": "At that speed the blades push in time with the structure's own rhythm, so the shaking grows.",
+        "answer": "At that speed the pushes land in time, so it grows.",
         "why": "Everything has a rhythm it prefers to shake at, the way a swing does. Push a swing at any old moment and little happens. Push it in time and it goes higher on every push. The propeller blades hit the water a set number of times each turn. At one shaft speed that beat lands in time with the compartment's own rhythm. Either side of it, the pushes fall out of step.",
         "rebuttals": [
           "Being out of balance gets worse smoothly with speed, so a hundred turns would ring louder than ninety-two.",
@@ -1506,12 +1506,12 @@ export const CURRICULUM = {
           "Bubbles off the blades increase with speed. They do not switch off above some line."
         ],
         "choices": [
-          "At that speed the blades push in time with the structure's own rhythm, so the shaking grows.",
-          "The shaft is out of balance, and being out of balance gets worse with speed.",
-          "A bearing is failing, and a failing bearing is loudest in the middle of its range.",
-          "Bubbles start coming off the blades at that speed and stop above it."
+          "At that speed the pushes land in time, so it grows.",
+          "The shaft is out of balance, which worsens with speed.",
+          "A bearing is failing, loudest in the middle of its range.",
+          "Bubbles come off the blades at that speed only."
         ],
-        "correctChoice": "At that speed the blades push in time with the structure's own rhythm, so the shaking grows."
+        "correctChoice": "At that speed the pushes land in time, so it grows."
       },
       "assumes": [
         "everything has speeds at which it prefers to shake, the way a swing does"
@@ -1567,8 +1567,8 @@ export const CURRICULUM = {
           "Tell sonar before the header is shut."
         ],
         "choices": [
-          "Stops the sea at the hull, which is the only cut that ends it.",
-          "Stops flow to the break, and leaves the sea joined to the header.",
+          "Stops the sea at the hull, the only cut that ends it.",
+          "Stops the flow, and leaves the sea joined to the pipe.",
           "Buys minutes and changes nothing about where the water comes from.",
           "Gives that watch warning that their cooling is about to stop."
         ],
@@ -1601,7 +1601,7 @@ export const CURRICULUM = {
         "play": "Say what one shared fan means for the air plan.",
         "task": "Say what one shared fan means for the air plan.",
         "question": "One fan feeds the scrubber and the after spaces. What does that mean for the plan?",
-        "answer": "The fan is a single point of failure, and the plan needs another path or a stated fallback.",
+        "answer": "One fan is a single point of failure. Name a fallback.",
         "why": "One fan can do two jobs and still be one failure. If the scrubber and the after spaces share that fan and that trunk, losing it takes both away at once. Writing them in two boxes on the watch bill does not make them separate. Separate means a different fan, a different supply, or a different route. Until one of those exists, the air plan has a single failure that reaches several spaces.",
         "rebuttals": [
           "Reliable is not separate. A reliable shared part still takes both systems with it when it does go.",
@@ -1609,12 +1609,12 @@ export const CURRICULUM = {
           "Sealing the after spaces removes them from the plan instead of protecting them, and people sleep there."
         ],
         "choices": [
-          "The fan is a single point of failure, and the plan needs another path or a stated fallback.",
-          "Nothing. Two systems on one fan is normal, and the fan is reliable.",
+          "One fan is a single point of failure. Name a fallback.",
+          "Nothing. Two systems on one reliable fan is normal.",
           "Run the scrubber harder, so a fan failure leaves more room.",
           "Seal off the after spaces, since they are downstream."
         ],
-        "correctChoice": "The fan is a single point of failure, and the plan needs another path or a stated fallback."
+        "correctChoice": "One fan is a single point of failure. Name a fallback."
       },
       "assumes": [
         "a system is only as separate as the parts it does not share"
@@ -1830,8 +1830,8 @@ export const BALLPARK_CALCS = {
       2
     ],
     "slots": 3,
-    "template": "{0} ÷ {2} − {1} ÷ {2}",
-    "formula": "a/c - b/c",
+    "template": "({0} − {1}) ÷ {2}",
+    "formula": "(a-b)/c",
     "correct": [
       0,
       1,
@@ -1840,7 +1840,7 @@ export const BALLPARK_CALCS = {
     "target": 1,
     "tolerance": 0.2,
     "units": "nautical miles",
-    "solution": "Half the channel is two miles. Half the doubt is one. The margin is one mile.",
+    "solution": "Four miles of channel less two miles of doubt is two, and half of that is one mile on each side.",
     "explanation": "Running the middle puts two miles between the plotted position and each side. The boat could be a mile off toward either. What is left over is what the route survives on."
   },
   "DC-3": {
@@ -1854,23 +1854,22 @@ export const BALLPARK_CALCS = {
       "55 gallons a minute (the pump)"
     ],
     "values": [
-      8,
-      11,
-      55,
       90,
-      31
+      10,
+      1,
+      8,
+      55
     ],
-    "slots": 3,
-    "template": "{0} × {1} + {2}",
-    "formula": "a*b + c",
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 143,
-    "tolerance": 12,
-    "units": "gallons per minute",
+    "target": 9,
+    "tolerance": 0.5,
+    "units": "atmospheres",
     "solution": "Ninety divided by ten is nine atmospheres of added pressure.",
     "explanation": "This is the pressure the sea adds. The air at the surface adds one more on top, which is why the outside total is about ten."
   },
@@ -1878,32 +1877,29 @@ export const BALLPARK_CALCS = {
     "prompt": "One per cent of the air in that space is three hundred and sixty litres. Each person breathes out about twenty litres of carbon dioxide an hour, and there are nine of them.",
     "question": "How long until the carbon dioxide in there rises by one per cent?",
     "labels": [
-      "36 m³  (compartment volume)",
-      "293 K  (temperature)",
-      "1013 Pa  (0.01 atm)",
-      "8.314 J/(mol·K)  (R)",
-      "0.9 mol/h/person  (CO₂ production)",
-      "9  (people)"
+      "360 litres (one per cent of the air in there)",
+      "20 litres an hour (what one person breathes out)",
+      "9 (people)",
+      "36 (cubic metres of air in the space)",
+      "1 (the limit, in per cent)"
     ],
     "values": [
+      360,
+      20,
       9,
-      0.04,
       36,
-      0.01,
-      1,
-      70
+      1
     ],
-    "slots": 4,
-    "template": "{2} × {3} ÷ ({0} × {1})",
-    "formula": "c*d/(a*b)",
+    "slots": 3,
+    "template": "{0} ÷ ({1} × {2})",
+    "formula": "a/(b*c)",
     "correct": [
       0,
       1,
-      2,
-      3
+      2
     ],
-    "target": 1,
-    "tolerance": 0.2,
+    "target": 2,
+    "tolerance": 0.3,
     "units": "hours",
     "solution": "Three hundred and sixty ÷ (twenty × nine) is two hours.",
     "explanation": "The rate is nine people together, not one. Divide by one person's rate and the answer comes out nine times too long, which is a deadline nobody could use."
@@ -1912,31 +1908,28 @@ export const BALLPARK_CALCS = {
     "prompt": "Nine miles to the bank at eight knots, with the option of coming down to three.",
     "question": "How much more time does coming down to three knots buy?",
     "labels": [
+      "3.0 hours (the trip at three knots)",
+      "1.1 hours (the trip at eight knots)",
       "9 sea miles (to the bank)",
-      "8 knots (speed now)",
-      "3 knots (the slow option)",
-      "6 minutes (since the plot went soft)",
-      "5 knots (the difference between the two)"
+      "5 knots (the difference between the two speeds)"
     ],
     "values": [
-      9,
-      8,
       3,
-      6,
+      1.1,
+      9,
       5
     ],
-    "slots": 3,
-    "template": "{0} ÷ {2} − {0} ÷ {1}",
-    "formula": "a/c - a/b",
+    "slots": 2,
+    "template": "{0} − {1}",
+    "formula": "a-b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 1.875,
+    "target": 1.9,
     "tolerance": 0.2,
     "units": "hours",
-    "solution": "Nine ÷ eight is about 1.1 hours. Nine ÷ three is three hours. Slowing buys nearly two more.",
+    "solution": "Three hours at the slow speed against about 1.1 at the fast one — slowing buys nearly two more hours.",
     "explanation": "An hour is not enough time to fight a flood and rebuild a plot. Three hours is. Speed is the one number on this list you control."
   },
   "SONAR-5": {

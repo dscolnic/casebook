@@ -342,8 +342,8 @@ glossary:
       and it is what moves voltage.
   - name: Apparent power
     aliases: [apparent power, volt-ampere]
-    def: The product of RMS voltage and RMS current, whatever the phase between them. It is what a cable
-      and a transformer are rated for.
+    def: The voltage times the current, whatever the timing between them. It is what a cable and a
+      transformer are rated for, and it is bigger than the power actually doing work.
   - name: Droop
     aliases: [droop, governor droop]
     def: A deliberate setting that makes a generator reduce output as frequency rises, so several machines
@@ -371,14 +371,14 @@ missions:
   - title: The number on the wall
     objective: Establish what the frequency is actually telling the room before anybody acts on it.
     briefing: A unit tripped at 04:12 and the frequency has not come back to where it started.
-    stake: Tuesday, ten past four in the morning, and the biggest machine on the Calder system has tripped with no warning. The frequency fell, then steadied below where it started. Dolores Reyes says that matters more than the fall. A system that stops falling has found a new balance, and this balance is short. Nadia Haddad has machines that can cover it, and not in the next two minutes. June Farrow wants the records checked before anybody calls it a lost unit. Reyes is not waiting. Today you read what the frequency is telling you, work out how much has gone, and decide what to ask for first.
+    stake: "Tuesday, ten past four in the morning. The biggest machine on the Calder system has tripped with no warning. The frequency fell, then steadied below where it started. Dolores Reyes says the steadying matters more than the fall. Nadia Haddad has machines that can cover it, but not in two minutes. Today you read what the frequency is telling you, and decide what to ask for first. Every house on the system is on the other end of it."
     takeaway: Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.
     stops:
       - group: OPS
         task: Match each reading to what it is evidence of.
         title: What the falling number tells you
         place: System Operations
-        scene: The wall shows the frequency dropping for eight seconds, then flattening out low. Aaron Whitlock has the log open. Two people have already named a cause.
+        scene: The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.
         assumes:
           - the whole grid runs at one speed, and that speed is what frequency measures
         takeaway: Frequency belongs to the whole system. Voltage belongs to one place.
@@ -396,7 +396,7 @@ missions:
           - Two substations report voltages three per cent apart.
         choices:
           - One number for the whole system, because every machine turns in step.
-          - How big the gap is, against how much was spinning to absorb it.
+          - The size of the gap, against what was spinning.
           - A new balance at a slower speed, not the system getting better.
           - A local number, which is what makes it useful for saying where.
         mapping: [0, 1, 2, 3]
@@ -436,68 +436,33 @@ missions:
           relationship: Missing = what is needed − what can be made.
       - group: METER
         task: Open what each record depends on, keep what stands, and name the bad clock.
-        title: The order the records claim
+        title: What a timestamp is made of
         place: Metering & Standards
-        scene: June Farrow has three records of the same eight seconds, and they disagree about what happened first. One was stamped by a clock nobody has checked since spring.
+        scene: June Farrow has three records of the same eight seconds, and they disagree about what happened first. The three of them are stamped by two different clocks.
         assumes:
-          - a timestamp is a measurement plus a clock, and either can be wrong
-          - two records can agree because they share one clock
-        takeaway: Agreement only counts when the two things agreeing did not come from the same source.
-        format: TRACE
-        question: Which records still support the order of events, and which clock explains the rest?
-        trace:
-          hint: Open each channel to see which clock and physical input it depends on. Keep only the claims each channel can support, then name the shared source behind the false early time.
-          channels:
-            - id: relay-log
-              label: Protection relay event log
-              reading: pickup 1.6 s before the GPS record; internal intervals match
-              measures: event order and absolute time
-              depends:
-                - relay-clock
-                - breaker-contact
-            - id: relay-annunciator
-              label: Local relay annunciator
-              reading: alarm 1.6 s early on the same absolute clock
-              measures: alarm time
-              depends:
-                - relay-clock
-            - id: gps-recorder
-              label: GPS disturbance recorder
-              reading: pickup, then trip 0.28 s later
-              measures: event order and absolute time
-              depends:
-                - gps-clock
-                - breaker-contact
-            - id: scada
-              label: SCADA historian
-              reading: breaker open in the next 2.0 s scan
-              measures: coarse breaker state
-              depends:
-                - scada-clock
-                - breaker-contact
-          resources:
-            - id: gps-clock
-              label: GPS time receiver
-              note: Locked throughout the event.
-            - id: relay-clock
-              label: Relay internal clock
-              note: Last checked in spring.
-            - id: scada-clock
-              label: SCADA server clock
-              note: Network-synchronised; scan period 2.0 s.
-            - id: breaker-contact
-              label: Breaker auxiliary contact
-              note: Reports physical breaker state.
-          target: relay-clock
-          independent:
-            - gps-recorder
-            - scada
-        answerText: Keep the satellite-timed recorder for the order, and the slow record for which breakers opened. The other two share the drifted clock, and that clock is the fault.
-        why: A timestamp is two things at once. Something that happened, and a clock saying when. Those fail separately. Two of these records were stamped by the same clock, so their agreement is one clock repeated, not two measurements. The recorder using satellite time has its own clock and kept the real order. The slow record cannot resolve fractions of a second, and it can still say which breakers opened.
+          - a written-down time is a measurement plus a clock
+        takeaway: Being sure something happened and being sure when it happened are two separate pieces of work.
+        format: CHOICE
+        question: A record says the alarm came first. What two things have to be right for that to be true?
+        answerText: The alarm really happened, and the clock that stamped it was telling the right time.
+        why: Every timestamp is two claims glued together. One is that something happened — a relay picked up, a breaker opened. The other is that the clock writing the time was correct at that moment. They fail separately, and that is the whole difficulty. A relay can be perfectly right about what it saw and eighteen months out on when. So when two records disagree about the order, the first question is not which relay is broken. It is which clocks they used, and when those clocks were last checked.
+        choices:
+          - The event happened, and the clock was right
+          - The relay is new, and the wiring is correct
+          - Two records agree, and both are signed
+          - The alarm is loud, and somebody heard it
+        answer: The event happened, and the clock was right
+        rebuttals:
+          - A new relay with a drifted clock writes wrong times all day.
+          - Two records off one clock are one clock, written down twice.
+          - Whether anybody heard it says nothing about when it happened.
+        call: Say what a timestamp is made of
+        setup: Three records of the same eight seconds, and they disagree.
+        story: "A timestamp is a measurement and a clock, glued together and written as one number. The measurement can be sound while the clock is months out, and the record will still look exactly like a fact. June Farrow's three records of the same eight seconds do not agree, and none of the relays is faulty. Knowing what a timestamp is made of is what turns that from a mystery into a question about clocks."
   - title: What the line can carry
     objective: Decide which circuit takes the flow once one path is gone.
     briefing: With the unit off, the flow has redistributed and one corridor is running warm.
-    stake: Wednesday, and the replacement power is coming from the wrong side of the system. That means it arrives down two lines instead of three. Piotr Novak has a line above its steady limit, and a relay that will take the decision away from the room in about forty minutes if nobody else does. Those forty minutes come off a heat record June Farrow has not checked, and she says so. Thabo Dube is out in the yard waiting to be told what to switch. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move power about or accept the risk.
+    stake: "Wednesday. The replacement power is coming from the wrong side of the system, so it arrives down two lines instead of three. Piotr Novak has a line above its steady limit. A relay will take the decision away from the room in about forty minutes if nobody else does. Thabo Dube is in the yard waiting to be told what to switch. Today you rate the line honestly, and work out where the flow goes if it trips."
     takeaway: A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.
     stops:
       - group: TRANS
@@ -585,21 +550,21 @@ missions:
           question: How much of the power is being lost as heat?
           labels:
             - 1,150 MW (what the corridor carries)
-            - 0.015 (the share lost as heat)
+            - 1.5 MW lost for every 100 MW carried
             - 4.2 (ohms of wire)
             - 400 kV (the voltage it runs at)
-          values: [1150, 0.015, 4.2, 400]
+          values: [1150, 1.5, 4.2, 400]
           slots: 2
-          template: "{0} × {1}"
-          formula: a*b
+          template: "{0} ÷ 100 × {1}"
+          formula: a/100*b
           correct: [0, 1]
           target: 17.25
           tolerance: 2
           units: MW
-          solution: 1,150 × 0.015 is about 17 megawatts.
+          solution: 1,150 is eleven and a half hundreds, and 1.5 lost from each hundred is about 17 megawatts.
           explanation: The share is written as a decimal already. Use one and a half instead of 0.015 and the answer comes out a hundred times too big.
           givens:
-            - RMS current is 1,150 A in each phase
+            - the steady current is 1,150 A in each phase
             - Resistance is 4.2 Ω per phase over the corridor
             - There are three phases
           relationship: Lost = what it carries × the share lost.
@@ -617,10 +582,10 @@ missions:
         why: Running above the steady limit is a decision about time and heat, and the short-term limit exists so somebody can make it. What turns expensive into dangerous is what happens next. This line is already loaded. Lose it, and everything it was carrying lands on its neighbours, which were never sized for the sum. That second trip is protection working properly. Nobody chooses it.
         choices:
           - Being over the steady limit means damage starts at once.
-          - If it trips, its flow lands on a neighbour that is not rated for it.
+          - If it trips, its flow lands on a weaker neighbour.
           - The seventeen megawatts of heat is enough to make the protection operate.
           - The protection has to trip before anybody can use the short-term limit.
-        answer: If it trips, its flow lands on a neighbour that is not rated for it.
+        answer: If it trips, its flow lands on a weaker neighbour.
         rebuttals:
           - The short-term limit exists precisely so a line can run above the steady one for a while. What follows a trip is the urgent part.
           - The heat is real, and it is not what the protection is watching for here.
@@ -628,13 +593,7 @@ missions:
   - title: The last few kilometres
     objective: Get customers back on in an order that can be defended afterwards.
     briefing: 11 feeders are still dead and the crews can only be in 1 place at a time.
-    stake: >-
-      Thursday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo
-      Obi has 3 crews and 14000 households in the dark. One of her circuits carries a
-      dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk is at the first fault already, and it
-      is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the
-      current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is
-      somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.
+    stake: "Thursday. The big lines are steady, but eleven local feeders are still dead. Chinelo Obi has three crews and fourteen thousand households in the dark. One of her circuits carries a dialysis clinic. Another carries a thousand homes. Today you work out why the far end of a long feeder sits low, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold."
     takeaway: Restoration is a series of choices about people, made with instruments that only see the substation.
     stops:
       - group: DIST
@@ -653,11 +612,11 @@ missions:
           prompt: The far end sits about 1,070 volts below the substation. The feeder is supposed to run at 11,000 volts.
           question: How big is the drop, as a share of what the feeder should be?
           labels:
-            - 1,070 V (how much it drops)
-            - 11,000 V (what the feeder should be)
+            - 1.07 kV (how much it drops)
+            - 11 kV (what the feeder should be)
             - 310 A (the current it is carrying)
             - 4 km (how far out the customers are)
-          values: [1070, 11000, 310, 4]
+          values: [1.07, 11, 310, 4]
           slots: 2
           template: "{0} ÷ {1} × 100"
           formula: a/b*100
@@ -665,7 +624,7 @@ missions:
           target: 9.7
           tolerance: 1
           units: "%"
-          solution: 1,070 ÷ 11,000 × 100 is about 9.7 per cent.
+          solution: 1.07 divided by 11 is about a tenth, so the drop is about 9.7 per cent of what the feeder should be.
           explanation: Divide by the drop instead of into it and the answer is upside down. The current and the length explain why the drop is there, and neither is part of this sum.
           givens:
             - Feeder current is 310 A
@@ -692,7 +651,7 @@ missions:
           - What it is a limit on
         scenarios:
           - The wire is at 78 degrees, on a limit of 75.
-          - The circuit has been switched to a higher voltage than it was built for.
+          - The circuit is on a higher voltage than it was built for.
           - Customers at the end report low voltage in the evening.
           - The span over the road has dropped a metre since morning.
         choices:
@@ -717,7 +676,7 @@ missions:
           - The feeder with 4,100 households, faulted at the substation, four hours' work.
           - The clinic feeder — 180 homes, one pole, an hour's work.
           - The feeder with 2,600 households and a fault nobody has found yet.
-          - The feeder to the pumping station, which is running on its standby supply.
+          - The feeder to the pumping station, on standby supply.
         answer: The clinic feeder — 180 homes, one pole, an hour's work.
         rebuttals:
           - The biggest count is a four-hour job, and starting it ties a crew up for the whole shift.
@@ -726,7 +685,7 @@ missions:
   - title: Is that number the number
     objective: Establish which readings the incident account is allowed to rest on.
     briefing: The report is due and two of the figures in it come from instruments nobody has checked.
-    stake: Friday, and Tuesday night has to be written down. Dolores Reyes wants it filed today, so the week can close. June Farrow will not sign it while two of its figures come from instruments last checked in the spring. Nadia Haddad needs a machine back on the bars before the evening peak, and there is a right order for that which nobody is in a hurry to follow. Today you work out what the system was really delivering, put the steps of joining a machine in the order that works, and settle an argument between a meter and a scope. Farrow is right this time, and the delay is the cheapest thing all week.
+    stake: "Friday. Tuesday night has to be written down, and Dolores Reyes wants it filed today. June Farrow will not sign it. Two of its figures come from instruments last checked in the spring. Nadia Haddad needs a machine back on the bars before the evening peak, and there is a right order for that. Today you work out what the system was really delivering, and settle an argument between two instruments. Farrow is right this time."
     takeaway: A reading is a claim about one quantity, and two instruments can disagree while both are right.
     stops:
       - group: METER
@@ -805,14 +764,7 @@ missions:
   - title: Enough in the tank
     objective: Decide what the system is holding back, and whether it is enough.
     briefing: Tomorrow's peak is colder than the forecast the reserve was set against.
-    stake: >-
-      Monday, and the forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says
-      the number has not changed much but the width has, and the width is what the reserve has to cover.
-      Rafael Alvarez has the storage figures from the weekend and they are worse than the brochure. Dolores
-      Reyes has to say tonight how much generation is held back and how much is sold. Today you work out
-      what the battery will really give back, decide why the transmission side runs at high voltage at all,
-      and choose what evidence is worth buying before the peak. Hold too much back and it is wasted. Hold
-      too little and Thursday happens again.
+    stake: "Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the middle has hardly changed, but the width has, and the width is what the reserve must cover. Rafael Alvarez has weekend storage figures that are worse than the brochure. Today you work out what the battery will really give back, and decide what is worth finding out before the peak. Hold too little back and Thursday happens again."
     takeaway: A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.
     stops:
       - group: LOAD
@@ -916,13 +868,7 @@ missions:
   - title: 80 milliseconds
     objective: Establish what a fault does before anybody can respond to it.
     briefing: A cable failed at the substation and the protection cleared it before the alarm reached the room.
-    stake: >-
-      Wednesday, and a cable failed inside the substation at 13:40. The protection cleared it in under a
-      tenth of a second, which is the whole story: nobody in the control room saw the fault, they saw the
-      aftermath. Piotr Novak needs the fault current worked out before he will sign the switchgear back into
-      service. June Farrow wants to know how a current transformer produces a reading from a wire it never
-      touches. Ewa Kowalczyk has a crew standing at a gate and a rule about earthing that they are quietly
-      impatient with. Today you size the fault, explain the instrument, and decide who may approach.
+    stake: "Wednesday. A cable failed inside the substation at twenty to two. The protection cleared it in under a tenth of a second, so nobody in the control room saw the fault — only the aftermath. Piotr Novak wants the fault current worked out before he signs the switchgear back into service. Ewa Kowalczyk has a crew at the gate. Today you size the fault, and decide who may go near it."
     takeaway: A fault is limited only by impedance, which is why the numbers are enormous and the times are tiny.
     stops:
       - group: TRANS
@@ -1012,14 +958,7 @@ missions:
   - title: Merit order
     objective: Decide what runs tomorrow, and what is held back for the day it is needed.
     briefing: The cheapest generation is on the ridge and it will not say what it is doing after four.
-    stake: >-
-      Thursday, and tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the
-      temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing
-      for money and cannot promise any of it, and she is tired of being asked to. Nadia Haddad has expensive
-      machines that can be told exactly what to do. Dolores Reyes has to sign an order that puts them in
-      sequence. Today you forecast the peak from the load curve, decide what merit order actually means when
-      the cheapest plant is the least certain, and choose what to do with more wind than the corridor can
-      carry.
+    stake: "Thursday. Tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing for money and cannot promise any of it. Nadia Haddad has expensive machines that do exactly as they are told. Today you forecast the peak, and decide what cheapest-first really means when the cheapest plant is the least certain."
     takeaway: Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.
     stops:
       - group: LOAD
@@ -1078,13 +1017,13 @@ missions:
         scenarios:
           - The ridge fleet, almost free to run, with output nobody can promise.
           - A gas machine that can move fast, deliberately left at half output.
-          - An old station on the wrong side of the line, kept off despite a middling price.
-          - An old station on the right side of a bottleneck, run despite being dear.
+          - Old, on the wrong side of the line, kept off.
+          - Old, on the right side of the squeeze, run anyway.
         choices:
           - First in the queue on cost, with something reliable kept behind it.
-          - Held at half output on purpose, because only a half-loaded machine has spare.
-          - Kept off, because running it would push flow onto a line that cannot take it.
-          - Run out of turn because of where it is, not what it costs.
+          - Held at half output, because only that leaves spare.
+          - Held back, because starting it overloads something downstream.
+          - Run out of turn for where it is, not its price.
         mapping: [0, 1, 2, 3]
       - group: GEN
         task: Decide what to do with more wind than the line can carry.
@@ -1117,7 +1056,7 @@ missions:
   - title: Cranking path
     objective: Build a live system out of a dead one, in the only order that works.
     briefing: The valley collapsed at 19:04 and nothing in it can start without power it has not got.
-    stake: Saturday evening, and the island has gone. The valley is dark, and every machine in it needs electricity before it can start. The pumps, the fans, the controls, the switchgear itself. Nadia Haddad has one small water-driven machine at the head of the valley that can start on its own. Thabo Dube has a yard full of open switches. Dolores Reyes has to decide the order, and only one order works at all. Today you cost the hours the valley has been without power, work out why the small machine matters more than the big one, and write the restart in the order physics allows.
+    stake: "Saturday evening. The island has gone, the valley is dark, and every machine in it needs electricity before it can start. The pumps, the fans, the controls, the switchgear itself. Nadia Haddad has one small water-driven machine that can start on its own. Thabo Dube has a yard full of open switches. Today you work out why that small machine matters more than the big one, and write the restart in the order physics allows."
     takeaway: A dead system is rebuilt from one machine that needs nothing, outward along a path chosen in advance.
     stops:
       - group: GEN
@@ -1234,21 +1173,14 @@ missions:
           - Joining the restored island back to its neighbour.
         choices:
           - A frequency limit, because a small system cannot take a big step.
-          - A voltage limit, because a lightly loaded line pushes the far end up.
+          - A voltage limit, since a quiet line pushes the end up.
           - A cold-load limit, because everything that was off comes back at once.
-          - A matching limit, because both sides have to agree before the switch closes.
+          - A matching limit, since both sides must agree first.
         mapping: [0, 1, 2, 3]
   - title: Three things at once
     objective: Rank three simultaneous problems, and hold the reasoning while they interfere.
     briefing: A fault, a forecast miss and a plant coming off at the same hour, and one room.
-    stake: >-
-      Thursday, 16:40, and 3 things arrive together. A cable fault has taken a feeder with 3,300
-      households on it. Ravi Lindgren's forecast is running 200 megawatts under actual and still
-      climbing. And the gas machine that has carried the evening peak all week has to come off at 1800
-      for a fuel limit Amira Haddad flagged this morning and nobody built a plan around. Dolores
-      Reyes has 1 control room, 1 crew on shift and about 80 minutes. Today you decide what gets
-      attention first, work out what the corridor is costing at the higher flow, and put the evening's moves
-      in an order that does not undo itself. None of these is new. All three at once is.
+    stake: "Thursday, twenty to five, and three things arrive together. A cable fault has taken a feeder with three thousand three hundred households on it. Ravi Lindgren's forecast is running two hundred megawatts under, and climbing. And the gas machine that has carried the peak all week must come off at six. Dolores Reyes has one crew and about eighty minutes. Today you decide what gets attention first. None of these is new; all three at once is."
     takeaway: Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.
     stops:
       - group: OPS
@@ -1324,21 +1256,21 @@ missions:
           question: How much is the line wasting as heat now?
           labels:
             - 1,280 MW (what it carries now)
-            - 0.016 (the share lost now)
+            - 1.6 MW lost for every 100 MW carried
             - 1,150 MW (what it carried an hour ago)
-            - 0.015 (the share lost then)
-          values: [1280, 0.016, 1150, 0.015]
+            - 1.5 MW for every 100, an hour ago
+          values: [1280, 1.6, 1150, 1.5]
           slots: 2
-          template: "{0} × {1}"
-          formula: a*b
+          template: "{0} ÷ 100 × {1}"
+          formula: a/100*b
           correct: [0, 1]
           target: 20.5
           tolerance: 2
           units: MW
-          solution: 1,280 × 0.016 is about 20 megawatts.
+          solution: 1,280 is nearly thirteen hundreds, and 1.6 lost from each hundred is about 20 megawatts.
           explanation: The share itself has gone up, from 0.015 to 0.016, because a busier wire wastes a bigger fraction. That is why the answer rises faster than the flow.
           givens:
-            - RMS current is now 1,280 A in each phase
+            - the steady current is now 1,280 A in each phase
             - Resistance remains 4.2 Ω per phase
             - There are three phases
           relationship: Lost = what it carries × the share lost.
@@ -1358,17 +1290,12 @@ missions:
           - Start loading the replacement plant, which needs the minutes.
           - Reconfigure the network around the faulted feeder.
         order: [0, 1, 2, 3]
+        axis: This is not a clock. You could do any of the four right now. Order them by how easily each one can be undone, easiest first.
+        ends: [Easy to take back, Nobody can undo it]
   - title: What we know, and how well
     objective: Say how strongly each of the fortnight's claims is held, and what outlives the emergency.
     briefing: The event report has to state what is established, what is inferred and what is still a guess.
-    stake: >-
-      Friday, and the fortnight goes into a report. Dolores Reyes will not sign a document that states
-      everything at the same confidence, because a reader who cannot tell a measurement from an inference
-      will act on both the same way. June Farrow has the evidence file. Ravi Lindgren wants his forecast
-      width in as a range rather than a number. Piotr Novak wants the sensor drift written as a finding
-      rather than an excuse. Today you sort the fortnight's claims by how strongly each is held, put
-      numbers on the ones that deserve them, and decide which of the emergency's changes should become
-      permanent practice. This is the part of the fortnight that will still matter in a year.
+    stake: "Friday. The fortnight goes into a report, and Dolores Reyes will not sign one that states everything at the same confidence. A reader who cannot tell a measurement from a guess will act on both the same way. June Farrow has the evidence file. Ravi Lindgren wants his forecast written as a range. Today you sort the fortnight's claims by how well each is known, and decide what becomes permanent practice."
     takeaway: A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.
     stops:
       - group: METER
@@ -1428,11 +1355,11 @@ missions:
         answerText: Because reserve is sized against how far above the middle the peak might land. That is the width, and a single number deletes it.
         why: Reserve is not held against the peak everybody expects. It is held against how far above that the peak might land, which is a fact about the width and not about the middle. Print a single number and the one quantity a planner needs has been deleted, so the planner invents one, usually too small. The width is also the honest part of the forecast. It says which conditions the model was built on and which it has never seen.
         choices:
-          - Because reserve has to cover how far above the middle the peak could land.
-          - Because a range stops one odd winter counting as the model being wrong.
-          - Because the middle cannot be measured until winter is over, and the width can.
+          - Reserve has to cover how far above the middle it lands.
+          - A range stops one odd winter looking like a broken model.
+          - The middle needs a whole winter, and the width does not.
           - Because a range already includes the reserve the operators have scheduled.
-        answer: Because reserve has to cover how far above the middle the peak could land.
+        answer: Reserve has to cover how far above the middle it lands.
         rebuttals:
           - A range makes the forecast easier to test, not harder. A peak outside it counts against the model.
           - Both the middle and the width are worked out before the season. Neither waits for the actual peak.

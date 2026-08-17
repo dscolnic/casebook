@@ -2501,12 +2501,12 @@ export const BALLPARK_CALCS = {
     "prompt": "A reference method identifies 100 infected and 9,900 uninfected people in a 10,000-person validation group. The assay gives 90 true positives, 10 false negatives, 9,801 true negatives and 99 false positives.",
     "question": "Estimate sensitivity, specificity, and the chance that a positive result is a true case.",
     "labels": [
-      "90 true positives",
-      "10 false negatives",
-      "9,801 true negatives",
-      "99 false positives",
-      "100 infected",
-      "9,900 uninfected"
+      "10,000  (people screened)",
+      "0.01  (how many really have it, as a fraction)",
+      "0.90  (sensitivity — cases the test catches)",
+      "0.99  (specificity — clear people it clears)",
+      "0.30  (a tempting prevalence, but not this outbreak's)",
+      "0.10  (a tempting figure, and not an input here)"
     ],
     "values": [
       10000,

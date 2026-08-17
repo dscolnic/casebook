@@ -654,6 +654,99 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         if((spec.labels?.length ?? 0) <= (spec.correct?.length ?? 0)){
           fail(`${at}: estimate offers no distractor tiles, so every number given belongs in the answer`);
         }
+        // The tile a player clicks shows the LABEL and contributes the VALUE,
+        // and nothing until now checked that they were the same number. A
+        // re-target that changes the numbers is refused by apply-conversions
+        // when the label list changes length, so the values move and the labels
+        // stay — Outbreak's grade-6 edition shipped a panel whose tiles read
+        // 90, 99, 10, 9,801 while the arithmetic behind them used 10000, 0.01,
+        // 0.9, 0.99. Both readings are internally consistent, which is why the
+        // formula check above passed it.
+        for(const [i, lab] of (spec.labels ?? []).entries()){
+          const v = spec.values?.[i];
+          if(!Number.isFinite(Number(v))) continue;
+          // A label is written for a person, so it arrives in every notation a
+          // person uses: 10²², 1/2, 3.0e8, "12 million". Read all of them, and
+          // treat a label as agreeing if any reading matches — the point is to
+          // catch tiles that were never re-labelled, not to police notation.
+          const SUP = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-', '⁺': '+' };
+          // Listed rather than ranged: superscript one, two and three are
+          // Latin-1 (U+00B9, U+00B2, U+00B3) and sit outside U+2070–U+2079, so
+          // a range misses exactly the exponents a physics label uses most.
+          const text = String(lab).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g, c => SUP[c] ?? c)
+            .replace(/[\u2212\u2013\u2014]/g, '-')     // a typeset minus is still a minus
+            .replace(/×\s*10\s*\^?/g, 'e');
+          const readings = [];
+          const pow = text.match(/(?:^|[^\d.])10\s*\^?\s*(-?\d+)/);          // 10²², written 10^22 by now
+          if(pow) readings.push(Math.pow(10, Number(pow[1])));
+          const frac = text.match(/(-?\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);  // 1/2
+          if(frac) readings.push(Number(frac[1]) / Number(frac[2]));
+          const sci = text.match(/-?\d+(?:\.\d+)?e[+-]?\d+/i);                  // 3.0e8
+          if(sci) readings.push(Number(sci[0]));
+          const plain = text.match(/-?\d[\d,]*(?:\.\d+)?/);
+          if(plain){
+            const n = Number(plain[0].replace(/,/g, ''));
+            const scale = /\bbillion\b/i.test(text) ? 1e9 : /\bmillion\b/i.test(text) ? 1e6
+              : /\bthousand\b/i.test(text) ? 1e3 : 1;
+            readings.push(n, n * scale, n / 100);
+          }
+          if(!readings.length) continue;          // a label with no number in it is prose, and fine
+          const ok = readings.some(x => Number.isFinite(x)
+            && Math.abs(x - Number(v)) <= Math.max(1e-9, Math.abs(Number(v)) * 1e-6));
+          if(!ok){
+            fail(`${at}: estimate tile ${i + 1} reads "${String(lab).trim()}" and is worth ${v} — the player clicks the label and the panel adds the value`);
+          }
+        }
+        // THE EQUATION ON THE CARD IS THE ONE THE STOP USES.
+        //
+        // The chip and the panel are two statements of the same thing, and
+        // nothing checked that they agreed. Bring Them Home's cabin-cooling stop
+        // printed "time = distance / speed" because its scene said "how long the
+        // crew has" and a syllabus key was the bare phrase "how long" — a
+        // navigation equation on a thermal card, in front of the player, while
+        // the panel below it divided joules.
+        //
+        // Agreement is looked for in two currencies, because the games write
+        // equations in both. A junior edition writes them in words, so words are
+        // compared; a senior one writes "df/dt = (P_gen - P_load) / 2H", so the
+        // symbols are compared as well — and against the whole panel (the
+        // relationship, the template, the worked solution and the tile labels),
+        // since that is where a symbolic law shows up.
+        const eqs = l.equations ?? [];
+        // The relationship, the template and the worked solution: the three
+        // places the stop states its arithmetic. The explanation and the tile
+        // labels are prose around it, and including them matched "same" and
+        // "times" out of an explanation and called that agreement.
+        const panelText = [spec.relationship ?? g.relationship, spec.template, spec.solution]
+          .filter(Boolean).join('  ');
+        if(String(spec.relationship ?? g.relationship ?? '').trim() && eqs.length){
+          const STOP = new Set(['this', 'that', 'with', 'from', 'into', 'each', 'over', 'than',
+            'then', 'they', 'what', 'when', 'much', 'many', 'have', 'been', 'were', 'lost',
+            'which', 'about', 'takes', 'gives', 'using', 'where', 'their', 'there']);
+          const hay = panelText.toLowerCase();
+          const contentWords = (t) => (String(t).toLowerCase().match(/[a-z]{4,}/g) ?? []).filter(w => !STOP.has(w));
+          // A symbol is anything that reads as one in an equation: P_gen, df/dt,
+          // I²R, ΔTf, R_phase. Single letters are matched case-sensitively and
+          // standing alone, or every equation containing "E" would match "the".
+          // An equation is symbolic when it is written in symbols rather than in
+          // English, and only then are symbols worth comparing. Comparing them
+          // on a word equation matches "how" against every relationship in the
+          // repo and the check stops finding anything.
+          // Sonar writes SL, TL, NL and DT — two capitals each, no subscripts and
+          // no Greek, so a test that only knew single capitals called that
+          // equation "written in words" and compared it as English.
+          const isSymbolic = (e) => /[_√Δδλσρμ²³⁻₀-₉⁰-⁹]|\bd[A-Za-z]\/d[A-Za-z]|(?:^|[^A-Za-z])[A-Z]{1,3}(?![a-z])/.test(String(e));
+          const symbols = (t) => (String(t).match(/[A-Za-zΔδλσρμΣΩ][A-Za-z_₀-₉⁰-⁹²³0-9]*(?:\/d?[A-Za-z]+)?/g) ?? [])
+            .filter(x => /[_₀-₉⁰-⁹²³0-9√Δδλσρμ\/]/.test(x) || (x.length <= 3 && /[A-Z]/.test(x)));
+          const chipText = (eq) => [eq.e, eq.c, eq.s, ...(eq.v ?? []).flat()].filter(Boolean).join(' ');
+          const agrees = (eq) => contentWords(chipText(eq)).some(w => hay.includes(w))
+            || (isSymbolic(eq.e) && symbols(eq.e).some(x =>
+              new RegExp(`(?<![A-Za-z])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`).test(panelText)));
+          if(!eqs.some(agrees)){
+            fail(`${at}: the card prints "${eqs.map(e => e.e).join('", "')}" and the panel works `
+              + `"${String(spec.relationship ?? g.relationship).trim()}" — the equation shown is not the one the stop uses`);
+          }
+        }
         if(!spec.units) fail(`${at}: estimate has no units`);
         // questionUI renders `relationship` above the tiles, under "Governing
         // relationship". Every book theme emitted it empty — 34 estimates that

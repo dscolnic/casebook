@@ -7,6 +7,9 @@ import { BALLPARK_CALCS, JARGON } from './curriculum.js';
 import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
          VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
+// Co-op. Inert without `?room=`; the claim gate below is the only thing in this
+// file that knows a room can exist.
+import * as room from './room.js';
 
 /**
  * The per-playthrough component of every option shuffle.
@@ -215,6 +218,11 @@ function openModal(title, bodyHTML){
   overlay.classList.add('show');
   // pause pointer lock
   if(document.pointerLockElement) document.exitPointerLock();
+  // The room's day runs at a quarter rate while anybody is reading a panel, and
+  // the server is the only party that can know whether anybody is. Telling it
+  // here rather than at each caller means every format is covered, including the
+  // twenty in instruments.js.
+  room.setPanel(true);
   // bind term chips
   bindTerms(body);
 }
@@ -225,7 +233,65 @@ export function closeVerdict(){
 export function closeModal(){
   const overlay=document.getElementById('overlay');
   if(overlay) overlay.classList.remove('show');
+  room.setPanel(false);
+  // Walking away from a question hands the stop back to the room. Without this
+  // a player who opened a door, read the scene and left would hold that call for
+  // the rest of the day and nobody could see why.
+  releaseHeld();
   // resume game if needed, but leave unlocked until user clicks
+}
+
+// ---------------------------------------------------------------------- co-op
+//
+// One stop, one answerer. The claim is what makes the room's campaign safe to
+// write last-write-wins (server/rooms.js explains why), and it is also the whole
+// of the co-op UX at a stop: you either get the panel, or you are told who has it.
+//
+// The check is synchronous against the claim table every client already holds —
+// the server broadcasts it on every change — and the ASK is asynchronous behind
+// it. That covers the ordinary case with no latency at all, and the true race,
+// where two people press the same door inside one round trip, is caught when the
+// server says no and the panel closes itself.
+let heldKey = null;
+
+const stopKey = (stopIndex) => `${getState()?.week ?? 0}-${stopIndex}`;
+
+/** Somebody else's name if this stop is taken, else null. */
+function takenBy(stopIndex){
+  if(!room.isRoom()) return null;
+  const key = stopKey(stopIndex);
+  const held = room.claimedBy(key);
+  return held && !room.heldByMe(key) ? held.name : null;
+}
+
+/** Take the stop, and close the panel again if the server gives it to somebody else. */
+function takeStop(stopIndex){
+  if(!room.isRoom()) return;
+  const key = stopKey(stopIndex);
+  heldKey = key;
+  room.claim(key).then((r) => {
+    if(r.ok) return;
+    if(heldKey === key) heldKey = null;
+    closeModal();
+    openModal('Somebody got there first',
+      `<div class="briefBox">${esc(r.name || 'A teammate')} opened this call a moment before you did. `
+      + `It is theirs to answer — there is other work open in the meantime.</div>`);
+  });
+}
+
+function releaseHeld(){
+  if(!heldKey) return;
+  room.release(heldKey);
+  heldKey = null;
+}
+
+function coopBusy(stopIndex, what){
+  const who = takenBy(stopIndex);
+  if(!who) return false;
+  openModal('Somebody is on that one',
+    `<div class="briefBox"><b>${esc(who)}</b> is answering ${esc(what)} right now. `
+    + `The verdict comes to everyone when it lands — take one of the others in the meantime.</div>`);
+  return true;
 }
 function bindTerms(container){
   container.querySelectorAll('.termChip').forEach(btn=>{
@@ -307,9 +373,20 @@ function orderHTML(ch){
   // slots, then the bank of cards below them — so on anything but a tall window
   // the player was scrolling between the card they were placing and the place
   // they were putting it. Side by side, both are on screen at once.
-  return `<div class="compactInstruction">Put the ${ch.cards.length} steps in order, earliest first.</div>`
+  // "Earliest first" is a claim about what the answer is graded on, and for one
+  // ordering item in nine it is the wrong claim. ContamCity's evidence workflow
+  // is ordered by what each step costs — photograph, headspace, non-destructive
+  // spectrum, destructive method — and three of its four cards say they consume
+  // nothing, so a player reading "earliest" looks for a chronology that is not
+  // there. The axis lives in `takeaway` and `why`, both of which arrive after
+  // the answer. `axis` puts it above the slots, where it can be used.
+  // The two rail captions make the same claim a second time, in the one place
+  // the eye lands while dragging, so they have to move with it.
+  const axis = String(ch.axis ?? '').trim();
+  const ends = Array.isArray(ch.ends) && ch.ends.length === 2 ? ch.ends.map(e => String(e ?? '')) : null;
+  return `<div class="compactInstruction">${axis ? esc(axis) : `Put the ${ch.cards.length} steps in order, earliest first.`}</div>`
     + `<div class="orderSplit">`
-    +   `<div class="timelineTask"><div class="tlEnd">Earliest</div><ol class="timelineSlots">${slots}</ol><div class="tlEnd">Latest</div></div>`
+    +   `<div class="timelineTask"><div class="tlEnd">${esc(ends ? ends[0] : 'Earliest')}</div><ol class="timelineSlots">${slots}</ol><div class="tlEnd">${esc(ends ? ends[1] : 'Latest')}</div></div>`
     +   `<div class="orderBankSide"><div class="tlBankLabel">Steps to place</div><div class="orderBank">${bank}</div></div>`
     + `</div>`
     + `<div id="visitFeedback"></div>`
@@ -472,6 +549,28 @@ function calculateBallpark(spec){
   const names=CALC_NAMES.slice(0, Math.max(vals.length, spec.slots||0));
   try{ return Function(...names,`return (${spec.formula})`)(...vals); }catch(e){ return NaN; }
 }
+/**
+ * What the estimate is FOR, taken off the left of the governing relationship.
+ *
+ * The panel used to show the slots alone — `[choose] / [choose]` floating in a
+ * box — so the row said how to combine numbers and never what the combination
+ * was. The relationship was printed above it as a sentence, which is not the
+ * same thing as being on the row the player is filling in. Putting the left
+ * side back on the equals sign is the difference between "divide these" and
+ * "degrees lost = divide these".
+ *
+ * Returns null when the relationship is not written as an equation, or when its
+ * left side is a clause rather than a name — better nothing than a wall of text
+ * wrapped around the slots.
+ */
+function equationLeftSide(relationship){
+  const text = String(relationship ?? '').trim();
+  const at = text.search(/[=≈]/);
+  if(at < 1) return null;
+  const lhs = text.slice(0, at).trim().replace(/^(?:first|then|so|and)\s+/i, '');
+  if(!lhs || lhs.length > 42 || /[.;]/.test(lhs)) return null;
+  return lhs;
+}
 function ballparkBody(ch,spec){
   const orderVals = activeCalc.order || spec.labels.map((_,i)=>i);
   const bank=orderVals.map(i=>`<button type="button" class="numberTile ${activeCalc.chosen.includes(i)?'used':''}" data-calc-tile="${i}" ${activeCalc.chosen.includes(i)?'disabled':''}>${esc(spec.labels[i])}</button>`).join('');
@@ -488,6 +587,7 @@ function ballparkBody(ch,spec){
   // The running value on an instrument face rather than in a sentence. No
   // target and no scale while the estimate is being built: the moment a target
   // is on screen this stops being an estimate and becomes nudging a needle.
+  const lhs = equationLeftSide(spec.relationship ?? ch.relationship);
   const complete = activeCalc.chosen.length===spec.slots;
   const result = complete ? calculateBallpark(spec) : NaN;
   const preview = readout({
@@ -497,7 +597,7 @@ function ballparkBody(ch,spec){
     dim: !complete,
     note: `${activeCalc.chosen.length} of ${spec.slots} values placed`,
   });
-  return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div>${ch.relationship?`<div class="calcLaw"><span class="calcLawLabel">Governing relationship</span><span class="calcLawBody">${esc(ch.relationship)}</span></div>`:''}<div class="numberBank">${bank}</div><div class="calcEquation">${equation}</div><div class="calcReadout">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
+  return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div>${ch.relationship?`<div class="calcLaw"><span class="calcLawLabel">Governing relationship</span><span class="calcLawBody">${esc(ch.relationship)}</span></div>`:''}<div class="numberBank">${bank}</div><div class="calcEquation">${lhs?`<span class="calcLhs">${esc(lhs)}</span><span class="calcEquals">=</span>`:''}${equation}${spec.units?`<span class="calcUnits">${esc(spec.units)}</span>`:''}</div><div class="calcReadout">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
 }
 function ballparkHTML(ch){
   const spec=ballparkSpec();
@@ -1883,6 +1983,10 @@ function finishVisit(ok){
   // which is what the old "second attempt closes it regardless" rule was for.
   const closes = ok;
   if(closes) markMissionStopComplete(stopIndex, ok);
+  // The stop is answered; the room can have it back. A wrong call keeps the
+  // claim, because the player is being offered a second attempt at it and
+  // handing the stop to somebody else mid-decision would take that away.
+  if(closes) releaseHeld();
 
   // What this cost, for the panel to show. Time was already being charged in
   // silence; readiness only ever appeared as a line in the log.
@@ -2311,7 +2415,10 @@ export function openPersonVisit(npc, isRetry=false){
     idx=i; break;
   }
   if(idx < 0) return false;
+  // In a room this person may already be answering to somebody else.
+  if(coopBusy(idx, npc.char?.name ? `${npc.char.name}'s call` : 'this call')) return true;
   const stop={ ...m.stops[idx], index: idx };
+  takeStop(idx);
   // The person asks the same science question a room would, and the panel
   // shows them rather than the area's leader.
   showChallengeForStop(division, stop, isRetry, npc.char);
@@ -2418,5 +2525,8 @@ export function openVisit(id, isRetry=false){
       `<div class="briefBox">This one is credited for today.${left?` ${left} still open — the map has them.`:' Every call is made; the rest of the day is yours.'}</div>`);
     return;
   }
+  // Last gate, and only in a room: one answerer per stop.
+  if(coopBusy(stop.index, `the ${def(id)?.name ?? 'this'} call`)) return;
+  takeStop(stop.index);
   showChallengeForStop(id, stop, isRetry);
 }

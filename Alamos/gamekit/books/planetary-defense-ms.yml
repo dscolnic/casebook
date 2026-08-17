@@ -274,6 +274,11 @@ roster:
 
 # Terms the game may explain in place.
 glossary:
+  - name: Spectrum
+    aliases:
+      - spectrum
+      - spectra
+    def: A thing's brightness measured colour by colour. Different materials send back different colours, so the shape of that measurement says what something is made of.
   - name: Albedo
     aliases:
       - albedo
@@ -329,7 +334,7 @@ missions:
   - title: The Discovery Image
     objective: Validate a new-object candidate and preserve the measurements needed for follow-up.
     briefing: A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.
-    stake: Eleven days before the object passes Earth. The survey run by Aino Virtanen has flagged a faint dot that moved between three pictures. The same patch of sky holds forty thousand catalogued stars, two satellite streaks and a column of hot pixels. Today you decide whether there is really something out there. You leave the measurements in a state somebody else can use. And you say where to point next. Nothing else is known yet. Not how big it is. Not what it is made of. Not whether this pass is the one that matters. Every hour of waiting widens the patch of sky it could be in.
+    stake: "Eleven days before the object passes Earth. Aino Virtanen's survey has flagged a faint dot that moved between three pictures. The same patch of sky holds forty thousand catalogued stars, two satellite streaks and a column of hot pixels. Today you decide whether there is really something out there, and say where to point next. Nothing else is known yet. Every hour of waiting widens the patch of sky it could be in."
     takeaway: Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.
     stops:
       - group: DISC
@@ -341,7 +346,7 @@ missions:
           - a detector is the chip inside the camera, and its faults stay in one spot on the chip
         takeaway: Something real moves against the stars, and a camera fault stays where the camera put it.
         format: CHOICE
-        question: Which explanation fits all four readings?
+        question: The dot moved and the stars did not. What does that tell you about the dot?
         why: A real object moves against the sky. A camera fault moves with the camera. That is the test, and every reading here uses it. The dot is round in all three pictures, so it is not a cosmic ray, which hits once and hits sharp. It lands on a new pixel each time, so it is not a hot pixel. A second telescope found it, so it is not one camera making things up.
         rebuttals:
           - A cosmic ray hits once and looks sharp. This dot is round in all three pictures, and it keeps moving.
@@ -388,7 +393,7 @@ missions:
         task: Put the four steps in the order they have to be done.
         title: Check it before you send it
         place: Image Processing Lab
-        scene: Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The discovery notice goes out at dawn.
+        scene: Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.
         assumes:
           - a prediction other people can test is what makes a claim checkable
         takeaway: A claim is worth sending out once somebody else can test it.
@@ -401,8 +406,8 @@ missions:
           - The prediction comes last. It is the step that lets somebody else prove you wrong.
         cards:
           - Remove the camera's own marks, and solve exactly where it was pointing.
-          - Match every dot in the field against the star list, the satellite list and the known camera faults.
-          - Measure where the object is and how bright it is, and say how sure you are.
+          - Check every dot against the star and satellite lists.
+          - Measure where it is and how bright, with a range.
           - Post a predicted position, so another observatory can look and check.
         order: [0, 1, 2, 3]
       - group: ORBIT
@@ -439,7 +444,7 @@ missions:
   - title: Confirm the Motion
     objective: Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.
     briefing: Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.
-    stake: Ten days to the pass. Six observatories have sent positions to Hugo Delacroix, the campaign's position expert. Two used a different clock standard. One sent no pointing solution at all. And one camera's measurements bend away from the orbit in a way that looks like a fault rather than noise. Today you build one clean track out of all of it, and you buy the next observation. Delacroix will not throw anything out until the room agrees how. A weak track loses the object after the pass. It will be too faint to find again for years.
+    stake: "Ten days to the pass. Six observatories have sent positions to Hugo Delacroix, who handles the campaign's measurements. Two used a different clock. One sent no pointing at all. One camera's positions bend away from the orbit. Today you build one clean track out of all of it, and buy the next observation. A weak track loses the object after the pass, and it will be too faint to find for years."
     takeaway: Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -451,7 +456,7 @@ missions:
           - the reference stars in a picture are a check on the picture itself, because they do not move
         takeaway: An error that follows the equipment is telling you about the equipment.
         format: CHOICE
-        question: Which explanation fits the pattern in the misses?
+        question: The misses appear at one edge of one camera's chip, and nowhere else. Where is the fault?
         why: The reference stars are the control. They do not move, so anything that shifts them belongs to the equipment. Here they miss by more toward one edge of the chip, and the asteroid misses the same way. That is a pattern in chip position, not in the sky. A real push would move the asteroid alone. The clock agrees, so it is not timing, and the second telescope agrees, so it is not the orbit.
         rebuttals:
           - A real push acts on the asteroid alone. The stars would stay where they belong, and here they do not.
@@ -512,60 +517,33 @@ missions:
         cards:
           - Put every measurement on the same map and the same clock.
           - Fit a first rough path across the sky.
-          - Look at what the fit misses, and see whether the misses make a pattern.
-          - Say where the object will be tomorrow night, closely enough to point a telescope.
+          - Look at what the fit misses, and why.
+          - Say where it will be tomorrow, closely enough to point.
         order: [0, 1, 2, 3]
       - group: OPS
         task: Spend the one booking on the observation that changes next week's prediction most.
-        title: Buy the observation that decides
+        title: Why waiting helps
         place: Time Standards Room
-        scene: Four hours of spare time on a two-metre telescope. The object is faint and sets soon after dusk. The same patch of sky comes back in six nights.
+        scene: Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.
         assumes:
-          - a short arc of measurements fits many possible paths
-          - parallax is the shift you see when you look at something from a different place
-        takeaway: A measurement is worth buying when its result would change what you do next.
-        format: VALUE
-        question: Which booking changes the six-night prediction most?
-        value:
-          hint: You can buy one follow-up booking. Open each option to see what new constraint it would add, then spend the slot on the evidence that most changes the short-arc orbit prediction.
-          budget:
-            amount: 1
-            unit: follow-up booking
-            label: Discretionary telescope allocation
-          decision: Choose which orbit family to prioritize for the next six-night prediction and impact-monitoring update.
-          options:
-            - id: later
-              label: Observe again near the end of the six-night visibility window
-              cost: 1
-              axis: time baseline
-              decisive: true
-              reveals: How the competing short-arc orbit families separate after several days of propagation.
-            - id: immediate
-              label: Take another exposure immediately from the same telescope
-              cost: 1
-              axis: same-geometry precision
-              decisive: false
-              reveals: A slightly smaller random position error at almost the same time and geometry.
-            - id: parallax
-              label: Use a geographically separated telescope tonight
-              cost: 1
-              axis: distance by parallax
-              decisive: false
-              reveals: An independent distance constraint from simultaneous viewing geometry, useful but less leverage on the six-day along-track prediction than the missing time baseline.
-            - id: press
-              label: Use the slot to prepare and release the discovery notice
-              cost: 1
-              axis: communication
-              decisive: false
-              reveals: No new physical constraint on distance, velocity, or the orbit family.
-        answerText: Book the later observation. By then the paths that fit today's data have spread apart. One position rules most of them out. Another picture tonight would not.
-        why: A short arc fits many paths at once. A picture tonight is sharp and adds almost nothing. The paths have not had time to disagree yet. Give them days and they spread across the sky. Then one later position throws most of them out. Looking from far away works for the same reason. A new angle is new information. A sharper picture from the same spot is not.
-  - title: The Uncertainty Corridor
-    objective: Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.
-    briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.
-    stake: Eight days out, and the argument is no longer about this pass. The best-fit path for the return in eight years misses Earth easily. A thin set of paths inside the spread does not. The strip they cross holds nine million people and a coastline. This morning's numbers pushed the chance up, and it is already on the wire. Dr. Marco Rossi, the orbit lead, wants to say nothing until the arc is longer. Joan Ellery, who runs preparedness for the two counties under that strip, says the number goes public whether or not this room has the words for it. Today you work the chance out properly, and pick the measurement that shrinks it. You get one chance to explain it.
-    takeaway: Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.
-    stops:
+          - two paths that agree tonight can disagree later
+        takeaway: Two paths that agree today drift apart with time, so a later look separates them better than a sharper look now.
+        format: CHOICE
+        question: Two paths fit tonight equally well. What makes them easier to tell apart?
+        answerText: Time. Let both paths run for six nights and they end up in visibly different places.
+        why: Two paths through the same point tonight are heading slightly different ways. Tonight they sit on top of each other. No camera can split them, however sharp it is. Six nights later that small difference has become a real gap in the sky. One picture then does what ten pictures tonight cannot. So the booking worth having is the late one. A sharper look at tonight is worth much less than a rougher look later.
+        choices:
+          - Waiting, and looking again in six nights
+          - Taking a sharper picture tonight
+          - Taking many pictures tonight in a row
+          - Using a bigger telescope tonight
+        answer: Waiting, and looking again in six nights
+        rebuttals:
+          - A sharper picture of tonight still has both paths in the same place.
+          - Ten pictures of the same moment is one moment, ten times.
+          - A bigger telescope sees fainter, and it cannot see the future.
+        call: Say what separates two paths
+        setup: Two possible paths fit tonight's measurements equally well.
       - group: IMPACT
         task: Move and narrow the cloud of paths until all of it clears Earth.
         title: Read the risk correctly
@@ -612,22 +590,21 @@ missions:
         estimate:
           relationship: Chance = paths that hit ÷ all the paths tried. Multiply by one hundred for a percentage.
           prompt: The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.
-          question: What is the chance of impact, as a percentage?
+          question: How many paths in every thousand hit?
           labels:
-            - thirty-seven paths that hit
-            - one hundred thousand paths tried
-            - one thousand paths (the first quick run)
-            - 99,963 paths that missed
-            - eight years to the encounter
-          values: [37, 100000, 1000, 99963, 8]
+            - 37 (paths that hit)
+            - 100 (thousands of paths tried)
+            - 1 (thousand paths, in the first quick run)
+            - 8 (years to the encounter)
+          values: [37, 100, 1, 8]
           slots: 2
-          template: "{0} ÷ {1} × 100"
-          formula: a/b*100
+          template: "{0} ÷ {1}"
+          formula: a/b
           correct: [0, 1]
-          target: 0.037
-          tolerance: 0.004
-          units: "%"
-          solution: Thirty-seven out of one hundred thousand is 0.037 per cent.
+          target: 0.37
+          tolerance: 0.04
+          units: paths in every thousand
+          solution: Thirty-seven hits in a hundred thousand paths is about a third of one path in every thousand.
           explanation: The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small.
       - group: OPS
         task: A thin set of paths still hits Earth. Say where the telescope should point next week.
@@ -653,7 +630,7 @@ missions:
   - title: How Large Is It?
     objective: Produce a diameter range rather than a single unsupported value.
     briefing: The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.
-    stake: Six days to the pass, and this is the day the campaign has been dreading. Irina Sorokin, who observes in the thermal infrared, has been waiting on telescope time all week. Everything anybody wants to know about the eight-year return scales with size, and the size rests on how bright the object looked in a survey image. Brightness alone allows anything from 120 metres to 600. At the small end this is a city and an evacuation. At the large end it is a country, and a decade of bad harvests for everyone else. Nobody can tell you which, and no amount of staring at the discovery image will. Today you buy the measurement that breaks the tie.
+    stake: "Six days to the pass. Irina Sorokin has been waiting on telescope time all week. Everything anybody wants to know depends on the size, and the size rests on how bright the dot looked. Brightness alone allows anything from 120 metres to 600. At the small end this is a city. At the large end it is a country. Today you buy the measurement that breaks the tie."
     takeaway: Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.
     stops:
       - group: CHAR
@@ -681,7 +658,7 @@ missions:
           - The rock is further from us.
         choices:
           - More light comes back, because there is more surface catching sunlight.
-          - More of the sunlight that lands is sent back, at the same size.
+          - More of the sunlight landing on it is sent back.
           - Less sunlight arrives to be sent back at all.
           - What does come back is spread thinner before it gets here.
         mapping: [0, 1, 2, 3]
@@ -782,14 +759,14 @@ missions:
   - title: What Is It Made Of?
     objective: Assign a composition class with explicit alternatives and confidence.
     briefing: Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.
-    stake: Five days out. A wide dip has appeared in the spectrum. If it is real, it changes what Dr. Tola Adebayo, the characterisation lead, has already written into a draft notice. Today you decide whether that dip belongs to the rock, and what would make the claim solid. This is not a label for a catalogue. What the rock is made of gives its density. Density gives its weight. Weight and strength decide whether it holds together when a spacecraft hits it in three years. Every model built after today inherits whatever gets written today.
+    stake: "Five days out. A wide dip has appeared in the light from the rock. If it is real, it changes what Tola Adebayo has already written into a draft notice. Today you decide whether that dip belongs to the rock. This is not a label for a catalogue. What the rock is made of gives its weight, and its weight decides whether a spacecraft could move it."
     takeaway: Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.
     stops:
       - group: CHAR
         task: Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share.
         title: Whose dip is it?
         place: Spectroscopy Observatory
-        scene: A wide dip has turned up in the spread of colours, and it would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.
+        scene: A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.
         assumes:
           - a spectrum is brightness measured colour by colour
           - air can leave marks of its own in a spectrum taken from the ground
@@ -847,7 +824,7 @@ missions:
             - id: airmass_geometry
               label: airmass geometry
             - id: flat_field_calibration
-              label: flat-field calibration
+              label: the flat-field calibration, which is the check that evens out the camera
             - id: space_instrument
               label: space instrument
           independent:
@@ -874,8 +851,8 @@ missions:
         cards:
           - Take out what the Sun, the air and the instrument each added.
           - Measure how much light the surface sends back, colour by colour.
-          - Pick out the features that hold up, and try several mineral models against them.
-          - Report the classes that fit, the ones you cannot rule out, and what would settle it.
+          - Take the features that hold up, and try several minerals.
+          - Report what fits, and what would settle the rest.
         order: [0, 1, 2, 3]
       - group: OPS
         task: One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require.
@@ -886,7 +863,7 @@ missions:
           - a measurement made one way can be wrong in the same way every time
         takeaway: Ask for evidence that could disagree with you, not for a firmer label.
         format: CHOICE
-        question: One spectrum, one angle, one spin, and a draft notice naming a class. What do you require?
+        question: The rock turns as it goes. What does watching it at other angles add?
         why: A firmer claim needs evidence that could disagree with the one you have. More colours reach features this spectrum cannot see at all, so whole families of minerals can be ruled out. Another look tonight, taken the same way, repeats the same mistakes. Checks that work by different physics come next, once the list is short. Keep the range visible, because the deflection team turns it into a weight.
         choices:
           - Look at more colours than this spectrum covers.
@@ -901,7 +878,7 @@ missions:
   - title: Radar Contact
     objective: Design a radar sequence that improves both orbit and physical characterization.
     briefing: A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and reveal shape, but only if the observation plan uses the limited signal effectively.
-    stake: The pass is tonight, and Fischer has the dish. The radar window is 4 hours wide, and this geometry does not return for 11 years — after the encounter that everybody is now worried about. Three of the four things the room wants can be got another way. Today you decide what radar is uniquely for and write the sequence. An orbit built from angles alone is starved of exactly what this dish can add, and it resolves detail at a scale nothing optical here can reach. Tonight the size question closes for good, or it stays open for a decade.
+    stake: "The pass is tonight, and Anna Fischer has the dish. The radar window is four hours wide, and this view does not come back for eleven years. Three of the four things the room wants can be got another way. Today you decide what radar alone can do, and write the order of the night. Tonight the size question closes for good, or it stays open for a decade."
     takeaway: Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than as isolated facts.
     stops:
       - group: RADAR
@@ -929,10 +906,10 @@ missions:
           - How much of the rock sits at each depth.
           - Its whole shape, and the spin that carries it round.
         choices:
-          - Time the echo. Radio travels at a known speed, so the time there and back gives a distance.
-          - Measure how far the echo is spread in pitch. One side turns toward us while the other turns away.
-          - Read how strong the echo is at each moment. The near face answers first, so later means deeper.
-          - Build pictures on many nights, right through a full turn, and fit them together.
+          - Time the echo. Radio has a known speed, so time gives distance.
+          - Measure the spread in pitch. One side comes, one goes.
+          - Read when each part of the echo returns. Later means further.
+          - Build pictures across a full turn, and fit them together.
         mapping: [0, 1, 2, 3]
       - group: OPS
         task: Turn the echo time into a distance the orbit team can use.
@@ -947,23 +924,23 @@ missions:
         why: Radar hands you a time, and a time becomes a distance as soon as the speed is known. Radio travels three hundred thousand kilometres each second. Four seconds is one million two hundred thousand kilometres of travelling. The pulse went out and came back, so the rock sits half that away. That is six hundred thousand kilometres. Radar is worth so much here because it measures a distance instead of fitting one.
         estimate:
           relationship: Distance = speed × time ÷ two, because the pulse went there and back.
-          prompt: The pulse left the dish and the echo came back four seconds later. Radio travels three hundred thousand kilometres a second.
-          question: About how far away is the object?
+          prompt: The pulse left the dish and the echo came back four seconds later. Counting in thousands of kilometres, radio covers 300 of them every second.
+          question: About how far away is the object, in thousands of kilometres?
           labels:
             - 4.0 seconds (there and back)
-            - 300,000 kilometres each second (speed of radio)
+            - 300 (thousands of kilometres radio covers each second)
             - 2 (out, and back again)
-            - eight years to the encounter
+            - 8 (years to the encounter)
             - 0.5 arcseconds (the seeing that night)
-          values: [4.0, 300000, 2, 8, 0.5]
+          values: [4.0, 300, 2, 8, 0.5]
           slots: 3
           template: "{0} × {1} ÷ {2}"
           formula: a*b/c
           correct: [0, 1, 2]
-          target: 600000
-          tolerance: 30000
-          units: km
-          solution: Three hundred thousand × four ÷ two is six hundred thousand kilometres.
+          target: 600
+          tolerance: 30
+          units: thousand km
+          solution: Four seconds at 300 thousand kilometres a second is 1,200, and half of that is 600 thousand kilometres out.
           explanation: Forget to halve it and the answer is twice too big. That is how far the pulse travelled, not how far away the rock is.
       - group: ORBIT
         task: Radar has settled this pass. Say what has to be worked out before anybody calls it safe.
@@ -977,11 +954,11 @@ missions:
         question: Radar has settled this pass. What has to be worked out before anybody calls the object safe?
         why: A measured miss settles this pass and not the next one. Passing a few Earth radii out lets Earth's gravity pull on the rock and change its speed and its direction. That changes how long its trip round the Sun takes, so it returns at a different time and in a different place. A narrow band of today's paths can turn into a much closer pass later. Safety has to be worked out after the bend.
         choices:
-          - Carry the measured pass forward through Earth's gravity, and check the close approaches after it.
-          - Use the measured miss as the final answer, since the object is already going away.
-          - Pin down the size first, then judge safety from whether it would survive another pass.
-          - Take a fresh set of measurements after the pass and treat those as enough on their own.
-        answer: Carry the measured pass forward through Earth's gravity, and check the close approaches after it.
+          - Carry this pass forward, and check the later ones.
+          - Use this miss as the final answer, since it is leaving.
+          - Pin down the size first, and judge safety from that.
+          - Take fresh measurements after the pass, and stop there.
+        answer: Carry this pass forward, and check the later ones.
         rebuttals:
           - A measured miss settles this pass and says nothing about the path the pass creates.
           - Size is worth knowing, and it does not say where the rock will be in eleven years.
@@ -989,7 +966,7 @@ missions:
   - title: Impact Energy
     objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
     briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.
-    stake: "The object passed a week ago at four times the distance of the Moon, and it is heading away. What it left behind is a description. About one hundred and eighty metres across, and roughly four hundred megatons if the return in eight years arrives. That is not the end of the world. It is one city region. Out at sea off a coast, it is a wave with hours of warning. Dr. Rohan Banerjee, who models impacts, wants one number for civil defence today. Adebayo says the width is still the widest guess and everything else is decoration. Today you give a low, a middle and a high, and say which unknown is doing the damage."
+    stake: "The object passed a week ago at four times the distance of the Moon, and it is heading away. What it left behind is a description: about 180 metres across, and roughly four hundred megatons if the return in eight years arrives. Rohan Banerjee wants one number for civil defence today. Adebayo says the width is still the widest guess. Today you give a low, a middle and a high."
     takeaway: Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
@@ -1008,21 +985,20 @@ missions:
           prompt: The rock weighs about eight billion kilograms, and it would arrive at twenty thousand metres a second.
           question: About how much energy would the impact carry?
           labels:
-            - 8,000,000,000 kg (what it weighs)
-            - 20,000 metres a second (how fast it arrives)
-            - 180 metres (how wide it is)
-            - 2,600 kg in every cubic metre (the rock it is made of)
-            - 11,200 metres a second (the speed needed to escape Earth)
-          values: [8000000000, 20000, 180, 2600, 11200]
+            - 1,600 (millions of billions of joules it would carry)
+            - 4 (millions of billions of joules in one megaton)
+            - 180 (metres across)
+            - 20 (kilometres a second, how fast it arrives)
+          values: [1600, 4, 180, 20]
           slots: 2
-          template: ½ × {0} × {1} × {1}
-          formula: 0.5*a*b*b
+          template: "{0} ÷ {1}"
+          formula: a/b
           correct: [0, 1]
-          target: 1600000000000000000
-          tolerance: 200000000000000000
-          units: J
-          solution: Half of eight billion, times twenty thousand, times twenty thousand again — about 1.6 × 10¹⁸ joules.
-          explanation: The speed goes in twice. Halve it and the energy falls to a quarter, which is why the speed tile is worth more than the weight tile.
+          target: 400
+          tolerance: 40
+          units: megatons
+          solution: Sixteen hundred shared out at four for each megaton is about four hundred megatons.
+          explanation: Joules are the wrong size of unit to think in here. Turning the energy into megatons is what lets anybody compare it with something they have heard of.
       - group: OPS
         task: Say what doubling the arrival speed does to the energy.
         title: Twice as fast
@@ -1089,7 +1065,7 @@ missions:
   - title: Can We Move It?
     objective: Choose a deflection demonstration and define how success will be measured.
     briefing: Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.
-    stake: Four months after the pass. Dr. Anna Fischer, the radar lead, has the best orbit this campaign will ever have, and it is already two months old. The return is seven and a half years out. That sounds like plenty and it is not, because a deflection has to launch years before it arrives. Today you size the push and decide how success gets measured. On a weak rock the push can break it apart, and several pieces on the same path are worse than one. So what has to be measured is not what you launched. It is what actually happened to the orbit.
+    stake: "Four months after the pass. Anna Fischer has the best orbit this campaign will ever have, and it is already two months old. The return is seven and a half years out. That sounds like plenty, and it is not, because a deflection has to launch years before it arrives. Today you size the push and decide how success gets measured. On a weak rock, a hard push breaks it into several pieces on the same path."
     takeaway: Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
@@ -1102,28 +1078,27 @@ missions:
           - the same push shared over more weight makes less change in speed
         takeaway: The same push moves a heavier thing less, in exact proportion.
         format: BALLPARK
-        question: About how much does the rock's speed change?
-        why: Momentum is weight multiplied by speed, and a collision hands it over. The craft carries a large speed and almost no weight. The rock has an enormous weight, so the same momentum buys it very little speed. Divide, and the change is about one and a half centimetres a second. That sounds like nothing at all. Given ten years of travel, it is the difference between a hit and a miss.
+        question: How far will the nudge have moved the rock by the time it arrives?
+        why: The push is tiny. A craft weighing ten tonnes hits a rock weighing eight billion, so the rock's speed changes by about fifteen millimetres a second — walking pace divided by two hundred. What makes it matter is that the rock keeps that speed, second after second, for eight years. Fifteen millimetres a second works out at about 475 kilometres in a year, and eight of those is thousands of kilometres of sideways shift. That is the whole idea of a nudge: it is not the push that is big, it is the time.
         estimate:
-          relationship: Momentum = weight × speed. Change in speed = that momentum ÷ the weight it lands on.
-          prompt: A ten thousand kilogram craft hits the rock at twelve thousand metres a second. The rock weighs 7.9 billion kilograms.
-          question: About how much does the rock's speed change?
+          relationship: Distance moved = how far it shifts in one year × the number of years.
+          prompt: The push speeds the rock sideways by fifteen millimetres a second, which works out at about 475 kilometres in a year. The encounter is eight years away.
+          question: How far will the rock have moved by then?
           labels:
-            - 10,000 kg (weight of the craft)
-            - 12,000 metres a second (closing speed)
-            - 7.9 billion kg (weight of the rock)
-            - 20,000 metres a second (the speed it meets Earth at)
-            - 2.0 (extra push from material thrown off)
-          values: [10000, 12000, 7900000000, 20000, 2]
-          slots: 3
-          template: "{0} × {1} ÷ {2}"
-          formula: a*b/c
-          correct: [0, 1, 2]
-          target: 0.0152
-          tolerance: 0.0015
-          units: m/s
-          solution: Ten thousand × twelve thousand is 1.2 × 10⁸. Divided by 7.9 × 10⁹ kilograms, that is about 0.015 metres a second.
-          explanation: Use the craft's own closing speed, not the speed the rock meets Earth at. Material thrown off the surface would add more push, and it is left out because nobody can predict it.
+            - 475 km (how far the nudge moves it in a year)
+            - 8 (years before the encounter)
+            - 15 (millimetres a second the nudge adds)
+            - 2 (extra push from material thrown off)
+          values: [475, 8, 15, 2]
+          slots: 2
+          template: "{0} × {1}"
+          formula: a*b
+          correct: [0, 1]
+          target: 3800
+          tolerance: 300
+          units: km
+          solution: About 475 kilometres in a year, for eight years, is about 3,800 kilometres.
+          explanation: The millimetres a second are the same fact in a smaller unit, not a second thing to multiply by. Do this nudge one year out instead of eight and it buys an eighth as much room.
       - group: IMPACT
         task: Match each item on the board to what it does to the outcome.
         title: What makes a deflection work?
@@ -1191,7 +1166,7 @@ missions:
   - title: Evacuate or Wait?
     objective: Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.
     briefing: The impact corridor crosses populated regions, but the probability is still changing. The player must connect scientific uncertainty to staged civil decisions and avoid both complacency and panic.
-    stake: Three years in. The impactor launched 2 years ago and reaches the asteroid in 11 days, 5 years before the encounter. The probability has moved twice this month, both times downward, and Ellery's draft evacuation plan has been seen by two regional governments who are being asked to fund it now — and this time Rossi is the one who is right, because what she would spend is trust she cannot get back. Today you match what gets done to what is actually known. Stockpiles and plans are cheap and reversible. Moving 9 million people is neither, and it kills people directly. Both mistakes here have a body count, and only one of them would ever be reported as yours.
+    stake: "Three years in. The impactor launched two years ago and reaches the asteroid in eleven days. The chance has moved twice this month, both times downward. Ellery's draft evacuation plan is already with two regional governments. Today you match what gets done to what is actually known. Stockpiles are cheap and can be undone. Moving nine million people is neither, and it kills people by itself."
     takeaway: Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -1218,7 +1193,7 @@ missions:
           - A high chance, with days left.
           - The chance falls after a decisive measurement.
         choices:
-          - Keep watching, and prepare in ways that cost nothing if it comes to nothing.
+          - Keep watching, and prepare in ways that waste nothing.
           - Move supplies in and plan the routes, because both can be undone.
           - Order people to move, under emergency powers.
           - Stand down in public, and say why.
@@ -1239,12 +1214,12 @@ missions:
           prompt: Nine million people live inside the corridor. Today's chance of impact is half of one per cent.
           question: How many people does that share come to?
           labels:
-            - nine million people (in the corridor)
-            - 0.005 (today's chance, as a decimal)
-            - two million people (in the biggest city there)
-            - 0.05 (an earlier, higher chance)
-            - 0.037 per cent (the number from the path count)
-          values: [9000000, 0.005, 2000000, 0.05, 0.037]
+            - 9,000 (thousands of people in the corridor)
+            - 5 (people in every thousand, at today's chance)
+            - 2,000 (thousands of people in the biggest city there)
+            - 50 (people in every thousand, at the earlier chance)
+            - 0.37 (paths in every thousand that hit)
+          values: [9000, 5, 2000, 50, 0.37]
           slots: 2
           template: "{0} × {1}"
           formula: a*b
@@ -1314,7 +1289,7 @@ missions:
   - title: The Final Defense Review
     objective: Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.
     briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.
-    stake: Eight years after the discovery, and the encounter is next week. The impactor struck 5 years ago; tracking since then puts the object about 2 Earth radii out, and some 5000 kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Dr. Isabel Garcia, who leads survey and response, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next 1 is up there now, unfound, and the survey line that caught this 1 expires in 11 months.
+    stake: "Eight years after the discovery, and the encounter is next week. The impactor struck five years ago, and tracking since then puts the object about two Earth radii clear. Some five thousand kilometres of that was bought by the impact. Nothing further can be done now, which is as it should be. Today you take the claims one at a time with Isabel Garcia, and write the public record with Ellery."
     takeaway: Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
@@ -1337,9 +1312,9 @@ missions:
           - Gaps in the search have nothing to do with this rock and everything to do with the next one.
         scenarios:
           - Tracking shows the orbit shift, and somebody else confirms it.
-          - The best guess is safe, and the edge of the spread is not pinned down.
+          - The best guess is safe, and the edges are not pinned down.
           - The plans are ready, and they use an old corridor.
-          - The rock is no threat, and the search still misses parts of the sky.
+          - No threat from this rock, and the sky is still not covered.
         choices:
           - Accept it, and keep checking.
           - Keep observing, and do not treat the middle as the whole answer.
@@ -1400,11 +1375,11 @@ missions:
         question: The campaign budget ends with this review. What survives it?
         why: Warning time is what every later choice gets bought with. Finding a rock earlier gives more nights to check the orbit. It gives time to measure the size and what it is made of. It makes a small push worth giving, because years turn a push into distance. It lets people prepare in stages. Plans and models matter too, and none of them can give back time that was never bought.
         choices:
-          - Keep the search and the fast follow-up going, and hold on to the links to everything else.
-          - Move most of the money to studying rocks and testing deflections, since the catalogue is nearly done.
-          - Move most of the money to civil readiness, since a warning will arrive by itself when it matters.
+          - Keep the search and the quick follow-up, and the links.
+          - Move the money to studying rocks and testing nudges.
+          - Move the money to civil readiness, and wait for warnings.
           - Stop spending. The catalogue and the automatic alerts have it covered.
-        answer: Keep the search and the fast follow-up going, and hold on to the links to everything else.
+        answer: Keep the search and the quick follow-up, and the links.
         rebuttals:
           - Studying rocks and testing deflections are both worth having, and they need an object found early enough for any of it to matter.
           - Readiness turns a warning into action. It cannot make a warning if nothing finds the rock in the first place.

@@ -339,6 +339,40 @@ missions.forEach((m, mi) => {
 })();
 
 /** One stop's question, checked against what its format actually needs. */
+/**
+ * Every number a tile label could be read as: 10²², 1/2, 3.0e8, "12 million",
+ * a typeset minus. A label is written for a person and arrives in all of those,
+ * so the test is "does any reading match the value", not "is it spelled the way
+ * the value is". `engine/dev/validateContent.mjs` runs the same comparison over
+ * content that is already imported.
+ */
+function labelNumbers(label){
+  // Inside the function, not beside it: this file does its work during module
+  // evaluation, so a `const` at file scope is in the temporal dead zone when the
+  // first lesson is read. Same trap as house rule 13, one file over.
+  const SUPERSCRIPT = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-', '⁺': '+' };
+  // Listed rather than ranged: superscript one, two and three are Latin-1 and
+  // sit outside U+2070–U+2079, which is exactly the exponents physics uses most.
+  const text = String(label).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]/g, c => SUPERSCRIPT[c] ?? c)
+    .replace(/[\u2212\u2013\u2014]/g, '-')
+    .replace(/×\s*10\s*\^?/g, 'e');
+  const out = [];
+  const pow = text.match(/(?:^|[^\d.])10\s*\^?\s*(-?\d+)/);
+  if(pow) out.push(Math.pow(10, Number(pow[1])));
+  const frac = text.match(/(-?\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+  if(frac) out.push(Number(frac[1]) / Number(frac[2]));
+  const sci = text.match(/-?\d+(?:\.\d+)?e[+-]?\d+/i);
+  if(sci) out.push(Number(sci[0]));
+  const plain = text.match(/-?\d[\d,]*(?:\.\d+)?/);
+  if(plain){
+    const n = Number(plain[0].replace(/,/g, ''));
+    const scale = /\bbillion\b/i.test(text) ? 1e9 : /\bmillion\b/i.test(text) ? 1e6
+      : /\bthousand\b/i.test(text) ? 1e3 : 1;
+    out.push(n, n * scale, n / 100);
+  }
+  return out.filter(Number.isFinite);
+}
+
 function gameFor(s, at, group, day){
   const format = canonical(s.format);
   if(!FORMATS.has(format)){
@@ -1463,7 +1497,17 @@ function gameFor(s, at, group, day){
     need(n >= 3, 'sequence needs at least three cards');
     need((s.order ?? []).length === n && new Set(s.order).size === n,
          'sequence order must use every card exactly once');
-    return { ...base, cards: s.cards, order: s.order };
+    // `axis` overrides the panel's "put the steps in order, earliest first", and
+    // `ends` the two rail captions. Both are optional and both exist for the
+    // same reason: an ordering item graded on cost, risk or reversibility rather
+    // than on time is asking for something the default instruction does not name.
+    // `ends` is refused unless it is exactly two captions, because one caption is
+    // a rail labelled at one end and reads as a bug.
+    if(s.ends != null) need(Array.isArray(s.ends) && s.ends.length === 2 && s.ends.every(e => String(e ?? '').trim()),
+      'sequence `ends` must name both ends of the rail, as two non-empty captions');
+    return { ...base, cards: s.cards, order: s.order,
+             ...(s.axis ? { axis: String(s.axis) } : {}),
+             ...(s.ends ? { ends: s.ends.map(String) } : {}) };
   }
   if(format === 'BALLPARK'){
     const e = s.estimate;
@@ -1484,6 +1528,26 @@ function gameFor(s, at, group, day){
       need(Number.isFinite(+e.target), 'estimate needs a numeric target');
       need((e.correct ?? []).every(i => i >= 0 && i < (e.values ?? []).length),
            'estimate `correct` names a value index that does not exist');
+      need((e.correct ?? []).length === (e.slots ?? (e.correct ?? []).length),
+           `estimate has ${(e.correct ?? []).length} correct tile(s) for ${e.slots} slot(s) — the panel can never be completed`);
+      // THE TILE SAYS WHAT IT IS WORTH.
+      //
+      // The player clicks a label and the panel adds a value, and until a sixth
+      // grader met a panel asking about pressure at ninety metres while grading
+      // gallons a minute, nothing compared the two. It happens on a re-target:
+      // `apply-conversions` refuses to guess at a `labels` list whose length
+      // changed, so the numbers move and the words stay. Ten stops in seven
+      // games shipped that way, all of them internally consistent, all of them
+      // ungradeable as labelled. Refused here rather than found later, because
+      // the panel renders perfectly either way.
+      for(const [i, lab] of (e.labels ?? []).entries()){
+        const v = Number((e.values ?? [])[i]);
+        if(!Number.isFinite(v)) continue;
+        const readings = labelNumbers(lab);
+        if(!readings.length) continue;               // a label with no number is prose, and fine
+        need(readings.some(x => Math.abs(x - v) <= Math.max(1e-9, Math.abs(v) * 1e-6)),
+             `estimate tile ${i + 1} reads "${String(lab).trim()}" and is worth ${v}`);
+      }
       BALLPARK_CALCS[`${group}-${day}`] = {
         prompt: e.prompt ?? '', question: e.question ?? s.question ?? '',
         labels: e.labels, values: e.values, slots: e.slots ?? (e.correct ?? []).length,

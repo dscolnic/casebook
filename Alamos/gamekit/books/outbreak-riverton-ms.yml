@@ -387,7 +387,7 @@ missions:
   - title: The First Cluster
     objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
     briefing: Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue. The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.
-    stake: Day one. Seven patients, three hospitals, four days, and the same four symptoms in every one of them. The epidemiology lead, Sofia Morales, has the surveillance printout and a reporter downstairs already has the number. This stage you decide whether this is an outbreak at all, agree what counts as a case, and spend the first of the response money. Seven sounds like a lot, and Morales will not say whether it is until she knows what a normal week in this city looks like. Call it nothing and you lose the weeks when an outbreak is still small enough to stop.
+    stake: "Day one. Seven patients, three hospitals, four days, and the same four symptoms in every one of them. Sofia Morales has the printout, and a reporter downstairs already has the number. Today you decide whether this is an outbreak at all, and agree what counts as a case. Seven sounds like a lot. Morales will not say whether it is until she knows what a normal week here looks like."
     takeaway: Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -399,8 +399,8 @@ missions:
           - a rate counts cases against how many people there are and how long it took
           - the system only sees the patients who reached a hospital
         takeaway: A count becomes a signal only when something says what was expected instead.
-        format: DIAGNOSIS
-        question: Is this a real signal, and what on the desk decides it?
+        format: CHOICE
+        question: The city normally sees about two of these a year. How many were there in four days?
         answerText: A real signal. Two a year is what this city normally sees. And two of the seven were found a second way.
         why: "A count on its own is not a signal. What makes it one is a comparison with what was expected, written down beforehand. This city logs about two of these a year. Seven in four days is not a busy week. The quiet reading matters most: two of the seven were found by hand, outside the alert that found the other five. If every case had come through one alert, the cluster could have belonged to the alert."
         headline: Seven cases in four days, against a thing the city normally logs twice a year.
@@ -460,10 +460,10 @@ missions:
           - Testing before it goes out, not after. Known cases catch a definition that is too narrow, and obvious non-cases catch one that is too wide.
           - The revision date goes out with it. Without one, three hospitals keep counting to a definition everybody knows is temporary.
         cards:
-          - Read the notes of the patients already in, and find what they share.
-          - Write down the symptoms, the timing and the place, plainly enough to use at four in the morning.
-          - Try it on known cases, and on people who obviously do not have it.
-          - Send it out with a date for revising it, and what is still unknown.
+          - Read the notes of the patients already in.
+          - Write the symptoms, timing and place plainly enough to use.
+          - Try it on known cases, and on clear non-cases.
+          - Send it out with a date to revise it.
         order: [1, 0, 2, 3]
       - group: POP
         task: Spend the one slot on what makes tomorrow's numbers usable.
@@ -473,46 +473,24 @@ missions:
         assumes:
           - three hospitals can only be added together if they counted the same way
         takeaway: The best first measurement is the one that makes everything measured later comparable.
-        format: VALUE
-        question: Which first move changes what the team can conclude tomorrow?
-        value:
-          hint: You can start one project before tomorrow’s hospital reports arrive. Open each card to see what new conclusion it would make possible, then spend the slot.
-          budget:
-            amount: 1
-            unit: response start
-            label: Projects that can begin this afternoon
-          decision: Choose the first action that makes tomorrow's citywide outbreak picture interpretable.
-          options:
-            - id: line_list
-              label: Standardised line list across all three hospitals
-              cost: 1
-              axis: measurement standardization
-              decisive: true
-              reveals: Whether all three hospitals are counting the same observable case definition with dates and catchment denominators.
-            - id: director_interviews
-              label: Interview every hospital director
-              cost: 1
-              axis: expert opinion
-              decisive: false
-              reveals: Clinicians' impressions of how unusual the week feels, without a common denominator or case definition.
-            - id: wastewater
-              label: Start wastewater sampling in affected and comparison areas
-              cost: 1
-              axis: independent population surveillance
-              decisive: false
-              reveals: A community-level signal that does not depend on care seeking, but cannot define or identify clinical cases.
-            - id: warning
-              label: Issue a citywide warning now
-              cost: 1
-              axis: public communication
-              decisive: false
-              reveals: No new physical evidence; it commits public credibility before the transmission picture is established.
+        format: CHOICE
+        question: Three hospitals are sending numbers tomorrow. What has to be the same before they can be added together?
+        choices:
+          - The rule for what counts as a case
+          - The name of the doctor who reported it
+          - The hospital each patient arrived at
+          - The time of day the count was made
+        answer: The rule for what counts as a case
+        rebuttals:
+          - Who reported it is worth recording and changes no count.
+          - Which hospital they went to is the thing being compared, not fixed.
+          - The hour of the count matters far less than what was counted.
         answerText: Start the shared list. Tomorrow's three counts only become one usable picture if the same definition and the same dates made them.
         why: Three hospitals are about to send in three sets of numbers. They can only be added together if the same rule made them. A shared list, with the same dates and the same town figures, is what does that. Testing the sewage gives a separate signal about the whole town, and it cannot say who is ill. Asking experts what they think has nothing underneath it. A warning adds no evidence.
   - title: What Kind of Agent?
     objective: Classify the broad agent category and identify the next discriminating test.
     briefing: Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.
-    stake: Day two. Pathology has four results from the same samples and will not put a name to any of it. The pictures down the microscope are the most convincing thing anybody has seen all week. That is exactly why Maya Chen, who leads the cell work, does not trust them yet. Ravi Patel wants to commit the test bench tonight. This stage you decide what broad kind of thing this is, and buy the one piece of evidence that would settle it. Everything after today is chosen off that call. What to grow it in. Which drugs are worth a look. What tomorrow's test goes hunting for.
+    stake: "Day two. Pathology has four results from the same samples and will not put a name to any of them. The pictures down the microscope are the most convincing thing anybody has seen all week. That is exactly why Maya Chen does not trust them yet. Today you decide what broad kind of thing this is. Everything after today is chosen off that call: what to grow it in, and what tomorrow's test hunts for."
     takeaway: Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
@@ -524,8 +502,8 @@ missions:
           - some germs are cells that can copy themselves, and viruses cannot copy themselves alone
           - a test that comes back negative is a result, not a missing one
         takeaway: What something is gets settled by several tests together, not by one striking picture.
-        format: DIAGNOSIS
-        question: Which explanation fits every reading here?
+        format: CHOICE
+        question: Bacteria and fungi are cells. Nothing cell-shaped is on the slide. What does that rule out?
         answerText: Something virus-like. Three separate looks for a cell came back empty, and it only copies itself inside living cells.
         why: The negative results do most of the work. Nothing cell-shaped is visible. The marker that finds bacteria is absent. The stain built to find fungal walls is clean, and it rarely misses. The signal only grows where there are living cells to grow in, which fits something that cannot copy itself alone. And the blank is clean, so it did not come out of the room. That is a virus-shaped answer, without naming which one.
         rebuttals:
@@ -586,8 +564,8 @@ missions:
           - Putting it together comes last. A first answer is what the other three produce, not a step on its own.
         cards:
           - Compare the patient material against healthy tissue and a blank.
-          - Look at how big it is, what it is made of, and what its genetic material is like.
-          - Ask whether it can copy itself alone, or only inside a living cell.
+          - Look at its size, its coat and its genetic material.
+          - Ask whether it can copy itself without a cell.
           - Put the separate observations together into a first answer.
         order: [0, 1, 2, 3]
       - group: MOL
@@ -604,8 +582,8 @@ missions:
         why: Warming things up usually speeds a reaction up. Everything moves about more and bumps into more. That only holds while the working part keeps its shape. Push the heat far enough and the shape goes, and so does the pocket where the work happens. Here only the heat changed, so the loss belongs to the heat. It says nothing about the patient's sample.
         choices:
           - The higher temperature wrecked the shape the test depends on.
-          - More heat always means a faster reaction, so it must have run too fast.
-          - The patient's sample went off, even though this test used the same working part.
+          - More heat always means faster, so it ran too fast.
+          - The patient's sample went off before it was tested.
           - The thing being looked for was destroyed at fifty-five degrees.
         answer: The higher temperature wrecked the shape the test depends on.
         rebuttals:
@@ -615,7 +593,7 @@ missions:
   - title: The Point of Entry
     objective: Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.
     briefing: The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine how membrane structure, receptors, and transport explain this selectivity.
-    stake: Day four. The agent reaches the airway in everybody and only some cells are being damaged, and Adeyemi has spent two nights on why. This stage you work out why those cells and not their neighbours, and design the experiment that separates two steps people keep merging. Two of the three benches are already booked and Adeyemi wants the third tonight. Chen has asked for the resistant cells to be kept aside whatever is decided. Your teams start designing a therapy from this picture tonight. If the model is wrong they spend three months blocking a step the agent does not need.
+    stake: "Day four. The agent reaches the airway in everybody, and only some cells are being damaged. Funke Adeyemi, the cell biologist, has spent two nights on why. Today you work out why those cells and not their neighbours, and design the experiment that separates two steps people keep merging. Your teams start designing a treatment from this picture tonight. If the picture is wrong, they spend three months blocking a step the agent does not need."
     takeaway: Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence chain rather than as isolated facts.
     stops:
       - group: CELL
@@ -634,7 +612,7 @@ missions:
           - Material crosses only after the layer has rearranged. That is what the rearranging is for.
           - The hijacked machinery is last, because it is an effect. A cell doing the wrong work has already been entered.
         cards:
-          - Something on the outside of the germ is recognised by a piece on the cell's surface.
+          - A piece on the cell surface recognises the germ.
           - The cell's outer layer bends, or joins with it.
           - The material crosses into the cell.
           - The cell's own machinery starts being used for something else.
@@ -659,8 +637,8 @@ missions:
           - Uphill with energy spent is the one where the cell is doing work, and the cost is what identifies it.
           - Something large being wrapped up is a different process from anything crossing the layer.
         scenarios:
-          - Something small and greasy moves from where there is more of it to where there is less.
-          - A charged particle moves the same way, through a doorway in the layer.
+          - Something small and greasy drifts from more to less.
+          - A charged particle goes the same way, through a doorway.
           - Something is moved uphill, and energy gets spent doing it.
           - Something large is wrapped up by the layer and taken in.
         choices:
@@ -741,7 +719,7 @@ missions:
   - title: A Test Before Morning
     objective: Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.
     briefing: Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.
-    stake: Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. 3000 people have already been told to isolate on that run and the bulletin goes out at 6. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.
+    stake: "Day nine. The hospitals need a working test by sunrise. Patel's overnight run flagged several patients positive — and one of the controls, a tube that had nothing in it. Three thousand people have already been told to stay home on that run. The bulletin goes out at six. Today you decide whether the run can be believed, and what a positive would mean for one patient."
     takeaway: Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
@@ -841,21 +819,20 @@ missions:
         why: The test is good. It catches ninety of the hundred people who really have it, and it correctly clears ninety-nine per cent of everyone else. But everyone else is nine thousand nine hundred people, and one per cent of that is ninety-nine wrong positives. So there are ninety right positives and ninety-nine wrong ones. Less than half the positives are real. Nothing is wrong with the test. What makes it happen is that the illness is rare.
         estimate:
           relationship: Share that are real = real positives ÷ all positives × 100.
-          prompt: Out of ten thousand people, a hundred really have it. The test flags 90 of those hundred, and it also flags 99 people who do not have it.
+          prompt: The test flagged 189 people altogether. Ninety of them really have it, and ninety-nine do not.
           question: Out of every hundred positive results, how many are real cases?
           labels:
-            - 90 (real cases the test flagged)
-            - 99 (people flagged who do not have it)
-            - 10 (real cases the test missed)
-            - 9,801 (people correctly cleared)
+            - 90 (of them are real cases)
+            - 189 (people the test flagged altogether)
+            - 99 (flagged people who do not have it)
             - 100 (people who really have it)
             - 9,900 (people who do not)
-          values: [10000, 0.01, 0.9, 0.99, 0.3, 0.1]
-          slots: 4
-          template: "{0}×{1}×{2} ÷ ( {0}×{1}×{2} + {0}×(1−{1})×(1−{3}) ) × 100"
-          formula: a*b*c/(a*b*c + a*(1-b)*(1-d))*100
-          correct: [0, 1, 2, 3]
-          target: 47.62
+          values: [90, 189, 99, 100, 9900]
+          slots: 2
+          template: "{0} ÷ {1} × 100"
+          formula: a/b*100
+          correct: [0, 1]
+          target: 47.6
           tolerance: 3
           units: "%"
           solution: 90 ÷ (90 + 99) × 100 is about 48 out of every hundred.
@@ -863,7 +840,7 @@ missions:
   - title: Why Are Some Patients Sicker?
     objective: Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.
     briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.
-    stake: Day 13. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.
+    stake: "Day thirteen. Nakamura has two patients who arrived with the same complaint and the same results. One is walking to the bathroom. The other is failing, and their oxygen reading looks normal. Today you find which link in the oxygen chain has broken. Nakamura has one line and two patients she would like it in. Treat the wrong link and the treatment is aimed at a part that is working."
     takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
@@ -989,7 +966,7 @@ missions:
   - title: The Hidden Transmission Route
     objective: Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.
     briefing: Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.
-    stake: Day twenty-four, and Morales gets her turn. Ward isolation has held for nine days, and cases keep turning up in streets with nobody in hospital. Grace Oduya, who works in the field, kept a sewer sample from the north of the city by chance. It was tested this morning, and it was positive four days before the first patient walked in. This stage you decide where this is really being passed on, and where to watch. Oduya has three teams and the city has four drains. Nine days of ward isolation has already cost the hospitals their planned operations.
+    stake: "Day twenty-four, and Morales gets her turn. Ward isolation has held for nine days, and cases keep appearing in streets with nobody in hospital. Grace Oduya kept a sewer sample from the north of the city by chance. It was positive four days before the first patient walked in. Today you decide where this is really being passed on, and where to watch. Oduya has three teams and the city has four drains."
     takeaway: Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.
     stops:
       - group: IMM
@@ -1016,45 +993,43 @@ missions:
           - A survey at one station asks only people who volunteer.
           - The total on the wards stays high after new admissions fall.
         choices:
-          - An early sign from the whole town, and not proof of how it spreads.
+          - An early sign from the whole town, not a route.
           - Evidence that people can pass it on before they feel ill.
-          - A sample of volunteers at one station, which may not be like the riders.
+          - Volunteers at one station, who may not be typical.
           - Each patient takes weeks to recover, so the wards empty slowly.
         mapping: [0, 1, 2, 3]
       - group: CELL
         task: Work out how many cells there will be in eight hours.
-        title: How many by morning
+        title: How many doublings by morning
         place: Cell Biology Laboratory
         scene: The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.
         assumes:
           - every division turns one cell into two
         takeaway: Doubling looks slow at first and then is not slow at all.
         format: BALLPARK
-        question: About how many cells will there be after eight hours?
-        answerText: About two million. Twelve doublings is roughly four thousand times as many, not twelve times.
-        why: Eight hours is four hundred and eighty minutes, which is twelve doublings. Twelve doublings is not twelve times as many. It is two multiplied by itself twelve times, which is about four thousand times as many. Five hundred cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which multiplies the answer by four. That is why the same arithmetic is frightening when the thing doubling is cases.
+        question: How many doublings fit into eight hours?
+        answerText: Twelve doublings — and twelve doublings is about four thousand times as many cells, not twelve times.
+        why: Eight hours is four hundred and eighty minutes. At one doubling every forty minutes, that is twelve doublings. Twelve doublings is not twelve times as many. It is two multiplied by itself twelve times, which is about four thousand times as many. Five hundred cells become millions. The shape matters more than the number here. Add ninety minutes and you add two more doublings, which multiplies the answer again by four. That is why this arithmetic is frightening when the thing doubling is cases.
         estimate:
           relationship: Cells at the end = cells at the start × two, doubled once for every doubling time.
-          prompt: Five hundred cells to start, one doubling every forty minutes, and eight hours to go.
-          question: About how many cells will there be after eight hours?
+          prompt: This cell line doubles every forty minutes, and there are eight hours to go.
+          question: How many doublings fit into eight hours?
           labels:
-            - 500 (cells at the start)
             - 480 min (eight hours)
             - 40 min (one doubling)
+            - 500 (cells at the start)
             - 2 (cells from each division)
-            - 8 h (the same time, in hours)
             - 60 (minutes in an hour)
-          values: [500, 480, 40, 2, 8, 60]
-          slots: 4
-          template: "{0} × {3} ^ ({1} ÷ {2})"
-          formula: a*Math.pow(d, b/c)
-          correct: [0, 1, 2, 3]
-          target: 2048000
-          tolerance: 400000
-          units: cells
-          solution: 480 ÷ 40 is 12 doublings. Doubling twelve times is about 4,100 times as many, so 500 becomes about two million.
-          explanation: Twelve doublings, not twelve times. Multiply five hundred by twelve and the answer is out by a factor of over three hundred.
-      - group: CELL
+          values: [480, 40, 500, 2, 60]
+          slots: 2
+          template: "{0} ÷ {1}"
+          formula: a/b
+          correct: [0, 1]
+          target: 12
+          tolerance: 1
+          units: doublings
+          solution: Eight hours is 480 minutes, and a doubling every 40 minutes is twelve doublings.
+          explanation: Count the doublings first. Twelve of them is about four thousand times as many cells, which is why the number in the morning is nothing like the number tonight.
         task: Say why only some cells make the landing site.
         title: Same instructions, different cells
         place: Cell Biology Laboratory
@@ -1067,11 +1042,11 @@ missions:
         answerText: The instruction is being read in airway cells and left unread in muscle cells. Both carry it.
         why: Every cell carries the whole set of instructions, so having the instruction explains nothing about where the thing gets made. What decides it is which instructions a cell is reading. That is what makes an airway cell an airway cell rather than a muscle cell. For an outbreak it is the practical point. The germ can only get into cells that make its landing site, which is why this one causes an illness of the airways rather than of the muscles.
         choices:
-          - The instruction is read in some kinds of cell and left unread in others.
+          - Some kinds of cell read it, and others never do.
           - Only airway cells have that instruction. The muscle cells lost it.
           - The muscle cells make it too, and the stain cannot reach them.
           - The germ makes it, rather than the cell.
-        answer: The instruction is read in some kinds of cell and left unread in others.
+        answer: Some kinds of cell read it, and others never do.
         rebuttals:
           - Cells do not throw instructions away as they specialise. Both kinds carry the whole set.
           - The stain shows the thing is absent from the muscle tissue, not merely hard to reach.
@@ -1079,7 +1054,7 @@ missions:
   - title: The Animal Connection
     objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
     briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.
-    stake: Day thirty-three. Readouts from three patients sit close to something found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. Mateo Castellanos, the wildlife vet, has been out there twice and says the herons are the wrong animal. Arjun Singh will not say either way until the sampling is designed properly. This stage you decide what part any animal is really playing, and design the campaign that could show it. The argument is about who passes what to whom, over time. Not about which animal is nearby, or easiest to blame.
+    stake: "Day thirty-three. Readings from three patients look close to something found in animals along the river. The council has signed an order to clear the heron colony on Saturday. Mateo Castellanos has been out there twice and says the herons are the wrong animal. Today you decide what part any animal is really playing, and design the sampling that could show it. Nearby is not the same as guilty."
     takeaway: Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.
     stops:
       - group: FIELD
@@ -1129,8 +1104,8 @@ missions:
         cards:
           - Map where people got ill against where the animals live.
           - Sample the likely animals, and sample comparison places too.
-          - Compare how common it is, and how closely related, across animals and people.
-          - Test whether all of it explains the germ crossing over again and again.
+          - Compare how common and how closely related, across both.
+          - Test whether it explains the crossings happening again.
         order: [0, 1, 2, 3]
       - group: POP
         task: Spend the twenty sampling slots so the campaign can tell the stories apart.
@@ -1196,7 +1171,7 @@ missions:
   - title: Treatment Failure
     objective: Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.
     briefing: A therapy that initially helped is failing in a growing subset of patients. The player must determine whether the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.
-    stake: Day 60. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Lena Bergström, who reads the germ's own readout, has a resistant sample from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.
+    stake: "Day sixty. The treatment that bought this city six weeks is failing in one patient in four. The failures cluster on the wards using it most. Ortiz wants the dose raised today. Lena Bergström has a resistant sample banked a month before the first dose was given anywhere. Today you work out why it is failing, and choose something that does not make it worse. Raising the dose is the fastest move available, and may be the worst."
     takeaway: Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1269,7 +1244,7 @@ missions:
           - Being left with mostly the tough form is the outcome, and it is what the ward is now measuring.
         cards:
           - A few of them are already different, before any treatment.
-          - The treatment kills the ones it can much better than the ones it cannot.
+          - The treatment clears the vulnerable ones far better.
           - The ones it cannot kill survive and multiply.
           - What is left is mostly the form the drug cannot touch.
         order: [0, 1, 2, 3]
@@ -1298,7 +1273,7 @@ missions:
   - title: Design the Intervention
     objective: Select a layered intervention portfolio and identify the evidence required before deployment.
     briefing: The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.
-    stake: Day seventy-eight. The city wants something done, and the room is arguing as though it can only have one thing. The treatment everybody favours sticks to the exact patch that changed in the north, which Bergström has now said three times. This stage you choose what to fund, and say what evidence is needed before any of it reaches a person. They also arrive at different times. One is ready on Monday and one takes a year, which is the whole argument for having several. Back one glamorous idea and the city has a single thing to lose.
+    stake: "Day seventy-eight. The city wants something done, and the room is arguing as though it can only have one thing. The favourite treatment sticks to the exact patch that changed in the north, which Bergström has now said three times. Today you choose what to fund, and say what evidence is needed before any of it reaches a person. One idea is ready on Monday. One takes a year. That is the argument for having several."
     takeaway: Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1347,8 +1322,8 @@ missions:
           - The watched trial last. It is what everything before it exists to make fair.
         cards:
           - Say what it is supposed to do, and how.
-          - Show it does something, and find the obvious harms, before any person takes it.
-          - Write down who is in the trial, what counts as working, and when to stop.
+          - Show it works, and find the obvious harms, first.
+          - Write who is in it, what working means, and when to stop.
           - Run the trial, watched by people who are not running it.
         order: [0, 1, 2, 3]
       - group: POP
@@ -1418,7 +1393,7 @@ missions:
   - title: The Final Briefing
     objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
     briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.
-    stake: Day 140. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.
+    stake: "Day one hundred and forty. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route is settled. The animal source is not, and Castellanos has said so in writing. Today you go through the claims one at a time, and decide what the city keeps funding after the emergency money closes. Say too little and the next outbreak arrives unwatched."
     takeaway: Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1473,7 +1448,7 @@ missions:
           - How it spreads, which three separate streams agree on.
           - Who gets sickest, which one small group of patients suggests.
           - Where it came from, which is still open.
-          - What would settle each open question, and when the city will look again.
+          - What would settle each open question, and when.
         order: [0, 1, 2, 3]
       - group: POP
         task: Say which capability the city should protect.

@@ -31,7 +31,7 @@ the check-and-look loop, which builder each game's rooms come from — three of
 them are furnished outside the shared fit-out entirely — and the one mistake that
 has now been made four times.
 
-## The sixteen games
+## The eighteen games
 
 `GAMES.md` is the full inventory with what each one teaches. This table is the
 short version — the place, and the command that runs it.
@@ -52,6 +52,8 @@ short version — the place, and the command that runs it.
 | Wellmere | `gamekit/themes/seedbank/` | A breeding station on a headland, laid out in concentric rings by isolation distance; sea on three sides, one causeway. AP Biology, the heredity half | `THEME=seedbank npm run dev` |
 | Safety Factor | `gamekit/themes/midway/` | Corbin Park: a shut amusement park, and the rides are the syllabus — tower, coaster, carousel, wheel, bumper floor, ship, flume. AP Physics 1, taught in derivations | `THEME=midway npm run dev` |
 | Red Sand | `gamekit/themes/redsand/` | A propellant plant on Mars: modules buried in regolith along one track, an ascent vehicle on a pad with a gauge that fills as the campaign does, and a butterscotch sky. AP Chemistry, the back half | `THEME=redsand npm run dev` |
+| Sightline | `gamekit/themes/sightline/` | The Hallam Exchange: one hall with the Ferrier Street corner rebuilt across the end of it, and the identification distance painted on the floor. AP Psychology | `THEME=sightline npm run dev` |
+| Ground Truth | `gamekit/themes/groundtruth/` | Station 12, Sablon Flats: a salt flat, a 60 m instrumented mast and a storm season. AP Physics C E&M, ten derivations | `THEME=groundtruth npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 
@@ -164,7 +166,7 @@ npm run sync-casebook -- --no-build        # copy what dist/ already has
 ```
 
 Built output is **committed to casebook deliberately.** The theme is chosen at
-build time, so serving fifteen games means fifteen builds, and running those on
+build time, so serving eighteen games means eighteen builds, and running those on
 the app host would put ten minutes of vite in front of a deploy for output that
 only changes when a game does.
 
@@ -185,6 +187,69 @@ the entry point reads the save during module evaluation; and the local timestamp
 is re-stamped from the server's own `savedAt` after a write, because two
 browsers signed into one account do not agree what time it is and a fast clock
 would silently stop that device pulling the account's campaign.
+
+## Several people can play one campaign
+
+`?room=CODE` turns a game into a co-op session: one campaign, one countdown, and
+everybody walking around the same place able to see each other. Without that
+parameter every line of it is inert, which is why nothing had to be switched off
+for the other sixteen games — `engine/core/room.js` returns an empty answer to
+every question when `constants.js` `ROOM` is null.
+
+Made and joined at `/room.html` in the casebook app. The rooms themselves live in
+`casebook/server/rooms.js`.
+
+- **The server is a relay, a clock and a lock table — not a second copy of the
+  game.** Putting the rules on the server would mean the engine's decisions
+  living in two repos, and this one already knows what that costs. So the clients
+  compute the campaign and the server stores the last blob anybody sent.
+- **Which means the campaign is last-write-wins, and the claim is what makes that
+  safe.** A stop can only be opened by whoever the server grants it to, so the
+  one mutation two people can make at the same instant is serialised. Everything
+  else two players do at once either does not write the campaign or writes a part
+  nobody else is in. It is not airtight — two people spending money in the same
+  second can lose a debit — and that is an accepted limit rather than an
+  oversight.
+- **The clock is the exception: `dayLeft` is the server's.** Not for
+  authority — it is pure arithmetic — but because *a background tab gets no
+  `requestAnimationFrame`*, so a client-owned countdown stops the moment somebody
+  alt-tabs. The same trap as the screenshot rule, arriving in the one place where
+  it desynchronises six people instead of confusing one. `tickDay` reads the
+  room's number instead of counting down; the pace is applied server-side,
+  because only the server knows whether *anybody* has a panel open.
+- **The budget is still computed on a client**, because it needs the map and the
+  server has no world to measure a route through. `startDay` computes it and
+  hands it over.
+- **Position carries a SPACE, not just coordinates.** Interiors are built in a
+  district four kilometres along +x, so a teammate who has walked through a door
+  is at a coordinate that means something else entirely; without the space id
+  they render as a figure standing far out across the terrain. Avatars are only
+  drawn for a matching space.
+- **A remote player is `buildBody` plus `stepGait`** — the rig the crowd already
+  uses. Their look is derived from a hash of their id **by hand**, not through
+  `pickLook`, which pulls from the world's shared seeded generator: drawing from
+  it when somebody joins would move every subsequent draw, so a player walking in
+  would change what the next tree looked like.
+- **Nothing new draws through walls.** The cone over somebody the day wants is
+  still the only exception, and a second one would end the rule. A teammate
+  behind a bulkhead is found on the co-op panel instead, which gives a bearing
+  and a distance.
+- **A room gets its own save slot** — `gamekit_<theme>_room_<CODE>_v1`. Pointing
+  a shared campaign at the theme's own slot would overwrite the player's solo
+  game the first time they joined somebody else's, which is house rule 14
+  arriving through a different door.
+- **The room's campaign is hydrated in `index.html`, after the cloud save and
+  before `src/main.js`** — same ordering constraint as `cloudSave.hydrate`, and
+  second because the shared campaign has to win. `connect()` is bounded by a
+  timeout: a socket that opens and never says `welcome` must not leave somebody
+  looking at a title card for ever.
+
+Testing it is the awkward part, and the reason is house rule–adjacent: **two
+browser tabs cannot both be tested at once**, because the hidden one gets no
+animation frame and its loop stops sending. The partner has to be a plain
+WebSocket client. There is no checker for any of this — `npm run check` asserts
+nothing about the wire, which is the same gap that let A and D strafe backwards
+for years.
 
 ## A measurement can be wrong in a way that looks like a finding
 
@@ -217,6 +282,94 @@ The books remain free to spell numbers however they like; nothing enforces a
 convention, and the choice is a voice decision. What is enforced is that the
 measurement cannot see the difference.
 
+**And the same rule cost the whole thing again, one level up.** Nine
+middle-school editions shipped with every passage at Flesch–Kincaid 4 to 6, all
+sixteen checks green — and the first sixth grader to play one found it much too
+hard. Both facts were true. The reading score is words-per-sentence and
+syllables-per-word, so it cannot see that "which explanation is consistent with
+all four readings" demands more than "how far did it move", however plainly each
+is written. The editions were derived from senior-high stops: the prose came
+down two grades and the *demand* stayed exactly where an AP course had put it.
+
+`engine/dev/questionLoad.mjs` is the missing measurement, and it applies to any
+theme at grade 8 or below. Four numbers, because a limit written as a sentence
+is a limit nobody can fail: **at most two operations** in an estimate with
+nothing over 9,999 or under 0.1; **twelve words** in an option, since four of
+them have to be held in mind at once; **two named people** in a stop and four
+across a day; and a **budget on judgement stops** — 20% of the campaign, one a
+day, and none before day 3, because a player who has answered nothing has no
+ground to judge from and the first stop of day 1 decides whether there is a day
+2. Most of the instruments *are* the demand — TRACE is "agreement is not
+independence", ATTEST is "the record is not the condition" — so they are
+budgeted rather than banned. CONTROL and VERIFY are deliberately not budgeted:
+the fair test and predict-act-measure are what a middle-school science course is
+about, and a young player should meet them more often, not less.
+
+**Two more things a sixth grader found that no check could see.** The first is a
+term built out of ordinary words. `checkJargon`'s lexicon is morphemes, so
+"cabin pressure" and "power bus" — six ordinary words between them, four
+syllables — were invisible to every test in the file, and day 1 of Bring Them
+Home used five such terms before explaining any of them. `PHRASES` in
+`checkJargon.mjs` is the list, matched whole, applied only at grade 8 and below
+because an AP course is entitled to say "cabin pressure" without stopping. The
+second is that **once is not teaching**. A glossary chip explains a word to
+somebody who thinks to open it; a scene explains it to somebody reading the
+scene; a verdict explains it to somebody who has just been wrong about it. Those
+are three different readers and often the same child on three different days, so
+a junior edition now has to explain every term it uses in at least two places, in
+different words. Both fail an edition and advise a game written to its own
+audience from scratch.
+
+And **the shift opening is read before every day**, which is what made its length
+worse than its grade. The editions inherited theirs from the senior games almost
+word for word: a mean of 107 words, up to nine sentences, one of them 33 words
+long. `checkStory` now caps a junior stake at 85 words and any sentence in it at
+24. The four beats fit in seventy — Bring Them Home's ten now average 73 words at
+grade 4.2, and say the same things.
+
+The one that will bite next: fixing `ordinary()` so that "moved" is as ordinary
+as "move" (a length floor was rejecting the stripped stem) reclassified "sided",
+which cost Headwater's `Limit` its `core: true` flag — it had been core only
+because "one-sided" looked technical. A vocabulary list is load-bearing in four
+tools; change it and re-import every book before believing `bookParity`.
+
+**Three defects the estimate panel could hide, all found by a player.** They are
+in `validateContent` now, and each is a class rather than a stop.
+
+- **A stop that declares two equations.** "Degrees lost = energy lost ÷ energy
+  for one degree. Energy lost = watts × seconds", with three slots and a unit
+  conversion already done in the prose — a sixth grader read that and said there
+  was too much going on. One relationship per stop at grade 8 and below, and
+  `questionLoad --sweep` lists the multi-step estimates in *every* game, senior
+  ones included, because it fails nothing and the same smell is worth seeing at
+  any level.
+- **A tile whose label is not its value.** The player clicks the label and the
+  panel adds the value, and nothing compared them. `apply-conversions` refuses to
+  guess at a `labels` list whose length changed, so a re-targeted estimate keeps
+  the old tiles: Outbreak's grade-6 panel read 90, 99, 10, 9,801 over values
+  10000, 0.01, 0.9, 0.99, and Deep Watch's asked about pressure at ninety metres
+  while grading gallons per minute. Ten stops across seven games. Both readings
+  are internally consistent, which is why the formula check passed them.
+- **An equation chip that is not the stop's equation.** The syllabus attaches an
+  equation by keyword, and a bare key like "how long" put `time = distance ÷
+  speed` on a thermal card whose panel divided joules. `activity` did it to
+  Project Y's critical-path stop, `megawatt` to Blackout's demand forecast. The
+  check compares the chip against the relationship, the template and the worked
+  solution — in words where the equation is written in words, and by symbol where
+  it is written as `df/dt = (P_gen − P_load) / 2H`, because those two currencies
+  share no vocabulary. Six games were wrong; three of them were wrong because the
+  equation the stop actually computes was not in the syllabus at all, and adding
+  it is the fix.
+
+The general shape, again: each of these renders perfectly, grades consistently,
+and is wrong in a way only a person playing it can see — until somebody writes
+down what agreement would look like.
+
+It runs `--selftest` inside `npm run check`, on two whole fixture campaigns whose
+answer is known. That is not ceremony — the selftest failed the first time it
+ran and found two real holes, one of them a gate that only fired on BALLPARK and
+so could not see senior-high arithmetic left on a retyped stop.
+
 ## Checks — one command, several tools
 
 ```sh
@@ -240,6 +393,9 @@ node engine/dev/checkPassages.mjs <theme>    # talking to somebody teaches somet
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
 node engine/dev/equationOrder.mjs  <theme>    # nothing is asked before the equation it is built out of
 node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
+node engine/dev/questionLoad.mjs   <theme>    # the questions are as small as the sentences (grade 8 and below)
+node engine/dev/questionLoad.mjs --sweep      # every game: estimates that smush two equations together
+node engine/dev/questionLoad.mjs --selftest   # and that gate can tell a hard campaign from an easy one
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/readabilityParity.mjs         # the reading grade cannot tell 11.4 from "eleven point four"
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data

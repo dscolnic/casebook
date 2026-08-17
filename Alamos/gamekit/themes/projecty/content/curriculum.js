@@ -189,27 +189,6 @@ export const CURRICULUM = {
           ],
           "s": "The decay constant and the half-life are the same fact written two ways.",
           "computed": true
-        },
-        {
-          "e": "A = λN",
-          "c": "activity from a decay constant and a population",
-          "v": [
-            [
-              "A",
-              "activity, in decays per second"
-            ],
-            [
-              "λ",
-              "decay constant, in per second"
-            ],
-            [
-              "N",
-              "how many nuclei are present"
-            ]
-          ],
-          "s": "How radioactive something is depends on both how unstable it is and how much of it there is.",
-          "computed": true,
-          "card": false
         }
       ]
     },
@@ -4013,27 +3992,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "work that can happen in parallel does not add up"
-      ],
-      "equations": [
-        {
-          "e": "A = λN",
-          "c": "activity from a decay constant and a population",
-          "v": [
-            [
-              "A",
-              "activity, in decays per second"
-            ],
-            [
-              "λ",
-              "decay constant, in per second"
-            ],
-            [
-              "N",
-              "how many nuclei are present"
-            ]
-          ],
-          "s": "How radioactive something is depends on both how unstable it is and how much of it there is."
-        }
       ]
     },
     {
@@ -8332,8 +8290,7 @@ export const JARGON = [
       "timing window",
       "trigger window"
     ],
-    "def": "A selected time interval during which detector events are accepted for analysis.",
-    "core": true
+    "def": "A selected time interval during which detector events are accepted for analysis."
   },
   {
     "name": "Tolerance",

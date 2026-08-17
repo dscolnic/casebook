@@ -617,7 +617,7 @@ missions:
     objective: Learn the boat as a system of spaces, not a list of names.
     briefing: |-
       You have the watch for the first time. Before anything else happens, you have to be able to find your way around this hull in the dark, and know what is in each space and how you would get out of it.
-    stake: Two hours to sailing, alongside, and the fire main isolation valve in the forward compartment is chained shut with nobody willing to say who chained it. Chief Ferro wants to walk you through the boat before you take your first watch tonight. This watch you learn the forward spaces, what the fittings on a bulkhead are for, and how to get from one end of the boat to the other without looking at anything. Ferro's rule is that a route learned as a sequence survives being interrupted. Tonight you may have to find that valve in the dark, in smoke, by feel.
+    stake: "Two hours to sailing. The fire main valve in the forward compartment is chained shut, and nobody will say who chained it. Chief Ferro wants to walk you through the boat before your first watch tonight. This watch you learn the forward spaces, and how to get from one end of the boat to the other without looking. Tonight you may have to find that valve in the dark, in smoke, by feel."
     takeaway: A compartment is defined by its boundaries, what it holds, and how you leave it.
     stops:
       - group: DC
@@ -636,9 +636,9 @@ missions:
           - What could start a casualty third. You cannot judge the kit until you know the threat.
           - Whether this space can fight it, last. That is a judgement about the first three.
         cards:
-          - Find where the sealed boundary runs, because it decides whose flood this is.
+          - Find where the sealed boundary runs.
           - Prove both hatches out of here still open, by trying them.
-          - Find what in here could start a fire or a flood — sea pipes, cables, stores.
+          - Find what in here could start a fire or a flood.
           - Judge whether the kit stowed here could fight one.
         order: [0, 1, 2, 3]
       - group: ENG
@@ -665,8 +665,8 @@ missions:
           - A strapped steel locker with a quick-release catch.
           - A folded hose on a reel, beside a small shut-off valve.
         choices:
-          - Open it ninety metres down and the sea comes in at ten atmospheres.
-          - It gives people air to breathe before a space is fit to enter.
+          - Open it that deep and the sea comes in hard.
+          - It gives people air before a space is fit to enter.
           - It holds the props and plugs this compartment fights with.
           - It puts water on a fire, once the circuit is proved dead.
         mapping: [0, 1, 2, 3]
@@ -756,14 +756,14 @@ missions:
     objective: Work out what is out there before the boat commits to anything.
     briefing: |-
       Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.
-    stake: "Second day out, forenoon watch. 4 traces on the broadband display, and the sonar supervisor, Nils Rask, has been arguing with his own operator about the fourth for 11 minutes: it holds almost the same bearing and it is getting louder. The captain, Commander Iris Vance, wants a classification before the boat commits to the track she has been ordered onto. This watch you sort out what is out there and say what a steady bearing means. Sound is all you have. And a bearing that does not change is not a quiet situation — it is the signature of two ships on converging courses."
+    stake: "Second day out. Sonar is listening for sound in the water, and there are four traces on the display. Nils Rask has been arguing with his own operator about the fourth. It holds almost the same bearing, and it is getting louder. Commander Iris Vance wants it classified before the boat commits. This watch you sort out what is out there, and say what a steady bearing means. A bearing that does not change is two ships heading for the same water."
     takeaway: A bearing is a measurement; a track is an argument built from several of them.
     stops:
       - group: SONAR
         task: Match each trace to what is making it.
         title: Four traces, one of them ours
         place: Sonar Room
-        scene: Four traces sit on the display while the watch calls them out. The boat slowed four minutes ago and one trace changed with it. Petty Officer Nils Rask, the sonar supervisor, wants each one named.
+        scene: Four traces sit on the display while the watch calls them out. The boat slowed four minutes ago and one trace changed with it. Sonar is how a submarine sees: it listens, because light does not travel down here. Petty Officer Nils Rask, who runs it, wants each trace named.
         assumes:
           - passive sonar only listens; it sends nothing out
         takeaway: A sound that changes when the boat changes belongs to the boat.
@@ -798,7 +798,7 @@ missions:
           - a narrow display looks for steady tones, and a broad one measures sound of every pitch at once
         takeaway: Bending can make a sound faint. It cannot pick out and remove that sound's tones.
         format: CHOICE
-        question: Which explanation fits every reading here?
+        question: Machinery makes a steady tone. This trace has none. What does that say about it?
         why: The broad display measures sound of every pitch at once. The narrow one hunts for steady tones. A layer of warmer water can bend a path and make a far-off source arrive faint. It cannot reach in and strip that source's tones away. So faintness and missing tones are two separate clues. The layer explains the first. The second says no tone is loud enough to show. Eleven minutes says it is not a flicker.
         rebuttals:
           - Nothing aboard changed when the trace appeared, so our own noise does not fit the timing.
@@ -853,7 +853,7 @@ missions:
         choices:
           - We are closing with it, and the range is shrinking.
           - It has stopped, since its bearing is not changing.
-          - It is drawing away, and the noise is rising for some other reason.
+          - It is drawing away, and something else is louder.
           - Nothing at all, until somebody has a range.
         answer: We are closing with it, and the range is shrinking.
         rebuttals:
@@ -864,7 +864,7 @@ missions:
     objective: Work out not where the boat is, but how well that is known.
     briefing: |-
       The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.
-    stake: Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the depth sounder, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. 60 fathoms, and a bank half a mile off the track.
+    stake: "Third day, and the last trusted fix was three and a half hours ago. Imani Sowande has a plot built from course, speed and time. Anya Petrov has been reading the depth sounder, and the two do not agree. There is a half-knot current nobody has measured today. This watch you work out how far the water has carried the boat, and get a position that does not depend on the plot. A bank sits half a mile off the track."
     takeaway: Precision is not accuracy, and two displays sharing a source are one measurement.
     stops:
       - group: NAV
@@ -977,7 +977,7 @@ missions:
     objective: Cross a constrained area without losing contact awareness or making unnecessary noise.
     briefing: |-
       The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.
-    stake: Fifth day, first watch. The narrows are 4 miles across, the transit takes 11 hours, and the plot's uncertainty is a circle 2 miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. What matters is how much water stays under the keel.
+    stake: "Fifth day. The narrows are four miles across, the passage takes eleven hours, and the plot's doubt is a circle two miles wide. Lieutenant Commander Theo Whitfield, second in command, wants to wait for a better fix. Vance points out that waiting puts the boat mid-strait at first light, which is worse. This watch you decide what has to be true before the boat commits, and how much margin the passage really has."
     takeaway: Quiet costs capability, and the trade has to be made deliberately rather than by default.
     stops:
       - group: SONAR
@@ -996,10 +996,10 @@ missions:
           - Bearing movement third. It takes time, and it needs the other two before it can be read at all.
           - The lost-contact rule before the entrance, while there is still contact to lose and somebody free to argue.
         cards:
-          - Record what the boat itself sounds like, because nothing new can be heard as new without it.
-          - Find the depth of the layer, because it decides which missing sounds are missing for a reason.
-          - Hold the contacts long enough to see which way their bearings are moving.
-          - Agree what the boat does if contact is lost, while there is still contact to lose.
+          - Record what the boat itself sounds like, first.
+          - Find the depth of the layer, which hides sounds below it.
+          - Hold them long enough to see which way they move.
+          - Agree what to do if contact is lost, before it is.
         order: [0, 1, 2, 3]
       - group: NAV
         task: Work out how much clear water is left if the boat runs the middle.
@@ -1023,13 +1023,13 @@ missions:
             - 2 (halves of the channel)
           values: [4, 2, 8, 2]
           slots: 3
-          template: "{0} ÷ {2} − {1} ÷ {2}"
-          formula: a/c - b/c
+          template: "({0} − {1}) ÷ {2}"
+          formula: (a-b)/c
           correct: [0, 1, 3]
           target: 1
           tolerance: 0.2
           units: nautical miles
-          solution: Half the channel is two miles. Half the doubt is one. The margin is one mile.
+          solution: Four miles of channel less two miles of doubt is two, and half of that is one mile on each side.
           explanation: Running the middle puts two miles between the plotted position and each side. The boat could be a mile off toward either. What is left over is what the route survives on.
       - group: ENG
         task: Say why the hull rings at one shaft speed and nowhere else.
@@ -1043,11 +1043,11 @@ missions:
         question: The hull rings at one shaft speed and nowhere else. Why that one?
         why: Everything has a rhythm it prefers to shake at, the way a swing does. Push a swing at any old moment and little happens. Push it in time and it goes higher on every push. The propeller blades hit the water a set number of times each turn. At one shaft speed that beat lands in time with the compartment's own rhythm. Either side of it, the pushes fall out of step.
         choices:
-          - At that speed the blades push in time with the structure's own rhythm, so the shaking grows.
-          - The shaft is out of balance, and being out of balance gets worse with speed.
-          - A bearing is failing, and a failing bearing is loudest in the middle of its range.
-          - Bubbles start coming off the blades at that speed and stop above it.
-        answer: At that speed the blades push in time with the structure's own rhythm, so the shaking grows.
+          - At that speed the pushes land in time, so it grows.
+          - The shaft is out of balance, which worsens with speed.
+          - A bearing is failing, loudest in the middle of its range.
+          - Bubbles come off the blades at that speed only.
+        answer: At that speed the pushes land in time, so it grows.
         rebuttals:
           - Being out of balance gets worse smoothly with speed, so a hundred turns would ring louder than ninety-two.
           - A failing bearing gets worse with speed and load. It does not pick one turn count and go quiet either side.
@@ -1056,7 +1056,7 @@ missions:
     objective: Find the water, decide whether pumping can win, and stop the source.
     briefing: |-
       The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at 90 metres, which is what makes it a hole worth respecting.
-    stake: Sixth day, morning watch, and water is over the bilge in the forward space with the drain pump running. Ruth Hallam, on the pumps, has the level and reports it steady. Ferro does not believe steady means anything and is looking for the hole. This watch you find where the water is coming in, work out whether pumping can win, and decide what shutting that supply costs elsewhere — the two valves that stop it sit on a header that feeds other things. Pumping buys minutes. They are worth nothing unless somebody spends them finding the source.
+    stake: "Sixth day. Water is over the bilge in the forward space, with the drain pump running. Ruth Hallam has the level and reports it steady. Ferro does not believe steady means anything, and is looking for the hole. This watch you find where the water is coming in, and work out whether pumping can win. Pumping buys minutes, and they are worth nothing unless somebody spends them finding the source."
     takeaway: Flooding is stopped at the hull fitting; everything else is delay.
     stops:
       - group: DC
@@ -1108,7 +1108,7 @@ missions:
         takeaway: Pressure grows straight in step with depth, so depth decides how hard a leak pushes.
         format: BALLPARK
         question: About how much pressure is the sea putting on the fitting?
-        answerText: About 0.91 MPa gauge, roughly 9 atmospheres above surface pressure.
+        answerText: About nine atmospheres of added pressure, and about ten in total once the air above the sea is counted.
         why: Water is heavy, and every metre of it above the fitting presses down. About ten metres of sea adds one atmosphere, so ninety metres adds nine. Add the air we all live under and the outside of that fitting sits near ten atmospheres. That is why a small hole this deep drives so much water. It is also why shutting the hull valve matters more than fitting another pump. A pump fights the flow. The valve takes the push away.
         estimate:
           relationship: Pressure added = depth ÷ ten metres for each atmosphere.
@@ -1120,14 +1120,14 @@ missions:
             - 1 atmosphere (the air at the surface)
             - 8 centimetres (the rise in a minute)
             - 55 gallons a minute (the pump)
-          values: [8, 11, 55, 90, 31]
-          slots: 3
-          template: "{0} × {1} + {2}"
-          formula: a*b + c
-          correct: [0, 1, 2]
-          target: 143
-          tolerance: 12
-          units: gallons per minute
+          values: [90, 10, 1, 8, 55]
+          slots: 2
+          template: "{0} ÷ {1}"
+          formula: a/b
+          correct: [0, 1]
+          target: 9
+          tolerance: 0.5
+          units: atmospheres
           solution: Ninety divided by ten is nine atmospheres of added pressure.
           explanation: This is the pressure the sea adds. The air at the surface adds one more on top, which is why the outside total is about ten.
       - group: ENG
@@ -1154,8 +1154,8 @@ missions:
           - Start a second portable pump before isolating.
           - Tell sonar before the header is shut.
         choices:
-          - Stops the sea at the hull, which is the only cut that ends it.
-          - Stops flow to the break, and leaves the sea joined to the header.
+          - Stops the sea at the hull, the only cut that ends it.
+          - Stops the flow, and leaves the sea joined to the pipe.
           - Buys minutes and changes nothing about where the water comes from.
           - Gives that watch warning that their cooling is about to stop.
         mapping: [0, 1, 2, 3]
@@ -1163,7 +1163,7 @@ missions:
     objective: Put out a fire whose ignition source is electrical, in the order that makes it stay out.
     briefing: |-
       Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.
-    stake: Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard in the electrical space. The indicator shows the bus open and a meter his own electrician's mate put on the cable inside reads 440 volts. The chief electrician, Bede Okonkwo, will not send anybody in on the strength of a lamp. This watch you take the fire apart into the things keeping it alive, decide what that meter is telling you, and work out how to fight a space nobody can see into. The order of your actions matters more here than the speed of any one of them.
+    stake: "Same day, eight hours after the flooding, and nobody has slept. Smoke is coming off a switchboard in the electrical space. The indicator says the bus is open, and a meter on the cable inside reads 440 volts. Bede Okonkwo will not send anybody in on the strength of a lamp. This watch you decide what that meter is telling you, and how to fight a space nobody can see into."
     takeaway: An electrical fire is put out by de-energizing it; the agent only finishes the job.
     stops:
       - group: FIRE
@@ -1229,11 +1229,11 @@ missions:
         question: What does the smoke change about how this casualty is fought?
         why: Smoke does more than make breathing hard. It takes sight away, so a team can lose the route, the boundary and each other within a few metres. Sixty degrees at head height against twenty-eight at the deck also says the heat is stacked in layers. Things can get much worse above that layer while the floor still feels survivable. Masks fix the breathing and nothing else. From here the space has to be measured rather than looked at.
         choices:
-          - The space cannot be read by eye any more, so the boundaries have to be measured instead.
+          - Nobody can read the space by eye, so measure it instead.
           - Nothing, as long as everybody is on air.
-          - The fire will put itself out once the smoke pushes the air out.
+          - The fire will go out once the smoke fills the space.
           - The compartment has to be given up until the smoke clears.
-        answer: The space cannot be read by eye any more, so the boundaries have to be measured instead.
+        answer: Nobody can read the space by eye, so measure it instead.
         rebuttals:
           - Masks keep the team working. They do not give back the information the smoke took away.
           - A fire eating the air also makes carbon monoxide, which is worse rather than self-solving.
@@ -1242,7 +1242,7 @@ missions:
     objective: Tell a failing sensor from failing air, and find where the air stopped moving.
     briefing: |-
       Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.
-    stake: Eighth day, middle watch. The scrubber plant is running and its outlet reads clean. The corpsman, Elena Navarro, has been round berthing with a handheld meter and it reads far higher than the sensor on that bulkhead, where nine people are asleep. The atmosphere control officer, Ana Lindqvist, has to decide whether to wake them. This watch you decide whether it is the air or the instrument that is wrong, work out how long that space is safe, and fix the circulation. This is the one system where the crew notice before the instruments do — headaches, short tempers, people asleep on watch — and they already have.
+    stake: "Eighth day. The scrubber is running and its outlet reads clean. Elena Navarro has been round berthing with a handheld meter, and it reads far higher than the sensor on that bulkhead. Nine people are asleep in there. This watch you decide whether it is the air or the instrument that is wrong, and how long that space is safe. The crew notice this one before the instruments do."
     takeaway: A plant reading is a report about the plant, not about the compartment you are standing in.
     stops:
       - group: ATMO
@@ -1288,7 +1288,7 @@ missions:
             value: berthing only
             status: high
         choices:
-          - label: Berthing is shut out of the air loop, and its fitted sensor is wrong as well.
+          - label: Berthing is shut out of the air loop, and misreading.
             mechanism: A shut damper cuts the space out of the loop, and a bad fitted sensor hides the rise.
           - label: The whole boat's air is going bad.
             mechanism: A boat-wide failure would lift the readings in several compartments at once.
@@ -1298,7 +1298,7 @@ missions:
             mechanism: A bad handheld would not explain the shut damper or how people in there feel.
           - label: Ordinary background, nothing more.
             mechanism: Air going bad in one space, with two instruments disagreeing, is not background.
-        answer: Berthing is shut out of the air loop, and its fitted sensor is wrong as well.
+        answer: Berthing is shut out of the air loop, and misreading.
       - group: ATMO
         task: Turn the rate the air is going bad into a deadline.
         title: Nine people and a shut damper
@@ -1316,19 +1316,18 @@ missions:
           prompt: One per cent of the air in that space is three hundred and sixty litres. Each person breathes out about twenty litres of carbon dioxide an hour, and there are nine of them.
           question: How long until the carbon dioxide in there rises by one per cent?
           labels:
-            - 36 m³  (compartment volume)
-            - 293 K  (temperature)
-            - 1013 Pa  (0.01 atm)
-            - 8.314 J/(mol·K)  (R)
-            - 0.9 mol/h/person  (CO₂ production)
-            - 9  (people)
-          values: [9, 0.04, 36, 0.01, 1, 70]
-          slots: 4
-          template: "{2} × {3} ÷ ({0} × {1})"
-          formula: c*d/(a*b)
-          correct: [0, 1, 2, 3]
-          target: 1
-          tolerance: 0.2
+            - 360 litres (one per cent of the air in there)
+            - 20 litres an hour (what one person breathes out)
+            - 9 (people)
+            - 36 (cubic metres of air in the space)
+            - 1 (the limit, in per cent)
+          values: [360, 20, 9, 36, 1]
+          slots: 3
+          template: "{0} ÷ ({1} × {2})"
+          formula: a/(b*c)
+          correct: [0, 1, 2]
+          target: 2
+          tolerance: 0.3
           units: hours
           solution: Three hundred and sixty ÷ (twenty × nine) is two hours.
           explanation: The rate is nine people together, not one. Divide by one person's rate and the answer comes out nine times too long, which is a deadline nobody could use.
@@ -1344,11 +1343,11 @@ missions:
         question: One fan feeds the scrubber and the after spaces. What does that mean for the plan?
         why: One fan can do two jobs and still be one failure. If the scrubber and the after spaces share that fan and that trunk, losing it takes both away at once. Writing them in two boxes on the watch bill does not make them separate. Separate means a different fan, a different supply, or a different route. Until one of those exists, the air plan has a single failure that reaches several spaces.
         choices:
-          - The fan is a single point of failure, and the plan needs another path or a stated fallback.
-          - Nothing. Two systems on one fan is normal, and the fan is reliable.
+          - One fan is a single point of failure. Name a fallback.
+          - Nothing. Two systems on one reliable fan is normal.
           - Run the scrubber harder, so a fan failure leaves more room.
           - Seal off the after spaces, since they are downstream.
-        answer: The fan is a single point of failure, and the plan needs another path or a stated fallback.
+        answer: One fan is a single point of failure. Name a fallback.
         rebuttals:
           - Reliable is not separate. A reliable shared part still takes both systems with it when it does go.
           - Running the scrubber harder uses more of the same air path, and shortens the time you have.
@@ -1357,7 +1356,7 @@ missions:
     objective: Prioritise and delegate when there are more casualties than there are people.
     briefing: |-
       Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.
-    stake: Ninth day, forenoon watch, and four things at once. Water forward. A bus lost aft. The plot gone soft with the power. And Adeyemi in the passage with a broken wrist. Commander Iris Vance wants to hold the ordered speed. Lieutenant Commander Theo Whitfield says a boat with four casualties, making eight knots at a bank nine miles off, is about to have five. This time he is the one who is right. This watch you decide what you keep, what you hand over, and whether the boat slows down.
+    stake: "Ninth day, and four things at once. Water forward. A bus lost aft. The plot gone soft with the power. And Tunde Adeyemi, who runs the propulsion plant, in the passage with a broken wrist. Vance wants to hold the ordered speed. Theo Whitfield says a boat with four casualties at eight knots, nine miles off a bank, is about to have five. This watch you decide what you keep, what you hand over, and whether the boat slows."
     takeaway: Command is deciding what you do, and who does the rest.
     stops:
       - group: DC
@@ -1490,26 +1489,25 @@ missions:
           prompt: Nine miles to the bank at eight knots, with the option of coming down to three.
           question: How much more time does coming down to three knots buy?
           labels:
+            - 3.0 hours (the trip at three knots)
+            - 1.1 hours (the trip at eight knots)
             - 9 sea miles (to the bank)
-            - 8 knots (speed now)
-            - 3 knots (the slow option)
-            - 6 minutes (since the plot went soft)
-            - 5 knots (the difference between the two)
-          values: [9, 8, 3, 6, 5]
-          slots: 3
-          template: "{0} ÷ {2} − {0} ÷ {1}"
-          formula: a/c - a/b
-          correct: [0, 1, 2]
-          target: 1.875
+            - 5 knots (the difference between the two speeds)
+          values: [3.0, 1.1, 9, 5]
+          slots: 2
+          template: "{0} − {1}"
+          formula: a-b
+          correct: [0, 1]
+          target: 1.9
           tolerance: 0.2
           units: hours
-          solution: Nine ÷ eight is about 1.1 hours. Nine ÷ three is three hours. Slowing buys nearly two more.
+          solution: Three hours at the slow speed against about 1.1 at the fast one — slowing buys nearly two more hours.
           explanation: An hour is not enough time to fight a flood and rebuild a plot. Three hours is. Speed is the one number on this list you control.
   - title: The Cooling Path
     objective: Trace one cooling path end to end and find where it stopped.
     briefing: |-
       Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.
-    stake: "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot: the oil is hot, the fresh water loop is hot, and the seawater leaving the heat exchanger is barely warmer than the seawater going in. The second cooling pump is still secured from the quiet lineup Rask asked for, and its breaker is open at the switchboard with nothing in the log. This watch you write the cooling path down in order and decide which link stopped handing the heat on. A bearing run hot for an hour is a bearing replaced in a shipyard."
+    stake: "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot. The oil is hot, the fresh water is hot, and the seawater leaving the cooler is barely warmer than the sea going in. The second pump is still shut down from a quiet lineup. This watch you write the cooling path down in order, and find the link that stopped handing the heat on."
     takeaway: A cooling system is a chain, and a chain is diagnosed link by link.
     stops:
       - group: ENG
@@ -1627,7 +1625,7 @@ missions:
           - Turning a machine off needs a record of what it was cooling.
           - The quiet lineup should undo itself once the passage ends.
           - The bearing should have an alarm that starts the pump again.
-          - Nothing. The watch that shut it made a fair trade at the time.
+          - Nothing. Shutting it was a fair trade at the time.
         answer: Turning a machine off needs a record of what it was cooling.
         rebuttals:
           - Quiet running is a fair reason to shut a pump down. The fault is in the handover, not the decision.
@@ -1637,7 +1635,7 @@ missions:
     objective: Run the whole boat at once, with everything degraded a little and nothing decided for you.
     briefing: |-
       An uncertain contact, a plot four hours old, water in the forward bilge, a scrubber train down and a bearing running warm. None of them is an emergency. Together they are the patrol.
-    stake: Twenty-second day, the last full watch of the patrol, and everything is degraded a little. A contact Rask has not resolved. A plot Sowande has not been able to fix since the forenoon. A machine Haruki has not looked at since Tuesday. Whitfield is in the wardroom with the corpsman and a fractured wrist of his own, so the officer you would have handed half of this to is not available. This watch you decide the order everything gets worked in, and you do it while it is happening. Nobody will tell you which problem is the important one. Getting that ranking right is the job, and it is the only part of it that cannot be delegated.
+    stake: "Twenty-second day, the last full watch, and everything is degraded a little. A contact Rask has not resolved. A plot Sowande has not fixed since morning. A machine nobody has looked at since Tuesday. Whitfield is in the wardroom with a fractured wrist, so the officer you would hand half of this to is gone. This watch you decide the order it all gets worked in, while it is happening."
     takeaway: Command is choosing which uncertainty you can live with, and saying so out loud.
     stops:
       - group: NAV
@@ -1714,10 +1712,10 @@ missions:
           - The scrubber that is down.
           - The bearing running warm.
         choices:
-          - Log the level every ten minutes, and report a change rather than a number.
+          - Log the level every ten minutes, and report changes.
           - Hold it until the bearing moves, and report before it is certain.
-          - Get it running, or name the hour when the air stops being optional.
-          - Get the second cooling pump back, and say what that costs in noise.
+          - Get it running, or name the hour the air runs out.
+          - Get the second pump back, and say what noise it costs.
         mapping: [0, 1, 2, 3]
       - group: SONAR
         task: Work out how fast the loudness swells from the two tones.

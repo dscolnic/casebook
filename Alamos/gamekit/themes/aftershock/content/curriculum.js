@@ -3458,8 +3458,7 @@ export const JARGON = [
       "loose",
       "loosely packed"
     ],
-    "def": "Ground that is not tightly packed, so shaking can settle it into a smaller space.",
-    "core": true
+    "def": "Ground that is not tightly packed, so shaking can settle it into a smaller space."
   },
   {
     "name": "Saturated",
