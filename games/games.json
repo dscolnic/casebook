@@ -24,8 +24,8 @@
         "Concentration units and conversions: ppm, mg/L, molarity"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -53,8 +53,8 @@
         "Saying what you know and how well you know it"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -82,8 +82,8 @@
         "What an assay is for, and what a specification is a list of"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -111,8 +111,8 @@
         "Reading a quantity off the graph of its own derivative"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -140,8 +140,8 @@
         "Consent, and the obligations a trial keeps to the people in it"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -160,7 +160,7 @@
       "grades": "9–12",
       "role": "Review Analyst · Conviction Integrity Unit",
       "grade": 12,
-      "drama": "Elias Ward has served seven years of fourteen for a robbery a stranger watched from the far pavement of Ferrier Street on a November night in 2019. You are the review analyst at the Conviction Integrity Unit, which means the recommendation the review board reads in fifteen working days is the one you write.",
+      "drama": "On a November night in 2019, a stranger watched a robbery from the far side of Ferrier Street. You are the review analyst at the Conviction Integrity Unit, which means the report that goes to the review board in fifteen working days is the one you write.",
       "concepts": [
         "Acuity as an angle: what the eye can resolve falls off with distance",
         "Encoding: memory is built at the moment, from what was attended to",
@@ -169,8 +169,8 @@
         "False confession: minimisation, maximisation and the innocent person's arithmetic"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -198,8 +198,8 @@
         "Provenance of data, and what a shared calibration hides"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -227,8 +227,8 @@
         "Graphical analysis of motion data"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -256,8 +256,8 @@
         "Ordering work when several things are wrong at once"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -285,8 +285,8 @@
         "Human factors: checklists, handover and communication"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -314,8 +314,8 @@
         "Two instruments that share a source are really one instrument"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -343,8 +343,8 @@
         "Criticality safety: administrative limits and controls"
       ],
       "size": {
-        "days": 15,
-        "stops": 49
+        "days": 22,
+        "stops": 52
       },
       "built": true
     },
@@ -361,9 +361,9 @@
       "shotsFrom": "groundtruth",
       "level": "high",
       "grades": "9–12",
-      "role": "Measurements Lead · Station 12, Sablon Flats",
+      "role": "Measurements Lead · Station 12, where lightning is made on purpose",
       "grade": 12,
-      "drama": "Three weeks of the storm season are left. You are the measurements lead at Station 12, which means the number beside every claim in the season report is one you have to be able to derive.",
+      "drama": "Station 12 makes lightning on purpose. You are the measurements lead, which means no number reaches the season report unless you can show where it came from.",
       "concepts": [
         "Charge, and where it sits on a conductor",
         "Potential and field as derivative and integral of one another",
@@ -372,8 +372,8 @@
         "Measurement in the right regime: shunts, dividers and what they load"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -401,8 +401,8 @@
         "Load shedding as a decision under uncertainty"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -430,8 +430,8 @@
         "Deciding while the picture is incomplete"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -459,8 +459,8 @@
         "Documentation: the record somebody inherits"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 23,
+        "stops": 48
       },
       "built": true
     },
@@ -488,8 +488,8 @@
         "An instrument that is wrong needs a check from something else"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 18,
+        "stops": 33
       },
       "built": true
     },
@@ -517,8 +517,8 @@
         "Crater and blast scaling; ground effects"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 23,
+        "stops": 48
       },
       "built": true
     },
@@ -546,8 +546,8 @@
         "Independent checks: a second method that could disagree"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -575,8 +575,8 @@
         "Wind load, and why the last few metres a second cost the most"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -604,8 +604,8 @@
         "Reporting an uncertain record: what it licenses and what it does not"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 22,
+        "stops": 48
       },
       "built": true
     },
@@ -633,8 +633,8 @@
         "Cold, power and daylight are the limits a polar camp works inside"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -662,8 +662,8 @@
         "Epidemic modelling and projection"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 23,
+        "stops": 48
       },
       "built": true
     },
@@ -691,8 +691,8 @@
         "Deciding while the answer is still unknown"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 18,
+        "stops": 32
       },
       "built": true
     },
@@ -720,8 +720,8 @@
         "In situ against ex situ conservation, and what each preserves"
       ],
       "size": {
-        "days": 15,
-        "stops": 45
+        "days": 23,
+        "stops": 48
       },
       "built": true
     },
@@ -749,8 +749,8 @@
         "Deciding with a season that does not come round again"
       ],
       "size": {
-        "days": 10,
-        "stops": 30
+        "days": 17,
+        "stops": 33
       },
       "built": true
     },
@@ -778,7 +778,7 @@
         "Imaging: X-rays and pictures of the inside"
       ],
       "size": {
-        "days": 15,
+        "days": 22,
         "stops": 45
       },
       "built": true

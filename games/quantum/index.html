@@ -121,28 +121,10 @@ body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{anima
   animation:verdictIn .22s cubic-bezier(.2,.9,.3,1.1)}
 @keyframes verdictIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 
-.verdictHead{padding:20px 24px 16px;border-bottom:1px solid var(--line);
-  border-top:6px solid var(--vc,#0ca30c);border-radius:16px 16px 0 0}
-.verdictKicker{font:800 .68rem/1 Inter,system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--vc)}
-.verdictTitle{font:800 1.9rem/1.1 Georgia,serif;margin:8px 0 0;color:var(--ink)}
-.verdictStake{font:500 .88rem/1.45 Inter,system-ui;color:var(--muted);margin-top:8px}
-
-.verdictLedger{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;
-  background:var(--line);border-bottom:1px solid var(--line)}
-.ledgerCell{background:var(--panel);padding:12px 14px}
-.ledgerLabel{font:700 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.ledgerValue{font:800 1.15rem/1.2 Inter,system-ui;margin-top:5px;font-variant-numeric:tabular-nums}
-.ledgerNote{font:400 .7rem/1.3 Inter,system-ui;color:var(--muted);margin-top:3px}
-.ledgerValue.gain{color:#0a8a0a}
-.ledgerValue.cost{color:#c0392b}
-
-.verdictBody{padding:16px 24px}
-.verdictBody .answerCompareBox{margin-bottom:10px}
-.verdictWhy{font:400 .88rem/1.55 Inter,system-ui;color:#33363a}
-.verdictDetail{margin-top:12px}
-.verdictDetail summary{cursor:pointer;font:700 .8rem/1 Inter,system-ui;color:var(--accent);padding:6px 0}
-.verdictActions{position:sticky;bottom:0;background:var(--panel);display:flex;justify-content:flex-end;
-  gap:8px;padding:14px 24px;border-top:1px solid var(--line);flex-wrap:wrap;border-radius:0 0 16px 16px}
+/* The card the verdict is drawn into stays here — it is this shell's overlay.
+   What the engine writes inside it moved to engine/core/styles.css, because the
+   markup is the engine's: questionUI composes every one of those classes, and
+   engine/dev/lessons.html draws the same verdict outside this page. */
 
 /* ---------------------------------------------------------------- touch
    Built by engine/core/touch.js, and only on a device with no mouse to lock.
@@ -204,8 +186,8 @@ body.touch #turnInBar .btn small{display:none}
 
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
-  <script type="module" crossorigin src="./assets/index-CyhRTAcf.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-B585wJFl.css">
+  <script type="module" crossorigin src="./assets/index-DURzYANO.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D9wGsEyC.css">
 </head>
 <body>
 <canvas id="canvas"></canvas>

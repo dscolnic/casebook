@@ -247,6 +247,22 @@ function join(room, ws, ticket) {
   };
   room.members.set(id, member);
 
+  // Somebody is back. `bye` stops the clock when the last member goes, which is
+  // what lets a class break for lunch mid-day — but nothing ever started it
+  // again, so the first person back sat in a day whose countdown was frozen at
+  // whatever second the room emptied. `dayRunning()` is true on their client
+  // (there is time left), so `tickDay` keeps reading a number that never moves
+  // and the day can neither be finished nor run out.
+  //
+  // It bites hardest on the case it was never meant to cover: two people on one
+  // Wi-Fi that drops. Both sockets close, the room empties, the clock stops, and
+  // both reconnect into a dead day.
+  if (room.members.size === 1 && !room.clock.running && room.clock.left > 0
+      && room.state?.dayStarted && !room.state?.dayEnded) {
+    room.clock.running = true;
+    room.lastClock = Date.now();
+  }
+
   send(ws, {
     t: "welcome",
     you: publicMember(member),
